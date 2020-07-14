@@ -1,0 +1,16 @@
+{
+  "name": "fastbook",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "vojtech@miksu.cz",
+  "license": "MIT",
+  "dependencies": {
+    "@parcel/config-default": "^2.0.0-beta.1",
+    "fast-glob": "^3.2.4",
+    "get-port": "^5.1.1",
+    "parcel": "^2.0.0-beta.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
+  }
+}
