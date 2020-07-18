@@ -10,6 +10,7 @@
     "@parcel/fs": "^2.0.0-beta.1",
     "@parcel/logger": "^2.0.0-beta.1",
     "@parcel/utils": "^2.0.0-beta.1",
+    "emittery": "^0.7.1",
     "fast-glob": "^3.2.4",
     "get-port": "^5.1.1",
     "parcel": "^2.0.0-beta.1",

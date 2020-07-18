@@ -1,7 +1,8 @@
 import React from "react";
+import { Middle } from "./middle";
 
 const StoryA = () => {
-  return <h1>This is going to be really fast! Ok my dear. Wow. Ok thiasdl.</h1>;
+  return <Middle />;
 };
 
 export default StoryA;

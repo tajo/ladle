@@ -3,8 +3,6 @@ const path = require("path");
 const getPort = require("get-port");
 const defaultConfigContents = require("@parcel/config-default");
 const Parcel = require("@parcel/core").default;
-const { createWorkerFarm } = require("@parcel/core");
-const { NodeFS, MemoryFS } = require("@parcel/fs");
 const ThrowableDiagnostic = require("@parcel/diagnostic");
 const { prettyDiagnostic, openInBrowser } = require("@parcel/utils");
 const { INTERNAL_ORIGINAL_CONSOLE } = require("@parcel/logger");
@@ -54,9 +52,6 @@ const fastbook = async ({ outputDir }) => {
   //const entries = await fg(["src/**/*.stories.js"]);
   //console.log(entries);
 
-  let workerFarm = createWorkerFarm();
-  let inputFS = new NodeFS();
-
   port = await getPort();
 
   try {
@@ -71,15 +66,14 @@ const fastbook = async ({ outputDir }) => {
         ...defaultConfigContents,
         filePath: require.resolve("@parcel/config-default"),
       },
-      inputFS,
       defaultEngines: {
         browsers: ["last 1 Chrome version"],
       },
-      includeNodeModules: true,
+      //includeNodeModules: true,
       isLibrary: false,
       minify: MODE === "development" ? false : true,
       mode: MODE,
-      disableCache: MODE === "development" ? false : true,
+      //disableCache: MODE === "development" ? false : true,
       outputFormat: "esmodule",
       patchConsole: false,
       hot:
@@ -109,8 +103,6 @@ const fastbook = async ({ outputDir }) => {
     }
   } catch (e) {
     console.error(e);
-  } finally {
-    await workerFarm.end();
   }
   //const options = bundler._getResolvedParcelOptions(); // hackety hack. Not a public API
   //console.log(options.defaultConfig.transformers);
