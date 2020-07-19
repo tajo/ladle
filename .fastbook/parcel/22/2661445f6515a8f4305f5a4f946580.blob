@@ -1,0 +1,27 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Pink = void 0;
+
+var _this = void 0,
+    _jsxFileName = "/Users/vojtech/Projects/fastbook/src/empty.stories.jsx";
+
+var Pink = function Pink() {
+  return /*#__PURE__*/React.createElement("h2", {
+    __self: _this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 1,
+      columnNumber: 27
+    }
+  }, "Pink");
+};
+
+exports.Pink = Pink;
+_c = Pink;
+
+var _c;
+
+$RefreshReg$(_c, "Pink");

@@ -1,0 +1,3 @@
+'use strict';
+
+module.exports = "production" === undefined ? require("./umd/history.production.min.js") : require("./umd/history.development.js");

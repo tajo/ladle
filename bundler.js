@@ -73,9 +73,10 @@ const fastbook = async ({ outputDir }) => {
       isLibrary: false,
       minify: MODE === "development" ? false : true,
       mode: MODE,
-      //disableCache: MODE === "development" ? false : true,
+      disableCache: false,
       outputFormat: "esmodule",
       patchConsole: false,
+      cacheDir: "./.fastbook/parcel",
       hot:
         MODE === "development"
           ? {

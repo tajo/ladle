@@ -1,0 +1,69 @@
+"use strict";
+
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.stories = void 0;
+
+  var _react = require("react");
+
+  var Haha = _c2 = /*#__PURE__*/(0, _react.lazy)(_c = function _c() {
+    return require("../../../src/a1.stories.jsx").then(function (module) {
+      return {
+        default: module.Haha
+      };
+    });
+  });
+
+  var Funny = _c4 = /*#__PURE__*/(0, _react.lazy)(_c3 = function _c3() {
+    return require("../../../src/a1.stories.jsx").then(function (module) {
+      return {
+        default: module.Funny
+      };
+    });
+  });
+
+  var Middle = _c6 = /*#__PURE__*/(0, _react.lazy)(_c5 = function _c5() {
+    return require("../../../src/a2.stories.jsx").then(function (module) {
+      return {
+        default: module.Middle
+      };
+    });
+  });
+
+  var stories = {
+    "a1--haha": {
+      component: Haha,
+      name: "Haha"
+    },
+    "a1--funny": {
+      component: Funny,
+      name: "Funny"
+    },
+    "a2--middle": {
+      component: Middle,
+      name: "Middle"
+    }
+  };
+  exports.stories = stories;
+
+  var _c, _c2, _c3, _c4, _c5, _c6;
+
+  $RefreshReg$(_c, "Haha$lazy");
+  $RefreshReg$(_c2, "Haha");
+  $RefreshReg$(_c3, "Funny$lazy");
+  $RefreshReg$(_c4, "Funny");
+  $RefreshReg$(_c5, "Middle$lazy");
+  $RefreshReg$(_c6, "Middle");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

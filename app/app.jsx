@@ -1,40 +1,78 @@
-import React, { Suspense, lazy } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Emittery from "emittery";
+import React, { Suspense } from "react";
+//import Emittery from "emittery";
+import { createBrowserHistory } from "history";
+import { stories } from "../.fastbook/app/list";
+import queryString from "query-string";
 
-const emitter = new Emittery();
+const history = createBrowserHistory();
 
-const STORY_IMPORTED = "story-imported";
+// const emitter = new Emittery();
+// const STORY_IMPORTED = "story-imported";
+//emitter.emit(STORY_IMPORTED, module.Middle.title);
 
-const StoryA = lazy(() =>
-  import("./middle.jsx").then((module) => {
-    console.log(Object.keys(module.Middle));
-    emitter.emit(STORY_IMPORTED, module.Middle.title);
-    return { default: module.Middle };
-  })
+const Link = ({ href, children }) => (
+  <a
+    href={href}
+    onClick={(e) => {
+      e.preventDefault();
+      history.push(href);
+    }}
+  >
+    {children}
+  </a>
 );
-const StoryB = lazy(() => import("./b.jsx"));
 
 const App = () => {
-  const [dato, setData] = React.useState("empty");
+  //const [dato, setData] = React.useState("empty");
+  // React.useEffect(() => {
+  //   emitter.on(STORY_IMPORTED, setData);
+  //   return () => {
+  //     emitter.off(STORY_IMPORTED, setData);
+  //   };
+  // });
+  const firstStory = Object.keys(stories)[0];
+  const [activeStory, setActiveStory] = React.useState(
+    queryString.parse(location.search).path
+  );
+  console.log(activeStory);
   React.useEffect(() => {
-    emitter.on(STORY_IMPORTED, setData);
+    if (!activeStory) {
+      history.push(`/?path=${firstStory}`);
+      setActiveStory(firstStory);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    let unlisten = history.listen(({ action, location }) => {
+      const newStory = queryString.parse(location.search).path;
+      if (newStory !== activeStory) {
+        setActiveStory(newStory);
+      }
+    });
     return () => {
-      emitter.off(STORY_IMPORTED, setData);
+      unlisten();
     };
-  });
+  }, []);
+
   return (
     <div>
-      <p>{dato}</p>
-      So faasdsdtasd and lovely, alright how is it going????
-      <Router>
-        <Suspense fallback={<div>Loading Some Content</div>}>
-          <Switch>
-            <Route exact path="/" component={StoryA} />
-            <Route path="/register" component={StoryB} />
-          </Switch>
+      <ul>
+        {Object.keys(stories).map((id) => (
+          <li key={id}>
+            <Link href={`/?path=${id}`}>{stories[id].name}</Link>
+          </li>
+        ))}
+      </ul>
+      <hr />
+      {activeStory && (
+        <Suspense fallback={null}>
+          {stories[activeStory] ? (
+            React.createElement(stories[activeStory].component)
+          ) : (
+            <h1>No story found.</h1>
+          )}
         </Suspense>
-      </Router>
+      )}
     </div>
   );
 };
