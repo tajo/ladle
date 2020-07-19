@@ -1,1 +1,0 @@
-require('./bundle-manifest').register(JSON.parse("{\"1vaQC\":\"index.3160c57c.js\",\"1zuYh\":\"a1.stories.33ab7944.js\",\"3zyaQ\":\"a2.stories.7569310f.js\",\"1JjZd\":\"new.stories.38e01b57.js\"}"));

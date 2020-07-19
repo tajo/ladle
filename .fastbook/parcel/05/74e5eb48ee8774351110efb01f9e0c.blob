@@ -1,3 +1,0 @@
-module.exports = require("./loaders/browser/js-loader")(require('./bundle-url').getBundleURL() + require('./relative-path')("1vaQC", "4vASp")).then(function () {
-  return parcelRequire('2IZ9b');
-});

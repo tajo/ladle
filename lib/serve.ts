@@ -1,0 +1,54 @@
+import chokidar from "chokidar";
+import path from "path";
+import cpy from "cpy";
+import makeDir from "make-dir";
+import { promises as fs } from "fs";
+import devBundler from "./dev-bundler";
+import getList from "./get-list";
+import { cachePath, storyGlob } from "./const";
+
+let listCode = "";
+let entries: string[] = [];
+let initialScanComplete = false;
+
+const updateList = async (entries: string[]) => {
+  if (!listCode) {
+    try {
+      listCode = await fs.readFile(path.join(cachePath, "list.js"), "utf8");
+    } catch (e) {}
+  }
+  try {
+    const updatedListCode = await getList(entries);
+    if (listCode === updatedListCode) return;
+    listCode = updatedListCode;
+    await fs.writeFile(path.join(cachePath, "list.js"), listCode);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+(async () => {
+  await makeDir(cachePath);
+  await cpy([`${__dirname}/app/**/*.{html,tsx,ts,js,jsx}`], cachePath);
+  chokidar
+    .watch(storyGlob)
+    .on("add", async (path) => {
+      entries.push(path);
+      if (!initialScanComplete) return;
+      updateList(entries);
+    })
+    .on("change", async () => {
+      setTimeout(() => updateList(entries), 200);
+    })
+    .on("unlink", async (path) => {
+      entries = entries.filter((entry) => entry !== path);
+      updateList(entries);
+    })
+    .on("ready", async () => {
+      initialScanComplete = true;
+      await updateList(entries);
+      devBundler({
+        outputDir: path.join(process.cwd(), "dist-fastbook"),
+      });
+    });
+})();

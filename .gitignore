@@ -1,4 +1,7 @@
 node_modules
 dist
-.parcel-cache
+dist-fastbook
+.fastbook
+tsconfig.tsbuildinfo
+
 

@@ -4,6 +4,12 @@
   "main": "index.js",
   "author": "vojtech@miksu.cz",
   "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf dist && rm tsconfig.tsbuildinfo",
+    "copy-index": "cp ./lib/app/index.html ./dist/app/index.html",
+    "serve": "yarn copy-index && node ./dist/serve",
+    "dev": "tsc && tsc -w"
+  },
   "dependencies": {
     "@babel/generator": "^7.10.5",
     "@babel/parser": "^7.10.5",
@@ -15,10 +21,15 @@
     "@parcel/fs": "^2.0.0-beta.1",
     "@parcel/logger": "^2.0.0-beta.1",
     "@parcel/utils": "^2.0.0-beta.1",
+    "@types/babel__generator": "^7.6.1",
+    "@types/babel__template": "^7.0.2",
+    "@types/babel__traverse": "^7.0.13",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
     "chokidar": "^3.4.1",
+    "concurrently": "^5.2.0",
     "cpy": "^8.1.0",
     "emittery": "^0.7.1",
-    "fast-glob": "^3.2.4",
     "get-port": "^5.1.1",
     "globby": "^11.0.1",
     "history": "^5.0.0",
@@ -27,8 +38,12 @@
     "query-string": "^6.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0",
-    "tiny-glob": "^0.2.6",
+    "tsc-watch": "^4.2.9",
+    "typescript": "^3.9.7",
     "v8-compile-cache": "^2.1.1"
+  },
+  "volta": {
+    "node": "12.18.2",
+    "yarn": "1.22.4"
   }
 }
