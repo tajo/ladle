@@ -5,10 +5,9 @@
   "author": "vojtech@miksu.cz",
   "license": "MIT",
   "scripts": {
-    "clean": "rm -rf dist && rm tsconfig.tsbuildinfo",
-    "copy-index": "cp ./lib/app/index.html ./dist/app/index.html",
-    "serve": "yarn copy-index && node ./dist/serve",
-    "dev": "tsc && tsc -w"
+    "clean": "rimraf dist && rimraf .fastbook && rimraf dist-fastbook && rimraf tsconfig.tsbuildinfo",
+    "serve": "node ./dist/serve",
+    "dev": "node scripts/dev-watch"
   },
   "dependencies": {
     "@babel/generator": "^7.10.5",
@@ -38,7 +37,6 @@
     "query-string": "^6.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "tsc-watch": "^4.2.9",
     "typescript": "^3.9.7",
     "v8-compile-cache": "^2.1.1"
   },

@@ -66,12 +66,34 @@ const bundler = async ({ outputDir }: { outputDir: string }) => {
       },
       sourceMaps: true,
     });
-    await bundler.watch((err: Error) => {
+    const { unsubscribe } = await bundler.watch((err: Error) => {
       if (err) {
         throw err;
       }
     });
     await openInBrowser(`http://localhost:${port}`, "chrome");
+    let isExiting: boolean;
+    const exit = async () => {
+      if (isExiting) {
+        return;
+      }
+      isExiting = true;
+      await unsubscribe();
+      process.exit();
+    };
+
+    if (process.stdin.isTTY) {
+      process.stdin.setRawMode(true);
+      require("readline").emitKeypressEvents(process.stdin);
+
+      process.stdin.on("keypress", async (_, key) => {
+        if (key.ctrl && key.name === "c") {
+          await exit();
+        }
+      });
+    }
+    process.on("SIGINT", exit);
+    process.on("SIGTERM", exit);
   } catch (e) {
     console.error(e);
   }

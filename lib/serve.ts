@@ -29,7 +29,22 @@ const updateList = async (entries: string[]) => {
 
 (async () => {
   await makeDir(cachePath);
-  await cpy([`${__dirname}/app/**/*.{html,tsx,ts,js,jsx}`], cachePath);
+  await cpy([`${__dirname}/app/**/*.{html,tsx,ts,js,jsx}`], cachePath, {
+    // don't copy files that are same, prevents cache busting
+    filter: async (file) => {
+      try {
+        const toCode = await fs.readFile(
+          file.path.replace(`${__dirname}/app`, cachePath),
+          "utf8"
+        );
+        const fromCode = await fs.readFile(file.path, "utf8");
+        if (toCode !== fromCode) return true;
+      } catch (e) {
+        return true;
+      }
+      return false;
+    },
+  });
   chokidar
     .watch(storyGlob)
     .on("add", async (path) => {
