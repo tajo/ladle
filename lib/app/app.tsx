@@ -41,7 +41,7 @@ const App: React.FC = () => {
   console.log(activeStory);
   React.useEffect(() => {
     if (!activeStory) {
-      history.push(`/?path=${firstStory}`);
+      history.push(`?path=${firstStory}`);
       setActiveStory(firstStory);
     }
   }, []);
@@ -63,7 +63,7 @@ const App: React.FC = () => {
       <ul>
         {Object.keys(stories).map((id) => (
           <li key={id}>
-            <Link href={`/?path=${id}`}>{stories[id].name}</Link>
+            <Link href={`?path=${id}`}>{stories[id].name}</Link>
           </li>
         ))}
       </ul>

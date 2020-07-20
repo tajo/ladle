@@ -5,37 +5,11 @@ import defaultConfigContents from "@parcel/config-default";
 //@ts-ignore
 import Parcel from "@parcel/core";
 //@ts-ignore
-import ThrowableDiagnostic from "@parcel/diagnostic";
-//@ts-ignore
-import { prettyDiagnostic, openInBrowser } from "@parcel/utils";
-//@ts-ignore
-import { INTERNAL_ORIGINAL_CONSOLE } from "@parcel/logger";
+import { openInBrowser } from "@parcel/utils";
 import { cachePath } from "./const";
 
 require("v8-compile-cache");
-
-async function logUncaughtError(e: any) {
-  if (e instanceof ThrowableDiagnostic) {
-    for (let diagnostic of e.diagnostics) {
-      let out = await prettyDiagnostic(diagnostic);
-      INTERNAL_ORIGINAL_CONSOLE.error(out.message);
-      INTERNAL_ORIGINAL_CONSOLE.error(out.codeframe || out.stack);
-      for (let h of out.hints) {
-        INTERNAL_ORIGINAL_CONSOLE.error(h);
-      }
-    }
-  } else {
-    INTERNAL_ORIGINAL_CONSOLE.error(e);
-  }
-
-  // A hack to definitely ensure we logged the uncaught exception
-  await new Promise((resolve) => setTimeout(resolve, 100));
-}
-
-process.on("unhandledRejection", async (reason) => {
-  await logUncaughtError(reason);
-  process.exit();
-});
+require("./bundler-exception");
 
 const bundler = async ({ outputDir }: { outputDir: string }) => {
   const port = await getPort();
@@ -43,11 +17,6 @@ const bundler = async ({ outputDir }: { outputDir: string }) => {
     let bundler = new Parcel({
       entries: [path.join(cachePath, "index.html")],
       distDir: outputDir,
-      // targets: {
-      //   app: {
-      //     distDir: outputDir,
-      //   },
-      // },
       defaultConfig: {
         ...defaultConfigContents,
         filePath: require.resolve("@parcel/config-default"),
@@ -56,7 +25,6 @@ const bundler = async ({ outputDir }: { outputDir: string }) => {
         browsers: ["last 1 Chrome version"],
       },
       mode: "development",
-      outputFormat: "esmodule",
       cacheDir: path.join(process.cwd(), ".fastbook/parcel"),
       hot: {
         port: 1234,
@@ -85,7 +53,6 @@ const bundler = async ({ outputDir }: { outputDir: string }) => {
     if (process.stdin.isTTY) {
       process.stdin.setRawMode(true);
       require("readline").emitKeypressEvents(process.stdin);
-
       process.stdin.on("keypress", async (_, key) => {
         if (key.ctrl && key.name === "c") {
           await exit();

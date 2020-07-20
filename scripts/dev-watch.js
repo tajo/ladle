@@ -1,3 +1,7 @@
+// this is a continuously running script for developers of fastbook
+// it watches changes in /libs, compiles typescript and copies files
+// .fastbook/app cach, similar to tsc-watch
+
 const chokidar = require("chokidar");
 const util = require("util");
 const exec = util.promisify(require("child_process").exec);

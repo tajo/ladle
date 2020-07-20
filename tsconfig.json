@@ -27,5 +27,5 @@
     "skipLibCheck": false,
     "forceConsistentCasingInFileNames": true
   },
-  "exclude": ["node_modules", "src", "dist", "dist-fastbook", "scripts"]
+  "exclude": ["node_modules", "src", "dist", "scripts"]
 }
