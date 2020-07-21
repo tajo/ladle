@@ -33,6 +33,8 @@ const bundler = async ({ outputDir }: { outputDir: string }) => {
         port,
       },
       sourceMaps: true,
+      patchConsole: true,
+      env: { NODE_ENV: "development" },
     });
     const { unsubscribe } = await bundler.watch((err: Error) => {
       if (err) {

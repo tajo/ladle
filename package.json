@@ -11,16 +11,6 @@
     "dev": "node scripts/dev-watch"
   },
   "dependencies": {
-    "@babel/generator": "^7.10.5",
-    "@babel/parser": "^7.10.5",
-    "@babel/template": "^7.10.4",
-    "@babel/traverse": "^7.10.5",
-    "@babel/types": "^7.10.5",
-    "@parcel/config-default": "^2.0.0-beta.1",
-    "@parcel/diagnostic": "^2.0.0-beta.1",
-    "@parcel/fs": "^2.0.0-beta.1",
-    "@parcel/logger": "^2.0.0-beta.1",
-    "@parcel/utils": "^2.0.0-beta.1",
     "@types/babel__generator": "^7.6.1",
     "@types/babel__template": "^7.0.2",
     "@types/babel__traverse": "^7.0.13",

@@ -30,6 +30,8 @@ const bundler = async ({ outputDir }: { outputDir: string }) => {
       publicUrl: ".",
       cacheDir: path.join(process.cwd(), ".fastbook/parcel"),
       sourceMaps: false,
+      minify: true,
+      env: { NODE_ENV: "production" },
     });
     await bundler.run();
   } catch (e) {
