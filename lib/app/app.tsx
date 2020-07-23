@@ -1,7 +1,6 @@
 import React, { Suspense } from "react";
 //import Emittery from "emittery";
 import queryString from "query-string";
-// @ts-ignore
 import { stories } from "./list";
 import Navigation from "./navigation";
 import history from "./history";
@@ -9,6 +8,9 @@ import history from "./history";
 // const emitter = new Emittery();
 // const STORY_IMPORTED = "story-imported";
 //emitter.emit(STORY_IMPORTED, module.Middle.title);
+
+const getQueryPath = (locationSearch: string) =>
+  queryString.parse(locationSearch).path as string;
 
 const App: React.FC = () => {
   //const [dato, setData] = React.useState("empty");
@@ -20,7 +22,7 @@ const App: React.FC = () => {
   // });
   const firstStory = Object.keys(stories)[0];
   const [activeStory, setActiveStory] = React.useState(
-    queryString.parse(location.search).path
+    getQueryPath(location.search)
   );
   React.useEffect(() => {
     if (!activeStory) {
@@ -31,7 +33,7 @@ const App: React.FC = () => {
 
   React.useEffect(() => {
     let unlisten = history.listen(({ location }) => {
-      const newStory = queryString.parse(location.search).path;
+      const newStory = getQueryPath(location.search);
       if (newStory !== activeStory) {
         setActiveStory(newStory);
       }

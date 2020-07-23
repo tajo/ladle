@@ -9,14 +9,17 @@ let listCode = "";
 export const updateList = async (entries: string[]) => {
   if (!listCode) {
     try {
-      listCode = await fs.readFile(path.join(cachePath, "list.js"), "utf8");
+      listCode = await fs.readFile(
+        path.join(cachePath, "generated-list.js"),
+        "utf8"
+      );
     } catch (e) {}
   }
   try {
     const updatedListCode = await getList(entries);
     if (listCode === updatedListCode) return;
     listCode = updatedListCode;
-    await fs.writeFile(path.join(cachePath, "list.js"), listCode);
+    await fs.writeFile(path.join(cachePath, "generated-list.js"), listCode);
   } catch (e) {
     console.log(e);
   }
