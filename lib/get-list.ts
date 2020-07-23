@@ -6,6 +6,12 @@ import * as t from "@babel/types";
 import { promises as fs } from "fs";
 import path from "path";
 import { relAppPath } from "./const";
+import {
+  getFileId,
+  getEncodedStoryName,
+  storyDelimiter,
+  storyEncodeDelimiter,
+} from "./app/story-name";
 
 const plugins: ParserPlugin[] = [
   "jsx",
@@ -56,14 +62,11 @@ const getStories = (stories: string[]) => {
                   t.objectProperty(
                     t.identifier("component"),
                     t.identifier(
-                      `${story.split("--")[0]}${
-                        story.split("--")[1]
-                      }`.toLowerCase()
+                      story.replace(
+                        new RegExp(storyDelimiter, "g"),
+                        storyEncodeDelimiter
+                      )
                     )
-                  ),
-                  t.objectProperty(
-                    t.identifier("name"),
-                    t.stringLiteral(capitalize(story.split("--")[1]))
                   ),
                 ])
               )
@@ -86,7 +89,7 @@ const getList = async (entries: string[]) => {
   `);
   const stories: string[] = [];
   for (let entry of entries) {
-    const fileId = entry.split("/")[1].split(".")[0];
+    const fileId = getFileId(entry);
     const code = await fs.readFile(path.join("./", entry), "utf8");
     const ast = parse(code, {
       sourceType: "module",
@@ -98,11 +101,11 @@ const getList = async (entries: string[]) => {
     traverse(ast, {
       ExportNamedDeclaration: (astPath: any) => {
         const storyName = astPath.node.declaration.declarations[0].id.name;
-        const storyId = `${fileId}--${storyName.toLowerCase()}`;
+        const storyId = `${fileId}${storyDelimiter}${storyDelimiter}${storyName.toLowerCase()}`;
         stories.push(storyId);
         const ast = lazyImport({
           source: t.stringLiteral(path.join(relAppPath, entry)),
-          component: t.identifier(`${fileId}${storyName}`.toLocaleLowerCase()),
+          component: t.identifier(getEncodedStoryName(fileId, storyName)),
           story: t.identifier(storyName),
         });
         output += `\n${generate(ast as any).code}`;

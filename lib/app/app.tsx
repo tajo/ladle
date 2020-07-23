@@ -1,30 +1,14 @@
 import React, { Suspense } from "react";
 //import Emittery from "emittery";
-import { createBrowserHistory } from "history";
 import queryString from "query-string";
 // @ts-ignore
 import { stories } from "./list";
-
-const history = createBrowserHistory();
+import Navigation from "./navigation";
+import history from "./history";
 
 // const emitter = new Emittery();
 // const STORY_IMPORTED = "story-imported";
 //emitter.emit(STORY_IMPORTED, module.Middle.title);
-
-const Link: React.FC<{ href: string; children: React.ReactNode }> = ({
-  href,
-  children,
-}) => (
-  <a
-    href={href}
-    onClick={(e) => {
-      e.preventDefault();
-      history.push(href);
-    }}
-  >
-    {children}
-  </a>
-);
 
 const App: React.FC = () => {
   //const [dato, setData] = React.useState("empty");
@@ -38,7 +22,6 @@ const App: React.FC = () => {
   const [activeStory, setActiveStory] = React.useState(
     queryString.parse(location.search).path
   );
-  console.log(activeStory);
   React.useEffect(() => {
     if (!activeStory) {
       history.push(`?path=${firstStory}`);
@@ -60,13 +43,7 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <ul>
-        {Object.keys(stories).map((id) => (
-          <li key={id}>
-            <Link href={`?path=${id}`}>{stories[id].name}</Link>
-          </li>
-        ))}
-      </ul>
+      <Navigation />
       <hr />
       {activeStory && (
         <Suspense fallback={null}>
