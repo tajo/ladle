@@ -9,8 +9,8 @@ import history from "./history";
 // const STORY_IMPORTED = "story-imported";
 //emitter.emit(STORY_IMPORTED, module.Middle.title);
 
-const getQueryPath = (locationSearch: string) =>
-  queryString.parse(locationSearch).path as string;
+const getQueryStory = (locationSearch: string) =>
+  queryString.parse(locationSearch).story as string;
 
 const App: React.FC = () => {
   //const [dato, setData] = React.useState("empty");
@@ -22,18 +22,18 @@ const App: React.FC = () => {
   // });
   const firstStory = Object.keys(stories)[0];
   const [activeStory, setActiveStory] = React.useState(
-    getQueryPath(location.search)
+    getQueryStory(location.search)
   );
   React.useEffect(() => {
     if (!activeStory) {
-      history.push(`?path=${firstStory}`);
+      history.push(`?story=${firstStory}`);
       setActiveStory(firstStory);
     }
   }, []);
 
   React.useEffect(() => {
     let unlisten = history.listen(({ location }) => {
-      const newStory = getQueryPath(location.search);
+      const newStory = getQueryStory(location.search);
       if (newStory !== activeStory) {
         setActiveStory(newStory);
       }

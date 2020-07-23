@@ -22,7 +22,7 @@ const Navigation: React.FC = () => (
   <ul>
     {Object.keys(stories).map((id) => (
       <li key={id}>
-        <Link href={`?path=${id}`}>{id}</Link>
+        <Link href={`?story=${id}`}>{id}</Link>
       </li>
     ))}
   </ul>
