@@ -1,11 +1,5 @@
-import * as React from "react";
+import type { GeneratedStoriesT } from "../types";
 //@ts-ignore
 import { stories as generatedStories } from "./generated-list";
 
-type StoriesT = {
-  [key: string]: {
-    component: React.FC;
-  };
-};
-
-export const stories: StoriesT = generatedStories;
+export const stories: GeneratedStoriesT = generatedStories;

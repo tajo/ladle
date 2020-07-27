@@ -1,5 +1,17 @@
 import * as React from "react";
 
+export const Zebra: React.FC = () => {
+  const [val, setVal] = React.useState(true);
+  return (
+    <div>
+      <h1>Zebra</h1>
+      <button onClick={() => setVal(false)}>
+        button {val ? "true" : "false"}
+      </button>
+    </div>
+  );
+};
+
 export const Haha: React.FC = () => {
   const [val, setVal] = React.useState("");
   return (

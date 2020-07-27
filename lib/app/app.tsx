@@ -24,19 +24,17 @@ const App: React.FC = () => {
   const [activeStory, setActiveStory] = React.useState(
     getQueryStory(location.search)
   );
+
   React.useEffect(() => {
-    if (!activeStory) {
+    if (!activeStory && !getQueryStory(location.search)) {
       history.push(`?story=${firstStory}`);
       setActiveStory(firstStory);
     }
   }, []);
 
   React.useEffect(() => {
-    let unlisten = history.listen(({ location }) => {
-      const newStory = getQueryStory(location.search);
-      if (newStory !== activeStory) {
-        setActiveStory(newStory);
-      }
+    const unlisten = history.listen(({ location }) => {
+      setActiveStory(getQueryStory(location.search));
     });
     return () => {
       unlisten();
