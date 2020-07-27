@@ -1,9 +1,10 @@
 import React, { Suspense } from "react";
-//import Emittery from "emittery";
 import queryString from "query-string";
-import { stories } from "./list";
+//@ts-ignore
+import { stories } from "./generated-list";
 import Navigation from "./navigation";
 import history from "./history";
+import ErrorBoundary from "./error-boundary";
 
 // const emitter = new Emittery();
 // const STORY_IMPORTED = "story-imported";
@@ -43,16 +44,18 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <Navigation />
+      <Navigation stories={Object.keys(stories)} />
       <hr />
       {activeStory && (
-        <Suspense fallback={null}>
-          {stories[activeStory] ? (
-            React.createElement(stories[activeStory].component)
-          ) : (
-            <h1>No story found.</h1>
-          )}
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={null}>
+            {stories[activeStory] ? (
+              React.createElement(stories[activeStory].component)
+            ) : (
+              <h1>No story found.</h1>
+            )}
+          </Suspense>
+        </ErrorBoundary>
       )}
     </div>
   );

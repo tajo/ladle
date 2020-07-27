@@ -1,7 +1,6 @@
 import React from "react";
 import history from "./history";
 import { getStoryTree } from "./story-name";
-import { stories } from "./list";
 import type { StoryTreeT } from "../types";
 
 const Link: React.FC<{ href: string; children: React.ReactNode }> = ({
@@ -19,15 +18,11 @@ const Link: React.FC<{ href: string; children: React.ReactNode }> = ({
   </a>
 );
 
-const Navigation: React.FC = () => {
-  const storyTree = getStoryTree(Object.keys(stories));
-  console.log(storyTree);
-  return (
-    <ul>
-      <NavigationSection tree={storyTree} />
-    </ul>
-  );
-};
+const Navigation: React.FC<{ stories: string[] }> = ({ stories }) => (
+  <ul>
+    <NavigationSection tree={getStoryTree(stories)} />
+  </ul>
+);
 
 const NavigationSection: React.FC<{
   tree: StoryTreeT;
