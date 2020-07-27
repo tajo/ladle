@@ -43,20 +43,21 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="fstbk-wrapper">
+      <main className="fstbk-main">
+        {activeStory && (
+          <ErrorBoundary>
+            <Suspense fallback={null}>
+              {stories[activeStory] ? (
+                React.createElement(stories[activeStory].component)
+              ) : (
+                <h1>No story found.</h1>
+              )}
+            </Suspense>
+          </ErrorBoundary>
+        )}
+      </main>
       <Navigation stories={Object.keys(stories)} />
-      <hr />
-      {activeStory && (
-        <ErrorBoundary>
-          <Suspense fallback={null}>
-            {stories[activeStory] ? (
-              React.createElement(stories[activeStory].component)
-            ) : (
-              <h1>No story found.</h1>
-            )}
-          </Suspense>
-        </ErrorBoundary>
-      )}
     </div>
   );
 };

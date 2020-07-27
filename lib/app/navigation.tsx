@@ -19,9 +19,11 @@ const Link: React.FC<{ href: string; children: React.ReactNode }> = ({
 );
 
 const Navigation: React.FC<{ stories: string[] }> = ({ stories }) => (
-  <ul>
-    <NavigationSection tree={getStoryTree(stories)} />
-  </ul>
+  <aside className="fstbk-aside">
+    <ul>
+      <NavigationSection tree={getStoryTree(stories)} />
+    </ul>
+  </aside>
 );
 
 const NavigationSection: React.FC<{

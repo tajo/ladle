@@ -26,13 +26,13 @@ const update = async () => {
 
   // copy other lib/app files over to dist/app
   await cpy(
-    [`${process.cwd()}/lib/app/**/*.html`],
+    [`${process.cwd()}/lib/app/**/*.{html,css}`],
     `${process.cwd()}/dist/app`
   );
 
   // copy app into cache
   await cpy(
-    [`${process.cwd()}/dist/app/**/*.{html,tsx,ts,js,jsx}`],
+    [`${process.cwd()}/dist/app/**/*.{html,tsx,ts,js,jsx,css}`],
     cachePath,
     {
       // don't copy files that are same, prevents cache busting
@@ -59,12 +59,13 @@ const update = async () => {
 };
 
 chokidar
-  .watch("lib/**/*.{ts,tsx,html}")
+  .watch("lib/**/*.{ts,tsx,html,css}")
   .on("add", async (path) => {
     if (!initialScanComplete) return;
     await update();
   })
   .on("change", async (path) => {
+    console.log(path);
     await update();
   })
   .on("ready", async () => {
