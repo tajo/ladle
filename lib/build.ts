@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import globby from "globby";
 import path from "path";
 import del from "del";

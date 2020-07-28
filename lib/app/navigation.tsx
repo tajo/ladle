@@ -36,7 +36,11 @@ const NavigationSection: React.FC<{
         .map((key) => {
           const treeProps = tree[key];
           return (
-            <li key={key}>
+            <li
+              key={key}
+              className={treeProps.isLinkable ? "fstbk-linkable" : ""}
+              style={!treeProps.isLinkable ? { marginTop: "0.5em" } : {}}
+            >
               {treeProps.isLinkable ? (
                 <Link href={`?story=${treeProps.id}`}>{treeProps.name}</Link>
               ) : (

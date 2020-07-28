@@ -4,6 +4,13 @@
   "main": "index.js",
   "author": "vojtech@miksu.cz",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "fastbook": "./dist/serve.js",
+    "fastbook-build": "./dist/build.js"
+  },
   "scripts": {
     "clean": "rimraf dist && rimraf .fastbook && rimraf tsconfig.tsbuildinfo",
     "serve": "node ./dist/serve",

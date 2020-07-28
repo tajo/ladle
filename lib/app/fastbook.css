@@ -25,13 +25,20 @@ body {
 }
 
 .fstbk-aside ul {
-  list-style: none;
   padding: 0;
-  margin: 0 0.5em 0 0.5em;
+  margin: 0 0.75em 0 0.75em;
 }
 
 .fstbk-aside li {
-  margin: 0.35em;
+  list-style-type: none;
+  margin: 0.25em 0.25em;
+}
+
+.fstbk-aside li.fstbk-linkable:before {
+  content: "\1F4D6";
+  margin-left: 0px;
+  margin-right: 6px;
+  font-size: 16px;
 }
 
 .fstbk-aside a {
