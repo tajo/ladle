@@ -4,7 +4,7 @@ export const Zebra: React.FC = () => {
   const [val, setVal] = React.useState(true);
   return (
     <div>
-      <h1>AAA</h1>
+      <h1>BahaaaAAAasdasdasdasdasd</h1>
       <button onClick={() => setVal(false)}>
         button {val ? "true" : "false"}
       </button>
