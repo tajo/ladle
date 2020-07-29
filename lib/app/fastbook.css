@@ -3,7 +3,6 @@
     --bg-color-primary: #fff;
     --bg-color-secondary: #f6f6f6;
     --bg-color-tertiary: #eee;
-    --bg-coolor-quaternary: #e2e2e2;
     --color-primary: #000;
     --color-hover: #545454;
   }
@@ -11,7 +10,6 @@
     --bg-color-primary: #141414;
     --bg-color-secondary: #1f1f1f;
     --bg-color-tertiary: #333333;
-    --bg-coolor-quaternary: #545454;
     --color-primary: #f6f6f6;
     --color-hover: #e2e2e2;
   }
@@ -21,7 +19,6 @@
     --bg-color-primary: #141414;
     --bg-color-secondary: #1f1f1f;
     --bg-color-tertiary: #333333;
-    --bg-coolor-quaternary: #545454;
     --color-primary: #f6f6f6;
     --color-hover: #e2e2e2;
   }
@@ -29,7 +26,6 @@
     --bg-color-primary: #fff;
     --bg-color-secondary: #f6f6f6;
     --bg-color-tertiary: #eee;
-    --bg-coolor-quaternary: #e2e2e2;
     --color-primary: #000;
     --color-hover: #545454;
   }
@@ -39,7 +35,7 @@
 html,
 body {
   height: 100%;
-  background-color: var(--bg-color-tertiary);
+  background-color: var(--bg-color-secondary);
   margin: 0;
 }
 .fstbk-wrapper {
@@ -51,7 +47,7 @@ body {
   background-color: var(--bg-color-primary);
   flex: 1 1 auto;
   overflow: auto;
-  padding: 3em;
+  padding: 1em;
 }
 
 .fstbk-aside {
@@ -59,7 +55,7 @@ body {
   background-color: var(--bg-color-secondary);
   color: var(--color-primary);
   overflow: auto;
-  padding: 3em;
+  padding: 1em;
 }
 
 .fstbk-aside ul {
@@ -90,25 +86,27 @@ body {
 
 .fstbk-extensions {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--bg-color-tertiary);
+  background-color: var(--bg-color-secondary);
   color: var(--color-primary);
   overflow: auto;
+  padding: 0 0.5em;
 }
 
 .fstbk-extensions ul {
   padding: 0;
-  margin: 0;
+  margin: 1em;
 }
 
 .fstbk-extensions li {
   list-style-type: none;
-  margin: 1em;
+  float: left;
+  margin: 0.5em;
   width: 3em;
   height: 3em;
   color: var(--bg-coolor-primary);
-  background-color: var(--bg-coolor-quaternary);
+  background-color: var(--bg-color-tertiary);
   box-shadow: 0 1px 4px hsla(0, 0%, 0%, 0.16);
-  border: 3px solid var(--bg-coolor-quaternary);
+  border: 3px solid var(--bg-color-tertiary);
   border-radius: 0.75em;
   display: flex;
   justify-content: center;
@@ -117,7 +115,7 @@ body {
 
 .fstbk-extensions li:hover {
   cursor: pointer;
-  background-color: var(--bg-color-tertiary);
+  background-color: var(--bg-color-secondary);
   box-shadow: none;
 }
 
@@ -132,7 +130,22 @@ body {
     flex-direction: row;
   }
 
+  .fstbk-main {
+    padding: 3em;
+  }
+
   .fstbk-aside {
     flex: 0 0 12em;
+    padding: 3em;
+  }
+
+  .fstbk-extensions ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  .fstbk-extensions li {
+    float: none;
+    margin: 1em;
   }
 }
