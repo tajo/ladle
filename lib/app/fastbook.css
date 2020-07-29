@@ -1,13 +1,17 @@
 @media (prefers-color-scheme: light) {
   :root {
     --bg-color-primary: #fff;
-    --bg-color-secondary: #eee;
+    --bg-color-secondary: #f6f6f6;
+    --bg-color-tertiary: #eee;
+    --bg-coolor-quaternary: #e2e2e2;
     --color-primary: #000;
     --color-hover: #545454;
   }
   [data-theme="dark"] {
     --bg-color-primary: #141414;
     --bg-color-secondary: #1f1f1f;
+    --bg-color-tertiary: #333333;
+    --bg-coolor-quaternary: #545454;
     --color-primary: #f6f6f6;
     --color-hover: #e2e2e2;
   }
@@ -16,12 +20,16 @@
   :root {
     --bg-color-primary: #141414;
     --bg-color-secondary: #1f1f1f;
+    --bg-color-tertiary: #333333;
+    --bg-coolor-quaternary: #545454;
     --color-primary: #f6f6f6;
     --color-hover: #e2e2e2;
   }
   [data-theme="light"] {
     --bg-color-primary: #fff;
-    --bg-color-secondary: #eee;
+    --bg-color-secondary: #f6f6f6;
+    --bg-color-tertiary: #eee;
+    --bg-coolor-quaternary: #e2e2e2;
     --color-primary: #000;
     --color-hover: #545454;
   }
@@ -31,7 +39,7 @@
 html,
 body {
   height: 100%;
-  background-color: var(--bg-color-primary);
+  background-color: var(--bg-color-tertiary);
   margin: 0;
 }
 .fstbk-wrapper {
@@ -66,9 +74,9 @@ body {
 
 .fstbk-aside li.fstbk-linkable:before {
   content: "\1F4D6";
-  margin-left: 0px;
-  margin-right: 6px;
-  font-size: 16px;
+  margin-left: 0;
+  margin-right: 0.5em;
+  font-size: 1em;
 }
 
 .fstbk-aside a {
@@ -78,6 +86,39 @@ body {
 
 .fstbk-aside a:hover {
   color: var(--color-hover);
+}
+
+.fstbk-extensions {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-color-tertiary);
+  color: var(--color-primary);
+  overflow: auto;
+}
+
+.fstbk-extensions ul {
+  padding: 0;
+  margin: 0;
+}
+
+.fstbk-extensions li {
+  list-style-type: none;
+  margin: 1em;
+  width: 3em;
+  height: 3em;
+  color: var(--bg-coolor-primary);
+  background-color: var(--bg-coolor-quaternary);
+  box-shadow: 0 1px 4px hsla(0, 0%, 0%, 0.16);
+  border: 3px solid var(--bg-coolor-quaternary);
+  border-radius: 0.75em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fstbk-extensions li:hover {
+  cursor: pointer;
+  background-color: var(--bg-color-tertiary);
+  box-shadow: none;
 }
 
 @media (min-width: 768px) {
@@ -92,6 +133,6 @@ body {
   }
 
   .fstbk-aside {
-    flex: 0 0 240px;
+    flex: 0 0 12em;
   }
 }
