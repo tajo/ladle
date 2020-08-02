@@ -4,19 +4,19 @@ import defaultConfigContents from "@parcel/config-default";
 //@ts-ignore
 import Parcel from "@parcel/core";
 //@ts-ignore
-import { openInBrowser } from "@parcel/utils";
-import { cachePath } from "./const";
+import type { BuildParamsT } from "./types";
 
-require("v8-compile-cache");
-require("./bundler-exception");
-
-const bundler = async ({ outputDir }: { outputDir: string }) => {
+const bundler = async (params: BuildParamsT) => {
+  const distDir = path.isAbsolute(params.outDir)
+    ? params.outDir
+    : path.join(process.cwd(), params.outDir);
+  console.log(distDir);
   try {
     let bundler = new Parcel({
-      entries: [path.join(cachePath, "index.html")],
+      entries: [path.join(params.cacheDir, "app/index.html")],
       targets: {
         app: {
-          distDir: outputDir,
+          distDir,
         },
       },
       defaultConfig: {
@@ -28,7 +28,7 @@ const bundler = async ({ outputDir }: { outputDir: string }) => {
       },
       mode: "production",
       publicUrl: ".",
-      cacheDir: path.join(process.cwd(), ".fastbook/parcel"),
+      cacheDir: path.join(params.cacheDir, "parcel"),
       sourceMaps: false,
       minify: true,
       env: { NODE_ENV: "production" },

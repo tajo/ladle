@@ -1,6 +1,6 @@
 node_modules
 dist
-dist-fastbook
+build
 .fastbook
 tsconfig.tsbuildinfo
 

@@ -3,10 +3,10 @@ import cpy from "cpy";
 import makeDir from "make-dir";
 import { promises as fs } from "fs";
 import getList from "./get-list";
-import { cachePath } from "./const";
 
 let listCode = "";
-export const updateList = async (entries: string[]) => {
+export const updateList = async (entries: string[], cacheDir: string) => {
+  const cachePath = path.join(cacheDir, "app");
   if (!listCode) {
     try {
       listCode = await fs.readFile(
@@ -25,7 +25,8 @@ export const updateList = async (entries: string[]) => {
   }
 };
 
-export const prepareCache = async () => {
+export const prepareCache = async (cacheDir: string) => {
+  const cachePath = path.join(cacheDir, "app");
   await makeDir(cachePath);
   await cpy([`${__dirname}/app/**/*.{html,tsx,ts,js,jsx,css}`], cachePath, {
     // don't copy files that are same, prevents cache busting

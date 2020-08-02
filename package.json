@@ -8,13 +8,11 @@
     "dist"
   ],
   "bin": {
-    "fastbook": "./dist/serve.js",
-    "fastbook-build": "./dist/build.js"
+    "fastbook": "./dist/cli.js"
   },
   "scripts": {
-    "clean": "rimraf dist && rimraf .fastbook && rimraf tsconfig.tsbuildinfo",
-    "serve": "node ./dist/serve",
-    "build": "node ./dist/build",
+    "clean": "rimraf dist && rimraf .fastbook && rimraf build && rimraf tsconfig.tsbuildinfo",
+    "cli": "node ./dist/cli",
     "dev": "node scripts/dev-watch"
   },
   "dependencies": {
@@ -24,6 +22,7 @@
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
     "chokidar": "^3.4.1",
+    "commander": "^6.0.0",
     "cpy": "^8.1.0",
     "del": "^5.1.0",
     "emittery": "^0.7.1",

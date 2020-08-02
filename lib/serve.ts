@@ -6,34 +6,34 @@ import del from "del";
 import devBundler from "./dev-bundler";
 import { storyGlob } from "./const";
 import { prepareCache, updateList } from "./prepare-files";
+import type { ServeParamsT } from "./types";
 
 let entries: string[] = [];
 let initialScanComplete = false;
 
-const outputDir = path.join(process.cwd(), ".fastbook/dist");
-
-(async () => {
-  await prepareCache();
+const serve = async (params: ServeParamsT) => {
+  await prepareCache(params.cacheDir);
   chokidar
     .watch(storyGlob)
     .on("add", async (path) => {
       entries.push(path);
       if (!initialScanComplete) return;
-      updateList(entries);
+      updateList(entries, params.cacheDir);
     })
     .on("change", async () => {
-      setTimeout(() => updateList(entries), 200);
+      setTimeout(() => updateList(entries, params.cacheDir), 200);
     })
     .on("unlink", async (path) => {
       entries = entries.filter((entry) => entry !== path);
-      updateList(entries);
+      updateList(entries, params.cacheDir);
     })
     .on("ready", async () => {
+      const outputDir = path.join(params.cacheDir, "dist");
       initialScanComplete = true;
-      await updateList(entries);
+      await updateList(entries, params.cacheDir);
       await del(outputDir);
-      devBundler({
-        outputDir,
-      });
+      devBundler(params);
     });
-})();
+};
+
+export default serve;

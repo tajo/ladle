@@ -12,3 +12,14 @@ export type GeneratedStoriesT = {
     component: React.FC;
   };
 };
+
+export type ServeParamsT = {
+  port: number;
+  hotPort: number;
+  cacheDir: string;
+};
+
+export type BuildParamsT = {
+  cacheDir: string;
+  outDir: string;
+};

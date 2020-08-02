@@ -6,15 +6,14 @@ import del from "del";
 import prodBundler from "./prod-bundler";
 import { storyGlob } from "./const";
 import { prepareCache, updateList } from "./prepare-files";
+import type { BuildParamsT } from "./types";
 
-const outputDir = path.join(process.cwd(), ".fastbook/dist");
-
-(async () => {
-  await prepareCache();
+const build = async (params: BuildParamsT) => {
+  await prepareCache(params.cacheDir);
   const entries = await globby([storyGlob]);
-  await updateList(entries);
-  await del(outputDir);
-  prodBundler({
-    outputDir,
-  });
-})();
+  await updateList(entries, params.cacheDir);
+  await del(path.join(params.cacheDir, "dist"));
+  prodBundler(params);
+};
+
+export default build;

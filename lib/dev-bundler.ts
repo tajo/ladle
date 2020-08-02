@@ -6,17 +6,19 @@ import defaultConfigContents from "@parcel/config-default";
 import Parcel from "@parcel/core";
 //@ts-ignore
 import { openInBrowser } from "@parcel/utils";
-import { cachePath } from "./const";
+import type { ServeParamsT } from "./types";
 
-require("v8-compile-cache");
-require("./bundler-exception");
-
-const bundler = async ({ outputDir }: { outputDir: string }) => {
-  const port = await getPort();
+const bundler = async (params: ServeParamsT) => {
+  const servePort = await getPort({
+    port: [params.port, 61001, 62002, 62003, 62004, 62005],
+  });
+  const hotPort = await getPort({
+    port: [params.hotPort, 1235, 1236, 1237, 1238, 1239],
+  });
   try {
     let bundler = new Parcel({
-      entries: [path.join(cachePath, "index.html")],
-      distDir: outputDir,
+      entries: [path.join(params.cacheDir, "app/index.html")],
+      distDir: path.join(params.cacheDir, "dist"),
       defaultConfig: {
         ...defaultConfigContents,
         filePath: require.resolve("@parcel/config-default"),
@@ -25,12 +27,12 @@ const bundler = async ({ outputDir }: { outputDir: string }) => {
         browsers: ["last 1 Chrome version"],
       },
       mode: "development",
-      cacheDir: path.join(process.cwd(), ".fastbook/parcel"),
+      cacheDir: path.join(params.cacheDir, "parcel"),
       hot: {
-        port: 1234,
+        port: hotPort,
       },
       serve: {
-        port,
+        port: servePort,
       },
       sourceMaps: true,
       patchConsole: true,
@@ -41,7 +43,7 @@ const bundler = async ({ outputDir }: { outputDir: string }) => {
         throw err;
       }
     });
-    await openInBrowser(`http://localhost:${port}`, "chrome");
+    await openInBrowser(`http://localhost:${servePort}`);
     let isExiting: boolean;
     const exit = async () => {
       if (isExiting) {
