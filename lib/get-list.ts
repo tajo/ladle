@@ -5,7 +5,6 @@ import generate from "@babel/generator";
 import * as t from "@babel/types";
 import { promises as fs } from "fs";
 import path from "path";
-import { relAppPath } from "./const";
 import {
   getFileId,
   getEncodedStoryName,
@@ -73,7 +72,7 @@ const getStories = (stories: string[]) => {
   ).code;
 };
 
-const getList = async (entries: string[]) => {
+const getList = async (entries: string[], cacheDir: string) => {
   let output = `import { lazy } from "react";\n`;
   const lazyImport = template(`
     const %%component%% = lazy(() =>
@@ -99,7 +98,12 @@ const getList = async (entries: string[]) => {
         const storyId = `${fileId}${storyDelimiter}${storyDelimiter}${storyName.toLowerCase()}`;
         stories.push(storyId);
         const ast = lazyImport({
-          source: t.stringLiteral(path.join(relAppPath, entry)),
+          source: t.stringLiteral(
+            path.join(
+              path.relative(path.join(cacheDir, "app"), process.cwd()),
+              entry
+            )
+          ),
           component: t.identifier(getEncodedStoryName(fileId, storyName)),
           story: t.identifier(storyName),
         });

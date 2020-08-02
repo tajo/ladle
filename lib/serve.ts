@@ -4,7 +4,6 @@ import chokidar from "chokidar";
 import path from "path";
 import del from "del";
 import devBundler from "./dev-bundler";
-import { storyGlob } from "./const";
 import { prepareCache, updateList } from "./prepare-files";
 import type { ServeParamsT } from "./types";
 
@@ -14,7 +13,7 @@ let initialScanComplete = false;
 const serve = async (params: ServeParamsT) => {
   await prepareCache(params.cacheDir);
   chokidar
-    .watch(storyGlob)
+    .watch(params.stories)
     .on("add", async (path) => {
       entries.push(path);
       if (!initialScanComplete) return;

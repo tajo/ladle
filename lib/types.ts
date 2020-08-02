@@ -14,12 +14,14 @@ export type GeneratedStoriesT = {
 };
 
 export type ServeParamsT = {
+  stories: string;
   port: number;
   hotPort: number;
   cacheDir: string;
 };
 
 export type BuildParamsT = {
+  stories: string;
   cacheDir: string;
   outDir: string;
 };

@@ -16,7 +16,7 @@ export const updateList = async (entries: string[], cacheDir: string) => {
     } catch (e) {}
   }
   try {
-    const updatedListCode = await getList(entries);
+    const updatedListCode = await getList(entries, cacheDir);
     if (listCode === updatedListCode) return;
     listCode = updatedListCode;
     await fs.writeFile(path.join(cachePath, "generated-list.js"), listCode);

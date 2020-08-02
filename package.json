@@ -1,7 +1,6 @@
 {
   "name": "fastbook",
   "version": "0.0.3",
-  "main": "index.js",
   "author": "vojtech@miksu.cz",
   "license": "MIT",
   "files": [

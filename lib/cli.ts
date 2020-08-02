@@ -9,10 +9,12 @@ import build from "./build";
 import path from "path";
 // @ts-ignore
 import packageJson from "../package.json";
+import { storyGlob } from "./const";
 
 program
   .command("serve")
   .description("start developing")
+  .option("-s, --stories [string]", "glob to find stories", storyGlob)
   .option(
     "-p, --port [number]",
     "port to serve the application",
@@ -31,6 +33,7 @@ program
 program
   .command("build")
   .description("build static production app")
+  .option("-s, --stories [string]", "glob to find stories", storyGlob)
   .option(
     "-o, --out-dir <path>",
     "output directory",
