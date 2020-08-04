@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Capital letters in story names converted into delimiters 1`] = `
+"import { lazy } from \\"react\\";
+
+const capitalization$$blue$tiny$cat = lazy(() => import(\\"../../tests/fixtures/capitalization.stories.tsx\\").then(module => {
+  return {
+    default: module.BlueTinyCat
+  };
+}));
+const capitalization$$big$barking$dog = lazy(() => import(\\"../../tests/fixtures/capitalization.stories.tsx\\").then(module => {
+  return {
+    default: module.BigBarkingDog
+  };
+}));
+
+export const stories = {
+  \\"capitalization--blue-tiny-cat\\": {
+    component: capitalization$$blue$tiny$cat
+  },
+  \\"capitalization--big-barking-dog\\": {
+    component: capitalization$$big$barking$dog
+  }
+};"
+`;
+
+exports[`Capital letters in the filename converted into delimiters 1`] = `
+"import { lazy } from \\"react\\";
+
+const filename$capitalization$$test = lazy(() => import(\\"../../tests/fixtures/filenameCapitalization.stories.tsx\\").then(module => {
+  return {
+    default: module.Test
+  };
+}));
+
+export const stories = {
+  \\"filename-capitalization--test\\": {
+    component: filename$capitalization$$test
+  }
+};"
+`;
+
+exports[`Single file with two stories 1`] = `
+"import { lazy } from \\"react\\";
+
+const animals$$cat = lazy(() => import(\\"../../tests/fixtures/animals.stories.tsx\\").then(module => {
+  return {
+    default: module.Cat
+  };
+}));
+const animals$$dog = lazy(() => import(\\"../../tests/fixtures/animals.stories.tsx\\").then(module => {
+  return {
+    default: module.Dog
+  };
+}));
+
+export const stories = {
+  \\"animals--cat\\": {
+    component: animals$$cat
+  },
+  \\"animals--dog\\": {
+    component: animals$$dog
+  }
+};"
+`;

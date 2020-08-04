@@ -27,5 +27,13 @@
     "skipLibCheck": false,
     "forceConsistentCasingInFileNames": true
   },
-  "exclude": ["node_modules", "src", "dist", "scripts", "build"]
+  "exclude": [
+    "node_modules",
+    "src",
+    "dist",
+    "scripts",
+    "build",
+    "jest.config.js",
+    "tests"
+  ]
 }

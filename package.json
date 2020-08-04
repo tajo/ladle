@@ -12,9 +12,11 @@
   "scripts": {
     "clean": "rimraf dist && rimraf .fastbook && rimraf build && rimraf tsconfig.tsbuildinfo",
     "cli": "node ./dist/cli",
-    "dev": "node scripts/dev-watch"
+    "dev": "node scripts/dev-watch",
+    "test": "jest"
   },
   "dependencies": {
+    "@mdx-js/react": "^1.6.16",
     "@types/babel__generator": "^7.6.1",
     "@types/babel__template": "^7.0.2",
     "@types/babel__traverse": "^7.0.13",
@@ -43,5 +45,11 @@
   "volta": {
     "node": "12.18.2",
     "yarn": "1.22.4"
+  },
+  "devDependencies": {
+    "@mdx-js/mdx": "^1.6.16",
+    "@types/jest": "^26.0.8",
+    "jest": "^26.2.2",
+    "ts-jest": "^26.1.4"
   }
 }

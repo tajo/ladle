@@ -1,5 +1,9 @@
 import * as React from "react";
 
+export const BigBarkingDog: React.FC = () => {
+  return <h1> Big Barking Dog</h1>;
+};
+
 export const Zebra: React.FC = () => {
   const [val, setVal] = React.useState(true);
   return (

@@ -11,6 +11,7 @@ import {
   storyDelimiter,
   storyEncodeDelimiter,
 } from "./app/story-name";
+import { kebabCase } from "./utils";
 
 const plugins: ParserPlugin[] = [
   "jsx",
@@ -95,7 +96,9 @@ const getList = async (entries: string[], cacheDir: string) => {
     traverse(ast, {
       ExportNamedDeclaration: (astPath: any) => {
         const storyName = astPath.node.declaration.declarations[0].id.name;
-        const storyId = `${fileId}${storyDelimiter}${storyDelimiter}${storyName.toLowerCase()}`;
+        const storyId = `${kebabCase(
+          fileId
+        )}${storyDelimiter}${storyDelimiter}${kebabCase(storyName)}`;
         stories.push(storyId);
         const ast = lazyImport({
           source: t.stringLiteral(
@@ -104,7 +107,9 @@ const getList = async (entries: string[], cacheDir: string) => {
               entry
             )
           ),
-          component: t.identifier(getEncodedStoryName(fileId, storyName)),
+          component: t.identifier(
+            getEncodedStoryName(kebabCase(fileId), kebabCase(storyName))
+          ),
           story: t.identifier(storyName),
         });
         output += `\n${generate(ast as any).code}`;
