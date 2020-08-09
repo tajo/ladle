@@ -1,6 +1,7 @@
 import React from "react";
 import history from "./history";
 import { getStoryTree } from "./story-name";
+import { Page, Down } from "./icons";
 import type { StoryTreeT } from "../types";
 
 const Link: React.FC<{ href: string; children: React.ReactNode }> = ({
@@ -20,45 +21,10 @@ const Link: React.FC<{ href: string; children: React.ReactNode }> = ({
 
 const Navigation: React.FC<{ stories: string[] }> = ({ stories }) => (
   <aside className="fstbk-aside">
-    <ul>
+    <input placeholder="Search stories" />
+    <ul style={{ margin: 0 }}>
       <NavigationSection tree={getStoryTree(stories)} />
     </ul>
-    <button
-      onClick={() => {
-        const currentTheme = localStorage.getItem("theme");
-        const prefersDarkScheme = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        );
-
-        if (currentTheme !== "light" && currentTheme !== "dark") {
-          if (prefersDarkScheme.matches) {
-            document.documentElement.setAttribute("data-theme", "light");
-            localStorage.setItem("theme", "light");
-          } else {
-            document.documentElement.setAttribute("data-theme", "dark");
-            localStorage.setItem("theme", "dark");
-          }
-        } else if (currentTheme === "light") {
-          if (prefersDarkScheme.matches) {
-            document.documentElement.removeAttribute("data-theme");
-            localStorage.removeItem("theme");
-          } else {
-            document.documentElement.setAttribute("data-theme", "dark");
-            localStorage.setItem("theme", "dark");
-          }
-        } else {
-          if (prefersDarkScheme.matches) {
-            document.documentElement.setAttribute("data-theme", "light");
-            localStorage.setItem("theme", "light");
-          } else {
-            document.documentElement.removeAttribute("data-theme");
-            localStorage.removeItem("theme");
-          }
-        }
-      }}
-    >
-      toggle theme
-    </button>
   </aside>
 );
 
@@ -78,9 +44,15 @@ const NavigationSection: React.FC<{
               style={!treeProps.isLinkable ? { marginTop: "0.5em" } : {}}
             >
               {treeProps.isLinkable ? (
-                <Link href={`?story=${treeProps.id}`}>{treeProps.name}</Link>
+                <div style={{ display: "flex" }}>
+                  <Page />
+                  <Link href={`?story=${treeProps.id}`}>{treeProps.name}</Link>
+                </div>
               ) : (
-                treeProps.name
+                <div style={{ display: "flex" }}>
+                  <Down />
+                  <div>{treeProps.name}</div>
+                </div>
               )}
               {Object.keys(treeProps.children).length > 0 && (
                 <ul>

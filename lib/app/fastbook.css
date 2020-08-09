@@ -58,6 +58,27 @@ body {
   padding: 1em;
 }
 
+.fstbk-aside input {
+  padding: 0.5em 0em;
+  width: 100%;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-color: var(--color-hover);
+  border-width: 1px;
+  background-color: var(--bg-color-secondary);
+  font-size: 1em;
+  color: var(--color-primary);
+  margin-bottom: 0.5em;
+  margin-left: 1.35em;
+  margin-right: 1.35em;
+}
+
+.fstbk-aside input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
 .fstbk-aside ul {
   padding: 0;
   margin: 0 0.75em 0 0.75em;
@@ -65,14 +86,7 @@ body {
 
 .fstbk-aside li {
   list-style-type: none;
-  margin: 0.25em 0.25em;
-}
-
-.fstbk-aside li.fstbk-linkable:before {
-  content: "\1F4D6";
-  margin-left: 0;
-  margin-right: 0.5em;
-  font-size: 1em;
+  margin: 0.35em 0.35em;
 }
 
 .fstbk-aside a {
