@@ -20,3 +20,12 @@ test("Capital letters in the filename converted into delimiters", async () => {
     )
   ).toMatchSnapshot();
 });
+
+test("Turn file name delimiters into spaces and levels correctly", async () => {
+  expect(
+    await getList(
+      ["./tests/fixtures/our-animals--mammals.stories.tsx"],
+      "cacheDir"
+    )
+  ).toMatchSnapshot();
+});

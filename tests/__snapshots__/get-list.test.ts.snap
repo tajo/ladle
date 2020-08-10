@@ -63,3 +63,19 @@ export const stories = {
   }
 };"
 `;
+
+exports[`Turn file name delimiters into spaces and levels correctly 1`] = `
+"import { lazy } from \\"react\\";
+
+const our$animals$$mammals$$cat = lazy(() => import(\\"../../tests/fixtures/our-animals--mammals.stories.tsx\\").then(module => {
+  return {
+    default: module.Cat
+  };
+}));
+
+export const stories = {
+  \\"our-animals--mammals--cat\\": {
+    component: our$animals$$mammals$$cat
+  }
+};"
+`;
