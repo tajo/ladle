@@ -1,4 +1,5 @@
 import React from "react";
+import cx from "classnames";
 import history from "./history";
 import { getStoryTree } from "./story-name";
 import { Page, Down } from "./icons";
@@ -19,18 +20,27 @@ const Link: React.FC<{ href: string; children: React.ReactNode }> = ({
   </a>
 );
 
-const Navigation: React.FC<{ stories: string[] }> = ({ stories }) => (
-  <aside className="fstbk-aside">
-    <input placeholder="Search stories" />
-    <ul style={{ margin: 0 }}>
-      <NavigationSection tree={getStoryTree(stories)} />
-    </ul>
-  </aside>
-);
+const Navigation: React.FC<{ stories: string[]; activeStory: string }> = ({
+  stories,
+  activeStory,
+}) => {
+  return (
+    <aside className="fstbk-aside">
+      <input placeholder="Search stories" />
+      <ul style={{ marginLeft: "-6px" }}>
+        <NavigationSection
+          tree={getStoryTree(stories)}
+          activeStory={activeStory}
+        />
+      </ul>
+    </aside>
+  );
+};
 
 const NavigationSection: React.FC<{
   tree: StoryTreeT;
-}> = ({ tree }) => {
+  activeStory: string;
+}> = ({ tree, activeStory }) => {
   return (
     <React.Fragment>
       {Object.keys(tree)
@@ -39,8 +49,11 @@ const NavigationSection: React.FC<{
           const treeProps = tree[key];
           return (
             <li
-              key={key}
-              className={treeProps.isLinkable ? "fstbk-linkable" : ""}
+              key={treeProps.id}
+              className={cx({
+                "fstbk-linkable": treeProps.isLinkable,
+                "fstbk-active": treeProps.id === activeStory,
+              })}
               style={!treeProps.isLinkable ? { marginTop: "0.5em" } : {}}
             >
               {treeProps.isLinkable ? (
@@ -56,7 +69,10 @@ const NavigationSection: React.FC<{
               )}
               {Object.keys(treeProps.children).length > 0 && (
                 <ul>
-                  <NavigationSection tree={treeProps.children} />
+                  <NavigationSection
+                    tree={treeProps.children}
+                    activeStory={activeStory}
+                  />
                 </ul>
               )}
             </li>
