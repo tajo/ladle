@@ -14,6 +14,14 @@ import ErrorBoundary from "./error-boundary";
 const getQueryStory = (locationSearch: string) =>
   queryString.parse(locationSearch).story as string;
 
+const openStorySelector = (zEvent: any) => {
+  if (zEvent.metaKey && zEvent.key === "p") {
+    // case sen sitive
+    zEvent.preventDefault();
+    console.log("THIS THIS TasdHIS");
+  }
+};
+
 const App: React.FC = () => {
   //const [dato, setData] = React.useState("empty");
   // React.useEffect(() => {
@@ -32,13 +40,12 @@ const App: React.FC = () => {
       history.push(`?story=${firstStory}`);
       setActiveStory(firstStory);
     }
-  }, []);
-
-  React.useEffect(() => {
+    document.addEventListener("keydown", openStorySelector);
     const unlisten = history.listen(({ location }) => {
       setActiveStory(getQueryStory(location.search));
     });
     return () => {
+      document.removeEventListener("keydown", openStorySelector);
       unlisten();
     };
   }, []);

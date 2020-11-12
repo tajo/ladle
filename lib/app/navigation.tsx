@@ -24,12 +24,26 @@ const Navigation: React.FC<{ stories: string[]; activeStory: string }> = ({
   stories,
   activeStory,
 }) => {
+  const [search, setSearch] = React.useState("");
+  const canonicalSearch = search
+    .toLocaleLowerCase()
+    .replace(new RegExp("\\s+", "g"), "-");
+
+  const filteredStories = stories.filter((story) =>
+    story.includes(canonicalSearch)
+  );
   return (
     <aside className="fstbk-aside">
-      <input placeholder="Search stories" />
+      <input
+        placeholder="Search stories"
+        value={search}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setSearch(e.target.value)
+        }
+      />
       <ul style={{ marginLeft: "-6px" }}>
         <NavigationSection
-          tree={getStoryTree(stories)}
+          tree={getStoryTree(filteredStories)}
           activeStory={activeStory}
         />
       </ul>
