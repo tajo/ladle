@@ -10,16 +10,18 @@
     "fastbook": "./dist/cli.js"
   },
   "scripts": {
-    "clean": "rimraf dist && rimraf .fastbook && rimraf build && rimraf tsconfig.tsbuildinfo",
-    "cli": "node ./dist/cli",
+    "clean": "rimraf dist && rimraf .fastbook && rimraf build && rimraf *.tsbuildinfo",
+    "cli": "node ./dist/cli/cli",
     "dev": "node scripts/dev-watch",
     "test": "jest"
   },
   "dependencies": {
     "@mdx-js/react": "^1.6.16",
+    "@snowpack/plugin-react-refresh": "^2.3.9",
     "@types/babel__generator": "^7.6.1",
     "@types/babel__template": "^7.0.2",
     "@types/babel__traverse": "^7.0.13",
+    "@types/http-proxy": "^1.17.4",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
     "chokidar": "^3.4.1",
@@ -36,6 +38,7 @@
     "query-string": "^6.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "snowpack": "^3.0.0-rc.2",
     "typescript": "^3.9.7",
     "v8-compile-cache": "^2.1.1"
   },

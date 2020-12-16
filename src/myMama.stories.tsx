@@ -20,7 +20,7 @@ export const Hahaasdasd: React.FC = () => {
   const [val, setVal] = React.useState("");
   return (
     <div>
-      <h1>This is a new asd asdas asdasdd asd</h1>
+      <h1>This is a new asd asdas soo asd</h1>
       And it stays here so I can ajust keep typing :)
       <input onChange={(e) => setVal(e.target.value)} value={val} />
     </div>

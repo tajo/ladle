@@ -3,7 +3,7 @@ import cx from "classnames";
 import history from "./history";
 import { getStoryTree } from "./story-name";
 import { Page, Down } from "./icons";
-import type { StoryTreeT } from "../types";
+import type { StoryTreeT } from "../../cli/types";
 
 const Link: React.FC<{ href: string; children: React.ReactNode }> = ({
   href,

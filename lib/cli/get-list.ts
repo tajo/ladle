@@ -10,7 +10,7 @@ import {
   getEncodedStoryName,
   storyDelimiter,
   storyEncodeDelimiter,
-} from "./app/story-name";
+} from "../app/src/story-name";
 import { kebabCase } from "./utils";
 
 const plugins: ParserPlugin[] = [
@@ -102,10 +102,7 @@ const getList = async (entries: string[], cacheDir: string) => {
         stories.push(storyId);
         const ast = lazyImport({
           source: t.stringLiteral(
-            path.join(
-              path.relative(path.join(cacheDir, "app"), process.cwd()),
-              entry
-            )
+            path.join(path.relative(path.join(cacheDir), process.cwd()), entry)
           ),
           component: t.identifier(
             getEncodedStoryName(kebabCase(fileId), kebabCase(storyName))

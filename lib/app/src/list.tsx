@@ -1,4 +1,4 @@
-import type { GeneratedStoriesT } from "../types";
+import type { GeneratedStoriesT } from "../../cli/types";
 //@ts-ignore
 import { stories as generatedStories } from "./generated-list";
 

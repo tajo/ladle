@@ -17,49 +17,18 @@ const update = async () => {
 
   // tsc compile
   try {
-    const { stdout, stderr } = await exec("yarn tsc");
+    const { stdout, stderr } = await exec(
+      "yarn tsc --project tsconfig.cli.json"
+    );
     stderr && console.error(stderr);
     console.log("tsc: done");
   } catch (e) {
     console.error(e.stdout);
   }
-
-  // copy other lib/app files over to dist/app
-  await cpy(
-    [`${process.cwd()}/lib/app/**/*.{html,css}`],
-    `${process.cwd()}/dist/app`
-  );
-
-  // copy app into cache
-  await cpy(
-    [`${process.cwd()}/dist/app/**/*.{html,tsx,ts,js,jsx,css}`],
-    cachePath,
-    {
-      // don't copy files that are same, prevents cache busting
-      filter: async (file) => {
-        const toPath = file.path.replace(
-          `${process.cwd()}/dist/app`,
-          cachePath
-        );
-        try {
-          const toCode = await fs.readFile(toPath, "utf8");
-          const fromCode = await fs.readFile(file.path, "utf8");
-          if (toCode !== fromCode) {
-            console.log(`update: ${toPath}`);
-            return true;
-          }
-        } catch (e) {
-          console.log(`update: ${toPath}`);
-          return true;
-        }
-        return false;
-      },
-    }
-  );
 };
 
 chokidar
-  .watch("lib/**/*.{ts,tsx,html,css}")
+  .watch("lib/**/*.{ts,tsx}")
   .on("add", async (path) => {
     if (!initialScanComplete) return;
     await update();

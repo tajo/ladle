@@ -8,7 +8,7 @@ import serve from "./serve";
 import build from "./build";
 import path from "path";
 // @ts-ignore
-import packageJson from "../package.json";
+import packageJson from "../../package.json";
 import { storyGlob } from "./const";
 
 program

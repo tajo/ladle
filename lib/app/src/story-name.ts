@@ -1,4 +1,4 @@
-import type { StoryTreeT } from "../types";
+import type { StoryTreeT } from "../../cli/types";
 
 export const storyDelimiter = "-";
 export const storyEncodeDelimiter = "$";

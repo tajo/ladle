@@ -4,11 +4,10 @@ import globby from "globby";
 import path from "path";
 import del from "del";
 import prodBundler from "./prod-bundler";
-import { prepareCache, updateList } from "./prepare-files";
+import { updateList } from "./prepare-files";
 import type { BuildParamsT } from "./types";
 
 const build = async (params: BuildParamsT) => {
-  await prepareCache(params.cacheDir);
   const entries = await globby([params.stories]);
   await updateList(entries, params.cacheDir);
   await del(path.join(params.cacheDir, "dist"));

@@ -1,9 +1,9 @@
 import React, { Suspense } from "react";
 import queryString from "query-string";
 //@ts-ignore
-import { stories } from "./generated-list";
+import { stories } from "../../../.fastbook/generated-list";
 import Navigation from "./navigation";
-// import Extensions from "./extensions";
+import Extensions from "./extensions";
 import history from "./history";
 import ErrorBoundary from "./error-boundary";
 
@@ -66,7 +66,7 @@ const App: React.FC = () => {
         )}
       </main>
       <Navigation stories={Object.keys(stories)} activeStory={activeStory} />
-      {/* <Extensions /> */}
+      <Extensions />
     </div>
   );
 };
