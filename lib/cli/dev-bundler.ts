@@ -21,8 +21,8 @@ const bundler = async (/*params: ServeParamsT*/) => {
       mount: {
         "lib/app/public/": { url: "/", static: false },
         "lib/app/src": { url: "/temp" },
+        "dist/app/src": { url: "/temp" },
         src: { url: "/temp" },
-        ".fastbook": { url: "/temp" },
       },
       plugins: ["@snowpack/plugin-react-refresh"],
       // devOptions: {
@@ -32,7 +32,6 @@ const bundler = async (/*params: ServeParamsT*/) => {
       // },
     };
     const config = createConfiguration(bundlerConfig)[1] as SnowpackConfig;
-    console.log(config);
     await startDevServer({ config, lockfile: null, cwd: process.cwd() });
   } catch (e) {
     console.error(e);

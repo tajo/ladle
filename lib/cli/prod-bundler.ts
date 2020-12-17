@@ -1,39 +1,40 @@
-import path from "path";
+//import path from "path";
 //@ts-ignore
-import defaultConfigContents from "@parcel/config-default";
+//import defaultConfigContents from "@parcel/config-default";
 //@ts-ignore
-import Parcel from "@parcel/core";
+//import Parcel from "@parcel/core";
 //@ts-ignore
-import type { BuildParamsT } from "./types";
+//import type { BuildParamsT } from "./types";
+import { buildProject, createConfiguration, SnowpackConfig } from "snowpack";
 
-const bundler = async (params: BuildParamsT) => {
-  const distDir = path.isAbsolute(params.outDir)
-    ? params.outDir
-    : path.join(process.cwd(), params.outDir);
-  console.log(distDir);
+const bundler = async (/*params: ServeParamsT*/) => {
+  // const servePort = await getPort({
+  //   port: [params.port, 61001, 62002, 62003, 62004, 62005],
+  // });
+  // const hotPort = await getPort({
+  //   port: [params.hotPort, 1235, 1236, 1237, 1238, 1239],
+  // });
   try {
-    let bundler = new Parcel({
-      entries: [path.join(params.cacheDir, "app/index.html")],
-      targets: {
-        app: {
-          distDir,
+    const bundlerConfig = {
+      mount: {
+        "lib/app/public/": { url: "/", static: false },
+        "lib/app/src": { url: "/temp" },
+        src: { url: "/temp" },
+        ".fastbook": { url: "/temp" },
+      },
+      buildOptions: {
+        clean: true,
+      },
+      experiments: {
+        optimize: {
+          bundle: true,
+          minify: true,
+          target: "es2020" as any,
         },
       },
-      defaultConfig: {
-        ...defaultConfigContents,
-        filePath: require.resolve("@parcel/config-default"),
-      },
-      defaultEngines: {
-        browsers: ["last 1 Chrome version"],
-      },
-      mode: "production",
-      publicUrl: ".",
-      cacheDir: path.join(params.cacheDir, "parcel"),
-      sourceMaps: false,
-      minify: true,
-      env: { NODE_ENV: "production" },
-    });
-    await bundler.run();
+    };
+    const config = createConfiguration(bundlerConfig)[1] as SnowpackConfig;
+    await buildProject({ config, lockfile: null, cwd: process.cwd() });
   } catch (e) {
     console.error(e);
   }

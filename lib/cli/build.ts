@@ -11,7 +11,8 @@ const build = async (params: BuildParamsT) => {
   const entries = await globby([params.stories]);
   await updateList(entries, params.cacheDir);
   await del(path.join(params.cacheDir, "dist"));
-  prodBundler(params);
+  await prodBundler();
+  process.exit(0);
 };
 
 export default build;

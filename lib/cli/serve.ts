@@ -16,20 +16,18 @@ const serve = async (params: ServeParamsT) => {
     .on("add", async (path) => {
       entries.push(path);
       if (!initialScanComplete) return;
-      updateList(entries, params.cacheDir);
+      updateList(entries);
     })
     .on("change", async () => {
-      setTimeout(() => updateList(entries, params.cacheDir), 200);
+      updateList(entries);
     })
     .on("unlink", async (path) => {
       entries = entries.filter((entry) => entry !== path);
-      updateList(entries, params.cacheDir);
+      updateList(entries);
     })
     .on("ready", async () => {
-      const outputDir = path.join(params.cacheDir, "dist");
       initialScanComplete = true;
-      await updateList(entries, params.cacheDir);
-      await del(outputDir);
+      await updateList(entries);
       devBundler(/*params*/);
     });
 };

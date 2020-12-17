@@ -551,81 +551,6 @@
         "signature": "169c2f301f45dd0c5182abfca4ac8beaea28326a18542ce7ff29e8176002742c",
         "affectsGlobalScope": false
       },
-      "./lib/cli/types.ts": {
-        "version": "0d93e2795821b2d0efc631a8f14c7b778955eca0b91c35fe6c957fd0b21d2f70",
-        "signature": "ea9fbda4198d76a141431e8753c10152967825967183f693a54220b9988a80d7",
-        "affectsGlobalScope": false
-      },
-      "./lib/cli/prod-bundler.ts": {
-        "version": "4559cdc5645e6815a8a1f7686b00f8993bdf9209f75948c750e974b05de60b2c",
-        "signature": "a1292cac2647f6b7890acef9a52718391eaaae55d70437105fbd44caa19c8cac",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/make-dir/index.d.ts": {
-        "version": "08c19f0b735146ea0387e29083bcd6416fd64d97fc12e68867cda678d41a6f60",
-        "signature": "08c19f0b735146ea0387e29083bcd6416fd64d97fc12e68867cda678d41a6f60",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@babel/types/lib/index.d.ts": {
-        "version": "f4d27b39be5d82eb94f12c54a15e61f65decb27fb289353d11ef238de49bf5c2",
-        "signature": "f4d27b39be5d82eb94f12c54a15e61f65decb27fb289353d11ef238de49bf5c2",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@babel/parser/typings/babel-parser.d.ts": {
-        "version": "04467c3822f065aee977f9e1225b86b9ac0e976cb42b0c8da0b893a3290920e1",
-        "signature": "04467c3822f065aee977f9e1225b86b9ac0e976cb42b0c8da0b893a3290920e1",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@types/babel__traverse/index.d.ts": {
-        "version": "704d8cb257ede7d0e88a353b712bb8324885ccc860cb5fdf8bbd435da810c1e6",
-        "signature": "704d8cb257ede7d0e88a353b712bb8324885ccc860cb5fdf8bbd435da810c1e6",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@types/babel__template/index.d.ts": {
-        "version": "3e0a34f7207431d967dc32d593d1cda0c23975e9484bc8895b39d96ffca4a0d8",
-        "signature": "3e0a34f7207431d967dc32d593d1cda0c23975e9484bc8895b39d96ffca4a0d8",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/@types/babel__generator/index.d.ts": {
-        "version": "b25c5f2970d06c729f464c0aeaa64b1a5b5f1355aa93554bb5f9c199b8624b1e",
-        "signature": "b25c5f2970d06c729f464c0aeaa64b1a5b5f1355aa93554bb5f9c199b8624b1e",
-        "affectsGlobalScope": false
-      },
-      "./lib/app/src/story-name.ts": {
-        "version": "2b39fb4ee69d2bbcfb89094cd8261f2ba889f7f8e51b3b7376d288e2cf67c267",
-        "signature": "6b0b7795d8738c826e9d236bea1eb05892d0b0140fa826c57be5cbc54d18739f",
-        "affectsGlobalScope": false
-      },
-      "./lib/cli/utils.ts": {
-        "version": "8c46c8db5f0f783934b8ab01cbc7dfe512ae05beaa5bbb45111b0c4e1b001706",
-        "signature": "0a8e6ef6d518193ca782e6bc79907bf738856b4e42f5757c68fa37d9714ed94a",
-        "affectsGlobalScope": false
-      },
-      "./lib/cli/get-list.ts": {
-        "version": "3cc6954740e87ca888d63d09624630a402dc8949ddf5efd53b58cc0c1df76bd1",
-        "signature": "41d9fec872dc0ae0247c2252d3a4fae15302fc8004421c81314f6bbbf4caa16f",
-        "affectsGlobalScope": false
-      },
-      "./lib/cli/prepare-files.ts": {
-        "version": "e479d32553840c2ac27b9421540b877e78e9b95447705c58e307b4acdfa1c4cc",
-        "signature": "db0382633490bcbc9f102b5577e3e48fb612d02592ebecd9a31e94cd2daed868",
-        "affectsGlobalScope": false
-      },
-      "./lib/cli/build.ts": {
-        "version": "bcd634ab106a90dbc4fd09fd5ff65bdd48e5da6018bea1872507abe2e4eab041",
-        "signature": "95edd6e27b3d8d1d49b95fd3b1feb45323a7b269e3a82f375457496a5dac9bfd",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/commander/typings/index.d.ts": {
-        "version": "ed4488a41a674aabb03ac8baf72edd0ceab37d12b320ee1c69daa69d755cd226",
-        "signature": "ed4488a41a674aabb03ac8baf72edd0ceab37d12b320ee1c69daa69d755cd226",
-        "affectsGlobalScope": false
-      },
-      "./node_modules/chokidar/types/index.d.ts": {
-        "version": "ca7f76d3ea132bde53dca1a0f33cda95397d20c248e452c050773f01504d9802",
-        "signature": "ca7f76d3ea132bde53dca1a0f33cda95397d20c248e452c050773f01504d9802",
-        "affectsGlobalScope": false
-      },
       "./node_modules/rollup/dist/rollup.d.ts": {
         "version": "7fe4731f65c1cd183570e2249c99c3b374aee891efa27390523f137ac9755cc2",
         "signature": "7fe4731f65c1cd183570e2249c99c3b374aee891efa27390523f137ac9755cc2",
@@ -696,13 +621,83 @@
         "signature": "e0b45bc3460902beb4127327a4a2cee81d26bb37ccf2b7c2d7ae0b6031857e5c",
         "affectsGlobalScope": false
       },
+      "./lib/cli/prod-bundler.ts": {
+        "version": "b9feafc8c5c6185f791fcede09ecf1b06048304f7aac9077d4261d75cd28e24a",
+        "signature": "9772e03ec94894c89738fafea7bcb2d9e0592556d652abbfe380e7015f82a1e4",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@babel/types/lib/index.d.ts": {
+        "version": "f4d27b39be5d82eb94f12c54a15e61f65decb27fb289353d11ef238de49bf5c2",
+        "signature": "f4d27b39be5d82eb94f12c54a15e61f65decb27fb289353d11ef238de49bf5c2",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@babel/parser/typings/babel-parser.d.ts": {
+        "version": "04467c3822f065aee977f9e1225b86b9ac0e976cb42b0c8da0b893a3290920e1",
+        "signature": "04467c3822f065aee977f9e1225b86b9ac0e976cb42b0c8da0b893a3290920e1",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/babel__traverse/index.d.ts": {
+        "version": "704d8cb257ede7d0e88a353b712bb8324885ccc860cb5fdf8bbd435da810c1e6",
+        "signature": "704d8cb257ede7d0e88a353b712bb8324885ccc860cb5fdf8bbd435da810c1e6",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/babel__template/index.d.ts": {
+        "version": "3e0a34f7207431d967dc32d593d1cda0c23975e9484bc8895b39d96ffca4a0d8",
+        "signature": "3e0a34f7207431d967dc32d593d1cda0c23975e9484bc8895b39d96ffca4a0d8",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/@types/babel__generator/index.d.ts": {
+        "version": "b25c5f2970d06c729f464c0aeaa64b1a5b5f1355aa93554bb5f9c199b8624b1e",
+        "signature": "b25c5f2970d06c729f464c0aeaa64b1a5b5f1355aa93554bb5f9c199b8624b1e",
+        "affectsGlobalScope": false
+      },
+      "./lib/cli/types.ts": {
+        "version": "0d93e2795821b2d0efc631a8f14c7b778955eca0b91c35fe6c957fd0b21d2f70",
+        "signature": "ea9fbda4198d76a141431e8753c10152967825967183f693a54220b9988a80d7",
+        "affectsGlobalScope": false
+      },
+      "./lib/app/src/story-name.ts": {
+        "version": "2b39fb4ee69d2bbcfb89094cd8261f2ba889f7f8e51b3b7376d288e2cf67c267",
+        "signature": "6b0b7795d8738c826e9d236bea1eb05892d0b0140fa826c57be5cbc54d18739f",
+        "affectsGlobalScope": false
+      },
+      "./lib/cli/utils.ts": {
+        "version": "8c46c8db5f0f783934b8ab01cbc7dfe512ae05beaa5bbb45111b0c4e1b001706",
+        "signature": "0a8e6ef6d518193ca782e6bc79907bf738856b4e42f5757c68fa37d9714ed94a",
+        "affectsGlobalScope": false
+      },
+      "./lib/cli/get-list.ts": {
+        "version": "3cc6954740e87ca888d63d09624630a402dc8949ddf5efd53b58cc0c1df76bd1",
+        "signature": "41d9fec872dc0ae0247c2252d3a4fae15302fc8004421c81314f6bbbf4caa16f",
+        "affectsGlobalScope": false
+      },
+      "./lib/cli/prepare-files.ts": {
+        "version": "5f177445f52c934dd0c9d501277c2cc5d8f39f51162c633f2672201ccb09623f",
+        "signature": "267b5a215aefd7d803adc7ca8ae48ef690e275148c7ebef27545e85a4e850293",
+        "affectsGlobalScope": false
+      },
+      "./lib/cli/build.ts": {
+        "version": "418e1fd6faabde419535bcb92fc29da33384822e977cb318d08fbb1a6ec0c826",
+        "signature": "aef0337e2e04ec5c79a4ee2b0a578c5b1f165ffc3c00c16625d8b491e8afeede",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/commander/typings/index.d.ts": {
+        "version": "ed4488a41a674aabb03ac8baf72edd0ceab37d12b320ee1c69daa69d755cd226",
+        "signature": "ed4488a41a674aabb03ac8baf72edd0ceab37d12b320ee1c69daa69d755cd226",
+        "affectsGlobalScope": false
+      },
+      "./node_modules/chokidar/types/index.d.ts": {
+        "version": "ca7f76d3ea132bde53dca1a0f33cda95397d20c248e452c050773f01504d9802",
+        "signature": "ca7f76d3ea132bde53dca1a0f33cda95397d20c248e452c050773f01504d9802",
+        "affectsGlobalScope": false
+      },
       "./lib/cli/dev-bundler.ts": {
-        "version": "c78a17cddec35e414eff00fd06fdde460d66b54b8774b3c14ba28fc5ffa1ec95",
+        "version": "d5543c4f47e3483a35053603452afdfbc8bb98b7761ad3558380f154504a0ea3",
         "signature": "9772e03ec94894c89738fafea7bcb2d9e0592556d652abbfe380e7015f82a1e4",
         "affectsGlobalScope": false
       },
       "./lib/cli/serve.ts": {
-        "version": "4a6a27eaeb0a0f4818eb3d47ac0c095c204bee7a2eece888f8790f0d49e301cb",
+        "version": "d7fb6dadcaaceb29dab5a411c8615c2525f6d303db54b1f810bceed64e8e973d",
         "signature": "3b6405a973f6be689a6b521d82c5100da0ed13292754d3625efe139dee3f6ea7",
         "affectsGlobalScope": false
       },
@@ -1050,19 +1045,17 @@
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/ts3.2/process.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts",
-        "./node_modules/make-dir/index.d.ts"
+        "./node_modules/@types/node/util.d.ts"
       ],
       "./lib/cli/prod-bundler.ts": [
-        "./lib/cli/types.ts",
         "./node_modules/@types/graceful-fs/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/path.d.ts",
         "./node_modules/@types/node/process.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/ts3.2/process.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/util.d.ts"
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/snowpack/lib/index.d.ts"
       ],
       "./lib/cli/serve.ts": [
         "./lib/cli/dev-bundler.ts",
@@ -2468,16 +2461,6 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
-      "./node_modules/make-dir/index.d.ts": [
-        "./node_modules/@types/graceful-fs/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/process.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/process.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/ts3.7/index.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
       "./node_modules/rollup/dist/rollup.d.ts": [
         "./node_modules/@types/graceful-fs/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
@@ -2880,9 +2863,6 @@
         "./lib/cli/types.ts"
       ],
       "./lib/cli/build.ts": [
-        "./lib/cli/types.ts"
-      ],
-      "./lib/cli/prod-bundler.ts": [
         "./lib/cli/types.ts"
       ],
       "./lib/cli/serve.ts": [
@@ -4259,16 +4239,6 @@
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts"
       ],
-      "./node_modules/make-dir/index.d.ts": [
-        "./node_modules/@types/graceful-fs/index.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/process.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/process.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/ts3.7/index.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
       "./node_modules/rollup/dist/rollup.d.ts": [
         "./node_modules/@types/graceful-fs/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
@@ -4668,7 +4638,19 @@
     },
     "semanticDiagnosticsPerFile": [
       "./lib/app/src/story-name.ts",
-      "./lib/cli/build.ts",
+      [
+        "./lib/cli/build.ts",
+        [
+          {
+            "file": "./lib/cli/build.ts",
+            "start": 358,
+            "length": 15,
+            "messageText": "Expected 1 arguments, but got 2.",
+            "category": 1,
+            "code": 2554
+          }
+        ]
+      ],
       "./lib/cli/cli.ts",
       "./lib/cli/const.ts",
       "./lib/cli/dev-bundler.ts",
@@ -4676,7 +4658,29 @@
       "./lib/cli/handle-exception.ts",
       "./lib/cli/prepare-files.ts",
       "./lib/cli/prod-bundler.ts",
-      "./lib/cli/serve.ts",
+      [
+        "./lib/cli/serve.ts",
+        [
+          {
+            "file": "./lib/cli/serve.ts",
+            "start": 54,
+            "length": 24,
+            "messageText": "'path' is declared but its value is never read.",
+            "category": 1,
+            "code": 6133,
+            "reportsUnnecessary": true
+          },
+          {
+            "file": "./lib/cli/serve.ts",
+            "start": 79,
+            "length": 22,
+            "messageText": "'del' is declared but its value is never read.",
+            "category": 1,
+            "code": 6133,
+            "reportsUnnecessary": true
+          }
+        ]
+      ],
       "./lib/cli/types.ts",
       "./lib/cli/utils.ts",
       "./node_modules/@babel/parser/typings/babel-parser.d.ts",
@@ -4808,7 +4812,6 @@
       "./node_modules/fast-glob/out/types/index.d.ts",
       "./node_modules/globby/index.d.ts",
       "./node_modules/jsonschema/lib/index.d.ts",
-      "./node_modules/make-dir/index.d.ts",
       "./node_modules/rollup/dist/rollup.d.ts",
       "./node_modules/snowpack/lib/build/file-urls.d.ts",
       "./node_modules/snowpack/lib/commands/build.d.ts",
