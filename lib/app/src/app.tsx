@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import queryString from "query-string";
 //@ts-ignore
-import { stories as maybeStories } from "../../../dist/app/src/generated-list";
+import { stories as maybeStories } from "./generated-list";
 import Navigation from "./navigation";
 // import Extensions from "./extensions";
 import history from "./history";

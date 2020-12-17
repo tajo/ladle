@@ -8,6 +8,7 @@
 // import { openInBrowser } from "@parcel/utils";
 import type { ServeParamsT } from "./types";
 import { startDevServer, createConfiguration, SnowpackConfig } from "snowpack";
+import path from "path";
 
 const bundler = async (/*params: ServeParamsT*/) => {
   // const servePort = await getPort({
@@ -24,12 +25,13 @@ const bundler = async (/*params: ServeParamsT*/) => {
         "dist/app/src": { url: "/temp" },
         src: { url: "/temp" },
       },
-      plugins: ["@snowpack/plugin-react-refresh"],
-      // devOptions: {
-      //   port: servePort,
-      //   hmr: true,
-      //   hmrPort: hotPort,
-      // },
+      plugins: [
+        "@snowpack/plugin-react-refresh",
+        path.join(__dirname, "./snowpack-plugin.js"),
+      ],
+      devOptions: {
+        output: "stream",
+      },
     };
     const config = createConfiguration(bundlerConfig)[1] as SnowpackConfig;
     await startDevServer({ config, lockfile: null, cwd: process.cwd() });

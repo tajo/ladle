@@ -686,19 +686,14 @@
         "signature": "ed4488a41a674aabb03ac8baf72edd0ceab37d12b320ee1c69daa69d755cd226",
         "affectsGlobalScope": false
       },
-      "./node_modules/chokidar/types/index.d.ts": {
-        "version": "ca7f76d3ea132bde53dca1a0f33cda95397d20c248e452c050773f01504d9802",
-        "signature": "ca7f76d3ea132bde53dca1a0f33cda95397d20c248e452c050773f01504d9802",
-        "affectsGlobalScope": false
-      },
       "./lib/cli/dev-bundler.ts": {
-        "version": "d5543c4f47e3483a35053603452afdfbc8bb98b7761ad3558380f154504a0ea3",
+        "version": "63b18ce49e18b58566fd8e14a2b6a0b9484acf8637bf62b6e91114d70b75f10e",
         "signature": "9772e03ec94894c89738fafea7bcb2d9e0592556d652abbfe380e7015f82a1e4",
         "affectsGlobalScope": false
       },
       "./lib/cli/serve.ts": {
-        "version": "d7fb6dadcaaceb29dab5a411c8615c2525f6d303db54b1f810bceed64e8e973d",
-        "signature": "3b6405a973f6be689a6b521d82c5100da0ed13292754d3625efe139dee3f6ea7",
+        "version": "b7be319a4bb8b8828bd58ecab24f0f047bc196dc67fb872ac5c266702a4f4b57",
+        "signature": "09693c9887c619ecb4f1692892b096344914642a5d038f8ba09d9c29dd301c56",
         "affectsGlobalScope": false
       },
       "./lib/cli/const.ts": {
@@ -714,6 +709,11 @@
       "./lib/cli/handle-exception.ts": {
         "version": "d279c32316d81fee6d67c05e6211ca3fbcb876681cee1405134bc46a6611f41c",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+        "affectsGlobalScope": false
+      },
+      "./lib/cli/snowpack-plugin.ts": {
+        "version": "e9b8a628a3c0b322ce62455caf0e27b2ce68d58248860c3740d5670dcc2ec64c",
+        "signature": "3f754dcec758f80e2e9bb913690421fdcc0f6de55f0be56f75b954db08653df5",
         "affectsGlobalScope": false
       },
       "./node_modules/@types/babel__core/index.d.ts": {
@@ -1003,6 +1003,7 @@
         "./lib/cli/types.ts",
         "./node_modules/@types/graceful-fs/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/path.d.ts",
         "./node_modules/@types/node/process.d.ts",
         "./node_modules/@types/node/ts3.2/fs.d.ts",
         "./node_modules/@types/node/ts3.2/process.d.ts",
@@ -1059,8 +1060,17 @@
       ],
       "./lib/cli/serve.ts": [
         "./lib/cli/dev-bundler.ts",
-        "./lib/cli/prepare-files.ts",
-        "./lib/cli/types.ts",
+        "./node_modules/@types/graceful-fs/index.d.ts",
+        "./node_modules/@types/node/fs.d.ts",
+        "./node_modules/@types/node/process.d.ts",
+        "./node_modules/@types/node/ts3.2/fs.d.ts",
+        "./node_modules/@types/node/ts3.2/process.d.ts",
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
+      "./lib/cli/snowpack-plugin.ts": [
+        "./lib/cli/const.ts",
+        "./lib/cli/get-list.ts",
         "./node_modules/@types/graceful-fs/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
         "./node_modules/@types/node/path.d.ts",
@@ -1069,8 +1079,7 @@
         "./node_modules/@types/node/ts3.2/process.d.ts",
         "./node_modules/@types/node/ts3.2/util.d.ts",
         "./node_modules/@types/node/util.d.ts",
-        "./node_modules/chokidar/types/index.d.ts",
-        "./node_modules/del/index.d.ts"
+        "./node_modules/globby/index.d.ts"
       ],
       "./lib/cli/types.ts": [
         "./node_modules/@types/graceful-fs/index.d.ts",
@@ -2316,17 +2325,6 @@
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/yargs-parser/index.d.ts"
       ],
-      "./node_modules/chokidar/types/index.d.ts": [
-        "./node_modules/@types/graceful-fs/index.d.ts",
-        "./node_modules/@types/node/events.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/process.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/process.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/ts3.7/index.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
       "./node_modules/commander/typings/index.d.ts": [
         "./node_modules/@types/graceful-fs/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
@@ -2863,9 +2861,6 @@
         "./lib/cli/types.ts"
       ],
       "./lib/cli/build.ts": [
-        "./lib/cli/types.ts"
-      ],
-      "./lib/cli/serve.ts": [
         "./lib/cli/types.ts"
       ],
       "./node_modules/@babel/parser/typings/babel-parser.d.ts": [
@@ -4094,17 +4089,6 @@
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/yargs-parser/index.d.ts"
       ],
-      "./node_modules/chokidar/types/index.d.ts": [
-        "./node_modules/@types/graceful-fs/index.d.ts",
-        "./node_modules/@types/node/events.d.ts",
-        "./node_modules/@types/node/fs.d.ts",
-        "./node_modules/@types/node/process.d.ts",
-        "./node_modules/@types/node/ts3.2/fs.d.ts",
-        "./node_modules/@types/node/ts3.2/process.d.ts",
-        "./node_modules/@types/node/ts3.2/util.d.ts",
-        "./node_modules/@types/node/ts3.7/index.d.ts",
-        "./node_modules/@types/node/util.d.ts"
-      ],
       "./node_modules/commander/typings/index.d.ts": [
         "./node_modules/@types/graceful-fs/index.d.ts",
         "./node_modules/@types/node/fs.d.ts",
@@ -4653,34 +4637,42 @@
       ],
       "./lib/cli/cli.ts",
       "./lib/cli/const.ts",
-      "./lib/cli/dev-bundler.ts",
+      [
+        "./lib/cli/dev-bundler.ts",
+        [
+          {
+            "file": "./lib/cli/dev-bundler.ts",
+            "start": 1129,
+            "length": 13,
+            "code": 2345,
+            "category": 1,
+            "messageText": {
+              "messageText": "Argument of type '{ mount: { \"lib/app/public/\": { url: string; static: boolean; }; \"lib/app/src\": { url: string; }; \"dist/app/src\": { url: string; }; src: { url: string; }; }; plugins: string[]; devOptions: { output: string; }; }' is not assignable to parameter of type 'SnowpackUserConfig'.",
+              "category": 1,
+              "code": 2345,
+              "next": [
+                {
+                  "messageText": "The types of 'devOptions.output' are incompatible between these types.",
+                  "category": 1,
+                  "code": 2200,
+                  "next": [
+                    {
+                      "messageText": "Type 'string' is not assignable to type '\"stream\" | \"dashboard\" | undefined'.",
+                      "category": 1,
+                      "code": 2322
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      ],
       "./lib/cli/get-list.ts",
       "./lib/cli/handle-exception.ts",
       "./lib/cli/prepare-files.ts",
       "./lib/cli/prod-bundler.ts",
-      [
-        "./lib/cli/serve.ts",
-        [
-          {
-            "file": "./lib/cli/serve.ts",
-            "start": 54,
-            "length": 24,
-            "messageText": "'path' is declared but its value is never read.",
-            "category": 1,
-            "code": 6133,
-            "reportsUnnecessary": true
-          },
-          {
-            "file": "./lib/cli/serve.ts",
-            "start": 79,
-            "length": 22,
-            "messageText": "'del' is declared but its value is never read.",
-            "category": 1,
-            "code": 6133,
-            "reportsUnnecessary": true
-          }
-        ]
-      ],
+      "./lib/cli/serve.ts",
       "./lib/cli/types.ts",
       "./lib/cli/utils.ts",
       "./node_modules/@babel/parser/typings/babel-parser.d.ts",
@@ -4798,7 +4790,6 @@
       "./node_modules/@types/unist/index.d.ts",
       "./node_modules/@types/yargs-parser/index.d.ts",
       "./node_modules/@types/yargs/index.d.ts",
-      "./node_modules/chokidar/types/index.d.ts",
       "./node_modules/commander/typings/index.d.ts",
       "./node_modules/csstype/index.d.ts",
       "./node_modules/del/index.d.ts",
