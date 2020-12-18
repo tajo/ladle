@@ -18,12 +18,6 @@
   "dependencies": {
     "@mdx-js/react": "^1.6.16",
     "@snowpack/plugin-react-refresh": "^2.3.9",
-    "@types/babel__generator": "^7.6.1",
-    "@types/babel__template": "^7.0.2",
-    "@types/babel__traverse": "^7.0.13",
-    "@types/http-proxy": "^1.17.4",
-    "@types/react": "^16.9.43",
-    "@types/react-dom": "^16.9.8",
     "classnames": "^2.2.6",
     "commander": "^6.0.0",
     "cpy": "^8.1.0",
@@ -34,13 +28,11 @@
     "history": "^5.0.0",
     "make-dir": "^3.1.0",
     "micromatch": "^4.0.2",
-    "parcel": "2.0.0-beta.1",
     "query-string": "^6.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "snowpack": "^3.0.0-rc.2",
-    "typescript": "^3.9.7",
-    "v8-compile-cache": "^2.1.1"
+    "typescript": "^3.9.7"
   },
   "peerDependencies": {
     "react": "^16.13.0-0 || ^17.0.0-0",
@@ -52,8 +44,15 @@
   },
   "devDependencies": {
     "@mdx-js/mdx": "^1.6.16",
+    "@types/babel__generator": "^7.6.1",
+    "@types/babel__template": "^7.0.2",
+    "@types/babel__traverse": "^7.0.13",
     "@types/classnames": "^2.2.10",
+    "@types/http-proxy": "^1.17.4",
     "@types/jest": "^26.0.8",
+    "@types/micromatch": "^4.0.1",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
     "jest": "^26.2.2",
     "prettier": "^2.1.2",
     "ts-jest": "^26.1.4"

@@ -1,12 +1,3 @@
-// import path from "path";
-// import getPort from "get-port";
-//@ts-ignore
-// import defaultConfigContents from "@parcel/config-default";
-//@ts-ignore
-// import Parcel from "@parcel/core";
-//@ts-ignore
-// import { openInBrowser } from "@parcel/utils";
-import type { ServeParamsT } from "./types";
 import { startDevServer, createConfiguration, SnowpackConfig } from "snowpack";
 import path from "path";
 
@@ -30,7 +21,7 @@ const bundler = async () => {
         "@snowpack/plugin-react-refresh",
       ],
       devOptions: {
-        output: "stream",
+        output: "stream" as any,
       },
     };
     const config = createConfiguration(bundlerConfig)[1] as SnowpackConfig;

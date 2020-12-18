@@ -3,8 +3,9 @@ import getList from "./get-list";
 import { storyGlob } from "./const";
 import globby from "globby";
 import micromatch from "micromatch";
+import { SnowpackPlugin } from "snowpack";
 
-const SnowpackPlugin = () => {
+const Plugin = (): SnowpackPlugin => {
   let listId = "";
   let listContent = "";
 
@@ -18,7 +19,7 @@ const SnowpackPlugin = () => {
 
   return {
     name: "snowpack-plugin",
-    async transform({ fileExt, id }) {
+    async transform({ id }) {
       if (id.includes("generated-list.")) {
         listId = id.replace(".js", ".ts");
         console.log("transforming list");
@@ -37,11 +38,11 @@ const SnowpackPlugin = () => {
         const prevListContent = listContent;
         await genList();
         if (prevListContent !== listContent) {
-          this.markChanged(listId);
+          this.markChanged && this.markChanged(listId);
         }
       }
     },
   };
 };
 
-export default SnowpackPlugin;
+export default Plugin;

@@ -1,8 +1,5 @@
 #!/usr/bin/env node
 
-require("v8-compile-cache");
-require("./handle-exception");
-
 import program from "commander";
 import serve from "./serve";
 import build from "./build";
