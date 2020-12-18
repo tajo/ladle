@@ -62,3 +62,15 @@ export const Nah: React.FC = () => {
     </div>
   );
 };
+
+export const Soooo: React.FC = () => {
+  const [val, setVal] = React.useState(true);
+  return (
+    <div>
+      <h1>Funnyyyy asdasdasdads</h1>
+      <button onClick={() => setVal(false)}>
+        button {val ? "true" : "false"}
+      </button>
+    </div>
+  );
+};

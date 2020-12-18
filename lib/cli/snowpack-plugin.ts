@@ -8,13 +8,13 @@ const SnowpackPlugin = () => {
   let listId = "";
   let listContent = "";
 
-  const genList = async () {
+  const genList = async () => {
     const entries = await globby([storyGlob]);
     listContent = await getList(
       entries,
       path.join(process.cwd(), "dist/app/src")
     );
-  }
+  };
 
   return {
     name: "snowpack-plugin",

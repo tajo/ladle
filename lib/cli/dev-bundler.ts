@@ -10,7 +10,7 @@ import type { ServeParamsT } from "./types";
 import { startDevServer, createConfiguration, SnowpackConfig } from "snowpack";
 import path from "path";
 
-const bundler = async (/*params: ServeParamsT*/) => {
+const bundler = async () => {
   // const servePort = await getPort({
   //   port: [params.port, 61001, 62002, 62003, 62004, 62005],
   // });
@@ -26,8 +26,8 @@ const bundler = async (/*params: ServeParamsT*/) => {
         src: { url: "/temp" },
       },
       plugins: [
-        "@snowpack/plugin-react-refresh",
         path.join(__dirname, "./snowpack-plugin.js"),
+        "@snowpack/plugin-react-refresh",
       ],
       devOptions: {
         output: "stream",

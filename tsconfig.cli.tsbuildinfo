@@ -687,7 +687,7 @@
         "affectsGlobalScope": false
       },
       "./lib/cli/dev-bundler.ts": {
-        "version": "63b18ce49e18b58566fd8e14a2b6a0b9484acf8637bf62b6e91114d70b75f10e",
+        "version": "744176c660a87f4123d63fd91b45b3bf9917dbe08d6a0e16948560d5016a79c8",
         "signature": "9772e03ec94894c89738fafea7bcb2d9e0592556d652abbfe380e7015f82a1e4",
         "affectsGlobalScope": false
       },
@@ -712,7 +712,7 @@
         "affectsGlobalScope": false
       },
       "./lib/cli/snowpack-plugin.ts": {
-        "version": "e9b8a628a3c0b322ce62455caf0e27b2ce68d58248860c3740d5670dcc2ec64c",
+        "version": "e90621669f673d18065c7c775e7d60f5581729530eef35f38417ceab379d2d98",
         "signature": "3f754dcec758f80e2e9bb913690421fdcc0f6de55f0be56f75b954db08653df5",
         "affectsGlobalScope": false
       },
@@ -4642,7 +4642,7 @@
         [
           {
             "file": "./lib/cli/dev-bundler.ts",
-            "start": 1129,
+            "start": 1105,
             "length": 13,
             "code": 2345,
             "category": 1,
@@ -4673,6 +4673,71 @@
       "./lib/cli/prepare-files.ts",
       "./lib/cli/prod-bundler.ts",
       "./lib/cli/serve.ts",
+      [
+        "./lib/cli/snowpack-plugin.ts",
+        [
+          {
+            "file": "./lib/cli/snowpack-plugin.ts",
+            "start": 148,
+            "length": 12,
+            "code": 7016,
+            "category": 1,
+            "messageText": {
+              "messageText": "Could not find a declaration file for module 'micromatch'. '/Users/vojtech/Projects/fastbook/node_modules/micromatch/index.js' implicitly has an 'any' type.",
+              "category": 1,
+              "code": 7016,
+              "next": [
+                {
+                  "messageText": "Try `npm install @types/micromatch` if it exists or add a new declaration (.d.ts) file containing `declare module 'micromatch';`",
+                  "category": 1,
+                  "code": 7035
+                }
+              ]
+            }
+          },
+          {
+            "file": "./lib/cli/snowpack-plugin.ts",
+            "start": 487,
+            "length": 7,
+            "messageText": "'fileExt' is declared but its value is never read.",
+            "category": 1,
+            "code": 6133,
+            "reportsUnnecessary": true
+          },
+          {
+            "file": "./lib/cli/snowpack-plugin.ts",
+            "start": 487,
+            "length": 7,
+            "messageText": "Binding element 'fileExt' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7031
+          },
+          {
+            "file": "./lib/cli/snowpack-plugin.ts",
+            "start": 496,
+            "length": 2,
+            "messageText": "Binding element 'id' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7031
+          },
+          {
+            "file": "./lib/cli/snowpack-plugin.ts",
+            "start": 782,
+            "length": 8,
+            "messageText": "Binding element 'filePath' implicitly has an 'any' type.",
+            "category": 1,
+            "code": 7031
+          },
+          {
+            "file": "./lib/cli/snowpack-plugin.ts",
+            "start": 1071,
+            "length": 11,
+            "code": 2339,
+            "category": 1,
+            "messageText": "Property 'markChanged' does not exist on type '{ name: string; transform({ fileExt, id }: { fileExt: any; id: any; }): Promise<string | undefined>; onChange({ filePath }: { filePath: any; }): Promise<void>; }'."
+          }
+        ]
+      ],
       "./lib/cli/types.ts",
       "./lib/cli/utils.ts",
       "./node_modules/@babel/parser/typings/babel-parser.d.ts",
