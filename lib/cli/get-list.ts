@@ -116,15 +116,6 @@ const getList = async (entries: string[], cacheDir: string) => {
       },
     });
   }
-  let reloads = "";
-  stories.forEach((story) => {
-    const enc = story.replace(
-      new RegExp(storyDelimiter, "g"),
-      storyEncodeDelimiter
-    );
-    reloads += `${enc} = module.${enc};\n`;
-  });
-  //return `${output}\nexport default ${JSON.stringify(stories)}`;
   const hot = `if (import.meta.hot) {
     import.meta.hot.accept(({ module }) => {
       if (module.list.every(item => list.includes(item))) {
