@@ -1,13 +1,12 @@
 import React, { Suspense } from "react";
 import queryString from "query-string";
 //@ts-ignore
-import { stories as maybeStories } from "./generated-list";
+import { stories, list } from "./generated-list";
 import Navigation from "./navigation";
 // import Extensions from "./extensions";
 import history from "./history";
 import ErrorBoundary from "./error-boundary";
-
-const stories: any = maybeStories ? maybeStories : {};
+//import { encodeDelToDel, delToEncodeDel } from "./story-name";
 
 // const emitter = new Emittery();
 // const STORY_IMPORTED = "story-imported";
@@ -32,7 +31,7 @@ const App: React.FC = () => {
   //     emitter.off(STORY_IMPORTED, setData);
   //   };
   // });
-  const firstStory = Object.keys(stories)[0];
+  const firstStory = list[0];
   const [activeStory, setActiveStory] = React.useState(
     getQueryStory(location.search)
   );
@@ -67,7 +66,7 @@ const App: React.FC = () => {
           </ErrorBoundary>
         )}
       </main>
-      <Navigation stories={Object.keys(stories)} activeStory={activeStory} />
+      <Navigation stories={list} activeStory={activeStory} />
       {/* <Extensions /> */}
     </div>
   );

@@ -20,9 +20,6 @@ const bundler = async () => {
         path.join(__dirname, "./snowpack-plugin.js"),
         "@snowpack/plugin-react-refresh",
       ],
-      devOptions: {
-        output: "stream" as any,
-      },
     };
     const config = createConfiguration(bundlerConfig)[1] as SnowpackConfig;
     await startDevServer({ config, lockfile: null, cwd: process.cwd() });

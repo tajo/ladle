@@ -22,7 +22,6 @@ const Plugin = (): SnowpackPlugin => {
     async transform({ id }) {
       if (id.includes("generated-list.")) {
         listId = id.replace(".js", ".ts");
-        console.log("transforming list");
         if (listContent === "") {
           await genList();
         }
@@ -31,7 +30,6 @@ const Plugin = (): SnowpackPlugin => {
       return;
     },
     async onChange({ filePath }) {
-      console.log("onchange", filePath);
       if (
         micromatch.isMatch(filePath.replace(`${process.cwd()}/`, ""), storyGlob)
       ) {
@@ -39,6 +37,8 @@ const Plugin = (): SnowpackPlugin => {
         await genList();
         if (prevListContent !== listContent) {
           this.markChanged && this.markChanged(listId);
+          this.markChanged &&
+            this.markChanged(listId.replace("generated-list.ts", "app.tsx"));
         }
       }
     },

@@ -10,6 +10,7 @@ import {
   getEncodedStoryName,
   storyDelimiter,
   storyEncodeDelimiter,
+  //capitalize,
 } from "../app/src/story-name";
 import { kebabCase } from "./utils";
 
@@ -46,7 +47,7 @@ const plugins: ParserPlugin[] = [
 const getStories = (stories: string[]) => {
   return generate(
     t.exportNamedDeclaration(
-      t.variableDeclaration("const", [
+      t.variableDeclaration("let", [
         t.variableDeclarator(
           t.identifier("stories"),
           t.objectExpression(
@@ -76,7 +77,7 @@ const getStories = (stories: string[]) => {
 const getList = async (entries: string[], cacheDir: string) => {
   let output = `import { lazy } from "react";\n`;
   const lazyImport = template(`
-    const %%component%% = lazy(() =>
+    export var %%component%% = lazy(() =>
      import(%%source%%).then((module) => {
         return { default: module.%%story%% };
       })
@@ -100,21 +101,44 @@ const getList = async (entries: string[], cacheDir: string) => {
           fileId
         )}${storyDelimiter}${storyDelimiter}${kebabCase(storyName)}`;
         stories.push(storyId);
+        const componentName = getEncodedStoryName(
+          kebabCase(fileId),
+          kebabCase(storyName)
+        );
         const ast = lazyImport({
           source: t.stringLiteral(
             path.join(path.relative(path.join(cacheDir), process.cwd()), entry)
           ),
-          component: t.identifier(
-            getEncodedStoryName(kebabCase(fileId), kebabCase(storyName))
-          ),
+          component: t.identifier(componentName),
           story: t.identifier(storyName),
         });
         output += `\n${generate(ast as any).code}`;
       },
     });
   }
+  let reloads = "";
+  stories.forEach((story) => {
+    const enc = story.replace(
+      new RegExp(storyDelimiter, "g"),
+      storyEncodeDelimiter
+    );
+    reloads += `${enc} = module.${enc};\n`;
+  });
+  //return `${output}\nexport default ${JSON.stringify(stories)}`;
+  const hot = `if (import.meta.hot) {
+    import.meta.hot.accept(({ module }) => {
+      if (module.list.every(item => list.includes(item))) {
+        stories = module.stories;
+        list = module.list;
+      } else {
+        // full refresh when new stories are added
+        // todo, can dynamic import + React Refresh work?
+        import.meta.hot.invalidate();
+      }
+    });
+  }`;
   output += `\n\n${getStories(stories)}`;
-  return output;
+  return `${output}\nexport let list = ${JSON.stringify(stories)}\n${hot}`;
 };
 
 export default getList;

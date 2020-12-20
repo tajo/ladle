@@ -3,7 +3,15 @@ import type { StoryTreeT } from "../../cli/types";
 export const storyDelimiter = "-";
 export const storyEncodeDelimiter = "$";
 
-const capitalize = (s: string) => {
+export const encodeDelToDel = (s: string) =>
+  s
+    .toLocaleLowerCase()
+    .replace(new RegExp(`\\${storyEncodeDelimiter}`, "g"), storyDelimiter);
+
+export const delToEncodeDel = (s: string) =>
+  capitalize(s.replace(new RegExp(storyDelimiter, "g"), storyEncodeDelimiter));
+
+export const capitalize = (s: string) => {
   if (typeof s !== "string") return "";
   return s.charAt(0).toUpperCase() + s.slice(1);
 };
