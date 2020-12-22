@@ -6,7 +6,6 @@ import Navigation from "./navigation";
 import Extensions from "./extensions";
 import history from "./history";
 import ErrorBoundary from "./error-boundary";
-//import { encodeDelToDel, delToEncodeDel } from "./story-name";
 
 // const emitter = new Emittery();
 // const STORY_IMPORTED = "story-imported";
