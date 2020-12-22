@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
-import prodBundler from "./prod-bundler";
+import snowpackProd from "./snowpack-prod";
+import type { BuildParamsT } from "./types";
 
-const build = async () => {
-  await prodBundler();
+const build = async (params: BuildParamsT) => {
+  await snowpackProd(params);
   process.exit(0);
 };
 

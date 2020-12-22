@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-import devBundler from "./dev-bundler";
-import { DevParamsT } from "./types";
+import snowpackDev from "./snowpack-dev";
+import type { DevParamsT } from "./types";
 
 const serve = async (params: DevParamsT) => {
   process.env["SNOWPACK_PUBLIC_LADLE_THEME"] = params.theme;
-  await devBundler(params);
+  await snowpackDev(params);
 };
 
 export default serve;

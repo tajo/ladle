@@ -32,6 +32,7 @@ program
     "output directory",
     path.join(process.cwd(), "build")
   )
+  .option("--theme [string]", "theme (light, dark, auto)", "light")
   .version(packageJson.version)
   .action(build);
 

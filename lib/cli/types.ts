@@ -24,4 +24,9 @@ export type DevParamsT = {
 export type BuildParamsT = {
   stories: string;
   outDir: string;
+  theme: ThemeT;
+};
+
+export type PluginOptionsT = {
+  storyGlob: string;
 };

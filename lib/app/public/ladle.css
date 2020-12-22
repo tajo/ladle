@@ -1,34 +1,16 @@
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg-color-primary: #fff;
-    --bg-color-secondary: #f6f6f6;
-    --bg-color-tertiary: #eee;
-    --color-primary: #000;
-    --color-hover: #545454;
-  }
-  [data-theme="dark"] {
-    --bg-color-primary: #141414;
-    --bg-color-secondary: #1f1f1f;
-    --bg-color-tertiary: #333333;
-    --color-primary: #f6f6f6;
-    --color-hover: #e2e2e2;
-  }
+:root {
+  --bg-color-primary: #fff;
+  --bg-color-secondary: #f6f6f6;
+  --bg-color-tertiary: #eee;
+  --color-primary: #000;
+  --color-hover: #545454;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color-primary: #141414;
-    --bg-color-secondary: #1f1f1f;
-    --bg-color-tertiary: #333333;
-    --color-primary: #f6f6f6;
-    --color-hover: #e2e2e2;
-  }
-  [data-theme="light"] {
-    --bg-color-primary: #fff;
-    --bg-color-secondary: #f6f6f6;
-    --bg-color-tertiary: #eee;
-    --color-primary: #000;
-    --color-hover: #545454;
-  }
+[data-theme="dark"] {
+  --bg-color-primary: #141414;
+  --bg-color-secondary: #1f1f1f;
+  --bg-color-tertiary: #333333;
+  --color-primary: #f6f6f6;
+  --color-hover: #e2e2e2;
 }
 
 .ladle-wrapper,

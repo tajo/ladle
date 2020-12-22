@@ -1,15 +1,19 @@
 import globby from "globby";
 import micromatch from "micromatch";
-import { SnowpackPlugin } from "snowpack";
+import { SnowpackPlugin, SnowpackConfig } from "snowpack";
 import getList from "./get-list";
 import { storyGlob } from "./const";
+import type { PluginOptionsT } from "./types";
 
-const Plugin = (): SnowpackPlugin => {
+const Plugin = (
+  _: SnowpackConfig,
+  pluginOptions: PluginOptionsT
+): SnowpackPlugin => {
   let listId = "";
   let listContent = "";
 
   const genList = async () => {
-    const entries = await globby([storyGlob]);
+    const entries = await globby([pluginOptions.storyGlob]);
     listContent = await getList(entries);
   };
 

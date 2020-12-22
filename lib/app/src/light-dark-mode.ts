@@ -1,5 +1,4 @@
 // @ts-ignore
-console.log(window.matchMedia("(prefers-color-scheme: dark)"));
 const buildTheme = import.meta.env.SNOWPACK_PUBLIC_LADLE_THEME;
 const currentTheme = localStorage.getItem("ladle_theme");
 if (!currentTheme) {
