@@ -1,6 +1,6 @@
-// this is a continuously running script for developers of fastbook
+// this is a continuously running script for developers of ladle
 // it watches changes in /libs, compiles typescript and copies files
-// .fastbook/app cach, similar to tsc-watch
+// .ladle/app cach, similar to tsc-watch
 
 const chokidar = require("chokidar");
 const util = require("util");
@@ -9,8 +9,6 @@ const cpy = require("cpy");
 const { promises: fs } = require("fs");
 
 let initialScanComplete = false;
-
-const cachePath = `${process.cwd()}/.fastbook/app`;
 
 const update = async () => {
   console.log("tsc: start");

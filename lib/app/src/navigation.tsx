@@ -34,7 +34,7 @@ const Navigation: React.FC<{ stories: string[]; activeStory: string }> = ({
   );
   console.log(getStoryTree(filteredStories));
   return (
-    <aside className="fstbk-aside">
+    <aside className="ladle-aside">
       <input
         placeholder="Search stories"
         value={search}
@@ -66,8 +66,8 @@ const NavigationSection: React.FC<{
             <li
               key={treeProps.id}
               className={cx({
-                "fstbk-linkable": treeProps.isLinkable,
-                "fstbk-active": treeProps.id === activeStory,
+                "ladle-linkable": treeProps.isLinkable,
+                "ladle-active": treeProps.id === activeStory,
               })}
               style={!treeProps.isLinkable ? { marginTop: "0.5em" } : {}}
             >

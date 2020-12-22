@@ -22,7 +22,7 @@ program
   .option(
     "--cache-dir <path>",
     "cache directory",
-    path.join(process.cwd(), ".fastbook")
+    path.join(process.cwd(), ".ladle")
   )
   .version(packageJson.version)
   .action(serve);
@@ -39,7 +39,7 @@ program
   .option(
     "--cache-dir <path>",
     "cache directory",
-    path.join(process.cwd(), ".fastbook")
+    path.join(process.cwd(), ".ladle")
   )
   .version(packageJson.version)
   .action(build);

@@ -31,26 +31,26 @@
   }
 }
 
-.fstbk-wrapper,
+.ladle-wrapper,
 html,
 body {
   height: 100%;
   background-color: var(--bg-color-secondary);
   margin: 0;
 }
-.fstbk-wrapper {
+.ladle-wrapper {
   display: flex;
   flex-direction: column;
 }
 
-.fstbk-main {
+.ladle-main {
   background-color: var(--bg-color-primary);
   flex: 1 1 auto;
   overflow: auto;
   padding: 1em;
 }
 
-.fstbk-aside {
+.ladle-aside {
   font-family: Arial, Helvetica, sans-serif;
   background-color: var(--bg-color-secondary);
   color: var(--color-primary);
@@ -58,7 +58,7 @@ body {
   padding: 1em;
 }
 
-.fstbk-aside input {
+.ladle-aside input {
   padding: 0.5em 0em;
   width: 100%;
   border-top: 0;
@@ -72,22 +72,22 @@ body {
   margin-bottom: 0.5em;
 }
 
-.fstbk-aside input:focus {
+.ladle-aside input:focus {
   outline: none;
   border-color: var(--color-primary);
 }
 
-.fstbk-aside ul {
+.ladle-aside ul {
   padding: 0;
   margin: 0 0.75em 0 0.75em;
 }
 
-.fstbk-aside li {
+.ladle-aside li {
   list-style-type: none;
   margin: 0.35em 0.35em;
 }
 
-.fstbk-aside a {
+.ladle-aside a {
   text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
@@ -95,15 +95,15 @@ body {
   color: var(--color-primary);
 }
 
-.fstbk-aside a:hover {
+.ladle-aside a:hover {
   color: var(--color-hover);
 }
 
-.fstbk-aside .fstbk-active a {
+.ladle-aside .ladle-active a {
   font-weight: 700;
 }
 
-.fstbk-extensions {
+.ladle-extensions {
   font-family: Arial, Helvetica, sans-serif;
   background-color: var(--bg-color-secondary);
   color: var(--color-primary);
@@ -111,12 +111,12 @@ body {
   padding: 0 0.5em;
 }
 
-.fstbk-extensions ul {
+.ladle-extensions ul {
   padding: 0;
   margin: 1em;
 }
 
-.fstbk-extensions li {
+.ladle-extensions li {
   list-style-type: none;
   float: left;
   margin: 0.5em;
@@ -132,39 +132,39 @@ body {
   align-items: center;
 }
 
-.fstbk-extensions li:hover {
+.ladle-extensions li:hover {
   cursor: pointer;
   background-color: var(--bg-color-secondary);
   box-shadow: none;
 }
 
 @media (min-width: 768px) {
-  .fstbk-wrapper,
+  .ladle-wrapper,
   html,
   body {
     height: 100vh;
     margin: 0;
   }
-  .fstbk-wrapper {
+  .ladle-wrapper {
     flex-direction: row;
   }
 
-  .fstbk-main {
+  .ladle-main {
     padding: 3em;
   }
 
-  .fstbk-aside {
+  .ladle-aside {
     flex: 0 0 12em;
     padding: 3em 2.5em;
     min-width: 15em;
   }
 
-  .fstbk-extensions ul {
+  .ladle-extensions ul {
     padding: 0;
     margin: 0;
   }
 
-  .fstbk-extensions li {
+  .ladle-extensions li {
     float: none;
     margin: 1em;
   }

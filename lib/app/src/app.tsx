@@ -52,8 +52,8 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="fstbk-wrapper">
-      <main className="fstbk-main">
+    <div className="ladle-wrapper">
+      <main className="ladle-main">
         {activeStory && (
           <ErrorBoundary>
             <Suspense fallback={null}>

@@ -10,7 +10,7 @@ const bundler = async () => {
         "lib/app/public/": { url: "/", static: false },
         "lib/app/src": { url: "/temp" },
         src: { url: "/temp" },
-        ".fastbook": { url: "/temp" },
+        ".ladle": { url: "/temp" },
       },
       buildOptions: {
         clean: true,

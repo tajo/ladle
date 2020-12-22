@@ -1,7 +1,7 @@
 import * as React from "react";
 
 const Extensions: React.FC<{}> = () => (
-  <aside className="fstbk-extensions">
+  <aside className="ladle-extensions">
     <ul>
       <li
         onClick={() => {

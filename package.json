@@ -1,16 +1,19 @@
 {
-  "name": "fastbook",
+  "name": "@ladle/cli",
   "version": "0.0.3",
   "author": "vojtech@miksu.cz",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist"
   ],
   "bin": {
-    "fastbook": "./dist/cli.js"
+    "ladle": "./dist/cli.js"
   },
   "scripts": {
-    "clean": "rimraf dist && rimraf .fastbook && rimraf build && rimraf *.tsbuildinfo",
+    "clean": "rimraf dist && rimraf .ladle && rimraf build && rimraf *.tsbuildinfo",
     "cli": "node ./dist/cli/cli",
     "dev": "node scripts/dev-watch",
     "test": "jest"
