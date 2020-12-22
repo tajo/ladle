@@ -5,35 +5,12 @@ const Extensions: React.FC<{}> = () => (
     <ul>
       <li
         onClick={() => {
-          const currentTheme = localStorage.getItem("theme");
-          const prefersDarkScheme = window.matchMedia(
-            "(prefers-color-scheme: dark)"
-          );
-
-          if (currentTheme !== "light" && currentTheme !== "dark") {
-            if (prefersDarkScheme.matches) {
-              document.documentElement.setAttribute("data-theme", "light");
-              localStorage.setItem("theme", "light");
-            } else {
-              document.documentElement.setAttribute("data-theme", "dark");
-              localStorage.setItem("theme", "dark");
-            }
-          } else if (currentTheme === "light") {
-            if (prefersDarkScheme.matches) {
-              document.documentElement.removeAttribute("data-theme");
-              localStorage.removeItem("theme");
-            } else {
-              document.documentElement.setAttribute("data-theme", "dark");
-              localStorage.setItem("theme", "dark");
-            }
+          if (localStorage.getItem("ladle_theme") === "light") {
+            document.documentElement.setAttribute("data-theme", "dark");
+            localStorage.setItem("ladle_theme", "dark");
           } else {
-            if (prefersDarkScheme.matches) {
-              document.documentElement.setAttribute("data-theme", "light");
-              localStorage.setItem("theme", "light");
-            } else {
-              document.documentElement.removeAttribute("data-theme");
-              localStorage.removeItem("theme");
-            }
+            document.documentElement.setAttribute("data-theme", "light");
+            localStorage.setItem("ladle_theme", "light");
           }
         }}
       >

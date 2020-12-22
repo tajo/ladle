@@ -3,7 +3,7 @@ import queryString from "query-string";
 //@ts-ignore
 import { stories, list } from "./generated-list";
 import Navigation from "./navigation";
-// import Extensions from "./extensions";
+import Extensions from "./extensions";
 import history from "./history";
 import ErrorBoundary from "./error-boundary";
 //import { encodeDelToDel, delToEncodeDel } from "./story-name";
@@ -67,7 +67,7 @@ const App: React.FC = () => {
         )}
       </main>
       <Navigation stories={list} activeStory={activeStory} />
-      {/* <Extensions /> */}
+      <Extensions />
     </div>
   );
 };

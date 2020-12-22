@@ -1,9 +1,8 @@
-import path from "path";
-import getList from "./get-list";
-import { storyGlob } from "./const";
 import globby from "globby";
 import micromatch from "micromatch";
 import { SnowpackPlugin } from "snowpack";
+import getList from "./get-list";
+import { storyGlob } from "./const";
 
 const Plugin = (): SnowpackPlugin => {
   let listId = "";
@@ -11,10 +10,7 @@ const Plugin = (): SnowpackPlugin => {
 
   const genList = async () => {
     const entries = await globby([storyGlob]);
-    listContent = await getList(
-      entries,
-      path.join(process.cwd(), "dist/app/src")
-    );
+    listContent = await getList(entries);
   };
 
   return {

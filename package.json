@@ -7,15 +7,19 @@
     "access": "public"
   },
   "files": [
-    "dist"
+    "dist",
+    "lib"
   ],
   "bin": {
     "ladle": "./dist/cli.js"
   },
   "scripts": {
-    "clean": "rimraf dist && rimraf .ladle && rimraf build && rimraf *.tsbuildinfo",
     "cli": "node ./dist/cli/cli",
-    "dev": "node scripts/dev-watch",
+    "clean": "rimraf dist && rimraf .ladle && rimraf build && rimraf *.tsbuildinfo",
+    "build": "node ./dist/cli/cli build",
+    "dev": "node ./dist/cli/cli dev",
+    "lib-build": "tsc --project tsconfig.cli.json",
+    "lib-dev": "tsc --project tsconfig.cli.json --watch",
     "test": "jest"
   },
   "dependencies": {

@@ -1,31 +1,27 @@
 #!/usr/bin/env node
-
 import program from "commander";
-import serve from "./serve";
+import dev from "./dev";
 import build from "./build";
 import path from "path";
 // @ts-ignore
 import packageJson from "../../package.json";
 import { storyGlob } from "./const";
 
+const strToInt = (n: string) => parseInt(n, 10);
+
 program
-  .command("serve")
+  .command("dev")
   .description("start developing")
   .option("-s, --stories [string]", "glob to find stories", storyGlob)
   .option(
     "-p, --port [number]",
     "port to serve the application",
-    parseInt,
+    strToInt,
     61000
   )
-  .option("--hotPort [number]", "port for hot reload", parseInt, 1234)
-  .option(
-    "--cache-dir <path>",
-    "cache directory",
-    path.join(process.cwd(), ".ladle")
-  )
+  .option("--theme [string]", "theme (light, dark, auto)", "light")
   .version(packageJson.version)
-  .action(serve);
+  .action(dev);
 
 program
   .command("build")
@@ -35,11 +31,6 @@ program
     "-o, --out-dir <path>",
     "output directory",
     path.join(process.cwd(), "build")
-  )
-  .option(
-    "--cache-dir <path>",
-    "cache directory",
-    path.join(process.cwd(), ".ladle")
   )
   .version(packageJson.version)
   .action(build);

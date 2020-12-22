@@ -1,13 +1,12 @@
 import { startDevServer, createConfiguration, SnowpackConfig } from "snowpack";
+import getPort from "get-port";
 import path from "path";
+import { DevParamsT } from "./types";
 
-const bundler = async () => {
-  // const servePort = await getPort({
-  //   port: [params.port, 61001, 62002, 62003, 62004, 62005],
-  // });
-  // const hotPort = await getPort({
-  //   port: [params.hotPort, 1235, 1236, 1237, 1238, 1239],
-  // });
+const bundler = async (params: DevParamsT) => {
+  const port = await getPort({
+    port: [params.port, 61001, 62002, 62003, 62004, 62005],
+  });
   try {
     const bundlerConfig = {
       mount: {
@@ -20,6 +19,9 @@ const bundler = async () => {
         path.join(__dirname, "./snowpack-plugin.js"),
         "@snowpack/plugin-react-refresh",
       ],
+      devOptions: {
+        port,
+      },
     };
     const config = createConfiguration(bundlerConfig)[1] as SnowpackConfig;
     await startDevServer({ config, lockfile: null, cwd: process.cwd() });

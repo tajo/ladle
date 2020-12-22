@@ -10,8 +10,8 @@ import {
   getEncodedStoryName,
   storyDelimiter,
   storyEncodeDelimiter,
-  //capitalize,
 } from "../app/src/story-name";
+import { appSrcDir } from "./const";
 import { kebabCase } from "./utils";
 
 const plugins: ParserPlugin[] = [
@@ -74,7 +74,7 @@ const getStories = (stories: string[]) => {
   ).code;
 };
 
-const getList = async (entries: string[], cacheDir: string) => {
+const getList = async (entries: string[]) => {
   let output = `import { lazy } from "react";\n`;
   const lazyImport = template(`
     export var %%component%% = lazy(() =>
@@ -107,7 +107,7 @@ const getList = async (entries: string[], cacheDir: string) => {
         );
         const ast = lazyImport({
           source: t.stringLiteral(
-            path.join(path.relative(path.join(cacheDir), process.cwd()), entry)
+            path.join(path.relative(appSrcDir, process.cwd()), entry)
           ),
           component: t.identifier(componentName),
           story: t.identifier(storyName),

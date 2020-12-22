@@ -13,15 +13,15 @@ export type GeneratedStoriesT = {
   };
 };
 
-export type ServeParamsT = {
+export type ThemeT = "light" | "dark" | "auto";
+
+export type DevParamsT = {
   stories: string;
   port: number;
-  hotPort: number;
-  cacheDir: string;
+  theme: ThemeT;
 };
 
 export type BuildParamsT = {
   stories: string;
-  cacheDir: string;
   outDir: string;
 };
