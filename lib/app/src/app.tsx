@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import queryString from "query-string";
 //@ts-ignore
-import { stories, list } from "./generated-list";
+import { stories } from "./generated-list";
 import Navigation from "./navigation";
 import Extensions from "./extensions";
 import history from "./history";
@@ -30,7 +30,7 @@ const App: React.FC = () => {
   //     emitter.off(STORY_IMPORTED, setData);
   //   };
   // });
-  const firstStory = list[0];
+  const firstStory = Object.keys(stories)[0];
   const [activeStory, setActiveStory] = React.useState(
     getQueryStory(location.search)
   );
@@ -65,7 +65,7 @@ const App: React.FC = () => {
           </ErrorBoundary>
         )}
       </main>
-      <Navigation stories={list} activeStory={activeStory} />
+      <Navigation stories={Object.keys(stories)} activeStory={activeStory} />
       <Extensions />
     </div>
   );

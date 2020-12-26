@@ -74,10 +74,10 @@ const getStories = (stories: string[]) => {
   ).code;
 };
 
-const getList = async (entries: string[]) => {
+export const getList = async (entries: string[]) => {
   let output = `import { lazy } from "react";\n`;
   const lazyImport = template(`
-    export var %%component%% = lazy(() =>
+    const %%component%% = lazy(() =>
      import(%%source%%).then((module) => {
         return { default: module.%%story%% };
       })
@@ -116,11 +116,14 @@ const getList = async (entries: string[]) => {
       },
     });
   }
+  return `${output}\n\n${getStories(stories)}`;
+};
+
+export const getListWithHmr = async (entries: string[]) => {
   const hot = `if (import.meta.hot) {
     import.meta.hot.accept(({ module }) => {
-      if (module.list.every(item => list.includes(item))) {
+      if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
         stories = module.stories;
-        list = module.list;
       } else {
         // full refresh when new stories are added
         // todo, can dynamic import + React Refresh work?
@@ -128,8 +131,5 @@ const getList = async (entries: string[]) => {
       }
     });
   }`;
-  output += `\n\n${getStories(stories)}`;
-  return `${output}\nexport let list = ${JSON.stringify(stories)}\n${hot}`;
+  return `${await getList(entries)}\n${hot}`;
 };
-
-export default getList;

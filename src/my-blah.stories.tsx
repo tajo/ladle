@@ -1,14 +1,14 @@
 import * as React from "react";
 
 export default {
-  title: "This is my titlee",
+  title: "This is my title",
 };
 
 export const Middle: React.FC = () => {
   const [val, setVal] = React.useState(true);
   return (
     <div>
-      <h1>!Middle eeee lol strange omg asd haha</h1>
+      <h1>Middle eeee lol strange omg asd haha</h1>
       <button onClick={() => setVal(false)}>
         button {val ? "true" : "false"}
       </button>

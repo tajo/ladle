@@ -1,4 +1,4 @@
-import getList from "../lib/get-list";
+import { getList } from "../lib/cli/get-list";
 
 test("Single file with two stories", async () => {
   expect(
