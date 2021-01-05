@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import program from "commander";
-import dev from "./dev";
+import serve from "./serve";
 import build from "./build";
 import path from "path";
 // @ts-ignore
@@ -10,7 +10,7 @@ import { storyGlob } from "./const";
 const strToInt = (n: string) => parseInt(n, 10);
 
 program
-  .command("dev")
+  .command("serve")
   .description("start developing")
   .option("-s, --stories [string]", "glob to find stories", storyGlob)
   .option(
@@ -21,7 +21,7 @@ program
   )
   .option("--theme [string]", "theme (light, dark, auto)", "light")
   .version(packageJson.version)
-  .action(dev);
+  .action(serve);
 
 program
   .command("build")
