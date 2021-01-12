@@ -1,4 +1,3 @@
-import { parse, ParserPlugin } from "@babel/parser";
 import traverse from "@babel/traverse";
 import template from "@babel/template";
 import generate from "@babel/generator";
@@ -10,39 +9,12 @@ import {
   getEncodedStoryName,
   storyDelimiter,
   storyEncodeDelimiter,
-} from "../app/src/story-name";
-import { appSrcDir } from "./const";
-import { kebabCase } from "./utils";
-
-const plugins: ParserPlugin[] = [
-  "jsx",
-  "asyncGenerators",
-  "classProperties",
-  "classPrivateProperties",
-  "classPrivateMethods",
-  [
-    "decorators",
-    {
-      decoratorsBeforeExport: true,
-    },
-  ],
-  "doExpressions",
-  "dynamicImport",
-  "exportDefaultFrom",
-  "exportNamespaceFrom",
-  "functionBind",
-  "functionSent",
-  "importMeta",
-  "logicalAssignment",
-  "nullishCoalescingOperator",
-  "numericSeparator",
-  "objectRestSpread",
-  "optionalCatchBinding",
-  "optionalChaining",
-  "partialApplication",
-  "throwExpressions",
-  "topLevelAwait",
-];
+  titleToFileId,
+} from "../../app/src/story-name";
+import { appSrcDir } from "../const";
+import { kebabCase } from "../utils";
+import getAst from "./get-ast";
+import { converter } from "./ast-to-obj";
 
 const getStories = (stories: string[]) => {
   return generate(
@@ -85,24 +57,35 @@ export const getList = async (entries: string[]) => {
   `);
   const stories: string[] = [];
   for (let entry of entries) {
+    let exportDefaultProps: any = null;
+    let exportDefault: any = null;
     const fileId = getFileId(entry);
     const code = await fs.readFile(path.join("./", entry), "utf8");
-    const ast = parse(code, {
-      sourceType: "module",
-      plugins: [
-        ...plugins,
-        entry.endsWith(".ts") || entry.endsWith(".tsx") ? "typescript" : "flow",
-      ],
-    });
+    const ast = getAst(code, entry);
     traverse(ast, {
+      ExportDefaultDeclaration(astPath: any) {
+        if (!astPath) return;
+        exportDefault = astPath.node.declaration;
+        try {
+          const obj = converter(exportDefault);
+          const json = JSON.stringify(obj);
+          exportDefaultProps = JSON.parse(json);
+        } catch (e) {
+          console.warn("Default export parsing failed.");
+        }
+      },
       ExportNamedDeclaration: (astPath: any) => {
         const storyName = astPath.node.declaration.declarations[0].id.name;
+        let storyNamespace = fileId;
+        if (exportDefaultProps && exportDefaultProps.title) {
+          storyNamespace = titleToFileId(exportDefaultProps.title);
+        }
         const storyId = `${kebabCase(
-          fileId
+          storyNamespace
         )}${storyDelimiter}${storyDelimiter}${kebabCase(storyName)}`;
         stories.push(storyId);
         const componentName = getEncodedStoryName(
-          kebabCase(fileId),
+          kebabCase(storyNamespace),
           kebabCase(storyName)
         );
         const ast = lazyImport({

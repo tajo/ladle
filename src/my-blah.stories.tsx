@@ -1,7 +1,11 @@
 import * as React from "react";
 
 export default {
-  title: "This is my title",
+  title: "Big Blah / Ruck",
+  parameters: {
+    baseweb: "test",
+    browsers: ["chrome"],
+  },
 };
 
 export const Middle: React.FC = () => {

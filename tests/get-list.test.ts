@@ -1,4 +1,4 @@
-import { getList } from "../lib/cli/get-list";
+import { getList } from "../lib/cli/ast/get-list";
 
 test("Single file with two stories", async () => {
   expect(
@@ -21,5 +21,11 @@ test("Capital letters in the filename converted into delimiters", async () => {
 test("Turn file name delimiters into spaces and levels correctly", async () => {
   expect(
     await getList(["./tests/fixtures/our-animals--mammals.stories.tsx"])
+  ).toMatchSnapshot();
+});
+
+test("Default title is used instead of the file name", async () => {
+  expect(
+    await getList(["./tests/fixtures/default-title.stories.tsx"])
   ).toMatchSnapshot();
 });

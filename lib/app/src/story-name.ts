@@ -3,6 +3,12 @@ import type { StoryTreeT } from "../../cli/types";
 export const storyDelimiter = "-";
 export const storyEncodeDelimiter = "$";
 
+export const titleToFileId = (title: string) =>
+  title
+    .toLocaleLowerCase()
+    .replace(/\s*\/\s*/g, `${storyDelimiter}${storyDelimiter}`)
+    .replace(/\s+/g, storyDelimiter);
+
 export const encodeDelToDel = (s: string) =>
   s
     .toLocaleLowerCase()

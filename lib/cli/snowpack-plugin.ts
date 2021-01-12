@@ -1,7 +1,7 @@
 import globby from "globby";
 import micromatch from "micromatch";
 import { SnowpackPlugin, SnowpackConfig } from "snowpack";
-import { getListWithHmr } from "./get-list";
+import { getListWithHmr } from "./ast/get-list";
 import { storyGlob } from "./const";
 import type { PluginOptionsT } from "./types";
 
