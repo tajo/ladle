@@ -16,15 +16,24 @@ import { kebabCase } from "../utils";
 import getAst from "./get-ast";
 import { converter } from "./ast-to-obj";
 
-const getStories = (stories: string[]) => {
+const getStories = (stories: string[], storiesParams: any) => {
   return generate(
     t.exportNamedDeclaration(
       t.variableDeclaration("let", [
         t.variableDeclarator(
           t.identifier("stories"),
           t.objectExpression(
-            stories.map((story) =>
-              t.objectProperty(
+            stories.map((story) => {
+              let paramsAst: any = null;
+              if (storiesParams[story]) {
+                paramsAst = t.objectProperty(
+                  t.identifier("parameters"),
+                  (template.ast(
+                    `const foo = ${JSON.stringify(storiesParams[story])}`
+                  ) as any).declarations[0].init
+                );
+              }
+              return t.objectProperty(
                 t.stringLiteral(story),
                 t.objectExpression([
                   t.objectProperty(
@@ -36,9 +45,10 @@ const getStories = (stories: string[]) => {
                       )
                     )
                   ),
+                  ...(paramsAst ? [paramsAst] : []),
                 ])
-              )
-            )
+              );
+            })
           )
         ),
       ])
@@ -56,9 +66,9 @@ export const getList = async (entries: string[]) => {
     );
   `);
   const stories: string[] = [];
+  const storiesParams: any = {};
   for (let entry of entries) {
     let exportDefaultProps: any = null;
-    let exportDefault: any = null;
     const namedExportToStoryName: { [key: string]: string } = {};
     const fileId = getFileId(entry);
     const code = await fs.readFile(path.join("./", entry), "utf8");
@@ -84,9 +94,8 @@ export const getList = async (entries: string[]) => {
       },
       ExportDefaultDeclaration(astPath: any) {
         if (!astPath) return;
-        exportDefault = astPath.node.declaration;
         try {
-          const obj = converter(exportDefault);
+          const obj = converter(astPath.node.declaration);
           const json = JSON.stringify(obj);
           exportDefaultProps = JSON.parse(json);
         } catch (e) {
@@ -107,6 +116,9 @@ export const getList = async (entries: string[]) => {
           storyNamespace
         )}${storyDelimiter}${storyDelimiter}${kebabCase(storyName)}`;
         stories.push(storyId);
+        if (exportDefaultProps && exportDefaultProps.parameters) {
+          storiesParams[storyId] = exportDefaultProps;
+        }
         const componentName = getEncodedStoryName(
           kebabCase(storyNamespace),
           kebabCase(storyName)
@@ -122,7 +134,7 @@ export const getList = async (entries: string[]) => {
       },
     });
   }
-  return `${output}\n\n${getStories(stories)}`;
+  return `${output}\n\n${getStories(stories, storiesParams)}`;
 };
 
 export const getListWithHmr = async (entries: string[]) => {

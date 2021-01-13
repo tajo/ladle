@@ -35,3 +35,9 @@ test("Story name replaces named export as a story name", async () => {
     await getList(["./tests/fixtures/storyname.stories.tsx"])
   ).toMatchSnapshot();
 });
+
+test("Extract default parameters", async () => {
+  expect(
+    await getList(["./tests/fixtures/default-parameters.stories.tsx"])
+  ).toMatchSnapshot();
+});
