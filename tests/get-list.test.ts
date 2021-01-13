@@ -41,3 +41,9 @@ test("Extract default parameters", async () => {
     await getList(["./tests/fixtures/default-parameters.stories.tsx"])
   ).toMatchSnapshot();
 });
+
+test("Extract and merge story parameters", async () => {
+  expect(
+    await getList(["./tests/fixtures/story-parameters.stories.tsx"])
+  ).toMatchSnapshot();
+});

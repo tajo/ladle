@@ -56,6 +56,50 @@ export let stories = {
 };"
 `;
 
+exports[`Extract and merge story parameters 1`] = `
+"import { lazy } from \\"react\\";
+
+const title$$cat = lazy(() => import(\\"../../../tests/fixtures/story-parameters.stories.tsx\\").then(module => {
+  return {
+    default: module.Cat
+  };
+}));
+const title$$dog = lazy(() => import(\\"../../../tests/fixtures/story-parameters.stories.tsx\\").then(module => {
+  return {
+    default: module.Dog
+  };
+}));
+
+export let stories = {
+  \\"title--cat\\": {
+    component: title$$cat,
+    parameters: {
+      \\"title\\": \\"Title\\",
+      \\"parameters\\": {
+        \\"baseweb\\": {
+          \\"theme\\": \\"dark\\",
+          \\"browsers\\": [\\"chrome\\", \\"firefox\\"],
+          \\"width\\": \\"500px\\"
+        },
+        \\"links\\": true
+      }
+    }
+  },
+  \\"title--dog\\": {
+    component: title$$dog,
+    parameters: {
+      \\"title\\": \\"Title\\",
+      \\"parameters\\": {
+        \\"baseweb\\": {
+          \\"theme\\": \\"dark\\",
+          \\"browsers\\": [\\"chrome\\", \\"webkit\\"]
+        }
+      }
+    }
+  }
+};"
+`;
+
 exports[`Extract default parameters 1`] = `
 "import { lazy } from \\"react\\";
 

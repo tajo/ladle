@@ -4,6 +4,8 @@ import generate from "@babel/generator";
 import * as t from "@babel/types";
 import { promises as fs } from "fs";
 import path from "path";
+import clonedeep from "lodash.clonedeep";
+import merge from "lodash.merge";
 import {
   getFileId,
   getEncodedStoryName,
@@ -70,28 +72,45 @@ export const getList = async (entries: string[]) => {
   for (let entry of entries) {
     let exportDefaultProps: any = null;
     const namedExportToStoryName: { [key: string]: string } = {};
+    const namedExportToParameters: { [key: string]: any } = {};
     const fileId = getFileId(entry);
     const code = await fs.readFile(path.join("./", entry), "utf8");
     const ast = getAst(code, entry);
     traverse(ast, {
+      // extracting Story.storyName and Story.parameters
       Program(astPath: any) {
         astPath.node.body.forEach((child: any) => {
           if (
             child.type === "ExpressionStatement" &&
             child.expression.left &&
-            child.expression.left.property &&
-            child.expression.left.property.name === "storyName"
+            child.expression.left.property
           ) {
-            const storyExport = child.expression.left.object.name;
-            if (child.expression.right.type !== "StringLiteral") {
-              console.log(`${storyExport}.storyName must be a string literal.`);
-            } else {
-              namedExportToStoryName[storyExport] =
-                child.expression.right.value;
+            if (child.expression.left.property.name === "storyName") {
+              const storyExport = child.expression.left.object.name;
+              if (child.expression.right.type !== "StringLiteral") {
+                console.log(
+                  `${storyExport}.storyName must be a string literal.`
+                );
+              } else {
+                namedExportToStoryName[storyExport] =
+                  child.expression.right.value;
+              }
+            } else if (child.expression.left.property.name === "parameters") {
+              const storyExport = child.expression.left.object.name;
+              if (child.expression.right.type !== "ObjectExpression") {
+                console.log(
+                  `${storyExport}.parameters must be an object expression.`
+                );
+              } else {
+                const obj = converter(child.expression.right);
+                const json = JSON.stringify(obj);
+                namedExportToParameters[storyExport] = JSON.parse(json);
+              }
             }
           }
         });
       },
+      // extracting default export object
       ExportDefaultDeclaration(astPath: any) {
         if (!astPath) return;
         try {
@@ -102,6 +121,7 @@ export const getList = async (entries: string[]) => {
           console.warn("Default export parsing failed.");
         }
       },
+      // extracting story names (named exports)
       ExportNamedDeclaration: (astPath: any) => {
         const namedExport: string =
           astPath.node.declaration.declarations[0].id.name;
@@ -116,9 +136,20 @@ export const getList = async (entries: string[]) => {
           storyNamespace
         )}${storyDelimiter}${storyDelimiter}${kebabCase(storyName)}`;
         stories.push(storyId);
+        // attach default parameters to each story
         if (exportDefaultProps && exportDefaultProps.parameters) {
           storiesParams[storyId] = exportDefaultProps;
         }
+        // add and merge story specific parameters
+        if (namedExportToParameters[namedExport]) {
+          storiesParams[storyId] = merge(
+            clonedeep(storiesParams[storyId] || {}),
+            {
+              parameters: namedExportToParameters[namedExport],
+            }
+          );
+        }
+
         const componentName = getEncodedStoryName(
           kebabCase(storyNamespace),
           kebabCase(storyName)
