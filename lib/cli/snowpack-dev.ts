@@ -13,6 +13,7 @@ const bundler = async (params: DevParamsT) => {
         devOptions: {
           port,
           output: "stream",
+          open: "none",
         },
       },
       { storyGlob: params.stories }

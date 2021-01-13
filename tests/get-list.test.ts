@@ -29,3 +29,9 @@ test("Default title is used instead of the file name", async () => {
     await getList(["./tests/fixtures/default-title.stories.tsx"])
   ).toMatchSnapshot();
 });
+
+test("Story name replaces named export as a story name", async () => {
+  expect(
+    await getList(["./tests/fixtures/storyname.stories.tsx"])
+  ).toMatchSnapshot();
+});

@@ -19,6 +19,7 @@ export const Middle: React.FC = () => {
     </div>
   );
 };
+Middle.storyName = "Middle Man";
 
 export const Opo: React.FC = () => {
   const [val, setVal] = React.useState(true);

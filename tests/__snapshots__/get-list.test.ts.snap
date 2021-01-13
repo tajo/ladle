@@ -40,6 +40,22 @@ export let stories = {
 };"
 `;
 
+exports[`Default title is used instead of the file name 1`] = `
+"import { lazy } from \\"react\\";
+
+const title$$cat = lazy(() => import(\\"../../../tests/fixtures/default-title.stories.tsx\\").then(module => {
+  return {
+    default: module.Cat
+  };
+}));
+
+export let stories = {
+  \\"title--cat\\": {
+    component: title$$cat
+  }
+};"
+`;
+
 exports[`Single file with two stories 1`] = `
 "import { lazy } from \\"react\\";
 
@@ -60,6 +76,38 @@ export let stories = {
   },
   \\"animals--dog\\": {
     component: animals$$dog
+  }
+};"
+`;
+
+exports[`Story name replaces named export as a story name 1`] = `
+"import { lazy } from \\"react\\";
+
+const storyname$$doggo = lazy(() => import(\\"../../../tests/fixtures/storyname.stories.tsx\\").then(module => {
+  return {
+    default: module.Cat
+  };
+}));
+const storyname$$capital$city = lazy(() => import(\\"../../../tests/fixtures/storyname.stories.tsx\\").then(module => {
+  return {
+    default: module.CapitalCity
+  };
+}));
+const storyname$$champs$élysées = lazy(() => import(\\"../../../tests/fixtures/storyname.stories.tsx\\").then(module => {
+  return {
+    default: module.CapitalReplaced
+  };
+}));
+
+export let stories = {
+  \\"storyname--doggo\\": {
+    component: storyname$$doggo
+  },
+  \\"storyname--capital-city\\": {
+    component: storyname$$capital$city
+  },
+  \\"storyname--champs-\\\\xE9lys\\\\xE9es\\": {
+    component: storyname$$champs$élysées
   }
 };"
 `;

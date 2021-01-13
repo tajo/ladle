@@ -59,10 +59,29 @@ export const getList = async (entries: string[]) => {
   for (let entry of entries) {
     let exportDefaultProps: any = null;
     let exportDefault: any = null;
+    const namedExportToStoryName: { [key: string]: string } = {};
     const fileId = getFileId(entry);
     const code = await fs.readFile(path.join("./", entry), "utf8");
     const ast = getAst(code, entry);
     traverse(ast, {
+      Program(astPath: any) {
+        astPath.node.body.forEach((child: any) => {
+          if (
+            child.type === "ExpressionStatement" &&
+            child.expression.left &&
+            child.expression.left.property &&
+            child.expression.left.property.name === "storyName"
+          ) {
+            const storyExport = child.expression.left.object.name;
+            if (child.expression.right.type !== "StringLiteral") {
+              console.log(`${storyExport}.storyName must be a string literal.`);
+            } else {
+              namedExportToStoryName[storyExport] =
+                child.expression.right.value;
+            }
+          }
+        });
+      },
       ExportDefaultDeclaration(astPath: any) {
         if (!astPath) return;
         exportDefault = astPath.node.declaration;
@@ -75,11 +94,15 @@ export const getList = async (entries: string[]) => {
         }
       },
       ExportNamedDeclaration: (astPath: any) => {
-        const storyName = astPath.node.declaration.declarations[0].id.name;
+        const namedExport: string =
+          astPath.node.declaration.declarations[0].id.name;
         let storyNamespace = fileId;
         if (exportDefaultProps && exportDefaultProps.title) {
           storyNamespace = titleToFileId(exportDefaultProps.title);
         }
+        const storyName = namedExportToStoryName[namedExport]
+          ? namedExportToStoryName[namedExport]
+          : namedExport;
         const storyId = `${kebabCase(
           storyNamespace
         )}${storyDelimiter}${storyDelimiter}${kebabCase(storyName)}`;
@@ -93,7 +116,7 @@ export const getList = async (entries: string[]) => {
             path.join(path.relative(appSrcDir, process.cwd()), entry)
           ),
           component: t.identifier(componentName),
-          story: t.identifier(storyName),
+          story: t.identifier(namedExport),
         });
         output += `\n${generate(ast as any).code}`;
       },
