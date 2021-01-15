@@ -3,34 +3,9 @@ import type { StoryTreeT } from "../../cli/types";
 export const storyDelimiter = "-";
 export const storyEncodeDelimiter = "$";
 
-export const titleToFileId = (title: string) =>
-  title
-    .toLocaleLowerCase()
-    .replace(/\s*\/\s*/g, `${storyDelimiter}${storyDelimiter}`)
-    .replace(/\s+/g, storyDelimiter);
-
-export const encodeDelToDel = (s: string) =>
-  s
-    .toLocaleLowerCase()
-    .replace(new RegExp(`\\${storyEncodeDelimiter}`, "g"), storyDelimiter);
-
-export const delToEncodeDel = (s: string) =>
-  capitalize(s.replace(new RegExp(storyDelimiter, "g"), storyEncodeDelimiter));
-
 export const capitalize = (s: string) => {
   if (typeof s !== "string") return "";
   return s.charAt(0).toUpperCase() + s.slice(1);
-};
-
-export const getFileId = (filename: string) => {
-  const pathParts = filename.split("/");
-  return pathParts[pathParts.length - 1].split(".")[0];
-};
-
-export const getEncodedStoryName = (fileId: string, namedExport: string) => {
-  return `${fileId}${storyEncodeDelimiter}${storyEncodeDelimiter}${namedExport}`
-    .toLocaleLowerCase()
-    .replace(new RegExp(storyDelimiter, "g"), storyEncodeDelimiter);
 };
 
 export const getStoryTree = (stories: string[]) => {

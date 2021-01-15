@@ -8,11 +8,11 @@ export default {
   },
 };
 
-export const Middle: React.FC = () => {
+export const Middle = () => {
   const [val, setVal] = React.useState(true);
   return (
     <div>
-      <h1>Middle eeee lol strange omg asd haha</h1>
+      <h1>Middle eeee lol strange omg asd haha asdasd asd</h1>
       <button onClick={() => setVal(false)}>
         button {val ? "true" : "false"}
       </button>
@@ -21,7 +21,7 @@ export const Middle: React.FC = () => {
 };
 Middle.storyName = "Middle Man";
 
-export const Opo: React.FC = () => {
+export const Opo = () => {
   const [val, setVal] = React.useState(true);
   return (
     <div>

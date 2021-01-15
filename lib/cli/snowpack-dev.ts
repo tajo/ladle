@@ -1,4 +1,4 @@
-import { startDevServer } from "snowpack";
+import { startServer } from "snowpack";
 import getPort from "get-port";
 import type { DevParamsT } from "./types";
 import getSnowpackConfig from "./snowpack-base";
@@ -15,10 +15,11 @@ const bundler = async (params: DevParamsT) => {
           output: "stream",
           open: "none",
         },
+        plugins: ["@snowpack/plugin-react-refresh"],
       },
       { storyGlob: params.stories }
     );
-    await startDevServer({ config, lockfile: null, cwd: process.cwd() });
+    await startServer({ config, lockfile: null });
   } catch (e) {
     console.error(e);
   }

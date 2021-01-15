@@ -32,7 +32,6 @@ const Navigation: React.FC<{ stories: string[]; activeStory: string }> = ({
   const filteredStories = stories.filter((story) =>
     story.includes(canonicalSearch)
   );
-  console.log(getStoryTree(filteredStories));
   return (
     <aside className="ladle-aside">
       <input

@@ -1,6 +1,6 @@
 import path from "path";
 import fs from "fs";
-import { createConfiguration, SnowpackConfig } from "snowpack";
+import { createConfiguration } from "snowpack";
 import type { PluginOptionsT } from "./types";
 
 const getStoryFolder = (storyGlob: string) => {
@@ -19,6 +19,7 @@ const getSnowpackConfig = (
 ) => {
   const storyFolder = getStoryFolder(pluginOptions.storyGlob);
   const bundlerConfig = {
+    root: process.cwd(),
     mount: {
       "lib/app/public/": { url: "/", static: false },
       "lib/app/src": { url: "/" },
@@ -28,12 +29,11 @@ const getSnowpackConfig = (
     },
     plugins: [
       [path.join(__dirname, "./snowpack-plugin.js"), pluginOptions],
-      "@snowpack/plugin-react-refresh",
       ...(extendConfig.plugins ? extendConfig.plugins : []),
     ],
     ...extendConfig,
   };
-  return createConfiguration(bundlerConfig)[1] as SnowpackConfig;
+  return createConfiguration(bundlerConfig);
 };
 
 export default getSnowpackConfig;

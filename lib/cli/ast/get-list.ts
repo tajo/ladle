@@ -12,7 +12,7 @@ import {
   storyDelimiter,
   storyEncodeDelimiter,
   titleToFileId,
-} from "../../app/src/story-name";
+} from "./naming-utils";
 import { appSrcDir } from "../const";
 import { kebabCase } from "../utils";
 import getAst from "./get-ast";

@@ -1,4 +1,4 @@
-import { buildProject } from "snowpack";
+import { build } from "snowpack";
 import getSnowpackConfig from "./snowpack-base";
 import type { BuildParamsT } from "./types";
 
@@ -10,17 +10,17 @@ const snowpackProd = async (params: BuildParamsT) => {
           clean: true,
           out: params.outDir,
         },
-        experiments: {
-          optimize: {
-            bundle: true,
-            minify: true,
-            target: "es2020" as any,
-          },
-        },
+        // optimize: {
+        //   bundle: true,
+        //   minify: true,
+        //   splitting: true,
+        //   target: "es2020" as any,
+        //   format: "esm",
+        // },
       },
       { storyGlob: params.stories }
     );
-    await buildProject({ config, lockfile: null, cwd: process.cwd() });
+    await build({ config, lockfile: null });
   } catch (e) {
     console.error(e);
   }

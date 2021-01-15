@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const Yeah: React.FC = () => {
+export const Yeah = () => {
   const [val, setVal] = React.useState(true);
   return (
     <div>

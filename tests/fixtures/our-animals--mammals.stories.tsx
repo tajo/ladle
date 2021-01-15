@@ -1,5 +1,5 @@
 import * as React from "react";
 
-export const Cat: React.FC = () => {
+export const Cat = () => {
   return <h1>Cat</h1>;
 };

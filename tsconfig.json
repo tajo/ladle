@@ -26,6 +26,7 @@
     "esModuleInterop": true,
     "skipLibCheck": false,
     "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true
   },
   "exclude": [
     "node_modules",

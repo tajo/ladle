@@ -1,9 +1,9 @@
 import * as React from "react";
 
-export const Cat: React.FC = () => {
+export const Cat = () => {
   return <h1>Cat</h1>;
 };
 
-export const Dog: React.FC = () => {
+export const Dog = () => {
   return <h1>Dog</h1>;
 };

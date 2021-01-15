@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const Middle: React.FC = () => {
+export const Middle = () => {
   const [val, setVal] = React.useState(true);
   return (
     <div>
@@ -12,7 +12,7 @@ export const Middle: React.FC = () => {
   );
 };
 
-export const Yellow: React.FC = () => {
+export const Yellow = () => {
   const [val, setVal] = React.useState(true);
   return (
     <div>
