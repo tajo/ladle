@@ -19,11 +19,11 @@ const getSnowpackConfig = (
 ) => {
   const storyFolder = getStoryFolder(pluginOptions.storyGlob);
   const bundlerConfig = {
+    ...extendConfig,
     root: process.cwd(),
     mount: {
       "lib/app/public/": { url: "/", static: false },
       "lib/app/src": { url: "/" },
-      "dist/app/src": { url: "/" },
       [storyFolder]: { url: "/stories" },
       ...(extendConfig.mount ? extendConfig.mount : {}),
     },
@@ -31,7 +31,6 @@ const getSnowpackConfig = (
       [path.join(__dirname, "./snowpack-plugin.js"), pluginOptions],
       ...(extendConfig.plugins ? extendConfig.plugins : []),
     ],
-    ...extendConfig,
   };
   return createConfiguration(bundlerConfig);
 };
