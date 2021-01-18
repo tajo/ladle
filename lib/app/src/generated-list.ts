@@ -10,3 +10,4 @@ export const Foo = lazy(() =>
   })
 );
 export let list = ["Foo"];
+export const config = {};
