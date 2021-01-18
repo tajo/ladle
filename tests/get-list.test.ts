@@ -1,4 +1,4 @@
-import { getList } from "../lib/cli/ast/get-list";
+import { getList } from "../lib/cli/snowpack-plugin/get-list";
 
 test("Single file with two stories", async () => {
   expect(

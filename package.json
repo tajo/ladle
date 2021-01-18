@@ -3,24 +3,23 @@
   "version": "0.0.3",
   "author": "vojtech@miksu.cz",
   "license": "MIT",
+  "type": "module",
   "publishConfig": {
     "access": "public"
   },
   "files": [
-    "dist",
     "lib"
   ],
   "bin": {
-    "ladle": "./dist/cli.js"
+    "ladle": "./lib/cli.js"
   },
   "scripts": {
-    "cli": "node ./dist/cli/cli",
+    "cli": "node ./lib/cli/cli.js",
     "clean": "rimraf dist && rimraf .ladle && rimraf build && rimraf *.tsbuildinfo",
-    "build": "node ./dist/cli/cli build",
-    "serve": "node ./dist/cli/cli serve",
-    "lib:build": "tsc --project tsconfig.cli.json",
-    "lib:dev": "tsc --project tsconfig.cli.json --watch",
-    "test": "jest"
+    "build": "node ./lib/cli/cli.js build",
+    "serve": "node ./lib/cli/cli.js serve",
+    "test": "jest",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@snowpack/plugin-react-refresh": "^2.4.0",
