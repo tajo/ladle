@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@babel/preset-env": "^7.12.11",
+    "@babel/preset-flow": "^7.12.1",
     "@babel/preset-react": "^7.12.10",
     "@babel/preset-typescript": "^7.12.7",
     "@snowpack/plugin-babel": "^2.1.6",

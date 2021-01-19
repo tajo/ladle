@@ -12,7 +12,7 @@ export const Middle = () => {
   const [val, setVal] = useState(true);
   return (
     <div>
-      <h1>New</h1>
+      <h1>Newish haha</h1>
       <button onClick={() => setVal(false)}>
         button {val ? "true" : "false"}
       </button>
