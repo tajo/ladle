@@ -1,5 +1,3 @@
-import * as React from "react";
-
 export const Cat = () => {
   const Stop = { storyName: "" };
   // should be ignored

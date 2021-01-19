@@ -7,29 +7,10 @@ import Extensions from "./extensions";
 import history from "./history";
 import ErrorBoundary from "./error-boundary";
 
-// const emitter = new Emittery();
-// const STORY_IMPORTED = "story-imported";
-//emitter.emit(STORY_IMPORTED, module.Middle.title);
-
 const getQueryStory = (locationSearch: string) =>
   queryString.parse(locationSearch).story as string;
 
-const openStorySelector = (zEvent: any) => {
-  if (zEvent.metaKey && zEvent.key === "p") {
-    // case sen sitive
-    zEvent.preventDefault();
-    console.log("THIS THIS TasdHIS");
-  }
-};
-
 const App: React.FC<{ config: any }> = ({ config }) => {
-  //const [dato, setData] = React.useState("empty");
-  // React.useEffect(() => {
-  //   emitter.on(STORY_IMPORTED, setData);
-  //   return () => {
-  //     emitter.off(STORY_IMPORTED, setData);
-  //   };
-  // });
   const firstStory = Object.keys(stories)[0];
   const [activeStory, setActiveStory] = React.useState(
     getQueryStory(location.search)
@@ -40,12 +21,10 @@ const App: React.FC<{ config: any }> = ({ config }) => {
       history.push(`?story=${firstStory}`);
       setActiveStory(firstStory);
     }
-    document.addEventListener("keydown", openStorySelector);
     const unlisten = history.listen(({ location }) => {
       setActiveStory(getQueryStory(location.search));
     });
     return () => {
-      document.removeEventListener("keydown", openStorySelector);
       unlisten();
     };
   }, []);

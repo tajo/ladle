@@ -1,7 +1,7 @@
-import * as React from "react";
+import { useState } from "react";
 
 export const Middle = () => {
-  const [val, setVal] = React.useState(true);
+  const [val, setVal] = useState(true);
   return (
     <div>
       <h1>Middle fam</h1>
@@ -13,7 +13,7 @@ export const Middle = () => {
 };
 
 export const Yellow = () => {
-  const [val, setVal] = React.useState(true);
+  const [val, setVal] = useState(true);
   return (
     <div>
       <h1>Yellowasd</h1>

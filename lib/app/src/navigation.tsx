@@ -25,6 +25,26 @@ const Navigation: React.FC<{ stories: string[]; activeStory: string }> = ({
   activeStory,
 }) => {
   const [search, setSearch] = React.useState("");
+  const searchEl = React.useRef(null);
+  const openStorySelector = (zEvent: any) => {
+    if ((zEvent.metaKey && zEvent.key === "p") || zEvent.key === "/") {
+      if (
+        ["input", "textarea"].every(
+          (el) => zEvent.target.tagName.toLowerCase() !== el
+        ) ||
+        zEvent.metaKey
+      ) {
+        ((searchEl.current as any) as HTMLInputElement).focus();
+        zEvent.preventDefault();
+      }
+    }
+  };
+  React.useEffect(() => {
+    document.addEventListener("keydown", openStorySelector);
+    return () => {
+      document.removeEventListener("keydown", openStorySelector);
+    };
+  }, []);
   const canonicalSearch = search
     .toLocaleLowerCase()
     .replace(new RegExp("\\s+", "g"), "-");
@@ -37,6 +57,7 @@ const Navigation: React.FC<{ stories: string[]; activeStory: string }> = ({
       <input
         placeholder="Search stories"
         value={search}
+        ref={searchEl}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setSearch(e.target.value)
         }
