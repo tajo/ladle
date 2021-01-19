@@ -6,7 +6,7 @@
     "lib": ["ES2020", "dom"],
     "allowJs": true,
     "checkJs": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "declaration": false,
     "declarationMap": false,
     "sourceMap": false,

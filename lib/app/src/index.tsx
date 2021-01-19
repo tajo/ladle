@@ -5,5 +5,5 @@ import { config } from "./generated-list";
 
 (async () => {
   console.log(config);
-  render(<App />, document.getElementById("root"));
+  render(<App config={config} />, document.getElementById("root"));
 })();

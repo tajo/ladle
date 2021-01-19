@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import queryString from "query-string";
 //@ts-ignore
-import { stories } from "./generated-list";
+import { stories, Provider } from "./generated-list";
 import Navigation from "./navigation";
 import Extensions from "./extensions";
 import history from "./history";
@@ -22,7 +22,7 @@ const openStorySelector = (zEvent: any) => {
   }
 };
 
-const App: React.FC = () => {
+const App: React.FC<{ config: any }> = ({ config }) => {
   //const [dato, setData] = React.useState("empty");
   // React.useEffect(() => {
   //   emitter.on(STORY_IMPORTED, setData);
@@ -53,17 +53,19 @@ const App: React.FC = () => {
   return (
     <div className="ladle-wrapper">
       <main className="ladle-main">
-        {activeStory && (
-          <ErrorBoundary>
-            <Suspense fallback={null}>
-              {stories[activeStory] ? (
-                React.createElement(stories[activeStory].component)
-              ) : (
-                <h1>No story found.</h1>
-              )}
-            </Suspense>
-          </ErrorBoundary>
-        )}
+        <Provider config={config}>
+          {activeStory && (
+            <ErrorBoundary>
+              <Suspense fallback={null}>
+                {stories[activeStory] ? (
+                  React.createElement(stories[activeStory].component)
+                ) : (
+                  <h1>No story found.</h1>
+                )}
+              </Suspense>
+            </ErrorBoundary>
+          )}
+        </Provider>
       </main>
       <Navigation stories={Object.keys(stories)} activeStory={activeStory} />
       <Extensions />
