@@ -7,6 +7,9 @@ import Extensions from "./extensions";
 import history from "./history";
 import ErrorBoundary from "./error-boundary";
 
+const ProviderAny = Provider as any;
+const storiesAny = stories as any;
+
 const getQueryStory = (locationSearch: string) =>
   queryString.parse(locationSearch).story as string;
 
@@ -32,19 +35,19 @@ const App: React.FC<{ config: any }> = ({ config }) => {
   return (
     <div className="ladle-wrapper">
       <main className="ladle-main">
-        <Provider config={config}>
+        <ProviderAny config={config as any}>
           {activeStory && (
             <ErrorBoundary>
               <Suspense fallback={null}>
-                {stories[activeStory] ? (
-                  React.createElement(stories[activeStory].component)
+                {storiesAny[activeStory] ? (
+                  React.createElement(storiesAny[activeStory].component)
                 ) : (
                   <h1>No story found.</h1>
                 )}
               </Suspense>
             </ErrorBoundary>
           )}
-        </Provider>
+        </ProviderAny>
       </main>
       <Navigation stories={Object.keys(stories)} activeStory={activeStory} />
       <Extensions />

@@ -10,9 +10,7 @@ export default class ErrorBoundary extends React.Component {
     return { hasError: true };
   }
 
-  componentDidCatch() {
-    location.reload();
-  }
+  componentDidCatch() {}
 
   render() {
     //@ts-ignore

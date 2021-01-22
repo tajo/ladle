@@ -2,16 +2,12 @@
 // when a story is changed
 import { lazy } from "react";
 import * as React from "react";
-export const Foo = lazy(() =>
-  //@ts-ignore
-  import("./foo.js").then((module) => {
-    return {
-      default: module.Yikes,
-    };
-  })
-);
+//@ts-ignore
+export const Foo = lazy(() => Promise.resolve());
 export let list = ["Foo"];
 export const config = {};
-export const Provider: React.FC<{ config: any }> = ({ children }) => (
-  <>{children}</>
-);
+export const stories = {};
+
+//@ts-ignore
+export const Provider = ({ children }) =>
+  /*#__PURE__*/ React.createElement(React.Fragment, null, children);
