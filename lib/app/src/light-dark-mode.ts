@@ -1,6 +1,9 @@
+import debug from "./debug";
 // @ts-ignore
 const buildTheme = import.meta.env.SNOWPACK_PUBLIC_LADLE_THEME;
+debug(`ENV.SNOWPACK_PUBLIC_LADLE_THEME: ${buildTheme}`);
 const currentTheme = localStorage.getItem("ladle_theme");
+debug(`localStorage.ladle_theme: ${currentTheme}`);
 if (!currentTheme) {
   if (buildTheme === "auto") {
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
