@@ -1,12 +1,32 @@
 import * as React from "react";
 
+export const Preview: React.FC<{}> = () => {
+  const size = 24;
+  const color = "currentColor";
+  const stroke = 2;
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth={stroke}
+      stroke={color}
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M0 0h24v24H0z" stroke="none" />
+      <path d="M16 4h4v4M14 10l6-6M8 20H4v-4M4 20l6-6" />
+    </svg>
+  );
+};
+
 export const Bulb: React.FC<{}> = () => {
   const size = 24;
   const color = "currentColor";
   const stroke = 2;
   return (
     <svg
-      className="icon icon-tabler icon-tabler-bulb"
       width={size}
       height={size}
       viewBox="0 0 24 24"

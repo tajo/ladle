@@ -1,0 +1,215 @@
+:root {
+  --ladle-bg-color-primary: #fff;
+  --ladle-bg-color-secondary: #f6f6f6;
+  --ladle-bg-color-tertiary: #eee;
+  --ladle-color-primary: #000;
+  --ladle-color-hover: #545454;
+  --ladle-color-accent: #276ef1;
+}
+[data-theme="dark"] {
+  --ladle-bg-color-primary: #141414;
+  --ladle-bg-color-secondary: #1f1f1f;
+  --ladle-bg-color-tertiary: #333333;
+  --ladle-color-primary: #f6f6f6;
+  --ladle-color-hover: #e2e2e2;
+  --ladle-color-accent: #276ef1;
+}
+
+.ladle-wrapper,
+html,
+body {
+  background-color: var(--ladle-bg-color-primary);
+  height: 100%;
+  margin: 0;
+}
+.ladle-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.ladle-main {
+  background-color: var(--ladle-bg-color-primary);
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 1em;
+}
+
+.ladle-aside {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  background-color: var(--ladle-bg-color-primary);
+  color: var(--ladle-color-primary);
+  overflow: auto;
+  padding: 1.5em;
+}
+
+.ladle-aside input {
+  padding: 0.5em 0em;
+  width: 100%;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-color: var(--ladle-color-hover);
+  border-width: 1px;
+  background-color: var(--ladle-bg-color-primary);
+  font-size: 1em;
+  color: var(--ladle-color-primary);
+  margin-bottom: 0.5em;
+}
+
+.ladle-aside input:focus {
+  outline: none;
+  border-color: var(--ladle-color-primary);
+}
+
+.ladle-aside ul {
+  padding: 0;
+  margin: 0.8em 0.75em 0 0.75em;
+}
+
+.ladle-aside li {
+  list-style-type: none;
+  margin: 0.8em 0.35em;
+}
+
+.ladle-aside a {
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--ladle-color-primary);
+}
+
+.ladle-aside a:hover {
+  color: var(--ladle-color-hover);
+}
+
+.ladle-aside .ladle-active a {
+  font-weight: 700;
+}
+
+.ladle-addons {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ladle-color-primary);
+  padding: 0;
+  margin: 0;
+  position: relative;
+  bottom: 0;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-bottom: 2em;
+}
+
+.ladle-addons ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.ladle-addons li {
+  background-color: var(--ladle-bg-color-tertiary);
+  box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.16);
+  border-bottom: none;
+  border-top-left-radius: 0.25em;
+  border-top-right-radius: 0.25em;
+  border-bottom-left-radius: 0.25em;
+  border-bottom-right-radius: 0.25em;
+  list-style-type: none;
+  margin: 0.35em;
+  width: auto;
+  height: 2.5em;
+}
+
+.ladle-addons > ul > li > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  margin: 0;
+  padding: 0.3em;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  cursor: pointer;
+  border-radius: 4px;
+  outline: none;
+}
+
+.ladle-addons > ul > li > button > label {
+  display: block;
+  line-height: 24px;
+  font-size: 18px;
+  margin-left: 0.5em;
+  padding-top: 0.1em;
+}
+
+.ladle-addons > ul > li > button:focus-visible {
+  border: 2px solid var(--ladle-color-accent);
+}
+
+.ladle-addons > ul > li > button:hover {
+  box-shadow: none;
+  color: var(--ladle-color-accent);
+}
+
+@media (min-width: 768px) {
+  .ladle-wrapper,
+  html,
+  body {
+    height: 100vh;
+    margin: 0;
+  }
+  .ladle-wrapper {
+    flex-direction: row;
+  }
+
+  .ladle-main {
+    padding: 3em;
+  }
+
+  .ladle-aside {
+    font-size: 16px;
+    flex: 0 0 12em;
+    padding: 3em 2.5em;
+    min-width: 15em;
+    background-color: var(--ladle-bg-color-secondary);
+  }
+
+  .ladle-aside ul {
+    margin: 0 0.75em 0 0.75em;
+  }
+
+  .ladle-aside li {
+    margin: 0.35em 0.35em;
+  }
+
+  .ladle-aside input {
+    background-color: var(--ladle-bg-color-secondary);
+  }
+
+  .ladle-addons {
+    position: fixed;
+    margin-bottom: 0;
+  }
+
+  .ladle-addons ul {
+    flex-direction: row;
+  }
+
+  .ladle-addons li {
+    margin: 0 0.35em 0 0.35em;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 2.5em;
+  }
+
+  .ladle-addons > ul > li > button > label {
+    display: none;
+  }
+}

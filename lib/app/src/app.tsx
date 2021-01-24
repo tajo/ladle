@@ -1,63 +1,76 @@
-import React, { Suspense } from "react";
+import * as React from "react";
 import queryString from "query-string";
 //@ts-ignore
-import { stories, Provider } from "./generated-list";
+import { stories } from "./generated-list";
+import Story from "./story";
 import Navigation from "./navigation";
-import Extensions from "./extensions";
+import AddonPanel from "./addon-panel";
 import history from "./history";
-import ErrorBoundary from "./error-boundary";
+import { ModeState, Config, GlobalState } from "../../shared/types";
 import debug from "./debug";
+import { getQuery as getQueryTheme } from "./addons/theme";
+import { getQuery as getQueryMode } from "./addons/mode";
+
+export const getQueryStory = (locationSearch: string) =>
+  queryString.parse(locationSearch).story as string | undefined;
 
 debug(`Stories: ${Object.keys(stories)}`);
 
-const ProviderAny = Provider as any;
-const storiesAny = stories as any;
-
-const getQueryStory = (locationSearch: string) =>
-  queryString.parse(locationSearch).story as string;
-
-const App: React.FC<{ config: any }> = ({ config }) => {
+const App: React.FC<{ config: Config }> = ({ config }) => {
   const firstStory = Object.keys(stories).sort()[0];
-  const [activeStory, setActiveStory] = React.useState(
-    getQueryStory(location.search)
+  const [theme, setTheme] = React.useState(getQueryTheme(location.search));
+  const [mode, setMode] = React.useState(getQueryMode(location.search));
+  const [story, setStory] = React.useState(
+    getQueryStory(location.search) || firstStory
   );
-
+  const globalState: GlobalState = {
+    theme,
+    mode,
+    story,
+  };
   React.useEffect(() => {
-    if (!activeStory && !getQueryStory(location.search)) {
+    if (!getQueryStory(location.search)) {
       debug(
         `No story is selected. Auto-selecting the first story: ${firstStory}`
       );
       history.push(`?story=${firstStory}`);
-      setActiveStory(firstStory);
     }
     const unlisten = history.listen(({ location }) => {
-      debug(`Navigating to: ${getQueryStory(location.search)}`);
-      setActiveStory(getQueryStory(location.search));
+      setStory(getQueryStory(location.search) || firstStory);
+      setMode(getQueryMode(location.search));
+      const nextTheme = getQueryTheme(location.search);
+      if (theme !== nextTheme) {
+        document.documentElement.setAttribute("data-theme", nextTheme);
+        setTheme(nextTheme);
+      }
+
+      debug(
+        `Setting query params: story = ${getQueryStory(
+          location.search
+        )}, mode = ${getQueryMode(location.search)}, theme = ${getQueryTheme(
+          location.search
+        )}`
+      );
     });
     return () => {
       unlisten();
     };
-  }, []);
+  }, [mode, story, theme]);
 
+  if (mode === ModeState.Preview) {
+    return <Story config={config} globalState={globalState} />;
+  }
   return (
     <div className="ladle-wrapper">
       <main className="ladle-main">
-        <ProviderAny config={config as any}>
-          {activeStory && (
-            <ErrorBoundary>
-              <Suspense fallback={null}>
-                {storiesAny[activeStory] ? (
-                  React.createElement(storiesAny[activeStory].component)
-                ) : (
-                  <h1>No story found.</h1>
-                )}
-              </Suspense>
-            </ErrorBoundary>
-          )}
-        </ProviderAny>
+        <Story config={config} globalState={globalState} />
       </main>
-      <Navigation stories={Object.keys(stories)} activeStory={activeStory} />
-      <Extensions />
+      {mode === ModeState.Full && (
+        <>
+          <Navigation stories={Object.keys(stories)} story={story} />
+          <AddonPanel config={config} globalState={globalState} />
+        </>
+      )}
     </div>
   );
 };

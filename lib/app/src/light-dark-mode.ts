@@ -1,22 +1,17 @@
+// a separate non-react script, to ensure this is executed asap
 import debug from "./debug";
-// @ts-ignore
-const buildTheme = import.meta.env.SNOWPACK_PUBLIC_LADLE_THEME;
-debug(`ENV.SNOWPACK_PUBLIC_LADLE_THEME: ${buildTheme}`);
-const currentTheme = localStorage.getItem("ladle_theme");
-debug(`localStorage.ladle_theme: ${currentTheme}`);
-if (!currentTheme) {
-  if (buildTheme === "auto") {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      localStorage.setItem("ladle_theme", "dark");
-      document.documentElement.setAttribute("data-theme", "dark");
-    } else {
-      localStorage.setItem("ladle_theme", "light");
-      document.documentElement.setAttribute("data-theme", "light");
-    }
+import { getQuery } from "./addons/theme";
+import { ThemeState } from "../../shared/types";
+
+const theme = getQuery(location.search);
+debug(`Initial theme state: ${theme}`);
+
+if (theme === ThemeState.Auto) {
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    document.documentElement.setAttribute("data-theme", ThemeState.Dark);
   } else {
-    localStorage.setItem("ladle_theme", buildTheme);
-    document.documentElement.setAttribute("data-theme", buildTheme);
+    document.documentElement.setAttribute("data-theme", ThemeState.Light);
   }
 } else {
-  document.documentElement.setAttribute("data-theme", currentTheme);
+  document.documentElement.setAttribute("data-theme", theme);
 }

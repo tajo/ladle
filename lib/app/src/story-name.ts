@@ -1,4 +1,4 @@
-import type { StoryTreeT } from "../../cli/types";
+import type { StoryTree } from "../../shared/types";
 
 export const storyDelimiter = "-";
 export const storyEncodeDelimiter = "$";
@@ -9,8 +9,8 @@ export const capitalize = (s: string) => {
 };
 
 export const getStoryTree = (stories: string[]) => {
-  const tree: StoryTreeT = {};
-  const addIntoTree = (_tree: StoryTreeT, parts: string[], id: string) => {
+  const tree: StoryTree = {};
+  const addIntoTree = (_tree: StoryTree, parts: string[], id: string) => {
     const first = parts.shift();
     if (first && !_tree[first]) {
       _tree[first] = {
