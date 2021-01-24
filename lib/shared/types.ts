@@ -58,6 +58,7 @@ export type BuildParams = {
 
 export type PluginOptions = {
   storyGlob: string;
+  appSrcDir: string;
 };
 
 export type Config = {
