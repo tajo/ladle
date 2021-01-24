@@ -1,5 +1,4 @@
 import * as React from "react";
-import queryString from "query-string";
 //@ts-ignore
 import { stories } from "./generated-list";
 import Story from "./story";
@@ -10,9 +9,7 @@ import { ModeState, Config, GlobalState } from "../../shared/types";
 import debug from "./debug";
 import { getQuery as getQueryTheme } from "./addons/theme";
 import { getQuery as getQueryMode } from "./addons/mode";
-
-export const getQueryStory = (locationSearch: string) =>
-  queryString.parse(locationSearch).story as string | undefined;
+import { getQueryStory, storyIdToTitle } from "./story-name";
 
 debug(`Stories: ${Object.keys(stories)}`);
 
@@ -36,8 +33,15 @@ const App: React.FC<{ config: Config }> = ({ config }) => {
       history.push(`?story=${firstStory}`);
     }
     const unlisten = history.listen(({ location }) => {
-      setStory(getQueryStory(location.search) || firstStory);
-      setMode(getQueryMode(location.search));
+      const nextStory = getQueryStory(location.search) || firstStory;
+      if (story !== nextStory) {
+        document.title = `${storyIdToTitle(nextStory)} | Ladle`;
+        setStory(nextStory);
+      }
+      const nextMode = getQueryMode(location.search);
+      if (mode !== nextMode) {
+        setMode(nextMode);
+      }
       const nextTheme = getQueryTheme(location.search);
       if (theme !== nextTheme) {
         document.documentElement.setAttribute("data-theme", nextTheme);
@@ -45,11 +49,7 @@ const App: React.FC<{ config: Config }> = ({ config }) => {
       }
 
       debug(
-        `Setting query params: story = ${getQueryStory(
-          location.search
-        )}, mode = ${getQueryMode(location.search)}, theme = ${getQueryTheme(
-          location.search
-        )}`
+        `Setting query params: story = ${nextStory}, mode = ${nextMode}, theme = ${nextTheme}`
       );
     });
     return () => {

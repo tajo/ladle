@@ -1,11 +1,23 @@
+import queryString from "query-string";
 import type { StoryTree } from "../../shared/types";
 
 export const storyDelimiter = "-";
 export const storyEncodeDelimiter = "$";
 
+export const getQueryStory = (locationSearch: string) =>
+  queryString.parse(locationSearch).story as string | undefined;
+
 export const capitalize = (s: string) => {
   if (typeof s !== "string") return "";
   return s.charAt(0).toUpperCase() + s.slice(1);
+};
+
+export const storyIdToTitle = (s: string) => {
+  return s
+    .split(`${storyDelimiter}${storyDelimiter}`)
+    .reverse()
+    .map((level) => capitalize(level.replace(/-/g, " ")))
+    .join(" - ");
 };
 
 export const getStoryTree = (stories: string[]) => {

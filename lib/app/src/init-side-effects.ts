@@ -1,9 +1,14 @@
 // a separate non-react script, to ensure this is executed asap
 import debug from "./debug";
-import { getQuery } from "./addons/theme";
+import { storyIdToTitle, getQueryStory } from "./story-name";
+import { getQuery as getQueryTheme } from "./addons/theme";
 import { ThemeState } from "../../shared/types";
 
-const theme = getQuery(location.search);
+const title = storyIdToTitle(getQueryStory(location.search) || "");
+debug(`Initial document.title: ${title}`);
+document.title = `${title} - Ladle`;
+
+const theme = getQueryTheme(location.search);
 debug(`Initial theme state: ${theme}`);
 
 if (theme === ThemeState.Auto) {
