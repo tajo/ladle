@@ -30,6 +30,7 @@
   },
   "exclude": [
     "node_modules",
+    ".ladle",
     "src",
     "dist",
     "scripts",
