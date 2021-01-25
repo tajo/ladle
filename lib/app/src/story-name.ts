@@ -1,11 +1,17 @@
 import queryString from "query-string";
 import type { StoryTree } from "../../shared/types";
+//@ts-ignore
+import { stories } from "./generated-list";
 
+const firstStory = Object.keys(stories).sort()[0];
 export const storyDelimiter = "-";
 export const storyEncodeDelimiter = "$";
 
 export const getQueryStory = (locationSearch: string) =>
-  queryString.parse(locationSearch).story as string | undefined;
+  (queryString.parse(locationSearch).story as string) || firstStory;
+
+export const isQueryStorySet = (locationSearch: string) =>
+  !!queryString.parse(locationSearch).story;
 
 export const capitalize = (s: string) => {
   if (typeof s !== "string") return "";

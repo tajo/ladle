@@ -4,9 +4,9 @@ import { storyIdToTitle, getQueryStory } from "./story-name";
 import { getQuery as getQueryTheme } from "./addons/theme";
 import { ThemeState } from "../../shared/types";
 
-const title = storyIdToTitle(getQueryStory(location.search) || "");
+const title = storyIdToTitle(getQueryStory(location.search));
 debug(`Initial document.title: ${title}`);
-document.title = `${title} - Ladle`;
+document.title = `${title} | Ladle`;
 
 const theme = getQueryTheme(location.search);
 debug(`Initial theme state: ${theme}`);

@@ -9,31 +9,26 @@ import { ModeState, Config, GlobalState } from "../../shared/types";
 import debug from "./debug";
 import { getQuery as getQueryTheme } from "./addons/theme";
 import { getQuery as getQueryMode } from "./addons/mode";
-import { getQueryStory, storyIdToTitle } from "./story-name";
+import { getQueryStory, storyIdToTitle, isQueryStorySet } from "./story-name";
 
 debug(`Stories: ${Object.keys(stories)}`);
 
 const App: React.FC<{ config: Config }> = ({ config }) => {
-  const firstStory = Object.keys(stories).sort()[0];
   const [theme, setTheme] = React.useState(getQueryTheme(location.search));
   const [mode, setMode] = React.useState(getQueryMode(location.search));
-  const [story, setStory] = React.useState(
-    getQueryStory(location.search) || firstStory
-  );
+  const [story, setStory] = React.useState(getQueryStory(location.search));
   const globalState: GlobalState = {
     theme,
     mode,
     story,
   };
   React.useEffect(() => {
-    if (!getQueryStory(location.search)) {
-      debug(
-        `No story is selected. Auto-selecting the first story: ${firstStory}`
-      );
-      history.push(`?story=${firstStory}`);
+    if (!isQueryStorySet(location.search)) {
+      debug(`No story is selected. Auto-selecting the first story: ${story}`);
+      history.push(`?story=${story}`);
     }
     const unlisten = history.listen(({ location }) => {
-      const nextStory = getQueryStory(location.search) || firstStory;
+      const nextStory = getQueryStory(location.search);
       if (story !== nextStory) {
         document.title = `${storyIdToTitle(nextStory)} | Ladle`;
         setStory(nextStory);

@@ -143,6 +143,7 @@ body {
 
 .ladle-addons > ul > li > button > label {
   display: block;
+  cursor: pointer;
   line-height: 24px;
   font-size: 18px;
   margin-left: 0.5em;
