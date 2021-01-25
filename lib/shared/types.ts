@@ -63,6 +63,7 @@ export type PluginOptions = {
 
 export type Config = {
   stories: string;
+  mount: string[];
   addons: {
     theme: {
       enabled: boolean;
