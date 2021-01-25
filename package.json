@@ -1,6 +1,6 @@
 {
   "name": "@ladle/cli",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "author": "vojtech@miksu.cz",
   "license": "MIT",
   "type": "module",
@@ -11,7 +11,7 @@
     "lib"
   ],
   "bin": {
-    "ladle": "./lib/cli.js"
+    "ladle": "./lib/cli/cli.js"
   },
   "scripts": {
     "cli": "node ./lib/cli/cli.js",
