@@ -55,7 +55,7 @@ const Navigation: React.FC<{ stories: string[]; story: string }> = ({
   return (
     <aside className="ladle-aside">
       <input
-        placeholder="Search stories"
+        placeholder="Search"
         aria-label="Search stories"
         value={search}
         ref={searchEl}
