@@ -22,6 +22,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-flow": "^7.12.1",
     "@babel/preset-react": "^7.12.10",
