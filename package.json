@@ -1,6 +1,6 @@
 {
   "name": "@ladle/cli",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "vojtech@miksu.cz",
   "license": "MIT",
   "type": "module",
