@@ -34,7 +34,6 @@ body {
 .ladle-main {
   background-color: var(--ladle-bg-color-primary);
   flex: 1 1 auto;
-  overflow: auto;
   padding: 1em;
 }
 
@@ -43,7 +42,6 @@ body {
   font-size: 18px;
   background-color: var(--ladle-bg-color-primary);
   color: var(--ladle-color-primary);
-  overflow: auto;
   padding: 1.5em;
 }
 
@@ -227,11 +225,11 @@ body {
 }
 
 @media (min-width: 768px) {
-  .ladle-wrapper,
   html,
-  body {
-    height: 100vh;
+  body,
+  .ladle-wrapper {
     margin: 0;
+    height: 100vh;
     overflow: hidden;
   }
   .ladle-wrapper {
@@ -240,6 +238,7 @@ body {
 
   .ladle-main {
     padding: 3em;
+    overflow: auto;
   }
 
   .ladle-aside {
@@ -248,6 +247,7 @@ body {
     padding: 3em 2.5em;
     min-width: 15em;
     background-color: var(--ladle-bg-color-secondary);
+    overflow: auto;
   }
 
   .ladle-aside ul {
@@ -280,5 +280,14 @@ body {
 
   .ladle-addons > ul > li > button > label {
     display: none;
+  }
+
+  html[data-scroll="single"],
+  html[data-scroll="single"] body,
+  html[data-scroll="single"] .ladle-main,
+  html[data-scroll="single"] .ladle-wrapper,
+  html[data-scroll="single"] .ladle-aside {
+    overflow: visible;
+    height: auto;
   }
 }
