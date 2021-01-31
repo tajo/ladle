@@ -3,14 +3,18 @@
   --ladle-bg-color-secondary: #f6f6f6;
   --ladle-bg-color-tertiary: #eee;
   --ladle-color-primary: #000;
+  --ladle-color-secondary: #bbb;
   --ladle-color-hover: #545454;
   --ladle-color-accent: #276ef1;
+  --ladle-ring-size: 64px;
+  --ladle-ring-thickness: 6px;
 }
 [data-theme="dark"] {
   --ladle-bg-color-primary: #141414;
   --ladle-bg-color-secondary: #1f1f1f;
   --ladle-bg-color-tertiary: #333333;
   --ladle-color-primary: #f6f6f6;
+  --ladle-color-secondary: #bbb;
   --ladle-color-hover: #e2e2e2;
   --ladle-color-accent: #276ef1;
 }
@@ -157,6 +161,69 @@ body {
 .ladle-addons > ul > li > button:hover {
   box-shadow: none;
   color: var(--ladle-color-accent);
+}
+
+.ladle-ring-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+  animation: ladle-ring-fadein 1.5s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s; /* no spinner flickering for fast load times */
+}
+
+@keyframes ladle-ring-fadein {
+  from {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.ladle-ring {
+  display: inline-block;
+  position: relative;
+  width: var(--ladle-ring-size);
+  height: var(--ladle-ring-size);
+}
+
+.ladle-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: var(--ladle-ring-thickness) solid var(--ladle-color-secondary);
+  border-radius: 50%;
+  animation: ladle-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: var(--ladle-color-secondary) transparent transparent transparent;
+}
+
+.ladle-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.ladle-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.ladle-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes ladle-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media (min-width: 768px) {

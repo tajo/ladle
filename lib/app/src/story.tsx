@@ -1,6 +1,7 @@
 import * as React from "react";
 import ErrorBoundary from "./error-boundary";
 import { stories, Provider } from "./generated-list";
+import { Ring } from "./icons";
 import type { Config, GlobalState } from "../../shared/types";
 
 // wonky types because the mocked generated module can't have types
@@ -14,7 +15,7 @@ const Story: React.FC<{ config: Config; globalState: GlobalState }> = ({
   <ProviderAny config={config}>
     {globalState.story && (
       <ErrorBoundary>
-        <React.Suspense fallback={null}>
+        <React.Suspense fallback={<Ring />}>
           {storiesAny[globalState.story] ? (
             React.createElement(storiesAny[globalState.story].component, {
               config,

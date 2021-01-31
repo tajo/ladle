@@ -1,5 +1,18 @@
 import * as React from "react";
 
+export const Ring: React.FC<{}> = () => {
+  return (
+    <div className="ladle-ring-wrapper">
+      <div className="ladle-ring">
+        <div />
+        <div />
+        <div />
+        <div />
+      </div>
+    </div>
+  );
+};
+
 export const Preview: React.FC<{}> = () => {
   const size = 24;
   const color = "currentColor";
