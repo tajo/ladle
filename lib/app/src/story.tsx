@@ -1,6 +1,6 @@
 import * as React from "react";
 import ErrorBoundary from "./error-boundary";
-import { stories, Provider } from "./generated-list";
+import { stories, Provider } from "../generated/generated-list";
 import { Ring } from "./icons";
 import type { Config, GlobalState } from "../../shared/types";
 

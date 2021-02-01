@@ -1,6 +1,6 @@
 import * as React from "react";
 //@ts-ignore
-import { stories } from "./generated-list";
+import { stories } from "../generated/generated-list";
 import Story from "./story";
 import Navigation from "./navigation";
 import AddonPanel from "./addon-panel";
