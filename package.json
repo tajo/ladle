@@ -1,6 +1,6 @@
 {
-  "name": "@ladle/cli",
-  "version": "0.0.6",
+  "name": "@ladle/react",
+  "version": "0.0.1",
   "author": "vojtech@miksu.cz",
   "license": "MIT",
   "type": "module",
@@ -13,6 +13,7 @@
   "bin": {
     "ladle": "./lib/cli/cli.js"
   },
+  "types": "./lib/shared/types.ts",
   "scripts": {
     "cli": "node ./lib/cli/cli.js",
     "clean": "rimraf dist && rimraf .ladle && rimraf build && rimraf *.tsbuildinfo",

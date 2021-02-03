@@ -54,6 +54,13 @@ const App: React.FC<{}> = () => {
         document.documentElement.removeAttribute("dir");
       }
     }
+    if (globalState.mode !== prevGlobalState.mode) {
+      if (globalState.mode === ModeState.SingleScroll) {
+        document.documentElement.setAttribute("data-scroll", "single");
+      } else {
+        document.documentElement.removeAttribute("data-scroll");
+      }
+    }
   }, [globalState]);
 
   // handle go back/forward browser buttons
@@ -71,12 +78,12 @@ const App: React.FC<{}> = () => {
   });
 
   if (globalState.mode === ModeState.Preview) {
-    return <Story globalState={globalState} />;
+    return <Story globalState={globalState} dispatch={dispatch} />;
   }
   return (
     <div className="ladle-wrapper">
       <main className="ladle-main">
-        <Story globalState={globalState} />
+        <Story globalState={globalState} dispatch={dispatch} />
       </main>
       {globalState.mode === ModeState.Full && (
         <>

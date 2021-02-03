@@ -5,6 +5,7 @@ type RecursivePartial<T> = {
 export enum ModeState {
   Full = "full",
   Preview = "preview",
+  SingleScroll = "single-scroll",
 }
 
 export enum ThemeState {
