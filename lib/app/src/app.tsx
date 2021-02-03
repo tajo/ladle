@@ -56,6 +56,13 @@ const App: React.FC<{}> = () => {
     }
     if (globalState.mode !== prevGlobalState.mode) {
       document.documentElement.setAttribute("data-mode", globalState.mode);
+      if (globalState.mode === ModeState.Preview) {
+        document.getElementById("ladle-root")?.removeAttribute("class");
+      } else {
+        document
+          .getElementById("ladle-root")
+          ?.setAttribute("class", "ladle-wrapper");
+      }
     }
   }, [globalState]);
 
@@ -77,7 +84,7 @@ const App: React.FC<{}> = () => {
     return <Story globalState={globalState} dispatch={dispatch} />;
   }
   return (
-    <div className="ladle-wrapper">
+    <>
       <main className="ladle-main">
         <Story globalState={globalState} dispatch={dispatch} />
       </main>
@@ -89,7 +96,7 @@ const App: React.FC<{}> = () => {
         }
       />
       <AddonPanel globalState={globalState} dispatch={dispatch} />
-    </div>
+    </>
   );
 };
 

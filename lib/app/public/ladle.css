@@ -30,7 +30,6 @@
 html,
 body {
   background-color: var(--ladle-bg-color-primary);
-  height: 100%;
   margin: 0;
 }
 .ladle-wrapper {
@@ -237,22 +236,20 @@ body {
 
 @media (min-width: 768px) {
   html,
-  body,
-  .ladle-wrapper {
-    margin: 0;
-    height: var(--ladle-mode-height);
-    overflow: var(--ladle-mode-overflow);
-    flex-direction: row;
+  body {
+    height: 100%;
   }
 
-  #root {
-    height: var(--ladle-mode-height);
+  .ladle-wrapper {
+    min-height: 100%;
+    margin: 0;
+    flex-direction: row;
+    align-items: flex-start;
   }
 
   .ladle-main {
     padding: 3em;
-    overflow: auto;
-    height: var(--ladle-mode-height);
+    align-self: stretch;
   }
 
   .ladle-aside {
@@ -261,9 +258,8 @@ body {
     padding: 3em 2.5em;
     min-width: 15em;
     background-color: var(--ladle-bg-color-secondary);
-    overflow: auto;
-    height: 100%;
-    height: var(--ladle-mode-height);
+    min-height: max-content;
+    align-self: stretch;
   }
 
   .ladle-aside ul {
