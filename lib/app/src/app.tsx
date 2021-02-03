@@ -55,11 +55,7 @@ const App: React.FC<{}> = () => {
       }
     }
     if (globalState.mode !== prevGlobalState.mode) {
-      if (globalState.mode === ModeState.SingleScroll) {
-        document.documentElement.setAttribute("data-scroll", "single");
-      } else {
-        document.documentElement.removeAttribute("data-scroll");
-      }
+      document.documentElement.setAttribute("data-mode", globalState.mode);
     }
   }, [globalState]);
 
@@ -85,18 +81,14 @@ const App: React.FC<{}> = () => {
       <main className="ladle-main">
         <Story globalState={globalState} dispatch={dispatch} />
       </main>
-      {globalState.mode === ModeState.Full && (
-        <>
-          <Navigation
-            stories={Object.keys(stories)}
-            story={globalState.story}
-            updateStory={(story) =>
-              dispatch({ type: ActionType.UpdateStory, value: story })
-            }
-          />
-          <AddonPanel globalState={globalState} dispatch={dispatch} />
-        </>
-      )}
+      <Navigation
+        stories={Object.keys(stories)}
+        story={globalState.story}
+        updateStory={(story) =>
+          dispatch({ type: ActionType.UpdateStory, value: story })
+        }
+      />
+      <AddonPanel globalState={globalState} dispatch={dispatch} />
     </div>
   );
 };

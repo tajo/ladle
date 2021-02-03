@@ -8,6 +8,8 @@
   --ladle-color-accent: #276ef1;
   --ladle-ring-size: 64px;
   --ladle-ring-thickness: 6px;
+  --ladle-mode-overflow: hidden;
+  --ladle-mode-height: 100vh;
 }
 [data-theme="dark"] {
   --ladle-bg-color-primary: #141414;
@@ -17,6 +19,11 @@
   --ladle-color-secondary: #bbb;
   --ladle-color-hover: #e2e2e2;
   --ladle-color-accent: #276ef1;
+}
+[data-mode="single-scroll"],
+[data-mode="preview"] {
+  --ladle-mode-overflow: visible;
+  --ladle-mode-height: 100%;
 }
 
 .ladle-wrapper,
@@ -233,16 +240,19 @@ body {
   body,
   .ladle-wrapper {
     margin: 0;
-    height: 100vh;
-    overflow: hidden;
-  }
-  .ladle-wrapper {
+    height: var(--ladle-mode-height);
+    overflow: var(--ladle-mode-overflow);
     flex-direction: row;
+  }
+
+  #root {
+    height: var(--ladle-mode-height);
   }
 
   .ladle-main {
     padding: 3em;
     overflow: auto;
+    height: var(--ladle-mode-height);
   }
 
   .ladle-aside {
@@ -252,6 +262,8 @@ body {
     min-width: 15em;
     background-color: var(--ladle-bg-color-secondary);
     overflow: auto;
+    height: 100%;
+    height: var(--ladle-mode-height);
   }
 
   .ladle-aside ul {
@@ -285,14 +297,5 @@ body {
 
   .ladle-addons > ul > li > button > label {
     display: none;
-  }
-
-  html[data-scroll="single"],
-  html[data-scroll="single"] body,
-  html[data-scroll="single"] .ladle-main,
-  html[data-scroll="single"] .ladle-wrapper,
-  html[data-scroll="single"] .ladle-aside {
-    overflow: visible;
-    height: auto;
   }
 }

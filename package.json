@@ -13,6 +13,8 @@
   "bin": {
     "ladle": "./lib/cli/cli.js"
   },
+  "main": "./lib/shared/index.js",
+  "module": "./lib/shared/index.js",
   "types": "./lib/shared/types.ts",
   "scripts": {
     "cli": "node ./lib/cli/cli.js",

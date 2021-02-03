@@ -1,6 +1,7 @@
 import queryString from "query-string";
 import { Preview } from "../icons";
 import { ModeState, AddonProps, ActionType } from "../../../shared/types";
+import config from "../get-config";
 
 export const getQuery = (locationSearch: string) => {
   const mode = queryString.parse(locationSearch).mode as string;
@@ -10,7 +11,7 @@ export const getQuery = (locationSearch: string) => {
     case ModeState.Preview:
       return ModeState.Preview;
     default:
-      return ModeState.Full;
+      return config.addons.mode.defaultState;
   }
 };
 

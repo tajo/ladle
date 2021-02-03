@@ -1,9 +1,13 @@
 import queryString from "query-string";
 import { Rtl } from "../icons";
 import { AddonProps, ActionType } from "../../../shared/types";
+import config from "../get-config";
 
 export const getQuery = (locationSearch: string) => {
-  return queryString.parse(locationSearch).rtl === "true" ? true : false;
+  const urlVal = queryString.parse(locationSearch).rtl;
+  if (urlVal === "true") return true;
+  if (urlVal === "false") return false;
+  return config.addons.rtl.defaultState;
 };
 
 export const Button: React.FC<AddonProps> = ({ dispatch, globalState }) => {

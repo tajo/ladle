@@ -58,6 +58,12 @@ export type AddonProps = {
   globalState: GlobalState;
 };
 
+export type StoryProps = {
+  dispatch: React.Dispatch<GlobalAction>;
+  globalState: GlobalState;
+  config: Config;
+};
+
 export enum Output {
   Dashboard = "dashboard",
   Stream = "stream",
