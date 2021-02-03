@@ -4,66 +4,90 @@ import { stories } from "../generated/generated-list";
 import Story from "./story";
 import Navigation from "./navigation";
 import AddonPanel from "./addon-panel";
-import history from "./history";
-import { ModeState, Config, GlobalState } from "../../shared/types";
+import { modifyParams, history } from "./history";
+import reducer from "./reducer";
+import { ModeState, GlobalState, ActionType } from "../../shared/types";
 import debug from "./debug";
 import { getQuery as getQueryTheme } from "./addons/theme";
 import { getQuery as getQueryMode } from "./addons/mode";
+import { getQuery as getQueryRtl } from "./addons/rtl";
 import { getQueryStory, storyIdToTitle, isQueryStorySet } from "./story-name";
 
-debug(`Stories: ${Object.keys(stories)}`);
+debug("Stories found", Object.keys(stories));
 
-const App: React.FC<{ config: Config }> = ({ config }) => {
-  const [theme, setTheme] = React.useState(getQueryTheme(location.search));
-  const [mode, setMode] = React.useState(getQueryMode(location.search));
-  const [story, setStory] = React.useState(getQueryStory(location.search));
-  const globalState: GlobalState = {
-    theme,
-    mode,
-    story,
-  };
+const getUrlState = (search: string): GlobalState => ({
+  theme: getQueryTheme(search),
+  mode: getQueryMode(search),
+  story: getQueryStory(search),
+  rtl: getQueryRtl(search),
+});
+
+const App: React.FC<{}> = () => {
+  const initialGlobalState = getUrlState(location.search);
+  const [globalState, dispatch] = React.useReducer(reducer, initialGlobalState);
+  const prevGlobalStateRef = React.useRef<Partial<GlobalState>>({});
   React.useEffect(() => {
+    prevGlobalStateRef.current = globalState;
+  });
+  const prevGlobalState = prevGlobalStateRef.current;
+  React.useEffect(() => {
+    debug("Global state update", globalState);
     if (!isQueryStorySet(location.search)) {
-      debug(`No story is selected. Auto-selecting the first story: ${story}`);
-      history.push(`?story=${story}`);
+      modifyParams({ story: globalState.story });
     }
-    const unlisten = history.listen(({ location }) => {
-      const nextStory = getQueryStory(location.search);
-      if (story !== nextStory) {
-        document.title = `${storyIdToTitle(nextStory)} | Ladle`;
-        setStory(nextStory);
-      }
-      const nextMode = getQueryMode(location.search);
-      if (mode !== nextMode) {
-        setMode(nextMode);
-      }
-      const nextTheme = getQueryTheme(location.search);
-      if (theme !== nextTheme) {
-        document.documentElement.setAttribute("data-theme", nextTheme);
-        setTheme(nextTheme);
-      }
-
-      debug(
-        `Setting query params: story = ${nextStory}, mode = ${nextMode}, theme = ${nextTheme}`
-      );
+    modifyParams({
+      mode: globalState.mode,
+      rtl: globalState.rtl,
+      story: globalState.story,
+      theme: globalState.theme,
     });
-    return () => {
-      unlisten();
-    };
-  }, [mode, story, theme]);
+    if (globalState.story !== prevGlobalState.story) {
+      document.title = `${storyIdToTitle(globalState.story)} | Ladle`;
+    }
+    if (globalState.theme !== prevGlobalState.theme) {
+      document.documentElement.setAttribute("data-theme", globalState.theme);
+    }
+    if (globalState.rtl !== prevGlobalState.rtl) {
+      if (globalState.rtl) {
+        document.documentElement.setAttribute("dir", "rtl");
+      } else {
+        document.documentElement.removeAttribute("dir");
+      }
+    }
+  }, [globalState]);
 
-  if (mode === ModeState.Preview) {
-    return <Story config={config} globalState={globalState} />;
+  // handle go back/forward browser buttons
+  React.useEffect(() => {
+    const unlisten = history.listen(({ action, location }) => {
+      console.log(action);
+      if (action === "POP") {
+        dispatch({
+          type: ActionType.UpdateAll,
+          value: getUrlState(location.search),
+        });
+      }
+    });
+    return () => unlisten();
+  });
+
+  if (globalState.mode === ModeState.Preview) {
+    return <Story globalState={globalState} />;
   }
   return (
     <div className="ladle-wrapper">
       <main className="ladle-main">
-        <Story config={config} globalState={globalState} />
+        <Story globalState={globalState} />
       </main>
-      {mode === ModeState.Full && (
+      {globalState.mode === ModeState.Full && (
         <>
-          <Navigation stories={Object.keys(stories)} story={story} />
-          <AddonPanel config={config} globalState={globalState} />
+          <Navigation
+            stories={Object.keys(stories)}
+            story={globalState.story}
+            updateStory={(story) =>
+              dispatch({ type: ActionType.UpdateStory, value: story })
+            }
+          />
+          <AddonPanel globalState={globalState} dispatch={dispatch} />
         </>
       )}
     </div>

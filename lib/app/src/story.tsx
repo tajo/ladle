@@ -2,16 +2,14 @@ import * as React from "react";
 import ErrorBoundary from "./error-boundary";
 import { stories, Provider } from "../generated/generated-list";
 import { Ring } from "./icons";
-import type { Config, GlobalState } from "../../shared/types";
+import type { GlobalState } from "../../shared/types";
+import config from "./get-config";
 
 // wonky types because the mocked generated module can't have types
 const ProviderAny = Provider as any;
 const storiesAny = stories as any;
 
-const Story: React.FC<{ config: Config; globalState: GlobalState }> = ({
-  config,
-  globalState,
-}) => (
+const Story: React.FC<{ globalState: GlobalState }> = ({ globalState }) => (
   <ProviderAny config={config}>
     {globalState.story && (
       <ErrorBoundary>

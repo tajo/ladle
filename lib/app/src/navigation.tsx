@@ -1,29 +1,32 @@
 import React from "react";
 import cx from "classnames";
-import history from "./history";
+import { getHref } from "./history";
 import { getStoryTree } from "./story-name";
 import { Page, Down } from "./icons";
-import type { StoryTree } from "../../shared/types";
+import type { StoryTree, UpdateStory } from "../../shared/types";
 
-const Link: React.FC<{ href: string; children: React.ReactNode }> = ({
-  href,
-  children,
-}) => (
+const Link: React.FC<{
+  href: string;
+  children: React.ReactNode;
+  updateStory: UpdateStory;
+  story: string;
+}> = ({ href, children, updateStory, story }) => (
   <a
     href={href}
     onClick={(e) => {
       e.preventDefault();
-      history.push(href);
+      updateStory(story);
     }}
   >
     {children}
   </a>
 );
 
-const Navigation: React.FC<{ stories: string[]; story: string }> = ({
-  stories,
-  story,
-}) => {
+const Navigation: React.FC<{
+  stories: string[];
+  story: string;
+  updateStory: UpdateStory;
+}> = ({ stories, story, updateStory }) => {
   const [search, setSearch] = React.useState("");
   const searchEl = React.useRef(null);
   const openStorySelector = (zEvent: any) => {
@@ -63,8 +66,12 @@ const Navigation: React.FC<{ stories: string[]; story: string }> = ({
           setSearch(e.target.value)
         }
       />
-      <ul style={{ marginLeft: "-6px" }}>
-        <NavigationSection tree={getStoryTree(filteredStories)} story={story} />
+      <ul style={{ marginInlineStart: "-6px" }}>
+        <NavigationSection
+          tree={getStoryTree(filteredStories)}
+          story={story}
+          updateStory={updateStory}
+        />
       </ul>
     </aside>
   );
@@ -73,7 +80,8 @@ const Navigation: React.FC<{ stories: string[]; story: string }> = ({
 const NavigationSection: React.FC<{
   tree: StoryTree;
   story: string;
-}> = ({ tree, story }) => {
+  updateStory: UpdateStory;
+}> = ({ tree, story, updateStory }) => {
   return (
     <React.Fragment>
       {Object.keys(tree)
@@ -92,7 +100,13 @@ const NavigationSection: React.FC<{
               {treeProps.isLinkable ? (
                 <div style={{ display: "flex" }}>
                   <Page />
-                  <Link href={`?story=${treeProps.id}`}>{treeProps.name}</Link>
+                  <Link
+                    href={getHref({ story: treeProps.id })}
+                    story={treeProps.id}
+                    updateStory={updateStory}
+                  >
+                    {treeProps.name}
+                  </Link>
                 </div>
               ) : (
                 <div style={{ display: "flex" }}>
@@ -102,7 +116,11 @@ const NavigationSection: React.FC<{
               )}
               {Object.keys(treeProps.children).length > 0 && (
                 <ul>
-                  <NavigationSection tree={treeProps.children} story={story} />
+                  <NavigationSection
+                    tree={treeProps.children}
+                    story={story}
+                    updateStory={updateStory}
+                  />
                 </ul>
               )}
             </li>

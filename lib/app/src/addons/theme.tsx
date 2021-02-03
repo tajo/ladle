@@ -1,7 +1,6 @@
 import queryString from "query-string";
-import history from "../history";
 import { Bulb } from "../icons";
-import { ThemeState, GlobalState } from "../../../shared/types";
+import { ThemeState, AddonProps, ActionType } from "../../../shared/types";
 
 export const getQuery = (locationSearch: string) => {
   const theme = queryString.parse(locationSearch).theme as string;
@@ -17,9 +16,7 @@ export const getQuery = (locationSearch: string) => {
   }
 };
 
-export const Button: React.FC<{ globalState: GlobalState }> = ({
-  globalState,
-}) => {
+export const Button: React.FC<AddonProps> = ({ globalState, dispatch }) => {
   return (
     <li>
       <button
@@ -30,10 +27,8 @@ export const Button: React.FC<{ globalState: GlobalState }> = ({
             globalState.theme === ThemeState.Light
               ? ThemeState.Dark
               : ThemeState.Light;
-          const params = queryString.parse(location.search);
-          params["theme"] = newTheme;
           document.documentElement.setAttribute("data-theme", newTheme);
-          history.push(`?${queryString.stringify(params)}`);
+          dispatch({ type: ActionType.UpdateTheme, value: newTheme });
         }}
       >
         <Bulb />

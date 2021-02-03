@@ -13,10 +13,48 @@ export enum ThemeState {
   Auto = "auto",
 }
 
+export enum ActionType {
+  UpdateAll = "update-all",
+  UpdateMode = "update-mode",
+  UpdateRtl = "update-rtl",
+  UpdateStory = "update-story",
+  UpdateTheme = "update-theme",
+}
+
+export type GlobalAction =
+  | {
+      type: ActionType.UpdateAll;
+      value: GlobalState;
+    }
+  | {
+      type: ActionType.UpdateMode;
+      value: ModeState;
+    }
+  | {
+      type: ActionType.UpdateRtl;
+      value: boolean;
+    }
+  | {
+      type: ActionType.UpdateStory;
+      value: string;
+    }
+  | {
+      type: ActionType.UpdateTheme;
+      value: ThemeState;
+    };
+
 export type GlobalState = {
   mode: ModeState;
   theme: ThemeState;
   story: string;
+  rtl: boolean;
+};
+
+export type UpdateStory = (story: string) => void;
+
+export type AddonProps = {
+  dispatch: React.Dispatch<GlobalAction>;
+  globalState: GlobalState;
 };
 
 export enum Output {
@@ -71,6 +109,10 @@ export type Config = {
     mode: {
       enabled: boolean;
       defaultState: ModeState;
+    };
+    rtl: {
+      enabled: boolean;
+      defaultState: false;
     };
   };
   serve: {

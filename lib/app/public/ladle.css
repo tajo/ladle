@@ -97,8 +97,8 @@ body {
   margin: 0;
   position: relative;
   bottom: 0;
-  margin-left: 1em;
-  margin-right: 1em;
+  margin-inline-start: 1em;
+  margin-inline-end: 1em;
   margin-bottom: 2em;
 }
 
@@ -148,8 +148,12 @@ body {
   cursor: pointer;
   line-height: 24px;
   font-size: 18px;
-  margin-left: 0.5em;
+  margin-inline-start: 0.5em;
   padding-top: 0.1em;
+}
+
+.ladle-addons > ul > li > .ladle-active {
+  color: var(--ladle-color-accent);
 }
 
 .ladle-addons > ul > li > button:focus-visible {
@@ -251,7 +255,8 @@ body {
   }
 
   .ladle-aside ul {
-    margin: 0 0 0 0.75em;
+    margin: 0;
+    margin-inline-start: 0.75em;
   }
 
   .ladle-aside li {
