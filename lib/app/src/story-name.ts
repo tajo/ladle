@@ -1,14 +1,13 @@
 import queryString from "query-string";
 import type { StoryTree } from "../../shared/types";
 //@ts-ignore
-import { stories } from "./generated-list";
+import config from "./get-config";
 
-const firstStory = Object.keys(stories).sort()[0];
 export const storyDelimiter = "-";
 export const storyEncodeDelimiter = "$";
 
 export const getQueryStory = (locationSearch: string) =>
-  (queryString.parse(locationSearch).story as string) || firstStory;
+  (queryString.parse(locationSearch).story as string) || config.defaultStory;
 
 export const isQueryStorySet = (locationSearch: string) =>
   !!queryString.parse(locationSearch).story;

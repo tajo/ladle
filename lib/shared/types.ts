@@ -107,6 +107,7 @@ export type PluginOptions = {
 
 export type Config = {
   stories: string;
+  defaultStory: string;
   mount: string[];
   addons: {
     theme: {

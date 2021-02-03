@@ -1,5 +1,5 @@
 import merge from "lodash.merge";
-import { config as configAny } from "../generated/generated-list";
+import { config as configAny, stories } from "../generated/generated-list";
 import defaultConfig from "../../shared/default-config";
 import type { Config } from "../../shared/types";
 import debug from "./debug";
@@ -12,6 +12,9 @@ if (Object.keys(configTyped).length === 0) {
   debug(configTyped);
 }
 const mergedConfig: Config = merge(defaultConfig, configTyped);
+if (mergedConfig.defaultStory === "") {
+  mergedConfig.defaultStory = Object.keys(stories).sort()[0];
+}
 debug("Final config", mergedConfig);
 
 export default mergedConfig;
