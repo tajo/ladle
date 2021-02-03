@@ -247,6 +247,13 @@ body {
     align-items: flex-start;
   }
 
+  [data-mode="full"] html,
+  [data-mode="full"] body,
+  [data-mode="full"] .ladle-wrapper {
+    height: 100vh;
+    overflow: hidden;
+  }
+
   .ladle-main {
     padding: 3em;
     align-self: stretch;
@@ -260,6 +267,11 @@ body {
     background-color: var(--ladle-bg-color-secondary);
     min-height: max-content;
     align-self: stretch;
+  }
+
+  [data-mode="full"] .ladle-main,
+  [data-mode="full"] .ladle-aside {
+    overflow: auto;
   }
 
   .ladle-aside ul {
