@@ -3,6 +3,7 @@ import { Config, GlobalState, GlobalAction } from "../../shared/types";
 import { Button as ThemeButton } from "./addons/theme";
 import { Button as ModeButton } from "./addons/mode";
 import { Button as RtlButton } from "./addons/rtl";
+import { Button as LadleButton } from "./addons/ladle";
 import config from "./get-config";
 
 type AddonNames = keyof Config["addons"];
@@ -30,6 +31,7 @@ const AddonPanel: React.FC<{
         {config.addons.rtl.enabled && (
           <RtlButton globalState={globalState} dispatch={dispatch} />
         )}
+        {config.addons.ladle.enabled && <LadleButton />}
       </ul>
     </aside>
   );

@@ -122,6 +122,9 @@ export type Config = {
       enabled: boolean;
       defaultState: false;
     };
+    ladle: {
+      enabled: boolean;
+    };
   };
   serve: {
     open: string;

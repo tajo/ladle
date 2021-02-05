@@ -1,5 +1,20 @@
 import * as React from "react";
 
+export const Ladle: React.FC<{}> = () => {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      strokeWidth={0.5}
+      stroke="currentColor"
+      fill="currentColor"
+      width={24}
+      height={24}
+    >
+      <path d="M22 14H9V5a4 4 0 00-8 0v3a1 1 0 002 0V5a2 2 0 014 0v10a8 8 0 0016 0 1 1 0 00-1-1zm-7 7a6.01 6.01 0 01-5.917-5h11.834A6.01 6.01 0 0115 21z" />
+    </svg>
+  );
+};
+
 export const Rtl: React.FC<{}> = () => {
   return (
     <svg
