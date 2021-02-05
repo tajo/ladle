@@ -13,7 +13,7 @@ const Story: React.FC<{
   globalState: GlobalState;
   dispatch: React.Dispatch<GlobalAction>;
 }> = ({ globalState, dispatch }) => (
-  <ProviderAny config={config}>
+  <ProviderAny config={config} globalState={globalState} dispatch={dispatch}>
     {globalState.story && (
       <ErrorBoundary>
         <React.Suspense fallback={<Ring />}>
