@@ -12,11 +12,15 @@ const storiesAny = stories as any;
 const Story: React.FC<{
   globalState: GlobalState;
   dispatch: React.Dispatch<GlobalAction>;
-}> = ({ globalState, dispatch }) => (
-  <ProviderAny config={config} globalState={globalState} dispatch={dispatch}>
-    {globalState.story && (
-      <ErrorBoundary>
-        <React.Suspense fallback={<Ring />}>
+}> = ({ globalState, dispatch }) =>
+  globalState.story ? (
+    <ErrorBoundary>
+      <React.Suspense fallback={<Ring />}>
+        <ProviderAny
+          config={config}
+          globalState={globalState}
+          dispatch={dispatch}
+        >
           {storiesAny[globalState.story] ? (
             React.createElement(storiesAny[globalState.story].component, {
               config,
@@ -26,10 +30,9 @@ const Story: React.FC<{
           ) : (
             <h1>No story found.</h1>
           )}
-        </React.Suspense>
-      </ErrorBoundary>
-    )}
-  </ProviderAny>
-);
+        </ProviderAny>
+      </React.Suspense>
+    </ErrorBoundary>
+  ) : null;
 
 export default Story;

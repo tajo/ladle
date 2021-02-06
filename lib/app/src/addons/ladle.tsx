@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Ladle } from "../icons";
-import { Modal, Code } from "../components";
+import { Modal, Code } from "../ui";
 
 export const Button: React.FC<{}> = () => {
   const [open, setOpen] = useState(false);
