@@ -142,6 +142,7 @@ export type Config = {
 export type UserConfig = RecursivePartial<Config>;
 
 export type ParsedStoriesResult = {
+  entry: string;
   stories: {
     storyId: string;
     componentName: string;
