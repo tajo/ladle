@@ -16,17 +16,20 @@ export const getQuery = (locationSearch: string) => {
 };
 
 export const Button: React.FC<AddonProps> = ({ dispatch }) => {
+  const text =
+    "Open fullscreen mode. It removes all other styles and wrappers.";
   return (
     <li>
       <button
-        aria-label="Open preview mode. It removes all other styles and wrappers."
-        title="Open preview mode. It removes all other styles and wrappers."
+        aria-label={text}
+        title={text}
         onClick={() =>
           dispatch({ type: ActionType.UpdateMode, value: ModeState.Preview })
         }
       >
         <Preview />
-        <label>Open preview mode</label>
+        <span className="ladle-addon-tooltip">{text}</span>
+        <label>Open fullscreen mode</label>
       </button>
     </li>
   );

@@ -17,11 +17,15 @@ export const getQuery = (locationSearch: string) => {
 };
 
 export const Button: React.FC<AddonProps> = ({ globalState, dispatch }) => {
+  const darkText = "Switch to dark theme.";
+  const lightText = "Switch to light theme.";
   return (
     <li>
       <button
-        aria-label="Switch between light and dark theme"
-        title="Switch between light and dark theme"
+        aria-label={
+          globalState.theme === ThemeState.Light ? darkText : lightText
+        }
+        title={globalState.theme === ThemeState.Light ? darkText : lightText}
         onClick={() => {
           const newTheme =
             globalState.theme === ThemeState.Light
@@ -32,6 +36,9 @@ export const Button: React.FC<AddonProps> = ({ globalState, dispatch }) => {
         }}
       >
         <Bulb />
+        <span className="ladle-addon-tooltip">
+          {globalState.theme === ThemeState.Light ? darkText : lightText}
+        </span>
         <label>
           Switch to{" "}
           {globalState.theme === ThemeState.Light

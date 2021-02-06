@@ -1,7 +1,6 @@
 :root {
   --ladle-bg-color-primary: #fff;
-  --ladle-bg-color-secondary: #f6f6f6;
-  --ladle-bg-color-tertiary: #eee;
+  --ladle-bg-color-secondary: #f4f4f4;
   --ladle-color-primary: #000;
   --ladle-color-secondary: #bbb;
   --ladle-color-hover: #545454;
@@ -14,7 +13,6 @@
 [data-theme="dark"] {
   --ladle-bg-color-primary: #141414;
   --ladle-bg-color-secondary: #1f1f1f;
-  --ladle-bg-color-tertiary: #333333;
   --ladle-color-primary: #f6f6f6;
   --ladle-color-secondary: #bbb;
   --ladle-color-hover: #e2e2e2;
@@ -67,7 +65,7 @@ body {
 
 .ladle-aside input:focus {
   outline: none;
-  border-color: var(--ladle-color-primary);
+  border-color: var(--ladle-color-accent);
 }
 
 .ladle-aside ul {
@@ -117,7 +115,7 @@ body {
 }
 
 .ladle-addons li {
-  background-color: var(--ladle-bg-color-tertiary);
+  background-color: var(--ladle-bg-color-secondary);
   box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.16);
   border-bottom: none;
   border-top-left-radius: 0.25em;
@@ -156,6 +154,20 @@ body {
   font-size: 18px;
   margin-inline-start: 0.5em;
   padding-top: 0.1em;
+}
+
+.ladle-addon-tooltip {
+  box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.16);
+  display: none;
+  white-space: nowrap;
+  background: var(--ladle-bg-color-secondary);
+  color: var(--ladle-color-primary);
+  border-radius: 4px;
+  margin-top: -96px;
+  inset-inline-start: 5px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1000;
 }
 
 .ladle-addons > ul > li > .ladle-active {
@@ -234,6 +246,78 @@ body {
   }
 }
 
+div[data-reach-dialog-content] {
+  box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.16);
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  background-color: var(--ladle-bg-color-secondary);
+  color: var(--ladle-color-primary);
+  border-radius: 4px;
+  padding: 1.2em 2em 0.8em 2em;
+  margin: 21px;
+  position: absolute;
+  bottom: 0px;
+  overflow: none;
+}
+
+div[data-reach-dialog-content] a {
+  color: var(--ladle-color-accent);
+}
+
+div[data-reach-dialog-overlay] {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+}
+
+.ladle-button {
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.16);
+  border: 1px solid var(--ladle-color-secondary);
+  margin: 1px 8px;
+  padding: 0.5em;
+  width: auto;
+  cursor: pointer;
+  overflow: visible;
+  background: inherit;
+  color: inherit;
+  border-radius: 4px;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+}
+
+.ladle-button:hover {
+  background: var(--ladle-bg-color-secondary);
+  color: var(--ladle-color-accent);
+}
+
+.ladle-button:focus {
+  outline: none;
+}
+
+.ladle-button:focus-visible {
+  border: 2px solid var(--ladle-color-accent) !important;
+  margin: 0px 7px;
+}
+
+.ladle-code {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: var(--ladle-bg-color-secondary);
+  border: 1px solid var(--ladle-color-hover);
+  color: var(--ladle-color-primary);
+  border-radius: 6px;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+}
+
 @media (min-width: 768px) {
   html,
   body {
@@ -305,5 +389,18 @@ body {
 
   .ladle-addons > ul > li > button > label {
     display: none;
+  }
+
+  div[data-reach-dialog-content] {
+    position: fixed;
+    bottom: 49px;
+    inset-inline-start: 21px;
+    margin-inline-end: 21px;
+    max-width: 35em;
+    margin: 0;
+  }
+
+  .ladle-addons > ul > li > button:hover .ladle-addon-tooltip {
+    display: block;
   }
 }

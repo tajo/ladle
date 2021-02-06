@@ -11,17 +11,22 @@ export const getQuery = (locationSearch: string) => {
 };
 
 export const Button: React.FC<AddonProps> = ({ dispatch, globalState }) => {
+  const rtlText = "Switch text direction to right to left.";
+  const ltrText = "Switch text direction to left to right.";
   return (
     <li>
       <button
-        aria-label="Switch text direction to right to left."
-        title="Switch text direction to right to left."
+        aria-label={globalState.rtl ? ltrText : rtlText}
+        title={globalState.rtl ? ltrText : rtlText}
         className={globalState.rtl ? "ladle-active" : ""}
         onClick={() =>
           dispatch({ type: ActionType.UpdateRtl, value: !globalState.rtl })
         }
       >
         <Rtl />
+        <span className="ladle-addon-tooltip">
+          {globalState.rtl ? ltrText : rtlText}
+        </span>
         <label>Right to left</label>
       </button>
     </li>
