@@ -140,3 +140,19 @@ export type Config = {
 };
 
 export type UserConfig = RecursivePartial<Config>;
+
+export type ParsedStoriesResult = {
+  stories: {
+    storyId: string;
+    componentName: string;
+    namedExport: string;
+  }[];
+  exportDefaultProps: {
+    title?: string;
+    parameters: any;
+  };
+  namedExportToParameters: { [key: string]: any };
+  namedExportToStoryName: { [key: string]: string };
+  storyParams: { [key: string]: { title?: string; parameters: any } };
+  fileId: string;
+};
