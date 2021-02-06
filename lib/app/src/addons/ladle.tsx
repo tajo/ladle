@@ -16,7 +16,11 @@ export const Button: React.FC<{}> = () => {
         <Ladle />
         <span className="ladle-addon-tooltip">{text}</span>
         <label>About Ladle</label>
-        <Modal isOpen={open} close={() => setOpen(false)}>
+        <Modal
+          isOpen={open}
+          close={() => setOpen(false)}
+          label="Dialog with information about Ladle."
+        >
           <p>
             Ladle is a modern playground for React components powered by
             Snowpack and a drop-in alternative to Storybook. It will be

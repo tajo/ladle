@@ -9,6 +9,7 @@
   --ladle-ring-thickness: 6px;
   --ladle-mode-overflow: hidden;
   --ladle-mode-height: 100vh;
+  --reach-dialog: 1;
 }
 [data-theme="dark"] {
   --ladle-bg-color-primary: #141414;

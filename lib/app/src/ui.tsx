@@ -24,8 +24,13 @@ export const Modal: React.FC<{
   children: React.ReactNode;
   close: () => void;
   isOpen: boolean;
-}> = ({ children, close, isOpen }) => (
-  <Dialog isOpen={isOpen} onDismiss={() => close()}>
+  label?: string;
+}> = ({ children, close, isOpen, label }) => (
+  <Dialog
+    isOpen={isOpen}
+    onDismiss={() => close()}
+    aria-label={label || "Modal"}
+  >
     <div
       style={{
         position: "absolute",
