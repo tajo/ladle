@@ -18,6 +18,7 @@ export const capitalize = (s: string) => {
 };
 
 export const storyIdToTitle = (s: string) => {
+  if (!s) return "";
   return s
     .split(`${storyDelimiter}${storyDelimiter}`)
     .reverse()

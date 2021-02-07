@@ -2,6 +2,7 @@ import * as React from "react";
 //@ts-ignore
 import { stories } from "../generated/generated-list";
 import Story from "./story";
+import NoStories from "./no-stories";
 import Navigation from "./navigation";
 import AddonPanel from "./addon-panel";
 import { modifyParams, history } from "./history";
@@ -86,7 +87,11 @@ const App: React.FC<{}> = () => {
   return (
     <>
       <main className="ladle-main">
-        <Story globalState={globalState} dispatch={dispatch} />
+        {Object.keys(stories).length > 0 ? (
+          <Story globalState={globalState} dispatch={dispatch} />
+        ) : (
+          <NoStories />
+        )}
       </main>
       <Navigation
         stories={Object.keys(stories)}

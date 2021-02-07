@@ -4,6 +4,7 @@ import { stories, Provider } from "../generated/generated-list";
 import { Ring } from "./icons";
 import type { GlobalState, GlobalAction } from "../../shared/types";
 import config from "./get-config";
+import NoStories from "./no-stories";
 
 // wonky types because the mocked generated module can't have types
 const ProviderAny = Provider as any;
@@ -28,7 +29,7 @@ const Story: React.FC<{
               dispatch,
             })
           ) : (
-            <h1>No story found.</h1>
+            <NoStories wrongUrl activeStory={globalState.story} />
           )}
         </ProviderAny>
       </React.Suspense>

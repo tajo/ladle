@@ -42,6 +42,16 @@ body {
   padding: 1em;
 }
 
+.ladle-error-content {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color: var(--ladle-color-primary);
+}
+
+.ladle-link {
+  color: var(--ladle-color-accent);
+}
+
 .ladle-aside {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;

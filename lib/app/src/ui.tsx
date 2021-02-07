@@ -14,6 +14,18 @@ export const Button: React.FC<{
   );
 };
 
+export const Link: React.FC<{
+  href: string;
+  children: React.ReactNode;
+  style?: React.CSSProperties;
+}> = ({ children, href, style }) => {
+  return (
+    <a className="ladle-link" href={href} style={style}>
+      {children}
+    </a>
+  );
+};
+
 export const Code: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {

@@ -22,9 +22,10 @@ export const Button: React.FC<{}> = () => {
           label="Dialog with information about Ladle."
         >
           <p>
-            Ladle is a modern playground for React components powered by
-            Snowpack and a drop-in alternative to Storybook. It will be
-            open-sourced soon. In meantime, you can follow my{" "}
+            Ladle is a modern and very fast playground for React components
+            powered by <a href="https://www.snowpack.dev/">Snowpack</a> and{" "}
+            <a href="https://esbuild.github.io/">esbuild</a>. It will be
+            open-sourced soon. In meantime, you can follow{" "}
             <a href="https://twitter.com/vmiksu">twitter</a> for more updates.
           </p>
           <p>
