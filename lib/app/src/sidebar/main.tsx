@@ -1,0 +1,60 @@
+import React from "react";
+import TreeView from "./tree-view";
+import type { UpdateStory } from "../../../shared/types";
+
+const Main: React.FC<{
+  stories: string[];
+  story: string;
+  updateStory: UpdateStory;
+}> = ({ stories, story, updateStory }) => {
+  const [search, setSearch] = React.useState("");
+  const searchEl = React.useRef(null);
+  const openStorySelector = (zEvent: any) => {
+    if ((zEvent.metaKey && zEvent.key === "p") || zEvent.key === "/") {
+      if (
+        ["input", "textarea"].every(
+          (el) => zEvent.target.tagName.toLowerCase() !== el
+        ) ||
+        zEvent.metaKey
+      ) {
+        ((searchEl.current as any) as HTMLInputElement).focus();
+        zEvent.preventDefault();
+      }
+    }
+  };
+  React.useEffect(() => {
+    document.addEventListener("keydown", openStorySelector);
+    return () => {
+      document.removeEventListener("keydown", openStorySelector);
+    };
+  }, []);
+  const canonicalSearch = search
+    .toLocaleLowerCase()
+    .replace(new RegExp("\\s+", "g"), "-");
+
+  const filteredStories = stories.filter((story) =>
+    story.includes(canonicalSearch)
+  );
+
+  return (
+    <aside className="ladle-aside">
+      <input
+        placeholder="Search"
+        aria-label="Search stories"
+        value={search}
+        ref={searchEl}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setSearch(e.target.value)
+        }
+      />
+      <TreeView
+        stories={filteredStories}
+        story={story}
+        updateStory={updateStory}
+        searchActive={search !== ""}
+      />
+    </aside>
+  );
+};
+
+export default Main;

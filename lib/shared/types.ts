@@ -69,14 +69,17 @@ export enum Output {
   Stream = "stream",
 }
 
-export type StoryTree = {
-  [key: string]: {
-    id: string;
-    name: string;
-    isLinkable: boolean;
-    children: StoryTree;
-  };
+export type StoryTreeItem = {
+  id: string;
+  subId: string;
+  name: string;
+  isLinkable: boolean;
+  isExpanded: boolean;
+  isFocused: boolean;
+  children: StoryTree;
 };
+
+export type StoryTree = StoryTreeItem[];
 
 export type GeneratedStories = {
   [key: string]: {

@@ -26,23 +26,74 @@ export const storyIdToTitle = (s: string) => {
     .join(" - ");
 };
 
-export const getStoryTree = (stories: string[]) => {
-  const tree: StoryTree = {};
-  const addIntoTree = (_tree: StoryTree, parts: string[], id: string) => {
+export const getStoryTree = (
+  stories: string[],
+  selectedStory: string,
+  allExpanded?: boolean
+) => {
+  const tree: StoryTree = [];
+  const addIntoTree = (
+    _tree: StoryTree,
+    parts: string[],
+    selectedParts: string[],
+    id: string
+  ) => {
     const first = parts.shift();
-    if (first && !_tree[first]) {
-      _tree[first] = {
+    let isExpanded = allExpanded ? true : false;
+    let passSelectedParts: string[] = [];
+    if (selectedParts[0] === first) {
+      passSelectedParts = [...selectedParts.slice(1)];
+      isExpanded = true;
+    }
+    const itemIndex = _tree.findIndex((item) => item.subId === first);
+    if (!first) return;
+    if (itemIndex === -1) {
+      _tree.push({
         id: `${id}${first}`,
+        subId: first,
         name: capitalize(first.replace(/-/g, " ")),
         isLinkable: parts.length === 0,
-        children: {},
-      };
+        isExpanded,
+        isFocused: false,
+        children: [],
+      });
     }
-    first && addIntoTree(_tree[first].children, parts, `${id}${first}--`);
+    addIntoTree(
+      _tree[itemIndex > -1 ? itemIndex : _tree.length - 1].children,
+      parts,
+      passSelectedParts,
+      `${id}${first}--`
+    );
   };
+  const selectedStoryPath = selectedStory.split(
+    `${storyDelimiter}${storyDelimiter}`
+  );
   stories.forEach((story) => {
     const storyPath = story.split(`${storyDelimiter}${storyDelimiter}`);
-    addIntoTree(tree, storyPath, "");
+    addIntoTree(tree, storyPath, selectedStoryPath, "");
   });
+
   return tree;
+};
+
+export const sortStories = (a: string, b: string) => {
+  const aParts = a.split("--");
+  const bParts = b.split("--");
+  const len = Math.min(aParts.length, bParts.length);
+  for (let i = 0; i < len; i++) {
+    if (aParts[i] !== bParts[i]) {
+      if (!aParts[i + 1] && bParts[i + 1]) {
+        return 1;
+      }
+      if (aParts[i + 1] && !bParts[i + 1]) {
+        return -1;
+      }
+      if ([aParts[i], bParts[i]].sort()[0] === aParts[i]) {
+        return -1;
+      } else {
+        return 1;
+      }
+    }
+  }
+  return 0;
 };

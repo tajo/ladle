@@ -1,9 +1,9 @@
 import * as React from "react";
 //@ts-ignore
-import { stories } from "../generated/generated-list";
+import { stories as unsortedStories } from "../generated/generated-list";
 import Story from "./story";
 import NoStories from "./no-stories";
-import Navigation from "./navigation";
+import Navigation from "./sidebar/main";
 import AddonPanel from "./addon-panel";
 import { modifyParams, history } from "./history";
 import reducer from "./reducer";
@@ -12,9 +12,15 @@ import debug from "./debug";
 import { getQuery as getQueryTheme } from "./addons/theme";
 import { getQuery as getQueryMode } from "./addons/mode";
 import { getQuery as getQueryRtl } from "./addons/rtl";
-import { getQueryStory, storyIdToTitle, isQueryStorySet } from "./story-name";
+import {
+  getQueryStory,
+  storyIdToTitle,
+  isQueryStorySet,
+  sortStories,
+} from "./story-name";
 
-debug("Stories found", Object.keys(stories));
+const stories = Object.keys(unsortedStories).sort(sortStories);
+debug("Stories found", stories);
 
 const getUrlState = (search: string): GlobalState => ({
   theme: getQueryTheme(search),
@@ -87,14 +93,14 @@ const App: React.FC<{}> = () => {
   return (
     <>
       <main className="ladle-main">
-        {Object.keys(stories).length > 0 ? (
+        {stories.length > 0 ? (
           <Story globalState={globalState} dispatch={dispatch} />
         ) : (
           <NoStories />
         )}
       </main>
       <Navigation
-        stories={Object.keys(stories)}
+        stories={stories}
         story={globalState.story}
         updateStory={(story) =>
           dispatch({ type: ActionType.UpdateStory, value: story })
