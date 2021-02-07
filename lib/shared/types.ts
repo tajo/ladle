@@ -157,3 +157,7 @@ export type ParsedStoriesResult = {
   storyParams: { [key: string]: { title?: string; parameters: any } };
   fileId: string;
 };
+
+export type EntryData = {
+  [key: string]: ParsedStoriesResult;
+};

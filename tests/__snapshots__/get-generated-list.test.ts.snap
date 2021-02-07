@@ -1,0 +1,333 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Capital letters in story names converted into delimiters 1`] = `
+"
+import * as React from \\"./_snowpack/pkg/react.js\\";
+
+const capitalization$$blue$tiny$cat = React.lazy(() => import(\\"./tests/fixtures/capitalization.stories.js\\").then(module => {
+  return {
+    default: module.BlueTinyCat
+  };
+}));
+const capitalization$$big$barking$dog = React.lazy(() => import(\\"./tests/fixtures/capitalization.stories.js\\").then(module => {
+  return {
+    default: module.BigBarkingDog
+  };
+}));
+export let stories = {
+  \\"capitalization--blue-tiny-cat\\": {
+    component: capitalization$$blue$tiny$cat
+  },
+  \\"capitalization--big-barking-dog\\": {
+    component: capitalization$$big$barking$dog
+  }
+};
+export let config = {};
+
+export const Provider = ({children}) => /*#__PURE__*/React.createElement(React.Fragment, null, children);
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ module }) => {
+    if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
+      stories = module.stories;
+      config = module.config;
+    } else {
+      // full refresh when new stories are added
+      // todo, can dynamic import + React Refresh work?
+      import.meta.hot.invalidate();
+    }
+  });
+}
+"
+`;
+
+exports[`Capital letters in the filename converted into delimiters 1`] = `
+"
+import * as React from \\"./_snowpack/pkg/react.js\\";
+
+const filename$capitalization$$test = React.lazy(() => import(\\"./tests/fixtures/filenameCapitalization.stories.js\\").then(module => {
+  return {
+    default: module.Test
+  };
+}));
+export let stories = {
+  \\"filename-capitalization--test\\": {
+    component: filename$capitalization$$test
+  }
+};
+export let config = {};
+
+export const Provider = ({children}) => /*#__PURE__*/React.createElement(React.Fragment, null, children);
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ module }) => {
+    if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
+      stories = module.stories;
+      config = module.config;
+    } else {
+      // full refresh when new stories are added
+      // todo, can dynamic import + React Refresh work?
+      import.meta.hot.invalidate();
+    }
+  });
+}
+"
+`;
+
+exports[`Default title is used instead of the file name 1`] = `
+"
+import * as React from \\"./_snowpack/pkg/react.js\\";
+
+const title$$cat = React.lazy(() => import(\\"./tests/fixtures/default-title.stories.js\\").then(module => {
+  return {
+    default: module.Cat
+  };
+}));
+export let stories = {
+  \\"title--cat\\": {
+    component: title$$cat
+  }
+};
+export let config = {};
+
+export const Provider = ({children}) => /*#__PURE__*/React.createElement(React.Fragment, null, children);
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ module }) => {
+    if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
+      stories = module.stories;
+      config = module.config;
+    } else {
+      // full refresh when new stories are added
+      // todo, can dynamic import + React Refresh work?
+      import.meta.hot.invalidate();
+    }
+  });
+}
+"
+`;
+
+exports[`Extract and merge story parameters 1`] = `
+"
+import * as React from \\"./_snowpack/pkg/react.js\\";
+
+const title$$cat = React.lazy(() => import(\\"./tests/fixtures/story-parameters.stories.js\\").then(module => {
+  return {
+    default: module.Cat
+  };
+}));
+const title$$dog = React.lazy(() => import(\\"./tests/fixtures/story-parameters.stories.js\\").then(module => {
+  return {
+    default: module.Dog
+  };
+}));
+export let stories = {
+  \\"title--cat\\": {
+    component: title$$cat,
+    parameters: {
+      \\"title\\": \\"Title\\",
+      \\"parameters\\": {
+        \\"baseweb\\": {
+          \\"theme\\": \\"dark\\",
+          \\"browsers\\": [\\"chrome\\", \\"firefox\\"],
+          \\"width\\": \\"500px\\"
+        },
+        \\"links\\": true
+      }
+    }
+  },
+  \\"title--dog\\": {
+    component: title$$dog,
+    parameters: {
+      \\"title\\": \\"Title\\",
+      \\"parameters\\": {
+        \\"baseweb\\": {
+          \\"theme\\": \\"dark\\",
+          \\"browsers\\": [\\"chrome\\", \\"webkit\\"]
+        }
+      }
+    }
+  }
+};
+export let config = {};
+
+export const Provider = ({children}) => /*#__PURE__*/React.createElement(React.Fragment, null, children);
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ module }) => {
+    if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
+      stories = module.stories;
+      config = module.config;
+    } else {
+      // full refresh when new stories are added
+      // todo, can dynamic import + React Refresh work?
+      import.meta.hot.invalidate();
+    }
+  });
+}
+"
+`;
+
+exports[`Extract default parameters 1`] = `
+"
+import * as React from \\"./_snowpack/pkg/react.js\\";
+
+const title$$cat = React.lazy(() => import(\\"./tests/fixtures/default-parameters.stories.js\\").then(module => {
+  return {
+    default: module.Cat
+  };
+}));
+export let stories = {
+  \\"title--cat\\": {
+    component: title$$cat,
+    parameters: {
+      \\"title\\": \\"Title\\",
+      \\"parameters\\": {
+        \\"baseweb\\": {
+          \\"foo\\": \\"title\\"
+        }
+      }
+    }
+  }
+};
+export let config = {};
+
+export const Provider = ({children}) => /*#__PURE__*/React.createElement(React.Fragment, null, children);
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ module }) => {
+    if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
+      stories = module.stories;
+      config = module.config;
+    } else {
+      // full refresh when new stories are added
+      // todo, can dynamic import + React Refresh work?
+      import.meta.hot.invalidate();
+    }
+  });
+}
+"
+`;
+
+exports[`Single file with two stories 1`] = `
+"
+import * as React from \\"./_snowpack/pkg/react.js\\";
+
+const animals$$cat = React.lazy(() => import(\\"./tests/fixtures/animals.stories.js\\").then(module => {
+  return {
+    default: module.Cat
+  };
+}));
+const animals$$dog = React.lazy(() => import(\\"./tests/fixtures/animals.stories.js\\").then(module => {
+  return {
+    default: module.Dog
+  };
+}));
+export let stories = {
+  \\"animals--cat\\": {
+    component: animals$$cat
+  },
+  \\"animals--dog\\": {
+    component: animals$$dog
+  }
+};
+export let config = {};
+
+export const Provider = ({children}) => /*#__PURE__*/React.createElement(React.Fragment, null, children);
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ module }) => {
+    if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
+      stories = module.stories;
+      config = module.config;
+    } else {
+      // full refresh when new stories are added
+      // todo, can dynamic import + React Refresh work?
+      import.meta.hot.invalidate();
+    }
+  });
+}
+"
+`;
+
+exports[`Story name replaces named export as a story name 1`] = `
+"
+import * as React from \\"./_snowpack/pkg/react.js\\";
+
+const storyname$$doggo = React.lazy(() => import(\\"./tests/fixtures/storyname.stories.js\\").then(module => {
+  return {
+    default: module.Cat
+  };
+}));
+const storyname$$capital$city = React.lazy(() => import(\\"./tests/fixtures/storyname.stories.js\\").then(module => {
+  return {
+    default: module.CapitalCity
+  };
+}));
+const storyname$$champs$élysées = React.lazy(() => import(\\"./tests/fixtures/storyname.stories.js\\").then(module => {
+  return {
+    default: module.CapitalReplaced
+  };
+}));
+export let stories = {
+  \\"storyname--doggo\\": {
+    component: storyname$$doggo
+  },
+  \\"storyname--capital-city\\": {
+    component: storyname$$capital$city
+  },
+  \\"storyname--champs-\\\\xE9lys\\\\xE9es\\": {
+    component: storyname$$champs$élysées
+  }
+};
+export let config = {};
+
+export const Provider = ({children}) => /*#__PURE__*/React.createElement(React.Fragment, null, children);
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ module }) => {
+    if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
+      stories = module.stories;
+      config = module.config;
+    } else {
+      // full refresh when new stories are added
+      // todo, can dynamic import + React Refresh work?
+      import.meta.hot.invalidate();
+    }
+  });
+}
+"
+`;
+
+exports[`Turn file name delimiters into spaces and levels correctly 1`] = `
+"
+import * as React from \\"./_snowpack/pkg/react.js\\";
+
+const our$animals$$mammals$$cat = React.lazy(() => import(\\"./tests/fixtures/our-animals--mammals.stories.js\\").then(module => {
+  return {
+    default: module.Cat
+  };
+}));
+export let stories = {
+  \\"our-animals--mammals--cat\\": {
+    component: our$animals$$mammals$$cat
+  }
+};
+export let config = {};
+
+export const Provider = ({children}) => /*#__PURE__*/React.createElement(React.Fragment, null, children);
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ module }) => {
+    if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
+      stories = module.stories;
+      config = module.config;
+    } else {
+      // full refresh when new stories are added
+      // todo, can dynamic import + React Refresh work?
+      import.meta.hot.invalidate();
+    }
+  });
+}
+"
+`;

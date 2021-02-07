@@ -1,0 +1,255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Capital letters in story names converted into delimiters 1`] = `
+Object {
+  "entry": "tests/fixtures/capitalization.stories.tsx",
+  "exportDefaultProps": Object {
+    "parameters": undefined,
+    "title": undefined,
+  },
+  "fileId": "capitalization",
+  "namedExportToParameters": Object {},
+  "namedExportToStoryName": Object {},
+  "stories": Array [
+    Object {
+      "componentName": "capitalization$$blue$tiny$cat",
+      "namedExport": "BlueTinyCat",
+      "storyId": "capitalization--blue-tiny-cat",
+    },
+    Object {
+      "componentName": "capitalization$$big$barking$dog",
+      "namedExport": "BigBarkingDog",
+      "storyId": "capitalization--big-barking-dog",
+    },
+  ],
+  "storyParams": Object {},
+}
+`;
+
+exports[`Capital letters in the filename converted into delimiters 1`] = `
+Object {
+  "entry": "tests/fixtures/filenameCapitalization.stories.tsx",
+  "exportDefaultProps": Object {
+    "parameters": undefined,
+    "title": undefined,
+  },
+  "fileId": "filenameCapitalization",
+  "namedExportToParameters": Object {},
+  "namedExportToStoryName": Object {},
+  "stories": Array [
+    Object {
+      "componentName": "filename$capitalization$$test",
+      "namedExport": "Test",
+      "storyId": "filename-capitalization--test",
+    },
+  ],
+  "storyParams": Object {},
+}
+`;
+
+exports[`Default title is used instead of the file name 1`] = `
+Object {
+  "entry": "tests/fixtures/default-title.stories.tsx",
+  "exportDefaultProps": Object {
+    "title": "Title",
+  },
+  "fileId": "default-title",
+  "namedExportToParameters": Object {},
+  "namedExportToStoryName": Object {},
+  "stories": Array [
+    Object {
+      "componentName": "title$$cat",
+      "namedExport": "Cat",
+      "storyId": "title--cat",
+    },
+  ],
+  "storyParams": Object {},
+}
+`;
+
+exports[`Extract and merge story parameters 1`] = `
+Object {
+  "entry": "tests/fixtures/story-parameters.stories.tsx",
+  "exportDefaultProps": Object {
+    "parameters": Object {
+      "baseweb": Object {
+        "browsers": Array [
+          "chrome",
+          "webkit",
+        ],
+        "theme": "dark",
+      },
+    },
+    "title": "Title",
+  },
+  "fileId": "story-parameters",
+  "namedExportToParameters": Object {
+    "Cat": Object {
+      "baseweb": Object {
+        "browsers": Array [
+          "chrome",
+          "firefox",
+        ],
+        "width": "500px",
+      },
+      "links": true,
+    },
+  },
+  "namedExportToStoryName": Object {},
+  "stories": Array [
+    Object {
+      "componentName": "title$$cat",
+      "namedExport": "Cat",
+      "storyId": "title--cat",
+    },
+    Object {
+      "componentName": "title$$dog",
+      "namedExport": "Dog",
+      "storyId": "title--dog",
+    },
+  ],
+  "storyParams": Object {
+    "title--cat": Object {
+      "parameters": Object {
+        "baseweb": Object {
+          "browsers": Array [
+            "chrome",
+            "firefox",
+          ],
+          "theme": "dark",
+          "width": "500px",
+        },
+        "links": true,
+      },
+      "title": "Title",
+    },
+    "title--dog": Object {
+      "parameters": Object {
+        "baseweb": Object {
+          "browsers": Array [
+            "chrome",
+            "webkit",
+          ],
+          "theme": "dark",
+        },
+      },
+      "title": "Title",
+    },
+  },
+}
+`;
+
+exports[`Extract default parameters 1`] = `
+Object {
+  "entry": "tests/fixtures/default-parameters.stories.tsx",
+  "exportDefaultProps": Object {
+    "parameters": Object {
+      "baseweb": Object {
+        "foo": "title",
+      },
+    },
+    "title": "Title",
+  },
+  "fileId": "default-parameters",
+  "namedExportToParameters": Object {},
+  "namedExportToStoryName": Object {},
+  "stories": Array [
+    Object {
+      "componentName": "title$$cat",
+      "namedExport": "Cat",
+      "storyId": "title--cat",
+    },
+  ],
+  "storyParams": Object {
+    "title--cat": Object {
+      "parameters": Object {
+        "baseweb": Object {
+          "foo": "title",
+        },
+      },
+      "title": "Title",
+    },
+  },
+}
+`;
+
+exports[`Single file with two stories 1`] = `
+Object {
+  "entry": "tests/fixtures/animals.stories.tsx",
+  "exportDefaultProps": Object {
+    "parameters": undefined,
+    "title": undefined,
+  },
+  "fileId": "animals",
+  "namedExportToParameters": Object {},
+  "namedExportToStoryName": Object {},
+  "stories": Array [
+    Object {
+      "componentName": "animals$$cat",
+      "namedExport": "Cat",
+      "storyId": "animals--cat",
+    },
+    Object {
+      "componentName": "animals$$dog",
+      "namedExport": "Dog",
+      "storyId": "animals--dog",
+    },
+  ],
+  "storyParams": Object {},
+}
+`;
+
+exports[`Story name replaces named export as a story name 1`] = `
+Object {
+  "entry": "tests/fixtures/storyname.stories.tsx",
+  "exportDefaultProps": Object {
+    "parameters": undefined,
+    "title": undefined,
+  },
+  "fileId": "storyname",
+  "namedExportToParameters": Object {},
+  "namedExportToStoryName": Object {
+    "CapitalReplaced": "Champs Élysées",
+    "Cat": "Doggo",
+  },
+  "stories": Array [
+    Object {
+      "componentName": "storyname$$doggo",
+      "namedExport": "Cat",
+      "storyId": "storyname--doggo",
+    },
+    Object {
+      "componentName": "storyname$$capital$city",
+      "namedExport": "CapitalCity",
+      "storyId": "storyname--capital-city",
+    },
+    Object {
+      "componentName": "storyname$$champs$élysées",
+      "namedExport": "CapitalReplaced",
+      "storyId": "storyname--champs-élysées",
+    },
+  ],
+  "storyParams": Object {},
+}
+`;
+
+exports[`Turn file name delimiters into spaces and levels correctly 1`] = `
+Object {
+  "entry": "tests/fixtures/our-animals--mammals.stories.tsx",
+  "exportDefaultProps": Object {
+    "parameters": undefined,
+    "title": undefined,
+  },
+  "fileId": "our-animals--mammals",
+  "namedExportToParameters": Object {},
+  "namedExportToStoryName": Object {},
+  "stories": Array [
+    Object {
+      "componentName": "our$animals$$mammals$$cat",
+      "namedExport": "Cat",
+      "storyId": "our-animals--mammals--cat",
+    },
+  ],
+  "storyParams": Object {},
+}
+`;

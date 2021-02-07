@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Capital letters in story names converted into delimiters 1`] = `
+"{
+  \\"about\\": {
+    \\"homepage\\": \\"https://www.ladle.dev\\",
+    \\"github\\": \\"https://github.com/tajo/ladle\\"
+  },
+  \\"stories\\": {
+    \\"capitalization--blue-tiny-cat\\": {
+      \\"name\\": \\"Blue tiny cat\\",
+      \\"levels\\": [
+        \\"Capitalization\\"
+      ],
+      \\"parameters\\": {}
+    },
+    \\"capitalization--big-barking-dog\\": {
+      \\"name\\": \\"Big barking dog\\",
+      \\"levels\\": [
+        \\"Capitalization\\"
+      ],
+      \\"parameters\\": {}
+    }
+  }
+}"
+`;
+
+exports[`Capital letters in the filename converted into delimiters 1`] = `
+"{
+  \\"about\\": {
+    \\"homepage\\": \\"https://www.ladle.dev\\",
+    \\"github\\": \\"https://github.com/tajo/ladle\\"
+  },
+  \\"stories\\": {
+    \\"filename-capitalization--test\\": {
+      \\"name\\": \\"Test\\",
+      \\"levels\\": [
+        \\"Filename capitalization\\"
+      ],
+      \\"parameters\\": {}
+    }
+  }
+}"
+`;
+
+exports[`Default title is used instead of the file name 1`] = `
+"{
+  \\"about\\": {
+    \\"homepage\\": \\"https://www.ladle.dev\\",
+    \\"github\\": \\"https://github.com/tajo/ladle\\"
+  },
+  \\"stories\\": {
+    \\"title--cat\\": {
+      \\"name\\": \\"Cat\\",
+      \\"levels\\": [
+        \\"Title\\"
+      ],
+      \\"parameters\\": {}
+    }
+  }
+}"
+`;
+
+exports[`Extract and merge story parameters 1`] = `
+"{
+  \\"about\\": {
+    \\"homepage\\": \\"https://www.ladle.dev\\",
+    \\"github\\": \\"https://github.com/tajo/ladle\\"
+  },
+  \\"stories\\": {
+    \\"title--cat\\": {
+      \\"name\\": \\"Cat\\",
+      \\"levels\\": [
+        \\"Title\\"
+      ],
+      \\"parameters\\": {
+        \\"baseweb\\": {
+          \\"theme\\": \\"dark\\",
+          \\"browsers\\": [
+            \\"chrome\\",
+            \\"firefox\\"
+          ],
+          \\"width\\": \\"500px\\"
+        },
+        \\"links\\": true
+      }
+    },
+    \\"title--dog\\": {
+      \\"name\\": \\"Dog\\",
+      \\"levels\\": [
+        \\"Title\\"
+      ],
+      \\"parameters\\": {
+        \\"baseweb\\": {
+          \\"theme\\": \\"dark\\",
+          \\"browsers\\": [
+            \\"chrome\\",
+            \\"webkit\\"
+          ]
+        }
+      }
+    }
+  }
+}"
+`;
+
+exports[`Extract default parameters 1`] = `
+"{
+  \\"about\\": {
+    \\"homepage\\": \\"https://www.ladle.dev\\",
+    \\"github\\": \\"https://github.com/tajo/ladle\\"
+  },
+  \\"stories\\": {
+    \\"title--cat\\": {
+      \\"name\\": \\"Cat\\",
+      \\"levels\\": [
+        \\"Title\\"
+      ],
+      \\"parameters\\": {
+        \\"baseweb\\": {
+          \\"foo\\": \\"title\\"
+        }
+      }
+    }
+  }
+}"
+`;
+
+exports[`Single file with two stories 1`] = `
+"{
+  \\"about\\": {
+    \\"homepage\\": \\"https://www.ladle.dev\\",
+    \\"github\\": \\"https://github.com/tajo/ladle\\"
+  },
+  \\"stories\\": {
+    \\"animals--cat\\": {
+      \\"name\\": \\"Cat\\",
+      \\"levels\\": [
+        \\"Animals\\"
+      ],
+      \\"parameters\\": {}
+    },
+    \\"animals--dog\\": {
+      \\"name\\": \\"Dog\\",
+      \\"levels\\": [
+        \\"Animals\\"
+      ],
+      \\"parameters\\": {}
+    }
+  }
+}"
+`;
+
+exports[`Story name replaces named export as a story name 1`] = `
+"{
+  \\"about\\": {
+    \\"homepage\\": \\"https://www.ladle.dev\\",
+    \\"github\\": \\"https://github.com/tajo/ladle\\"
+  },
+  \\"stories\\": {
+    \\"storyname--doggo\\": {
+      \\"name\\": \\"Doggo\\",
+      \\"levels\\": [
+        \\"Storyname\\"
+      ],
+      \\"parameters\\": {}
+    },
+    \\"storyname--capital-city\\": {
+      \\"name\\": \\"Capital city\\",
+      \\"levels\\": [
+        \\"Storyname\\"
+      ],
+      \\"parameters\\": {}
+    },
+    \\"storyname--champs-élysées\\": {
+      \\"name\\": \\"Champs élysées\\",
+      \\"levels\\": [
+        \\"Storyname\\"
+      ],
+      \\"parameters\\": {}
+    }
+  }
+}"
+`;
+
+exports[`Turn file name delimiters into spaces and levels correctly 1`] = `
+"{
+  \\"about\\": {
+    \\"homepage\\": \\"https://www.ladle.dev\\",
+    \\"github\\": \\"https://github.com/tajo/ladle\\"
+  },
+  \\"stories\\": {
+    \\"our-animals--mammals--cat\\": {
+      \\"name\\": \\"Cat\\",
+      \\"levels\\": [
+        \\"Our animals\\",
+        \\"Mammals\\"
+      ],
+      \\"parameters\\": {}
+    }
+  }
+}"
+`;
