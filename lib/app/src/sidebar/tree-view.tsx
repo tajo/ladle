@@ -86,7 +86,8 @@ const TreeView: React.FC<{
       case "ArrowDown":
         e.preventDefault();
         e.stopPropagation();
-        focusSelectedItem(getNextId(tree, item.id, null));
+        const nextId = getNextId(tree, item.id, null);
+        nextId && focusSelectedItem(nextId);
         break;
       case " ":
       case "Enter":
