@@ -4,11 +4,8 @@ import { getHref } from "../history";
 import { Page, Down } from "../icons";
 import clonedeep from "lodash.clonedeep";
 import { getStoryTree } from "../story-name";
-import type {
-  StoryTree,
-  StoryTreeItem,
-  UpdateStory,
-} from "../../../shared/types";
+import { walkTree } from "./utils";
+import type { StoryTree, UpdateStory } from "../../../shared/types";
 
 const TreeView: React.FC<{
   stories: string[];
@@ -24,23 +21,6 @@ const TreeView: React.FC<{
   }, [stories]);
   const expandTreeItem = (itemId: string, value: boolean) => {
     const newTree = clonedeep(tree);
-    const walkTree = (
-      _tree: StoryTree,
-      levels: string[],
-      fn: (item: StoryTreeItem) => void,
-      leafOnly: boolean
-    ) => {
-      const key = levels[0];
-      if (key) {
-        const item = _tree.find((item) => item.subId === key);
-        if (item) {
-          if (!leafOnly || levels.length === 1) {
-            fn(item);
-          }
-          walkTree(item.children, levels.slice(1), fn, leafOnly);
-        }
-      }
-    };
     walkTree(
       newTree,
       itemId.split("--"),
@@ -71,8 +51,10 @@ const Link: React.FC<{
     tabIndex={0}
     role="treeitem"
     href={href}
+    onKeyDown={(e) => e.stopPropagation()}
     onClick={(e) => {
       e.preventDefault();
+      e.stopPropagation();
       updateStory(story);
     }}
   >
@@ -91,6 +73,12 @@ const NavigationSection: React.FC<{
       {tree.map((treeProps) => {
         return (
           <li
+            onKeyDown={(e) => {
+              e.stopPropagation();
+              if (e.code === "Space" || e.code === "Enter") {
+                expandTreeItem(treeProps.id, !treeProps.isExpanded);
+              }
+            }}
             aria-expanded={treeProps.isExpanded}
             tabIndex={treeProps.isLinkable ? -1 : 0}
             role={treeProps.isLinkable ? "none" : "treeitem"}
