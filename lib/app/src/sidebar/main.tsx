@@ -9,6 +9,7 @@ const Main: React.FC<{
 }> = ({ stories, story, updateStory }) => {
   const [search, setSearch] = React.useState("");
   const searchEl = React.useRef(null);
+  const treeRoot = React.useRef<HTMLUListElement | null>(null);
   const openStorySelector = (zEvent: any) => {
     if ((zEvent.metaKey && zEvent.key === "p") || zEvent.key === "/") {
       if (
@@ -43,15 +44,24 @@ const Main: React.FC<{
         aria-label="Search stories"
         value={search}
         ref={searchEl}
+        onKeyDown={(e) => {
+          if (e.key === "ArrowDown") {
+            (treeRoot as any).current.firstChild.focus();
+          }
+        }}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setSearch(e.target.value)
         }
       />
       <TreeView
+        searchRef={searchEl}
         stories={filteredStories}
         story={story}
         updateStory={updateStory}
         searchActive={search !== ""}
+        setTreeRootRef={(root: HTMLUListElement | null) =>
+          (treeRoot.current = root)
+        }
       />
     </aside>
   );

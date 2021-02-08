@@ -2,85 +2,171 @@ import * as React from "react";
 import cx from "classnames";
 import { getHref } from "../history";
 import { Page, Down } from "../icons";
-import clonedeep from "lodash.clonedeep";
 import { getStoryTree } from "../story-name";
-import { walkTree } from "./utils";
-import type { StoryTree, UpdateStory } from "../../../shared/types";
+import {
+  getEndId,
+  getFirstChildId,
+  getNextId,
+  getParentId,
+  getPrevId,
+  toggleIsExpanded,
+} from "./utils";
+import type {
+  StoryTree,
+  StoryTreeItem,
+  UpdateStory,
+} from "../../../shared/types";
+
+type TreeItemRefs = {
+  current: { [key: string]: HTMLElement | null };
+};
 
 const TreeView: React.FC<{
   stories: string[];
   story: string;
+  searchRef: React.Ref<HTMLLinkElement>;
   updateStory: UpdateStory;
+  setTreeRootRef: (root: HTMLUListElement | null) => void;
   searchActive?: boolean;
-}> = ({ stories, story, updateStory, searchActive }) => {
+}> = ({
+  stories,
+  story,
+  updateStory,
+  searchActive,
+  searchRef,
+  setTreeRootRef,
+}) => {
+  const treeItemRefs: TreeItemRefs = React.useRef({});
   const [tree, setTree] = React.useState(
     getStoryTree(stories, story, searchActive)
   );
   React.useEffect(() => {
     setTree(getStoryTree(stories, story, searchActive));
   }, [stories]);
-  const expandTreeItem = (itemId: string, value: boolean) => {
-    const newTree = clonedeep(tree);
-    walkTree(
-      newTree,
-      itemId.split("--"),
-      (item) => (item.isExpanded = value),
-      !value
-    );
-    setTree(newTree);
+
+  const [selectedItemId, setSelectedItemId] = React.useState<string | null>(
+    tree.length ? tree[0].id : null
+  );
+
+  const focusSelectedItem = (id: string | null) => {
+    if (id && treeItemRefs && treeItemRefs.current[id]) {
+      treeItemRefs.current[id]?.focus();
+    }
+    setSelectedItemId(id ? id : tree[0].id);
+    !id && (searchRef as any).current.focus();
+  };
+  const onKeyDownFn = (
+    e: React.KeyboardEvent<HTMLElement>,
+    item: StoryTreeItem
+  ) => {
+    switch (e.key) {
+      case "ArrowRight":
+        e.preventDefault();
+        e.stopPropagation();
+        if (!item.isExpanded) {
+          setTree(toggleIsExpanded(tree, item));
+        } else {
+          focusSelectedItem(getFirstChildId(tree, item.id));
+        }
+        break;
+      case "ArrowLeft":
+        e.preventDefault();
+        e.stopPropagation();
+        if (item.isExpanded) {
+          setTree(toggleIsExpanded(tree, item));
+        } else {
+          focusSelectedItem(getParentId(tree, item.id, null));
+        }
+        break;
+      case "ArrowUp":
+        e.preventDefault();
+        e.stopPropagation();
+        focusSelectedItem(getPrevId(tree, item.id, null));
+        break;
+      case "ArrowDown":
+        e.preventDefault();
+        e.stopPropagation();
+        focusSelectedItem(getNextId(tree, item.id, null));
+        break;
+      case " ":
+      case "Enter":
+        if (!(e.target as any).href) {
+          e.preventDefault();
+          e.stopPropagation();
+          setTree(toggleIsExpanded(tree, item));
+        }
+        break;
+      case "Home":
+        e.preventDefault();
+        e.stopPropagation();
+        if (tree.length) {
+          focusSelectedItem(tree[0].id);
+        }
+        break;
+      case "End":
+        e.preventDefault();
+        e.stopPropagation();
+        focusSelectedItem(getEndId(tree));
+        break;
+    }
   };
   return (
-    <ul role="tree" style={{ marginInlineStart: "-6px" }}>
+    <ul
+      role="tree"
+      style={{ marginInlineStart: "-6px" }}
+      ref={(el) => setTreeRootRef(el)}
+    >
       <NavigationSection
         tree={tree}
+        fullTree={tree}
         story={story}
         updateStory={updateStory}
-        expandTreeItem={expandTreeItem}
+        toggleIsExpanded={toggleIsExpanded}
+        selectedItemId={selectedItemId}
+        onKeyDownFn={onKeyDownFn}
+        treeItemRefs={treeItemRefs}
       />
     </ul>
   );
 };
 
-const Link: React.FC<{
-  href: string;
-  children: React.ReactNode;
-  updateStory: UpdateStory;
-  story: string;
-}> = ({ href, children, updateStory, story }) => (
-  <a
-    tabIndex={0}
-    role="treeitem"
-    href={href}
-    onKeyDown={(e) => e.stopPropagation()}
-    onClick={(e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      updateStory(story);
-    }}
-  >
-    {children}
-  </a>
-);
-
 const NavigationSection: React.FC<{
   tree: StoryTree;
+  fullTree: StoryTree;
   story: string;
   updateStory: UpdateStory;
-  expandTreeItem: (id: string, value: boolean) => void;
-}> = ({ tree, story, updateStory, expandTreeItem }) => {
+  onKeyDownFn: (
+    e: React.KeyboardEvent<HTMLElement>,
+    item: StoryTreeItem
+  ) => void;
+  selectedItemId: string | null;
+  toggleIsExpanded: (tree: StoryTree, item: StoryTreeItem) => void;
+  treeItemRefs: TreeItemRefs;
+}> = ({
+  tree,
+  fullTree,
+  story,
+  updateStory,
+  toggleIsExpanded,
+  onKeyDownFn,
+  selectedItemId,
+  treeItemRefs,
+}) => {
   return (
     <React.Fragment>
       {tree.map((treeProps) => {
         return (
           <li
-            onKeyDown={(e) => {
-              e.stopPropagation();
-              if (e.code === "Space" || e.code === "Enter") {
-                expandTreeItem(treeProps.id, !treeProps.isExpanded);
-              }
-            }}
+            onKeyDown={(e) => onKeyDownFn(e, treeProps)}
             aria-expanded={treeProps.isExpanded}
-            tabIndex={treeProps.isLinkable ? -1 : 0}
+            tabIndex={
+              treeProps.id === selectedItemId && !treeProps.isLinkable ? 0 : -1
+            }
+            ref={
+              treeProps.isLinkable
+                ? undefined
+                : (element) => (treeItemRefs.current[treeProps.id] = element)
+            }
             role={treeProps.isLinkable ? "none" : "treeitem"}
             key={treeProps.id}
             className={cx({
@@ -92,20 +178,27 @@ const NavigationSection: React.FC<{
             {treeProps.isLinkable ? (
               <div style={{ display: "flex" }}>
                 <Page />
-                <Link
+                <a
+                  tabIndex={treeProps.id === selectedItemId ? 0 : -1}
+                  ref={(element) =>
+                    (treeItemRefs.current[treeProps.id] = element)
+                  }
+                  role="treeitem"
                   href={getHref({ story: treeProps.id })}
-                  story={treeProps.id}
-                  updateStory={updateStory}
+                  onKeyDown={(e) => onKeyDownFn(e, treeProps)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    updateStory(treeProps.id);
+                  }}
                 >
                   {treeProps.name}
-                </Link>
+                </a>
               </div>
             ) : (
               <div
                 style={{ display: "flex", cursor: "pointer" }}
-                onClick={() =>
-                  expandTreeItem(treeProps.id, !treeProps.isExpanded)
-                }
+                onClick={() => toggleIsExpanded(fullTree, treeProps)}
               >
                 <Down rotate={!treeProps.isExpanded} />
                 <div>{treeProps.name}</div>
@@ -116,9 +209,13 @@ const NavigationSection: React.FC<{
                 <ul role="group">
                   <NavigationSection
                     tree={treeProps.children}
+                    fullTree={fullTree}
                     story={story}
                     updateStory={updateStory}
-                    expandTreeItem={expandTreeItem}
+                    selectedItemId={selectedItemId}
+                    onKeyDownFn={onKeyDownFn}
+                    toggleIsExpanded={toggleIsExpanded}
+                    treeItemRefs={treeItemRefs}
                   />
                 </ul>
               )}
