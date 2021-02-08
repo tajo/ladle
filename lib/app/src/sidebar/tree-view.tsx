@@ -122,7 +122,9 @@ const TreeView: React.FC<{
         fullTree={tree}
         story={story}
         updateStory={updateStory}
-        toggleIsExpanded={toggleIsExpanded}
+        onItemClick={(item: StoryTreeItem) =>
+          setTree(toggleIsExpanded(tree, item))
+        }
         selectedItemId={selectedItemId}
         onKeyDownFn={onKeyDownFn}
         treeItemRefs={treeItemRefs}
@@ -141,14 +143,14 @@ const NavigationSection: React.FC<{
     item: StoryTreeItem
   ) => void;
   selectedItemId: string | null;
-  toggleIsExpanded: (tree: StoryTree, item: StoryTreeItem) => void;
+  onItemClick: (item: StoryTreeItem) => void;
   treeItemRefs: TreeItemRefs;
 }> = ({
   tree,
   fullTree,
   story,
   updateStory,
-  toggleIsExpanded,
+  onItemClick,
   onKeyDownFn,
   selectedItemId,
   treeItemRefs,
@@ -199,7 +201,7 @@ const NavigationSection: React.FC<{
             ) : (
               <div
                 style={{ display: "flex", cursor: "pointer" }}
-                onClick={() => toggleIsExpanded(fullTree, treeProps)}
+                onClick={() => onItemClick(treeProps)}
               >
                 <Down rotate={!treeProps.isExpanded} />
                 <div>{treeProps.name}</div>
@@ -215,7 +217,7 @@ const NavigationSection: React.FC<{
                     updateStory={updateStory}
                     selectedItemId={selectedItemId}
                     onKeyDownFn={onKeyDownFn}
-                    toggleIsExpanded={toggleIsExpanded}
+                    onItemClick={onItemClick}
                     treeItemRefs={treeItemRefs}
                   />
                 </ul>
