@@ -52,6 +52,10 @@ export const Rtl: React.FC<{}> = () => {
 };
 
 export const Ring: React.FC<{}> = () => {
+  React.useEffect(() => {
+    document.documentElement.removeAttribute("data-storyloaded");
+    return () => document.documentElement.setAttribute("data-storyloaded", "");
+  }, []);
   return (
     <div className="ladle-ring-wrapper">
       <div className="ladle-ring">
