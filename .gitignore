@@ -4,5 +4,6 @@ dist
 build
 .ladle
 *.tsbuildinfo
-
+website/node_modules
+website/build
 
