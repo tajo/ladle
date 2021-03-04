@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "serve": "ladle serve",
-    "build": "ladle build --optimize"
+    "build": "ladle build --optimize",
+    "lint": "echo 'no lint'",
+    "test": "echo 'no test'"
   },
   "dependencies": {
     "@ladle/react": "^0.0.15",

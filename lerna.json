@@ -1,0 +1,15 @@
+{
+  "useWorkspaces": true,
+  "version": "independent",
+  "npmClientArgs": ["--no-lockfile"],
+  "command": {
+     "version": {
+        "ignoreChanges": ["*.md"],
+        "npmClient": "yarn",
+        "message": "chore(release): publish"
+     },
+     "publish": {
+        "npmClient": "yarn"
+     }
+  }
+}

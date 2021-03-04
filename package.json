@@ -6,5 +6,16 @@
   "author": "Vojtech Miksu <vojtech@miksu.cz>",
   "license": "MIT",
   "private": true,
-  "workspaces": ["packages/*"]
+  "scripts": {
+    "lint": "lerna run lint --stream",
+    "test": "lerna run test",
+    "build": "lerna run build --stream",
+    "typecheck": "tsc"
+ },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
 }

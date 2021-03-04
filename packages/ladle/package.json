@@ -19,8 +19,9 @@
   "scripts": {
     "cli": "node ./lib/cli/cli.js",
     "clean": "rimraf dist && rimraf .ladle && rimraf build && rimraf *.tsbuildinfo",
-    "build": "node ./lib/cli/cli.js build",
+    "build": "echo 'no build'",
     "serve": "node ./lib/cli/cli.js serve",
+    "lint": "echo 'no lint'",
     "test": "jest",
     "typecheck": "tsc"
   },
