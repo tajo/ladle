@@ -19,4 +19,4 @@ git remote set-url origin git@github.com:tajo/ladle.git
 git fetch --unshallow --tags
 
 # Run lerna
-node_modules/.bin/lerna publish
+node_modules/.bin/lerna publish --yes
