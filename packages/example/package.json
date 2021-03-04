@@ -1,6 +1,6 @@
 {
   "name": "example",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "test": "echo 'no test'"
   },
   "dependencies": {
-    "@ladle/react": "^0.0.25",
+    "@ladle/react": "^0.0.26",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   }
