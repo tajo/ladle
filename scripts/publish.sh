@@ -16,6 +16,7 @@ git config user.name "tajo"
 
 git remote set-url origin git@github.com:tajo/ladle.git
 
+git rebase origin/master
 git fetch --unshallow --tags
 
 # Run lerna
