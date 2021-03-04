@@ -2,6 +2,8 @@
 
 set -eo pipefail
 
+echo "$INFO"
+
 # Setup SSH keys so we can push lerna commits and tags to master branch
 
 mkdir -p /root/.ssh
