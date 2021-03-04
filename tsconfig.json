@@ -26,9 +26,11 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
   },
-  "references": [
-    { "path": "./packages/example" },
-    { "path": "./packages/ladle" },
-    { "path": "./packages/website" }
+  "include": [
+    "packages/*/lib/**/*",
+    "packages/*/src/**/*"
+  ],
+  "exclude": [
+    "packages/website/**"
   ]
 }
