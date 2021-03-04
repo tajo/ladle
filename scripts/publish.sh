@@ -2,7 +2,9 @@
 
 set -eo pipefail
 
+echo "WHAT"
 echo "$INFO"
+echo "--late--"
 
 # Setup SSH keys so we can push lerna commits and tags to master branch
 
