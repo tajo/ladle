@@ -24,5 +24,5 @@ jobs:
       - name: Publish packages
         run: ./scripts/publish.sh
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           GIT_DEPLOY_KEY: ${{ secrets.GIT_DEPLOY_KEY }}
