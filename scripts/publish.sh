@@ -3,9 +3,6 @@
 set -eo pipefail
 
 echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
-npm whoami
-
-exit 0
 
 # Setup SSH keys so we can push lerna commits and tags to master branch
 
