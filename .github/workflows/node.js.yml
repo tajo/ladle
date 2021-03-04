@@ -5,13 +5,12 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -20,14 +19,16 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install -g yarn@1.22.10
-    - run: yarn install
-    - run: yarn lint
-    - run: yarn typecheck
-    - run: yarn test
-    - run: yarn build
+      - uses: actions/checkout@v2
+      - name: Conventional Commit Checker
+        uses: agenthunt/conventional-commit-checker-action@v1.0.0
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install -g yarn@1.22.10
+      - run: yarn install
+      - run: yarn lint
+      - run: yarn typecheck
+      - run: yarn test
+      - run: yarn build
