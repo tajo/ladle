@@ -9,7 +9,7 @@
         "message": "chore(release): publish"
      },
      "publish": {
-        "npmClient": "yarn",
+        "npmClient": "npm",
         "conventionalCommits": true
      }
   }
