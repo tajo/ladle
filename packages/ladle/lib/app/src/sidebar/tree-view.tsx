@@ -38,14 +38,14 @@ const TreeView: React.FC<{
 }) => {
   const treeItemRefs: TreeItemRefs = React.useRef({});
   const [tree, setTree] = React.useState(
-    getStoryTree(stories, story, searchActive)
+    getStoryTree(stories, story, searchActive),
   );
   React.useEffect(() => {
     setTree(getStoryTree(stories, story, searchActive));
   }, [stories.join(",")]);
 
   const [selectedItemId, setSelectedItemId] = React.useState<string | null>(
-    tree.length ? tree[0].id : null
+    tree.length ? tree[0].id : null,
   );
 
   const focusSelectedItem = (id: string | null) => {
@@ -57,7 +57,7 @@ const TreeView: React.FC<{
   };
   const onKeyDownFn = (
     e: React.KeyboardEvent<HTMLElement>,
-    item: StoryTreeItem
+    item: StoryTreeItem,
   ) => {
     switch (e.key) {
       case "ArrowRight":
@@ -140,7 +140,7 @@ const NavigationSection: React.FC<{
   updateStory: UpdateStory;
   onKeyDownFn: (
     e: React.KeyboardEvent<HTMLElement>,
-    item: StoryTreeItem
+    item: StoryTreeItem,
   ) => void;
   selectedItemId: string | null;
   onItemClick: (item: StoryTreeItem) => void;

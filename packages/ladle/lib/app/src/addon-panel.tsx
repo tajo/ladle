@@ -14,7 +14,7 @@ const AddonPanel: React.FC<{
 }> = ({ globalState, dispatch }) => {
   if (
     Object.keys(config.addons).every(
-      (addonName) => config.addons[addonName as AddonNames].enabled === false
+      (addonName) => config.addons[addonName as AddonNames].enabled === false,
     )
   ) {
     return null;

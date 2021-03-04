@@ -4,8 +4,8 @@ export const walkTree = (
   _tree: StoryTree,
   levels: string[],
   fn: (item: StoryTreeItem) => void,
-  leafOnly: boolean
-) => {
+  leafOnly: boolean,
+): void => {
   const key = levels[0];
   if (key) {
     const item = _tree.find((item) => item.subId === key);
@@ -28,7 +28,7 @@ export const getLastLeafId = (node: StoryTreeItem): string => {
 export const getParentId = (
   nodes: StoryTree,
   nodeId: string,
-  parentId: string | null
+  parentId: string | null,
 ): string | null => {
   for (let i = 0; i < nodes.length; i++) {
     if (nodes[i].id === nodeId) {
@@ -47,7 +47,7 @@ export const getParentId = (
 export const getPrevId = (
   nodes: StoryTree,
   nodeId: string,
-  parentId: string | null
+  parentId: string | null,
 ): string | null => {
   for (let i = 0; i < nodes.length; i++) {
     if (nodes[i].id === nodeId) {
@@ -69,7 +69,7 @@ export const getPrevId = (
 
 export const getFirstChildId = (
   nodes: StoryTree,
-  nodeId: string
+  nodeId: string,
 ): string | null => {
   for (let i = 0; i < nodes.length; i++) {
     if (nodes[i].id === nodeId) {
@@ -94,7 +94,7 @@ export const getFirstChildId = (
 export const getNextId = (
   nodes: StoryTree,
   nodeId: string,
-  closestOmmer: string | null
+  closestOmmer: string | null,
 ): string | null => {
   for (let i = 0; i < nodes.length; i++) {
     if (nodes[i].id === nodeId) {
@@ -114,7 +114,7 @@ export const getNextId = (
       const foundId = getNextId(
         nodes[i].children,
         nodeId,
-        nodes[i + 1] ? nodes[i + 1].id : closestOmmer
+        nodes[i + 1] ? nodes[i + 1].id : closestOmmer,
       );
       if (foundId) {
         return foundId;
@@ -134,7 +134,7 @@ export const getEndId = (nodes: StoryTree): string => {
 
 export const toggleIsExpanded = (
   arr: StoryTree,
-  toggledNode: StoryTreeItem
+  toggledNode: StoryTreeItem,
 ): StoryTree => {
   return arr.map((node) => {
     const newNode = { ...node };

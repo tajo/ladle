@@ -10,8 +10,8 @@ const NoStories: React.FC<{ wrongUrl?: boolean; activeStory?: string }> = ({
       <>
         <h1>The story not found</h1>
         <p>
-          The story id <Code>{activeStory}</Code> you are trying to open doesn't
-          exist. Typo?
+          The story id <Code>{activeStory}</Code> you are trying to open does
+          not exist. Typo?
         </p>
       </>
     ) : (

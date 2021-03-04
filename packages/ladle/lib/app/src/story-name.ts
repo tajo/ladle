@@ -1,6 +1,5 @@
 import queryString from "query-string";
 import type { StoryTree } from "../../shared/types";
-//@ts-ignore
 import config from "./get-config";
 
 export const storyDelimiter = "-";
@@ -29,14 +28,14 @@ export const storyIdToTitle = (s: string) => {
 export const getStoryTree = (
   stories: string[],
   selectedStory: string,
-  allExpanded?: boolean
+  allExpanded?: boolean,
 ) => {
   const tree: StoryTree = [];
   const addIntoTree = (
     _tree: StoryTree,
     parts: string[],
     selectedParts: string[],
-    id: string
+    id: string,
   ) => {
     const first = parts.shift();
     let isExpanded = allExpanded ? true : false;
@@ -62,11 +61,11 @@ export const getStoryTree = (
       _tree[itemIndex > -1 ? itemIndex : _tree.length - 1].children,
       parts,
       passSelectedParts,
-      `${id}${first}--`
+      `${id}${first}--`,
     );
   };
   const selectedStoryPath = selectedStory.split(
-    `${storyDelimiter}${storyDelimiter}`
+    `${storyDelimiter}${storyDelimiter}`,
   );
   stories.forEach((story) => {
     const storyPath = story.split(`${storyDelimiter}${storyDelimiter}`);

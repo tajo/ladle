@@ -1,5 +1,4 @@
 import * as React from "react";
-//@ts-ignore
 import { stories as unsortedStories } from "../generated/generated-list";
 import Story from "./story";
 import NoStories from "./no-stories";

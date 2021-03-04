@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { createBrowserHistory } from "history";
 import queryString from "query-string";
 import type { GlobalState } from "../../shared/types";
@@ -8,7 +9,7 @@ export const history = createBrowserHistory();
 
 const removeDefaultValues = (params: Partial<GlobalState>) => {
   Object.keys(params).forEach((key) => {
-    let val = params[key as keyof GlobalState];
+    const val = params[key as keyof GlobalState];
     const defaultVal = (config.addons as any)[key]
       ? (config.addons as any)[key].defaultState
       : "$$LADLE_unknown";

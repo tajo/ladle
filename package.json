@@ -7,15 +7,23 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "lint": "lerna run lint --stream",
+    "lint": "eslint \"./packages/*/{lib,src}/**/*.{ts,tsx}\" --max-warnings=0",
     "test": "lerna run test",
     "build": "lerna run build --stream",
     "typecheck": "tsc"
- },
+  },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "@typescript-eslint/eslint-plugin": "^4.16.1",
+    "@typescript-eslint/parser": "^4.16.1",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "lerna": "^4.0.0",
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.2"
   }
 }

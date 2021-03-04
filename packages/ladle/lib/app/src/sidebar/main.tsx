@@ -14,7 +14,7 @@ const Main: React.FC<{
     if ((zEvent.metaKey && zEvent.key === "p") || zEvent.key === "/") {
       if (
         ["input", "textarea"].every(
-          (el) => zEvent.target.tagName.toLowerCase() !== el
+          (el) => zEvent.target.tagName.toLowerCase() !== el,
         ) ||
         zEvent.metaKey
       ) {
@@ -34,7 +34,7 @@ const Main: React.FC<{
     .replace(new RegExp("\\s+", "g"), "-");
 
   const filteredStories = stories.filter((story) =>
-    story.includes(canonicalSearch)
+    story.includes(canonicalSearch),
   );
 
   return (

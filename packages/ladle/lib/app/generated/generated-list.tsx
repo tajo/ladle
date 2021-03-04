@@ -2,12 +2,10 @@
 // when a story is changed
 import { lazy } from "react";
 import * as React from "react";
-//@ts-ignore
-export const Foo = lazy(() => Promise.resolve());
-export let list = ["Foo"];
+export const Foo = lazy(() => Promise.resolve() as any);
+export const list = ["Foo"];
 export const config = {};
 export const stories = {};
 
-//@ts-ignore
-export const Provider = ({ children }) =>
+export const Provider = ({ children }: { children: any }) =>
   /*#__PURE__*/ React.createElement(React.Fragment, null, children);

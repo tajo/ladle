@@ -1,6 +1,11 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+
 import * as React from "react";
 
-export default class ErrorBoundary extends React.Component {
+export default class ErrorBoundary extends React.Component<
+  {},
+  { hasError: boolean }
+> {
   constructor(props: any) {
     super(props);
     this.state = { hasError: false };
@@ -13,7 +18,6 @@ export default class ErrorBoundary extends React.Component {
   componentDidCatch() {}
 
   render() {
-    //@ts-ignore
     if (this.state.hasError) {
       return null;
     }
