@@ -20,4 +20,4 @@ git rebase origin/master
 git fetch --unshallow --tags
 
 # Run lerna
-node_modules/.bin/lerna publish --yes
+node_modules/.bin/lerna publish --yes --registry https://registry.npmjs.org

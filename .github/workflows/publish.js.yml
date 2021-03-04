@@ -15,7 +15,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 14
-          registry-url: "https://registry.npmjs.org"
       - run: npm install -g yarn@1.22.10
       - run: yarn install
       - run: yarn lint
@@ -25,5 +24,5 @@ jobs:
       - name: Publish packages
         run: ./scripts/publish.sh
         env:
-          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           GIT_DEPLOY_KEY: ${{ secrets.GIT_DEPLOY_KEY }}

@@ -1,5 +1,5 @@
 // we use a snowpack plugin to dynamically replace content of this file
-// when a story is changed
+// when a story is changed.
 import { lazy } from "react";
 import * as React from "react";
 export const Foo = lazy(() => Promise.resolve() as any);
