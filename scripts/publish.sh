@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -eo pipefail
 
 # Setup SSH keys so we can push lerna commits and tags to master branch
 
