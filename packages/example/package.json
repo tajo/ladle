@@ -10,7 +10,7 @@
     "test": "echo 'no test'"
   },
   "dependencies": {
-    "@ladle/react": "^0.0.18",
+    "@ladle/react": "^0.0.21",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   }
