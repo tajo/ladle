@@ -2,6 +2,7 @@
 
 set -eo pipefail
 
+echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
 npm whoami
 
 exit 0
