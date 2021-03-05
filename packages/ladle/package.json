@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.1",
-    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-env": "^7.13.9",
     "@babel/preset-flow": "^7.12.1",
     "@babel/preset-react": "^7.12.10",
     "@babel/preset-typescript": "^7.12.7",
@@ -33,7 +33,7 @@
     "@snowpack/plugin-babel": "^2.1.6",
     "@snowpack/plugin-react-refresh": "^2.4.0",
     "classnames": "^2.2.6",
-    "commander": "^6.2.1",
+    "commander": "^7.1.0",
     "debug": "^4.3.1",
     "get-port": "^5.1.1",
     "globby": "^11.0.2",
@@ -65,6 +65,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "rollup": "^2.36.1",
-    "ts-jest": "^26.4.4"
+    "ts-jest": "^26.5.3",
+    "typescript": "^4.2.3"
   }
 }
