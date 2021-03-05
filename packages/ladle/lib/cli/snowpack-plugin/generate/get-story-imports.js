@@ -4,7 +4,7 @@ const t = require("@babel/types");
 
 /**
  * @param entryData {import('../../../shared/types').EntryData}
- * @param isDev {boolean}
+ * @param isDev {boolean|undefined}
  */
 const getStoryImports = (entryData, isDev = false) => {
   let storyImports = `import * as React from "./_snowpack/pkg/react.js";\n`;

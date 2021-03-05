@@ -6,7 +6,7 @@ const getHmr = require("./get-hmr");
 
 /**
  * @param entryData {import('../../../shared/types').EntryData}
- * @param isDev {boolean}
+ * @param isDev {boolean|undefined}
  */
 const getGeneratedList = (entryData, isDev) => {
   return `
