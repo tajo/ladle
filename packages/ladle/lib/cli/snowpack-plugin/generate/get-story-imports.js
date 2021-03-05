@@ -6,7 +6,7 @@ const t = require("@babel/types");
  * @param entryData {import('../../../shared/types').EntryData}
  * @param isDev {boolean}
  */
-const getStoryImports = (entryData, isDev) => {
+const getStoryImports = (entryData, isDev = false) => {
   let storyImports = `import * as React from "./_snowpack/pkg/react.js";\n`;
   if (isDev) {
     // TODO: Is there a better way to get Snowpack to resolve this import for us?
