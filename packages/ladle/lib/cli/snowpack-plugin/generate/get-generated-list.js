@@ -8,7 +8,7 @@ const getHmr = require("./get-hmr");
  * @param entryData {import('../../../shared/types').EntryData}
  * @param isDev {boolean|undefined}
  */
-const getGeneratedList = (entryData, isDev) => {
+const getGeneratedList = (entryData, isDev = false) => {
   return `
 ${getStoryImports(entryData, isDev)}
 ${getStoryList(entryData)}
