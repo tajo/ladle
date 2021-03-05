@@ -6,10 +6,11 @@ const getHmr = require("./get-hmr");
 
 /**
  * @param entryData {import('../../../shared/types').EntryData}
+ * @param isDev {boolean}
  */
-const getGeneratedList = (entryData) => {
+const getGeneratedList = (entryData, isDev) => {
   return `
-${getStoryImports(entryData)}
+${getStoryImports(entryData, isDev)}
 ${getStoryList(entryData)}
 ${getConfigImport()}
 ${getComponentsImport()}

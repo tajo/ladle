@@ -4676,6 +4676,11 @@ cli-cursor@^3.1.0:
   dependencies:
     restore-cursor "^3.1.0"
 
+cli-spinners@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/cli-spinners/-/cli-spinners-2.5.0.tgz#12763e47251bf951cb75c201dfa58ff1bcb2d047"
+  integrity sha512-PC+AmIuK04E6aeSs/pUccSujsTzBhu4HzC2dL+CfJB/Jcc2qTRbEwZQDfIUpt2Xl8BodYBEq8w4fc0kU2I9DjQ==
+
 cli-width@^2.0.0:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-2.2.1.tgz#b0433d0b4e9c847ef18868a4ef16fd5fc8271c48"
@@ -13416,11 +13421,12 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
-snowpack@^3.0.11:
-  version "3.0.13"
-  resolved "https://registry.yarnpkg.com/snowpack/-/snowpack-3.0.13.tgz#25e6434b186d916f69b0bae6325bda4f1451c035"
-  integrity sha512-USTcpfJ68rbuFvUygw+3n9qS1CC/tGsr/JNVc6FNk0ZRfGBE4OmB+Mmk5nWtdxi546GeCr/GvveJenYLen/WpA==
+snowpack@3.1.0-pre.11:
+  version "3.1.0-pre.11"
+  resolved "https://registry.yarnpkg.com/snowpack/-/snowpack-3.1.0-pre.11.tgz#5266f48e7bb6c9b778711f89fb80cac5c1332bb2"
+  integrity sha512-2WFbmrEeMX605pm16NIYNhmimMICPiINGbcuE1OeDQizyUdBm4dhEgD1dn82Zyk/OBy0Cq47NFEH0xKYMorHWw==
   dependencies:
+    cli-spinners "^2.5.0"
     default-browser-id "^2.0.0"
     esbuild "^0.8.7"
     open "^7.0.4"

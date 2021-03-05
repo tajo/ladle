@@ -59,7 +59,7 @@ const Plugin = (_, pluginOptions) => {
               Object.keys(entryData).length > 0
                 ? entryData
                 : await getEntryData(await globby([pluginOptions.storyGlob]));
-            listContent = getGeneratedList(entryData);
+            listContent = getGeneratedList(entryData, isDev);
           } catch (e) {
             if (isDev) {
               debug("Error when generating the list:");
@@ -82,7 +82,7 @@ const Plugin = (_, pluginOptions) => {
         const prevJsonContent = jsonContent;
         try {
           entryData[entry] = await getSingleEntry(entry);
-          listContent = getGeneratedList(entryData);
+          listContent = getGeneratedList(entryData, true);
           jsonContent = getMetaJson(entryData);
         } catch (e) {}
         if (prevListContent !== listContent) {

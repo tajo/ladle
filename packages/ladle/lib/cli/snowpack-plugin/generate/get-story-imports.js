@@ -4,9 +4,18 @@ const t = require("@babel/types");
 
 /**
  * @param entryData {import('../../../shared/types').EntryData}
+ * @param isDev {boolean}
  */
-const getStoryImports = (entryData) => {
+const getStoryImports = (entryData, isDev) => {
   let storyImports = `import * as React from "./_snowpack/pkg/react.js";\n`;
+  if (isDev) {
+    // TODO: Is there a better way to get Snowpack to resolve this import for us?
+    const reactManifestLoc = require.resolve("react/package.json", {
+      paths: [process.cwd()],
+    });
+    const reactVersion = require(reactManifestLoc).version;
+    storyImports = `import * as React from "./_snowpack/pkg/react.v${reactVersion}.js";\n`;
+  }
   const lazyImport = template(`
     const %%component%% = React.lazy(() =>
      import(%%source%%).then((module) => {
