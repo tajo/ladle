@@ -29,6 +29,12 @@ const serve = async (params = {}) => {
     : params.output
     ? params.output
     : config.serve.output;
+  config.babelPlugins = params.babelPlugins
+    ? params.babelPlugins
+    : config.babelPlugins;
+  config.babelPresets = params.babelPresets
+    ? params.babelPresets
+    : config.babelPresets;
 
   debug(`Final config:\n${JSON.stringify(config, null, "  ")}`);
   process.env["SNOWPACK_PUBLIC_LADLE_THEME"] = config.addons.theme.defaultState;

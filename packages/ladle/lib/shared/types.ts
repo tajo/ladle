@@ -88,20 +88,24 @@ export type GeneratedStories = {
 };
 
 export type DevParams = {
-  stories: string;
-  port: number;
-  theme: ThemeState;
-  output: Output;
-  open: string;
+  stories?: string;
+  port?: number;
+  theme?: ThemeState;
+  babelPresets?: any[];
+  babelPlugins?: any[];
+  output?: Output;
+  open?: string;
 };
 
 export type BuildParams = {
-  stories: string;
-  out: string;
-  theme: ThemeState;
-  sourcemap: boolean;
-  baseUrl: string;
-  optimize: boolean;
+  stories?: string;
+  out?: string;
+  theme?: ThemeState;
+  babelPresets?: any[];
+  babelPlugins?: any[];
+  sourcemap?: boolean;
+  baseUrl?: string;
+  optimize?: boolean;
 };
 
 export type PluginOptions = {
@@ -111,6 +115,8 @@ export type PluginOptions = {
 export type Config = {
   stories: string;
   defaultStory: string;
+  babelPlugins: any[];
+  babelPresets: any[];
   mount: string[];
   addons: {
     theme: {
