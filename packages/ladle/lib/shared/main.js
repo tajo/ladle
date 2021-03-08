@@ -1,3 +1,6 @@
+export { default as serve } from "../cli/serve.js";
+export { default as build } from "../cli/build.js";
+
 export const ModeState = /** @type {import("./types").ModeState} */ (
   /** @type any */ ({
     Full: "full",

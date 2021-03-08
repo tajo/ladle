@@ -7,7 +7,7 @@ import debug from "./debug.js";
 /**
  * @param params {import("../shared/types").DevParams}
  */
-const serve = async (params) => {
+const serve = async (params = {}) => {
   debug("Starting serve command");
   debug(`CLI theme: ${params.theme}`);
   debug(`CLI stories: ${params.stories}`);
