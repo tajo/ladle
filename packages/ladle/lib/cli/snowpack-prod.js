@@ -10,6 +10,8 @@ const snowpackProd = async (config) => {
     const buildConfig = await getSnowpackConfig(
       {
         mount: getCustomMounts(config.mount),
+        babelPlugins: config.babelPlugins,
+        babelPresets: config.babelPresets,
         buildOptions: {
           clean: true,
           baseUrl: config.build.baseUrl,
@@ -26,7 +28,7 @@ const snowpackProd = async (config) => {
             }
           : undefined,
       },
-      { storyGlob: config.stories }
+      { storyGlob: config.stories },
     );
     logger.on("error", (e) => {
       console.log(e);

@@ -21,9 +21,11 @@ const bundler = async (config) => {
           output: config.serve.output,
           open: config.serve.open,
         },
+        babelPlugins: config.babelPlugins,
+        babelPresets: config.babelPresets,
         mount: getCustomMounts(config.mount),
       },
-      { storyGlob: config.stories }
+      { storyGlob: config.stories },
     );
     const server = await startServer({
       config: snowpackConfig,

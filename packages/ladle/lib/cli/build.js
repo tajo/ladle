@@ -7,7 +7,7 @@ import debug from "./debug.js";
 /**
  * @param params {import("../shared/types").BuildParams}
  */
-const build = async (params) => {
+const build = async (params = {}) => {
   debug("Starting build command");
   debug(`CLI theme: ${params.theme}`);
   debug(`CLI stories: ${params.stories}`);
@@ -31,6 +31,12 @@ const build = async (params) => {
   config.build.optimize = params.optimize
     ? params.optimize
     : config.build.optimize;
+  config.babelPlugins = params.babelPlugins
+    ? params.babelPlugins
+    : config.babelPlugins;
+  config.babelPresets = params.babelPresets
+    ? params.babelPresets
+    : config.babelPresets;
 
   debug(`Final config:\n${JSON.stringify(config, null, "  ")}`);
   process.env["SNOWPACK_PUBLIC_LADLE_THEME"] = config.addons.theme.defaultState;

@@ -18,7 +18,7 @@ const loadConfig = async () => {
     }
     return /** @type {import("../shared/types").Config} */ (merge(
       defaultConfig,
-      config
+      config,
     ));
   } catch (e) {
     debug(`No custom config found.`);

@@ -4,6 +4,8 @@
 export default {
   stories: "src/**/*.stories.{js,jsx,ts,tsx}",
   defaultStory: "",
+  babelPresets: [],
+  babelPlugins: [],
   mount: [],
   addons: {
     theme: {

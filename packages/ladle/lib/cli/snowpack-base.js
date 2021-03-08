@@ -1,8 +1,10 @@
 import path from "path";
 import fs from "fs";
+import { createRequire } from "module";
 // @ts-ignore
 import { fileURLToPath } from "url";
 import { createConfiguration } from "snowpack";
+const require = createRequire(import.meta.url);
 
 /**
  * @param {string[]} mount
@@ -22,16 +24,16 @@ const getStoryFolder = (storyGlob) => {
   const parts = storyGlob.split("/");
   if (storyGlob === "" || !fs.existsSync(path.join(process.cwd(), parts[0]))) {
     throw Error(
-      `Story glob ${storyGlob} must match an existing folder. The ${parts[0]} folder was not found.`
+      `Story glob ${storyGlob} must match an existing folder. The ${parts[0]} folder was not found.`,
     );
   }
   return parts[0];
 };
 
 const babelPresets = [
-  ["@babel/preset-react", { runtime: "automatic" }],
+  [require.resolve("@babel/preset-react"), { runtime: "automatic" }],
   [
-    "@babel/preset-env",
+    require.resolve("@babel/preset-env"),
     {
       targets: { esmodules: true },
       bugfixes: true,
@@ -40,7 +42,9 @@ const babelPresets = [
   ],
 ];
 
-const babelPlugins = ["@babel/plugin-proposal-class-properties"];
+const babelPlugins = [
+  require.resolve("@babel/plugin-proposal-class-properties"),
+];
 
 /**
  * @param {any} extendConfig
@@ -82,8 +86,12 @@ const getSnowpackConfig = async (extendConfig, pluginOptions) => {
         {
           input: [".ts", ".tsx"],
           transformOptions: {
-            presets: ["@babel/preset-typescript", ...babelPresets],
-            plugins: babelPlugins,
+            presets: [
+              require.resolve("@babel/preset-typescript"),
+              ...babelPresets,
+              ...extendConfig.babelPresets,
+            ],
+            plugins: [...babelPlugins, ...extendConfig.babelPlugins],
           },
         },
       ],
@@ -92,8 +100,12 @@ const getSnowpackConfig = async (extendConfig, pluginOptions) => {
         {
           input: [".js", ".mjs", ".jsx"],
           transformOptions: {
-            presets: ["@babel/preset-flow", ...babelPresets],
-            plugins: babelPlugins,
+            presets: [
+              require.resolve("@babel/preset-flow"),
+              ...babelPresets,
+              ...extendConfig.babelPresets,
+            ],
+            plugins: [...babelPlugins, ...extendConfig.babelPlugins],
           },
         },
       ],
