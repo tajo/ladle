@@ -19,7 +19,7 @@
   "scripts": {
     "cli": "node ./lib/cli/cli.js",
     "clean": "rimraf dist && rimraf .ladle && rimraf build && rimraf *.tsbuildinfo",
-    "build": "echo 'no build'",
+    "build": "./build-cjs.sh",
     "serve": "node ./lib/cli/cli.js serve",
     "test": "jest"
   },
@@ -45,10 +45,13 @@
     "snowpack": "^3.0.11"
   },
   "peerDependencies": {
-    "react": "^16.14.0-0 || ^17.0.0-0",
-    "react-dom": "^16.14.0-0 || ^17.0.0-0"
+    "react": ">=16.14.0",
+    "react-dom": ">=16.14.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/plugin-transform-modules-commonjs": "^7.13.8",
     "@types/babel__generator": "^7.6.2",
     "@types/babel__template": "^7.4.0",
     "@types/babel__traverse": "^7.11.0",
