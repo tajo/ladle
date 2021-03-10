@@ -80,9 +80,9 @@ const getSnowpackConfig = async (extendConfig, pluginOptions) => {
       ...(extendConfig.mount ? extendConfig.mount : {}),
     },
     plugins: [
-      "@snowpack/plugin-react-refresh",
+      require.resolve("@snowpack/plugin-react-refresh"),
       [
-        "@snowpack/plugin-babel",
+        require.resolve("@snowpack/plugin-babel"),
         {
           input: [".ts", ".tsx"],
           transformOptions: {
@@ -96,7 +96,7 @@ const getSnowpackConfig = async (extendConfig, pluginOptions) => {
         },
       ],
       [
-        "@snowpack/plugin-babel",
+        require.resolve("@snowpack/plugin-babel"),
         {
           input: [".js", ".mjs", ".jsx"],
           transformOptions: {
