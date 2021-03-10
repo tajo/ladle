@@ -23,3 +23,10 @@ git fetch --unshallow --tags
 
 # Run lerna
 node_modules/.bin/lerna publish --yes
+
+# build and publish @ladle/react-cjs
+cd packages/ladle
+yarn build
+cd cjs
+npm publish
+
