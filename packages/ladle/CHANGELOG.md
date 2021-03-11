@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.31](https://github.com/tajo/ladle/compare/@ladle/react@0.0.30...@ladle/react@0.0.31) (2021-03-11)
+
+
+### Bug Fixes
+
+* cjs plugin path ([#9](https://github.com/tajo/ladle/issues/9)) ([b256229](https://github.com/tajo/ladle/commit/b256229d5335d345b8f692f2112ca91d6f41d3c4))
+
+
+
+
+
 ## [0.0.30](https://github.com/tajo/ladle/compare/@ladle/react@0.0.29...@ladle/react@0.0.30) (2021-03-10)
 
 
