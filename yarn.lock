@@ -2609,9 +2609,9 @@
   integrity sha512-93uGjlhUD+iNg1iWhUENAtJata6w5nE+V4urXOAlIXdco6xNZtUSfYY8dzp3Udy74aqO/B5UZL80x/YMa5PKRw==
 
 "@octokit/plugin-paginate-rest@^2.6.2":
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/@octokit/plugin-paginate-rest/-/plugin-paginate-rest-2.11.0.tgz#3568c43896a3355f4a0bbb3a64f443b2abdc760d"
-  integrity sha512-7L9xQank2G3r1dGqrVPo1z62V5utbykOUzlmNHPz87Pww/JpZQ9KyG5CHtUzgmB4n5iDRKYNK/86A8D98HP0yA==
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/@octokit/plugin-paginate-rest/-/plugin-paginate-rest-2.12.0.tgz#edbd4b2d5e392aa419d16031296fe24e9494f294"
+  integrity sha512-AlbZqWL1ueNzUAr8VAMH9Ajdvu1tTsuFiM7nz07XDTH/v8C27Ob14dOB1JwBmPaI9dH7EOmIabrVFSXExFhoZg==
   dependencies:
     "@octokit/types" "^6.11.0"
 
@@ -4499,9 +4499,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001035, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001181:
-  version "1.0.30001197"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001197.tgz#47ad15b977d2f32b3ec2fe2b087e0c50443771db"
-  integrity sha512-8aE+sqBqtXz4G8g35Eg/XEaFr2N7rd/VQ6eABGBmNtcB8cN6qNJhMi6oSFy4UWWZgqgL3filHT8Nha4meu3tsw==
+  version "1.0.30001198"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001198.tgz#ed2d9b5f060322ba2efa42afdc56dee3255473f4"
+  integrity sha512-r5GGgESqOPZzwvdLVER374FpQu2WluCF1Z2DSiFJ89KSmGjT0LVKjgv4NcAqHmGWF9ihNpqRI9KXO9Ex4sKsgA==
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -9671,9 +9671,9 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   integrity sha1-2TPOuSBdgr3PSIb2dCvcK03qFG0=
 
 map-obj@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-4.1.0.tgz#b91221b542734b9f14256c0132c897c5d7256fd5"
-  integrity sha512-glc9y00wgtwcDmp7GaE/0b0OnxpNJsVf3ael/An6Fe2Q51LLwN1er6sdomLRzz5h0+yMpiYLhWYF5R7HeqVd4g==
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-4.2.0.tgz#0e8bc823e2aaca8a0942567d12ed14f389eec153"
+  integrity sha512-NAq0fCmZYGz9UFEQyndp7sisrow4GroyGeKluyKC/chuITZsPyOyC1UJZPJlVFImhXdROIP5xqouRLThT3BbpQ==
 
 map-visit@^1.0.0:
   version "1.0.0"
@@ -15461,9 +15461,9 @@ yargs-parser@20.2.4:
   integrity sha512-WOkpgNhPTlE73h4VFAFsOnomJVaovO8VqLDzy5saChRBFQFBoMYirowyW+Q9HB4HFF4Z7VZTiG3iSzJJA29yRA==
 
 yargs-parser@20.x, yargs-parser@^20.2.2, yargs-parser@^20.2.3:
-  version "20.2.6"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-20.2.6.tgz#69f920addf61aafc0b8b89002f5d66e28f2d8b20"
-  integrity sha512-AP1+fQIWSM/sMiET8fyayjx/J+JmTPt2Mr0FkrgqB4todtfa53sOsrSAcIrJRD5XS20bKUwaDIuMkWKCEiQLKA==
+  version "20.2.7"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-20.2.7.tgz#61df85c113edfb5a7a4e36eb8aa60ef423cbc90a"
+  integrity sha512-FiNkvbeHzB/syOjIUxFDCnhSfzAL8R5vs40MgLFBorXACCOAEaWu0gRZl14vG8MR9AOJIZbmkjhusqBYZ3HTHw==
 
 yargs-parser@^13.1.2:
   version "13.1.2"
