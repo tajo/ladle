@@ -52,10 +52,16 @@ const babelPlugins = [
  */
 const getSnowpackConfig = async (extendConfig, pluginOptions) => {
   //@ts-ignore
-  const configPath = path.join(process.cwd(), "./.ladle/config.mjs");
+  const configPath = path.join(pluginOptions.configFolder, "config.mjs");
   const configExists = fs.existsSync(configPath);
-  const componentsPath = path.join(process.cwd(), "./.ladle/components.tsx");
-  const componentsPathJs = path.join(process.cwd(), "./.ladle/components.js");
+  const componentsPath = path.join(
+    pluginOptions.configFolder,
+    "components.tsx",
+  );
+  const componentsPathJs = path.join(
+    pluginOptions.configFolder,
+    "components.js",
+  );
   const componentsExists =
     fs.existsSync(componentsPath) || fs.existsSync(componentsPathJs);
   const dirname = fileURLToPath(import.meta.url);
@@ -75,7 +81,7 @@ const getSnowpackConfig = async (extendConfig, pluginOptions) => {
       [path.join(dirname, "../../shared/")]: { url: "/" },
       [path.join(process.cwd(), storyFolder)]: { url: `/${storyFolder}` },
       ...(configExists || componentsExists
-        ? { [path.join(process.cwd(), ".ladle")]: { url: "/" } }
+        ? { [pluginOptions.configFolder]: { url: "/" } }
         : {}),
       ...(extendConfig.mount ? extendConfig.mount : {}),
     },

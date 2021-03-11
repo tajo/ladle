@@ -1,8 +1,11 @@
 const fs = require("fs");
 const path = require("path");
 
-const getConfigImport = () => {
-  const configPath = path.join(process.cwd(), "./.ladle/config.mjs");
+/**
+ * @param {string} configFolder
+ */
+const getConfigImport = (configFolder) => {
+  const configPath = path.join(configFolder, "config.mjs");
   const configExists = fs.existsSync(configPath);
   const relativePath = "./config.js";
   let configCode = `export let config = {};\n`;

@@ -7,8 +7,9 @@ import debug from "./debug.js";
 
 /**
  * @param config {import("../shared/types").Config}
+ * @param configFolder {string}
  */
-const bundler = async (config) => {
+const bundler = async (config, configFolder) => {
   const port = await getPort({
     port: [config.serve.port, 61001, 62002, 62003, 62004, 62005],
   });
@@ -25,14 +26,17 @@ const bundler = async (config) => {
         babelPresets: config.babelPresets,
         mount: getCustomMounts(config.mount),
       },
-      { storyGlob: config.stories },
+      { storyGlob: config.stories, configFolder },
     );
     const server = await startServer({
       config: snowpackConfig,
       lockfile: null,
     });
     server.onFileChange(async ({ filePath }) => {
-      if (filePath === path.join(process.cwd(), "./.ladle/config.mjs")) {
+      if (
+        filePath === path.join(configFolder, "config.mjs") ||
+        filePath === path.join(configFolder, "config.js")
+      ) {
         console.log("Config changed. Please start dev server again.");
         await server.shutdown();
         process.exit(0);

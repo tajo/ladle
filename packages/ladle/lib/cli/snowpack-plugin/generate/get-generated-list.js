@@ -6,13 +6,14 @@ const getHmr = require("./get-hmr");
 
 /**
  * @param entryData {import('../../../shared/types').EntryData}
+ * @param configFolder {string}
  */
-const getGeneratedList = (entryData) => {
+const getGeneratedList = (entryData, configFolder) => {
   return `
 ${getStoryImports(entryData)}
 ${getStoryList(entryData)}
-${getConfigImport()}
-${getComponentsImport()}
+${getConfigImport(configFolder)}
+${getComponentsImport(configFolder)}
 ${getHmr()}
 `;
 };

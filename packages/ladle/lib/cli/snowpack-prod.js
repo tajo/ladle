@@ -3,8 +3,9 @@ import getSnowpackConfig, { getCustomMounts } from "./snowpack-base.js";
 
 /**
  * @param config {import("../shared/types").Config}
+ * @param configFolder {string}
  */
-const snowpackProd = async (config) => {
+const snowpackProd = async (config, configFolder) => {
   let successfulExit = true;
   try {
     const buildConfig = await getSnowpackConfig(
@@ -28,7 +29,7 @@ const snowpackProd = async (config) => {
             }
           : undefined,
       },
-      { storyGlob: config.stories },
+      { storyGlob: config.stories, configFolder },
     );
     logger.on("error", (e) => {
       console.log(e);

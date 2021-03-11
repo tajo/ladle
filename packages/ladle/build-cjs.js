@@ -26,10 +26,9 @@ fs.writeFile(
   "./cjs/lib/cli/snowpack-base.js",
   spbase
     .replace("(0, _module.createRequire)(import.meta.url)", "require")
-    .replace("(0, _url.fileURLToPath)(import.meta.url)", "__dirname")
     .replace(
-      "../snowpack-plugin/snowpack-plugin.js",
-      "snowpack-plugin/snowpack-plugin.js",
+      "(0, _url.fileURLToPath)(import.meta.url)",
+      "`${__dirname}/snowpack-base.js`",
     ),
   (err) => {
     if (err) return console.log(err);
@@ -42,11 +41,27 @@ const loadConfig = fs.readFileSync("cjs/lib/cli/load-config.js", "utf8");
 fs.writeFile(
   "./cjs/lib/cli/load-config.js",
   loadConfig.replace(
-    '(await import(_path.default.join(process.cwd(), "./.ladle/config.mjs"))).default',
-    '_interopRequireDefault(require(_path.default.join(process.cwd(), "./.ladle/config.js")))',
+    '(await import(_path.default.join(configFolder, "config.mjs"))).default',
+    '_interopRequireDefault(require(_path.default.join(configFolder, "config.js")))',
   ),
   (err) => {
     if (err) return console.log(err);
     console.log("lib/cli/load-config.js updated");
+  },
+);
+
+// replacing config.mjs vs config.js
+const getConfigImport = fs.readFileSync(
+  "cjs/lib/cli/snowpack-plugin/generate/get-config-import.js",
+  "utf8",
+);
+fs.writeFile(
+  "./cjs/lib/cli/snowpack-plugin/generate/get-config-import.js",
+  getConfigImport.replace("config.mjs", "config.js"),
+  (err) => {
+    if (err) return console.log(err);
+    console.log(
+      "lib/cli/snowpack-plugin/generate/get-config-import.js updated",
+    );
   },
 );

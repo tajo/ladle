@@ -16,9 +16,10 @@ program
   .option("--theme [string]", "theme light, dark or auto")
   .option(
     "--open [string]",
-    "open browser, e.g. chrome, firefox, safari. Set none to disable"
+    "open browser, e.g. chrome, firefox, safari. Set none to disable",
   )
   .option("--output [string]", "console logging, e.g. dashboard or stream")
+  .option("--config [string]", "folder where config is located", ".ladle")
   .action(serve);
 program
   .command("build")
@@ -29,6 +30,7 @@ program
   .option("--theme [string]", "theme light, dark or auto")
   .option("--optimize", "bundle, minify, code-split and tree-shake")
   .option("--base-url [string]", "when hosted in a sub-directory, default /")
+  .option("--config [string]", "folder where config is located", ".ladle")
   .action(build);
 
 program.parse(process.argv);
