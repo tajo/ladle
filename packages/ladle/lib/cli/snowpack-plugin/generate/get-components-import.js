@@ -25,14 +25,17 @@ const checkIfNamedExportExists = (namedExport, sourceCode, filename) => {
   return exists;
 };
 
-const getComponents = () => {
+/**
+ * @param {string} configFolder
+ */
+const getComponents = (configFolder) => {
   const noopProvider = `export const Provider = ({children}) => /*#__PURE__*/React.createElement(React.Fragment, null, children);\n`;
-  const componentsPath = path.join(process.cwd(), "./.ladle/components.tsx");
-  const componentsPathJs = path.join(process.cwd(), "./.ladle/components.js");
+  const componentsPath = path.join(configFolder, "components.tsx");
+  const componentsPathJs = path.join(configFolder, "components.js");
   const componentsExists = fs.existsSync(componentsPath);
   const componentsExistsJs = fs.existsSync(componentsPathJs);
-  componentsExists && debug(`.ladle/components.tsx found.`);
-  componentsExistsJs && debug(`.ladle/components.js found.`);
+  componentsExists && debug(`${configFolder}/components.tsx found.`);
+  componentsExistsJs && debug(`${configFolder}/components.js found.`);
 
   let sourceCode = "";
   let filename = "";

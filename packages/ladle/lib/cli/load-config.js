@@ -3,14 +3,16 @@ import merge from "lodash.merge";
 import debug from "./debug.js";
 import defaultConfig from "../shared/default-config.js";
 
-const loadConfig = async () => {
+/**
+ * @param {string} configFolder
+ */
+const loadConfig = async (configFolder) => {
   try {
     /**
      * @type {import('../shared/types').UserConfig}
      */
-    const config = (
-      await import(path.join(process.cwd(), "./.ladle/config.mjs"))
-    ).default;
+    const config = (await import(path.join(configFolder, "config.mjs")))
+      .default;
     if (Object.keys(config).length === 0) {
       debug("Custom config is empty.");
     } else {

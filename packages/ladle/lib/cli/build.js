@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import path from "path";
 import snowpackProd from "./snowpack-prod.js";
 import loadConfig from "./load-config.js";
 import debug from "./debug.js";
@@ -7,7 +8,7 @@ import debug from "./debug.js";
 /**
  * @param params {import("../shared/types").BuildParams}
  */
-const build = async (params = {}) => {
+const build = async (params) => {
   debug("Starting build command");
   debug(`CLI theme: ${params.theme}`);
   debug(`CLI stories: ${params.stories}`);
@@ -16,7 +17,10 @@ const build = async (params = {}) => {
   debug(`CLI baseUrl: ${params.baseUrl}`);
   debug(`CLI optimize: ${params.optimize}`);
 
-  const config = await loadConfig();
+  const configFolder = path.isAbsolute(params.config)
+    ? params.config
+    : path.join(process.cwd(), params.config);
+  const config = await loadConfig(configFolder);
 
   // CLI flags override default and custom config files
   config.addons.theme.defaultState = params.theme
@@ -40,7 +44,7 @@ const build = async (params = {}) => {
 
   debug(`Final config:\n${JSON.stringify(config, null, "  ")}`);
   process.env["SNOWPACK_PUBLIC_LADLE_THEME"] = config.addons.theme.defaultState;
-  await snowpackProd(config);
+  await snowpackProd(config, configFolder);
   process.exit(0);
 };
 
