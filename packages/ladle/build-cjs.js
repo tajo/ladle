@@ -26,7 +26,11 @@ fs.writeFile(
   "./cjs/lib/cli/snowpack-base.js",
   spbase
     .replace("(0, _module.createRequire)(import.meta.url)", "require")
-    .replace("(0, _url.fileURLToPath)(import.meta.url)", "__dirname"),
+    .replace("(0, _url.fileURLToPath)(import.meta.url)", "__dirname")
+    .replace(
+      "../snowpack-plugin/snowpack-plugin.js",
+      "snowpack-plugin/snowpack-plugin.js",
+    ),
   (err) => {
     if (err) return console.log(err);
     console.log("lib/cli/snowpack-base.js updated");
