@@ -35,33 +35,3 @@ fs.writeFile(
     console.log("lib/cli/snowpack-base.js updated");
   },
 );
-
-// replacing dynamic config import
-const loadConfig = fs.readFileSync("cjs/lib/cli/load-config.js", "utf8");
-fs.writeFile(
-  "./cjs/lib/cli/load-config.js",
-  loadConfig.replace(
-    '(await import(_path.default.join(configFolder, "config.mjs"))).default',
-    '_interopRequireDefault(require(_path.default.join(configFolder, "config.js")))',
-  ),
-  (err) => {
-    if (err) return console.log(err);
-    console.log("lib/cli/load-config.js updated");
-  },
-);
-
-// replacing config.mjs vs config.js
-const getConfigImport = fs.readFileSync(
-  "cjs/lib/cli/snowpack-plugin/generate/get-config-import.js",
-  "utf8",
-);
-fs.writeFile(
-  "./cjs/lib/cli/snowpack-plugin/generate/get-config-import.js",
-  getConfigImport.replace("config.mjs", "config.js"),
-  (err) => {
-    if (err) return console.log(err);
-    console.log(
-      "lib/cli/snowpack-plugin/generate/get-config-import.js updated",
-    );
-  },
-);
