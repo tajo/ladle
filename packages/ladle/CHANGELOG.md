@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/tajo/ladle/compare/@ladle/react@0.1.0...@ladle/react@0.1.1) (2021-03-13)
+
+
+### Bug Fixes
+
+* deps and cjs stuff ([#11](https://github.com/tajo/ladle/issues/11)) ([2fc59a3](https://github.com/tajo/ladle/commit/2fc59a3bf13018a6b9a97826b86d85260eff6fe9))
+
+
+
+
+
 # [0.1.0](https://github.com/tajo/ladle/compare/@ladle/react@0.0.31...@ladle/react@0.1.0) (2021-03-11)
 
 
