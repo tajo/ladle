@@ -95,7 +95,8 @@ export type DevParams = {
   babelPlugins?: any[];
   output?: Output;
   open?: string;
-  config: string;
+  config?: string;
+  mount?: string[];
 };
 
 export type BuildParams = {
@@ -107,7 +108,8 @@ export type BuildParams = {
   sourcemap?: boolean;
   baseUrl?: string;
   optimize?: boolean;
-  config: string;
+  config?: string;
+  mount?: string[];
 };
 
 export type PluginOptions = {

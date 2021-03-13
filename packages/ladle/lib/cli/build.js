@@ -8,7 +8,7 @@ import debug from "./debug.js";
 /**
  * @param params {import("../shared/types").BuildParams}
  */
-const build = async (params) => {
+const build = async (params = {}) => {
   debug("Starting build command");
   debug(`CLI theme: ${params.theme}`);
   debug(`CLI stories: ${params.stories}`);
@@ -17,6 +17,7 @@ const build = async (params) => {
   debug(`CLI baseUrl: ${params.baseUrl}`);
   debug(`CLI optimize: ${params.optimize}`);
 
+  params.config = params.config || ".ladle";
   const configFolder = path.isAbsolute(params.config)
     ? params.config
     : path.join(process.cwd(), params.config);
@@ -41,6 +42,7 @@ const build = async (params) => {
   config.babelPresets = params.babelPresets
     ? params.babelPresets
     : config.babelPresets;
+  config.mount = params.mount ? params.mount : config.mount;
 
   debug(`Final config:\n${JSON.stringify(config, null, "  ")}`);
   process.env["SNOWPACK_PUBLIC_LADLE_THEME"] = config.addons.theme.defaultState;
