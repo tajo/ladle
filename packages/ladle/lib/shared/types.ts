@@ -96,7 +96,7 @@ export type DevParams = {
   output?: Output;
   open?: string;
   config?: string;
-  mount?: string;
+  mount?: string[];
 };
 
 export type BuildParams = {
@@ -109,7 +109,7 @@ export type BuildParams = {
   baseUrl?: string;
   optimize?: boolean;
   config?: string;
-  mount?: string;
+  mount?: string[];
 };
 
 export type PluginOptions = {
