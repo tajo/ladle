@@ -35,3 +35,14 @@ fs.writeFile(
     console.log("lib/cli/snowpack-base.js updated");
   },
 );
+
+// replacing default config import
+const getConfig = fs.readFileSync("cjs/lib/app/src/get-config.ts", "utf8");
+fs.writeFile(
+  "./cjs/lib/app/src/get-config.ts",
+  getConfig.replace("../../shared/default-config", "./def-config"),
+  (err) => {
+    if (err) return console.log(err);
+    console.log("cjs/lib/app/src/get-config.ts updated");
+  },
+);
