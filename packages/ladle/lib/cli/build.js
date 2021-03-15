@@ -28,6 +28,19 @@ const build = async (params = {}) => {
     ? params.theme
     : config.addons.theme.defaultState;
   config.stories = params.stories ? params.stories : config.stories;
+  config.root = params.root ? params.root : config.root;
+  config.packageOptions.external =
+    params.packageOptions && params.packageOptions.external
+      ? params.packageOptions.external
+      : config.packageOptions.external;
+  config.packageOptions.knownEntrypoints =
+    params.packageOptions && params.packageOptions.knownEntrypoints
+      ? params.packageOptions.knownEntrypoints
+      : config.packageOptions.knownEntrypoints;
+  config.packageOptions.polyfillNode =
+    params.packageOptions && params.packageOptions.polyfillNode
+      ? params.packageOptions.polyfillNode
+      : config.packageOptions.polyfillNode;
   config.build.out = params.out ? params.out : config.build.out;
   config.build.sourcemap = params.sourcemap
     ? params.sourcemap
