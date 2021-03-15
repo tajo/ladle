@@ -89,6 +89,7 @@ export type GeneratedStories = {
 
 export type DevParams = {
   stories?: string;
+  root?: string;
   port?: number;
   theme?: ThemeState;
   babelPresets?: any[];
@@ -97,10 +98,12 @@ export type DevParams = {
   open?: string;
   config?: string;
   mount?: string[];
+  packageOptions?: PackageOptions;
 };
 
 export type BuildParams = {
   stories?: string;
+  root?: string;
   out?: string;
   theme?: ThemeState;
   babelPresets?: any[];
@@ -110,6 +113,7 @@ export type BuildParams = {
   optimize?: boolean;
   config?: string;
   mount?: string[];
+  packageOptions?: PackageOptions;
 };
 
 export type PluginOptions = {
@@ -117,12 +121,20 @@ export type PluginOptions = {
   configFolder: string;
 };
 
+type PackageOptions = {
+  external: string[];
+  knownEntrypoints: string[];
+  polyfillNode: boolean;
+};
+
 export type Config = {
   stories: string;
+  root: string;
   defaultStory: string;
   babelPlugins: any[];
   babelPresets: any[];
   mount: string[];
+  packageOptions: PackageOptions;
   addons: {
     theme: {
       enabled: boolean;

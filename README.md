@@ -9,8 +9,8 @@ Ladle is an environment to develop, test and share your React components faster.
 
 ```sh
 yarn add @ladle/react
-yarn ladle serve # dev environemnt
-yarn ladle build --optimize # build
+yarn ladle serve #dev environemnt
+yarn ladle build --optimize #build
 ```
 
 assuming you have an existing story and `react`, `react-dom` installed

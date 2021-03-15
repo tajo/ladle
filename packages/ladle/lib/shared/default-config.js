@@ -3,9 +3,15 @@
  */
 export default {
   stories: "src/**/*.stories.{js,jsx,ts,tsx}",
+  root: "/",
   defaultStory: "",
   babelPresets: [],
   babelPlugins: [],
+  packageOptions: {
+    external: [],
+    knownEntrypoints: [],
+    polyfillNode: true,
+  },
   mount: [],
   addons: {
     theme: {
