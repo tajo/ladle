@@ -69,7 +69,11 @@ const getSnowpackConfig = async (extendConfig, pluginOptions) => {
   const bundlerConfig = {
     ...extendConfig,
     packageOptions: {
-      knownEntrypoints: ["react/jsx-runtime"],
+      ...extendConfig.packageOptions,
+      knownEntrypoints: [
+        "react/jsx-runtime",
+        ...extendConfig.packageOptions.knownEntrypoints,
+      ],
     },
     mount: {
       [path.join(dirname, "../../app/public/")]: { url: "/", static: true },
