@@ -24,6 +24,8 @@ const bundler = async (config, configFolder) => {
         },
         babelPlugins: config.babelPlugins,
         babelPresets: config.babelPresets,
+        root: config.root,
+        packageOptions: config.packageOptions,
         mount: getCustomMounts(config.mount),
       },
       { storyGlob: config.stories, configFolder },

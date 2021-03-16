@@ -13,6 +13,8 @@ const snowpackProd = async (config, configFolder) => {
         mount: getCustomMounts(config.mount),
         babelPlugins: config.babelPlugins,
         babelPresets: config.babelPresets,
+        root: config.root,
+        packageOptions: config.packageOptions,
         buildOptions: {
           clean: true,
           baseUrl: config.build.baseUrl,
