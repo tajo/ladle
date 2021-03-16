@@ -1,11 +1,9 @@
-const root = process ? process.cwd() : "/";
-
 /**
  * @type {import('../shared/types').Config}
  */
 export default {
   stories: "src/**/*.stories.{js,jsx,ts,tsx}",
-  root,
+  root: process.cwd(),
   defaultStory: "",
   babelPresets: [],
   babelPlugins: [],
