@@ -46,3 +46,14 @@ fs.writeFile(
     console.log("cjs/lib/app/src/get-config.ts updated");
   },
 );
+
+// replacing process.cwd()
+const getDefConfig = fs.readFileSync("cjs/lib/app/src/def-config.ts", "utf8");
+fs.writeFile(
+  "./cjs/lib/app/src/def-config.ts",
+  getDefConfig.replace("process.cwd()", "'/'"),
+  (err) => {
+    if (err) return console.log(err);
+    console.log("cjs/lib/app/src/def-config.ts updated");
+  },
+);
