@@ -74,6 +74,7 @@ const App: React.FC<{}> = () => {
 
   // handle go back/forward browser buttons
   React.useEffect(() => {
+    // @ts-ignore
     const unlisten = history.listen(({ action, location }) => {
       console.log(action);
       if (action === "POP") {

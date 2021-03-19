@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { createBrowserHistory } from "history";
-import queryString from "query-string";
+import { createBrowserHistory } from "../deps/history";
+import queryString from "../deps/query-string";
 import type { GlobalState } from "../../shared/types";
 import config from "./get-config";
 import debug from "./debug";

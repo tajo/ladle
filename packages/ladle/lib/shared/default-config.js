@@ -1,9 +1,14 @@
+let root = "/";
+try {
+  root = process.cwd();
+} catch (e) {}
+
 /**
  * @type {import('../shared/types').Config}
  */
 export default {
   stories: "src/**/*.stories.{js,jsx,ts,tsx}",
-  root: process.cwd(),
+  root,
   defaultStory: "",
   babelPresets: [],
   babelPlugins: [],

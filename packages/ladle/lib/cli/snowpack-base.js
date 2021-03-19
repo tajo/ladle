@@ -78,6 +78,7 @@ const getSnowpackConfig = async (extendConfig, pluginOptions) => {
     mount: {
       [path.join(dirname, "../../app/public/")]: { url: "/", static: true },
       [path.join(dirname, "../../app/src/")]: { url: "/" },
+      [path.join(dirname, "../../app/deps/")]: { url: "/npm" },
       [path.join(dirname, "../../app/generated/")]: {
         url: "/",
         resolve: false,

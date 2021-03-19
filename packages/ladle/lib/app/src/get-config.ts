@@ -1,4 +1,4 @@
-import merge from "lodash.merge";
+import merge from "../deps/lodash.merge";
 import { config as configAny, stories } from "../generated/generated-list";
 import defaultConfig from "../../shared/default-config";
 import type { Config } from "../../shared/types";
