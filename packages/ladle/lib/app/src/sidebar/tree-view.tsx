@@ -1,5 +1,5 @@
 import * as React from "react";
-import cx from "classnames";
+import cx from "../../deps/classnames";
 import { getHref } from "../history";
 import { Page, Down } from "../icons";
 import { getStoryTree } from "../story-name";
