@@ -41,6 +41,12 @@ program
     "additional folders where source code can be",
     (str) => str.split(","),
   )
-  .action(build);
+  .action(async (params) => {
+    const success = await build(params);
+    if (success) {
+      process.exit(0);
+    }
+    process.exit(1);
+  });
 
 program.parse(process.argv);
