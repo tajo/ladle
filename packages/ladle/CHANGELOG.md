@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.8](https://github.com/tajo/ladle/compare/@ladle/react@0.1.7...@ladle/react@0.1.8) (2021-03-30)
+
+
+### Bug Fixes
+
+* move process exit up to the CLI ([#18](https://github.com/tajo/ladle/issues/18)) ([9034b6a](https://github.com/tajo/ladle/commit/9034b6a28fc614f8fe388cc515d2a2082df512a3))
+
+
+
+
+
 ## [0.1.7](https://github.com/tajo/ladle/compare/@ladle/react@0.1.6...@ladle/react@0.1.7) (2021-03-19)
 
 
