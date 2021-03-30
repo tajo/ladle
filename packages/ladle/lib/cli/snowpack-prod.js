@@ -40,12 +40,9 @@ const snowpackProd = async (config, configFolder) => {
     await build({ config: buildConfig, lockfile: null });
   } catch (e) {
     console.log(e);
-    process.exit(1);
+    return false;
   }
-  if (successfulExit) {
-    process.exit(0);
-  }
-  process.exit(1);
+  return successfulExit;
 };
 
 export default snowpackProd;

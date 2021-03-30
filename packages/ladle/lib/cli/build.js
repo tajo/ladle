@@ -59,8 +59,7 @@ const build = async (params = {}) => {
 
   debug(`Final config:\n${JSON.stringify(config, null, "  ")}`);
   process.env["SNOWPACK_PUBLIC_LADLE_THEME"] = config.addons.theme.defaultState;
-  await snowpackProd(config, configFolder);
-  process.exit(0);
+  return snowpackProd(config, configFolder);
 };
 
 export default build;
