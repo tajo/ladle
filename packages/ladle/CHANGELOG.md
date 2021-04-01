@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.10](https://github.com/tajo/ladle/compare/@ladle/react@0.1.9...@ladle/react@0.1.10) (2021-04-01)
+
+
+### Bug Fixes
+
+* use specific snowpack version for now ([#20](https://github.com/tajo/ladle/issues/20)) ([3fc3807](https://github.com/tajo/ladle/commit/3fc380722d30787a924637345ffda6b531663730))
+
+
+
+
+
 ## [0.1.9](https://github.com/tajo/ladle/compare/@ladle/react@0.1.8...@ladle/react@0.1.9) (2021-03-30)
 
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.24](https://github.com/tajo/ladle/compare/example@0.0.23...example@0.0.24) (2021-04-01)
+
+**Note:** Version bump only for package example
+
+
+
+
+
 ## [0.0.23](https://github.com/tajo/ladle/compare/example@0.0.22...example@0.0.23) (2021-03-30)
 
 **Note:** Version bump only for package example
