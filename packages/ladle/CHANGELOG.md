@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.11](https://github.com/tajo/ladle/compare/@ladle/react@0.1.10...@ladle/react@0.1.11) (2021-04-02)
+
+
+### Bug Fixes
+
+* add crossorigin for manifest.json ([#21](https://github.com/tajo/ladle/issues/21)) ([2b6ab0d](https://github.com/tajo/ladle/commit/2b6ab0deb86befb801a599c1c479e4e196e4b1ec))
+
+
+
+
+
 ## [0.1.10](https://github.com/tajo/ladle/compare/@ladle/react@0.1.9...@ladle/react@0.1.10) (2021-04-01)
 
 
