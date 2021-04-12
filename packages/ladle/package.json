@@ -35,7 +35,7 @@
     "@babel/template": "^7.12.13",
     "@babel/traverse": "^7.13.0",
     "@babel/types": "^7.13.0",
-    "@snowpack/plugin-babel": "^2.1.6",
+    "@snowpack/plugin-babel": "^2.1.7",
     "@snowpack/plugin-react-refresh": "^2.4.0",
     "commander": "^6.2.1",
     "debug": "^4.3.1",
@@ -44,7 +44,7 @@
     "lodash.clonedeep": "^4.5.0",
     "lodash.merge": "^4.6.2",
     "micromatch": "^4.0.2",
-    "snowpack": "3.0.13"
+    "snowpack": "^3.2.2"
   },
   "peerDependencies": {
     "react": ">=16.14.0",
@@ -64,6 +64,7 @@
     "@types/micromatch": "^4.0.1",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@types/ws": "^7.4.1",
     "jest": "^26.6.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

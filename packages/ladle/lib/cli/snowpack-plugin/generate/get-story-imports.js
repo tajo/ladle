@@ -6,9 +6,9 @@ const t = require("@babel/types");
  * @param entryData {import('../../../shared/types').EntryData}
  */
 const getStoryImports = (entryData) => {
-  let storyImports = `import * as React from "./_snowpack/pkg/react.js";\n`;
+  let storyImports = `import { lazy, createElement, Fragment } from "./react-exports.js";\n`;
   const lazyImport = template(`
-    const %%component%% = React.lazy(() =>
+    const %%component%% = lazy(() =>
      import(%%source%%).then((module) => {
         return { default: module.%%story%% };
       })

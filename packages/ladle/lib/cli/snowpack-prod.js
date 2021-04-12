@@ -25,7 +25,9 @@ const snowpackProd = async (config, configFolder) => {
           ? {
               bundle: true,
               minify: true,
-              splitting: true,
+              // code-splitting temporarily disabled
+              // https://github.com/snowpackjs/snowpack/issues/3110#issuecomment-818225057
+              splitting: false,
               treeshake: true,
               target: "es2020",
             }
