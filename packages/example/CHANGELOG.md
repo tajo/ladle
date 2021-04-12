@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/tajo/ladle/compare/example@0.0.25...example@0.1.0) (2021-04-12)
+
+
+### Features
+
+* snowpack 3.2 ([#22](https://github.com/tajo/ladle/issues/22)) ([c74e37d](https://github.com/tajo/ladle/commit/c74e37db9a12f710c26132ca28e420fb18edacb5))
+
+
+
+
+
 ## [0.0.25](https://github.com/tajo/ladle/compare/example@0.0.24...example@0.0.25) (2021-04-02)
 
 **Note:** Version bump only for package example

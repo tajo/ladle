@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/tajo/ladle/compare/@ladle/react@0.1.11...@ladle/react@0.2.0) (2021-04-12)
+
+
+### Features
+
+* snowpack 3.2 ([#22](https://github.com/tajo/ladle/issues/22)) ([c74e37d](https://github.com/tajo/ladle/commit/c74e37db9a12f710c26132ca28e420fb18edacb5))
+
+
+
+
+
 ## [0.1.11](https://github.com/tajo/ladle/compare/@ladle/react@0.1.10...@ladle/react@0.1.11) (2021-04-02)
 
 
