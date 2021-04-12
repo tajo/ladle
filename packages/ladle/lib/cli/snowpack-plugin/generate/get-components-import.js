@@ -29,7 +29,7 @@ const checkIfNamedExportExists = (namedExport, sourceCode, filename) => {
  * @param {string} configFolder
  */
 const getComponents = (configFolder) => {
-  const noopProvider = `export const Provider = ({children}) => /*#__PURE__*/React.createElement(React.Fragment, null, children);\n`;
+  const noopProvider = `export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);\n`;
   const componentsPath = path.join(configFolder, "components.tsx");
   const componentsPathJs = path.join(configFolder, "components.js");
   const componentsExists = fs.existsSync(componentsPath);

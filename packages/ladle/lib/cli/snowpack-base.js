@@ -79,10 +79,7 @@ const getSnowpackConfig = async (extendConfig, pluginOptions) => {
       [path.join(dirname, "../../app/public/")]: { url: "/", static: true },
       [path.join(dirname, "../../app/src/")]: { url: "/" },
       [path.join(dirname, "../../app/deps/")]: { url: "/npm" },
-      [path.join(dirname, "../../app/generated/")]: {
-        url: "/",
-        resolve: false,
-      },
+      [path.join(dirname, "../../app/generated/")]: { url: "/" },
       [path.join(dirname, "../../shared/")]: { url: "/" },
       [path.join(process.cwd(), storyFolder)]: { url: `/${storyFolder}` },
       ...(configExists || componentsExists
