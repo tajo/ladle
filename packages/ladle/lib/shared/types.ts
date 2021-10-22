@@ -147,7 +147,7 @@ export type Config = {
   };
   build: {
     out: string;
-    sourcemap: boolean | string;
+    sourcemap: boolean | "hidden" | "inline" | undefined;
     baseUrl: string;
   };
 };

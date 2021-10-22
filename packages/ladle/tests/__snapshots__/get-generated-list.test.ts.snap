@@ -2,14 +2,14 @@
 
 exports[`Capital letters in story names converted into delimiters 1`] = `
 "
-import { lazy, createElement, Fragment } from \\"./react-exports.js\\";
+import { lazy, createElement, Fragment } from \\"react\\";
 
-const capitalization$$blue$tiny$cat = lazy(() => import(\\"./tests/fixtures/capitalization.stories.js\\").then(module => {
+const capitalization$$blue$tiny$cat = lazy(() => import(\\"../../../tests/fixtures/capitalization.stories.tsx\\").then(module => {
   return {
     default: module.BlueTinyCat
   };
 }));
-const capitalization$$big$barking$dog = lazy(() => import(\\"./tests/fixtures/capitalization.stories.js\\").then(module => {
+const capitalization$$big$barking$dog = lazy(() => import(\\"../../../tests/fixtures/capitalization.stories.tsx\\").then(module => {
   return {
     default: module.BigBarkingDog
   };
@@ -43,9 +43,9 @@ if (import.meta.hot) {
 
 exports[`Capital letters in the filename converted into delimiters 1`] = `
 "
-import { lazy, createElement, Fragment } from \\"./react-exports.js\\";
+import { lazy, createElement, Fragment } from \\"react\\";
 
-const filename$capitalization$$test = lazy(() => import(\\"./tests/fixtures/filenameCapitalization.stories.js\\").then(module => {
+const filename$capitalization$$test = lazy(() => import(\\"../../../tests/fixtures/filenameCapitalization.stories.tsx\\").then(module => {
   return {
     default: module.Test
   };
@@ -76,9 +76,9 @@ if (import.meta.hot) {
 
 exports[`Default title is used instead of the file name 1`] = `
 "
-import { lazy, createElement, Fragment } from \\"./react-exports.js\\";
+import { lazy, createElement, Fragment } from \\"react\\";
 
-const title$$cat = lazy(() => import(\\"./tests/fixtures/default-title.stories.js\\").then(module => {
+const title$$cat = lazy(() => import(\\"../../../tests/fixtures/default-title.stories.tsx\\").then(module => {
   return {
     default: module.Cat
   };
@@ -109,14 +109,14 @@ if (import.meta.hot) {
 
 exports[`Extract and merge story parameters 1`] = `
 "
-import { lazy, createElement, Fragment } from \\"./react-exports.js\\";
+import { lazy, createElement, Fragment } from \\"react\\";
 
-const title$$cat = lazy(() => import(\\"./tests/fixtures/story-parameters.stories.js\\").then(module => {
+const title$$cat = lazy(() => import(\\"../../../tests/fixtures/story-parameters.stories.tsx\\").then(module => {
   return {
     default: module.Cat
   };
 }));
-const title$$dog = lazy(() => import(\\"./tests/fixtures/story-parameters.stories.js\\").then(module => {
+const title$$dog = lazy(() => import(\\"../../../tests/fixtures/story-parameters.stories.tsx\\").then(module => {
   return {
     default: module.Dog
   };
@@ -170,9 +170,9 @@ if (import.meta.hot) {
 
 exports[`Extract default parameters 1`] = `
 "
-import { lazy, createElement, Fragment } from \\"./react-exports.js\\";
+import { lazy, createElement, Fragment } from \\"react\\";
 
-const title$$cat = lazy(() => import(\\"./tests/fixtures/default-parameters.stories.js\\").then(module => {
+const title$$cat = lazy(() => import(\\"../../../tests/fixtures/default-parameters.stories.tsx\\").then(module => {
   return {
     default: module.Cat
   };
@@ -211,14 +211,14 @@ if (import.meta.hot) {
 
 exports[`Single file with two stories 1`] = `
 "
-import { lazy, createElement, Fragment } from \\"./react-exports.js\\";
+import { lazy, createElement, Fragment } from \\"react\\";
 
-const animals$$cat = lazy(() => import(\\"./tests/fixtures/animals.stories.js\\").then(module => {
+const animals$$cat = lazy(() => import(\\"../../../tests/fixtures/animals.stories.tsx\\").then(module => {
   return {
     default: module.Cat
   };
 }));
-const animals$$dog = lazy(() => import(\\"./tests/fixtures/animals.stories.js\\").then(module => {
+const animals$$dog = lazy(() => import(\\"../../../tests/fixtures/animals.stories.tsx\\").then(module => {
   return {
     default: module.Dog
   };
@@ -252,19 +252,19 @@ if (import.meta.hot) {
 
 exports[`Story name replaces named export as a story name 1`] = `
 "
-import { lazy, createElement, Fragment } from \\"./react-exports.js\\";
+import { lazy, createElement, Fragment } from \\"react\\";
 
-const storyname$$doggo = lazy(() => import(\\"./tests/fixtures/storyname.stories.js\\").then(module => {
+const storyname$$doggo = lazy(() => import(\\"../../../tests/fixtures/storyname.stories.tsx\\").then(module => {
   return {
     default: module.Cat
   };
 }));
-const storyname$$capital$city = lazy(() => import(\\"./tests/fixtures/storyname.stories.js\\").then(module => {
+const storyname$$capital$city = lazy(() => import(\\"../../../tests/fixtures/storyname.stories.tsx\\").then(module => {
   return {
     default: module.CapitalCity
   };
 }));
-const storyname$$champs$élysées = lazy(() => import(\\"./tests/fixtures/storyname.stories.js\\").then(module => {
+const storyname$$champs$élysées = lazy(() => import(\\"../../../tests/fixtures/storyname.stories.tsx\\").then(module => {
   return {
     default: module.CapitalReplaced
   };
@@ -301,9 +301,9 @@ if (import.meta.hot) {
 
 exports[`Turn file name delimiters into spaces and levels correctly 1`] = `
 "
-import { lazy, createElement, Fragment } from \\"./react-exports.js\\";
+import { lazy, createElement, Fragment } from \\"react\\";
 
-const our$animals$$mammals$$cat = lazy(() => import(\\"./tests/fixtures/our-animals--mammals.stories.js\\").then(module => {
+const our$animals$$mammals$$cat = lazy(() => import(\\"../../../tests/fixtures/our-animals--mammals.stories.tsx\\").then(module => {
   return {
     default: module.Cat
   };

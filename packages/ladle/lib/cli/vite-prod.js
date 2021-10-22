@@ -6,9 +6,8 @@ import ladlePlugin from "./vite-plugin/vite-plugin.js";
 
 /**
  * @param config {import("../shared/types").Config}
- * @param configFolder {string}
  */
-const viteProd = async (config, configFolder) => {
+const viteProd = async (config) => {
   const __dirname = dirname(fileURLToPath(import.meta.url));
   try {
     /**

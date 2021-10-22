@@ -1,4 +1,5 @@
 // @flow
+// @ts-ignore
 import * as React from "react";
 
 export const FlowButton = () => {

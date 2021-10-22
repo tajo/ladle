@@ -42,7 +42,7 @@ const build = async (params = {}) => {
 
   debug(`Final config:\n${JSON.stringify(config, null, "  ")}`);
   process.env["VITE_PUBLIC_LADLE_THEME"] = config.addons.theme.defaultState;
-  return viteProd(config, configFolder);
+  return viteProd(config);
 };
 
 export default build;

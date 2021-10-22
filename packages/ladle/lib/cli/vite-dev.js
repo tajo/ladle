@@ -8,9 +8,8 @@ import debug from "./debug.js";
 
 /**
  * @param config {import("../shared/types").Config}
- * @param configFolder {string}
  */
-const bundler = async (config, configFolder) => {
+const bundler = async (config) => {
   const port = await getPort({
     port: [config.serve.port, 61001, 62002, 62003, 62004, 62005],
   });

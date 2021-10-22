@@ -64,9 +64,9 @@ export const getStoryTree = (
       `${id}${first}--`,
     );
   };
-  const selectedStoryPath = selectedStory ? selectedStory.split(
-    `${storyDelimiter}${storyDelimiter}`,
-  ) : [];
+  const selectedStoryPath = selectedStory
+    ? selectedStory.split(`${storyDelimiter}${storyDelimiter}`)
+    : [];
   stories.forEach((story) => {
     const storyPath = story.split(`${storyDelimiter}${storyDelimiter}`);
     addIntoTree(tree, storyPath, selectedStoryPath, "");
