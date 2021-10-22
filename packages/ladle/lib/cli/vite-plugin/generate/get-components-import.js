@@ -1,7 +1,7 @@
 const traverse = require("@babel/traverse").default;
 const fs = require("fs");
 const path = require("path");
-const debug = require("debug")("ladle:snowpack");
+const debug = require("debug")("ladle:vite");
 const getAst = require("../get-ast.js");
 
 /**

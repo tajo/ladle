@@ -97,8 +97,6 @@ export type DevParams = {
   output?: Output;
   open?: string;
   config?: string;
-  mount?: string[];
-  packageOptions?: PackageOptions;
 };
 
 export type BuildParams = {
@@ -112,19 +110,11 @@ export type BuildParams = {
   baseUrl?: string;
   optimize?: boolean;
   config?: string;
-  mount?: string[];
-  packageOptions?: PackageOptions;
 };
 
 export type PluginOptions = {
   storyGlob: string;
   configFolder: string;
-};
-
-type PackageOptions = {
-  external: string[];
-  knownEntrypoints: string[];
-  polyfillNode: boolean;
 };
 
 export type Config = {
@@ -133,8 +123,6 @@ export type Config = {
   defaultStory: string;
   babelPlugins: any[];
   babelPresets: any[];
-  mount: string[];
-  packageOptions: PackageOptions;
   addons: {
     theme: {
       enabled: boolean;
@@ -155,13 +143,12 @@ export type Config = {
   serve: {
     open: string;
     port: number;
-    output: Output;
+    output: string;
   };
   build: {
     out: string;
-    sourcemap: boolean;
+    sourcemap: boolean | string;
     baseUrl: string;
-    optimize: boolean;
   };
 };
 

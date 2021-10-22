@@ -21,18 +21,18 @@ fs.writeFile(
 );
 
 // replacing import.meta usage
-const spbase = fs.readFileSync("cjs/lib/cli/snowpack-base.js", "utf8");
+const spbase = fs.readFileSync("cjs/lib/cli/vite-base.js", "utf8");
 fs.writeFile(
-  "./cjs/lib/cli/snowpack-base.js",
+  "./cjs/lib/cli/vite-base.js",
   spbase
     .replace("(0, _module.createRequire)(import.meta.url)", "require")
     .replace(
       "(0, _url.fileURLToPath)(import.meta.url)",
-      "`${__dirname}/snowpack-base.js`",
+      "`${__dirname}/vite-base.js`",
     ),
   (err) => {
     if (err) return console.log(err);
-    console.log("lib/cli/snowpack-base.js updated");
+    console.log("lib/cli/vite-base.js updated");
   },
 );
 

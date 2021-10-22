@@ -12,12 +12,6 @@ export default {
   defaultStory: "",
   babelPresets: [],
   babelPlugins: [],
-  packageOptions: {
-    external: [],
-    knownEntrypoints: [],
-    polyfillNode: true,
-  },
-  mount: [],
   addons: {
     theme: {
       enabled: true,
@@ -44,6 +38,5 @@ export default {
     out: "build",
     sourcemap: false,
     baseUrl: "/",
-    optimize: false,
   },
 };

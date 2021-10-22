@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import path from "path";
-import snowpackDev from "./snowpack-dev.js";
+import viteDev from "./vite-dev.js";
 import loadConfig from "./load-config.js";
 import debug from "./debug.js";
 
@@ -56,8 +56,8 @@ const serve = async (params = {}) => {
   config.mount = params.mount ? params.mount : config.mount;
 
   debug(`Final config:\n${JSON.stringify(config, null, "  ")}`);
-  process.env["SNOWPACK_PUBLIC_LADLE_THEME"] = config.addons.theme.defaultState;
-  await snowpackDev(config, configFolder);
+  process.env["VITE_PUBLIC_LADLE_THEME"] = config.addons.theme.defaultState;
+  await viteDev(config, configFolder);
 };
 
 export default serve;

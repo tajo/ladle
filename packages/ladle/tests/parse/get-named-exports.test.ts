@@ -1,4 +1,4 @@
-import getNamedExports from "../../lib/cli/snowpack-plugin/parse/get-named-exports.js";
+import getNamedExports from "../../lib/cli/vite-plugin/parse/get-named-exports.js";
 import { parseWithFn, getOutput } from "./utils";
 
 test("No named exports", async () => {
@@ -7,8 +7,8 @@ test("No named exports", async () => {
       `export default {}`,
       {},
       getNamedExports,
-      "ExportNamedDeclaration"
-    )
+      "ExportNamedDeclaration",
+    ),
   ).toEqual(getOutput({}));
 });
 
@@ -20,8 +20,8 @@ test("Basic named exports", async () => {
       `,
       {},
       getNamedExports,
-      "ExportNamedDeclaration"
-    )
+      "ExportNamedDeclaration",
+    ),
   ).toEqual(
     getOutput({
       stories: [
@@ -36,7 +36,7 @@ test("Basic named exports", async () => {
           storyId: "file--ha",
         },
       ],
-    })
+    }),
   );
 });
 
@@ -47,8 +47,8 @@ test("Basic named exports in typescript", async () => {
       {},
       getNamedExports,
       "ExportNamedDeclaration",
-      "foo.tsx"
-    )
+      "foo.tsx",
+    ),
   ).toEqual(
     getOutput({
       stories: [
@@ -58,7 +58,7 @@ test("Basic named exports in typescript", async () => {
           storyId: "file--my-story",
         },
       ],
-    })
+    }),
   );
 });
 
@@ -72,8 +72,8 @@ test("Named export renamed through storyNames", async () => {
         },
       },
       getNamedExports,
-      "ExportNamedDeclaration"
-    )
+      "ExportNamedDeclaration",
+    ),
   ).toEqual(
     getOutput({
       namedExportToStoryName: {
@@ -86,7 +86,7 @@ test("Named export renamed through storyNames", async () => {
           storyId: "file--renamed-story",
         },
       ],
-    })
+    }),
   );
 });
 
@@ -102,8 +102,8 @@ test("Named export with added story parameters", async () => {
         },
       },
       getNamedExports,
-      "ExportNamedDeclaration"
-    )
+      "ExportNamedDeclaration",
+    ),
   ).toEqual(
     getOutput({
       namedExportToParameters: {
@@ -125,7 +125,7 @@ test("Named export with added story parameters", async () => {
           storyId: "file--my-story",
         },
       ],
-    })
+    }),
   );
 });
 
@@ -141,8 +141,8 @@ test("Named export with added default parameters", async () => {
         },
       },
       getNamedExports,
-      "ExportNamedDeclaration"
-    )
+      "ExportNamedDeclaration",
+    ),
   ).toEqual(
     getOutput({
       exportDefaultProps: {
@@ -164,7 +164,7 @@ test("Named export with added default parameters", async () => {
           storyId: "file--my-story",
         },
       ],
-    })
+    }),
   );
 });
 
@@ -187,8 +187,8 @@ test("Named export with added default and story parameters", async () => {
         },
       },
       getNamedExports,
-      "ExportNamedDeclaration"
-    )
+      "ExportNamedDeclaration",
+    ),
   ).toEqual(
     getOutput({
       exportDefaultProps: {
@@ -219,7 +219,7 @@ test("Named export with added default and story parameters", async () => {
           storyId: "file--my-story",
         },
       ],
-    })
+    }),
   );
 });
 
@@ -229,8 +229,8 @@ test("Class Named Export", async () => {
       `export class MyClassStory extends React.Component { }`,
       {},
       getNamedExports,
-      "ExportNamedDeclaration"
-    )
+      "ExportNamedDeclaration",
+    ),
   ).toEqual(
     getOutput({
       stories: [
@@ -240,7 +240,7 @@ test("Class Named Export", async () => {
           storyId: "file--my-class-story",
         },
       ],
-    })
+    }),
   );
 });
 
@@ -250,8 +250,8 @@ test("Function Named Export", async () => {
       `export function FunctionStory() { }`,
       {},
       getNamedExports,
-      "ExportNamedDeclaration"
-    )
+      "ExportNamedDeclaration",
+    ),
   ).toEqual(
     getOutput({
       stories: [
@@ -261,6 +261,6 @@ test("Function Named Export", async () => {
           storyId: "file--function-story",
         },
       ],
-    })
+    }),
   );
 });

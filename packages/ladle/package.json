@@ -35,8 +35,7 @@
     "@babel/template": "^7.12.13",
     "@babel/traverse": "^7.13.0",
     "@babel/types": "^7.13.0",
-    "@snowpack/plugin-babel": "^2.1.7",
-    "@snowpack/plugin-react-refresh": "^2.4.0",
+    "@vitejs/plugin-react": "^1.0.5",
     "commander": "^6.2.1",
     "debug": "^4.3.1",
     "get-port": "^5.1.1",
@@ -44,7 +43,7 @@
     "lodash.clonedeep": "^4.5.0",
     "lodash.merge": "^4.6.2",
     "micromatch": "^4.0.2",
-    "snowpack": "^3.2.2"
+    "vite": "^2.6.10"
   },
   "peerDependencies": {
     "react": ">=16.14.0",

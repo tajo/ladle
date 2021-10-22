@@ -46,7 +46,7 @@ function commonjsRequire() {
   );
 }
 
-/* SNOWPACK PROCESS POLYFILL (based on https://github.com/calvinmetcalf/node-process-es6) */
+/* VITE PROCESS POLYFILL (based on https://github.com/calvinmetcalf/node-process-es6) */
 function defaultSetTimout() {
   throw new Error("setTimeout has not been defined");
 }

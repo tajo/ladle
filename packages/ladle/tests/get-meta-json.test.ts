@@ -1,5 +1,5 @@
-import { getEntryData } from "../lib/cli/snowpack-plugin/parse/get-entry-data.js";
-import getMetaJson from "../lib/cli/snowpack-plugin/generate/get-meta-json.js";
+import { getEntryData } from "../lib/cli/vite-plugin/parse/get-entry-data.js";
+import getMetaJson from "../lib/cli/vite-plugin/generate/get-meta-json.js";
 
 test("Single file with two stories", async () => {
   const entryData = await getEntryData(["tests/fixtures/animals.stories.tsx"]);

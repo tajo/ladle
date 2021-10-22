@@ -21,11 +21,24 @@ export const Middle = () => {
 };
 Middle.storyName = "Middle Man";
 
-export const Opo = () => {
+export const Opo2 = () => {
   const [val, setVal] = useState(true);
   return (
     <div>
-      <h1>opo Middle Muhaha</h1>
+      <h1>opo Middle Muhaha tada</h1>
+      <input />
+      <button onClick={() => setVal(false)}>
+        button {val ? "true" : "false"}
+      </button>
+    </div>
+  );
+};
+
+export const Dayum = () => {
+  const [val, setVal] = useState(true);
+  return (
+    <div>
+      <h1>opo Middle Muhaha tada</h1>
       <input />
       <button onClick={() => setVal(false)}>
         button {val ? "true" : "false"}

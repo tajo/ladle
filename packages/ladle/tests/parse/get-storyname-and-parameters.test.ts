@@ -1,9 +1,9 @@
-import getStorynameAndParameters from "../../lib/cli/snowpack-plugin/parse/get-storyname-and-parameters.js";
+import getStorynameAndParameters from "../../lib/cli/vite-plugin/parse/get-storyname-and-parameters.js";
 import { parseWithFn, getOutput } from "./utils";
 
 test("No storyName or parameters", async () => {
   expect(
-    parseWithFn(`export default {}`, {}, getStorynameAndParameters, "Program")
+    parseWithFn(`export default {}`, {}, getStorynameAndParameters, "Program"),
   ).toEqual(getOutput({}));
 });
 
@@ -18,15 +18,15 @@ storyB.storyName = 'storyRenamedB';
 `,
       {},
       getStorynameAndParameters,
-      "Program"
-    )
+      "Program",
+    ),
   ).toEqual(
     getOutput({
       namedExportToStoryName: {
         storyA: "storyRenamedA",
         storyB: "storyRenamedB",
       },
-    })
+    }),
   );
 });
 
@@ -46,8 +46,8 @@ storyB.parameters = {
 `,
       {},
       getStorynameAndParameters,
-      "Program"
-    )
+      "Program",
+    ),
   ).toEqual(
     getOutput({
       namedExportToParameters: {
@@ -59,7 +59,7 @@ storyB.parameters = {
           foo: false,
         },
       },
-    })
+    }),
   );
 });
 
@@ -72,8 +72,8 @@ storyA.storyName = true;
 `,
       {},
       getStorynameAndParameters,
-      "Program"
-    )
+      "Program",
+    ),
   ).toThrow(`storyA.storyName in file.js must be a string literal.`);
 });
 
@@ -86,8 +86,8 @@ storyA.parameters = true;
 `,
       {},
       getStorynameAndParameters,
-      "Program"
-    )
+      "Program",
+    ),
   ).toThrow(`storyA.parameters in file.js must be an object expression.`);
 });
 
@@ -102,7 +102,7 @@ storyA.parameters = {
 `,
       {},
       getStorynameAndParameters,
-      "Program"
-    )
+      "Program",
+    ),
   ).toThrow(`storyA.parameters in file.js must be serializable.`);
 });

@@ -1,7 +1,7 @@
 import traverse from "@babel/traverse";
 import merge from "lodash.merge";
 import clonedeep from "lodash.clonedeep";
-import getAst from "../../lib/cli/snowpack-plugin/get-ast.js";
+import getAst from "../../lib/cli/vite-plugin/get-ast.js";
 import type { ParsedStoriesResult } from "../../lib/shared/types";
 
 export const parseWithFn = (
@@ -9,7 +9,7 @@ export const parseWithFn = (
   input: Partial<ParsedStoriesResult>,
   fn: any,
   visitor: string,
-  filename: string = "foo.stories.js"
+  filename: string = "foo.stories.js",
 ): ParsedStoriesResult => {
   const start: ParsedStoriesResult = merge(
     {
@@ -21,7 +21,7 @@ export const parseWithFn = (
       storyParams: {},
       fileId: "file",
     },
-    input
+    input,
   );
   const end: ParsedStoriesResult = clonedeep(start);
   traverse(getAst(code, filename), {
@@ -31,7 +31,7 @@ export const parseWithFn = (
 };
 
 export const getOutput = (
-  input: Partial<ParsedStoriesResult>
+  input: Partial<ParsedStoriesResult>,
 ): ParsedStoriesResult => {
   return merge(
     {
@@ -43,6 +43,6 @@ export const getOutput = (
       storyParams: {},
       fileId: "file",
     },
-    input
+    input,
   );
 };
