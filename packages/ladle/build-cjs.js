@@ -20,22 +20,6 @@ fs.writeFile(
   },
 );
 
-// replacing import.meta usage
-const spbase = fs.readFileSync("cjs/lib/cli/vite-base.js", "utf8");
-fs.writeFile(
-  "./cjs/lib/cli/vite-base.js",
-  spbase
-    .replace("(0, _module.createRequire)(import.meta.url)", "require")
-    .replace(
-      "(0, _url.fileURLToPath)(import.meta.url)",
-      "`${__dirname}/vite-base.js`",
-    ),
-  (err) => {
-    if (err) return console.log(err);
-    console.log("lib/cli/vite-base.js updated");
-  },
-);
-
 // replacing default config import
 const getConfig = fs.readFileSync("cjs/lib/app/src/get-config.ts", "utf8");
 fs.writeFile(
