@@ -12,7 +12,7 @@ const getAst = require("../get-ast.js");
 const checkIfNamedExportExists = (namedExport, sourceCode, filename) => {
   let exists = false;
   const ast = getAst(sourceCode, filename);
-  traverse(ast, {
+  traverse(/** @type {any} */ (ast), {
     /**
      * @param {any} astPath
      */

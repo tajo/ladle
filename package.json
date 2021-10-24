@@ -16,18 +16,18 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.16.1",
-    "@typescript-eslint/parser": "^4.16.1",
-    "eslint": "^7.21.0",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-react": "^7.22.0",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.1",
     "lerna": "^4.0.0",
-    "prettier": "^2.2.1",
-    "typescript": "^4.2.2"
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.4"
   },
   "volta": {
-    "node": "14.15.4",
-    "yarn": "1.22.10"
+    "node": "14.18.1",
+    "yarn": "1.22.15"
   }
 }

@@ -24,13 +24,8 @@
     "esModuleInterop": true,
     "skipLibCheck": false,
     "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
+    "isolatedModules": true
   },
-  "include": [
-    "packages/*/lib/**/*",
-    "packages/*/src/**/*"
-  ],
-  "exclude": [
-    "packages/website/**"
-  ]
+  "include": ["packages/*/lib/**/*", "packages/*/src/**/*"],
+  "exclude": ["packages/website/**"]
 }
