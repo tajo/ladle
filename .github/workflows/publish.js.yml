@@ -15,7 +15,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 14
-      - run: npm install -g yarn@1.22.10
+      - run: npm install -g yarn@1.22.15
       - run: yarn install
       - run: yarn lint
       - run: yarn typecheck
