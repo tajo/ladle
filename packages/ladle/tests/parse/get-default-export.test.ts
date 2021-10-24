@@ -1,4 +1,4 @@
-import getDefaultExport from "../../lib/cli/snowpack-plugin/parse/get-default-export.js";
+import getDefaultExport from "../../lib/cli/vite-plugin/parse/get-default-export.js";
 import { parseWithFn, getOutput } from "./utils";
 
 test("No default export", async () => {
@@ -7,12 +7,12 @@ test("No default export", async () => {
       `const haha = true;`,
       {},
       getDefaultExport,
-      "ExportDefaultDeclaration"
-    )
+      "ExportDefaultDeclaration",
+    ),
   ).toEqual(
     getOutput({
       exportDefaultProps: { title: undefined, parameters: undefined },
-    })
+    }),
   );
 });
 
@@ -22,10 +22,12 @@ test("Get default export title", async () => {
       `export default { title: 'Title'}`,
       {},
       getDefaultExport,
-      "ExportDefaultDeclaration"
-    )
+      "ExportDefaultDeclaration",
+    ),
   ).toEqual(
-    getOutput({ exportDefaultProps: { title: "Title", parameters: undefined } })
+    getOutput({
+      exportDefaultProps: { title: "Title", parameters: undefined },
+    }),
   );
 });
 
@@ -35,15 +37,15 @@ test("Get default export parameters", async () => {
       `export default { parameters: { some: 'foo', flag: true } }`,
       {},
       getDefaultExport,
-      "ExportDefaultDeclaration"
-    )
+      "ExportDefaultDeclaration",
+    ),
   ).toEqual(
     getOutput({
       exportDefaultProps: {
         title: undefined,
         parameters: { some: "foo", flag: true },
       },
-    })
+    }),
   );
 });
 
@@ -53,15 +55,15 @@ test("Get simple refference ", async () => {
       `const params = { parameters: { some: 'foo', flag: true } }; export default params;`,
       {},
       getDefaultExport,
-      "ExportDefaultDeclaration"
-    )
+      "ExportDefaultDeclaration",
+    ),
   ).toEqual(
     getOutput({
       exportDefaultProps: {
         title: undefined,
         parameters: { some: "foo", flag: true },
       },
-    })
+    }),
   );
 });
 
@@ -71,9 +73,9 @@ test("Throw an error if default export is not serializable", async () => {
       `export default { title: () => true }`,
       {},
       getDefaultExport,
-      "ExportDefaultDeclaration"
-    )
+      "ExportDefaultDeclaration",
+    ),
   ).toThrow(
-    `Can't parse the default export of file.js. It must be serializable.`
+    `Can't parse the default export of file.js. It must be serializable.`,
   );
 });

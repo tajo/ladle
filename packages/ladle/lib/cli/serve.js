@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import path from "path";
-import snowpackDev from "./snowpack-dev.js";
+import viteDev from "./vite-dev.js";
 import loadConfig from "./load-config.js";
 import debug from "./debug.js";
 
@@ -28,18 +28,6 @@ const serve = async (params = {}) => {
     : config.addons.theme.defaultState;
   config.stories = params.stories ? params.stories : config.stories;
   config.root = params.root ? params.root : config.root;
-  config.packageOptions.external =
-    params.packageOptions && params.packageOptions.external
-      ? params.packageOptions.external
-      : config.packageOptions.external;
-  config.packageOptions.knownEntrypoints =
-    params.packageOptions && params.packageOptions.knownEntrypoints
-      ? params.packageOptions.knownEntrypoints
-      : config.packageOptions.knownEntrypoints;
-  config.packageOptions.polyfillNode =
-    params.packageOptions && params.packageOptions.polyfillNode
-      ? params.packageOptions.polyfillNode
-      : config.packageOptions.polyfillNode;
   config.serve.port = params.port ? params.port : config.serve.port;
   config.serve.open = params.open ? params.open : config.serve.open;
   config.serve.output = process.env.DEBUG
@@ -53,11 +41,10 @@ const serve = async (params = {}) => {
   config.babelPresets = params.babelPresets
     ? params.babelPresets
     : config.babelPresets;
-  config.mount = params.mount ? params.mount : config.mount;
 
   debug(`Final config:\n${JSON.stringify(config, null, "  ")}`);
-  process.env["SNOWPACK_PUBLIC_LADLE_THEME"] = config.addons.theme.defaultState;
-  await snowpackDev(config, configFolder);
+  process.env["VITE_PUBLIC_LADLE_THEME"] = config.addons.theme.defaultState;
+  await viteDev(config);
 };
 
 export default serve;

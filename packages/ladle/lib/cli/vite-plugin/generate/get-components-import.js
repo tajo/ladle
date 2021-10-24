@@ -1,7 +1,7 @@
 const traverse = require("@babel/traverse").default;
 const fs = require("fs");
 const path = require("path");
-const debug = require("debug")("ladle:snowpack");
+const debug = require("debug")("ladle:vite");
 const getAst = require("../get-ast.js");
 
 /**
@@ -12,7 +12,7 @@ const getAst = require("../get-ast.js");
 const checkIfNamedExportExists = (namedExport, sourceCode, filename) => {
   let exists = false;
   const ast = getAst(sourceCode, filename);
-  traverse(ast, {
+  traverse(/** @type {any} */ (ast), {
     /**
      * @param {any} astPath
      */

@@ -1,8 +1,11 @@
 // @flow
+// @ts-ignore
+import * as React from "react";
+
 export const FlowButton = () => {
   return (
     <>
-      <h1>Flow Buttonn</h1>
+      <h1>Flow Buttonna</h1>
     </>
   );
 };

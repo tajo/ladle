@@ -23,7 +23,7 @@ export const Button: React.FC<{}> = () => {
         >
           <p>
             Ladle is a modern and very fast playground for React components
-            powered by <a href="https://www.snowpack.dev/">Snowpack</a> and{" "}
+            powered by <a href="https://www.vitejs.dev/">Vite</a> and{" "}
             <a href="https://esbuild.github.io/">esbuild</a>. It will be
             open-sourced soon. In meantime, you can follow{" "}
             <a href="https://twitter.com/vmiksu">twitter</a> for more updates.

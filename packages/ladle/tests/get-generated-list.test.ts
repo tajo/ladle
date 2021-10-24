@@ -1,5 +1,5 @@
-import { getEntryData } from "../lib/cli/snowpack-plugin/parse/get-entry-data.js";
-import getGeneratedList from "../lib/cli/snowpack-plugin/generate/get-generated-list.js";
+import { getEntryData } from "../lib/cli/vite-plugin/parse/get-entry-data.js";
+import getGeneratedList from "../lib/cli/vite-plugin/generate/get-generated-list.js";
 
 test("Single file with two stories", async () => {
   const entryData = await getEntryData(["tests/fixtures/animals.stories.tsx"]);

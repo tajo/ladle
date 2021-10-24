@@ -18,7 +18,7 @@ const Main: React.FC<{
         ) ||
         zEvent.metaKey
       ) {
-        ((searchEl.current as any) as HTMLInputElement).focus();
+        (searchEl.current as any as HTMLInputElement).focus();
         zEvent.preventDefault();
       }
     }

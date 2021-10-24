@@ -7,7 +7,7 @@ const getDefaultExport = require("./get-default-export.js");
 const getStorynameAndParameters = require("./get-storyname-and-parameters.js");
 const getNamedExports = require("./get-named-exports.js");
 
-const debug = require("debug")("ladle:snowpack");
+const debug = require("debug")("ladle:vite");
 
 /**
  * @param {string[]} entries
@@ -40,10 +40,10 @@ const getSingleEntry = async (entry) => {
   };
   const code = await fs.promises.readFile(
     path.join(process.cwd(), entry),
-    "utf8"
+    "utf8",
   );
   const ast = getAst(code, entry);
-  traverse(ast, {
+  traverse(/** @type {any} */ (ast), {
     Program: getStorynameAndParameters.bind(this, result),
     ExportDefaultDeclaration: getDefaultExport.bind(this, result),
     ExportNamedDeclaration: getNamedExports.bind(this, result),
