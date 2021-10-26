@@ -55,7 +55,13 @@ const getComponents = (configFolder) => {
   if (componentsExists || componentsExistsJs) {
     if (checkIfNamedExportExists("Provider", sourceCode, filename)) {
       debug(`Custom provider found.`);
-      return `import {Provider as CustomProvider} from '${relativePath}';\nexport const Provider = CustomProvider;\n`;
+      return `import {Provider as CustomProvider} from '${path.relative(
+        path.join(__dirname, "../../../app/src"),
+        path.join(
+          configFolder,
+          componentsExists ? "components.tsx" : "components.js",
+        ),
+      )}';\nexport const Provider = CustomProvider;\n`;
     }
     debug("components.tsx exists");
     debug(`Returning default no-op Provider.`);

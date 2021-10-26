@@ -7,10 +7,12 @@ const path = require("path");
 const getConfigImport = (configFolder) => {
   const configPath = path.join(configFolder, "config.mjs");
   const configExists = fs.existsSync(configPath);
-  const relativePath = "./config.js";
   let configCode = `export let config = {};\n`;
   if (configExists) {
-    configCode += `import customConfig from '${relativePath}';\nconfig = customConfig;\n`;
+    configCode += `import customConfig from '${path.relative(
+      path.join(__dirname, "../../../app/src"),
+      path.join(configFolder, "config.mjs"),
+    )}';\nconfig = customConfig;\n`;
   }
   return `${configCode}`;
 };
