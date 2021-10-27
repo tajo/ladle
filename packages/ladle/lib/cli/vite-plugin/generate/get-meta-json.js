@@ -29,7 +29,16 @@ const getMetaJson = (entryData) => {
       parameters: storyParams[storyId] ? storyParams[storyId].parameters : {},
     };
   });
-  return JSON.stringify(result, null, "  ");
+  return result;
 };
 
-export default getMetaJson;
+/**
+ * @param entryData {import('../../../shared/types').EntryData}
+ */
+export const getMetaJsonString = (entryData) =>
+  JSON.stringify(getMetaJson(entryData), null, "  ");
+
+/**
+ * @param entryData {import('../../../shared/types').EntryData}
+ */
+export const getMetaJsonObject = (entryData) => getMetaJson(entryData);
