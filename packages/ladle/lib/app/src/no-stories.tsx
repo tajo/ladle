@@ -1,3 +1,4 @@
+import * as React from "react";
 import config from "./get-config";
 import { Code, Link } from "./ui";
 

@@ -1,3 +1,4 @@
+import * as React from "react";
 import queryString from "../../deps/query-string";
 import { Preview } from "../icons";
 import { ModeState, AddonProps, ActionType } from "../../../shared/types";
