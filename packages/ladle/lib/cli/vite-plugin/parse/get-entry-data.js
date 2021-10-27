@@ -44,7 +44,7 @@ export const getSingleEntry = async (entry) => {
     "utf8",
   );
   const ast = getAst(code, entry);
-  traverse.default(/** @type {any} */ (ast), {
+  /** @type {any} */ (traverse).default(ast, {
     Program: getStorynameAndParameters.bind(this, result),
     ExportDefaultDeclaration: getDefaultExport.bind(this, result),
     ExportNamedDeclaration: getNamedExports.bind(this, result),

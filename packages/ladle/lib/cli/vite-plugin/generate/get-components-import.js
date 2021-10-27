@@ -16,7 +16,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const checkIfNamedExportExists = (namedExport, sourceCode, filename) => {
   let exists = false;
   const ast = getAst(sourceCode, filename);
-  traverse.default(/** @type {any} */ (ast), {
+  /** @type {any} */ (traverse).default(ast, {
     /**
      * @param {any} astPath
      */

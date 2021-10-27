@@ -11,7 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
  */
 const getStoryImports = (entryData) => {
   let storyImports = `import { lazy, createElement, Fragment } from "react";\n`;
-  const lazyImport = template.default(`
+  const lazyImport = /** @type {any} */ (template).default(`
     const %%component%% = lazy(() =>
      import(%%source%%).then((module) => {
         return { default: module.%%story%% };
@@ -31,7 +31,7 @@ const getStoryImports = (entryData) => {
         component: t.identifier(componentName),
         story: t.identifier(namedExport),
       });
-      storyImports += `\n${generate.default(/** @type {any} */ (ast)).code}`;
+      storyImports += `\n${/** @type {any} */ (generate).default(ast).code}`;
     });
   });
 

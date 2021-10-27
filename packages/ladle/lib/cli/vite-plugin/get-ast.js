@@ -49,7 +49,7 @@ const getAst = (code, filename) => {
           : "flow",
       ],
     });
-  } catch (e) {
+  } catch (/** @type {any} */ e) {
     console.log(" ");
     console.log(" ");
     console.log(`${e.toString()} in ${filename}`);

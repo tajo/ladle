@@ -19,45 +19,41 @@ const getStoryList = (entryData) => {
     storyParams = { ...storyParams, ...entryData[entry].storyParams };
   });
 
-  const output = generate.default(
-    /** @type {any} */ (
-      t.exportNamedDeclaration(
-        t.variableDeclaration("let", [
-          t.variableDeclarator(
-            t.identifier("stories"),
-            t.objectExpression(
-              storyIds.map((story) => {
-                let paramsAst = null;
-                if (storyParams[story]) {
-                  paramsAst = t.objectProperty(
-                    t.identifier("parameters"),
-                    /** @type {any} */ (
-                      template.default.ast(
-                        `const foo = ${JSON.stringify(storyParams[story])}`,
-                      )
-                    ).declarations[0].init,
-                  );
-                }
-                return t.objectProperty(
-                  t.stringLiteral(story),
-                  t.objectExpression([
-                    t.objectProperty(
-                      t.identifier("component"),
-                      t.identifier(
-                        story.replace(
-                          new RegExp(storyDelimiter, "g"),
-                          storyEncodeDelimiter,
-                        ),
+  const output = /** @type {any} */ (generate).default(
+    t.exportNamedDeclaration(
+      t.variableDeclaration("let", [
+        t.variableDeclarator(
+          t.identifier("stories"),
+          t.objectExpression(
+            storyIds.map((story) => {
+              let paramsAst = null;
+              if (storyParams[story]) {
+                paramsAst = t.objectProperty(
+                  t.identifier("parameters"),
+                  /** @type {any} */ (template).default.ast(
+                    `const foo = ${JSON.stringify(storyParams[story])}`,
+                  ).declarations[0].init,
+                );
+              }
+              return t.objectProperty(
+                t.stringLiteral(story),
+                t.objectExpression([
+                  t.objectProperty(
+                    t.identifier("component"),
+                    t.identifier(
+                      story.replace(
+                        new RegExp(storyDelimiter, "g"),
+                        storyEncodeDelimiter,
                       ),
                     ),
-                    ...(paramsAst ? [paramsAst] : []),
-                  ]),
-                );
-              }),
-            ),
+                  ),
+                  ...(paramsAst ? [paramsAst] : []),
+                ]),
+              );
+            }),
           ),
-        ]),
-      )
+        ),
+      ]),
     ),
   ).code;
   return output;
