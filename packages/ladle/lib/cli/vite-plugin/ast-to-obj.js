@@ -2,7 +2,7 @@
 // nd-02110114/babel-plugin-object-to-json-parse
 // https://github.com/nd-02110114/babel-plugin-object-to-json-parse/blob/master/src/utils.ts
 
-const babelTypes = require("@babel/types");
+import babelTypes from "@babel/types";
 const {
   isArrayExpression,
   isBooleanLiteral,
@@ -77,7 +77,7 @@ const createSafeStringForJsonParse = (value) => {
  * @param {object | null | undefined} node
  * @returns {unknown}
  */
-function converter(node) {
+export function converter(node) {
   // for negative number, ex) -10
   if (isUnaryExpression(node)) {
     const { operator, argument } = node;
@@ -134,7 +134,3 @@ function converter(node) {
   //@ts-ignore
   return node.value;
 }
-
-module.exports = {
-  converter,
-};

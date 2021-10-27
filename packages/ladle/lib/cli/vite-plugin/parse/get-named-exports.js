@@ -1,11 +1,11 @@
-const merge = require("lodash.merge");
-const clonedeep = require("lodash.clonedeep");
-const {
+import merge from "lodash.merge";
+import clonedeep from "lodash.clonedeep";
+import {
   getEncodedStoryName,
   storyDelimiter,
   titleToFileId,
   kebabCase,
-} = require("../naming-utils.js");
+} from "../naming-utils.js";
 
 /**
  * @param {import('../../../shared/types').ParsedStoriesResult} result
@@ -21,7 +21,7 @@ const getNamedExports = (
     stories,
     entry,
   },
-  astPath
+  astPath,
 ) => {
   /**
    * @type {string}
@@ -36,7 +36,7 @@ const getNamedExports = (
     namedExport = namedExportDeclaration.id.name;
   } else {
     throw new Error(
-      `Named export in ${entry} must be variable, class or function.`
+      `Named export in ${entry} must be variable, class or function.`,
     );
   }
 
@@ -48,7 +48,7 @@ const getNamedExports = (
     ? namedExportToStoryName[namedExport]
     : namedExport;
   const storyId = `${kebabCase(
-    storyNamespace
+    storyNamespace,
   )}${storyDelimiter}${storyDelimiter}${kebabCase(storyName)}`;
   // attach default parameters to each story
   if (exportDefaultProps && exportDefaultProps.parameters) {
@@ -62,7 +62,7 @@ const getNamedExports = (
   }
   const componentName = getEncodedStoryName(
     kebabCase(storyNamespace),
-    kebabCase(storyName)
+    kebabCase(storyName),
   );
   stories.push({
     storyId,
@@ -71,4 +71,4 @@ const getNamedExports = (
   });
 };
 
-module.exports = getNamedExports;
+export default getNamedExports;

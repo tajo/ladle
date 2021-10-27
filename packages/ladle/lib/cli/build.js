@@ -1,9 +1,13 @@
 #!/usr/bin/env node
 
 import path from "path";
+import { promises as fs } from "fs";
+import globby from "globby";
 import viteProd from "./vite-prod.js";
 import loadConfig from "./load-config.js";
 import debug from "./debug.js";
+import { getMetaJsonString } from "./vite-plugin/generate/get-meta-json.js";
+import { getEntryData } from "./vite-plugin/parse/get-entry-data.js";
 
 /**
  * @param params {import("../shared/types").BuildParams}
@@ -42,7 +46,16 @@ const build = async (params = {}) => {
 
   debug(`Final config:\n${JSON.stringify(config, null, "  ")}`);
   process.env["VITE_PUBLIC_LADLE_THEME"] = config.addons.theme.defaultState;
-  return viteProd(config);
+  await viteProd(config, configFolder);
+  console.log("Creating meta.json file...");
+  const entryData = await getEntryData(await globby([config.stories]));
+  const jsonContent = getMetaJsonString(entryData);
+  await fs.writeFile(
+    path.join(process.cwd(), config.build.out, "meta.json"),
+    jsonContent,
+  );
+  console.log("meta.json file created.");
+  return true;
 };
 
 export default build;

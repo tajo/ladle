@@ -1,4 +1,4 @@
-const { storyIdToMeta } = require("../naming-utils");
+import { storyIdToMeta } from "../naming-utils.js";
 
 /**
  * @param entryData {import('../../../shared/types').EntryData}
@@ -20,7 +20,8 @@ const getMetaJson = (entryData) => {
       homepage: "https://www.ladle.dev",
       github: "https://github.com/tajo/ladle",
     },
-    stories: /** @type {{[key: string]: {name: string; levels: string[]; parameters: any}}} */ ({}),
+    stories:
+      /** @type {{[key: string]: {name: string; levels: string[]; parameters: any}}} */ ({}),
   };
   storyIds.forEach((storyId) => {
     result.stories[storyId] = {
@@ -28,7 +29,16 @@ const getMetaJson = (entryData) => {
       parameters: storyParams[storyId] ? storyParams[storyId].parameters : {},
     };
   });
-  return JSON.stringify(result, null, "  ");
+  return result;
 };
 
-module.exports = getMetaJson;
+/**
+ * @param entryData {import('../../../shared/types').EntryData}
+ */
+export const getMetaJsonString = (entryData) =>
+  JSON.stringify(getMetaJson(entryData), null, "  ");
+
+/**
+ * @param entryData {import('../../../shared/types').EntryData}
+ */
+export const getMetaJsonObject = (entryData) => getMetaJson(entryData);

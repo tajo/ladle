@@ -1,14 +1,15 @@
-const storyDelimiter = "-";
-const storyEncodeDelimiter = "$";
+export const storyDelimiter = "-";
+export const storyEncodeDelimiter = "$";
 
 // BUT preserving delimiters --
-const wordSeparators = /[\s\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,.\/:;<=>?@\[\]^_`{|}~]+/;
+const wordSeparators =
+  /[\s\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,.\/:;<=>?@\[\]^_`{|}~]+/;
 const capitals = /[A-Z\u00C0-\u00D6\u00D9-\u00DD]/g;
 
 /**
  * @param {string} str
  */
-const capitalize = (str) => {
+export const capitalize = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
@@ -16,7 +17,7 @@ const capitalize = (str) => {
  * @param {string} str
  * @returns {{name: string; levels: string[]}}
  */
-const storyIdToMeta = (str) => {
+export const storyIdToMeta = (str) => {
   const parts = str
     .split(`${storyDelimiter}${storyDelimiter}`)
     .map((level) => capitalize(level.replace(/-/g, " ")));
@@ -29,7 +30,7 @@ const storyIdToMeta = (str) => {
 /**
  * @param {string} str
  */
-const kebabCase = (str) => {
+export const kebabCase = (str) => {
   //replace capitals with space + lower case equivalent for later parsing
   str = str.replace(capitals, function (match) {
     return " " + (match.toLowerCase() || match);
@@ -40,7 +41,7 @@ const kebabCase = (str) => {
 /**
  * @param {string} title
  */
-const titleToFileId = (title) =>
+export const titleToFileId = (title) =>
   title
     .toLocaleLowerCase()
     .replace(/\s*\/\s*/g, `${storyDelimiter}${storyDelimiter}`)
@@ -49,7 +50,7 @@ const titleToFileId = (title) =>
 /**
  * @param {string} filename
  */
-const getFileId = (filename) => {
+export const getFileId = (filename) => {
   const pathParts = filename.split("/");
   return pathParts[pathParts.length - 1].split(".")[0];
 };
@@ -58,18 +59,8 @@ const getFileId = (filename) => {
  * @param {string} fileId
  * @param {string} namedExport
  */
-const getEncodedStoryName = (fileId, namedExport) => {
+export const getEncodedStoryName = (fileId, namedExport) => {
   return `${fileId}${storyEncodeDelimiter}${storyEncodeDelimiter}${namedExport}`
     .toLocaleLowerCase()
     .replace(new RegExp(storyDelimiter, "g"), storyEncodeDelimiter);
-};
-
-module.exports = {
-  storyDelimiter,
-  storyEncodeDelimiter,
-  titleToFileId,
-  getFileId,
-  getEncodedStoryName,
-  kebabCase,
-  storyIdToMeta,
 };

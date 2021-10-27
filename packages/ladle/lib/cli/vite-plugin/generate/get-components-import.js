@@ -1,8 +1,12 @@
-const traverse = require("@babel/traverse").default;
-const fs = require("fs");
-const path = require("path");
-const debug = require("debug")("ladle:vite");
-const getAst = require("../get-ast.js");
+import traverse from "@babel/traverse";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import debugFactory from "debug";
+import getAst from "../get-ast.js";
+
+const debug = debugFactory("ladle:vite");
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
  * @param {string} namedExport
@@ -12,7 +16,7 @@ const getAst = require("../get-ast.js");
 const checkIfNamedExportExists = (namedExport, sourceCode, filename) => {
   let exists = false;
   const ast = getAst(sourceCode, filename);
-  traverse(/** @type {any} */ (ast), {
+  /** @type {any} */ (traverse).default(ast, {
     /**
      * @param {any} astPath
      */
@@ -55,7 +59,13 @@ const getComponents = (configFolder) => {
   if (componentsExists || componentsExistsJs) {
     if (checkIfNamedExportExists("Provider", sourceCode, filename)) {
       debug(`Custom provider found.`);
-      return `import {Provider as CustomProvider} from '${relativePath}';\nexport const Provider = CustomProvider;\n`;
+      return `import {Provider as CustomProvider} from '${path.relative(
+        path.join(__dirname, "../../../app/src"),
+        path.join(
+          configFolder,
+          componentsExists ? "components.tsx" : "components.js",
+        ),
+      )}';\nexport const Provider = CustomProvider;\n`;
     }
     debug("components.tsx exists");
     debug(`Returning default no-op Provider.`);
@@ -65,4 +75,4 @@ const getComponents = (configFolder) => {
   return noopProvider;
 };
 
-module.exports = getComponents;
+export default getComponents;

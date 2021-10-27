@@ -11,4 +11,4 @@ const getHmr = () => `if (import.meta.hot) {
   });
 }`;
 
-module.exports = getHmr;
+export default getHmr;

@@ -1,8 +1,8 @@
-const getStoryImports = require("./get-story-imports");
-const getStoryList = require("./get-story-list");
-const getConfigImport = require("./get-config-import");
-const getComponentsImport = require("./get-components-import");
-const getHmr = require("./get-hmr");
+import getStoryImports from "./get-story-imports.js";
+import getStoryList from "./get-story-list.js";
+import getConfigImport from "./get-config-import.js";
+import getComponentsImport from "./get-components-import.js";
+import getHmr from "./get-hmr.js";
 
 /**
  * @param entryData {import('../../../shared/types').EntryData}
@@ -18,4 +18,4 @@ ${getHmr()}
 `;
 };
 
-module.exports = getGeneratedList;
+export default getGeneratedList;

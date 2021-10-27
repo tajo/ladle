@@ -1,5 +1,8 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
  * @param {string} configFolder
@@ -7,12 +10,14 @@ const path = require("path");
 const getConfigImport = (configFolder) => {
   const configPath = path.join(configFolder, "config.mjs");
   const configExists = fs.existsSync(configPath);
-  const relativePath = "./config.js";
   let configCode = `export let config = {};\n`;
   if (configExists) {
-    configCode += `import customConfig from '${relativePath}';\nconfig = customConfig;\n`;
+    configCode += `import customConfig from '${path.relative(
+      path.join(__dirname, "../../../app/src"),
+      path.join(configFolder, "config.mjs"),
+    )}';\nconfig = customConfig;\n`;
   }
   return `${configCode}`;
 };
 
-module.exports = getConfigImport;
+export default getConfigImport;

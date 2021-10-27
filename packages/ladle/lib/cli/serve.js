@@ -44,7 +44,7 @@ const serve = async (params = {}) => {
 
   debug(`Final config:\n${JSON.stringify(config, null, "  ")}`);
   process.env["VITE_PUBLIC_LADLE_THEME"] = config.addons.theme.defaultState;
-  await viteDev(config);
+  await viteDev(config, configFolder);
 };
 
 export default serve;

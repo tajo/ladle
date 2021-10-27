@@ -1,7 +1,7 @@
-const t = require("@babel/types");
-const { storyDelimiter, storyEncodeDelimiter } = require("../naming-utils.js");
-const generate = require("@babel/generator").default;
-const template = require("@babel/template").default;
+import t from "@babel/types";
+import { storyDelimiter, storyEncodeDelimiter } from "../naming-utils.js";
+import generate from "@babel/generator";
+import template from "@babel/template";
 
 /**
  * @param entryData {import('../../../shared/types').EntryData}
@@ -19,8 +19,8 @@ const getStoryList = (entryData) => {
     storyParams = { ...storyParams, ...entryData[entry].storyParams };
   });
 
-  const output = generate(
-    /** @type {any} */ (t.exportNamedDeclaration(
+  const output = /** @type {any} */ (generate).default(
+    t.exportNamedDeclaration(
       t.variableDeclaration("let", [
         t.variableDeclarator(
           t.identifier("stories"),
@@ -30,9 +30,9 @@ const getStoryList = (entryData) => {
               if (storyParams[story]) {
                 paramsAst = t.objectProperty(
                   t.identifier("parameters"),
-                  /** @type {any} */ (template.ast(
+                  /** @type {any} */ (template).default.ast(
                     `const foo = ${JSON.stringify(storyParams[story])}`,
-                  )).declarations[0].init,
+                  ).declarations[0].init,
                 );
               }
               return t.objectProperty(
@@ -54,9 +54,9 @@ const getStoryList = (entryData) => {
           ),
         ),
       ]),
-    )),
+    ),
   ).code;
   return output;
 };
 
-module.exports = getStoryList;
+export default getStoryList;

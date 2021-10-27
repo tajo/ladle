@@ -21,9 +21,10 @@
     "clean": "rimraf dist && rimraf .ladle && rimraf build && rimraf *.tsbuildinfo",
     "build": "./build-cjs.sh",
     "serve": "node ./lib/cli/cli.js serve",
-    "test": "jest"
+    "test": "echo true"
   },
   "dependencies": {
+    "@babel/code-frame": "^7.15.8",
     "@babel/core": "^7.15.8",
     "@babel/generator": "^7.15.8",
     "@babel/parser": "^7.15.8",
@@ -38,11 +39,13 @@
     "@vitejs/plugin-react": "^1.0.5",
     "commander": "^8.3.0",
     "debug": "^4.3.2",
+    "express": "^4.17.1",
     "get-port": "^6.0.0",
     "globby": "^11.0.4",
     "lodash.clonedeep": "^4.5.0",
     "lodash.merge": "^4.6.2",
     "micromatch": "^4.0.4",
+    "open": "^8.4.0",
     "vite": "^2.6.10"
   },
   "peerDependencies": {
@@ -53,10 +56,12 @@
     "@babel/cli": "^7.15.7",
     "@babel/core": "^7.13.10",
     "@babel/plugin-transform-modules-commonjs": "^7.15.4",
+    "@types/babel__code-frame": "^7.0.3",
     "@types/babel__generator": "^7.6.3",
     "@types/babel__template": "^7.4.1",
     "@types/babel__traverse": "^7.14.2",
     "@types/debug": "^4.1.7",
+    "@types/express": "^4.17.13",
     "@types/jest": "^27.0.2",
     "@types/lodash.clonedeep": "^4.5.6",
     "@types/lodash.merge": "^4.6.6",
