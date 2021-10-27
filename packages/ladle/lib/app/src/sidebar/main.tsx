@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import TreeView from "./tree-view";
 import type { UpdateStory } from "../../../shared/types";
 

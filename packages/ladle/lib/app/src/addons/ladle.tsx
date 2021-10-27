@@ -1,9 +1,9 @@
-import { useState } from "react";
+import * as React from "react";
 import { Ladle } from "../icons";
 import { Modal, Code } from "../ui";
 
 export const Button: React.FC<{}> = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = React.useState(false);
   const text = "Get more information about Ladle.";
   return (
     <li>
