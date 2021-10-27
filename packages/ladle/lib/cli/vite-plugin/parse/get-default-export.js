@@ -1,4 +1,4 @@
-const { converter } = require("../ast-to-obj.js");
+import { converter } from "../ast-to-obj.js";
 
 /**
  * @param {import('../../../shared/types').ParsedStoriesResult} result
@@ -17,9 +17,9 @@ const getDefaultExport = (result, astPath) => {
     result.exportDefaultProps = JSON.parse(json);
   } catch (e) {
     throw new Error(
-      `Can't parse the default export of ${result.entry}. It must be serializable.`
+      `Can't parse the default export of ${result.entry}. It must be serializable.`,
     );
   }
 };
 
-module.exports = getDefaultExport;
+export default getDefaultExport;

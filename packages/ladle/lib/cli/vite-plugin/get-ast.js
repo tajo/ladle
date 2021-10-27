@@ -1,4 +1,4 @@
-const parser = require("@babel/parser");
+import parser from "@babel/parser";
 
 /**
  * @type {parser.ParserPlugin[]}
@@ -48,4 +48,4 @@ const getAst = (code, filename) =>
     ],
   });
 
-module.exports = getAst;
+export default getAst;

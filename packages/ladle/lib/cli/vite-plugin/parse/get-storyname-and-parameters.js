@@ -1,4 +1,4 @@
-const { converter } = require("../ast-to-obj.js");
+import { converter } from "../ast-to-obj.js";
 
 /**
  * @param {import('../../../shared/types').ParsedStoriesResult} result
@@ -15,7 +15,7 @@ const getStorynameAndParameters = (result, astPath) => {
         const storyExport = child.expression.left.object.name;
         if (child.expression.right.type !== "StringLiteral") {
           throw new Error(
-            `${storyExport}.storyName in ${result.entry} must be a string literal.`
+            `${storyExport}.storyName in ${result.entry} must be a string literal.`,
           );
         } else {
           result.namedExportToStoryName[storyExport] =
@@ -25,7 +25,7 @@ const getStorynameAndParameters = (result, astPath) => {
         const storyExport = child.expression.left.object.name;
         if (child.expression.right.type !== "ObjectExpression") {
           throw new Error(
-            `${storyExport}.parameters in ${result.entry} must be an object expression.`
+            `${storyExport}.parameters in ${result.entry} must be an object expression.`,
           );
         } else {
           try {
@@ -34,7 +34,7 @@ const getStorynameAndParameters = (result, astPath) => {
             result.namedExportToParameters[storyExport] = JSON.parse(json);
           } catch (e) {
             throw new Error(
-              `${storyExport}.parameters in ${result.entry} must be serializable.`
+              `${storyExport}.parameters in ${result.entry} must be serializable.`,
             );
           }
         }
@@ -43,4 +43,4 @@ const getStorynameAndParameters = (result, astPath) => {
   });
 };
 
-module.exports = getStorynameAndParameters;
+export default getStorynameAndParameters;

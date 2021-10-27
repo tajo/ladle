@@ -1,18 +1,19 @@
-const fs = require("fs");
-const path = require("path");
-const traverse = require("@babel/traverse").default;
-const { getFileId } = require("../naming-utils.js");
-const getAst = require("../get-ast.js");
-const getDefaultExport = require("./get-default-export.js");
-const getStorynameAndParameters = require("./get-storyname-and-parameters.js");
-const getNamedExports = require("./get-named-exports.js");
+import fs from "fs";
+import path from "path";
+import traverse from "@babel/traverse";
+import debugFactory from "debug";
+import { getFileId } from "../naming-utils.js";
+import getAst from "../get-ast.js";
+import getDefaultExport from "./get-default-export.js";
+import getStorynameAndParameters from "./get-storyname-and-parameters.js";
+import getNamedExports from "./get-named-exports.js";
 
-const debug = require("debug")("ladle:vite");
+const debug = debugFactory("ladle:vite");
 
 /**
  * @param {string[]} entries
  */
-const getEntryData = async (entries) => {
+export const getEntryData = async (entries) => {
   /**
    * @type {import('../../../shared/types').EntryData}
    */
@@ -27,7 +28,7 @@ const getEntryData = async (entries) => {
 /**
  * @param {string} entry
  */
-const getSingleEntry = async (entry) => {
+export const getSingleEntry = async (entry) => {
   /** @type {import('../../../shared/types').ParsedStoriesResult} */
   const result = {
     entry,
@@ -43,7 +44,7 @@ const getSingleEntry = async (entry) => {
     "utf8",
   );
   const ast = getAst(code, entry);
-  traverse(/** @type {any} */ (ast), {
+  traverse.default(/** @type {any} */ (ast), {
     Program: getStorynameAndParameters.bind(this, result),
     ExportDefaultDeclaration: getDefaultExport.bind(this, result),
     ExportNamedDeclaration: getNamedExports.bind(this, result),
@@ -51,9 +52,4 @@ const getSingleEntry = async (entry) => {
   debug(`Parsed data for ${entry}:`);
   debug(result);
   return result;
-};
-
-module.exports = {
-  getEntryData,
-  getSingleEntry,
 };

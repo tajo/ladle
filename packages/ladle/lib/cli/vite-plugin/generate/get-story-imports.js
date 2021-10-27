@@ -1,14 +1,17 @@
-const template = require("@babel/template").default;
-const generate = require("@babel/generator").default;
-const t = require("@babel/types");
-const path = require("path");
+import template from "@babel/template";
+import generate from "@babel/generator";
+import t from "@babel/types";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
  * @param entryData {import('../../../shared/types').EntryData}
  */
 const getStoryImports = (entryData) => {
   let storyImports = `import { lazy, createElement, Fragment } from "react";\n`;
-  const lazyImport = template(`
+  const lazyImport = template.default(`
     const %%component%% = lazy(() =>
      import(%%source%%).then((module) => {
         return { default: module.%%story%% };
@@ -28,11 +31,11 @@ const getStoryImports = (entryData) => {
         component: t.identifier(componentName),
         story: t.identifier(namedExport),
       });
-      storyImports += `\n${generate(/** @type {any} */ (ast)).code}`;
+      storyImports += `\n${generate.default(/** @type {any} */ (ast)).code}`;
     });
   });
 
   return storyImports;
 };
 
-module.exports = getStoryImports;
+export default getStoryImports;

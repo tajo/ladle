@@ -1,8 +1,12 @@
-const traverse = require("@babel/traverse").default;
-const fs = require("fs");
-const path = require("path");
-const debug = require("debug")("ladle:vite");
-const getAst = require("../get-ast.js");
+import traverse from "@babel/traverse";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import debugFactory from "debug";
+import getAst from "../get-ast.js";
+
+const debug = debugFactory("ladle:vite");
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
  * @param {string} namedExport
@@ -12,7 +16,7 @@ const getAst = require("../get-ast.js");
 const checkIfNamedExportExists = (namedExport, sourceCode, filename) => {
   let exists = false;
   const ast = getAst(sourceCode, filename);
-  traverse(/** @type {any} */ (ast), {
+  traverse.default(/** @type {any} */ (ast), {
     /**
      * @param {any} astPath
      */
@@ -71,4 +75,4 @@ const getComponents = (configFolder) => {
   return noopProvider;
 };
 
-module.exports = getComponents;
+export default getComponents;

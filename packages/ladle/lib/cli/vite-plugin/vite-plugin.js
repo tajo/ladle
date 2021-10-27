@@ -1,7 +1,9 @@
-const globby = require("globby");
-const debug = require("debug")("ladle:vite");
-const getGeneratedList = require("./generate/get-generated-list.js");
-const { getEntryData } = require("./parse/get-entry-data.js");
+import globby from "globby";
+import debugFactory from "debug";
+import getGeneratedList from "./generate/get-generated-list.js";
+import { getEntryData } from "./parse/get-entry-data.js";
+
+const debug = debugFactory("ladle:vite");
 
 const defaultListModule = `
 import { lazy } from "react";
@@ -55,4 +57,4 @@ function ladlePlugin(config, configFolder) {
   };
 }
 
-module.exports = ladlePlugin;
+export default ladlePlugin;
