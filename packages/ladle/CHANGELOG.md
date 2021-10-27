@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/tajo/ladle/compare/@ladle/react@0.2.1...@ladle/react@0.2.2) (2021-10-27)
+
+
+### Bug Fixes
+
+* various fixes to make baseweb working ([#24](https://github.com/tajo/ladle/issues/24)) ([94519c3](https://github.com/tajo/ladle/commit/94519c3c767cd5d20948117a04bd2b41ffcb4719))
+
+
+
+
+
 ## [0.2.1](https://github.com/tajo/ladle/compare/@ladle/react@0.2.0...@ladle/react@0.2.1) (2021-10-24)
 
 **Note:** Version bump only for package @ladle/react
