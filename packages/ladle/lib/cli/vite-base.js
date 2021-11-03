@@ -18,6 +18,10 @@ const getBaseViteConfig = (ladleConfig, configFolder, viteConfig) => {
     configFile: false,
     root: join(__dirname, "../app/"),
     base: ladleConfig.build.baseUrl,
+    cacheDir: join(process.cwd(), "node_modules/.vite"),
+    optimizeDeps: {
+      include: ["react", "react-dom"],
+    },
     plugins: [
       ladlePlugin(ladleConfig, configFolder),
       react({
