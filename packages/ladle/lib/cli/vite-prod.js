@@ -13,6 +13,9 @@ const viteProd = async (config, configFolder) => {
      */
     const viteConfig = getBaseViteConfig(config, configFolder, {
       mode: "production",
+      define: {
+        __DEV__: false,
+      },
       build: {
         outDir: path.join(process.cwd(), config.build.out),
         sourcemap: config.build.sourcemap,
