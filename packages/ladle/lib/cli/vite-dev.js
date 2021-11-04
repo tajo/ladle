@@ -24,6 +24,9 @@ const bundler = async (config, configFolder) => {
      */
     const viteConfig = getBaseViteConfig(config, configFolder, {
       mode: "development",
+      define: {
+        __DEV__: true,
+      },
       server: {
         port: config.serve.port,
         open: config.serve.open,
