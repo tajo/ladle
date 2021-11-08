@@ -2,7 +2,7 @@
 // nd-02110114/babel-plugin-object-to-json-parse
 // https://github.com/nd-02110114/babel-plugin-object-to-json-parse/blob/master/src/utils.ts
 
-import babelTypes from "@babel/types";
+import * as babelTypes from "@babel/types";
 const {
   isArrayExpression,
   isBooleanLiteral,
