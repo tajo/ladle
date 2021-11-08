@@ -1,4 +1,4 @@
-import parser from "@babel/parser";
+import * as parser from "@babel/parser";
 import { codeFrameColumns } from "@babel/code-frame";
 
 /**

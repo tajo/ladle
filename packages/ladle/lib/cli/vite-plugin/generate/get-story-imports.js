@@ -1,6 +1,6 @@
 import template from "@babel/template";
 import generate from "@babel/generator";
-import t from "@babel/types";
+import * as t from "@babel/types";
 import path from "path";
 import { fileURLToPath } from "url";
 
