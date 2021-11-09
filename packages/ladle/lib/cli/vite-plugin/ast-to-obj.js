@@ -2,17 +2,7 @@
 // nd-02110114/babel-plugin-object-to-json-parse
 // https://github.com/nd-02110114/babel-plugin-object-to-json-parse/blob/master/src/utils.ts
 
-import * as babelTypes from "@babel/types";
-const {
-  isArrayExpression,
-  isBooleanLiteral,
-  isObjectExpression,
-  isNullLiteral,
-  isNumericLiteral,
-  isUnaryExpression,
-  isStringLiteral,
-  isObjectProperty,
-} = babelTypes;
+import t from "@babel/types";
 
 /**
  * @param {object | null | undefined} node
@@ -20,12 +10,12 @@ const {
  */
 const isValidJsonValue = (node) => {
   if (
-    isNumericLiteral(node) ||
-    isStringLiteral(node) ||
-    isBooleanLiteral(node) ||
-    isNullLiteral(node) ||
-    isArrayExpression(node) ||
-    isObjectExpression(node)
+    t.isNumericLiteral(node) ||
+    t.isStringLiteral(node) ||
+    t.isBooleanLiteral(node) ||
+    t.isNullLiteral(node) ||
+    t.isArrayExpression(node) ||
+    t.isObjectExpression(node)
   ) {
     return true;
   }
@@ -39,7 +29,7 @@ const isValidJsonValue = (node) => {
  * @returns {boolean}
  */
 const isObjectExpressionWithOnlyObjectProperties = (node) => {
-  return node.properties.every((property) => isObjectProperty(property));
+  return node.properties.every((property) => t.isObjectProperty(property));
 };
 
 /**
@@ -79,9 +69,9 @@ const createSafeStringForJsonParse = (value) => {
  */
 export function converter(node) {
   // for negative number, ex) -10
-  if (isUnaryExpression(node)) {
+  if (t.isUnaryExpression(node)) {
     const { operator, argument } = node;
-    if (operator === "-" && isNumericLiteral(argument)) {
+    if (operator === "-" && t.isNumericLiteral(argument)) {
       return -argument.value;
     }
   }
@@ -90,22 +80,22 @@ export function converter(node) {
     throw new Error("Invalid value is included.");
   }
 
-  if (isStringLiteral(node)) {
+  if (t.isStringLiteral(node)) {
     const { value } = node;
     const safeValue = createSafeStringForJsonParse(value);
     return safeValue;
   }
 
-  if (isNullLiteral(node)) {
+  if (t.isNullLiteral(node)) {
     return null;
   }
 
-  if (isArrayExpression(node)) {
+  if (t.isArrayExpression(node)) {
     const { elements } = node;
     return elements.map((node) => converter(node));
   }
 
-  if (isObjectExpression(node)) {
+  if (t.isObjectExpression(node)) {
     if (!isObjectExpressionWithOnlyObjectProperties(node)) {
       throw new Error("Invalid syntax is included.");
     }

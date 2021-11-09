@@ -1,7 +1,10 @@
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import react from "@vitejs/plugin-react";
+import { createRequire } from "module";
 import ladlePlugin from "./vite-plugin/vite-plugin.js";
+
+const require = createRequire(import.meta.url);
 
 /**
  * @param ladleConfig {import("../shared/types").Config}
@@ -31,7 +34,10 @@ const getBaseViteConfig = (ladleConfig, configFolder, viteConfig) => {
       ladlePlugin(ladleConfig, configFolder),
       react({
         babel: {
-          presets: ["@babel/preset-flow", ...ladleConfig.babelPresets],
+          presets: [
+            require.resolve("@babel/preset-flow"),
+            ...ladleConfig.babelPresets,
+          ],
           plugins: ladleConfig.babelPlugins,
         },
       }),
