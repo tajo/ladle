@@ -42,9 +42,14 @@ filesWithDirname.forEach((file) => {
         `const _dirname = _path.default.dirname((0, _url.fileURLToPath)(import.meta.url));`,
         "const _dirname = __dirname",
       )
+      .replace(
+        `const _require = (0, _module.createRequire)(import.meta.url);`,
+        `const _require = require;`,
+      )
       .replace("_template.default.default", "_template.default")
       .replace("_generator.default.default", "_generator.default")
-      .replace("_traverse.default.default", "_traverse.default"),
+      .replace("_traverse.default.default", "_traverse.default")
+      .replace(/_types.default./gi, "_types."),
     (err) => {
       if (err) return console.log(err);
       console.log(`${file} updated`);
