@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.2](https://github.com/tajo/ladle/compare/@ladle/react@0.3.1...@ladle/react@0.3.2) (2021-11-09)
+
+
+### Bug Fixes
+
+* cjs package and requiring babel flow ([#29](https://github.com/tajo/ladle/issues/29)) ([8d9c905](https://github.com/tajo/ladle/commit/8d9c905a1c5217a28e5341ad491fb9a29f3a44ba))
+
+
+
+
+
 ## [0.3.1](https://github.com/tajo/ladle/compare/@ladle/react@0.3.0...@ladle/react@0.3.1) (2021-11-08)
 
 
