@@ -29,7 +29,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install -g yarn@1.22.15
       - run: yarn install
+      - run: npx playwright install-deps chromium
       - run: yarn lint
       - run: yarn typecheck
-      - run: yarn test
       - run: yarn build
+      - run: yarn test

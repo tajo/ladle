@@ -108,7 +108,6 @@ export type BuildParams = {
   babelPlugins?: any[];
   sourcemap?: boolean;
   baseUrl?: string;
-  optimize?: boolean;
   config?: string;
 };
 

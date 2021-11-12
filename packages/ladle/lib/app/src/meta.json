@@ -1,7 +1,8 @@
 {
   "about": {
     "homepage": "https://www.ladle.dev",
-    "github": "https://github.com/tajo/ladle"
+    "github": "https://github.com/tajo/ladle",
+    "version": 1
   },
   "stories": {}
 }

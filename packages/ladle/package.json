@@ -21,7 +21,7 @@
     "clean": "rimraf dist && rimraf .ladle && rimraf build && rimraf *.tsbuildinfo",
     "build": "./build-cjs.sh",
     "serve": "node ./lib/cli/cli.js serve",
-    "test": "echo true"
+    "test": "node --experimental-vm-modules ./node_modules/.bin/jest"
   },
   "dependencies": {
     "@babel/code-frame": "^7.15.8",
@@ -54,7 +54,6 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
-    "@babel/core": "^7.13.10",
     "@babel/plugin-transform-modules-commonjs": "^7.15.4",
     "@types/babel__code-frame": "^7.0.3",
     "@types/babel__generator": "^7.6.3",
@@ -69,10 +68,20 @@
     "@types/react": "^17.0.31",
     "@types/react-dom": "^17.0.10",
     "@types/ws": "^8.2.0",
+    "babel-jest": "^27.3.1",
     "jest": "^27.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rollup": "^2.58.0",
     "ts-jest": "^27.0.7"
+  },
+  "jest": {
+    "transform": {
+      "\\.tsx?$": "<rootDir>/jest.transform.cjs"
+    },
+    "extensionsToTreatAsEsm": [
+      ".ts",
+      ".tsx"
+    ]
   }
 }

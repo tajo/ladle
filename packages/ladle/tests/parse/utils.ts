@@ -1,6 +1,6 @@
 import traverse from "@babel/traverse";
+import cloneDeep from "lodash.clonedeep";
 import merge from "lodash.merge";
-import clonedeep from "lodash.clonedeep";
 import getAst from "../../lib/cli/vite-plugin/get-ast.js";
 import type { ParsedStoriesResult } from "../../lib/shared/types";
 
@@ -23,8 +23,8 @@ export const parseWithFn = (
     },
     input,
   );
-  const end: ParsedStoriesResult = clonedeep(start);
-  traverse(getAst(code, filename) as any, {
+  const end: ParsedStoriesResult = cloneDeep(start);
+  (traverse as any).default(getAst(code, filename) as any, {
     [visitor]: fn.bind(this, end),
   });
   return end;
