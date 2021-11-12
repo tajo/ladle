@@ -1,5 +1,5 @@
+import cloneDeep from "lodash.clonedeep";
 import merge from "lodash.merge";
-import clonedeep from "lodash.clonedeep";
 import {
   getEncodedStoryName,
   storyDelimiter,
@@ -56,7 +56,7 @@ const getNamedExports = (
   }
   // add and merge story specific parameters
   if (namedExportToParameters[namedExport]) {
-    storyParams[storyId] = merge(clonedeep(storyParams[storyId] || {}), {
+    storyParams[storyId] = merge(cloneDeep(storyParams[storyId] || {}), {
       parameters: namedExportToParameters[namedExport],
     });
   }

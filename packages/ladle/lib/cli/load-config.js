@@ -18,10 +18,9 @@ const loadConfig = async (configFolder) => {
     } else {
       debug(`Custom config found: ${JSON.stringify(config, null, "  ")}`);
     }
-    return /** @type {import("../shared/types").Config} */ (merge(
-      defaultConfig,
-      config,
-    ));
+    return /** @type {import("../shared/types").Config} */ (
+      merge(defaultConfig, config)
+    );
   } catch (e) {
     debug(`No custom config found.`);
     return /** @type {import("../shared/types").Config} */ (defaultConfig);

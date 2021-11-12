@@ -8,12 +8,13 @@
   "private": true,
   "scripts": {
     "lint": "eslint \"./packages/*/{lib,src}/**/*.{ts,tsx}\" --max-warnings=0",
-    "test": "lerna run test",
+    "test": "lerna run test --concurrency=1",
     "build": "lerna run build --stream",
     "typecheck": "tsc"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "tests/*"
   ],
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.1.0",

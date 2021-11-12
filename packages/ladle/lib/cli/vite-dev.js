@@ -34,6 +34,7 @@ const bundler = async (config, configFolder) => {
       },
     });
     const vite = await createServer(viteConfig);
+    app.head("*", async (_, res) => res.sendStatus(200));
     app.get("/meta.json", async (_, res) => {
       const entryData = await getEntryData(await globby([config.stories]));
       const jsonContent = getMetaJsonObject(entryData);

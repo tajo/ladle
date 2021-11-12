@@ -19,6 +19,7 @@ const getMetaJson = (entryData) => {
     about: {
       homepage: "https://www.ladle.dev",
       github: "https://github.com/tajo/ladle",
+      version: 1,
     },
     stories:
       /** @type {{[key: string]: {name: string; levels: string[]; parameters: any}}} */ ({}),

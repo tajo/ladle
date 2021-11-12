@@ -1,0 +1,23 @@
+{
+  "name": "test-provider",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "serve": "ladle serve --open none",
+    "serve-prod": "http-server build -c-1 -s -p 61000",
+    "build": "ladle build",
+    "lint": "echo 'no lint'",
+    "test-dev": "start-server-and-test serve 61000 'npx playwright test'",
+    "test-prod": "start-server-and-test serve-prod 61000 'npx playwright test'",
+    "test": "yarn test-dev && yarn test-prod"
+  },
+  "dependencies": {
+    "@ladle/react": "^0.3.3",
+    "@playwright/test": "^1.16.3",
+    "http-server": "^14.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "start-server-and-test": "^1.14.0"
+  }
+}
