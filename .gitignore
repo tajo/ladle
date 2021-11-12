@@ -2,7 +2,6 @@ node_modules
 dist
 .vscode
 build
-.ladle
 *.tsbuildinfo
 .DS_Store
 yarn-error.log
