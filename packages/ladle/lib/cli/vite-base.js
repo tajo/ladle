@@ -39,6 +39,7 @@ const getBaseViteConfig = (ladleConfig, configFolder, viteConfig) => {
             ...ladleConfig.babelPresets,
           ],
           plugins: ladleConfig.babelPlugins,
+          compact: true,
         },
       }),
       ...(viteConfig.plugins ? viteConfig.plugins : []),

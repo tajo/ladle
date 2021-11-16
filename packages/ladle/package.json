@@ -36,7 +36,7 @@
     "@babel/template": "^7.15.4",
     "@babel/traverse": "^7.15.4",
     "@babel/types": "^7.15.6",
-    "@vitejs/plugin-react": "1.0.7",
+    "@vitejs/plugin-react": "^1.0.9",
     "commander": "^8.3.0",
     "debug": "^4.3.2",
     "express": "^4.17.1",
