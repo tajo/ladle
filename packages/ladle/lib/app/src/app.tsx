@@ -11,6 +11,7 @@ import debug from "./debug";
 import { getQuery as getQueryTheme } from "./addons/theme";
 import { getQuery as getQueryMode } from "./addons/mode";
 import { getQuery as getQueryRtl } from "./addons/rtl";
+import { Context } from "./context";
 import {
   getQueryStory,
   storyIdToTitle,
@@ -90,7 +91,7 @@ const App: React.FC<{}> = () => {
     return <Story globalState={globalState} dispatch={dispatch} />;
   }
   return (
-    <>
+    <Context.Provider value={{ globalState, dispatch }}>
       <main className="ladle-main">
         {stories.length > 0 ? (
           <Story globalState={globalState} dispatch={dispatch} />
@@ -106,7 +107,7 @@ const App: React.FC<{}> = () => {
         }
       />
       <AddonPanel globalState={globalState} dispatch={dispatch} />
-    </>
+    </Context.Provider>
   );
 };
 

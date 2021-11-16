@@ -13,9 +13,8 @@
   "bin": {
     "ladle": "./lib/cli/cli.js"
   },
-  "main": "./lib/shared/main.js",
-  "module": "./lib/shared/main.js",
-  "types": "./lib/shared/types.ts",
+  "main": "./lib/app/exports.ts",
+  "module": "./lib/app/exports.ts",
   "scripts": {
     "cli": "node ./lib/cli/cli.js",
     "clean": "rimraf dist && rimraf .ladle && rimraf build && rimraf *.tsbuildinfo",
