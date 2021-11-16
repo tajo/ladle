@@ -16,6 +16,7 @@ export const Context = React.createContext<{
     story: "",
     rtl: false,
   },
+  /* eslint-disable-next-line @typescript-eslint/no-empty-function*/
   dispatch: () => {},
 });
 
