@@ -17,10 +17,11 @@ jobs:
           node-version: 14
       - run: npm install -g yarn@1.22.15
       - run: yarn install
+      - run: npx playwright install
       - run: yarn lint
       - run: yarn typecheck
-      - run: yarn test
       - run: yarn build
+      - run: yarn test
       - name: Publish packages
         run: ./scripts/publish.sh
         env:
