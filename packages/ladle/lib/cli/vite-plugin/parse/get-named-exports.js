@@ -68,6 +68,8 @@ const getNamedExports = (
     storyId,
     componentName,
     namedExport,
+    locStart: namedExportDeclaration.loc.start.line,
+    locEnd: namedExportDeclaration.loc.end.line,
   });
 };
 

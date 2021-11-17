@@ -8,9 +8,12 @@ const getMetaJson = (entryData) => {
   let storyIds = [];
   /** @type {{[key: string]: any}} */
   let storyParams = {};
+  /** @type {{[key: string]: any}} */
+  let storyMeta = {};
 
   Object.keys(entryData).forEach((entry) => {
-    entryData[entry].stories.forEach(({ storyId }) => {
+    entryData[entry].stories.forEach(({ storyId, locStart, locEnd }) => {
+      storyMeta[storyId] = { locStart, locEnd, filePath: entry };
       storyIds.push(storyId);
     });
     storyParams = { ...storyParams, ...entryData[entry].storyParams };
@@ -27,6 +30,7 @@ const getMetaJson = (entryData) => {
   storyIds.forEach((storyId) => {
     result.stories[storyId] = {
       ...storyIdToMeta(storyId),
+      ...storyMeta[storyId],
       parameters: storyParams[storyId] ? storyParams[storyId].parameters : {},
     };
   });
