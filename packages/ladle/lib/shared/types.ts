@@ -159,6 +159,8 @@ export type ParsedStoriesResult = {
     storyId: string;
     componentName: string;
     namedExport: string;
+    locStart: number;
+    locEnd: number;
   }[];
   exportDefaultProps: {
     title?: string;

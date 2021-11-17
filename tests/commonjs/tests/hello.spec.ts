@@ -15,7 +15,14 @@ test("generatres meta.json", async ({ request }) => {
         version: 1,
       },
       stories: {
-        "hello--world": { name: "World", levels: ["Hello"], parameters: {} },
+        "hello--world": {
+          name: "World",
+          levels: ["Hello"],
+          locEnd: 3,
+          locStart: 1,
+          filePath: "src/hello.stories.tsx",
+          parameters: {},
+        },
       },
     }),
   );

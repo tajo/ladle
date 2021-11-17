@@ -13,11 +13,15 @@ Object {
   "stories": Array [
     Object {
       "componentName": "capitalization$$blue$tiny$cat",
+      "locEnd": 5,
+      "locStart": 3,
       "namedExport": "BlueTinyCat",
       "storyId": "capitalization--blue-tiny-cat",
     },
     Object {
       "componentName": "capitalization$$big$barking$dog",
+      "locEnd": 9,
+      "locStart": 7,
       "namedExport": "BigBarkingDog",
       "storyId": "capitalization--big-barking-dog",
     },
@@ -39,6 +43,8 @@ Object {
   "stories": Array [
     Object {
       "componentName": "filename$capitalization$$test",
+      "locEnd": 5,
+      "locStart": 3,
       "namedExport": "Test",
       "storyId": "filename-capitalization--test",
     },
@@ -59,6 +65,8 @@ Object {
   "stories": Array [
     Object {
       "componentName": "title$$cat",
+      "locEnd": 9,
+      "locStart": 7,
       "namedExport": "Cat",
       "storyId": "title--cat",
     },
@@ -99,11 +107,15 @@ Object {
   "stories": Array [
     Object {
       "componentName": "title$$cat",
+      "locEnd": 15,
+      "locStart": 13,
       "namedExport": "Cat",
       "storyId": "title--cat",
     },
     Object {
       "componentName": "title$$dog",
+      "locEnd": 27,
+      "locStart": 25,
       "namedExport": "Dog",
       "storyId": "title--dog",
     },
@@ -156,6 +168,8 @@ Object {
   "stories": Array [
     Object {
       "componentName": "title$$cat",
+      "locEnd": 14,
+      "locStart": 12,
       "namedExport": "Cat",
       "storyId": "title--cat",
     },
@@ -186,11 +200,15 @@ Object {
   "stories": Array [
     Object {
       "componentName": "animals$$cat",
+      "locEnd": 5,
+      "locStart": 3,
       "namedExport": "Cat",
       "storyId": "animals--cat",
     },
     Object {
       "componentName": "animals$$dog",
+      "locEnd": 9,
+      "locStart": 7,
       "namedExport": "Dog",
       "storyId": "animals--dog",
     },
@@ -215,16 +233,22 @@ Object {
   "stories": Array [
     Object {
       "componentName": "storyname$$doggo",
+      "locEnd": 8,
+      "locStart": 3,
       "namedExport": "Cat",
       "storyId": "storyname--doggo",
     },
     Object {
       "componentName": "storyname$$capital$city",
+      "locEnd": 15,
+      "locStart": 13,
       "namedExport": "CapitalCity",
       "storyId": "storyname--capital-city",
     },
     Object {
       "componentName": "storyname$$champs$élysées",
+      "locEnd": 19,
+      "locStart": 17,
       "namedExport": "CapitalReplaced",
       "storyId": "storyname--champs-élysées",
     },
@@ -246,6 +270,8 @@ Object {
   "stories": Array [
     Object {
       "componentName": "our$animals$$mammals$$cat",
+      "locEnd": 5,
+      "locStart": 3,
       "namedExport": "Cat",
       "storyId": "our-animals--mammals--cat",
     },
