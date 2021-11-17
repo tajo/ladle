@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/tajo/ladle/compare/@ladle/react@0.3.5...@ladle/react@0.4.0) (2021-11-17)
+
+
+### Features
+
+* add filepath and locs into meta.json ([#35](https://github.com/tajo/ladle/issues/35)) ([df38918](https://github.com/tajo/ladle/commit/df3891850ed5db10c03baac97b423e54baa87821))
+
+
+
+
+
 ## [0.3.5](https://github.com/tajo/ladle/compare/@ladle/react@0.3.4...@ladle/react@0.3.5) (2021-11-16)
 
 
