@@ -7,8 +7,8 @@ export default {
     browsers: ["chrome"],
   },
   decorators: [
-    (Story) => (
-      <div style={{ margin: '3em' }}>
+    (Story: React.FC) => (
+      <div style={{ margin: "3em" }}>
         <Story />
       </div>
     ),

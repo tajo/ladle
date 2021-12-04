@@ -12,8 +12,7 @@ const getDefaultExport = (result, astPath) => {
       objNode =
         astPath.scope.bindings[astPath.node.declaration.name].path.node.init;
     }
-    result.exportDefaultProps = {};
-    objNode.properties.forEach((prop) => {
+    objNode.properties.forEach((/** @type {any} */ prop) => {
       if (prop.type === "ObjectProperty" && prop.key.name === "title") {
         if (prop.value.type !== "StringLiteral") {
           throw new Error("Default title must be a string literal.");
