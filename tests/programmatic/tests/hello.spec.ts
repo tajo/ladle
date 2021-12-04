@@ -21,7 +21,7 @@ test("meta.json has a single story ok", async ({ request }) => {
           locEnd: 3,
           locStart: 1,
           filePath: "src/hello.stories.tsx",
-          parameters: {},
+          meta: {},
         },
       },
     }),

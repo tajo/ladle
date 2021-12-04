@@ -2,7 +2,7 @@ import * as React from "react";
 
 export default {
   title: "Title",
-  parameters: {
+  meta: {
     baseweb: {
       theme: "dark",
       browsers: ["chrome", "webkit"],
@@ -14,7 +14,7 @@ export const Cat = () => {
   return <h1>Cat</h1>;
 };
 
-Cat.parameters = {
+Cat.meta = {
   baseweb: {
     browsers: ["chrome", "firefox"],
     width: "500px",

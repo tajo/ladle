@@ -9,14 +9,14 @@ export const parseWithFn = (
   input: Partial<ParsedStoriesResult>,
   fn: any,
   visitor: string,
-  filename: string = "foo.stories.js",
+  filename = "foo.stories.js",
 ): ParsedStoriesResult => {
   const start: ParsedStoriesResult = merge(
     {
       entry: "file.js",
       stories: [],
-      exportDefaultProps: { title: undefined, parameters: undefined },
-      namedExportToParameters: {},
+      exportDefaultProps: { title: undefined, meta: undefined },
+      namedExportToMeta: {},
       namedExportToStoryName: {},
       storyParams: {},
       fileId: "file",
@@ -37,8 +37,8 @@ export const getOutput = (
     {
       entry: "file.js",
       stories: [],
-      exportDefaultProps: { title: undefined, parameters: undefined },
-      namedExportToParameters: {},
+      exportDefaultProps: { title: undefined, meta: undefined },
+      namedExportToMeta: {},
       namedExportToStoryName: {},
       storyParams: {},
       fileId: "file",

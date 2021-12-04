@@ -11,7 +11,7 @@ test("No default export", async () => {
     ),
   ).toEqual(
     getOutput({
-      exportDefaultProps: { title: undefined, parameters: undefined },
+      exportDefaultProps: { title: undefined, meta: undefined },
     }),
   );
 });
@@ -26,15 +26,15 @@ test("Get default export title", async () => {
     ),
   ).toEqual(
     getOutput({
-      exportDefaultProps: { title: "Title", parameters: undefined },
+      exportDefaultProps: { title: "Title", meta: undefined },
     }),
   );
 });
 
-test("Get default export parameters", async () => {
+test("Get default export meta", async () => {
   expect(
     parseWithFn(
-      `export default { parameters: { some: 'foo', flag: true } }`,
+      `export default { meta: { some: 'foo', flag: true } }`,
       {},
       getDefaultExport,
       "ExportDefaultDeclaration",
@@ -43,7 +43,7 @@ test("Get default export parameters", async () => {
     getOutput({
       exportDefaultProps: {
         title: undefined,
-        parameters: { some: "foo", flag: true },
+        meta: { some: "foo", flag: true },
       },
     }),
   );
@@ -52,7 +52,7 @@ test("Get default export parameters", async () => {
 test("Get simple refference ", async () => {
   expect(
     parseWithFn(
-      `const params = { parameters: { some: 'foo', flag: true } }; export default params;`,
+      `const params = { meta: { some: 'foo', flag: true } }; export default params;`,
       {},
       getDefaultExport,
       "ExportDefaultDeclaration",
@@ -61,7 +61,7 @@ test("Get simple refference ", async () => {
     getOutput({
       exportDefaultProps: {
         title: undefined,
-        parameters: { some: "foo", flag: true },
+        meta: { some: "foo", flag: true },
       },
     }),
   );
@@ -76,6 +76,6 @@ test("Throw an error if default export is not serializable", async () => {
       "ExportDefaultDeclaration",
     ),
   ).toThrow(
-    `Can't parse the default export of file.js. It must be serializable.`,
+    `Can't parse the default title and meta of file.js. Meta must be serializable and title a string literal.`,
   );
 });

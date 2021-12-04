@@ -4,11 +4,11 @@ exports[`Capital letters in story names converted into delimiters 1`] = `
 Object {
   "entry": "tests/fixtures/capitalization.stories.tsx",
   "exportDefaultProps": Object {
-    "parameters": undefined,
+    "meta": undefined,
     "title": undefined,
   },
   "fileId": "capitalization",
-  "namedExportToParameters": Object {},
+  "namedExportToMeta": Object {},
   "namedExportToStoryName": Object {},
   "stories": Array [
     Object {
@@ -34,11 +34,11 @@ exports[`Capital letters in the filename converted into delimiters 1`] = `
 Object {
   "entry": "tests/fixtures/filenameCapitalization.stories.tsx",
   "exportDefaultProps": Object {
-    "parameters": undefined,
+    "meta": undefined,
     "title": undefined,
   },
   "fileId": "filenameCapitalization",
-  "namedExportToParameters": Object {},
+  "namedExportToMeta": Object {},
   "namedExportToStoryName": Object {},
   "stories": Array [
     Object {
@@ -60,7 +60,7 @@ Object {
     "title": "Title",
   },
   "fileId": "default-title",
-  "namedExportToParameters": Object {},
+  "namedExportToMeta": Object {},
   "namedExportToStoryName": Object {},
   "stories": Array [
     Object {
@@ -75,11 +75,11 @@ Object {
 }
 `;
 
-exports[`Extract and merge story parameters 1`] = `
+exports[`Extract and merge story meta 1`] = `
 Object {
-  "entry": "tests/fixtures/story-parameters.stories.tsx",
+  "entry": "tests/fixtures/story-meta.stories.tsx",
   "exportDefaultProps": Object {
-    "parameters": Object {
+    "meta": Object {
       "baseweb": Object {
         "browsers": Array [
           "chrome",
@@ -90,8 +90,8 @@ Object {
     },
     "title": "Title",
   },
-  "fileId": "story-parameters",
-  "namedExportToParameters": Object {
+  "fileId": "story-meta",
+  "namedExportToMeta": Object {
     "Cat": Object {
       "baseweb": Object {
         "browsers": Array [
@@ -122,7 +122,7 @@ Object {
   ],
   "storyParams": Object {
     "title--cat": Object {
-      "parameters": Object {
+      "meta": Object {
         "baseweb": Object {
           "browsers": Array [
             "chrome",
@@ -136,7 +136,7 @@ Object {
       "title": "Title",
     },
     "title--dog": Object {
-      "parameters": Object {
+      "meta": Object {
         "baseweb": Object {
           "browsers": Array [
             "chrome",
@@ -151,19 +151,19 @@ Object {
 }
 `;
 
-exports[`Extract default parameters 1`] = `
+exports[`Extract default meta 1`] = `
 Object {
-  "entry": "tests/fixtures/default-parameters.stories.tsx",
+  "entry": "tests/fixtures/default-meta.stories.tsx",
   "exportDefaultProps": Object {
-    "parameters": Object {
+    "meta": Object {
       "baseweb": Object {
         "foo": "title",
       },
     },
     "title": "Title",
   },
-  "fileId": "default-parameters",
-  "namedExportToParameters": Object {},
+  "fileId": "default-meta",
+  "namedExportToMeta": Object {},
   "namedExportToStoryName": Object {},
   "stories": Array [
     Object {
@@ -176,7 +176,7 @@ Object {
   ],
   "storyParams": Object {
     "title--cat": Object {
-      "parameters": Object {
+      "meta": Object {
         "baseweb": Object {
           "foo": "title",
         },
@@ -191,11 +191,11 @@ exports[`Single file with two stories 1`] = `
 Object {
   "entry": "tests/fixtures/animals.stories.tsx",
   "exportDefaultProps": Object {
-    "parameters": undefined,
+    "meta": undefined,
     "title": undefined,
   },
   "fileId": "animals",
-  "namedExportToParameters": Object {},
+  "namedExportToMeta": Object {},
   "namedExportToStoryName": Object {},
   "stories": Array [
     Object {
@@ -221,11 +221,11 @@ exports[`Story name replaces named export as a story name 1`] = `
 Object {
   "entry": "tests/fixtures/storyname.stories.tsx",
   "exportDefaultProps": Object {
-    "parameters": undefined,
+    "meta": undefined,
     "title": undefined,
   },
   "fileId": "storyname",
-  "namedExportToParameters": Object {},
+  "namedExportToMeta": Object {},
   "namedExportToStoryName": Object {
     "CapitalReplaced": "Champs Élysées",
     "Cat": "Doggo",
@@ -261,11 +261,11 @@ exports[`Turn file name delimiters into spaces and levels correctly 1`] = `
 Object {
   "entry": "tests/fixtures/our-animals--mammals.stories.tsx",
   "exportDefaultProps": Object {
-    "parameters": undefined,
+    "meta": undefined,
     "title": undefined,
   },
   "fileId": "our-animals--mammals",
-  "namedExportToParameters": Object {},
+  "namedExportToMeta": Object {},
   "namedExportToStoryName": Object {},
   "stories": Array [
     Object {

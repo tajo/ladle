@@ -29,7 +29,7 @@ const getStoryList = (entryData) => {
               let paramsAst = null;
               if (storyParams[story]) {
                 paramsAst = t.objectProperty(
-                  t.identifier("parameters"),
+                  t.identifier("meta"),
                   /** @type {any} */ (template).default.ast(
                     `const foo = ${JSON.stringify(storyParams[story])}`,
                   ).declarations[0].init,

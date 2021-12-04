@@ -21,7 +21,7 @@ test("generatres meta.json", async ({ request }) => {
           locEnd: 3,
           locStart: 1,
           filePath: "src/hello.stories.tsx",
-          parameters: {},
+          meta: {},
         },
       },
     }),

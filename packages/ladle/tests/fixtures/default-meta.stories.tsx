@@ -2,7 +2,7 @@ import * as React from "react";
 
 export default {
   title: "Title",
-  parameters: {
+  meta: {
     baseweb: {
       foo: "title",
     },

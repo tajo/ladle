@@ -1,9 +1,9 @@
-import getStorynameAndParameters from "../../lib/cli/vite-plugin/parse/get-storyname-and-parameters.js";
+import getStorynameAndMeta from "../../lib/cli/vite-plugin/parse/get-storyname-and-meta.js";
 import { parseWithFn, getOutput } from "./utils";
 
-test("No storyName or parameters", async () => {
+test("No storyName or meta", async () => {
   expect(
-    parseWithFn(`export default {}`, {}, getStorynameAndParameters, "Program"),
+    parseWithFn(`export default {}`, {}, getStorynameAndMeta, "Program"),
   ).toEqual(getOutput({}));
 });
 
@@ -17,7 +17,7 @@ const storyB = null;
 storyB.storyName = 'storyRenamedB';
 `,
       {},
-      getStorynameAndParameters,
+      getStorynameAndMeta,
       "Program",
     ),
   ).toEqual(
@@ -30,27 +30,27 @@ storyB.storyName = 'storyRenamedB';
   );
 });
 
-test("Parameters defined", async () => {
+test("Meta defined", async () => {
   expect(
     parseWithFn(
       `
 const storyA = null;
-storyA.parameters = {
+storyA.meta = {
   foo: true,
   baz: 'omg'
 };
 const storyB = null;
-storyB.parameters = {
+storyB.meta = {
   foo: false
 };
 `,
       {},
-      getStorynameAndParameters,
+      getStorynameAndMeta,
       "Program",
     ),
   ).toEqual(
     getOutput({
-      namedExportToParameters: {
+      namedExportToMeta: {
         storyA: {
           baz: "omg",
           foo: true,
@@ -71,38 +71,38 @@ const storyA = null;
 storyA.storyName = true;
 `,
       {},
-      getStorynameAndParameters,
+      getStorynameAndMeta,
       "Program",
     ),
   ).toThrow(`storyA.storyName in file.js must be a string literal.`);
 });
 
-test("Parameters must be an ObjectExpression", async () => {
+test("Meta must be an ObjectExpression", async () => {
   expect(() =>
     parseWithFn(
       `
 const storyA = null;
-storyA.parameters = true;
+storyA.meta = true;
 `,
       {},
-      getStorynameAndParameters,
+      getStorynameAndMeta,
       "Program",
     ),
-  ).toThrow(`storyA.parameters in file.js must be an object expression.`);
+  ).toThrow(`storyA.meta in file.js must be an object expression.`);
 });
 
-test("Parameters must be serializable.", async () => {
+test("Meta must be serializable.", async () => {
   expect(() =>
     parseWithFn(
       `
 const storyA = null;
-storyA.parameters = {
+storyA.meta = {
   foo: () => null
 };
 `,
       {},
-      getStorynameAndParameters,
+      getStorynameAndMeta,
       "Program",
     ),
-  ).toThrow(`storyA.parameters in file.js must be serializable.`);
+  ).toThrow(`storyA.meta in file.js must be serializable.`);
 });
