@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/tajo/ladle/compare/test-commonjs@0.1.0...test-commonjs@0.1.1) (2021-12-06)
+
+
+### Bug Fixes
+
+* rename parameters to meta, since SB params don't have to be seri… ([#36](https://github.com/tajo/ladle/issues/36)) ([29f4f4c](https://github.com/tajo/ladle/commit/29f4f4c596dddc3cce059d4292b51938eaa978d7))
+
+
+
+
+
 # [0.1.0](https://github.com/tajo/ladle/compare/test-commonjs@0.0.2...test-commonjs@0.1.0) (2021-11-17)
 
 
