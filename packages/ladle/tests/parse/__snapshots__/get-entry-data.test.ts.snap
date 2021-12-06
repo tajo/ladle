@@ -57,6 +57,7 @@ exports[`Default title is used instead of the file name 1`] = `
 Object {
   "entry": "tests/fixtures/default-title.stories.tsx",
   "exportDefaultProps": Object {
+    "meta": undefined,
     "title": "Title",
   },
   "fileId": "default-title",
