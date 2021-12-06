@@ -15,7 +15,7 @@ const getNamedExports = (
   {
     fileId,
     exportDefaultProps,
-    namedExportToParameters,
+    namedExportToMeta,
     namedExportToStoryName,
     storyParams,
     stories,
@@ -50,14 +50,14 @@ const getNamedExports = (
   const storyId = `${kebabCase(
     storyNamespace,
   )}${storyDelimiter}${storyDelimiter}${kebabCase(storyName)}`;
-  // attach default parameters to each story
-  if (exportDefaultProps && exportDefaultProps.parameters) {
+  // attach default meta to each story
+  if (exportDefaultProps && exportDefaultProps.meta) {
     storyParams[storyId] = exportDefaultProps;
   }
-  // add and merge story specific parameters
-  if (namedExportToParameters[namedExport]) {
+  // add and merge story specific meta
+  if (namedExportToMeta[namedExport]) {
     storyParams[storyId] = merge(cloneDeep(storyParams[storyId] || {}), {
-      parameters: namedExportToParameters[namedExport],
+      meta: namedExportToMeta[namedExport],
     });
   }
   const componentName = getEncodedStoryName(

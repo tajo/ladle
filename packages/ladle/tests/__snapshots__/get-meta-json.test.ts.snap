@@ -16,7 +16,7 @@ exports[`Capital letters in story names converted into delimiters 1`] = `
       \\"locStart\\": 3,
       \\"locEnd\\": 5,
       \\"filePath\\": \\"tests/fixtures/capitalization.stories.tsx\\",
-      \\"parameters\\": {}
+      \\"meta\\": {}
     },
     \\"capitalization--big-barking-dog\\": {
       \\"name\\": \\"Big barking dog\\",
@@ -26,7 +26,7 @@ exports[`Capital letters in story names converted into delimiters 1`] = `
       \\"locStart\\": 7,
       \\"locEnd\\": 9,
       \\"filePath\\": \\"tests/fixtures/capitalization.stories.tsx\\",
-      \\"parameters\\": {}
+      \\"meta\\": {}
     }
   }
 }"
@@ -48,7 +48,7 @@ exports[`Capital letters in the filename converted into delimiters 1`] = `
       \\"locStart\\": 3,
       \\"locEnd\\": 5,
       \\"filePath\\": \\"tests/fixtures/filenameCapitalization.stories.tsx\\",
-      \\"parameters\\": {}
+      \\"meta\\": {}
     }
   }
 }"
@@ -70,13 +70,13 @@ exports[`Default title is used instead of the file name 1`] = `
       \\"locStart\\": 7,
       \\"locEnd\\": 9,
       \\"filePath\\": \\"tests/fixtures/default-title.stories.tsx\\",
-      \\"parameters\\": {}
+      \\"meta\\": {}
     }
   }
 }"
 `;
 
-exports[`Extract and merge story parameters 1`] = `
+exports[`Extract and merge story meta 1`] = `
 "{
   \\"about\\": {
     \\"homepage\\": \\"https://www.ladle.dev\\",
@@ -91,8 +91,8 @@ exports[`Extract and merge story parameters 1`] = `
       ],
       \\"locStart\\": 13,
       \\"locEnd\\": 15,
-      \\"filePath\\": \\"tests/fixtures/story-parameters.stories.tsx\\",
-      \\"parameters\\": {
+      \\"filePath\\": \\"tests/fixtures/story-meta.stories.tsx\\",
+      \\"meta\\": {
         \\"baseweb\\": {
           \\"theme\\": \\"dark\\",
           \\"browsers\\": [
@@ -111,8 +111,8 @@ exports[`Extract and merge story parameters 1`] = `
       ],
       \\"locStart\\": 25,
       \\"locEnd\\": 27,
-      \\"filePath\\": \\"tests/fixtures/story-parameters.stories.tsx\\",
-      \\"parameters\\": {
+      \\"filePath\\": \\"tests/fixtures/story-meta.stories.tsx\\",
+      \\"meta\\": {
         \\"baseweb\\": {
           \\"theme\\": \\"dark\\",
           \\"browsers\\": [
@@ -126,7 +126,7 @@ exports[`Extract and merge story parameters 1`] = `
 }"
 `;
 
-exports[`Extract default parameters 1`] = `
+exports[`Extract default meta 1`] = `
 "{
   \\"about\\": {
     \\"homepage\\": \\"https://www.ladle.dev\\",
@@ -141,8 +141,8 @@ exports[`Extract default parameters 1`] = `
       ],
       \\"locStart\\": 12,
       \\"locEnd\\": 14,
-      \\"filePath\\": \\"tests/fixtures/default-parameters.stories.tsx\\",
-      \\"parameters\\": {
+      \\"filePath\\": \\"tests/fixtures/default-meta.stories.tsx\\",
+      \\"meta\\": {
         \\"baseweb\\": {
           \\"foo\\": \\"title\\"
         }
@@ -168,7 +168,7 @@ exports[`Single file with two stories 1`] = `
       \\"locStart\\": 3,
       \\"locEnd\\": 5,
       \\"filePath\\": \\"tests/fixtures/animals.stories.tsx\\",
-      \\"parameters\\": {}
+      \\"meta\\": {}
     },
     \\"animals--dog\\": {
       \\"name\\": \\"Dog\\",
@@ -178,7 +178,7 @@ exports[`Single file with two stories 1`] = `
       \\"locStart\\": 7,
       \\"locEnd\\": 9,
       \\"filePath\\": \\"tests/fixtures/animals.stories.tsx\\",
-      \\"parameters\\": {}
+      \\"meta\\": {}
     }
   }
 }"
@@ -200,7 +200,7 @@ exports[`Story name replaces named export as a story name 1`] = `
       \\"locStart\\": 3,
       \\"locEnd\\": 8,
       \\"filePath\\": \\"tests/fixtures/storyname.stories.tsx\\",
-      \\"parameters\\": {}
+      \\"meta\\": {}
     },
     \\"storyname--capital-city\\": {
       \\"name\\": \\"Capital city\\",
@@ -210,7 +210,7 @@ exports[`Story name replaces named export as a story name 1`] = `
       \\"locStart\\": 13,
       \\"locEnd\\": 15,
       \\"filePath\\": \\"tests/fixtures/storyname.stories.tsx\\",
-      \\"parameters\\": {}
+      \\"meta\\": {}
     },
     \\"storyname--champs-élysées\\": {
       \\"name\\": \\"Champs élysées\\",
@@ -220,7 +220,7 @@ exports[`Story name replaces named export as a story name 1`] = `
       \\"locStart\\": 17,
       \\"locEnd\\": 19,
       \\"filePath\\": \\"tests/fixtures/storyname.stories.tsx\\",
-      \\"parameters\\": {}
+      \\"meta\\": {}
     }
   }
 }"
@@ -243,7 +243,7 @@ exports[`Turn file name delimiters into spaces and levels correctly 1`] = `
       \\"locStart\\": 3,
       \\"locEnd\\": 5,
       \\"filePath\\": \\"tests/fixtures/our-animals--mammals.stories.tsx\\",
-      \\"parameters\\": {}
+      \\"meta\\": {}
     }
   }
 }"

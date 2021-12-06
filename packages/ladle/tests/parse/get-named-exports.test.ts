@@ -98,12 +98,12 @@ test("Named export renamed through storyNames", async () => {
   );
 });
 
-test("Named export with added story parameters", async () => {
+test("Named export with added story meta", async () => {
   expect(
     parseWithFn(
       `export const MyStory = () => null;`,
       {
-        namedExportToParameters: {
+        namedExportToMeta: {
           MyStory: {
             flag: true,
           },
@@ -114,14 +114,14 @@ test("Named export with added story parameters", async () => {
     ),
   ).toEqual(
     getOutput({
-      namedExportToParameters: {
+      namedExportToMeta: {
         MyStory: {
           flag: true,
         },
       },
       storyParams: {
         "file--my-story": {
-          parameters: {
+          meta: {
             flag: true,
           },
         },
@@ -139,13 +139,13 @@ test("Named export with added story parameters", async () => {
   );
 });
 
-test("Named export with added default parameters", async () => {
+test("Named export with added default meta", async () => {
   expect(
     parseWithFn(
       `export const MyStory = () => null;`,
       {
         exportDefaultProps: {
-          parameters: {
+          meta: {
             flag: true,
           },
         },
@@ -156,13 +156,13 @@ test("Named export with added default parameters", async () => {
   ).toEqual(
     getOutput({
       exportDefaultProps: {
-        parameters: {
+        meta: {
           flag: true,
         },
       },
       storyParams: {
         "file--my-story": {
-          parameters: {
+          meta: {
             flag: true,
           },
         },
@@ -180,18 +180,18 @@ test("Named export with added default parameters", async () => {
   );
 });
 
-test("Named export with added default and story parameters", async () => {
+test("Named export with added default and story meta", async () => {
   expect(
     parseWithFn(
       `export const MyStory = () => null;`,
       {
         exportDefaultProps: {
-          parameters: {
+          meta: {
             flag: true,
             color: "red",
           },
         },
-        namedExportToParameters: {
+        namedExportToMeta: {
           MyStory: {
             flag: false,
             browser: "chrome",
@@ -204,12 +204,12 @@ test("Named export with added default and story parameters", async () => {
   ).toEqual(
     getOutput({
       exportDefaultProps: {
-        parameters: {
+        meta: {
           flag: true,
           color: "red",
         },
       },
-      namedExportToParameters: {
+      namedExportToMeta: {
         MyStory: {
           flag: false,
           browser: "chrome",
@@ -217,7 +217,7 @@ test("Named export with added default and story parameters", async () => {
       },
       storyParams: {
         "file--my-story": {
-          parameters: {
+          meta: {
             browser: "chrome",
             color: "red",
             flag: false,

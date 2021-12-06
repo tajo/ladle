@@ -5,7 +5,7 @@ import debugFactory from "debug";
 import { getFileId } from "../naming-utils.js";
 import getAst from "../get-ast.js";
 import getDefaultExport from "./get-default-export.js";
-import getStorynameAndParameters from "./get-storyname-and-parameters.js";
+import getStorynameAndMeta from "./get-storyname-and-meta.js";
 import getNamedExports from "./get-named-exports.js";
 
 const debug = debugFactory("ladle:vite");
@@ -33,8 +33,8 @@ export const getSingleEntry = async (entry) => {
   const result = {
     entry,
     stories: [],
-    exportDefaultProps: { title: undefined, parameters: undefined },
-    namedExportToParameters: {},
+    exportDefaultProps: { title: undefined, meta: undefined },
+    namedExportToMeta: {},
     namedExportToStoryName: {},
     storyParams: {},
     fileId: getFileId(entry),
@@ -45,7 +45,7 @@ export const getSingleEntry = async (entry) => {
   );
   const ast = getAst(code, entry);
   /** @type {any} */ (traverse).default(ast, {
-    Program: getStorynameAndParameters.bind(this, result),
+    Program: getStorynameAndMeta.bind(this, result),
     ExportDefaultDeclaration: getDefaultExport.bind(this, result),
     ExportNamedDeclaration: getNamedExports.bind(this, result),
   });

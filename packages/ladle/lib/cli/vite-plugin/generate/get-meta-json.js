@@ -25,13 +25,13 @@ const getMetaJson = (entryData) => {
       version: 1,
     },
     stories:
-      /** @type {{[key: string]: {name: string; levels: string[]; parameters: any}}} */ ({}),
+      /** @type {{[key: string]: {name: string; levels: string[]; meta: any}}} */ ({}),
   };
   storyIds.forEach((storyId) => {
     result.stories[storyId] = {
       ...storyIdToMeta(storyId),
       ...storyMeta[storyId],
-      parameters: storyParams[storyId] ? storyParams[storyId].parameters : {},
+      meta: storyParams[storyId] ? storyParams[storyId].meta : {},
     };
   });
   return result;

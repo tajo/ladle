@@ -40,16 +40,16 @@ test("Story name replaces named export as a story name", async () => {
   expect(entryData).toMatchSnapshot();
 });
 
-test("Extract default parameters", async () => {
+test("Extract default meta", async () => {
   const entryData = await getSingleEntry(
-    "tests/fixtures/default-parameters.stories.tsx",
+    "tests/fixtures/default-meta.stories.tsx",
   );
   expect(entryData).toMatchSnapshot();
 });
 
-test("Extract and merge story parameters", async () => {
+test("Extract and merge story meta", async () => {
   const entryData = await getSingleEntry(
-    "tests/fixtures/story-parameters.stories.tsx",
+    "tests/fixtures/story-meta.stories.tsx",
   );
   expect(entryData).toMatchSnapshot();
 });

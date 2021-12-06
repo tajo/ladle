@@ -164,11 +164,11 @@ export type ParsedStoriesResult = {
   }[];
   exportDefaultProps: {
     title?: string;
-    parameters: any;
+    meta: any;
   };
-  namedExportToParameters: { [key: string]: any };
+  namedExportToMeta: { [key: string]: any };
   namedExportToStoryName: { [key: string]: string };
-  storyParams: { [key: string]: { title?: string; parameters: any } };
+  storyParams: { [key: string]: { title?: string; meta: any } };
   fileId: string;
 };
 

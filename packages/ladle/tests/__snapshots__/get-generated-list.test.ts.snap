@@ -107,16 +107,16 @@ if (import.meta.hot) {
 "
 `;
 
-exports[`Extract and merge story parameters 1`] = `
+exports[`Extract and merge story meta 1`] = `
 "
 import { lazy, createElement, Fragment } from \\"react\\";
 
-const title$$cat = lazy(() => import(\\"../../../tests/fixtures/story-parameters.stories.tsx\\").then(module => {
+const title$$cat = lazy(() => import(\\"../../../tests/fixtures/story-meta.stories.tsx\\").then(module => {
   return {
     default: module.Cat
   };
 }));
-const title$$dog = lazy(() => import(\\"../../../tests/fixtures/story-parameters.stories.tsx\\").then(module => {
+const title$$dog = lazy(() => import(\\"../../../tests/fixtures/story-meta.stories.tsx\\").then(module => {
   return {
     default: module.Dog
   };
@@ -124,9 +124,9 @@ const title$$dog = lazy(() => import(\\"../../../tests/fixtures/story-parameters
 export let stories = {
   \\"title--cat\\": {
     component: title$$cat,
-    parameters: {
+    meta: {
       \\"title\\": \\"Title\\",
-      \\"parameters\\": {
+      \\"meta\\": {
         \\"baseweb\\": {
           \\"theme\\": \\"dark\\",
           \\"browsers\\": [\\"chrome\\", \\"firefox\\"],
@@ -138,9 +138,9 @@ export let stories = {
   },
   \\"title--dog\\": {
     component: title$$dog,
-    parameters: {
+    meta: {
       \\"title\\": \\"Title\\",
-      \\"parameters\\": {
+      \\"meta\\": {
         \\"baseweb\\": {
           \\"theme\\": \\"dark\\",
           \\"browsers\\": [\\"chrome\\", \\"webkit\\"]
@@ -168,11 +168,11 @@ if (import.meta.hot) {
 "
 `;
 
-exports[`Extract default parameters 1`] = `
+exports[`Extract default meta 1`] = `
 "
 import { lazy, createElement, Fragment } from \\"react\\";
 
-const title$$cat = lazy(() => import(\\"../../../tests/fixtures/default-parameters.stories.tsx\\").then(module => {
+const title$$cat = lazy(() => import(\\"../../../tests/fixtures/default-meta.stories.tsx\\").then(module => {
   return {
     default: module.Cat
   };
@@ -180,9 +180,9 @@ const title$$cat = lazy(() => import(\\"../../../tests/fixtures/default-paramete
 export let stories = {
   \\"title--cat\\": {
     component: title$$cat,
-    parameters: {
+    meta: {
       \\"title\\": \\"Title\\",
-      \\"parameters\\": {
+      \\"meta\\": {
         \\"baseweb\\": {
           \\"foo\\": \\"title\\"
         }

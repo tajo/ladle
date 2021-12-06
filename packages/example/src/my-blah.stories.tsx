@@ -2,10 +2,17 @@ import { useState } from "react";
 
 export default {
   title: "Big Blah / Ruck",
-  parameters: {
+  meta: {
     baseweb: "test",
     browsers: ["chrome"],
   },
+  decorators: [
+    (Story: React.FC) => (
+      <div style={{ margin: "3em" }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export const Middle = () => {

@@ -4,7 +4,7 @@ import { converter } from "../ast-to-obj.js";
  * @param {import('../../../shared/types').ParsedStoriesResult} result
  * @param {any} astPath
  */
-const getStorynameAndParameters = (result, astPath) => {
+const getStorynameAndMeta = (result, astPath) => {
   astPath.node.body.forEach((/** @type {any} */ child) => {
     if (
       child.type === "ExpressionStatement" &&
@@ -21,20 +21,20 @@ const getStorynameAndParameters = (result, astPath) => {
           result.namedExportToStoryName[storyExport] =
             child.expression.right.value;
         }
-      } else if (child.expression.left.property.name === "parameters") {
+      } else if (child.expression.left.property.name === "meta") {
         const storyExport = child.expression.left.object.name;
         if (child.expression.right.type !== "ObjectExpression") {
           throw new Error(
-            `${storyExport}.parameters in ${result.entry} must be an object expression.`,
+            `${storyExport}.meta in ${result.entry} must be an object expression.`,
           );
         } else {
           try {
             const obj = converter(child.expression.right);
             const json = JSON.stringify(obj);
-            result.namedExportToParameters[storyExport] = JSON.parse(json);
+            result.namedExportToMeta[storyExport] = JSON.parse(json);
           } catch (e) {
             throw new Error(
-              `${storyExport}.parameters in ${result.entry} must be serializable.`,
+              `${storyExport}.meta in ${result.entry} must be serializable.`,
             );
           }
         }
@@ -43,4 +43,4 @@ const getStorynameAndParameters = (result, astPath) => {
   });
 };
 
-export default getStorynameAndParameters;
+export default getStorynameAndMeta;
