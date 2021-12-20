@@ -23,11 +23,7 @@ const Story: React.FC<{
           dispatch={dispatch}
         >
           {storiesAny[globalState.story] ? (
-            React.createElement(storiesAny[globalState.story].component, {
-              config,
-              globalState,
-              dispatch,
-            })
+            React.createElement(storiesAny[globalState.story].component)
           ) : (
             <NoStories wrongUrl activeStory={globalState.story} />
           )}

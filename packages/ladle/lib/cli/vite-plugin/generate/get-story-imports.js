@@ -11,10 +11,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
  */
 const getStoryImports = (entryData) => {
   let storyImports = `import { lazy, createElement, Fragment } from "react";\n`;
+  storyImports += `import composeDecorators from "../src/compose-decorators";\n`;
   const lazyImport = /** @type {any} */ (template).default(`
     const %%component%% = lazy(() =>
      import(%%source%%).then((module) => {
-        return { default: module.%%story%% };
+        return { default: composeDecorators(module, %%story%%) };
       })
     );
   `);
@@ -29,7 +30,7 @@ const getStoryImports = (entryData) => {
           ),
         ),
         component: t.identifier(componentName),
-        story: t.identifier(namedExport),
+        story: t.stringLiteral(namedExport),
       });
       storyImports += `\n${/** @type {any} */ (generate).default(ast).code}`;
     });
