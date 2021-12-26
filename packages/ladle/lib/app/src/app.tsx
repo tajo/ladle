@@ -11,6 +11,7 @@ import debug from "./debug";
 import { getQuery as getQueryTheme } from "./addons/theme";
 import { getQuery as getQueryMode } from "./addons/mode";
 import { getQuery as getQueryRtl } from "./addons/rtl";
+import { getQuery as getQueryControl } from "./addons/control";
 import { Context } from "./context";
 import {
   getQueryStory,
@@ -27,6 +28,7 @@ const getUrlState = (search: string): GlobalState => ({
   mode: getQueryMode(search),
   story: getQueryStory(search),
   rtl: getQueryRtl(search),
+  control: getQueryControl(search),
 });
 
 const App: React.FC<{}> = () => {
@@ -47,6 +49,7 @@ const App: React.FC<{}> = () => {
       rtl: globalState.rtl,
       story: globalState.story,
       theme: globalState.theme,
+      control: globalState.control,
     });
     if (globalState.story !== prevGlobalState.story) {
       document.title = `${storyIdToTitle(globalState.story)} | Ladle`;
@@ -77,6 +80,7 @@ const App: React.FC<{}> = () => {
   React.useEffect(() => {
     // @ts-ignore
     const unlisten = history.listen((location, action) => {
+      console.log("action", action);
       if (action === "POP") {
         dispatch({
           type: ActionType.UpdateAll,

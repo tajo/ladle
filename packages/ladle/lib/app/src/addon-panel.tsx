@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Config, GlobalState, GlobalAction } from "../../shared/types";
 import { Button as ThemeButton } from "./addons/theme";
+import { Button as ControlButton } from "./addons/control";
 import { Button as ModeButton } from "./addons/mode";
 import { Button as RtlButton } from "./addons/rtl";
 import { Button as LadleButton } from "./addons/ladle";
@@ -22,6 +23,9 @@ const AddonPanel: React.FC<{
   return (
     <aside className="ladle-addons">
       <ul>
+        {config.addons.control.enabled && (
+          <ControlButton globalState={globalState} dispatch={dispatch} />
+        )}
         {config.addons.theme.enabled && (
           <ThemeButton globalState={globalState} dispatch={dispatch} />
         )}

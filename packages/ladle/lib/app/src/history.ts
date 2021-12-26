@@ -2,6 +2,7 @@
 import { createBrowserHistory } from "../deps/history";
 import queryString from "../deps/query-string";
 import type { GlobalState } from "../../shared/types";
+import { ControlType } from "../../shared/types";
 import config from "./get-config";
 import debug from "./debug";
 
@@ -44,5 +45,28 @@ export const modifyParams = (params: Partial<GlobalState>) => {
 
 export const getHref = (params: Partial<GlobalState>) => {
   removeDefaultValues(params);
-  return `?${queryString.stringify(params)}`;
+  const encodedParams: { [key: string]: any } = {};
+  Object.keys(params).forEach((key: string) => {
+    if (key === "control") {
+      // for controls we are spreading individual args into URL
+      Object.keys(params[key] as any).forEach((argKey) => {
+        const arg = (params[key] as any)[argKey];
+        if (arg.value !== arg.defaultValue) {
+          let type = "s";
+          switch (arg.type) {
+            case ControlType.Boolean:
+              type = "b";
+              break;
+            case ControlType.Number:
+              type = "n";
+              break;
+          }
+          encodedParams[`arg-${type}-${argKey}`] = arg.value;
+        }
+      });
+    } else {
+      encodedParams[key] = (params as any)[key];
+    }
+  });
+  return `?${queryString.stringify(encodedParams)}`;
 };

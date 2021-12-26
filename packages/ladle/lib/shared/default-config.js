@@ -13,9 +13,15 @@ export default {
   babelPresets: [],
   babelPlugins: [],
   addons: {
+    control: {
+      enabled: true,
+      defaultState: /** @type {import('../shared/types').ControlState} */ ({}),
+    },
     theme: {
       enabled: true,
-      defaultState: /** @type {import('../shared/types').ThemeState} */ ("light"),
+      defaultState: /** @type {import('../shared/types').ThemeState} */ (
+        "light"
+      ),
     },
     mode: {
       enabled: true,

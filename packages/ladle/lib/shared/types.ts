@@ -14,12 +14,29 @@ export enum ThemeState {
   Auto = "auto",
 }
 
+export enum ControlType {
+  Boolean = "boolean",
+  String = "string",
+  Number = "number",
+  Complex = "complex",
+}
+
+export type ControlState = {
+  [key: string]: {
+    description?: string;
+    defaultValue?: any;
+    value: any;
+    type?: ControlType;
+  };
+};
+
 export enum ActionType {
   UpdateAll = "update-all",
   UpdateMode = "update-mode",
   UpdateRtl = "update-rtl",
   UpdateStory = "update-story",
   UpdateTheme = "update-theme",
+  UpdateControl = "update-control",
 }
 
 export type GlobalAction =
@@ -42,6 +59,10 @@ export type GlobalAction =
   | {
       type: ActionType.UpdateTheme;
       value: ThemeState;
+    }
+  | {
+      type: ActionType.UpdateControl;
+      value: ControlState;
     };
 
 export type GlobalState = {
@@ -49,6 +70,7 @@ export type GlobalState = {
   theme: ThemeState;
   story: string;
   rtl: boolean;
+  control: ControlState;
 };
 
 export type UpdateStory = (story: string) => void;
@@ -123,6 +145,10 @@ export type Config = {
   babelPlugins: any[];
   babelPresets: any[];
   addons: {
+    control: {
+      enabled: boolean;
+      defaultState: ControlState;
+    };
     theme: {
       enabled: boolean;
       defaultState: ThemeState;
