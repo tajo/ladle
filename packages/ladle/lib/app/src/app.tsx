@@ -92,7 +92,11 @@ const App: React.FC<{}> = () => {
   });
 
   if (globalState.mode === ModeState.Preview) {
-    return <Story globalState={globalState} dispatch={dispatch} />;
+    return (
+      <Context.Provider value={{ globalState, dispatch }}>
+        <Story globalState={globalState} dispatch={dispatch} />
+      </Context.Provider>
+    );
   }
   return (
     <Context.Provider value={{ globalState, dispatch }}>

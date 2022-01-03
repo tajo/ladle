@@ -19,6 +19,7 @@ export enum ControlType {
   String = "string",
   Number = "number",
   Complex = "complex",
+  Function = "function",
 }
 
 export type ControlState = {

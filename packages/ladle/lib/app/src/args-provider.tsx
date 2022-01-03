@@ -6,7 +6,7 @@ const ArgsProvider: React.FC<{
   component: any;
   args: any;
   argTypes: any;
-}> = ({ component, args }) => {
+}> = ({ component, args, argTypes }) => {
   const [globalState, dispatch] = useLadleState();
   React.useEffect(() => {
     const controls: ControlState = {};
@@ -22,6 +22,9 @@ const ArgsProvider: React.FC<{
       } else {
         let type = ControlType.Complex;
         switch (typeof argValue) {
+          case "function":
+            type = ControlType.Function;
+            break;
           case "boolean":
             type = ControlType.Boolean;
             break;
@@ -40,7 +43,9 @@ const ArgsProvider: React.FC<{
         };
       }
     });
-    dispatch({ type: ActionType.UpdateControl, value: controls });
+    if (Object.keys(controls).length) {
+      dispatch({ type: ActionType.UpdateControl, value: controls });
+    }
   }, []);
   const props: any = {};
   Object.keys(globalState.control).forEach((key) => {
@@ -50,6 +55,17 @@ const ArgsProvider: React.FC<{
       props[key] = globalState.control[key].value;
     }
   });
+
+  // make sure we don't render story before args are passed through the state
+  if (
+    Object.keys(globalState.control).length <
+    Math.max(
+      args ? Object.keys(args).length : 0,
+      argTypes ? Object.keys(argTypes).length : 0,
+    )
+  ) {
+    return null;
+  }
   return React.createElement(component, props);
 };
 

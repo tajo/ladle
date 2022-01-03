@@ -51,17 +51,28 @@ export const getHref = (params: Partial<GlobalState>) => {
       // for controls we are spreading individual args into URL
       Object.keys(params[key] as any).forEach((argKey) => {
         const arg = (params[key] as any)[argKey];
-        if (arg.value !== arg.defaultValue) {
-          let type = "s";
-          switch (arg.type) {
-            case ControlType.Boolean:
-              type = "b";
-              break;
-            case ControlType.Number:
-              type = "n";
-              break;
-          }
-          encodedParams[`arg-${type}-${argKey}`] = arg.value;
+
+        let type = "s";
+        let value = arg.value;
+        let isValueDefault = false;
+        switch (arg.type) {
+          case ControlType.Boolean:
+            type = "b";
+            break;
+          case ControlType.Number:
+            type = "n";
+            break;
+          case ControlType.Complex:
+            type = "c";
+            value = encodeURI(JSON.stringify(arg.value));
+            try {
+              isValueDefault =
+                JSON.stringify(arg.value) === JSON.stringify(arg.defaultValue);
+            } catch (e) {}
+            break;
+        }
+        if (!isValueDefault && value !== arg.defaultValue) {
+          encodedParams[`arg-${type}-${argKey}`] = value;
         }
       });
     } else {
