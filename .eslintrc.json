@@ -2,8 +2,8 @@
   "parser": "@typescript-eslint/parser",
   "extends": [
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended", 
-    "plugin:prettier/recommended" 
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
   ],
   "rules": {
     "@typescript-eslint/no-explicit-any": "off",
@@ -19,4 +19,3 @@
     }
   }
 }
-

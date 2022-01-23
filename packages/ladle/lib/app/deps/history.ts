@@ -291,7 +291,7 @@ export interface History {
  *
  * @see https://github.com/remix-run/history/tree/main/docs/api-reference.md#browserhistory
  */
-export interface BrowserHistory extends History {}
+export type BrowserHistory = History;
 
 /**
  * A hash history stores the current location in the fragment identifier portion
@@ -304,7 +304,7 @@ export interface BrowserHistory extends History {}
  *
  * @see https://github.com/remix-run/history/tree/main/docs/api-reference.md#hashhistory
  */
-export interface HashHistory extends History {}
+export type HashHistory = History;
 
 /**
  * A memory history stores locations in memory. This is useful in stateful
@@ -364,12 +364,13 @@ export type BrowserHistoryOptions = { window?: Window };
 export function createBrowserHistory(
   options: BrowserHistoryOptions = {},
 ): BrowserHistory {
-  let { window = document.defaultView! } = options;
-  let globalHistory = window.history;
+  /* eslint-disable @typescript-eslint/no-non-null-assertion */
+  const { window = document.defaultView! } = options;
+  const globalHistory = window.history;
 
   function getIndexAndLocation(): [number, Location] {
-    let { pathname, search, hash } = window.location;
-    let state = globalHistory.state || {};
+    const { pathname, search, hash } = window.location;
+    const state = globalHistory.state || {};
     return [
       state.idx,
       readOnly<Location>({
@@ -388,12 +389,12 @@ export function createBrowserHistory(
       blockers.call(blockedPopTx);
       blockedPopTx = null;
     } else {
-      let nextAction = Action.Pop;
-      let [nextIndex, nextLocation] = getIndexAndLocation();
+      const nextAction = Action.Pop;
+      const [nextIndex, nextLocation] = getIndexAndLocation();
 
       if (blockers.length) {
         if (nextIndex != null) {
-          let delta = index - nextIndex;
+          const delta = index - nextIndex;
           if (delta) {
             // Revert the POP
             blockedPopTx = {
@@ -431,8 +432,8 @@ export function createBrowserHistory(
 
   let action = Action.Pop;
   let [index, location] = getIndexAndLocation();
-  let listeners = createEvents<Listener>();
-  let blockers = createEvents<Blocker>();
+  const listeners = createEvents<Listener>();
+  const blockers = createEvents<Blocker>();
 
   if (index == null) {
     index = 0;
@@ -482,14 +483,17 @@ export function createBrowserHistory(
   }
 
   function push(to: To, state?: any) {
-    let nextAction = Action.Push;
-    let nextLocation = getNextLocation(to, state);
+    const nextAction = Action.Push;
+    const nextLocation = getNextLocation(to, state);
     function retry() {
       push(to, state);
     }
 
     if (allowTx(nextAction, nextLocation, retry)) {
-      let [historyState, url] = getHistoryStateAndUrl(nextLocation, index + 1);
+      const [historyState, url] = getHistoryStateAndUrl(
+        nextLocation,
+        index + 1,
+      );
 
       // TODO: Support forced reloading
       // try...catch because iOS limits us to 100 pushState calls :/
@@ -506,14 +510,14 @@ export function createBrowserHistory(
   }
 
   function replace(to: To, state?: any) {
-    let nextAction = Action.Replace;
-    let nextLocation = getNextLocation(to, state);
+    const nextAction = Action.Replace;
+    const nextLocation = getNextLocation(to, state);
     function retry() {
       replace(to, state);
     }
 
     if (allowTx(nextAction, nextLocation, retry)) {
-      let [historyState, url] = getHistoryStateAndUrl(nextLocation, index);
+      const [historyState, url] = getHistoryStateAndUrl(nextLocation, index);
 
       // TODO: Support forced reloading
       globalHistory.replaceState(historyState, "", url);
@@ -526,7 +530,7 @@ export function createBrowserHistory(
     globalHistory.go(delta);
   }
 
-  let history: BrowserHistory = {
+  const history: BrowserHistory = {
     get action() {
       return action;
     },
@@ -547,7 +551,7 @@ export function createBrowserHistory(
       return listeners.push(listener);
     },
     block(blocker) {
-      let unblock = blockers.push(blocker);
+      const unblock = blockers.push(blocker);
 
       if (blockers.length === 1) {
         window.addEventListener(BeforeUnloadEventType, promptBeforeUnload);
@@ -586,16 +590,16 @@ export type HashHistoryOptions = { window?: Window };
 export function createHashHistory(
   options: HashHistoryOptions = {},
 ): HashHistory {
-  let { window = document.defaultView! } = options;
-  let globalHistory = window.history;
+  const { window = document.defaultView! } = options;
+  const globalHistory = window.history;
 
   function getIndexAndLocation(): [number, Location] {
-    let {
+    const {
       pathname = "/",
       search = "",
       hash = "",
     } = parsePath(window.location.hash.substr(1));
-    let state = globalHistory.state || {};
+    const state = globalHistory.state || {};
     return [
       state.idx,
       readOnly<Location>({
@@ -614,12 +618,12 @@ export function createHashHistory(
       blockers.call(blockedPopTx);
       blockedPopTx = null;
     } else {
-      let nextAction = Action.Pop;
-      let [nextIndex, nextLocation] = getIndexAndLocation();
+      const nextAction = Action.Pop;
+      const [nextIndex, nextLocation] = getIndexAndLocation();
 
       if (blockers.length) {
         if (nextIndex != null) {
-          let delta = index - nextIndex;
+          const delta = index - nextIndex;
           if (delta) {
             // Revert the POP
             blockedPopTx = {
@@ -658,7 +662,7 @@ export function createHashHistory(
   // popstate does not fire on hashchange in IE 11 and old (trident) Edge
   // https://developer.mozilla.org/de/docs/Web/API/Window/popstate_event
   window.addEventListener(HashChangeEventType, () => {
-    let [, nextLocation] = getIndexAndLocation();
+    const [, nextLocation] = getIndexAndLocation();
 
     // Ignore extraneous hashchange events.
     if (createPath(nextLocation) !== createPath(location)) {
@@ -668,8 +672,8 @@ export function createHashHistory(
 
   let action = Action.Pop;
   let [index, location] = getIndexAndLocation();
-  let listeners = createEvents<Listener>();
-  let blockers = createEvents<Blocker>();
+  const listeners = createEvents<Listener>();
+  const blockers = createEvents<Blocker>();
 
   if (index == null) {
     index = 0;
@@ -677,12 +681,12 @@ export function createHashHistory(
   }
 
   function getBaseHref() {
-    let base = document.querySelector("base");
+    const base = document.querySelector("base");
     let href = "";
 
     if (base && base.getAttribute("href")) {
-      let url = window.location.href;
-      let hashIndex = url.indexOf("#");
+      const url = window.location.href;
+      const hashIndex = url.indexOf("#");
       href = hashIndex === -1 ? url : url.slice(0, hashIndex);
     }
 
@@ -731,8 +735,8 @@ export function createHashHistory(
   }
 
   function push(to: To, state?: any) {
-    let nextAction = Action.Push;
-    let nextLocation = getNextLocation(to, state);
+    const nextAction = Action.Push;
+    const nextLocation = getNextLocation(to, state);
     function retry() {
       push(to, state);
     }
@@ -745,7 +749,10 @@ export function createHashHistory(
     );
 
     if (allowTx(nextAction, nextLocation, retry)) {
-      let [historyState, url] = getHistoryStateAndUrl(nextLocation, index + 1);
+      const [historyState, url] = getHistoryStateAndUrl(
+        nextLocation,
+        index + 1,
+      );
 
       // TODO: Support forced reloading
       // try...catch because iOS limits us to 100 pushState calls :/
@@ -762,8 +769,8 @@ export function createHashHistory(
   }
 
   function replace(to: To, state?: any) {
-    let nextAction = Action.Replace;
-    let nextLocation = getNextLocation(to, state);
+    const nextAction = Action.Replace;
+    const nextLocation = getNextLocation(to, state);
     function retry() {
       replace(to, state);
     }
@@ -776,7 +783,7 @@ export function createHashHistory(
     );
 
     if (allowTx(nextAction, nextLocation, retry)) {
-      let [historyState, url] = getHistoryStateAndUrl(nextLocation, index);
+      const [historyState, url] = getHistoryStateAndUrl(nextLocation, index);
 
       // TODO: Support forced reloading
       globalHistory.replaceState(historyState, "", url);
@@ -789,7 +796,7 @@ export function createHashHistory(
     globalHistory.go(delta);
   }
 
-  let history: HashHistory = {
+  const history: HashHistory = {
     get action() {
       return action;
     },
@@ -810,7 +817,7 @@ export function createHashHistory(
       return listeners.push(listener);
     },
     block(blocker) {
-      let unblock = blockers.push(blocker);
+      const unblock = blockers.push(blocker);
 
       if (blockers.length === 1) {
         window.addEventListener(BeforeUnloadEventType, promptBeforeUnload);
@@ -856,9 +863,9 @@ export type MemoryHistoryOptions = {
 export function createMemoryHistory(
   options: MemoryHistoryOptions = {},
 ): MemoryHistory {
-  let { initialEntries = ["/"], initialIndex } = options;
-  let entries: Location[] = initialEntries.map((entry) => {
-    let location = readOnly<Location>({
+  const { initialEntries = ["/"], initialIndex } = options;
+  const entries: Location[] = initialEntries.map((entry) => {
+    const location = readOnly<Location>({
       pathname: "/",
       search: "",
       hash: "",
@@ -884,8 +891,8 @@ export function createMemoryHistory(
 
   let action = Action.Pop;
   let location = entries[index];
-  let listeners = createEvents<Listener>();
-  let blockers = createEvents<Blocker>();
+  const listeners = createEvents<Listener>();
+  const blockers = createEvents<Blocker>();
 
   function createHref(to: To) {
     return typeof to === "string" ? to : createPath(to);
@@ -915,8 +922,8 @@ export function createMemoryHistory(
   }
 
   function push(to: To, state?: any) {
-    let nextAction = Action.Push;
-    let nextLocation = getNextLocation(to, state);
+    const nextAction = Action.Push;
+    const nextLocation = getNextLocation(to, state);
     function retry() {
       push(to, state);
     }
@@ -936,8 +943,8 @@ export function createMemoryHistory(
   }
 
   function replace(to: To, state?: any) {
-    let nextAction = Action.Replace;
-    let nextLocation = getNextLocation(to, state);
+    const nextAction = Action.Replace;
+    const nextLocation = getNextLocation(to, state);
     function retry() {
       replace(to, state);
     }
@@ -956,9 +963,9 @@ export function createMemoryHistory(
   }
 
   function go(delta: number) {
-    let nextIndex = clamp(index + delta, 0, entries.length - 1);
-    let nextAction = Action.Pop;
-    let nextLocation = entries[nextIndex];
+    const nextIndex = clamp(index + delta, 0, entries.length - 1);
+    const nextAction = Action.Pop;
+    const nextLocation = entries[nextIndex];
     function retry() {
       go(delta);
     }
@@ -969,7 +976,7 @@ export function createMemoryHistory(
     }
   }
 
-  let history: MemoryHistory = {
+  const history: MemoryHistory = {
     get index() {
       return index;
     },
@@ -1067,16 +1074,16 @@ export function createPath({
  * @see https://github.com/remix-run/history/tree/main/docs/api-reference.md#parsepath
  */
 export function parsePath(path: string): Partial<Path> {
-  let parsedPath: Partial<Path> = {};
+  const parsedPath: Partial<Path> = {};
 
   if (path) {
-    let hashIndex = path.indexOf("#");
+    const hashIndex = path.indexOf("#");
     if (hashIndex >= 0) {
       parsedPath.hash = path.substr(hashIndex);
       path = path.substr(0, hashIndex);
     }
 
-    let searchIndex = path.indexOf("?");
+    const searchIndex = path.indexOf("?");
     if (searchIndex >= 0) {
       parsedPath.search = path.substr(searchIndex);
       path = path.substr(0, searchIndex);
