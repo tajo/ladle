@@ -20,12 +20,15 @@ export enum ControlType {
   Number = "number",
   Complex = "complex",
   Function = "function",
+  Radio = "radio",
+  Select = "select",
 }
 
 export type ControlState = {
   [key: string]: {
     description?: string;
     defaultValue?: any;
+    options?: string[];
     value: any;
     type?: ControlType;
   };

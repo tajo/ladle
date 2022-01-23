@@ -5,13 +5,15 @@ const Template: Story<{
   disabled: boolean;
   count: number;
   colors: string[];
+  variant: string;
+  size: string;
   getLabel: () => string;
-}> = ({ count, disabled, label, colors, getLabel }) => (
+}> = ({ count, disabled, label, colors, getLabel, variant, size }) => (
   <>
     <p>
       {Array.from(Array(count)).map((_, i) => (
         <button key={i} disabled={disabled}>
-          iiihaasd {label} {i}
+          iiihaasd {label} {i} {variant} {size}
         </button>
       ))}
     </p>
@@ -31,4 +33,15 @@ Second.args = {
   count: 2,
   colors: ["Red", "Blue"],
   getLabel: () => "Label",
+};
+Second.argTypes = {
+  variant: {
+    options: ["primary", "secondary"],
+    control: { type: "radio" },
+    defaultValue: "primary",
+  },
+  size: {
+    options: ["small", "medium", "big", "huuuuge"],
+    control: { type: "select" },
+  },
 };

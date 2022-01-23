@@ -218,6 +218,10 @@ body {
   color: var(--ladle-color-accent);
 }
 
+.ladle-controls-table td {
+  padding: 0.25em 1em 0.25em 0em;
+}
+
 .ladle-ring-wrapper {
   display: flex;
   align-items: center;

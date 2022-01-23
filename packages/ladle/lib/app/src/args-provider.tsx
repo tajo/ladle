@@ -43,6 +43,35 @@ const ArgsProvider: React.FC<{
         };
       }
     });
+    Object.keys(argTypes).forEach((argKey) => {
+      const argValue = argTypes[argKey];
+      if (!argValue.control || !argValue.control.type) {
+        throw new Error("argTypes should have control type specified");
+      }
+      if (
+        argValue.control.type !== "select" &&
+        argValue.control.type !== "radio"
+      ) {
+        throw new Error("only select and radio argTypes are supported now");
+      }
+      if (globalState.control[argKey]) {
+        controls[argKey] = {
+          type: globalState.control[argKey].type,
+          defaultValue: argValue.defaultValue || argValue.options[0],
+          value: globalState.control[argKey].value,
+          options: argValue.options,
+          description: "",
+        };
+      } else {
+        controls[argKey] = {
+          type: argValue.control.type,
+          defaultValue: argValue.defaultValue || argValue.options[0],
+          options: argValue.options,
+          value: argValue.defaultValue || argValue.options[0],
+          description: argValue.name || argKey,
+        };
+      }
+    });
     if (Object.keys(controls).length) {
       dispatch({ type: ActionType.UpdateControl, value: controls });
     }

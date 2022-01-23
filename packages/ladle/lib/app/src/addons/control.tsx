@@ -65,6 +65,24 @@ export const getQuery = (locationSearch: string) => {
             };
           } catch (e) {}
           break;
+        case "r":
+          controls[keyParts.slice(2).join("-")] = {
+            value: params[paramKey],
+            defaultValue: params[paramKey],
+            description: "",
+            options: [params[paramKey]],
+            type: ControlType.Radio,
+          };
+          break;
+        case "l":
+          controls[keyParts.slice(2).join("-")] = {
+            value: params[paramKey],
+            defaultValue: params[paramKey],
+            description: "",
+            options: [params[paramKey]],
+            type: ControlType.Select,
+          };
+          break;
         default:
           controls[keyParts.slice(2).join("-")] = {
             value: params[paramKey],
@@ -84,7 +102,78 @@ const Control: React.FC<{
   dispatch: React.Dispatch<GlobalAction>;
 }> = ({ controlKey, globalState, dispatch }) => {
   if (globalState.control[controlKey].type === ControlType.Function) {
-    return <p>{controlKey}: function</p>;
+    return (
+      <tr>
+        <td>{controlKey}</td>
+        <td>function</td>
+      </tr>
+    );
+  }
+  if (globalState.control[controlKey].type === ControlType.Radio) {
+    return (
+      <tr>
+        <td>{controlKey}</td>
+        <td>
+          {(globalState.control[controlKey].options || []).map((option) => (
+            <span key={option}>
+              <input
+                id={`${controlKey}-${option}`}
+                type="radio"
+                name={controlKey}
+                value={option}
+                onChange={(e) => {
+                  dispatch({
+                    type: ActionType.UpdateControl,
+                    value: {
+                      ...globalState.control,
+                      [controlKey]: {
+                        ...globalState.control[controlKey],
+                        value: e.target.value,
+                      },
+                    },
+                  });
+                }}
+                checked={globalState.control[controlKey].value === option}
+              />
+              <label htmlFor={`${controlKey}-${option}`}>{option}</label>
+            </span>
+          ))}
+        </td>
+      </tr>
+    );
+  }
+  if (globalState.control[controlKey].type === ControlType.Select) {
+    return (
+      <tr>
+        <td>
+          <label htmlFor={controlKey}>{controlKey}</label>
+        </td>
+        <td>
+          <select
+            id={controlKey}
+            value={globalState.control[controlKey].value}
+            onChange={(e) => {
+              dispatch({
+                type: ActionType.UpdateControl,
+                value: {
+                  ...globalState.control,
+                  [controlKey]: {
+                    ...globalState.control[controlKey],
+                    value: e.target.value,
+                  },
+                },
+              });
+            }}
+          >
+            {(globalState.control[controlKey].options || []).map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </td>
+      </tr>
+    );
   }
   if (globalState.control[controlKey].type === ControlType.Complex) {
     let stringValue = "";
@@ -94,10 +183,13 @@ const Control: React.FC<{
       stringValue = "Object/Array argument must be serializable.";
     }
     return (
-      <>
-        <p>{controlKey}</p>
-        <p>
+      <tr>
+        <td>
+          <label htmlFor={controlKey}>{controlKey}</label>
+        </td>
+        <td>
           <textarea
+            id={controlKey}
             defaultValue={stringValue}
             onChange={(e) => {
               let value = globalState.control[controlKey].value;
@@ -116,37 +208,42 @@ const Control: React.FC<{
               });
             }}
           />
-        </p>
-      </>
+        </td>
+      </tr>
     );
   }
   return (
-    <p>
-      {controlKey}
-      <input
-        type={getInputType(globalState.control[controlKey].type)}
-        value={globalState.control[controlKey].value}
-        checked={
-          globalState.control[controlKey].type === ControlType.Boolean &&
-          globalState.control[controlKey].value === true
-        }
-        onChange={(e) =>
-          dispatch({
-            type: ActionType.UpdateControl,
-            value: {
-              ...globalState.control,
-              [controlKey]: {
-                ...globalState.control[controlKey],
-                value: getInputValue(
-                  e.target,
-                  globalState.control[controlKey].type,
-                ),
+    <tr>
+      <td>
+        <label htmlFor={controlKey}>{controlKey}</label>
+      </td>
+      <td>
+        <input
+          id={controlKey}
+          type={getInputType(globalState.control[controlKey].type)}
+          value={globalState.control[controlKey].value}
+          checked={
+            globalState.control[controlKey].type === ControlType.Boolean &&
+            globalState.control[controlKey].value === true
+          }
+          onChange={(e) =>
+            dispatch({
+              type: ActionType.UpdateControl,
+              value: {
+                ...globalState.control,
+                [controlKey]: {
+                  ...globalState.control[controlKey],
+                  value: getInputValue(
+                    e.target,
+                    globalState.control[controlKey].type,
+                  ),
+                },
               },
-            },
-          })
-        }
-      />
-    </p>
+            })
+          }
+        />
+      </td>
+    </tr>
   );
 };
 
@@ -169,16 +266,22 @@ export const Button: React.FC<AddonProps> = ({ globalState, dispatch }) => {
           close={() => setOpen(false)}
           label="Toggle different controls to update the story."
         >
-          {Object.keys(globalState.control).map((controlKey) => {
-            return (
-              <Control
-                key={controlKey}
-                globalState={globalState}
-                dispatch={dispatch}
-                controlKey={controlKey}
-              />
-            );
-          })}
+          <table className="ladle-controls-table">
+            <tbody>
+              {Object.keys(globalState.control)
+                .sort()
+                .map((controlKey) => {
+                  return (
+                    <Control
+                      key={controlKey}
+                      globalState={globalState}
+                      dispatch={dispatch}
+                      controlKey={controlKey}
+                    />
+                  );
+                })}
+            </tbody>
+          </table>
         </Modal>
       </button>
     </li>

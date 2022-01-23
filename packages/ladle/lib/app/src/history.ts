@@ -62,6 +62,12 @@ export const getHref = (params: Partial<GlobalState>) => {
           case ControlType.Number:
             type = "n";
             break;
+          case ControlType.Radio:
+            type = "r";
+            break;
+          case ControlType.Select:
+            type = "l";
+            break;
           case ControlType.Complex:
             type = "c";
             value = encodeURI(JSON.stringify(arg.value));
