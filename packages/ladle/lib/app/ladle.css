@@ -222,6 +222,27 @@ body {
   padding: 0.25em 1em 0.25em 0em;
 }
 
+.ladle-controls-table input {
+  margin: 0;
+}
+
+.ladle-controls-table input[type="radio"] {
+  margin-right: 0.3em;
+}
+
+.ladle-controls-table span {
+  margin-right: 1em;
+}
+
+.ladle-controls-table select {
+  min-width: 177px;
+}
+
+.ladle-controls-table textarea {
+  min-width: 172px;
+  min-height: 3em;
+}
+
 .ladle-ring-wrapper {
   display: flex;
   align-items: center;

@@ -23,9 +23,10 @@ const AddonPanel: React.FC<{
   return (
     <aside className="ladle-addons">
       <ul>
-        {config.addons.control.enabled && (
-          <ControlButton globalState={globalState} dispatch={dispatch} />
-        )}
+        {config.addons.control.enabled &&
+          Object.keys(globalState.control).length > 0 && (
+            <ControlButton globalState={globalState} dispatch={dispatch} />
+          )}
         {config.addons.theme.enabled && (
           <ThemeButton globalState={globalState} dispatch={dispatch} />
         )}
