@@ -4,13 +4,19 @@ import Story from "./story";
 import NoStories from "./no-stories";
 import Navigation from "./sidebar/main";
 import AddonPanel from "./addon-panel";
-import { modifyParams, history } from "./history";
+import { modifyParams, history, Action } from "./history";
 import reducer from "./reducer";
-import { ModeState, GlobalState, ActionType } from "../../shared/types";
+import {
+  ModeState,
+  GlobalState,
+  ActionType,
+  ControlState,
+} from "../../shared/types";
 import debug from "./debug";
 import { getQuery as getQueryTheme } from "./addons/theme";
 import { getQuery as getQueryMode } from "./addons/mode";
 import { getQuery as getQueryRtl } from "./addons/rtl";
+import { getQuery as getQueryControl } from "./addons/control";
 import { Context } from "./context";
 import {
   getQueryStory,
@@ -27,6 +33,7 @@ const getUrlState = (search: string): GlobalState => ({
   mode: getQueryMode(search),
   story: getQueryStory(search),
   rtl: getQueryRtl(search),
+  control: getQueryControl(search),
 });
 
 const App: React.FC<{}> = () => {
@@ -47,6 +54,7 @@ const App: React.FC<{}> = () => {
       rtl: globalState.rtl,
       story: globalState.story,
       theme: globalState.theme,
+      control: globalState.control,
     });
     if (globalState.story !== prevGlobalState.story) {
       document.title = `${storyIdToTitle(globalState.story)} | Ladle`;
@@ -75,20 +83,33 @@ const App: React.FC<{}> = () => {
 
   // handle go back/forward browser buttons
   React.useEffect(() => {
-    // @ts-ignore
-    const unlisten = history.listen((location, action) => {
-      if (action === "POP") {
+    const unlisten = history.listen(({ location, action }) => {
+      if (action === Action.Pop) {
+        const controls: ControlState = {};
+        Object.keys(globalState.control).forEach((control) => {
+          const urlControl = getUrlState(location.search).control[control];
+          controls[control] = {
+            ...globalState.control[control],
+            value: urlControl
+              ? urlControl.value
+              : globalState.control[control].defaultValue,
+          };
+        });
         dispatch({
           type: ActionType.UpdateAll,
-          value: getUrlState(location.search),
+          value: { ...getUrlState(location.search), control: controls },
         });
       }
     });
     return () => unlisten();
-  });
+  }, [globalState]);
 
   if (globalState.mode === ModeState.Preview) {
-    return <Story globalState={globalState} dispatch={dispatch} />;
+    return (
+      <Context.Provider value={{ globalState, dispatch }}>
+        <Story globalState={globalState} dispatch={dispatch} />
+      </Context.Provider>
+    );
   }
   return (
     <Context.Provider value={{ globalState, dispatch }}>

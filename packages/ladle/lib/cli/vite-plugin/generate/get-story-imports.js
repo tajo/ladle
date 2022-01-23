@@ -11,11 +11,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
  */
 const getStoryImports = (entryData) => {
   let storyImports = `import { lazy, createElement, Fragment } from "react";\n`;
-  storyImports += `import composeDecorators from "../src/compose-decorators";\n`;
+  storyImports += `import composeEnhancers from "../src/compose-enhancers";\n`;
   const lazyImport = /** @type {any} */ (template).default(`
     const %%component%% = lazy(() =>
      import(%%source%%).then((module) => {
-        return { default: composeDecorators(module, %%story%%) };
+        return { default: composeEnhancers(module, %%story%%) };
       })
     );
   `);

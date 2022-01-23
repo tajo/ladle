@@ -32,7 +32,7 @@ export const Opo2 = () => {
   const [val, setVal] = useState(true);
   return (
     <div>
-      <h1>opo Middle Muhaha tada</h1>
+      <h1>coze opo Middle Muhaha tadaokok opsops</h1>
       <input />
       <button onClick={() => setVal(false)}>
         button {val ? "true" : "false"}
