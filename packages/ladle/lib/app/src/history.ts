@@ -7,6 +7,7 @@ import config from "./get-config";
 import debug from "./debug";
 
 export const history = createBrowserHistory();
+export { Action } from "../deps/history";
 
 const removeDefaultValues = (params: Partial<GlobalState>) => {
   Object.keys(params).forEach((key) => {
@@ -40,7 +41,9 @@ export const modifyParams = (params: Partial<GlobalState>) => {
     debug("No URL updated needed");
     return;
   }
-  history.push(getHref(params));
+  if (location.search !== getHref(params)) {
+    history.push(getHref(params));
+  }
 };
 
 export const getHref = (params: Partial<GlobalState>) => {
