@@ -163,7 +163,7 @@ export type Config = {
     };
     rtl: {
       enabled: boolean;
-      defaultState: false;
+      defaultState: boolean;
     };
     ladle: {
       enabled: boolean;
