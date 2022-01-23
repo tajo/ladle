@@ -243,6 +243,10 @@ body {
   min-height: 3em;
 }
 
+.ladle-controls-table {
+  margin-bottom: 1em;
+}
+
 .ladle-ring-wrapper {
   display: flex;
   align-items: center;

@@ -8,6 +8,7 @@ import {
   ControlType,
   GlobalState,
   GlobalAction,
+  ControlState,
 } from "../../../shared/types";
 
 const getInputType = (type?: ControlType) => {
@@ -257,6 +258,7 @@ export const Button: React.FC<AddonProps> = ({ globalState, dispatch }) => {
         title={text}
         onClick={() => setOpen(true)}
         className={open ? "ladle-active" : ""}
+        data-testid="addon-control"
       >
         <Controls />
         <span className="ladle-addon-tooltip">{text}</span>
@@ -282,6 +284,23 @@ export const Button: React.FC<AddonProps> = ({ globalState, dispatch }) => {
                 })}
             </tbody>
           </table>
+          <button
+            onClick={() => {
+              const controls: ControlState = {};
+              Object.keys(globalState.control).forEach((control) => {
+                controls[control] = {
+                  ...globalState.control[control],
+                  value: globalState.control[control].defaultValue,
+                };
+              });
+              dispatch({
+                type: ActionType.UpdateControl,
+                value: controls,
+              });
+            }}
+          >
+            Reset to defaults
+          </button>
         </Modal>
       </button>
     </li>
