@@ -1,6 +1,6 @@
 import type { Story } from "@ladle/react";
 
-const Template: Story<{
+export const AllControls: Story<{
   label: string;
   disabled: boolean;
   count: number;
@@ -13,7 +13,7 @@ const Template: Story<{
     <p>
       {Array.from(Array(count)).map((_, i) => (
         <button key={i} disabled={disabled}>
-          iiihaasd {label} {i} {variant} {size}
+          Label: {label} {i} {variant} {size}
         </button>
       ))}
     </p>
@@ -22,19 +22,14 @@ const Template: Story<{
   </>
 );
 
-export function FnBtn() {
-  return <button>FnButton</button>;
-}
-
-export const Second = Template.bind({});
-Second.args = {
+AllControls.args = {
   label: "My Button",
   disabled: false,
   count: 2,
   colors: ["Red", "Blue"],
   getLabel: () => "Label",
 };
-Second.argTypes = {
+AllControls.argTypes = {
   variant: {
     options: ["primary", "secondary"],
     control: { type: "radio" },

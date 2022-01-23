@@ -3,16 +3,16 @@
 exports[`Capital letters in story names converted into delimiters 1`] = `
 "
 import { lazy, createElement, Fragment } from \\"react\\";
-import composeDecorators from \\"../src/compose-decorators\\";
+import composeEnhancers from \\"../src/compose-enhancers\\";
 
 const capitalization$$blue$tiny$cat = lazy(() => import(\\"../../../tests/fixtures/capitalization.stories.tsx\\").then(module => {
   return {
-    default: composeDecorators(module, \\"BlueTinyCat\\")
+    default: composeEnhancers(module, \\"BlueTinyCat\\")
   };
 }));
 const capitalization$$big$barking$dog = lazy(() => import(\\"../../../tests/fixtures/capitalization.stories.tsx\\").then(module => {
   return {
-    default: composeDecorators(module, \\"BigBarkingDog\\")
+    default: composeEnhancers(module, \\"BigBarkingDog\\")
   };
 }));
 export let stories = {
@@ -45,11 +45,11 @@ if (import.meta.hot) {
 exports[`Capital letters in the filename converted into delimiters 1`] = `
 "
 import { lazy, createElement, Fragment } from \\"react\\";
-import composeDecorators from \\"../src/compose-decorators\\";
+import composeEnhancers from \\"../src/compose-enhancers\\";
 
 const filename$capitalization$$test = lazy(() => import(\\"../../../tests/fixtures/filenameCapitalization.stories.tsx\\").then(module => {
   return {
-    default: composeDecorators(module, \\"Test\\")
+    default: composeEnhancers(module, \\"Test\\")
   };
 }));
 export let stories = {
@@ -79,11 +79,11 @@ if (import.meta.hot) {
 exports[`Default title is used instead of the file name 1`] = `
 "
 import { lazy, createElement, Fragment } from \\"react\\";
-import composeDecorators from \\"../src/compose-decorators\\";
+import composeEnhancers from \\"../src/compose-enhancers\\";
 
 const title$$cat = lazy(() => import(\\"../../../tests/fixtures/default-title.stories.tsx\\").then(module => {
   return {
-    default: composeDecorators(module, \\"Cat\\")
+    default: composeEnhancers(module, \\"Cat\\")
   };
 }));
 export let stories = {
@@ -113,16 +113,16 @@ if (import.meta.hot) {
 exports[`Extract and merge story meta 1`] = `
 "
 import { lazy, createElement, Fragment } from \\"react\\";
-import composeDecorators from \\"../src/compose-decorators\\";
+import composeEnhancers from \\"../src/compose-enhancers\\";
 
 const title$$cat = lazy(() => import(\\"../../../tests/fixtures/story-meta.stories.tsx\\").then(module => {
   return {
-    default: composeDecorators(module, \\"Cat\\")
+    default: composeEnhancers(module, \\"Cat\\")
   };
 }));
 const title$$dog = lazy(() => import(\\"../../../tests/fixtures/story-meta.stories.tsx\\").then(module => {
   return {
-    default: composeDecorators(module, \\"Dog\\")
+    default: composeEnhancers(module, \\"Dog\\")
   };
 }));
 export let stories = {
@@ -175,11 +175,11 @@ if (import.meta.hot) {
 exports[`Extract default meta 1`] = `
 "
 import { lazy, createElement, Fragment } from \\"react\\";
-import composeDecorators from \\"../src/compose-decorators\\";
+import composeEnhancers from \\"../src/compose-enhancers\\";
 
 const title$$cat = lazy(() => import(\\"../../../tests/fixtures/default-meta.stories.tsx\\").then(module => {
   return {
-    default: composeDecorators(module, \\"Cat\\")
+    default: composeEnhancers(module, \\"Cat\\")
   };
 }));
 export let stories = {
@@ -217,16 +217,16 @@ if (import.meta.hot) {
 exports[`Single file with two stories 1`] = `
 "
 import { lazy, createElement, Fragment } from \\"react\\";
-import composeDecorators from \\"../src/compose-decorators\\";
+import composeEnhancers from \\"../src/compose-enhancers\\";
 
 const animals$$cat = lazy(() => import(\\"../../../tests/fixtures/animals.stories.tsx\\").then(module => {
   return {
-    default: composeDecorators(module, \\"Cat\\")
+    default: composeEnhancers(module, \\"Cat\\")
   };
 }));
 const animals$$dog = lazy(() => import(\\"../../../tests/fixtures/animals.stories.tsx\\").then(module => {
   return {
-    default: composeDecorators(module, \\"Dog\\")
+    default: composeEnhancers(module, \\"Dog\\")
   };
 }));
 export let stories = {
@@ -259,21 +259,21 @@ if (import.meta.hot) {
 exports[`Story name replaces named export as a story name 1`] = `
 "
 import { lazy, createElement, Fragment } from \\"react\\";
-import composeDecorators from \\"../src/compose-decorators\\";
+import composeEnhancers from \\"../src/compose-enhancers\\";
 
 const storyname$$doggo = lazy(() => import(\\"../../../tests/fixtures/storyname.stories.tsx\\").then(module => {
   return {
-    default: composeDecorators(module, \\"Cat\\")
+    default: composeEnhancers(module, \\"Cat\\")
   };
 }));
 const storyname$$capital$city = lazy(() => import(\\"../../../tests/fixtures/storyname.stories.tsx\\").then(module => {
   return {
-    default: composeDecorators(module, \\"CapitalCity\\")
+    default: composeEnhancers(module, \\"CapitalCity\\")
   };
 }));
 const storyname$$champs$élysées = lazy(() => import(\\"../../../tests/fixtures/storyname.stories.tsx\\").then(module => {
   return {
-    default: composeDecorators(module, \\"CapitalReplaced\\")
+    default: composeEnhancers(module, \\"CapitalReplaced\\")
   };
 }));
 export let stories = {
@@ -309,11 +309,11 @@ if (import.meta.hot) {
 exports[`Turn file name delimiters into spaces and levels correctly 1`] = `
 "
 import { lazy, createElement, Fragment } from \\"react\\";
-import composeDecorators from \\"../src/compose-decorators\\";
+import composeEnhancers from \\"../src/compose-enhancers\\";
 
 const our$animals$$mammals$$cat = lazy(() => import(\\"../../../tests/fixtures/our-animals--mammals.stories.tsx\\").then(module => {
   return {
-    default: composeDecorators(module, \\"Cat\\")
+    default: composeEnhancers(module, \\"Cat\\")
   };
 }));
 export let stories = {
