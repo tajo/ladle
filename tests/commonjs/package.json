@@ -8,8 +8,8 @@
     "serve-prod": "http-server build -c-1 -s -p 61000",
     "build": "(cd ../../packages/ladle; ./build-cjs.sh) && ../../packages/ladle/cjs/lib/cli/cli.js build",
     "lint": "echo 'no lint'",
-    "test-dev": "start-server-and-test serve 61000 'npx playwright test'",
-    "test-prod": "start-server-and-test serve-prod 61000 'npx playwright test'",
+    "test-dev": "start-server-and-test serve 61000 'PW_EXPERIMENTAL_TS_ESM=1 npx playwright test'",
+    "test-prod": "start-server-and-test serve-prod 61000 'PW_EXPERIMENTAL_TS_ESM=1 npx playwright test'",
     "test": "yarn test-prod && yarn test-dev"
   },
   "dependencies": {
