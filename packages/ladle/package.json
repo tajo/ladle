@@ -30,13 +30,13 @@
     "@babel/parser": "^7.16.12",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
     "@babel/preset-env": "^7.16.11",
-    "@babel/preset-flow": "^7.16.7",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
     "@babel/runtime": "^7.16.7",
     "@babel/template": "^7.16.7",
     "@babel/traverse": "^7.16.10",
     "@babel/types": "^7.16.8",
+    "@bunchtogether/vite-plugin-flow": "^1.0.1",
     "@vitejs/plugin-react": "^1.1.4",
     "commander": "^8.3.0",
     "debug": "^4.3.3",
@@ -83,5 +83,9 @@
       ".ts",
       ".tsx"
     ]
+  },
+  "volta": {
+    "node": "16.12.0",
+    "yarn": "1.22.15"
   }
 }
