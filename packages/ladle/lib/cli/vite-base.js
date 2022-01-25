@@ -2,6 +2,7 @@ import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import react from "@vitejs/plugin-react";
 import ladlePlugin from "./vite-plugin/vite-plugin.js";
+// @ts-ignore
 import { flowPlugin, esbuildFlowPlugin } from "@bunchtogether/vite-plugin-flow";
 
 /**

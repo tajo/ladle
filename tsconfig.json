@@ -27,5 +27,5 @@
     "isolatedModules": true
   },
   "include": ["packages/*/lib/**/*", "packages/*/src/**/*"],
-  "exclude": ["packages/website/**"]
+  "exclude": ["packages/website/**", "packages/example/src/button.stories.js"]
 }
