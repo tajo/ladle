@@ -1,10 +1,8 @@
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import react from "@vitejs/plugin-react";
-import { createRequire } from "module";
 import ladlePlugin from "./vite-plugin/vite-plugin.js";
-
-const require = createRequire(import.meta.url);
+import { flowPlugin, esbuildFlowPlugin } from "@bunchtogether/vite-plugin-flow";
 
 /**
  * @param ladleConfig {import("../shared/types").Config}
@@ -28,16 +26,17 @@ const getBaseViteConfig = (ladleConfig, configFolder, viteConfig) => {
     },
     cacheDir: join(process.cwd(), "node_modules/.vite"),
     optimizeDeps: {
+      esbuildOptions: {
+        plugins: [esbuildFlowPlugin()],
+      },
       include: ["react", "react-dom"],
     },
     plugins: [
+      flowPlugin(),
       ladlePlugin(ladleConfig, configFolder),
       react({
         babel: {
-          presets: [
-            require.resolve("@babel/preset-flow"),
-            ...ladleConfig.babelPresets,
-          ],
+          presets: ladleConfig.babelPresets,
           plugins: ladleConfig.babelPlugins,
           compact: true,
         },
