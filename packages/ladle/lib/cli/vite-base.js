@@ -23,6 +23,9 @@ const getBaseViteConfig = (ladleConfig, configFolder, viteConfig) => {
     define: {
       __BROWSER__: true,
       __NODE__: false,
+      process: {
+        env: {},
+      },
       ...(viteConfig.define ? viteConfig.define : {}),
     },
     cacheDir: join(process.cwd(), "node_modules/.vite"),

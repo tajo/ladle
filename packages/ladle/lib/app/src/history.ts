@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { createBrowserHistory } from "../deps/history";
-import queryString from "../deps/query-string";
+import { createBrowserHistory } from "history";
+import queryString from "query-string";
 import type { GlobalState } from "../../shared/types";
 import { ControlType } from "../../shared/types";
 import config from "./get-config";
 import debug from "./debug";
 
 export const history = createBrowserHistory();
-export { Action } from "../deps/history";
+export { Action } from "history";
 
 const removeDefaultValues = (params: Partial<GlobalState>) => {
   Object.keys(params).forEach((key) => {

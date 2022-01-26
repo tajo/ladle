@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Controls } from "../icons";
 import { Modal } from "../ui";
-import queryString from "../../deps/query-string";
+import queryString from "query-string";
 import type { AddonProps } from "../../../shared/types";
 import {
   ActionType,
@@ -50,7 +50,7 @@ export const getQuery = (locationSearch: string) => {
           break;
         case "n":
           controls[keyParts.slice(2).join("-")] = {
-            value: parseInt(params[paramKey], 10),
+            value: parseInt(params[paramKey] as string, 10),
             defaultValue: undefined,
             description: "",
             type: ControlType.Number,
@@ -59,7 +59,7 @@ export const getQuery = (locationSearch: string) => {
         case "c":
           try {
             controls[keyParts.slice(2).join("-")] = {
-              value: JSON.parse(decodeURI(params[paramKey])),
+              value: JSON.parse(decodeURI(params[paramKey] as string)),
               defaultValue: undefined,
               description: "",
               type: ControlType.Complex,

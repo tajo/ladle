@@ -1,5 +1,5 @@
 import * as React from "react";
-import queryString from "../../deps/query-string";
+import queryString from "query-string";
 import { Bulb } from "../icons";
 import { ThemeState, AddonProps, ActionType } from "../../../shared/types";
 

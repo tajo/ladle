@@ -1,4 +1,4 @@
-import debug from "../deps/debug";
+import debug from "debug";
 
 // @ts-ignore
 export default debug("ladle");
