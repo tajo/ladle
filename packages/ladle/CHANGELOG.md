@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.2](https://github.com/tajo/ladle/compare/@ladle/react@0.6.1...@ladle/react@0.6.2) (2022-01-26)
+
+
+### Bug Fixes
+
+* remove inlined deps ([#40](https://github.com/tajo/ladle/issues/40)) ([b212114](https://github.com/tajo/ladle/commit/b212114325f89301269f8eb8d4a05ee9ec2353f7))
+
+
+
+
+
 ## [0.6.1](https://github.com/tajo/ladle/compare/@ladle/react@0.6.0...@ladle/react@0.6.1) (2022-01-25)
 
 
