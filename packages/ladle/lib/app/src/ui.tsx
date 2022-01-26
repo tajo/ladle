@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Dialog } from "../deps/reach-dialog";
+import { Dialog } from "@reach/dialog";
 import { Close } from "./icons";
 
 export const Button: React.FC<{

@@ -1,5 +1,5 @@
 import * as React from "react";
-import queryString from "../../deps/query-string";
+import queryString from "query-string";
 import { Rtl } from "../icons";
 import { AddonProps, ActionType } from "../../../shared/types";
 import config from "../get-config";
