@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4](https://github.com/tajo/ladle/compare/example@0.2.3...example@0.2.4) (2022-03-01)
+
+
+### Bug Fixes
+
+* flow removal ([#42](https://github.com/tajo/ladle/issues/42)) ([a383430](https://github.com/tajo/ladle/commit/a383430143644634c5e7e87f3e4b99bbd97bb171))
+
+
+
+
+
 ## [0.2.3](https://github.com/tajo/ladle/compare/example@0.2.2...example@0.2.3) (2022-03-01)
 
 **Note:** Version bump only for package example
