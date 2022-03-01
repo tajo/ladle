@@ -1252,14 +1252,6 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bunchtogether/vite-plugin-flow@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@bunchtogether/vite-plugin-flow/-/vite-plugin-flow-1.0.2.tgz#6879dcf1eddd91dad9b32dfe23bdbf0410c88a55"
-  integrity sha512-s6ixVp0GVTIYE5IWzSNi1GJ8Y0HZa0C0qYTneufkG5ppVD9slW/z0VUj7NGQ0EFHNTWKfKIUFr5xbwoH3WUXZg==
-  dependencies:
-    flow-remove-types "^2.158.0"
-    rollup-pluginutils "^2.8.2"
-
 "@docsearch/css@3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@docsearch/css/-/css-3.0.0.tgz#fe57b474802ffd706d3246eab25d52fac8aa3698"
@@ -6476,7 +6468,7 @@ flow-parser@^0.172.0:
   resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.172.0.tgz#9f5ee62ebf6bad689d5de0b6b98445d8cf030a2f"
   integrity sha512-WWqgvuJgD9Y1n2su9D73m0g5kQ4XVl8Dwk6DeW5V6bjt4XMtVLzSHg35s3iiZOvShY+7w7l8FzlK81PGXRcIYQ==
 
-flow-remove-types@^2.158.0:
+flow-remove-types@^2.172.0:
   version "2.172.0"
   resolved "https://registry.yarnpkg.com/flow-remove-types/-/flow-remove-types-2.172.0.tgz#b8897ef1b121aa100a75572902461ee0b2a09466"
   integrity sha512-EfHtwB48kgwQnU1ucNWVmEh+z2ubek9NWLkNb+9djaxRYijHl/YhuGut590ObHlz1wPaimUZcNyGi3kjBfSWZw==
