@@ -27,5 +27,9 @@
     "isolatedModules": true
   },
   "include": ["packages/*/lib/**/*", "packages/*/src/**/*"],
-  "exclude": ["packages/website/**", "packages/example/src/button.stories.js"]
+  "exclude": [
+    "packages/website/**",
+    "packages/example/src/button.stories.js",
+    "packages/example/src/flow-types.js"
+  ]
 }

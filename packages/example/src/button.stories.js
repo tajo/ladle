@@ -1,5 +1,6 @@
 // @flow
 import * as React from "react";
+export type * from "./flow-types.js";
 
 type Rest = $ReadOnlyArray<any>;
 type Callback = (...Rest) => Promise<mixed>;
