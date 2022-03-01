@@ -1,14 +1,14 @@
 import { test, expect } from "@playwright/test";
 
 test("default control values", async ({ page }) => {
-  await page.goto("http://localhost:61000/story=controls--controls");
+  await page.goto("http://localhost:61000/?story=controls--controls");
   await expect(page.locator("#content")).toHaveText(
     "Count: 2Disabled: noLabel: Hello worldColors: Red,BlueVariant: primarySize: small",
   );
 });
 
 test("boolean control works", async ({ page }) => {
-  await page.goto("http://localhost:61000/story=controls--controls");
+  await page.goto("http://localhost:61000/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
   const disabled = await page.locator("#disabled");
@@ -17,7 +17,7 @@ test("boolean control works", async ({ page }) => {
 });
 
 test("complex control works", async ({ page }) => {
-  await page.goto("http://localhost:61000/story=controls--controls");
+  await page.goto("http://localhost:61000/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.fill("textarea", '["Red","Pink"]');
@@ -25,7 +25,7 @@ test("complex control works", async ({ page }) => {
 });
 
 test("number control works", async ({ page }) => {
-  await page.goto("http://localhost:61000/story=controls--controls");
+  await page.goto("http://localhost:61000/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.fill("#count", "5");
@@ -33,7 +33,7 @@ test("number control works", async ({ page }) => {
 });
 
 test("string control works", async ({ page }) => {
-  await page.goto("http://localhost:61000/story=controls--controls");
+  await page.goto("http://localhost:61000/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.fill("#label", "Hello me");
@@ -41,7 +41,7 @@ test("string control works", async ({ page }) => {
 });
 
 test("radio control works", async ({ page }) => {
-  await page.goto("http://localhost:61000/story=controls--controls");
+  await page.goto("http://localhost:61000/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.check("#variant-secondary");
@@ -49,7 +49,7 @@ test("radio control works", async ({ page }) => {
 });
 
 test("select control works", async ({ page }) => {
-  await page.goto("http://localhost:61000/story=controls--controls");
+  await page.goto("http://localhost:61000/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.selectOption("select#size", "big");
