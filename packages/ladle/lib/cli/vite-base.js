@@ -32,7 +32,17 @@ const getBaseViteConfig = (ladleConfig, configFolder, viteConfig) => {
       esbuildOptions: {
         plugins: [esbuildFlowPlugin()],
       },
-      include: ["react", "react-dom"],
+      include: [
+        "react",
+        "react-dom",
+        "classnames",
+        "debug",
+        "history",
+        "lodash.clonedeep",
+        "lodash.merge",
+        "query-string",
+        "@reach/dialog",
+      ],
     },
     plugins: [
       flowPlugin(),

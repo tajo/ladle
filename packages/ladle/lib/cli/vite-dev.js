@@ -30,6 +30,9 @@ const bundler = async (config, configFolder) => {
       server: {
         port: config.serve.port,
         open: config.serve.open,
+        fs: {
+          strict: false,
+        },
         middlewareMode: "html",
       },
     });
