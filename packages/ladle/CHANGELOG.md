@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/tajo/ladle/compare/@ladle/react@0.6.5...@ladle/react@0.7.0) (2022-03-03)
+
+
+### Features
+
+* new experimental vite prebundling ([#44](https://github.com/tajo/ladle/issues/44)) ([2e07d7a](https://github.com/tajo/ladle/commit/2e07d7a67d6e0734bf2a7fc0a77b72876e4a8f92))
+
+
+
+
+
 ## [0.6.5](https://github.com/tajo/ladle/compare/@ladle/react@0.6.4...@ladle/react@0.6.5) (2022-03-02)
 
 
