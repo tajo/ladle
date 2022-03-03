@@ -13,6 +13,9 @@ export default {
   babelPresets: [],
   babelPlugins: [],
   define: {},
+  optimizeDeps: {
+    include: [],
+  },
   addons: {
     control: {
       enabled: true,

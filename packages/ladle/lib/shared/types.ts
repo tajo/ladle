@@ -149,6 +149,9 @@ export type Config = {
   babelPlugins: any[];
   babelPresets: any[];
   define: { [key: string]: string };
+  optimizeDeps: {
+    include: string[];
+  };
   addons: {
     control: {
       enabled: boolean;
