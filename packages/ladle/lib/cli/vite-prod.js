@@ -1,4 +1,4 @@
-import { build } from "vite";
+import { build } from "@miksu/vite";
 import path from "path";
 import getBaseViteConfig from "./vite-base.js";
 

@@ -1,4 +1,4 @@
-import { createServer } from "vite";
+import { createServer } from "@miksu/vite";
 import express from "express";
 import getPort from "get-port";
 import globby from "globby";
