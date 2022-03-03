@@ -2,6 +2,7 @@ import { createServer } from "@miksu/vite";
 import express from "express";
 import getPort from "get-port";
 import globby from "globby";
+import boxen from "boxen";
 import open from "open";
 import debug from "./debug.js";
 import getBaseViteConfig from "./vite-base.js";
@@ -22,11 +23,9 @@ const bundler = async (config, configFolder) => {
     /**
      * @type {import('@miksu/vite').InlineConfig}
      */
-    const viteConfig = getBaseViteConfig(config, configFolder, {
+    const viteConfig = await getBaseViteConfig(config, configFolder, {
       mode: "development",
-      define: {
-        __DEV__: true,
-      },
+      define: config.serve.define,
       server: {
         port: config.serve.port,
         open: config.serve.open,
@@ -45,13 +44,17 @@ const bundler = async (config, configFolder) => {
     });
     app.use(vite.middlewares);
     app.listen(port, async () => {
-      console.log("");
-      console.log("****************************************************");
-      console.log("");
-      console.log(`      Ladle served at http://localhost:${port}`);
-      console.log("");
-      console.log("****************************************************");
-      console.log("");
+      console.log(
+        boxen(`🥄 Ladle.dev served at http://localhost:${port}`, {
+          padding: 1,
+          margin: 1,
+          borderStyle: "round",
+          borderColor: "yellow",
+          titleAlignment: "center",
+          textAlignment: "center",
+        }),
+      );
+
       if (config.serve.open !== "none") {
         await open(
           `http://localhost:${port}`,

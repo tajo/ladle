@@ -148,6 +148,7 @@ export type Config = {
   defaultStory: string;
   babelPlugins: any[];
   babelPresets: any[];
+  define: { [key: string]: string };
   addons: {
     control: {
       enabled: boolean;
@@ -173,11 +174,13 @@ export type Config = {
     open: string;
     port: number;
     output: string;
+    define: { [key: string]: string };
   };
   build: {
     out: string;
     sourcemap: boolean | "hidden" | "inline" | undefined;
     baseUrl: string;
+    define: { [key: string]: string };
   };
 };
 
