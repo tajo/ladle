@@ -1,6 +1,5 @@
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
-import globby from "globby";
 import path from "path";
 import react from "@vitejs/plugin-react";
 import ladlePlugin from "./vite-plugin/vite-plugin.js";
@@ -12,10 +11,6 @@ import { flowPlugin, esbuildFlowPlugin } from "./strip-flow.js";
  * @param viteConfig {import('@miksu/vite').InlineConfig}
  */
 const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
-  // entries that vite crawls to find deps for pre-bundling
-  const entries = (await globby([ladleConfig.stories])).map((entry) =>
-    path.join(process.cwd(), entry),
-  );
   const __dirname = dirname(fileURLToPath(import.meta.url));
   /**
    * @type {import('@miksu/vite').InlineConfig}
@@ -44,8 +39,12 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         "lodash.merge",
         "query-string",
         "@reach/dialog",
+        ...ladleConfig.optimizeDeps.include,
       ],
-      entries,
+      entries: [
+        path.join(process.cwd(), ".ladle/components.js"),
+        path.join(process.cwd(), ".ladle/components.tsx"),
+      ],
     },
     plugins: [
       flowPlugin(),
