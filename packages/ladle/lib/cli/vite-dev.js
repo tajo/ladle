@@ -1,4 +1,4 @@
-import { createServer } from "vite";
+import { createServer } from "@miksu/vite";
 import express from "express";
 import getPort from "get-port";
 import globby from "globby";
@@ -20,7 +20,7 @@ const bundler = async (config, configFolder) => {
   debug(`Port set to: ${port}`);
   try {
     /**
-     * @type {import('vite').InlineConfig}
+     * @type {import('@miksu/vite').InlineConfig}
      */
     const viteConfig = getBaseViteConfig(config, configFolder, {
       mode: "development",

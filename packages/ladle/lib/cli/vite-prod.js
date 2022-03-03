@@ -1,4 +1,4 @@
-import { build } from "vite";
+import { build } from "@miksu/vite";
 import path from "path";
 import getBaseViteConfig from "./vite-base.js";
 
@@ -9,7 +9,7 @@ import getBaseViteConfig from "./vite-base.js";
 const viteProd = async (config, configFolder) => {
   try {
     /**
-     * @type {import('vite').InlineConfig}
+     * @type {import('@miksu/vite').InlineConfig}
      */
     const viteConfig = getBaseViteConfig(config, configFolder, {
       mode: "production",

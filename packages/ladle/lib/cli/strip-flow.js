@@ -7,7 +7,7 @@ const EXPORT_TYPES = /export\stype\s\*\sfrom\s[a-zA-Z0-9."\/\-_']+;/gm;
 
 /**
  * Create a Vite plugin object
- * @returns {import('vite').Plugin} Returns esbuild plugin object
+ * @returns {import('@miksu/vite').Plugin} Returns esbuild plugin object
  */
 export function flowPlugin(
   options /** {import('../shared/types').VitePluginOptions */ = {
