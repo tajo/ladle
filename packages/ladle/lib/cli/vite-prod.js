@@ -11,16 +11,14 @@ const viteProd = async (config, configFolder) => {
     /**
      * @type {import('@miksu/vite').InlineConfig}
      */
-    const viteConfig = getBaseViteConfig(config, configFolder, {
+    const viteConfig = await getBaseViteConfig(config, configFolder, {
       mode: "production",
-      define: {
-        __DEV__: false,
-      },
+      define: config.build.define,
       build: {
         outDir: path.join(process.cwd(), config.build.out),
         sourcemap: config.build.sourcemap,
         emptyOutDir: true,
-        chunkSizeWarningLimit: 750,
+        chunkSizeWarningLimit: 1024,
       },
     });
     await build(viteConfig);

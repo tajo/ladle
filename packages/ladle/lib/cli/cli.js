@@ -8,6 +8,8 @@ import build from "./build.js";
  */
 const strToInt = (n) => parseInt(n, 10);
 
+program.showHelpAfterError().showSuggestionAfterError();
+
 program
   .command("serve")
   .description("start developing")

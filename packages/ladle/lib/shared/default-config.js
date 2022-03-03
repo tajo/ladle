@@ -12,6 +12,7 @@ export default {
   defaultStory: "",
   babelPresets: [],
   babelPlugins: [],
+  define: {},
   addons: {
     control: {
       enabled: true,
@@ -39,10 +40,12 @@ export default {
     open: "**Default**",
     port: 61000,
     output: "dashboard",
+    define: {},
   },
   build: {
     out: "build",
     sourcemap: false,
     baseUrl: "/",
+    define: {},
   },
 };

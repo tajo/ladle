@@ -38,15 +38,6 @@ export function flowPlugin(
   };
 }
 
-const jsxRegex = /\.jsx$/;
-
-/**
- *
- * @param {string} path
- * @returns string
- */
-const defaultloaderFunction = (path) => (jsxRegex.test(path) ? "jsx" : "js");
-
 /**
  * Create an esbuild plugin object
  *
@@ -54,7 +45,6 @@ const defaultloaderFunction = (path) => (jsxRegex.test(path) ? "jsx" : "js");
  */
 export function esbuildFlowPlugin(
   filter = /\.(flow|jsx?)$/,
-  loaderFunction = defaultloaderFunction,
   flowOptions = {
     all: false,
     pretty: false,
@@ -79,7 +69,7 @@ export function esbuildFlowPlugin(
           const transformed = flowRemoveTypes(src, flowOptions);
           return {
             contents: transformed.toString().replace(EXPORT_TYPES, ""),
-            loader: loaderFunction(path),
+            loader: src.includes("@flow\n") ? "jsx" : "js",
           };
         } catch (error) {
           return {
