@@ -7,12 +7,12 @@ import { flowPlugin, esbuildFlowPlugin } from "./strip-flow.js";
 /**
  * @param ladleConfig {import("../shared/types").Config}
  * @param configFolder {string}
- * @param viteConfig {import('vite').InlineConfig}
+ * @param viteConfig {import('@miksu/vite').InlineConfig}
  */
 const getBaseViteConfig = (ladleConfig, configFolder, viteConfig) => {
   const __dirname = dirname(fileURLToPath(import.meta.url));
   /**
-   * @type {import('vite').InlineConfig}
+   * @type {import('@miksu/vite').InlineConfig}
    */
   const config = {
     ...viteConfig,
@@ -47,6 +47,7 @@ const getBaseViteConfig = (ladleConfig, configFolder, viteConfig) => {
     plugins: [
       flowPlugin(),
       ladlePlugin(ladleConfig, configFolder),
+      //@ts-ignore
       react({
         babel: {
           presets: ladleConfig.babelPresets,

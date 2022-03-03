@@ -20,7 +20,7 @@ const bundler = async (config, configFolder) => {
   debug(`Port set to: ${port}`);
   try {
     /**
-     * @type {import('vite').InlineConfig}
+     * @type {import('@miksu/vite').InlineConfig}
      */
     const viteConfig = getBaseViteConfig(config, configFolder, {
       mode: "development",
