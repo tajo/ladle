@@ -8,12 +8,12 @@ import { flowPlugin, esbuildFlowPlugin } from "./strip-flow.js";
 /**
  * @param ladleConfig {import("../shared/types").Config}
  * @param configFolder {string}
- * @param viteConfig {import('@miksu/vite').InlineConfig}
+ * @param viteConfig {import('vite').InlineConfig}
  */
 const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
   const __dirname = dirname(fileURLToPath(import.meta.url));
   /**
-   * @type {import('@miksu/vite').InlineConfig}
+   * @type {import('vite').InlineConfig}
    */
   const config = {
     ...viteConfig,

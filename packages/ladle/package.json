@@ -36,7 +36,6 @@
     "@babel/template": "^7.16.7",
     "@babel/traverse": "^7.17.3",
     "@babel/types": "^7.17.0",
-    "@miksu/vite": "^0.0.2",
     "@reach/dialog": "^0.16.2",
     "@vitejs/plugin-react": "^1.2.0",
     "boxen": "^5.1.2",
@@ -54,7 +53,7 @@
     "open": "^8.4.0",
     "query-string": "^7.1.1",
     "rollup-pluginutils": "^2.8.2",
-    "vite": "^2.8.6"
+    "vite": "^2.9.0-beta.0"
   },
   "peerDependencies": {
     "react": ">=16.14.0",
