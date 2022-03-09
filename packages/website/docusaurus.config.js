@@ -1,6 +1,6 @@
 module.exports = {
   title: "Ladle",
-  tagline: "Develop and test your React components faster.",
+  tagline: "Develop and test your React stories faster.",
   url: "https://www.ladle.dev",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -12,7 +12,7 @@ module.exports = {
     navbar: {
       title: "Ladle",
       logo: {
-        alt: "My Site Logo",
+        alt: "Ladle Logo",
         src: "img/logo.svg",
       },
       items: [

@@ -36,6 +36,31 @@
   color: #fff;
 }
 
+[data-theme="dark"] a {
+  color: #58a6ff;
+}
+
+[data-theme="dark"] a:hover {
+  color: #58a6ff;
+}
+.navbar__logo {
+  margin-right: 32px;
+}
+
+[data-theme="dark"] .navbar__logo > img {
+  filter: invert(1);
+}
+
 [data-theme="dark"] .navbar__brand > img {
   filter: invert(1);
+}
+
+.main-logo {
+  width: 75px;
+  filter: invert(1);
+  margin-right: 12px;
+}
+
+.features_src-pages-styles-module .container {
+  padding: 3rem;
 }
