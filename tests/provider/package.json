@@ -1,6 +1,6 @@
 {
   "name": "test-provider",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -13,7 +13,7 @@
     "test": "yarn test-dev && yarn test-prod"
   },
   "dependencies": {
-    "@ladle/react": "^0.8.0",
+    "@ladle/react": "^0.8.1",
     "@playwright/test": "^1.19.1",
     "http-server": "^14.1.0",
     "react": "^17.0.2",
