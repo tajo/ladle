@@ -58,3 +58,7 @@ mkdir src
 echo "export const World = () => <p>Hey</p>;" > src/hello.stories.tsx
 yarn ladle serve
 ```
+
+## StackBlitz
+
+You can also try ladle in your browser through our StackBlitz [template](https://stackblitz.com/edit/ladle).

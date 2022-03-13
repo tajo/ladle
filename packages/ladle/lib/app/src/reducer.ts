@@ -11,7 +11,7 @@ const reducer = (state: GlobalState, action: GlobalAction): GlobalState => {
     case ActionType.UpdateRtl:
       return { ...state, rtl: action.value };
     case ActionType.UpdateStory:
-      return { ...state, story: action.value };
+      return { ...state, story: action.value, control: {} };
     case ActionType.UpdateTheme:
       return { ...state, theme: action.value };
     case ActionType.UpdateControl:

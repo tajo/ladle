@@ -20,13 +20,7 @@ program
     "--open [string]",
     "open browser, e.g. chrome, firefox, safari. Set none to disable",
   )
-  .option("--output [string]", "console logging, e.g. dashboard or stream")
   .option("--config [string]", "folder where config is located, default .ladle")
-  .option(
-    "--mount [string]",
-    "additional folders where source code can be",
-    (str) => str.split(","),
-  )
   .action(serve);
 program
   .command("build")
@@ -37,11 +31,6 @@ program
   .option("--theme [string]", "theme light, dark or auto")
   .option("--base-url [string]", "when hosted in a sub-directory, default /")
   .option("--config [string]", "folder where config is located, default .ladle")
-  .option(
-    "--mount [string]",
-    "additional folders where source code can be",
-    (str) => str.split(","),
-  )
   .action(async (params) => {
     const success = await build(params);
     if (success) {
