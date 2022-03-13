@@ -24,6 +24,11 @@ module.exports = {
         },
         { to: "blog", label: "Blog", position: "left" },
         {
+          href: "https://discord.gg/H6FSHjyW7e",
+          label: "Discord",
+          position: "right",
+        },
+        {
           href: "https://github.com/tajo/ladle",
           label: "GitHub",
           position: "right",

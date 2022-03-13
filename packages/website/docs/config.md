@@ -1,14 +1,22 @@
-let root = "/";
-try {
-  root = process.cwd();
-} catch (e) {}
+---
+id: config
+title: Config
+---
 
-/**
- * @type {import('../shared/types').Config}
- */
+Ladle does not require any configuration and many features can be controlled through the CLI parameters. However, more advanced setups might require some configuration. In that case, you can add `.ladle/config.mjs` file:
+
+```tsx
+export default {
+  stories: "src/**/control.stories.{js,jsx,ts,tsx}",
+};
+```
+
+This would change the default glob that is used for story discovery. All settings you can change and their details:
+
+```tsx
 export default {
   stories: "src/**/*.stories.{js,jsx,ts,tsx}",
-  root,
+  root: process.cwd(),
   defaultStory: "", // default story id to load, alphabetical by default
   babelPresets: [],
   babelPlugins: [],
@@ -20,17 +28,15 @@ export default {
   addons: {
     control: {
       enabled: true,
-      defaultState: /** @type {import('../shared/types').ControlState} */ ({}),
+      defaultState: {},
     },
     theme: {
       enabled: true,
-      defaultState: /** @type {import('../shared/types').ThemeState} */ (
-        "light"
-      ),
+      defaultState: "light",
     },
     mode: {
       enabled: true,
-      defaultState: /** @type {import('../shared/types').ModeState} */ ("full"),
+      defaultState: "full",
     },
     rtl: {
       enabled: true,
@@ -52,3 +58,4 @@ export default {
     define: {}, // https://vitejs.dev/config/#define for prod build
   },
 };
+```

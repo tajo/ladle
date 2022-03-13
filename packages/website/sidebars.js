@@ -1,5 +1,15 @@
 module.exports = {
-  someSidebar: {
-    ["Basics"]: ["introduction", "setup", "features"],
-  },
+  someSidebar: [
+    "introduction",
+    "setup",
+    "stories",
+    "providers",
+    "links",
+    "addons",
+    "meta",
+    "cli",
+    "config",
+    "programmatic",
+    "troubleshooting",
+  ],
 };

@@ -90,11 +90,6 @@ export type StoryProps = {
   config: Config;
 };
 
-export enum Output {
-  Dashboard = "dashboard",
-  Stream = "stream",
-}
-
 export type StoryTreeItem = {
   id: string;
   subId: string;
@@ -120,7 +115,6 @@ export type DevParams = {
   theme?: ThemeState;
   babelPresets?: any[];
   babelPlugins?: any[];
-  output?: Output;
   open?: string;
   config?: string;
 };
@@ -176,7 +170,6 @@ export type Config = {
   serve: {
     open: string;
     port: number;
-    output: string;
     define: { [key: string]: string };
   };
   build: {

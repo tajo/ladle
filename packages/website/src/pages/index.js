@@ -81,8 +81,10 @@ function Home() {
             <img src="/img/logo.svg" alt="Ladle Logo" className="main-logo" />
             {siteConfig.title}
           </h1>
-
           <p className="hero__subtitle">{siteConfig.tagline}</p>
+          <div style={{ maxWidth: "660px", width: "100%", margin: "0px auto" }}>
+            <img src="/img/ladle-baseweb.png" alt="Ladle Environment" />
+          </div>
           <div className={styles.buttons}>
             <Link
               className={clsx(
@@ -102,6 +104,16 @@ function Home() {
               to="https://baseweb.netlify.app/"
             >
               Demo
+            </Link>
+            <Link
+              className={clsx(
+                "button button--outline button--secondary button--lg",
+                styles.getStarted,
+              )}
+              style={{ marginLeft: 16 }}
+              to="https://stackblitz.com/edit/ladle"
+            >
+              StackBlitz
             </Link>
           </div>
         </div>

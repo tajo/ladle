@@ -6,6 +6,8 @@ slug: /
 
 **Ladle is a drop-in alternative to <a href="https://storybook.js.org/">Storybook</a>**. It is a tool for developing and testing your React components in an environement that's isolated and faster than most real-world applications. Ladle also creates an index of your components so you can easily test them through tools like <a href="https://playwright.dev/">Playwright</a>.
 
+![Ladel Demo](/img/ladle-baseweb.png)
+
 ## Why? Performance!
 
 Ladle supports only React, embraces latest standards (ES Modules) and focuses on performance. It's built around [Vite](https://vitejs.dev/) - the modules are directly served to the browser and the bundling step is completely skipped. This means **instant server starts** no matter how many components it needs to load.
