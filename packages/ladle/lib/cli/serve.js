@@ -14,7 +14,6 @@ const serve = async (params = {}) => {
   debug(`CLI stories: ${params.stories}`);
   debug(`CLI port: ${params.port}`);
   debug(`CLI open: ${params.open}`);
-  debug(`CLI output: ${params.output}`);
 
   params.config = params.config || ".ladle";
   const configFolder = path.isAbsolute(params.config)
@@ -30,11 +29,6 @@ const serve = async (params = {}) => {
   config.root = params.root ? params.root : config.root;
   config.serve.port = params.port ? params.port : config.serve.port;
   config.serve.open = params.open ? params.open : config.serve.open;
-  config.serve.output = process.env.DEBUG
-    ? /** @type {import("../shared/types").Output}*/ ("stream")
-    : params.output
-    ? params.output
-    : config.serve.output;
   config.babelPlugins = params.babelPlugins
     ? params.babelPlugins
     : config.babelPlugins;
