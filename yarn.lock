@@ -13484,10 +13484,10 @@ vfile@^4.0.0:
     unist-util-stringify-position "^2.0.0"
     vfile-message "^2.0.0"
 
-vite@^2.9.0-beta.0:
-  version "2.9.0-beta.0"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-2.9.0-beta.0.tgz#e299ee78429581b4b3932e27ba711a20ccb939af"
-  integrity sha512-X3NCoHvxieh2UJJuRAQ7IzsYUmo+IKdmtgczXti9/tfbEwtW6EcLbvwTPOXlVX8fsV/MJTbhHb7G8NE/am1L2w==
+vite@^2.9.0-beta.2:
+  version "2.9.0-beta.2"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-2.9.0-beta.2.tgz#c4a8a1cd9d9e1d38e2c5dd7a4bad2f03726525a1"
+  integrity sha512-SSEO6lituUZkg4vblNxzESZS7TCVsTPdeApWYSJJwaZjacKdzGhvnj3oI6H2WbUmUePrenLtovehvcfCOeEcOg==
   dependencies:
     esbuild "^0.14.14"
     postcss "^8.4.6"
