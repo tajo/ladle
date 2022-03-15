@@ -36,7 +36,7 @@ We used [Base Web](https://baseweb.design/) to benchmark Ladle and latest Storyb
 
 ![BaseWeb stories compilation time](/img/compilation-time.svg)
 
-Both Ladle and Storybook utilize cache. The initial dev startup takes **6s vs 58s**. Once the cache is built, Ladle starts almost instantly (3s is just the browser tab being opened + time to interactive). Storybook awlays takes about 25s to start. The production build is about **4x faster** with Ladle.
+Both Ladle and Storybook utilize cache. The initial dev startup takes **6s vs 58s**. Once the cache is built, Ladle starts almost instantly (3s is just the browser tab being opened + time to interactive). Storybook always takes about 25s to start. The production build is about **4x faster** with Ladle.
 
 There is another improvement - **hot reload takes less than 100ms with Ladle** and preserves the state. Storybook takes about **2.5s** and doesn't preserve the state.
 
@@ -61,7 +61,7 @@ Ladle is a single package and command. It's easy to install and setup - there is
 
 ## Conclusion 🔮
 
-The new set of web tools is coming and brings huge performance wins. Ladle is using them to provide a significantly faster environment for developing, sharing and testing your React components. Are you ready to [give it a try](/docs)?
+The new set of web tools is coming and brings huge performance wins. Ladle is using them to provide a significantly faster environment for developing, sharing and testing your React components. Are you ready to [give it a try](/docs/setup)? Also, check our [GitHub](https://github.com/tajo/ladle) and give us ⭐.
 
 ```bash
 mkdir my-ladle
