@@ -56,7 +56,7 @@ module.exports = {
           showReadingTime: false,
           // Please change this to your repo.
           editUrl:
-            "https://github.com/tajo/ladle/edit/master/packages/website/blog/",
+            "https://github.com/tajo/ladle/edit/master/packages/website/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
