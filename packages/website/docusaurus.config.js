@@ -9,6 +9,7 @@ module.exports = {
   organizationName: "tajo", // Usually your GitHub org/user name.
   projectName: "ladle", // Usually your repo name.
   themeConfig: {
+    image: "img/ladle-baseweb.png",
     navbar: {
       title: "Ladle",
       logo: {
@@ -59,6 +60,10 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
+        },
+        googleAnalytics: {
+          trackingID: "UA-222922341-1",
+          anonymizeIP: true,
         },
       },
     ],
