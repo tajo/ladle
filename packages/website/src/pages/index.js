@@ -100,7 +100,6 @@ function Home() {
                 "button button--outline button--secondary button--lg",
                 styles.getStarted,
               )}
-              style={{ marginLeft: 16 }}
               to="https://baseweb.netlify.app/"
             >
               Demo
@@ -110,7 +109,6 @@ function Home() {
                 "button button--outline button--secondary button--lg",
                 styles.getStarted,
               )}
-              style={{ marginLeft: 16 }}
               to="https://stackblitz.com/edit/ladle"
             >
               StackBlitz
