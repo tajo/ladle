@@ -4,6 +4,7 @@ module.exports = {
     "setup",
     "stories",
     "providers",
+    "css",
     "links",
     "addons",
     "meta",

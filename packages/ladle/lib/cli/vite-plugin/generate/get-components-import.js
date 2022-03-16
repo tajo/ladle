@@ -43,7 +43,6 @@ const getComponents = (configFolder) => {
 
   let sourceCode = "";
   let filename = "";
-  let relativePath = "./components.js";
 
   if (componentsExistsJs) {
     sourceCode = fs.readFileSync(componentsPathJs, "utf8");

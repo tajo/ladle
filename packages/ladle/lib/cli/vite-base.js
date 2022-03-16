@@ -28,6 +28,9 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     css: {
       postcss: process.cwd(),
     },
+    resolve: {
+      alias: ladleConfig.resolve.alias,
+    },
     optimizeDeps: {
       esbuildOptions: {
         plugins: [esbuildFlowPlugin()],

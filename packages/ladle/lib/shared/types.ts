@@ -143,6 +143,9 @@ export type Config = {
   babelPlugins: any[];
   babelPresets: any[];
   define: { [key: string]: string };
+  resolve: {
+    alias: { [key: string]: string };
+  };
   optimizeDeps: {
     include: string[];
   };

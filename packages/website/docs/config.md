@@ -21,6 +21,9 @@ export default {
   babelPresets: [],
   babelPlugins: [],
   define: {}, // https://vitejs.dev/config/#define
+  resolve: {
+    alias: {}, // https://vitejs.dev/config/#resolve-alias
+  },
   optimizeDeps: {
     include: [], // https://vitejs.dev/config/#optimizedeps-include
   },
