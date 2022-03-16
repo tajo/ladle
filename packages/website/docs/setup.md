@@ -23,6 +23,12 @@ Let's create our first story: `src/hello.stories.tsx`:
 export const World = () => <p>Hey!</p>;
 ```
 
+If you use `.js` for your React components (JSX), you have to import React explicitly:
+
+```jsx
+import * as React from 'react';
+```
+
 ## Run and develop
 
 ```bash
