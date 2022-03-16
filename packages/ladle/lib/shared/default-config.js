@@ -13,6 +13,7 @@ export default {
   babelPresets: [],
   babelPlugins: [],
   define: {}, // https://vitejs.dev/config/#define
+  envPrefix: "VITE_",
   resolve: {
     alias: {}, // https://vitejs.dev/config/#resolve-alias
   },

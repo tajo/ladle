@@ -28,6 +28,8 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     css: {
       postcss: process.cwd(),
     },
+    envDir: process.cwd(),
+    envPrefix: ladleConfig.envPrefix,
     resolve: {
       alias: ladleConfig.resolve.alias,
     },
