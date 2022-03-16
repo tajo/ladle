@@ -62,5 +62,9 @@
 }
 
 .features_src-pages-styles-module .container {
-  padding: 3rem;
+  padding: 1rem 3rem;
+}
+
+.features_src-pages-styles-module h3 {
+  margin-top: 2rem;
 }

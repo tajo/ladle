@@ -25,6 +25,12 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
       ...(viteConfig.define ? viteConfig.define : {}),
     },
     cacheDir: join(process.cwd(), "node_modules/.vite"),
+    css: {
+      postcss: process.cwd(),
+    },
+    resolve: {
+      alias: ladleConfig.resolve.alias,
+    },
     optimizeDeps: {
       esbuildOptions: {
         plugins: [esbuildFlowPlugin()],
