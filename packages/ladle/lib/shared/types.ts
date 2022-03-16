@@ -143,6 +143,7 @@ export type Config = {
   babelPlugins: any[];
   babelPresets: any[];
   define: { [key: string]: string };
+  envPrefix: string | string[];
   resolve: {
     alias: { [key: string]: string };
   };

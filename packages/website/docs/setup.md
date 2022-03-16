@@ -61,4 +61,4 @@ yarn ladle serve
 
 ## StackBlitz
 
-You can also try ladle in your browser through our StackBlitz [template](https://stackblitz.com/edit/ladle).
+You can also try ladle in your browser through our StackBlitz [template](https://node.new/ladle).
