@@ -1,6 +1,6 @@
 {
-  "name": "test-decorators",
-  "version": "0.2.10",
+  "name": "test-css",
+  "version": "0.0.1",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -15,10 +15,13 @@
   "dependencies": {
     "@ladle/react": "^0.8.2",
     "@playwright/test": "^1.19.1",
+    "autoprefixer": "^10.4.3",
     "http-server": "^14.1.0",
+    "postcss": "^8.4.11",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "start-server-and-test": "^1.14.0"
+    "start-server-and-test": "^1.14.0",
+    "tailwindcss": "^3.0.23"
   },
   "volta": {
     "extends": "../../package.json"

@@ -57,19 +57,20 @@ const getComponents = (configFolder) => {
   }
 
   if (componentsExists || componentsExistsJs) {
+    const componentsRelativePath = path.relative(
+      path.join(__dirname, "../../../app/src"),
+      path.join(
+        configFolder,
+        componentsExists ? "components.tsx" : "components.js",
+      ),
+    );
     if (checkIfNamedExportExists("Provider", sourceCode, filename)) {
       debug(`Custom provider found.`);
-      return `import {Provider as CustomProvider} from '${path.relative(
-        path.join(__dirname, "../../../app/src"),
-        path.join(
-          configFolder,
-          componentsExists ? "components.tsx" : "components.js",
-        ),
-      )}';\nexport const Provider = CustomProvider;\n`;
+      return `import {Provider as CustomProvider} from '${componentsRelativePath}';\nexport const Provider = CustomProvider;\n`;
     }
     debug("components.tsx exists");
     debug(`Returning default no-op Provider.`);
-    return `import '${relativePath}';\n${noopProvider}`;
+    return `import '${componentsRelativePath}';\n${noopProvider}`;
   }
   debug(`Returning default no-op Provider.`);
   return noopProvider;
