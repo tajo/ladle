@@ -190,9 +190,10 @@ const NavigationSection: React.FC<{
                   href={getHref({ story: treeProps.id })}
                   onKeyDown={(e) => onKeyDownFn(e, treeProps)}
                   onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    updateStory(treeProps.id);
+                    if (!e.ctrlKey && !e.metaKey) {
+                      e.preventDefault();
+                      updateStory(treeProps.id);
+                    }
                   }}
                 >
                   {treeProps.name}
