@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.5](https://github.com/tajo/ladle/compare/@ladle/react@0.8.4...@ladle/react@0.8.5) (2022-03-18)
+
+
+### Bug Fixes
+
+* **ui:** allow meta/ctrl click on sidebar links ([#63](https://github.com/tajo/ladle/issues/63)) ([59b0f70](https://github.com/tajo/ladle/commit/59b0f7055df1d48e49b9ba4c109ce58e5b5331dc))
+
+
+
+
+
 ## [0.8.4](https://github.com/tajo/ladle/compare/@ladle/react@0.8.3...@ladle/react@0.8.4) (2022-03-16)
 
 **Note:** Version bump only for package @ladle/react
