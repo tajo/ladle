@@ -19,6 +19,10 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     ...viteConfig,
     configFile: false,
     root: join(__dirname, "../app/"),
+    publicDir:
+      ladleConfig.publicDir === false
+        ? ladleConfig.publicDir
+        : join(process.cwd(), ladleConfig.publicDir || 'public'),
     base: ladleConfig.build.baseUrl,
     define: {
       ...(ladleConfig.define ? ladleConfig.define : {}),
