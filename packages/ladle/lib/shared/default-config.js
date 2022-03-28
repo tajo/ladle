@@ -1,7 +1,7 @@
 import path from "path";
 
 let root = "/";
-let publicDir;
+let publicDir = "public";
 
 try {
   root = process.cwd();
