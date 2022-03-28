@@ -1,6 +1,11 @@
+import path from "path";
+
 let root = "/";
+let publicDir;
+
 try {
   root = process.cwd();
+  publicDir = path.join(process.cwd(), "public");
 } catch (e) {}
 
 /**
@@ -9,6 +14,7 @@ try {
 export default {
   stories: "src/**/*.stories.{js,jsx,ts,tsx}",
   root,
+  publicDir,
   defaultStory: "", // default story id to load, alphabetical by default
   babelPresets: [],
   babelPlugins: [],
