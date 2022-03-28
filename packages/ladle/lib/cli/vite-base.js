@@ -1,9 +1,24 @@
-import { dirname, join } from "path";
+import { dirname, isAbsolute, join } from "path";
 import { fileURLToPath } from "url";
 import path from "path";
 import react from "@vitejs/plugin-react";
 import ladlePlugin from "./vite-plugin/vite-plugin.js";
 import { flowPlugin, esbuildFlowPlugin } from "./strip-flow.js";
+
+/**
+ * @param publicDir {string | false}
+ */
+const getPublicDir = (publicDir) => {
+  if (!publicDir) {
+    return false;
+  }
+
+  if (isAbsolute(publicDir)) {
+    return publicDir;
+  }
+
+  return join(process.cwd(), publicDir || "public");
+};
 
 /**
  * @param ladleConfig {import("../shared/types").Config}
@@ -19,10 +34,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     ...viteConfig,
     configFile: false,
     root: join(__dirname, "../app/"),
-    publicDir:
-      ladleConfig.publicDir === false
-        ? ladleConfig.publicDir
-        : join(process.cwd(), ladleConfig.publicDir || 'public'),
+    publicDir: getPublicDir(ladleConfig.publicDir),
     base: ladleConfig.build.baseUrl,
     define: {
       ...(ladleConfig.define ? ladleConfig.define : {}),
