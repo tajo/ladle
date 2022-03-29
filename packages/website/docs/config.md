@@ -62,6 +62,7 @@ export default {
   defaultStory: "", // default story id to load, alphabetical by default
   babelPresets: [],
   babelPlugins: [],
+  vitePlugins: [],
   envPrefix: "VITE_", // can be a string or string[]
   define: {}, // https://vitejs.dev/config/#define
   resolve: {
