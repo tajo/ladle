@@ -10,21 +10,26 @@
     "lint": "eslint \"./packages/*/{lib,src}/**/*.{ts,tsx}\" --max-warnings=0",
     "test": "lerna run test --concurrency=1",
     "build": "lerna run build --stream",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "prepare": "husky install"
   },
   "workspaces": [
     "packages/*",
     "tests/*"
   ],
   "devDependencies": {
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.13.0",
     "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.2",
+    "husky": "^7.0.4",
     "lerna": "^4.0.0",
     "prettier": "^2.5.1",
+    "pretty-quick": "^3.1.3",
     "typescript": "^4.6.2"
   },
   "volta": {
