@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install -g yarn@1.22.15
-      - run: yarn install
+      - run: yarn install --frozen-lockfile
       - run: npx playwright install
       - run: yarn lint
       - run: yarn typecheck

@@ -2171,6 +2171,42 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@ladle/react@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@ladle/react/-/react-0.9.0.tgz#5bce45f61e4ede59cda1b2d00557188c17ded64b"
+  integrity sha512-Tzl9ESwxaZy9XLQaIsu2ZxTMkWY4c3eAjfkFQHUEtSf8qb35PByOWS12L5rJst2W54Tw6gtHI9UEslBwfdbvGA==
+  dependencies:
+    "@babel/code-frame" "^7.16.7"
+    "@babel/core" "^7.17.5"
+    "@babel/generator" "^7.17.3"
+    "@babel/parser" "^7.17.3"
+    "@babel/plugin-proposal-class-properties" "^7.16.7"
+    "@babel/preset-env" "^7.16.11"
+    "@babel/preset-react" "^7.16.7"
+    "@babel/preset-typescript" "^7.16.7"
+    "@babel/runtime" "^7.17.2"
+    "@babel/template" "^7.16.7"
+    "@babel/traverse" "^7.17.3"
+    "@babel/types" "^7.17.0"
+    "@reach/dialog" "^0.16.2"
+    "@vitejs/plugin-react" "^1.2.0"
+    boxen "^5.1.2"
+    classnames "^2.3.1"
+    commander "^8.3.0"
+    debug "^4.3.3"
+    express "^4.17.3"
+    flow-remove-types "^2.172.0"
+    get-port "^5.0.0"
+    globby "^11.0.4"
+    history "^5.3.0"
+    lodash.clonedeep "^4.5.0"
+    lodash.merge "^4.6.2"
+    micromatch "^4.0.4"
+    open "^8.4.0"
+    query-string "^7.1.1"
+    rollup-pluginutils "^2.8.2"
+    vite "^2.9.0-beta.3"
+
 "@lerna/add@4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-4.0.0.tgz#c36f57d132502a57b9e7058d1548b7a565ef183f"
@@ -14027,6 +14063,18 @@ vite@^2.9.0-beta.10:
   version "2.9.0-beta.10"
   resolved "https://registry.yarnpkg.com/vite/-/vite-2.9.0-beta.10.tgz#181cb4832a9565456cb4890bb353531fe10daad8"
   integrity sha512-CvAssYHcjWHGyxEUG+lt5KHWwL0VdUI9DlXnNnxkZqWlNpzcqxuU4V/mxOh83Eg71R8ya2BjA5yX1RwPijoKZA==
+  dependencies:
+    esbuild "^0.14.27"
+    postcss "^8.4.12"
+    resolve "^1.22.0"
+    rollup "^2.59.0"
+  optionalDependencies:
+    fsevents "~2.3.2"
+
+vite@^2.9.0-beta.3:
+  version "2.9.0-beta.11"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-2.9.0-beta.11.tgz#14dc41fd22c31a8051ee2f8eb1591fc68cd04051"
+  integrity sha512-i8yb/supnZIo17aIVSZxbSdy0z3soPAlTtls6iOGIn14yPxGeO56FblG/GqaETFDx08oYw0iIfnzK27xSlXcfg==
   dependencies:
     esbuild "^0.14.27"
     postcss "^8.4.12"

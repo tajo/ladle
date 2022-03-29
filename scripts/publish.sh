@@ -19,7 +19,6 @@ git config user.name "tajo"
 git remote set-url origin git@github.com:tajo/ladle.git
 
 git status
-git diff
 git rebase origin/master
 git fetch --unshallow --tags
 
