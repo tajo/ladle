@@ -34,45 +34,37 @@ const checkIfNamedExportExists = (namedExport, sourceCode, filename) => {
  */
 const getComponents = (configFolder) => {
   const noopProvider = `export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);\n`;
-  const componentsPath = path.join(configFolder, "components.tsx");
-  const componentsPathJs = path.join(configFolder, "components.js");
-  const componentsExists = fs.existsSync(componentsPath);
-  const componentsExistsJs = fs.existsSync(componentsPathJs);
-  componentsExists && debug(`${configFolder}/components.tsx found.`);
-  componentsExistsJs && debug(`${configFolder}/components.js found.`);
+  // order matters. if tsx isn't found, ts is going to be used, then jsx, then js.
+  const componentsPaths = [
+    path.join(configFolder, "components.tsx"),
+    path.join(configFolder, "components.ts"),
+    path.join(configFolder, "components.jsx"),
+    path.join(configFolder, "components.js"),
+  ];
+  const firstFoundComponentsPath = componentsPaths.find((componentsPath) =>
+    fs.existsSync(componentsPath));
 
-  let sourceCode = "";
-  let filename = "";
-
-  if (componentsExistsJs) {
-    sourceCode = fs.readFileSync(componentsPathJs, "utf8");
-    filename = "components.js";
-  }
-
-  // tsx > js
-  if (componentsExists) {
-    sourceCode = fs.readFileSync(componentsPath, "utf8");
-    filename = "components.tsx";
-  }
-
-  if (componentsExists || componentsExistsJs) {
-    const componentsRelativePath = path.relative(
-      path.join(__dirname, "../../../app/src"),
-      path.join(
-        configFolder,
-        componentsExists ? "components.tsx" : "components.js",
-      ),
-    );
-    if (checkIfNamedExportExists("Provider", sourceCode, filename)) {
-      debug(`Custom provider found.`);
-      return `import {Provider as CustomProvider} from '${componentsRelativePath}';\nexport const Provider = CustomProvider;\n`;
-    }
-    debug("components.tsx exists");
+  if (!firstFoundComponentsPath) {
     debug(`Returning default no-op Provider.`);
-    return `import '${componentsRelativePath}';\n${noopProvider}`;
+    return noopProvider;
   }
+
+  const sourceCode = fs.readFileSync(firstFoundComponentsPath, "utf8");
+  const filename = path.basename(firstFoundComponentsPath);
+
+  firstFoundComponentsPath && debug(`${configFolder}/${filename} found.`);
+
+  const componentsRelativePath = path.relative(
+    path.join(__dirname, "../../../app/src"),
+    path.join(configFolder, filename),
+  );
+  if (checkIfNamedExportExists("Provider", sourceCode, filename)) {
+    debug(`Custom provider found.`);
+    return `import {Provider as CustomProvider} from '${componentsRelativePath}';\nexport const Provider = CustomProvider;\n`;
+  }
+  debug(`Custom provider not found.`);
   debug(`Returning default no-op Provider.`);
-  return noopProvider;
+  return `import '${componentsRelativePath}';\n${noopProvider}`;
 };
 
 export default getComponents;
