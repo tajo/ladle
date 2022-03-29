@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/tajo/ladle/compare/@ladle/react@0.9.0...@ladle/react@0.10.0) (2022-03-29)
+
+
+### Features
+
+* add support for components.ts and components.jsx in getComponents util ([#84](https://github.com/tajo/ladle/issues/84)) ([c0320af](https://github.com/tajo/ladle/commit/c0320af698083006bd4ec29db6be3b066020c2b3))
+
+
+
+
+
 # [0.9.0](https://github.com/tajo/ladle/compare/@ladle/react@0.8.5...@ladle/react@0.9.0) (2022-03-29)
 
 
