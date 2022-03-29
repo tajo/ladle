@@ -29,6 +29,8 @@ export default {
 };
 ```
 
+Ladle also respects `paths` and `baseUrl` specified in your [`tsconfig`](https://www.typescriptlang.org/tsconfig#paths).
+
 ## Env Variables and Modes
 
 Ladle uses Vite's env variables and exposes it's modes. [Read more](https://vitejs.dev/guide/env-and-mode.html).
@@ -62,6 +64,7 @@ export default {
   defaultStory: "", // default story id to load, alphabetical by default
   babelPresets: [],
   babelPlugins: [],
+  vitePlugins: [],
   envPrefix: "VITE_", // can be a string or string[]
   define: {}, // https://vitejs.dev/config/#define
   resolve: {

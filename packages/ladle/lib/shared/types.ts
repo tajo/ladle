@@ -143,6 +143,7 @@ export type Config = {
   defaultStory: string;
   babelPlugins: any[];
   babelPresets: any[];
+  vitePlugins: any[];
   define: { [key: string]: string };
   envPrefix: string | string[];
   resolve: {
