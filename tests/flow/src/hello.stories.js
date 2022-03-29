@@ -9,11 +9,11 @@ function useRpcCallback<T: Callback>(factory: number, deps?: ?string): boolean {
   return false;
 }
 
-export const FlowButton = () => {
+export const World = () => {
   console.log(useRpcCallback);
   return (
     <>
-      <h1>Flow Buttonna</h1>
+      <h1>Flow Button</h1>
     </>
   );
 };

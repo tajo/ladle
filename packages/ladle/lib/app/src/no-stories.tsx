@@ -19,12 +19,30 @@ const NoStories: React.FC<{ wrongUrl?: boolean; activeStory?: string }> = ({
       <>
         <h1>No stories found</h1>
         <p>
-          Please create a file matching the glob <Code>{config.stories}</Code>.{" "}
+          The configured glob pattern for stories is:{" "}
+          <Code>{config.stories}</Code>.{" "}
+        </p>
+        <p>
+          It can be changed through the{" "}
+          <Link href="https://www.ladle.dev/docs/config#story-filenames">
+            configuration file
+          </Link>{" "}
+          or CLI flag <Code>--stories=your-glob</Code>.
+        </p>
+        <p>
+          This might be also an internal error, try{" "}
+          <Link href="https://www.ladle.dev/docs/troubleshooting">
+            troubleshooting
+          </Link>
+          .
         </p>
       </>
     )}
     <p>
-      <Link href="https://github.com/tajo/ladle">More information</Link>.
+      <Link href="https://github.com/tajo/ladle">Github</Link>
+    </p>
+    <p>
+      <Link href="https://wwww.ladle.dev">Docs</Link>
     </p>
   </div>
 );

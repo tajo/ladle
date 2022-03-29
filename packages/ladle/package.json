@@ -1,7 +1,8 @@
 {
   "name": "@ladle/react",
   "version": "0.10.0",
-  "author": "vojtech@miksu.cz",
+  "repository": "git@github.com:tajo/ladle.git",
+  "author": "Vojtech Miksu <vojtech@miksu.cz>",
   "license": "MIT",
   "type": "module",
   "publishConfig": {
@@ -53,7 +54,8 @@
     "open": "^8.4.0",
     "query-string": "^7.1.1",
     "rollup-pluginutils": "^2.8.2",
-    "vite": "^2.9.0-beta.3"
+    "vite": "^2.9.0-beta.10",
+    "vite-tsconfig-paths": "^3.4.1"
   },
   "peerDependencies": {
     "react": ">=16.14.0",

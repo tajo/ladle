@@ -15,11 +15,16 @@ export default {
   stories: "src/**/*.stories.{js,jsx,ts,tsx}",
   root,
   publicDir,
+  enableFlow: false, // enable support for flow types
   defaultStory: "", // default story id to load, alphabetical by default
   babelPresets: [],
   babelPlugins: [],
+  vitePlugins: [],
   define: {}, // https://vitejs.dev/config/#define
   envPrefix: "VITE_",
+  css: {
+    modules: {},
+  },
   resolve: {
     alias: {}, // https://vitejs.dev/config/#resolve-alias
   },

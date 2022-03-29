@@ -1,3 +1,5 @@
+import type { CSSModulesOptions, Plugin } from "vite";
+
 type RecursivePartial<T> = {
   [P in keyof T]?: RecursivePartial<T[P]>;
 };
@@ -140,11 +142,16 @@ export type Config = {
   stories: string;
   root: string;
   publicDir: string | false;
+  enableFlow: boolean;
   defaultStory: string;
   babelPlugins: any[];
   babelPresets: any[];
+  vitePlugins: Plugin[];
   define: { [key: string]: string };
   envPrefix: string | string[];
+  css: {
+    modules: CSSModulesOptions;
+  };
   resolve: {
     alias: { [key: string]: string };
   };
