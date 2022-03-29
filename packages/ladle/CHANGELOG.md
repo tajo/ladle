@@ -3,306 +3,171 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.10.0](https://github.com/tajo/ladle/compare/@ladle/react@0.9.0...@ladle/react@0.10.0) (2022-03-29)
+## [0.10.1](https://github.com/tajo/ladle/compare/@ladle/react@0.10.0...@ladle/react@0.10.1) (2022-03-29)
 
+**Note:** Version bump only for package @ladle/react
+
+# [0.10.0](https://github.com/tajo/ladle/compare/@ladle/react@0.9.0...@ladle/react@0.10.0) (2022-03-29)
 
 ### Features
 
-* add support for components.ts and components.jsx in getComponents util ([#84](https://github.com/tajo/ladle/issues/84)) ([c0320af](https://github.com/tajo/ladle/commit/c0320af698083006bd4ec29db6be3b066020c2b3))
-
-
-
-
+- add support for components.ts and components.jsx in getComponents util ([#84](https://github.com/tajo/ladle/issues/84)) ([c0320af](https://github.com/tajo/ladle/commit/c0320af698083006bd4ec29db6be3b066020c2b3))
 
 # [0.9.0](https://github.com/tajo/ladle/compare/@ladle/react@0.8.5...@ladle/react@0.9.0) (2022-03-29)
 
-
 ### Features
 
-* support publicDir from vite ([#72](https://github.com/tajo/ladle/issues/72)) ([088c321](https://github.com/tajo/ladle/commit/088c3217a87e57cb32f2bc1d534716eff2960c09))
-
-
-
-
+- support publicDir from vite ([#72](https://github.com/tajo/ladle/issues/72)) ([088c321](https://github.com/tajo/ladle/commit/088c3217a87e57cb32f2bc1d534716eff2960c09))
 
 ## [0.8.5](https://github.com/tajo/ladle/compare/@ladle/react@0.8.4...@ladle/react@0.8.5) (2022-03-18)
 
-
 ### Bug Fixes
 
-* **ui:** allow meta/ctrl click on sidebar links ([#63](https://github.com/tajo/ladle/issues/63)) ([59b0f70](https://github.com/tajo/ladle/commit/59b0f7055df1d48e49b9ba4c109ce58e5b5331dc))
-
-
-
-
+- **ui:** allow meta/ctrl click on sidebar links ([#63](https://github.com/tajo/ladle/issues/63)) ([59b0f70](https://github.com/tajo/ladle/commit/59b0f7055df1d48e49b9ba4c109ce58e5b5331dc))
 
 ## [0.8.4](https://github.com/tajo/ladle/compare/@ladle/react@0.8.3...@ladle/react@0.8.4) (2022-03-16)
 
 **Note:** Version bump only for package @ladle/react
 
-
-
-
-
 ## [0.8.3](https://github.com/tajo/ladle/compare/@ladle/react@0.8.2...@ladle/react@0.8.3) (2022-03-16)
 
 **Note:** Version bump only for package @ladle/react
-
-
-
-
 
 ## [0.8.2](https://github.com/tajo/ladle/compare/@ladle/react@0.8.1...@ladle/react@0.8.2) (2022-03-13)
 
 **Note:** Version bump only for package @ladle/react
 
-
-
-
-
 ## [0.8.1](https://github.com/tajo/ladle/compare/@ladle/react@0.8.0...@ladle/react@0.8.1) (2022-03-09)
 
 **Note:** Version bump only for package @ladle/react
 
-
-
-
-
 # [0.8.0](https://github.com/tajo/ladle/compare/@ladle/react@0.7.1...@ladle/react@0.8.0) (2022-03-03)
-
 
 ### Features
 
-* add optimizeDeps include into the config ([#46](https://github.com/tajo/ladle/issues/46)) ([a3e7bfb](https://github.com/tajo/ladle/commit/a3e7bfbd66db747046b6451b9dc61cece2f603ef))
-
-
-
-
+- add optimizeDeps include into the config ([#46](https://github.com/tajo/ladle/issues/46)) ([a3e7bfb](https://github.com/tajo/ladle/commit/a3e7bfbd66db747046b6451b9dc61cece2f603ef))
 
 ## [0.7.1](https://github.com/tajo/ladle/compare/@ladle/react@0.7.0...@ladle/react@0.7.1) (2022-03-03)
 
-
 ### Bug Fixes
 
-* prod build ([#45](https://github.com/tajo/ladle/issues/45)) ([2cc129e](https://github.com/tajo/ladle/commit/2cc129eba2883b9b5b31e3071ad47b8c0f6951d1))
-
-
-
-
+- prod build ([#45](https://github.com/tajo/ladle/issues/45)) ([2cc129e](https://github.com/tajo/ladle/commit/2cc129eba2883b9b5b31e3071ad47b8c0f6951d1))
 
 # [0.7.0](https://github.com/tajo/ladle/compare/@ladle/react@0.6.5...@ladle/react@0.7.0) (2022-03-03)
 
-
 ### Features
 
-* new experimental vite prebundling ([#44](https://github.com/tajo/ladle/issues/44)) ([2e07d7a](https://github.com/tajo/ladle/commit/2e07d7a67d6e0734bf2a7fc0a77b72876e4a8f92))
-
-
-
-
+- new experimental vite prebundling ([#44](https://github.com/tajo/ladle/issues/44)) ([2e07d7a](https://github.com/tajo/ladle/commit/2e07d7a67d6e0734bf2a7fc0a77b72876e4a8f92))
 
 ## [0.6.5](https://github.com/tajo/ladle/compare/@ladle/react@0.6.4...@ladle/react@0.6.5) (2022-03-02)
 
-
 ### Bug Fixes
 
-* prebundling ([#43](https://github.com/tajo/ladle/issues/43)) ([51e5f00](https://github.com/tajo/ladle/commit/51e5f00331580c365e77423fb63cdbe2b91410ec))
-
-
-
-
+- prebundling ([#43](https://github.com/tajo/ladle/issues/43)) ([51e5f00](https://github.com/tajo/ladle/commit/51e5f00331580c365e77423fb63cdbe2b91410ec))
 
 ## [0.6.4](https://github.com/tajo/ladle/compare/@ladle/react@0.6.3...@ladle/react@0.6.4) (2022-03-01)
 
-
 ### Bug Fixes
 
-* flow removal ([#42](https://github.com/tajo/ladle/issues/42)) ([a383430](https://github.com/tajo/ladle/commit/a383430143644634c5e7e87f3e4b99bbd97bb171))
-
-
-
-
+- flow removal ([#42](https://github.com/tajo/ladle/issues/42)) ([a383430](https://github.com/tajo/ladle/commit/a383430143644634c5e7e87f3e4b99bbd97bb171))
 
 ## [0.6.3](https://github.com/tajo/ladle/compare/@ladle/react@0.6.2...@ladle/react@0.6.3) (2022-03-01)
 
 **Note:** Version bump only for package @ladle/react
 
-
-
-
-
 ## [0.6.2](https://github.com/tajo/ladle/compare/@ladle/react@0.6.1...@ladle/react@0.6.2) (2022-01-26)
-
 
 ### Bug Fixes
 
-* remove inlined deps ([#40](https://github.com/tajo/ladle/issues/40)) ([b212114](https://github.com/tajo/ladle/commit/b212114325f89301269f8eb8d4a05ee9ec2353f7))
-
-
-
-
+- remove inlined deps ([#40](https://github.com/tajo/ladle/issues/40)) ([b212114](https://github.com/tajo/ladle/commit/b212114325f89301269f8eb8d4a05ee9ec2353f7))
 
 ## [0.6.1](https://github.com/tajo/ladle/compare/@ladle/react@0.6.0...@ladle/react@0.6.1) (2022-01-25)
 
-
 ### Bug Fixes
 
-* flow ([#39](https://github.com/tajo/ladle/issues/39)) ([857aced](https://github.com/tajo/ladle/commit/857acedbd6b404522ebfe3221c2d617bcc2728a3))
-
-
-
-
+- flow ([#39](https://github.com/tajo/ladle/issues/39)) ([857aced](https://github.com/tajo/ladle/commit/857acedbd6b404522ebfe3221c2d617bcc2728a3))
 
 # [0.6.0](https://github.com/tajo/ladle/compare/@ladle/react@0.5.0...@ladle/react@0.6.0) (2022-01-23)
 
-
 ### Features
 
-* add support for controls with args / argTypes ([#38](https://github.com/tajo/ladle/issues/38)) ([f8ec667](https://github.com/tajo/ladle/commit/f8ec6679fe7fcd508ca445dbca449549920caba8))
-
-
-
-
+- add support for controls with args / argTypes ([#38](https://github.com/tajo/ladle/issues/38)) ([f8ec667](https://github.com/tajo/ladle/commit/f8ec6679fe7fcd508ca445dbca449549920caba8))
 
 # [0.5.0](https://github.com/tajo/ladle/compare/@ladle/react@0.4.1...@ladle/react@0.5.0) (2021-12-20)
 
-
 ### Features
 
-* **decorators:** add support for file and story level decorators ([#37](https://github.com/tajo/ladle/issues/37)) ([fc98afe](https://github.com/tajo/ladle/commit/fc98afe153d347ad11ef33092f8b8a834a7be996))
-
-
-
-
+- **decorators:** add support for file and story level decorators ([#37](https://github.com/tajo/ladle/issues/37)) ([fc98afe](https://github.com/tajo/ladle/commit/fc98afe153d347ad11ef33092f8b8a834a7be996))
 
 ## [0.4.1](https://github.com/tajo/ladle/compare/@ladle/react@0.4.0...@ladle/react@0.4.1) (2021-12-06)
 
-
 ### Bug Fixes
 
-* rename parameters to meta, since SB params don't have to be seri… ([#36](https://github.com/tajo/ladle/issues/36)) ([29f4f4c](https://github.com/tajo/ladle/commit/29f4f4c596dddc3cce059d4292b51938eaa978d7))
-
-
-
-
+- rename parameters to meta, since SB params don't have to be seri… ([#36](https://github.com/tajo/ladle/issues/36)) ([29f4f4c](https://github.com/tajo/ladle/commit/29f4f4c596dddc3cce059d4292b51938eaa978d7))
 
 # [0.4.0](https://github.com/tajo/ladle/compare/@ladle/react@0.3.5...@ladle/react@0.4.0) (2021-11-17)
 
-
 ### Features
 
-* add filepath and locs into meta.json ([#35](https://github.com/tajo/ladle/issues/35)) ([df38918](https://github.com/tajo/ladle/commit/df3891850ed5db10c03baac97b423e54baa87821))
-
-
-
-
+- add filepath and locs into meta.json ([#35](https://github.com/tajo/ladle/issues/35)) ([df38918](https://github.com/tajo/ladle/commit/df3891850ed5db10c03baac97b423e54baa87821))
 
 ## [0.3.5](https://github.com/tajo/ladle/compare/@ladle/react@0.3.4...@ladle/react@0.3.5) (2021-11-16)
 
-
 ### Bug Fixes
 
-* publish ([#34](https://github.com/tajo/ladle/issues/34)) ([11fdca6](https://github.com/tajo/ladle/commit/11fdca6a4ac9c7b31d327434be94d03e4d788b9b))
-
-
-
-
+- publish ([#34](https://github.com/tajo/ladle/issues/34)) ([11fdca6](https://github.com/tajo/ladle/commit/11fdca6a4ac9c7b31d327434be94d03e4d788b9b))
 
 ## [0.3.4](https://github.com/tajo/ladle/compare/@ladle/react@0.3.3...@ladle/react@0.3.4) (2021-11-16)
 
-
 ### Bug Fixes
 
-* add e2e tests and fix unit tests ([#31](https://github.com/tajo/ladle/issues/31)) ([e00e43b](https://github.com/tajo/ladle/commit/e00e43be76b1385b0a72fe44bd71029925c873e1))
-
-
-
-
+- add e2e tests and fix unit tests ([#31](https://github.com/tajo/ladle/issues/31)) ([e00e43b](https://github.com/tajo/ladle/commit/e00e43be76b1385b0a72fe44bd71029925c873e1))
 
 ## [0.3.3](https://github.com/tajo/ladle/compare/@ladle/react@0.3.2...@ladle/react@0.3.3) (2021-11-09)
 
-
 ### Bug Fixes
 
-* ast-to-obj cjs ([#30](https://github.com/tajo/ladle/issues/30)) ([91da2d7](https://github.com/tajo/ladle/commit/91da2d768e5700fba9879f7022d2286269d4b089))
-
-
-
-
+- ast-to-obj cjs ([#30](https://github.com/tajo/ladle/issues/30)) ([91da2d7](https://github.com/tajo/ladle/commit/91da2d768e5700fba9879f7022d2286269d4b089))
 
 ## [0.3.2](https://github.com/tajo/ladle/compare/@ladle/react@0.3.1...@ladle/react@0.3.2) (2021-11-09)
 
-
 ### Bug Fixes
 
-* cjs package and requiring babel flow ([#29](https://github.com/tajo/ladle/issues/29)) ([8d9c905](https://github.com/tajo/ladle/commit/8d9c905a1c5217a28e5341ad491fb9a29f3a44ba))
-
-
-
-
+- cjs package and requiring babel flow ([#29](https://github.com/tajo/ladle/issues/29)) ([8d9c905](https://github.com/tajo/ladle/commit/8d9c905a1c5217a28e5341ad491fb9a29f3a44ba))
 
 ## [0.3.1](https://github.com/tajo/ladle/compare/@ladle/react@0.3.0...@ladle/react@0.3.1) (2021-11-08)
 
-
 ### Bug Fixes
 
-* cjs version of this package ([#28](https://github.com/tajo/ladle/issues/28)) ([0c7871f](https://github.com/tajo/ladle/commit/0c7871fecdcdb78551064498828c339cfa59dd0f))
-
-
-
-
+- cjs version of this package ([#28](https://github.com/tajo/ladle/issues/28)) ([0c7871f](https://github.com/tajo/ladle/commit/0c7871fecdcdb78551064498828c339cfa59dd0f))
 
 # [0.3.0](https://github.com/tajo/ladle/compare/@ladle/react@0.2.4...@ladle/react@0.3.0) (2021-11-04)
 
-
 ### Features
 
-* define some globals ([#27](https://github.com/tajo/ladle/issues/27)) ([73ca68e](https://github.com/tajo/ladle/commit/73ca68e1f08b7755f1f07eb51e91ccc600acc4a0))
-
-
-
-
+- define some globals ([#27](https://github.com/tajo/ladle/issues/27)) ([73ca68e](https://github.com/tajo/ladle/commit/73ca68e1f08b7755f1f07eb51e91ccc600acc4a0))
 
 ## [0.2.4](https://github.com/tajo/ladle/compare/@ladle/react@0.2.3...@ladle/react@0.2.4) (2021-11-03)
 
-
 ### Bug Fixes
 
-* cache dir ([#26](https://github.com/tajo/ladle/issues/26)) ([f79fc75](https://github.com/tajo/ladle/commit/f79fc7553ea8b89b39c3b529c7162e5edd6c6fd3))
-
-
-
-
+- cache dir ([#26](https://github.com/tajo/ladle/issues/26)) ([f79fc75](https://github.com/tajo/ladle/commit/f79fc7553ea8b89b39c3b529c7162e5edd6c6fd3))
 
 ## [0.2.3](https://github.com/tajo/ladle/compare/@ladle/react@0.2.2...@ladle/react@0.2.3) (2021-10-27)
 
-
 ### Bug Fixes
 
-* react imports ([#25](https://github.com/tajo/ladle/issues/25)) ([7543cd6](https://github.com/tajo/ladle/commit/7543cd618a0b8f1fdc636c7fd7c684fb2d78adca))
-
-
-
-
+- react imports ([#25](https://github.com/tajo/ladle/issues/25)) ([7543cd6](https://github.com/tajo/ladle/commit/7543cd618a0b8f1fdc636c7fd7c684fb2d78adca))
 
 ## [0.2.2](https://github.com/tajo/ladle/compare/@ladle/react@0.2.1...@ladle/react@0.2.2) (2021-10-27)
 
-
 ### Bug Fixes
 
-* various fixes to make baseweb working ([#24](https://github.com/tajo/ladle/issues/24)) ([94519c3](https://github.com/tajo/ladle/commit/94519c3c767cd5d20948117a04bd2b41ffcb4719))
-
-
-
-
+- various fixes to make baseweb working ([#24](https://github.com/tajo/ladle/issues/24)) ([94519c3](https://github.com/tajo/ladle/commit/94519c3c767cd5d20948117a04bd2b41ffcb4719))
 
 ## [0.2.1](https://github.com/tajo/ladle/compare/@ladle/react@0.2.0...@ladle/react@0.2.1) (2021-10-24)
 
 **Note:** Version bump only for package @ladle/react
-
-
-
-
 
 # [0.2.0](https://github.com/tajo/ladle/compare/@ladle/react@0.1.11...@ladle/react@0.2.0) (2021-04-12)
 
