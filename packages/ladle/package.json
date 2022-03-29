@@ -1,7 +1,8 @@
 {
   "name": "@ladle/react",
   "version": "0.9.0",
-  "author": "vojtech@miksu.cz",
+  "repository": "git@github.com:tajo/ladle.git",
+  "author": "Vojtech Miksu <vojtech@miksu.cz>",
   "license": "MIT",
   "type": "module",
   "publishConfig": {

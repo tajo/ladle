@@ -15,6 +15,7 @@ export default {
   stories: "src/**/*.stories.{js,jsx,ts,tsx}",
   root,
   publicDir,
+  enableFlow: false, // enable support for flow types
   defaultStory: "", // default story id to load, alphabetical by default
   babelPresets: [],
   babelPlugins: [],

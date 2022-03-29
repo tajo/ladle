@@ -61,6 +61,7 @@ export default {
   stories: "src/**/*.stories.{js,jsx,ts,tsx}",
   root: "./",
   publicDir: "public", // can be an absolute path or `false` to disable the feature
+  enableFlow: false, // enable flow types support
   defaultStory: "", // default story id to load, alphabetical by default
   babelPresets: [],
   babelPlugins: [],

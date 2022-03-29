@@ -140,6 +140,7 @@ export type Config = {
   stories: string;
   root: string;
   publicDir: string | false;
+  enableFlow: boolean;
   defaultStory: string;
   babelPlugins: any[];
   babelPresets: any[];

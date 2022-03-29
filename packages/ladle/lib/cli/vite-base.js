@@ -51,9 +51,13 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
       alias: ladleConfig.resolve.alias,
     },
     optimizeDeps: {
-      esbuildOptions: {
-        plugins: [esbuildFlowPlugin()],
-      },
+      ...(ladleConfig.enableFlow
+        ? {
+            esbuildOptions: {
+              plugins: [esbuildFlowPlugin()],
+            },
+          }
+        : {}),
       include: [
         "react",
         "react-dom",
@@ -68,14 +72,16 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
       ],
       entries: [
         path.join(process.cwd(), ".ladle/components.js"),
+        path.join(process.cwd(), ".ladle/components.jsx"),
         path.join(process.cwd(), ".ladle/components.tsx"),
+        path.join(process.cwd(), ".ladle/components.ts"),
       ],
     },
     plugins: [
       tsconfigPaths({
         root: process.cwd(),
       }),
-      flowPlugin(),
+      ...(ladleConfig.enableFlow ? [flowPlugin()] : []),
       ladlePlugin(ladleConfig, configFolder),
       //@ts-ignore
       react({
@@ -88,12 +94,15 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
       ...(viteConfig.plugins ? viteConfig.plugins : []),
       ...ladleConfig.vitePlugins,
     ],
-    esbuild: {
-      include: /\.(tsx?|jsx?)$/,
-      exclude: [],
-      loader: "tsx",
-      ...(viteConfig.esbuild ? viteConfig.esbuild : {}),
-    },
+    ...(ladleConfig.enableFlow
+      ? {
+          esbuild: {
+            include: /\.(tsx?|jsx?)$/,
+            exclude: [],
+            loader: "tsx",
+          },
+        }
+      : {}),
   };
   return config;
 };

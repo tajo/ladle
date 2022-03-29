@@ -1,0 +1,26 @@
+{
+  "name": "test-flow",
+  "version": "0.2.14",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "serve": "ladle serve --open none",
+    "serve-prod": "http-server build -c-1 -s -p 61000",
+    "build": "ladle build",
+    "lint": "echo 'no lint'",
+    "test-dev": "start-server-and-test serve 61000 'PW_EXPERIMENTAL_TS_ESM=1 npx playwright test'",
+    "test-prod": "start-server-and-test serve-prod 61000 'PW_EXPERIMENTAL_TS_ESM=1 npx playwright test'",
+    "test": "yarn test-dev && yarn test-prod"
+  },
+  "dependencies": {
+    "@ladle/react": "^0.9.0",
+    "@playwright/test": "^1.19.1",
+    "http-server": "^14.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "start-server-and-test": "^1.14.0"
+  },
+  "volta": {
+    "extends": "../../package.json"
+  }
+}
