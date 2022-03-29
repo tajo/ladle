@@ -43,6 +43,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     },
     cacheDir: join(process.cwd(), "node_modules/.vite"),
     css: {
+      modules: ladleConfig.css.modules,
       postcss: process.cwd(),
     },
     envDir: process.cwd(),

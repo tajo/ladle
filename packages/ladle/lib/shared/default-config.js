@@ -22,6 +22,9 @@ export default {
   vitePlugins: [],
   define: {}, // https://vitejs.dev/config/#define
   envPrefix: "VITE_",
+  css: {
+    modules: {},
+  },
   resolve: {
     alias: {}, // https://vitejs.dev/config/#resolve-alias
   },
