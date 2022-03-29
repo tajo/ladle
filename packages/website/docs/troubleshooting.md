@@ -22,6 +22,6 @@ Join our [community](https://discord.gg/H6FSHjyW7e).
 
 ## ES Modules
 
-Ladle embraces ES Modules and is implemented as an ES module. That requires `Node 16+` and environement that fully supports ESM.
+Ladle embraces ES Modules and is implemented as an ES module. That requires `Node 16+` and environment that fully supports ESM.
 
 If your enviroment doesn't support ESM (for example because of yarn pnp), you can alternatively use `@ladle/react-cjs` which is a compiled version of `@ladle/react`. The support is limited and we will stop publishing the `commonjs` version at some point.
