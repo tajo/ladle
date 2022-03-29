@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/tajo/ladle/compare/@ladle/react@0.8.5...@ladle/react@0.9.0) (2022-03-29)
+
+
+### Features
+
+* support publicDir from vite ([#72](https://github.com/tajo/ladle/issues/72)) ([088c321](https://github.com/tajo/ladle/commit/088c3217a87e57cb32f2bc1d534716eff2960c09))
+
+
+
+
+
 ## [0.8.5](https://github.com/tajo/ladle/compare/@ladle/react@0.8.4...@ladle/react@0.8.5) (2022-03-18)
 
 

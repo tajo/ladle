@@ -139,6 +139,7 @@ export type PluginOptions = {
 export type Config = {
   stories: string;
   root: string;
+  publicDir: string | false;
   defaultStory: string;
   babelPlugins: any[];
   babelPresets: any[];
