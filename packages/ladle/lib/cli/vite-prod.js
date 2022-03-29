@@ -20,6 +20,7 @@ const viteProd = async (config, configFolder) => {
         emptyOutDir: true,
         chunkSizeWarningLimit: 1024,
       },
+      plugins: config.vitePlugins ? config.vitePlugins : []
     });
     await build(viteConfig);
   } catch (e) {

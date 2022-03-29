@@ -34,6 +34,7 @@ const bundler = async (config, configFolder) => {
         },
         middlewareMode: "html",
       },
+      plugins: config.vitePlugins ? config.vitePlugins : []
     });
     const vite = await createServer(viteConfig);
     app.head("*", async (_, res) => res.sendStatus(200));
