@@ -1,6 +1,6 @@
 {
   "name": "test-commonjs",
-  "version": "0.2.13",
+  "version": "0.2.14",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -13,7 +13,7 @@
     "test": "yarn test-prod && yarn test-dev"
   },
   "dependencies": {
-    "@ladle/react": "^0.8.5",
+    "@ladle/react": "^0.9.0",
     "@playwright/test": "^1.19.1",
     "http-server": "^14.1.0",
     "react": "^17.0.2",
