@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.16](https://github.com/tajo/ladle/compare/test-flow@0.2.15...test-flow@0.2.16) (2022-03-30)
+
+**Note:** Version bump only for package test-flow
+
 ## 0.2.15 (2022-03-29)
 
 **Note:** Version bump only for package test-flow
