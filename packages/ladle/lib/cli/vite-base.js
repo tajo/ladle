@@ -82,7 +82,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         "lodash.merge",
         "query-string",
         "@reach/dialog",
-        ...(Object.keys(reactAlias).length ? ["react-dom/client"] : []),
+        ...(Object.keys(reactAlias).length ? [] : ["react-dom/client"]),
         ...ladleConfig.optimizeDeps.include,
       ],
       entries: [
