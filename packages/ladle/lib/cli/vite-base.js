@@ -28,6 +28,16 @@ const getPublicDir = (publicDir) => {
  */
 const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
   const __dirname = dirname(fileURLToPath(import.meta.url));
+
+  // We need to fake react-dom/client import in case user still uses React v17
+  // and not v18, otherwise Vite would fail the import analysis step
+  const reactAlias = {};
+  try {
+    await import("react-dom/client");
+  } catch (e) {
+    reactAlias["react-dom/client"] = "react-dom";
+  }
+
   /**
    * @type {import('vite').InlineConfig}
    */
@@ -49,7 +59,10 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     envDir: process.cwd(),
     envPrefix: ladleConfig.envPrefix,
     resolve: {
-      alias: ladleConfig.resolve.alias,
+      alias: {
+        ...reactAlias,
+        ...ladleConfig.resolve.alias,
+      },
     },
     optimizeDeps: {
       ...(ladleConfig.enableFlow
@@ -69,6 +82,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         "lodash.merge",
         "query-string",
         "@reach/dialog",
+        ...(Object.keys(reactAlias).length ? [] : ["react-dom/client"]),
         ...ladleConfig.optimizeDeps.include,
       ],
       entries: [
