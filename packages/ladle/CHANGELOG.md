@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/tajo/ladle/compare/@ladle/react@0.10.2...@ladle/react@0.11.0) (2022-03-31)
+
+### Features
+
+- **ladle/cli:** support lazily import Vite plugins ([#93](https://github.com/tajo/ladle/issues/93)) ([e2d1978](https://github.com/tajo/ladle/commit/e2d197809eb87bd703401fc0b4555db10f8adfc0)), closes [#90](https://github.com/tajo/ladle/issues/90)
+
 ## [0.10.2](https://github.com/tajo/ladle/compare/@ladle/react@0.10.1...@ladle/react@0.10.2) (2022-03-30)
 
 **Note:** Version bump only for package @ladle/react

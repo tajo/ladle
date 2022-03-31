@@ -1,6 +1,6 @@
 {
   "name": "test-css",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -13,7 +13,7 @@
     "test": "yarn test-dev && yarn test-prod"
   },
   "dependencies": {
-    "@ladle/react": "^0.10.2",
+    "@ladle/react": "^0.11.0",
     "@playwright/test": "1.19.2",
     "autoprefixer": "^10.4.4",
     "http-server": "^14.1.0",
