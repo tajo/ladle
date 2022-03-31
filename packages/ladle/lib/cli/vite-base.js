@@ -38,6 +38,14 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     reactAlias["react-dom/client"] = "react-dom";
   }
 
+  const userVitePlugins = (
+    await Promise.all(
+      ladleConfig.vitePlugins.map(async (plugin) =>
+        typeof plugin === "function" ? plugin() : plugin,
+      ),
+    )
+  ).filter((v) => !!v);
+
   /**
    * @type {import('vite').InlineConfig}
    */
@@ -107,7 +115,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         },
       }),
       ...(viteConfig.plugins ? viteConfig.plugins : []),
-      ...ladleConfig.vitePlugins,
+      ...userVitePlugins,
     ],
     ...(ladleConfig.enableFlow
       ? {

@@ -138,6 +138,31 @@ export type PluginOptions = {
   configFolder: string;
 };
 
+/**
+ * We accept not only the normal {@link Plugin} but also
+ * the conditional function that returns {@link Plugin} or `null`.
+ * Therefore, we can have a plugin that is conditionally enabled or disabled:
+ *
+ * ```js
+ * {
+ *   vitePlugins: [
+ *     // The normal plugin.
+ *     plugin(),
+ *
+ *     // The plugin that is returned by a function.
+ *     () => process.env.ENABLE_PLUGIN === '1' && plugin(),
+ *
+ *     // The plugin that is returned by an asynchronous function.
+ *     () => import('vite-plugin').then(({ default: plugin }) => plugin()),
+ *   ],
+ * }
+ * ```
+ */
+export type VitePluginInput =
+  | Plugin
+  | (() => Plugin | null)
+  | (() => Promise<Plugin | null>);
+
 export type Config = {
   stories: string;
   root: string;
@@ -146,7 +171,7 @@ export type Config = {
   defaultStory: string;
   babelPlugins: any[];
   babelPresets: any[];
-  vitePlugins: Plugin[];
+  vitePlugins: VitePluginInput[];
   define: { [key: string]: string };
   envPrefix: string | string[];
   css: {
