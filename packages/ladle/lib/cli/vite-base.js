@@ -40,13 +40,9 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
 
   const userVitePlugins = (
     await Promise.all(
-      ladleConfig.vitePlugins.map(async (plugin) => {
-        if (typeof plugin === "function") {
-          return plugin();
-        } else {
-          return plugin;
-        }
-      }),
+      ladleConfig.vitePlugins.map(async (plugin) =>
+        typeof plugin === "function" ? plugin() : plugin,
+      ),
     )
   ).filter((v) => !!v);
 
