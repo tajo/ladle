@@ -1,0 +1,10 @@
+[data-ladle] {
+  input {
+    @apply px-2 py-1 text-sm bg-transparent border rounded-md shadow-sm border-primary-400;
+    @apply transition-colors duration-75;
+  }
+
+  input:focus {
+    @apply bg-white outline-none border-accent-500 ring-2 ring-gray-500 ring-opacity-20;
+  }
+}

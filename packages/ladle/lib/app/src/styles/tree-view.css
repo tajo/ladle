@@ -1,0 +1,37 @@
+[data-ladle] {
+  .ladle-tree-view {
+    @apply p-1;
+  }
+
+  .ladle-tree-view-button {
+    @apply flex items-center w-full h-8 rounded hover:bg-primary-200 text-primary-700;
+  }
+
+  .ladle-tree-view-item {
+    @apply w-full;
+
+    &[data-active] .ladle-tree-view-button {
+      @apply font-medium rounded text-accent-900 bg-accent-200;
+
+      .ladle-tree-view-story-icon {
+        @apply text-accent-700;
+      }
+    }
+  }
+
+  .ladle-tree-view-chevron {
+    @apply h-4 transition-all duration-150 rotate-0;
+
+    &[data-expanded] {
+      @apply rotate-90;
+    }
+  }
+
+  .ladle-tree-view-story-icon {
+    @apply w-3 h-3 ml-3 mr-2 text-gray-500;
+  }
+
+  .ladle-tree-view-folder {
+    @apply w-4 h-4 mr-2 text-accent-800;
+  }
+}

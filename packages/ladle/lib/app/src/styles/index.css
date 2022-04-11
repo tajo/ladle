@@ -1,0 +1,14 @@
+@import "./reset.css";
+@import "./variables.css";
+@import "./input.css";
+@import "./layout.css";
+@import "./addons.css";
+@import "./aside.css";
+@import "./tooltip.css";
+@import "./tree-view.css";
+
+.ladle-error-content {
+  font-family: var(--ladle-font-family);
+  font-size: 18px;
+  color: var(--ladle-primary-500);
+}

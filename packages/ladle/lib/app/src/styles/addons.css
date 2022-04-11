@@ -1,0 +1,43 @@
+.ladle-addons {
+  @apply fixed bottom-0 left-0 flex items-center px-2 bg-primary-200;
+  right: var(--ladle-aside-width);
+
+  ul {
+    display: flex;
+
+    li {
+      line-height: 1;
+
+      button {
+        @apply h-8 px-1 hover:bg-primary-100;
+
+        > svg {
+          @apply h-5 text-primary-600 hover:text-primary-800;
+        }
+
+        > label {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+html[dir="rtl"] {
+  .ladle-addons {
+    left: var(--ladle-aside-width);
+    @apply right-0;
+  }
+}
+
+.ladle-addons-story-title {
+  @apply flex items-center mr-auto text-sm text-primary-700;
+}
+
+.ladle-addons-story-icon {
+  @apply h-2 text-primary-500;
+}
+
+.ladle-addons-story-divider {
+  @apply h-4 text-primary-400;
+}

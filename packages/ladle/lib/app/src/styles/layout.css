@@ -1,0 +1,39 @@
+.ladle-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.ladle-main {
+  background-color: var(--ladle-bg-color-primary);
+  flex: 1 1 auto;
+  padding: 1em;
+}
+
+.ladle-search {
+  @apply p-3;
+
+  input {
+    @apply w-full;
+  }
+}
+
+@media (min-width: 768px) {
+  .ladle-wrapper {
+    min-height: 100%;
+    margin: 0;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  [data-mode="full"] html,
+  [data-mode="full"] body,
+  [data-mode="full"] .ladle-wrapper {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .ladle-main {
+    padding: 3em;
+    align-self: stretch;
+  }
+}

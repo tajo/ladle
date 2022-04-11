@@ -1,0 +1,39 @@
+.ladle-aside {
+  @apply z-10 min-h-screen border-2 border-solid bg-primary-100 border-primary-300;
+
+  min-width: var(--ladle-aside-width);
+  max-width: var(--ladle-aside-width);
+}
+
+.ladle-shortcut {
+  @apply block border border-primary-400
+  px-1.5 h-5 leading-4
+  text-center
+  font-semibold text-primary-500 border-solid rounded
+  pointer-events-none;
+
+  font-size: 11px;
+}
+
+.ladle-search {
+  @apply relative;
+
+  .ladle-shortcut {
+    @apply absolute inset-y-0 m-auto right-4;
+  }
+
+  input {
+    @apply pl-8;
+  }
+
+  input:focus + svg {
+    @apply text-accent-500;
+  }
+  input:focus + svg + .ladle-shortcut {
+    display: none;
+  }
+
+  svg {
+    @apply absolute top-0 bottom-0 h-4 m-auto left-4 text-primary-500;
+  }
+}
