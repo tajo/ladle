@@ -1,7 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
 import { getHref } from "../history";
-import { Page, Down } from "../icons";
+import { Folder, ChevronRight, Circle } from "../icons";
 import { getStoryTree } from "../story-name";
 import {
   getEndId,
@@ -113,8 +113,9 @@ const TreeView: React.FC<{
   };
   return (
     <ul
+      className="ladle-tree-view"
       role="tree"
-      style={{ marginInlineStart: "-6px" }}
+      //style={{ marginInlineStart: "-6px" }}
       ref={(el) => setTreeRootRef(el)}
     >
       <NavigationSection
@@ -145,6 +146,7 @@ const NavigationSection: React.FC<{
   selectedItemId: string | null;
   onItemClick: (item: StoryTreeItem) => void;
   treeItemRefs: TreeItemRefs;
+  depth?: number;
 }> = ({
   tree,
   fullTree,
@@ -154,17 +156,21 @@ const NavigationSection: React.FC<{
   onKeyDownFn,
   selectedItemId,
   treeItemRefs,
+  depth = 0,
 }) => {
   return (
     <React.Fragment>
       {tree.map((treeProps) => {
+        const isActive = treeProps.id === story;
+        const buttonStyle = {
+          paddingLeft: `${depth}rem`,
+        };
+
         return (
           <li
             onKeyDown={(e) => onKeyDownFn(e, treeProps)}
             aria-expanded={treeProps.isExpanded}
-            tabIndex={
-              treeProps.id === selectedItemId && !treeProps.isLinkable ? 0 : -1
-            }
+            tabIndex={isActive && !treeProps.isLinkable ? 0 : -1}
             ref={
               treeProps.isLinkable
                 ? undefined
@@ -172,45 +178,52 @@ const NavigationSection: React.FC<{
             }
             role={treeProps.isLinkable ? "none" : "treeitem"}
             key={treeProps.id}
-            className={cx({
+            className={cx("ladle-tree-view-item", {
               "ladle-linkable": treeProps.isLinkable,
               "ladle-active": treeProps.id === story,
             })}
-            style={!treeProps.isLinkable ? { marginTop: "0.5em" } : {}}
+            data-active={isActive || undefined}
+            //style={!treeProps.isLinkable ? { marginTop: "0.5em" } : {}}
           >
             {treeProps.isLinkable ? (
-              <div style={{ display: "flex" }}>
-                <Page />
-                <a
-                  tabIndex={treeProps.id === selectedItemId ? 0 : -1}
-                  ref={(element) =>
-                    (treeItemRefs.current[treeProps.id] = element)
+              <a
+                tabIndex={treeProps.id === selectedItemId ? 0 : -1}
+                ref={(element) =>
+                  (treeItemRefs.current[treeProps.id] = element)
+                }
+                role="treeitem"
+                href={getHref({ story: treeProps.id })}
+                onKeyDown={(e) => onKeyDownFn(e, treeProps)}
+                onClick={(e) => {
+                  if (!e.ctrlKey && !e.metaKey) {
+                    e.preventDefault();
+                    updateStory(treeProps.id);
                   }
-                  role="treeitem"
-                  href={getHref({ story: treeProps.id })}
-                  onKeyDown={(e) => onKeyDownFn(e, treeProps)}
-                  onClick={(e) => {
-                    if (!e.ctrlKey && !e.metaKey) {
-                      e.preventDefault();
-                      updateStory(treeProps.id);
-                    }
-                  }}
-                >
-                  {treeProps.name}
-                </a>
-              </div>
-            ) : (
-              <div
-                style={{ display: "flex", cursor: "pointer" }}
-                onClick={() => onItemClick(treeProps)}
+                }}
+                className="ladle-tree-view-button"
+                style={buttonStyle}
               >
-                <Down rotate={!treeProps.isExpanded} />
-                <div>{treeProps.name}</div>
-              </div>
+                <Circle className="ladle-tree-view-story-icon" />
+                <span>{treeProps.name}</span>
+              </a>
+            ) : (
+              <button
+                className="ladle-tree-view-button"
+                //style={{ display: "flex", cursor: "pointer" }}
+                onClick={() => onItemClick(treeProps)}
+                style={buttonStyle}
+              >
+                <ChevronRight
+                  className="ladle-tree-view-chevron"
+                  data-expanded={treeProps.isExpanded ? "true" : undefined}
+                />
+                <Folder className="ladle-tree-view-folder" />
+                <p>{treeProps.name}</p>
+              </button>
             )}
             {Object.keys(treeProps.children).length > 0 &&
               treeProps.isExpanded && (
-                <ul role="group">
+                <ul role="group" className="ladle-tree-view-children">
                   <NavigationSection
                     tree={treeProps.children}
                     fullTree={fullTree}
@@ -220,6 +233,7 @@ const NavigationSection: React.FC<{
                     onKeyDownFn={onKeyDownFn}
                     onItemClick={onItemClick}
                     treeItemRefs={treeItemRefs}
+                    depth={depth + 1}
                   />
                 </ul>
               )}
