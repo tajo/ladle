@@ -1,6 +1,6 @@
 import * as React from "react";
 import queryString from "query-string";
-import { Preview } from "../icons";
+import { Maximize } from "../icons";
 import { ModeState, AddonProps, ActionType } from "../../../shared/types";
 import config from "../get-config";
 
@@ -28,7 +28,7 @@ export const Button: React.FC<AddonProps> = ({ dispatch }) => {
           dispatch({ type: ActionType.UpdateMode, value: ModeState.Preview })
         }
       >
-        <Preview />
+        <Maximize />
         <span className="ladle-addon-tooltip">{text}</span>
         <label>Open fullscreen mode</label>
       </button>

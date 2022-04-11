@@ -1,6 +1,6 @@
 import * as React from "react";
 import queryString from "query-string";
-import { Bulb } from "../icons";
+import { Sun } from "../icons";
 import { ThemeState, AddonProps, ActionType } from "../../../shared/types";
 
 export const getQuery = (locationSearch: string) => {
@@ -36,7 +36,7 @@ export const Button: React.FC<AddonProps> = ({ globalState, dispatch }) => {
           dispatch({ type: ActionType.UpdateTheme, value: newTheme });
         }}
       >
-        <Bulb />
+        <Sun />
         <span className="ladle-addon-tooltip">
           {globalState.theme === ThemeState.Light ? darkText : lightText}
         </span>
