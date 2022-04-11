@@ -1,7 +1,7 @@
 import * as React from "react";
 import ErrorBoundary from "./error-boundary";
 import { stories, Provider } from "../generated/generated-list";
-import { Ring } from "./icons";
+import { Loader } from "./icons";
 import type { GlobalState, GlobalAction } from "../../shared/types";
 import config from "./get-config";
 import NoStories from "./no-stories";
@@ -16,7 +16,7 @@ const Story: React.FC<{
 }> = ({ globalState, dispatch }) =>
   globalState.story ? (
     <ErrorBoundary>
-      <React.Suspense fallback={<Ring />}>
+      <React.Suspense fallback={<Loader />}>
         <ProviderAny
           config={config}
           globalState={globalState}
