@@ -7,6 +7,9 @@
     "Noto Color Emoji";
   --ladle-line-height: 1.5;
 
+  --ladle-bg-color: theme("colors.white");
+  --ladle-text-color: theme("colors.black");
+
   --ladle-primary-50: theme("colors.stone.50");
   --ladle-primary-100: theme("colors.stone.100");
   --ladle-primary-200: theme("colors.stone.200");
@@ -33,6 +36,30 @@
 }
 
 [data-theme="dark"] {
+  --ladle-bg-color: theme("colors.stone.900");
+  --ladle-text-color: theme("colors.white");
+
+  --ladle-primary-50: theme("colors.stone.900");
+  --ladle-primary-100: theme("colors.stone.800");
+  --ladle-primary-200: theme("colors.stone.700");
+  --ladle-primary-300: theme("colors.stone.600");
+  --ladle-primary-400: theme("colors.stone.500");
+  --ladle-primary-500: theme("colors.stone.400");
+  --ladle-primary-600: theme("colors.stone.300");
+  --ladle-primary-700: theme("colors.stone.200");
+  --ladle-primary-800: theme("colors.stone.100");
+  --ladle-primary-900: theme("colors.stone.50");
+
+  --ladle-accent-50: theme("colors.violet.900");
+  --ladle-accent-100: theme("colors.violet.800");
+  --ladle-accent-200: theme("colors.violet.700");
+  --ladle-accent-300: theme("colors.violet.600");
+  --ladle-accent-400: theme("colors.violet.500");
+  --ladle-accent-500: theme("colors.violet.400");
+  --ladle-accent-600: theme("colors.violet.300");
+  --ladle-accent-700: theme("colors.violet.200");
+  --ladle-accent-800: theme("colors.violet.100");
+  --ladle-accent-900: theme("colors.violet.50");
 }
 
 [data-mode="single-scroll"],
