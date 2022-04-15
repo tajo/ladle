@@ -16,7 +16,7 @@ const Story: React.FC<{
 }> = ({ globalState, dispatch }) =>
   globalState.story ? (
     <ErrorBoundary>
-      <React.Suspense fallback={<Loader />}>
+      <React.Suspense fallback={<Loader className="ladle-loader" />}>
         <ProviderAny
           config={config}
           globalState={globalState}
