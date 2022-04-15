@@ -100,7 +100,7 @@ function Home() {
                 "button button--outline button--secondary button--lg",
                 styles.getStarted,
               )}
-              to="https://baseweb.netlify.app/"
+              to="https://baseweb.design/ladle"
             >
               Demo
             </Link>
