@@ -4,7 +4,8 @@
 }
 
 .ladle-main {
-  background-color: var(--ladle-bg-color-primary);
+  background-color: var(--ladle-bg-color);
+  color: var(--ladle-text-color);
   flex: 1 1 auto;
   padding: 1em;
 }
@@ -35,5 +36,18 @@
   .ladle-main {
     padding: 3em;
     align-self: stretch;
+  }
+}
+
+.ladle-loader {
+  @apply absolute inset-y-0 left-0 w-12 h-12 m-auto animate-spin;
+
+  right: var(--ladle-aside-width);
+}
+
+html[dir="rtl"] {
+  .ladle-loader {
+    left: var(--ladle-aside-width);
+    @apply right-0;
   }
 }

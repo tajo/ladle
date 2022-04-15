@@ -15,6 +15,7 @@ body {
   margin: 0;
 
   line-height: inherit;
+  background-color: var(--ladle-bg-color-primary);
 }
 
 [data-ladle] {

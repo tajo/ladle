@@ -34,4 +34,44 @@
   .ladle-tree-view-folder {
     @apply w-4 h-4 mr-2 text-accent-800;
   }
+
+  .ladle-tree-not-found {
+    @apply text-center;
+
+    svg {
+      @apply mx-auto mb-2 text-primary-500;
+    }
+
+    h4 {
+      @apply font-medium text-primary-900;
+    }
+
+    p {
+      @apply text-sm text-primary-400;
+    }
+  }
+}
+
+html[dir="rtl"] {
+  [data-ladle] {
+    .ladle-tree-view-button {
+      padding-left: 0 !important;
+    }
+
+    .ladle-tree-view-story-icon {
+      @apply ml-2 mr-3;
+    }
+
+    .ladle-tree-view-folder {
+      @apply ml-2 mr-0;
+    }
+  }
+}
+
+html:not([dir="rtl"]) {
+  [data-ladle] {
+    .ladle-tree-view-button {
+      padding-right: 0 !important;
+    }
+  }
 }

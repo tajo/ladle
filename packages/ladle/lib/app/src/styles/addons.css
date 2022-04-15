@@ -9,10 +9,10 @@
       line-height: 1;
 
       button {
-        @apply h-8 px-1 hover:bg-primary-100;
+        @apply h-6 px-0.5 hover:bg-primary-100;
 
         > svg {
-          @apply h-5 text-primary-600 hover:text-primary-800;
+          @apply h-4 text-primary-600 hover:text-primary-800;
         }
 
         > label {
@@ -31,11 +31,11 @@ html[dir="rtl"] {
 }
 
 .ladle-addons-story-title {
-  @apply flex items-center mr-auto text-sm text-primary-700;
+  @apply flex items-center mr-auto text-xs text-primary-700;
 }
 
 .ladle-addons-story-icon {
-  @apply h-2 text-primary-500;
+  @apply h-1.5 text-primary-500;
 }
 
 .ladle-addons-story-divider {
