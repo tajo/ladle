@@ -3,7 +3,7 @@
 import * as React from "react";
 
 export default class ErrorBoundary extends React.Component<
-  {},
+  { children: React.ReactElement },
   { hasError: boolean }
 > {
   constructor(props: any) {

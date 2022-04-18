@@ -110,26 +110,12 @@ export type GeneratedStories = {
   };
 };
 
-export type DevParams = {
-  stories?: string;
-  root?: string;
-  port?: number;
+export type DevParams = Partial<Config> & {
   theme?: ThemeState;
-  babelPresets?: any[];
-  babelPlugins?: any[];
-  open?: string;
   config?: string;
 };
-
-export type BuildParams = {
-  stories?: string;
-  root?: string;
-  out?: string;
+export type BuildParams = Partial<Config> & {
   theme?: ThemeState;
-  babelPresets?: any[];
-  babelPlugins?: any[];
-  sourcemap?: boolean;
-  baseUrl?: string;
   config?: string;
 };
 

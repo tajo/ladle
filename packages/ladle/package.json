@@ -74,8 +74,6 @@
     "@types/lodash.clonedeep": "^4.5.6",
     "@types/lodash.merge": "^4.6.6",
     "@types/micromatch": "^4.0.2",
-    "@types/react": "^17.0.43",
-    "@types/react-dom": "^17.0.14",
     "@types/ws": "^8.5.3",
     "babel-jest": "^27.5.1",
     "jest": "^27.5.1",

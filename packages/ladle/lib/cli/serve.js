@@ -12,8 +12,8 @@ const serve = async (params = {}) => {
   debug("Starting serve command");
   debug(`CLI theme: ${params.theme}`);
   debug(`CLI stories: ${params.stories}`);
-  debug(`CLI port: ${params.port}`);
-  debug(`CLI open: ${params.open}`);
+  debug(`CLI port: ${params.serve ? params.serve.port : "undefined"}`);
+  debug(`CLI open: ${params.serve ? params.serve.open : "undefined"}`);
 
   params.config = params.config || ".ladle";
   const configFolder = path.isAbsolute(params.config)
@@ -27,8 +27,34 @@ const serve = async (params = {}) => {
     : config.addons.theme.defaultState;
   config.stories = params.stories ? params.stories : config.stories;
   config.root = params.root ? params.root : config.root;
-  config.serve.port = params.port ? params.port : config.serve.port;
-  config.serve.open = params.open ? params.open : config.serve.open;
+  config.enableFlow = params.enableFlow ? params.enableFlow : config.enableFlow;
+  config.publicDir = params.publicDir ? params.publicDir : config.publicDir;
+  config.vitePlugins = params.vitePlugins
+    ? params.vitePlugins
+    : config.vitePlugins;
+  config.envPrefix = params.envPrefix ? params.envPrefix : config.envPrefix;
+  config.defaultStory = params.defaultStory
+    ? params.defaultStory
+    : config.defaultStory;
+  config.define = params.define ? params.define : config.define;
+  config.css.modules =
+    params.css && params.css.modules ? params.css.modules : config.css.modules;
+  config.serve.port =
+    params.serve && params.serve.port ? params.serve.port : config.serve.port;
+  config.serve.open =
+    params.serve && params.serve.open ? params.serve.open : config.serve.open;
+  config.serve.define =
+    params.serve && params.serve.define
+      ? params.serve.define
+      : config.serve.define;
+  config.resolve.alias =
+    params.resolve && params.resolve.alias
+      ? params.resolve.alias
+      : config.resolve.alias;
+  config.optimizeDeps.include =
+    params.optimizeDeps && params.optimizeDeps.include
+      ? params.optimizeDeps.include
+      : config.optimizeDeps.include;
   config.babelPlugins = params.babelPlugins
     ? params.babelPlugins
     : config.babelPlugins;
