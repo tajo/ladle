@@ -12,8 +12,8 @@ const serve = async (params = {}) => {
   debug("Starting serve command");
   debug(`CLI theme: ${params.theme}`);
   debug(`CLI stories: ${params.stories}`);
-  debug(`CLI port: ${params.port}`);
-  debug(`CLI open: ${params.open}`);
+  debug(`CLI port: ${params.serve ? params.serve.port : "undefined"}`);
+  debug(`CLI open: ${params.serve ? params.serve.open : "undefined"}`);
 
   params.config = params.config || ".ladle";
   const configFolder = path.isAbsolute(params.config)

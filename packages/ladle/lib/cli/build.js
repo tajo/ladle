@@ -16,9 +16,11 @@ const build = async (params = {}) => {
   debug("Starting build command");
   debug(`CLI theme: ${params.theme}`);
   debug(`CLI stories: ${params.stories}`);
-  debug(`CLI out: ${params.out}`);
-  debug(`CLI sourcemap: ${params.sourcemap}`);
-  debug(`CLI baseUrl: ${params.baseUrl}`);
+  debug(`CLI out: ${params.build ? params.build.out : "undefined"}`);
+  debug(
+    `CLI sourcemap: ${params.build ? params.build.sourcemap : "undefined"}`,
+  );
+  debug(`CLI baseUrl: ${params.build ? params.build.baseUrl : "undefined"}`);
 
   params.config = params.config || ".ladle";
   const configFolder = path.isAbsolute(params.config)
