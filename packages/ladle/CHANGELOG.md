@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/tajo/ladle/compare/@ladle/react@0.11.0...@ladle/react@0.12.0) (2022-04-18)
+
+### Features
+
+- make all config params accessible to programatic API ([#104](https://github.com/tajo/ladle/issues/104)) ([e01de89](https://github.com/tajo/ladle/commit/e01de890087214b0ae8a2b559bb652d87aa8268c))
+
 # [0.11.0](https://github.com/tajo/ladle/compare/@ladle/react@0.10.2...@ladle/react@0.11.0) (2022-03-31)
 
 ### Features
