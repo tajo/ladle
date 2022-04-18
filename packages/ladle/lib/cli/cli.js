@@ -21,7 +21,9 @@ program
     "open browser, e.g. chrome, firefox, safari. Set none to disable",
   )
   .option("--config [string]", "folder where config is located, default .ladle")
-  .action(serve);
+  .action(async (params) => {
+    await serve({ ...params, serve: params });
+  });
 program
   .command("build")
   .description("build static production app")
@@ -32,7 +34,7 @@ program
   .option("--base-url [string]", "when hosted in a sub-directory, default /")
   .option("--config [string]", "folder where config is located, default .ladle")
   .action(async (params) => {
-    const success = await build(params);
+    const success = await build({ ...params, build: params });
     if (success) {
       process.exit(0);
     }
