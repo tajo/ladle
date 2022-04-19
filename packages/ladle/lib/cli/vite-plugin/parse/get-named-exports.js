@@ -1,4 +1,4 @@
-import cloneDeep from "lodash.clonedeep";
+import cloneDeep from "../../deps/lodash.clonedeep.js";
 import merge from "lodash.merge";
 import {
   getEncodedStoryName,

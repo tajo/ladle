@@ -86,7 +86,6 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         "classnames",
         "debug",
         "history",
-        "lodash.clonedeep",
         "lodash.merge",
         "query-string",
         "@reach/dialog",

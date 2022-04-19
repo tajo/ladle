@@ -1,5 +1,5 @@
 import traverse from "@babel/traverse";
-import cloneDeep from "lodash.clonedeep";
+import cloneDeep from "../../lib/cli/deps/lodash.clonedeep.js";
 import merge from "lodash.merge";
 import getAst from "../../lib/cli/vite-plugin/get-ast.js";
 import type { ParsedStoriesResult } from "../../lib/shared/types";
