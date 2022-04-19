@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.1](https://github.com/tajo/ladle/compare/@ladle/react@0.12.0...@ladle/react@0.12.1) (2022-04-19)
+
+### Bug Fixes
+
+- inline lodash.clonedeep ([#105](https://github.com/tajo/ladle/issues/105)) ([745c262](https://github.com/tajo/ladle/commit/745c262a5870a98c1b14b16423c94527aa1b7714))
+
 # [0.12.0](https://github.com/tajo/ladle/compare/@ladle/react@0.11.0...@ladle/react@0.12.0) (2022-04-18)
 
 ### Features

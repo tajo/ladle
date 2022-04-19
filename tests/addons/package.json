@@ -1,6 +1,6 @@
 {
   "name": "test-addons",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -13,7 +13,7 @@
     "test": "yarn test-dev && yarn test-prod"
   },
   "dependencies": {
-    "@ladle/react": "^0.12.0",
+    "@ladle/react": "^0.12.1",
     "@playwright/test": "1.19.2",
     "http-server": "^14.1.0",
     "react": "^18.0.0",
