@@ -42,7 +42,7 @@ const NoStories: React.FC<{ wrongUrl?: boolean; activeStory?: string }> = ({
       <Link href="https://github.com/tajo/ladle">Github</Link>
     </p>
     <p>
-      <Link href="https://wwww.ladle.dev">Docs</Link>
+      <Link href="https://www.ladle.dev">Docs</Link>
     </p>
   </div>
 );
