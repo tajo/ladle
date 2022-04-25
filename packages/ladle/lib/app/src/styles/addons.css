@@ -30,14 +30,16 @@ html[dir="rtl"] {
   }
 }
 
-.ladle-addons-story-title {
-  @apply flex items-center mr-auto text-xs text-primary-700;
-}
+[data-ladle] {
+  .ladle-addons-story-title {
+    @apply flex items-center mr-auto text-xs text-primary-700;
+  }
 
-.ladle-addons-story-icon {
-  @apply h-1.5 text-primary-500;
-}
+  .ladle-addons-story-icon {
+    @apply h-1.5 text-primary-500;
+  }
 
-.ladle-addons-story-divider {
-  @apply h-4 text-primary-400;
+  .ladle-addons-story-divider {
+    @apply h-4 text-primary-400;
+  }
 }

@@ -7,6 +7,7 @@ import { Button as RtlButton } from "./addons/rtl";
 import { Button as LadleButton } from "./addons/ladle";
 import config from "./get-config";
 import { ChevronRight, Circle } from "./icons";
+import { StoryName } from "./addons/story-name";
 
 type AddonNames = keyof Config["addons"];
 
@@ -24,11 +25,7 @@ const AddonPanel: React.FC<{
 
   return (
     <aside data-ladle className="ladle-addons">
-      <div className="ladle-addons-story-title">
-        <Circle className="ladle-addons-story-icon" />
-        {globalState.story}
-        <ChevronRight className="ladle-addons-story-divider" />
-      </div>
+      <StoryName title={globalState.story} />
       <ul className="ladle-addons-controls">
         {config.addons.control.enabled &&
           Object.keys(globalState.control).length > 0 && (
