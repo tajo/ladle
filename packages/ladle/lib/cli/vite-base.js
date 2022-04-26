@@ -108,6 +108,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
       //@ts-ignore
       react({
         babel: {
+          parserOpts: ladleConfig.babelParserOpts,
           presets: ladleConfig.babelPresets,
           plugins: ladleConfig.babelPlugins,
           compact: true,
