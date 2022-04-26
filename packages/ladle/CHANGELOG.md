@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/tajo/ladle/compare/@ladle/react@0.12.2...@ladle/react@0.13.0) (2022-04-26)
+
+### Features
+
+- add config babelParserOpts ([#111](https://github.com/tajo/ladle/issues/111)) ([2102752](https://github.com/tajo/ladle/commit/2102752e50a41606551d31c416a5fed69424312f))
+
 ## [0.12.2](https://github.com/tajo/ladle/compare/@ladle/react@0.12.1...@ladle/react@0.12.2) (2022-04-20)
 
 ### Bug Fixes
