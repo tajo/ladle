@@ -6,6 +6,7 @@ export const Foo = lazy(() => Promise.resolve() as any);
 export const list = ["Foo"];
 export const config = {};
 export const stories = {};
+export const storySrouce = {};
 
 export const Provider = ({ children }: { children: any }) =>
   /*#__PURE__*/ React.createElement(React.Fragment, null, children);

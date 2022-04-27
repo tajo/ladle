@@ -11,10 +11,17 @@ const getStoryList = (entryData) => {
   let storyIds = [];
   /** @type {{[key: string]: any}} */
   let storyParams = {};
+  /** @type {{[key: string]: { locStart: number; locEnd: number;}}} */
+  let storyLocs = {};
 
   Object.keys(entryData).forEach((entry) => {
-    entryData[entry].stories.forEach(({ storyId }) => {
+    entryData[entry].stories.forEach(({ storyId, locStart, locEnd }) => {
       storyIds.push(storyId);
+      storyLocs[storyId] = {
+        locStart,
+        locEnd,
+        entry,
+      };
     });
     storyParams = { ...storyParams, ...entryData[entry].storyParams };
   });
@@ -46,6 +53,18 @@ const getStoryList = (entryData) => {
                         storyEncodeDelimiter,
                       ),
                     ),
+                  ),
+                  t.objectProperty(
+                    t.identifier("locStart"),
+                    t.numericLiteral(storyLocs[story].locStart),
+                  ),
+                  t.objectProperty(
+                    t.identifier("locEnd"),
+                    t.numericLiteral(storyLocs[story].locEnd),
+                  ),
+                  t.objectProperty(
+                    t.identifier("entry"),
+                    t.stringLiteral(storyLocs[story].entry),
                   ),
                   ...(paramsAst ? [paramsAst] : []),
                 ]),

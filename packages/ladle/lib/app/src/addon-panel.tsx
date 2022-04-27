@@ -4,6 +4,7 @@ import { Button as ThemeButton } from "./addons/theme";
 import { Button as ControlButton } from "./addons/control";
 import { Button as ModeButton } from "./addons/mode";
 import { Button as RtlButton } from "./addons/rtl";
+import { Button as SourceButton } from "./addons/source";
 import { Button as LadleButton } from "./addons/ladle";
 import config from "./get-config";
 
@@ -35,6 +36,9 @@ const AddonPanel: React.FC<{
         )}
         {config.addons.rtl.enabled && (
           <RtlButton globalState={globalState} dispatch={dispatch} />
+        )}
+        {config.addons.source.enabled && (
+          <SourceButton globalState={globalState} dispatch={dispatch} />
         )}
         {config.addons.ladle.enabled && <LadleButton />}
       </ul>

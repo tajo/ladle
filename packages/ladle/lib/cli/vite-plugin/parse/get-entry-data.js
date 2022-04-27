@@ -29,6 +29,10 @@ export const getEntryData = async (entries) => {
  * @param {string} entry
  */
 export const getSingleEntry = async (entry) => {
+  const code = await fs.promises.readFile(
+    path.join(process.cwd(), entry),
+    "utf8",
+  );
   /** @type {import('../../../shared/types').ParsedStoriesResult} */
   const result = {
     entry,
@@ -37,12 +41,9 @@ export const getSingleEntry = async (entry) => {
     namedExportToMeta: {},
     namedExportToStoryName: {},
     storyParams: {},
+    storySource: code,
     fileId: getFileId(entry),
   };
-  const code = await fs.promises.readFile(
-    path.join(process.cwd(), entry),
-    "utf8",
-  );
   const ast = getAst(code, entry);
   /** @type {any} */ (traverse).default(ast, {
     Program: getStorynameAndMeta.bind(this, result),

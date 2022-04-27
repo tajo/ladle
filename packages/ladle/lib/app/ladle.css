@@ -205,6 +205,14 @@ body {
   z-index: 1000;
 }
 
+.ladle-addon-source-lineno {
+  display: table-cell;
+  text-align: right;
+  padding-right: 0.5em;
+  user-select: none;
+  opacity: 0.5;
+}
+
 .ladle-addons > ul > li > .ladle-active {
   color: var(--ladle-color-accent);
 }
@@ -460,7 +468,7 @@ div[data-reach-dialog-overlay] {
     bottom: 49px;
     inset-inline-start: 21px;
     margin-inline-end: 21px;
-    max-width: 35em;
+    max-width: 40em;
     margin: 0;
   }
 
