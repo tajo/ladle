@@ -40,18 +40,6 @@ export let storySource = {
   \\"capitalization--blue-tiny-cat\\": fileSourceCodes[\\"bcf1fa0f\\"],
   \\"capitalization--big-barking-dog\\": fileSourceCodes[\\"bcf1fa0f\\"]
 };
-if (import.meta.hot) {
-  import.meta.hot.accept(({ module }) => {
-    if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
-      stories = module.stories;
-      config = module.config;
-    } else {
-      // full refresh when new stories are added
-      // todo, can dynamic import + React Refresh work?
-      import.meta.hot.invalidate();
-    }
-  });
-}
 "
 `;
 
@@ -83,18 +71,6 @@ let fileSourceCodes = {
 export let storySource = {
   \\"filename-capitalization--test\\": fileSourceCodes[\\"445f0671\\"]
 };
-if (import.meta.hot) {
-  import.meta.hot.accept(({ module }) => {
-    if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
-      stories = module.stories;
-      config = module.config;
-    } else {
-      // full refresh when new stories are added
-      // todo, can dynamic import + React Refresh work?
-      import.meta.hot.invalidate();
-    }
-  });
-}
 "
 `;
 
@@ -126,18 +102,6 @@ let fileSourceCodes = {
 export let storySource = {
   \\"title--cat\\": fileSourceCodes[\\"0dc60faf\\"]
 };
-if (import.meta.hot) {
-  import.meta.hot.accept(({ module }) => {
-    if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
-      stories = module.stories;
-      config = module.config;
-    } else {
-      // full refresh when new stories are added
-      // todo, can dynamic import + React Refresh work?
-      import.meta.hot.invalidate();
-    }
-  });
-}
 "
 `;
 
@@ -201,18 +165,6 @@ export let storySource = {
   \\"title--cat\\": fileSourceCodes[\\"551a9524\\"],
   \\"title--dog\\": fileSourceCodes[\\"551a9524\\"]
 };
-if (import.meta.hot) {
-  import.meta.hot.accept(({ module }) => {
-    if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
-      stories = module.stories;
-      config = module.config;
-    } else {
-      // full refresh when new stories are added
-      // todo, can dynamic import + React Refresh work?
-      import.meta.hot.invalidate();
-    }
-  });
-}
 "
 `;
 
@@ -252,18 +204,6 @@ let fileSourceCodes = {
 export let storySource = {
   \\"title--cat\\": fileSourceCodes[\\"6f46f563\\"]
 };
-if (import.meta.hot) {
-  import.meta.hot.accept(({ module }) => {
-    if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
-      stories = module.stories;
-      config = module.config;
-    } else {
-      // full refresh when new stories are added
-      // todo, can dynamic import + React Refresh work?
-      import.meta.hot.invalidate();
-    }
-  });
-}
 "
 `;
 
@@ -307,18 +247,6 @@ export let storySource = {
   \\"animals--cat\\": fileSourceCodes[\\"29b55362\\"],
   \\"animals--dog\\": fileSourceCodes[\\"29b55362\\"]
 };
-if (import.meta.hot) {
-  import.meta.hot.accept(({ module }) => {
-    if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
-      stories = module.stories;
-      config = module.config;
-    } else {
-      // full refresh when new stories are added
-      // todo, can dynamic import + React Refresh work?
-      import.meta.hot.invalidate();
-    }
-  });
-}
 "
 `;
 
@@ -374,18 +302,6 @@ export let storySource = {
   \\"storyname--capital-city\\": fileSourceCodes[\\"2ab17fea\\"],
   \\"storyname--champs-\\\\xE9lys\\\\xE9es\\": fileSourceCodes[\\"2ab17fea\\"]
 };
-if (import.meta.hot) {
-  import.meta.hot.accept(({ module }) => {
-    if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
-      stories = module.stories;
-      config = module.config;
-    } else {
-      // full refresh when new stories are added
-      // todo, can dynamic import + React Refresh work?
-      import.meta.hot.invalidate();
-    }
-  });
-}
 "
 `;
 
@@ -417,17 +333,5 @@ let fileSourceCodes = {
 export let storySource = {
   \\"our-animals--mammals--cat\\": fileSourceCodes[\\"347c8ecc\\"]
 };
-if (import.meta.hot) {
-  import.meta.hot.accept(({ module }) => {
-    if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
-      stories = module.stories;
-      config = module.config;
-    } else {
-      // full refresh when new stories are added
-      // todo, can dynamic import + React Refresh work?
-      import.meta.hot.invalidate();
-    }
-  });
-}
 "
 `;

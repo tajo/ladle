@@ -29,6 +29,7 @@ const filesWithDirname = [
   "./cjs/lib/cli/vite-plugin/generate/get-story-list.js",
   "./cjs/lib/cli/vite-plugin/generate/get-story-source.js",
   "./cjs/lib/cli/vite-plugin/ast-to-obj.js",
+  "./cjs/lib/cli/vite-plugin/vite-plugin.js",
 ];
 
 filesWithDirname.forEach((file) => {

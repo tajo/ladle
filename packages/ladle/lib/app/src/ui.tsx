@@ -6,9 +6,15 @@ export const Button: React.FC<{
   children: React.ReactNode;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   style?: React.CSSProperties;
-}> = ({ children, onClick, style }) => {
+  "aria-label"?: string;
+}> = ({ children, onClick, style, ...rest }) => {
   return (
-    <button className="ladle-button" onClick={onClick} style={style}>
+    <button
+      className="ladle-button"
+      onClick={onClick}
+      style={style}
+      aria-label={rest["aria-label"]}
+    >
       {children}
     </button>
   );
@@ -42,6 +48,7 @@ export const Modal: React.FC<{
     isOpen={isOpen}
     onDismiss={() => close()}
     aria-label={label || "Modal"}
+    data-testid="ladle-dialog"
   >
     <div
       style={{
@@ -63,6 +70,13 @@ export const Modal: React.FC<{
         <Close />
       </Button>
     </div>
-    {children}
+    <div
+      style={{
+        maxHeight: "80vh",
+        overflow: "auto",
+      }}
+    >
+      {children}
+    </div>
   </Dialog>
 );

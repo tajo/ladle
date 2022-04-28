@@ -197,6 +197,9 @@ export type Config = {
       enabled: boolean;
       defaultState: boolean;
     };
+    a11y: {
+      enabled: boolean;
+    };
     ladle: {
       enabled: boolean;
     };
