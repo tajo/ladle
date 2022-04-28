@@ -6,6 +6,7 @@ import { Button as ModeButton } from "./addons/mode";
 import { Button as RtlButton } from "./addons/rtl";
 import { Button as SourceButton } from "./addons/source";
 import { Button as LadleButton } from "./addons/ladle";
+import { Button as A11yButton } from "./addons/a11y";
 import config from "./get-config";
 
 type AddonNames = keyof Config["addons"];
@@ -22,7 +23,7 @@ const AddonPanel: React.FC<{
     return null;
   }
   return (
-    <aside className="ladle-addons">
+    <header role="banner" className="ladle-addons">
       <ul>
         {config.addons.control.enabled &&
           Object.keys(globalState.control).length > 0 && (
@@ -40,9 +41,10 @@ const AddonPanel: React.FC<{
         {config.addons.source.enabled && (
           <SourceButton globalState={globalState} dispatch={dispatch} />
         )}
+        {config.addons.a11y.enabled && <A11yButton />}
         {config.addons.ladle.enabled && <LadleButton />}
       </ul>
-    </aside>
+    </header>
   );
 };
 

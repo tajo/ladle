@@ -218,6 +218,14 @@ body {
   color: var(--ladle-color-accent);
 }
 
+.ladle-addons > ul > li > .source-active {
+  color: var(--ladle-color-accent);
+}
+
+.ladle-addons > ul > li > .a11y-active {
+  color: var(--ladle-color-accent);
+}
+
 .ladle-addons > ul > li > button:focus-visible {
   border: 2px solid var(--ladle-color-accent);
 }
@@ -383,6 +391,7 @@ div[data-reach-dialog-overlay] {
 .ladle-code {
   padding: 0.2em 0.4em;
   margin: 0;
+  line-height: 2;
   font-size: 85%;
   background-color: var(--ladle-bg-color-secondary);
   border: 1px solid var(--ladle-color-hover);

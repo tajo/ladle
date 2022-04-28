@@ -56,6 +56,9 @@ export default {
       enabled: true,
       defaultState: false,
     },
+    a11y: {
+      enabled: true,
+    },
     ladle: {
       enabled: true,
     },

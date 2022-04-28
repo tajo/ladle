@@ -38,7 +38,7 @@ const Main: React.FC<{
   );
 
   return (
-    <aside className="ladle-aside">
+    <nav role="navigation" className="ladle-aside">
       <input
         placeholder="Search"
         aria-label="Search stories"
@@ -63,7 +63,7 @@ const Main: React.FC<{
           (treeRoot.current = root)
         }
       />
-    </aside>
+    </nav>
   );
 };
 

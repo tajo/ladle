@@ -1,7 +1,11 @@
 import globby from "globby";
+import path from "path";
+import { fileURLToPath } from "url";
 import debugFactory from "debug";
 import getGeneratedList from "./generate/get-generated-list.js";
 import { getEntryData } from "./parse/get-entry-data.js";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const debug = debugFactory("ladle:vite");
 
@@ -33,6 +37,27 @@ function ladlePlugin(config, configFolder) {
         return virtualFileId;
       }
       return null;
+    },
+    /**
+     * @param {string} code
+     * @param {string} id
+     */
+    async transform(code, id) {
+      // We instrument stories with a simple eventemitter like code so
+      // some addons (like a11y) can subscribe to changes and re-run
+      // on HMR updates
+      if (id.includes(".stories.")) {
+        const from = path
+          .relative(id, path.join(__dirname, "../../app/src"))
+          .slice(3);
+        const watcherImport = `import { storyUpdated } from "${from}/story-hmr";`;
+        return `${code}\n${watcherImport}\nif (import.meta.hot) {
+          import.meta.hot.accept(() => {
+            storyUpdated();
+          });
+        }`;
+      }
+      return code;
     },
     /**
      * @param {string} id
