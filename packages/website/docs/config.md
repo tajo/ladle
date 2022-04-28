@@ -80,13 +80,15 @@ export default {
   },
   // enable/disable addons and their default state
   addons: {
+    a11y: {
+      enabled: true,
+    },
     control: {
       enabled: true,
       defaultState: {},
     },
-    theme: {
+    ladle: {
       enabled: true,
-      defaultState: "light",
     },
     mode: {
       enabled: true,
@@ -100,8 +102,9 @@ export default {
       enabled: true,
       defaultState: false,
     },
-    ladle: {
+    theme: {
       enabled: true,
+      defaultState: "light",
     },
   },
   serve: {

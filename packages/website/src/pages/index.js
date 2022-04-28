@@ -24,8 +24,8 @@ const features = [
             Controls
           </a>
         </b>
-        . It supports links, themes, right-to-left, source code, typescript and
-        flow out of the box.
+        . It supports links, themes, right-to-left, source code, a11y (axe),
+        typescript and flow out of the box.
       </>
     ),
   },
