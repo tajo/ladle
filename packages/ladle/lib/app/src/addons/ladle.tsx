@@ -24,21 +24,21 @@ export const Button: React.FC<{}> = () => {
           <p>
             Ladle is a modern and very fast playground for React components
             powered by Vite. For more information:
-            <ul>
-              <li>
-                <a href="https://www.ladle.dev/">Ladle.dev</a>
-              </li>
-              <li>
-                <a href="https://github.com/tajo/ladle">GitHub</a>
-              </li>
-              <li>
-                <a href="https://node.new/ladle">StackBlitz</a>
-              </li>
-              <li>
-                <a href="https://discord.gg/H6FSHjyW7e">Discord</a>
-              </li>
-            </ul>
           </p>
+          <ul>
+            <li>
+              <a href="https://www.ladle.dev/">Ladle.dev</a>
+            </li>
+            <li>
+              <a href="https://github.com/tajo/ladle">GitHub</a>
+            </li>
+            <li>
+              <a href="https://node.new/ladle">StackBlitz</a>
+            </li>
+            <li>
+              <a href="https://discord.gg/H6FSHjyW7e">Discord</a>
+            </li>
+          </ul>
           <p>
             <strong>Shortcuts</strong>
           </p>

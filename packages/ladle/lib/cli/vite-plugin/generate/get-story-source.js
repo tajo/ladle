@@ -4,11 +4,15 @@ import generate from "@babel/generator";
 
 /**
  * @param entryData {import('../../../shared/types').EntryData}
+ * @param enabled {boolean}
  */
-const getStorySource = (entryData) => {
-  /** @type {[key: string]: string} */
+const getStorySource = (entryData, enabled) => {
+  if (!enabled) {
+    return "export const storySource = {}";
+  }
+  /** @type {{[key: string]: string}} */
   const storySource = {};
-  /** @type {[key: string]: string} */
+  /** @type {{[key: string]: string}} */
   const fileSourceCodes = {};
   Object.keys(entryData).forEach((entry) => {
     const fileHash = createHash("sha256")

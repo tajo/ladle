@@ -43,7 +43,7 @@ function ladlePlugin(config, configFolder) {
         try {
           debug("Initial generation of the list");
           const entryData = await getEntryData(await globby([config.stories]));
-          return getGeneratedList(entryData, configFolder);
+          return getGeneratedList(entryData, configFolder, config);
         } catch (e) {
           debug("Error when generating the list:");
           debug(e);

@@ -11,7 +11,7 @@ const getStoryList = (entryData) => {
   let storyIds = [];
   /** @type {{[key: string]: any}} */
   let storyParams = {};
-  /** @type {{[key: string]: { locStart: number; locEnd: number;}}} */
+  /** @type {{[key: string]: { locStart: number; locEnd: number; entry: string;}}} */
   let storyLocs = {};
 
   Object.keys(entryData).forEach((entry) => {

@@ -15,6 +15,7 @@ export const Context = React.createContext<{
     mode: ModeState.Full,
     story: "",
     rtl: false,
+    source: false,
     control: {},
   },
   /* eslint-disable-next-line @typescript-eslint/no-empty-function*/

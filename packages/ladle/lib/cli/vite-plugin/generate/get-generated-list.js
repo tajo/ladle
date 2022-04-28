@@ -8,14 +8,15 @@ import getHmr from "./get-hmr.js";
 /**
  * @param entryData {import('../../../shared/types').EntryData}
  * @param configFolder {string}
+ * @param config {import("../../../shared/types").Config}
  */
-const getGeneratedList = (entryData, configFolder) => {
+const getGeneratedList = (entryData, configFolder, config) => {
   return `
 ${getStoryImports(entryData)}
 ${getStoryList(entryData)}
 ${getConfigImport(configFolder)}
 ${getComponentsImport(configFolder)}
-${getStorySource(entryData)}
+${getStorySource(entryData, config.addons.source.enabled)}
 ${getHmr()}
 `;
 };

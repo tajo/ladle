@@ -208,7 +208,8 @@ body {
 .ladle-addon-source-lineno {
   display: table-cell;
   text-align: right;
-  padding-right: 0.5em;
+  padding-right: 0.25em;
+  padding-left: 0.25em;
   user-select: none;
   opacity: 0.5;
 }

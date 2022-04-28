@@ -18,30 +18,11 @@ export const getQuery = (locationSearch: string) => {
 
 const CodeFrame: React.FC<{ globalState: GlobalState }> = ({ globalState }) => {
   const theme = globalState.theme === "dark" ? themeDark : themeLight;
-  console.log(globalState.theme);
-  // @ts-ignore
   const { entry, locStart, locEnd } = stories[globalState.story];
   React.useEffect(() => {
     window.location.hash = ``;
     window.location.hash = `ladle_loc_${locStart}`;
   }, [locStart]);
-  // const codeRef = React.useRef(null);
-  // const locRefs = Array.from(
-  //   Array(storySource[globalState.story].split("\n").length).keys(),
-  // ).map(() => React.useRef(null));
-  // console.log(locRefs);
-  // React.useEffect(() => {
-  //   console.log("run effect", codeRef.current);
-  //   console.log(locRefs);
-  //   console.log(locRefs[locStart + 1].current.getBoundingClientRect());
-  //   if (codeRef.current) {
-  //     console.log("change top");
-  //     codeRef.current.scrollTop =
-  //       locRefs[locStart + 1].current.getBoundingClientRect().top;
-  //   } else {
-  //     console.log("no codeRef");
-  //   }
-  // }, [locStart, codeRef.current, open]);
   return (
     <>
       <div style={{ paddingTop: "2em" }}>
@@ -80,12 +61,14 @@ const CodeFrame: React.FC<{ globalState: GlobalState }> = ({ globalState }) => {
               >
                 <span
                   className="ladle-addon-source-lineno"
-                  style={{
-                    backgroundColor:
-                      i + 1 >= locStart && i + 1 <= locEnd
-                        ? "yellow"
-                        : "inherit",
-                  }}
+                  style={
+                    i + 1 >= locStart && i + 1 <= locEnd
+                      ? {
+                          backgroundColor: "var(--ladle-color-accent)",
+                          color: "#FFF",
+                        }
+                      : undefined
+                  }
                 >
                   {i + 1}
                 </span>
@@ -115,6 +98,7 @@ export const Button: React.FC<AddonProps> = ({ globalState, dispatch }) => {
     <li>
       <button
         aria-label={text}
+        data-testid="addon-source"
         title={text}
         onClick={() => {
           dispatch({
