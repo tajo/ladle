@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/tajo/ladle/compare/@ladle/react@0.13.1...@ladle/react@0.14.0) (2022-04-28)
+
+### Features
+
+- add addon a11y (based on Axe) ([#115](https://github.com/tajo/ladle/issues/115)) ([77098c7](https://github.com/tajo/ladle/commit/77098c79a6813dba774e2f0a531357511ea407fb))
+
 ## [0.13.1](https://github.com/tajo/ladle/compare/@ladle/react@0.13.0...@ladle/react@0.13.1) (2022-04-28)
 
 **Note:** Version bump only for package @ladle/react

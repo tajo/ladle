@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/tajo/ladle/compare/test-addons@0.1.23...test-addons@0.2.0) (2022-04-28)
+
+### Features
+
+- add addon a11y (based on Axe) ([#115](https://github.com/tajo/ladle/issues/115)) ([77098c7](https://github.com/tajo/ladle/commit/77098c79a6813dba774e2f0a531357511ea407fb))
+
 ## [0.1.23](https://github.com/tajo/ladle/compare/test-addons@0.1.22...test-addons@0.1.23) (2022-04-28)
 
 **Note:** Version bump only for package test-addons
