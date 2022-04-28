@@ -40,6 +40,7 @@ export enum ActionType {
   UpdateAll = "update-all",
   UpdateMode = "update-mode",
   UpdateRtl = "update-rtl",
+  UpdateSource = "update-source",
   UpdateStory = "update-story",
   UpdateTheme = "update-theme",
   UpdateControl = "update-control",
@@ -56,6 +57,10 @@ export type GlobalAction =
     }
   | {
       type: ActionType.UpdateRtl;
+      value: boolean;
+    }
+  | {
+      type: ActionType.UpdateSource;
       value: boolean;
     }
   | {
@@ -76,6 +81,7 @@ export type GlobalState = {
   theme: ThemeState;
   story: string;
   rtl: boolean;
+  source: boolean;
   control: ControlState;
 };
 
@@ -187,6 +193,10 @@ export type Config = {
       enabled: boolean;
       defaultState: boolean;
     };
+    source: {
+      enabled: boolean;
+      defaultState: boolean;
+    };
     ladle: {
       enabled: boolean;
     };
@@ -223,6 +233,7 @@ export type ParsedStoriesResult = {
   namedExportToStoryName: { [key: string]: string };
   storyParams: { [key: string]: { title?: string; meta: any } };
   fileId: string;
+  storySource: string;
 };
 
 export type EntryData = {

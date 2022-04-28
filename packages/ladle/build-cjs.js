@@ -27,6 +27,7 @@ const filesWithDirname = [
   "./cjs/lib/cli/vite-plugin/generate/get-story-imports.js",
   "./cjs/lib/cli/vite-plugin/parse/get-entry-data.js",
   "./cjs/lib/cli/vite-plugin/generate/get-story-list.js",
+  "./cjs/lib/cli/vite-plugin/generate/get-story-source.js",
   "./cjs/lib/cli/vite-plugin/ast-to-obj.js",
 ];
 
@@ -48,7 +49,7 @@ filesWithDirname.forEach((file) => {
         `const _require = require;`,
       )
       .replace("_template.default.default", "_template.default")
-      .replace("_generator.default.default", "_generator.default")
+      .replace(/_generator.default.default/gi, "_generator.default")
       .replace("_traverse.default.default", "_traverse.default")
       .replace(/_types.default./gi, "_types."),
     (err) => {

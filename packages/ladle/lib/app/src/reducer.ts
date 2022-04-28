@@ -10,6 +10,8 @@ const reducer = (state: GlobalState, action: GlobalAction): GlobalState => {
       return { ...state, mode: action.value };
     case ActionType.UpdateRtl:
       return { ...state, rtl: action.value };
+    case ActionType.UpdateSource:
+      return { ...state, source: action.value };
     case ActionType.UpdateStory:
       return { ...state, story: action.value, control: {} };
     case ActionType.UpdateTheme:

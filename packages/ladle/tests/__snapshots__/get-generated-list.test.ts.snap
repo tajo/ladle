@@ -17,16 +17,29 @@ const capitalization$$big$barking$dog = lazy(() => import(\\"../../../tests/fixt
 }));
 export let stories = {
   \\"capitalization--blue-tiny-cat\\": {
-    component: capitalization$$blue$tiny$cat
+    component: capitalization$$blue$tiny$cat,
+    locStart: 3,
+    locEnd: 5,
+    entry: \\"tests/fixtures/capitalization.stories.tsx\\"
   },
   \\"capitalization--big-barking-dog\\": {
-    component: capitalization$$big$barking$dog
+    component: capitalization$$big$barking$dog,
+    locStart: 7,
+    locEnd: 9,
+    entry: \\"tests/fixtures/capitalization.stories.tsx\\"
   }
 };
 export let config = {};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
+let fileSourceCodes = {
+  \\"bcf1fa0f\\": \\"import * as React from \\\\\\"react\\\\\\";\\\\n\\\\nexport const BlueTinyCat = () => {\\\\n  return <h1>Blue Tiny Cat</h1>;\\\\n};\\\\n\\\\nexport const BigBarkingDog = () => {\\\\n  return <h1> Big Barking Dog</h1>;\\\\n};\\\\n\\"
+};
+export let storySource = {
+  \\"capitalization--blue-tiny-cat\\": fileSourceCodes[\\"bcf1fa0f\\"],
+  \\"capitalization--big-barking-dog\\": fileSourceCodes[\\"bcf1fa0f\\"]
+};
 if (import.meta.hot) {
   import.meta.hot.accept(({ module }) => {
     if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
@@ -54,13 +67,22 @@ const filename$capitalization$$test = lazy(() => import(\\"../../../tests/fixtur
 }));
 export let stories = {
   \\"filename-capitalization--test\\": {
-    component: filename$capitalization$$test
+    component: filename$capitalization$$test,
+    locStart: 3,
+    locEnd: 5,
+    entry: \\"tests/fixtures/filenameCapitalization.stories.tsx\\"
   }
 };
 export let config = {};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
+let fileSourceCodes = {
+  \\"445f0671\\": \\"import * as React from \\\\\\"react\\\\\\";\\\\n\\\\nexport const Test = () => {\\\\n  return <h1>Test</h1>;\\\\n};\\\\n\\"
+};
+export let storySource = {
+  \\"filename-capitalization--test\\": fileSourceCodes[\\"445f0671\\"]
+};
 if (import.meta.hot) {
   import.meta.hot.accept(({ module }) => {
     if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
@@ -88,13 +110,22 @@ const title$$cat = lazy(() => import(\\"../../../tests/fixtures/default-title.st
 }));
 export let stories = {
   \\"title--cat\\": {
-    component: title$$cat
+    component: title$$cat,
+    locStart: 7,
+    locEnd: 9,
+    entry: \\"tests/fixtures/default-title.stories.tsx\\"
   }
 };
 export let config = {};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
+let fileSourceCodes = {
+  \\"0dc60faf\\": \\"import * as React from \\\\\\"react\\\\\\";\\\\n\\\\nexport default {\\\\n  title: \\\\\\"Title\\\\\\",\\\\n};\\\\n\\\\nexport const Cat = () => {\\\\n  return <h1>Cat</h1>;\\\\n};\\\\n\\"
+};
+export let storySource = {
+  \\"title--cat\\": fileSourceCodes[\\"0dc60faf\\"]
+};
 if (import.meta.hot) {
   import.meta.hot.accept(({ module }) => {
     if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
@@ -128,6 +159,9 @@ const title$$dog = lazy(() => import(\\"../../../tests/fixtures/story-meta.stori
 export let stories = {
   \\"title--cat\\": {
     component: title$$cat,
+    locStart: 13,
+    locEnd: 15,
+    entry: \\"tests/fixtures/story-meta.stories.tsx\\",
     meta: {
       \\"title\\": \\"Title\\",
       \\"meta\\": {
@@ -142,6 +176,9 @@ export let stories = {
   },
   \\"title--dog\\": {
     component: title$$dog,
+    locStart: 25,
+    locEnd: 27,
+    entry: \\"tests/fixtures/story-meta.stories.tsx\\",
     meta: {
       \\"title\\": \\"Title\\",
       \\"meta\\": {
@@ -157,6 +194,13 @@ export let config = {};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
+let fileSourceCodes = {
+  \\"551a9524\\": \\"import * as React from \\\\\\"react\\\\\\";\\\\n\\\\nexport default {\\\\n  title: \\\\\\"Title\\\\\\",\\\\n  meta: {\\\\n    baseweb: {\\\\n      theme: \\\\\\"dark\\\\\\",\\\\n      browsers: [\\\\\\"chrome\\\\\\", \\\\\\"webkit\\\\\\"],\\\\n    },\\\\n  },\\\\n};\\\\n\\\\nexport const Cat = () => {\\\\n  return <h1>Cat</h1>;\\\\n};\\\\n\\\\nCat.meta = {\\\\n  baseweb: {\\\\n    browsers: [\\\\\\"chrome\\\\\\", \\\\\\"firefox\\\\\\"],\\\\n    width: \\\\\\"500px\\\\\\",\\\\n  },\\\\n  links: true,\\\\n};\\\\n\\\\nexport const Dog = () => {\\\\n  return <h1>Dog</h1>;\\\\n};\\\\n\\"
+};
+export let storySource = {
+  \\"title--cat\\": fileSourceCodes[\\"551a9524\\"],
+  \\"title--dog\\": fileSourceCodes[\\"551a9524\\"]
+};
 if (import.meta.hot) {
   import.meta.hot.accept(({ module }) => {
     if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
@@ -185,6 +229,9 @@ const title$$cat = lazy(() => import(\\"../../../tests/fixtures/default-meta.sto
 export let stories = {
   \\"title--cat\\": {
     component: title$$cat,
+    locStart: 12,
+    locEnd: 14,
+    entry: \\"tests/fixtures/default-meta.stories.tsx\\",
     meta: {
       \\"title\\": \\"Title\\",
       \\"meta\\": {
@@ -199,6 +246,12 @@ export let config = {};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
+let fileSourceCodes = {
+  \\"6f46f563\\": \\"import * as React from \\\\\\"react\\\\\\";\\\\n\\\\nexport default {\\\\n  title: \\\\\\"Title\\\\\\",\\\\n  meta: {\\\\n    baseweb: {\\\\n      foo: \\\\\\"title\\\\\\",\\\\n    },\\\\n  },\\\\n};\\\\n\\\\nexport const Cat = () => {\\\\n  return <h1>Cat</h1>;\\\\n};\\\\n\\"
+};
+export let storySource = {
+  \\"title--cat\\": fileSourceCodes[\\"6f46f563\\"]
+};
 if (import.meta.hot) {
   import.meta.hot.accept(({ module }) => {
     if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
@@ -231,16 +284,29 @@ const animals$$dog = lazy(() => import(\\"../../../tests/fixtures/animals.storie
 }));
 export let stories = {
   \\"animals--cat\\": {
-    component: animals$$cat
+    component: animals$$cat,
+    locStart: 3,
+    locEnd: 5,
+    entry: \\"tests/fixtures/animals.stories.tsx\\"
   },
   \\"animals--dog\\": {
-    component: animals$$dog
+    component: animals$$dog,
+    locStart: 7,
+    locEnd: 9,
+    entry: \\"tests/fixtures/animals.stories.tsx\\"
   }
 };
 export let config = {};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
+let fileSourceCodes = {
+  \\"29b55362\\": \\"import * as React from \\\\\\"react\\\\\\";\\\\n\\\\nexport const Cat = () => {\\\\n  return <h1>Cat</h1>;\\\\n};\\\\n\\\\nexport const Dog = () => {\\\\n  return <h1>Dog</h1>;\\\\n};\\\\n\\"
+};
+export let storySource = {
+  \\"animals--cat\\": fileSourceCodes[\\"29b55362\\"],
+  \\"animals--dog\\": fileSourceCodes[\\"29b55362\\"]
+};
 if (import.meta.hot) {
   import.meta.hot.accept(({ module }) => {
     if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
@@ -278,19 +344,36 @@ const storyname$$champs$élysées = lazy(() => import(\\"../../../tests/fixtures
 }));
 export let stories = {
   \\"storyname--doggo\\": {
-    component: storyname$$doggo
+    component: storyname$$doggo,
+    locStart: 3,
+    locEnd: 8,
+    entry: \\"tests/fixtures/storyname.stories.tsx\\"
   },
   \\"storyname--capital-city\\": {
-    component: storyname$$capital$city
+    component: storyname$$capital$city,
+    locStart: 13,
+    locEnd: 15,
+    entry: \\"tests/fixtures/storyname.stories.tsx\\"
   },
   \\"storyname--champs-\\\\xE9lys\\\\xE9es\\": {
-    component: storyname$$champs$élysées
+    component: storyname$$champs$élysées,
+    locStart: 17,
+    locEnd: 19,
+    entry: \\"tests/fixtures/storyname.stories.tsx\\"
   }
 };
 export let config = {};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
+let fileSourceCodes = {
+  \\"2ab17fea\\": \\"import * as React from \\\\\\"react\\\\\\";\\\\n\\\\nexport const Cat = () => {\\\\n  const Stop = { storyName: \\\\\\"\\\\\\" };\\\\n  // should be ignored\\\\n  Stop.storyName = \\\\\\"What\\\\\\";\\\\n  return <h1>Cat</h1>;\\\\n};\\\\n\\\\nCat.storyName = \\\\\\"Doggo\\\\\\";\\\\nCat.foo = \\\\\\"Ha\\\\\\";\\\\n\\\\nexport const CapitalCity = () => {\\\\n  return <h1>DC</h1>;\\\\n};\\\\n\\\\nexport const CapitalReplaced = () => {\\\\n  return <h1>CapitalReplaced</h1>;\\\\n};\\\\nCapitalReplaced.storyName = \\\\\\"Champs \\\\xC9lys\\\\xE9es\\\\\\";\\\\n\\"
+};
+export let storySource = {
+  \\"storyname--doggo\\": fileSourceCodes[\\"2ab17fea\\"],
+  \\"storyname--capital-city\\": fileSourceCodes[\\"2ab17fea\\"],
+  \\"storyname--champs-\\\\xE9lys\\\\xE9es\\": fileSourceCodes[\\"2ab17fea\\"]
+};
 if (import.meta.hot) {
   import.meta.hot.accept(({ module }) => {
     if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {
@@ -318,13 +401,22 @@ const our$animals$$mammals$$cat = lazy(() => import(\\"../../../tests/fixtures/o
 }));
 export let stories = {
   \\"our-animals--mammals--cat\\": {
-    component: our$animals$$mammals$$cat
+    component: our$animals$$mammals$$cat,
+    locStart: 3,
+    locEnd: 5,
+    entry: \\"tests/fixtures/our-animals--mammals.stories.tsx\\"
   }
 };
 export let config = {};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
+let fileSourceCodes = {
+  \\"347c8ecc\\": \\"import * as React from \\\\\\"react\\\\\\";\\\\n\\\\nexport const Cat = () => {\\\\n  return <h1>Cat</h1>;\\\\n};\\\\n\\"
+};
+export let storySource = {
+  \\"our-animals--mammals--cat\\": fileSourceCodes[\\"347c8ecc\\"]
+};
 if (import.meta.hot) {
   import.meta.hot.accept(({ module }) => {
     if (Object.keys(module.stories).every(item => Object.keys(stories).includes(item))) {

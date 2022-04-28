@@ -27,6 +27,16 @@ Object {
     },
   ],
   "storyParams": Object {},
+  "storySource": "import * as React from \\"react\\";
+
+export const BlueTinyCat = () => {
+  return <h1>Blue Tiny Cat</h1>;
+};
+
+export const BigBarkingDog = () => {
+  return <h1> Big Barking Dog</h1>;
+};
+",
 }
 `;
 
@@ -50,6 +60,12 @@ Object {
     },
   ],
   "storyParams": Object {},
+  "storySource": "import * as React from \\"react\\";
+
+export const Test = () => {
+  return <h1>Test</h1>;
+};
+",
 }
 `;
 
@@ -73,6 +89,16 @@ Object {
     },
   ],
   "storyParams": Object {},
+  "storySource": "import * as React from \\"react\\";
+
+export default {
+  title: \\"Title\\",
+};
+
+export const Cat = () => {
+  return <h1>Cat</h1>;
+};
+",
 }
 `;
 
@@ -149,6 +175,34 @@ Object {
       "title": "Title",
     },
   },
+  "storySource": "import * as React from \\"react\\";
+
+export default {
+  title: \\"Title\\",
+  meta: {
+    baseweb: {
+      theme: \\"dark\\",
+      browsers: [\\"chrome\\", \\"webkit\\"],
+    },
+  },
+};
+
+export const Cat = () => {
+  return <h1>Cat</h1>;
+};
+
+Cat.meta = {
+  baseweb: {
+    browsers: [\\"chrome\\", \\"firefox\\"],
+    width: \\"500px\\",
+  },
+  links: true,
+};
+
+export const Dog = () => {
+  return <h1>Dog</h1>;
+};
+",
 }
 `;
 
@@ -185,6 +239,21 @@ Object {
       "title": "Title",
     },
   },
+  "storySource": "import * as React from \\"react\\";
+
+export default {
+  title: \\"Title\\",
+  meta: {
+    baseweb: {
+      foo: \\"title\\",
+    },
+  },
+};
+
+export const Cat = () => {
+  return <h1>Cat</h1>;
+};
+",
 }
 `;
 
@@ -215,6 +284,16 @@ Object {
     },
   ],
   "storyParams": Object {},
+  "storySource": "import * as React from \\"react\\";
+
+export const Cat = () => {
+  return <h1>Cat</h1>;
+};
+
+export const Dog = () => {
+  return <h1>Dog</h1>;
+};
+",
 }
 `;
 
@@ -255,6 +334,27 @@ Object {
     },
   ],
   "storyParams": Object {},
+  "storySource": "import * as React from \\"react\\";
+
+export const Cat = () => {
+  const Stop = { storyName: \\"\\" };
+  // should be ignored
+  Stop.storyName = \\"What\\";
+  return <h1>Cat</h1>;
+};
+
+Cat.storyName = \\"Doggo\\";
+Cat.foo = \\"Ha\\";
+
+export const CapitalCity = () => {
+  return <h1>DC</h1>;
+};
+
+export const CapitalReplaced = () => {
+  return <h1>CapitalReplaced</h1>;
+};
+CapitalReplaced.storyName = \\"Champs Élysées\\";
+",
 }
 `;
 
@@ -278,5 +378,11 @@ Object {
     },
   ],
   "storyParams": Object {},
+  "storySource": "import * as React from \\"react\\";
+
+export const Cat = () => {
+  return <h1>Cat</h1>;
+};
+",
 }
 `;

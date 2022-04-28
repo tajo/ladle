@@ -96,6 +96,10 @@ export default {
       enabled: true,
       defaultState: false,
     },
+    source: {
+      enabled: true,
+      defaultState: false,
+    },
     ladle: {
       enabled: true,
     },
