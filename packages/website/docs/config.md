@@ -63,8 +63,9 @@ export default {
   publicDir: "public", // can be an absolute path or `false` to disable the feature
   enableFlow: false, // enable flow types support
   defaultStory: "", // default story id to load, alphabetical by default
-  babelPresets: [],
-  babelPlugins: [],
+  babelParserOpts: {}, // https://babeljs.io/docs/en/babel-parser#options
+  babelPresets: [], // https://babeljs.io/docs/en/presets
+  babelPlugins: [], // https://babeljs.io/docs/en/plugins
   vitePlugins: [], // https://vitejs.dev/config/#plugins
   envPrefix: "VITE_", // can be a string or string[]
   css: {

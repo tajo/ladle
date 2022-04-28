@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.22](https://github.com/tajo/ladle/compare/test-addons@0.1.21...test-addons@0.1.22) (2022-04-26)
+
+**Note:** Version bump only for package test-addons
+
 ## [0.1.21](https://github.com/tajo/ladle/compare/test-addons@0.1.20...test-addons@0.1.21) (2022-04-20)
 
 **Note:** Version bump only for package test-addons

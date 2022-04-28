@@ -161,6 +161,7 @@ export type Config = {
   publicDir: string | false;
   enableFlow: boolean;
   defaultStory: string;
+  babelParserOpts: { [key: string]: any };
   babelPlugins: any[];
   babelPresets: any[];
   vitePlugins: VitePluginInput[];

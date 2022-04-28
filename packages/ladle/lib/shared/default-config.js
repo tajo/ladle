@@ -17,6 +17,7 @@ export default {
   publicDir,
   enableFlow: false, // enable support for flow types
   defaultStory: "", // default story id to load, alphabetical by default
+  babelParserOpts: {},
   babelPresets: [],
   babelPlugins: [],
   vitePlugins: [],
