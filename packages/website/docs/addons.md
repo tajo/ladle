@@ -8,11 +8,10 @@ Ladle currently does not support third-party addons but it might in the future. 
 - [Controls](./stories#controls-args-and-argtypes) (only if `args` or `argTypes` are defined)
 - [Links](./links)
 - Dark theme
-- Story source code
+- [Story source code](./source)
+- [Accessibility](./a11y) (Axe)
 - Preview mode
 - Right-to-left
-
-![Story Source Code](/img/code-source.png)
 
 There are also other features you might not even notice at first:
 

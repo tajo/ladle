@@ -6,6 +6,8 @@ module.exports = {
     "providers",
     "css",
     "links",
+    "a11y",
+    "source",
     "addons",
     "meta",
     "cli",
