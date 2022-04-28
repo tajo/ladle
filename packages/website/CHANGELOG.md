@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/tajo/ladle/compare/website@0.2.1...website@0.3.0) (2022-04-28)
+
+### Features
+
+- add config babelParserOpts ([#111](https://github.com/tajo/ladle/issues/111)) ([2102752](https://github.com/tajo/ladle/commit/2102752e50a41606551d31c416a5fed69424312f))
+
 ## [0.2.1](https://github.com/tajo/ladle/compare/website@0.2.0...website@0.2.1) (2022-04-11)
 
 **Note:** Version bump only for package website
