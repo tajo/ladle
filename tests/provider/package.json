@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@ladle/react": "^0.14.0",
-    "@playwright/test": "1.21.1",
+    "@playwright/test": "1.19.2",
     "http-server": "^14.1.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
