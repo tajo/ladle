@@ -18,13 +18,13 @@
     "tests/*"
   ],
   "devDependencies": {
-    "@commitlint/cli": "^16.2.3",
-    "@commitlint/config-conventional": "^16.2.1",
-    "@types/react": "^18.0.5",
-    "@types/react-dom": "^18.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.17.0",
-    "@typescript-eslint/parser": "^5.17.0",
-    "eslint": "^8.12.0",
+    "@commitlint/cli": "^16.2.4",
+    "@commitlint/config-conventional": "^16.2.4",
+    "@types/react": "^18.0.8",
+    "@types/react-dom": "^18.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.21.0",
+    "@typescript-eslint/parser": "^5.21.0",
+    "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
@@ -32,7 +32,7 @@
     "lerna": "^4.0.0",
     "prettier": "^2.6.1",
     "pretty-quick": "^3.1.3",
-    "typescript": "^4.6.3"
+    "typescript": "^4.6.4"
   },
   "volta": {
     "node": "16.12.0",
