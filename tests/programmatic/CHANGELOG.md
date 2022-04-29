@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.25](https://github.com/tajo/ladle/compare/test-programmatic@0.2.24...test-programmatic@0.2.25) (2022-04-29)
+
+**Note:** Version bump only for package test-programmatic
+
 ## [0.2.24](https://github.com/tajo/ladle/compare/test-programmatic@0.2.23...test-programmatic@0.2.24) (2022-04-28)
 
 **Note:** Version bump only for package test-programmatic

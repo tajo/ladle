@@ -1,6 +1,6 @@
 {
   "name": "test-decorators",
-  "version": "0.2.24",
+  "version": "0.2.25",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -13,7 +13,7 @@
     "test": "yarn test-dev && yarn test-prod"
   },
   "dependencies": {
-    "@ladle/react": "^0.14.0",
+    "@ladle/react": "^0.14.1",
     "@playwright/test": "1.19.2",
     "http-server": "^14.1.0",
     "react": "^18.1.0",
