@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@ladle/react": "^0.14.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   },
   "volta": {
     "extends": "../../package.json"
