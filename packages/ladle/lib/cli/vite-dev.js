@@ -27,6 +27,7 @@ const bundler = async (config, configFolder) => {
       mode: "development",
       define: config.serve.define,
       server: {
+        host: config.serve.host,
         port: config.serve.port,
         open: config.serve.open,
         fs: {
@@ -57,7 +58,7 @@ const bundler = async (config, configFolder) => {
 
       if (config.serve.open !== "none") {
         await open(
-          `http://localhost:${port}`,
+          `http://${config.serve.host || 'localhost'}:${port}`,
           ["chrome", "firefox", "edge", "safari"].includes(config.serve.open)
             ? { app: { name: config.serve.open } }
             : {},
