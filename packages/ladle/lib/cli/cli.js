@@ -14,6 +14,7 @@ program
   .command("serve")
   .description("start developing")
   .option("--stories [string]", "glob to find stories")
+  .option("--host [string]", "custom host to bind vite server to")
   .option("--port [number]", "port to serve the application", strToInt)
   .option("--theme [string]", "theme light, dark or auto")
   .option(
