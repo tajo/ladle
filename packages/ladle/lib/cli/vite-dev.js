@@ -35,7 +35,9 @@ const bundler = async (config, configFolder) => {
         middlewareMode: "html",
       },
     });
-    const vite = await createServer(viteConfig);
+    const vite = await createServer(
+      await config.onViteConfig({ config: viteConfig }),
+    );
     app.head("*", async (_, res) => res.sendStatus(200));
     app.get("/meta.json", async (_, res) => {
       const entryData = await getEntryData(await globby([config.stories]));

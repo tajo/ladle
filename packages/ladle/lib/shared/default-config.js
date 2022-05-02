@@ -74,4 +74,16 @@ export default {
     baseUrl: "/",
     define: {}, // https://vitejs.dev/config/#define for prod build
   },
+  // any other custom vite configurations not available above, supports promise return also
+  /**
+   * @typedef { import("../shared/types").OnViteConfigOptions } OnViteConfigOptions
+   * @typedef { import("../shared/types").UserConfigVite } UserConfigVite
+   */
+  /**
+   * @param { OnViteConfigOptions }  options - arguments for callback
+   * @returns { UserConfigVite } A valid vite config
+   */
+  onViteConfig(options) {
+    return options.config;
+  },
 };

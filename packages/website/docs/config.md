@@ -118,6 +118,11 @@ export default {
     baseUrl: "/",
     define: {}, // https://vitejs.dev/config/#define for prod build
   },
+  // any other custom vite configurations not available above, supports promise return also
+  onViteConfig({ config }) {
+    config.mode = 'test'
+    return config;
+  },
 };
 ```
 

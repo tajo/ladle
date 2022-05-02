@@ -1,4 +1,10 @@
-import type { CSSModulesOptions, Plugin } from "vite";
+import type {
+  CSSModulesOptions,
+  Plugin,
+  UserConfig as UserConfigVite,
+} from "vite";
+
+export { UserConfigVite };
 
 type RecursivePartial<T> = {
   [P in keyof T]?: RecursivePartial<T[P]>;
@@ -155,6 +161,10 @@ export type VitePluginInput =
   | (() => Plugin | null)
   | (() => Promise<Plugin | null>);
 
+export type OnViteConfigOptions = {
+  config: UserConfigVite;
+};
+
 export type Config = {
   stories: string;
   root: string;
@@ -215,6 +225,9 @@ export type Config = {
     baseUrl: string;
     define: { [key: string]: string };
   };
+  onViteConfig(
+    options: OnViteConfigOptions,
+  ): UserConfigVite | Promise<UserConfigVite>;
 };
 
 export type UserConfig = RecursivePartial<Config>;
