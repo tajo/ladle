@@ -26,6 +26,7 @@
     "e2e/provider"
   ],
   "devDependencies": {
+    "@changesets/cli": "^2.22.0",
     "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^16.2.4",
     "@types/react": "^18.0.8",
