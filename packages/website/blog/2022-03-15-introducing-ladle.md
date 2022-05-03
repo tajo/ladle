@@ -66,9 +66,9 @@ The new set of web tools is coming and brings huge performance wins. Ladle is us
 ```bash
 mkdir my-ladle
 cd my-ladle
-yarn init --yes
-yarn add @ladle/react react react-dom
+pnpm init
+pnpm add @ladle/react react react-dom
 mkdir src
 echo "export const World = () => <p>Hey</p>;" > src/hello.stories.tsx
-yarn ladle serve
+pnpm ladle serve
 ```

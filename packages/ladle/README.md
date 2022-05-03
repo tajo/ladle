@@ -11,14 +11,36 @@ Ladle is an environment to develop, test and share your React components faster.
 
 ## Quick start
 
-```sh
-yarn add @ladle/react react react-dom
-yarn ladle serve # to start deving
-yarn ladle build # to build (when ready to deploy)
+```bash
+mkdir my-ladle
+cd my-ladle
+pnpm init
+pnpm add @ladle/react react react-dom
+mkdir src
+echo "export const World = () => <p>Hey</p>;" > src/hello.stories.tsx
+pnpm ladle serve
 ```
 
-Create your first story `src/hello.stories.tsx`:
+with yarn
 
-```jsx
-export const Button = () => <button>Hello</button>;
+```bash
+mkdir my-ladle
+cd my-ladle
+yarn init --yes
+yarn add @ladle/react react react-dom
+mkdir src
+echo "export const World = () => <p>Hey</p>;" > src/hello.stories.tsx
+yarn ladle serve
+```
+
+with npm
+
+```bash
+mkdir my-ladle
+cd my-ladle
+npm init --yes
+npm install @ladle/react react react-dom
+mkdir src
+echo "export const World = () => <p>Hey</p>;" > src/hello.stories.tsx
+npx ladle serve
 ```

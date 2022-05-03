@@ -8,18 +8,29 @@
   "private": true,
   "scripts": {
     "lint": "eslint \"./packages/*/{lib,src}/**/*.{ts,tsx}\" --max-warnings=0",
-    "test": "lerna run test --concurrency=1",
-    "build": "lerna run build --stream",
+    "test": "turbo run test",
+    "build": "turbo run build",
     "typecheck": "tsc",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "./release.sh"
   },
   "workspaces": [
-    "packages/*",
-    "tests/*"
+    "packages/example",
+    "packages/ladle",
+    "packages/website",
+    "e2e/addons",
+    "e2e/commonjs",
+    "e2e/css",
+    "e2e/decorators",
+    "e2e/flow",
+    "e2e/programmatic",
+    "e2e/provider"
   ],
   "devDependencies": {
+    "@changesets/cli": "^2.22.0",
     "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^16.2.4",
+    "@playwright/test": "1.19.2",
     "@types/react": "^18.0.8",
     "@types/react-dom": "^18.0.3",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
@@ -29,13 +40,9 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "husky": "^7.0.4",
-    "lerna": "^4.0.0",
     "prettier": "^2.6.1",
     "pretty-quick": "^3.1.3",
+    "turbo": "^1.2.5",
     "typescript": "^4.6.4"
-  },
-  "volta": {
-    "node": "16.12.0",
-    "yarn": "1.22.15"
   }
 }

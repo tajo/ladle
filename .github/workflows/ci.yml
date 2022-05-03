@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  commitlint:
+    name: Check commit message format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: wagoid/commitlint-github-action@v2
+
+  build:
+    name: Build and Test
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 7.0.0
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install playwright
+        run: pnpm playwright install chromium
+
+      - name: Eslint
+        run: pnpm lint
+
+      - name: Typescript
+        run: pnpm typecheck
+
+      - name: Build
+        run: pnpm build
+
+      - name: Unit and e2e tests
+        run: pnpm test -- --concurrency=1

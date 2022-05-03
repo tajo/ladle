@@ -22,7 +22,7 @@
     "clean": "rimraf dist && rimraf .ladle && rimraf build && rimraf *.tsbuildinfo",
     "build": "./build-cjs.sh",
     "serve": "node ./lib/cli/cli.js serve",
-    "test": "node --experimental-vm-modules ./node_modules/.bin/jest"
+    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest"
   },
   "dependencies": {
     "@babel/code-frame": "^7.16.7",
@@ -37,7 +37,6 @@
     "@babel/template": "^7.16.7",
     "@babel/traverse": "^7.17.3",
     "@babel/types": "^7.17.0",
-    "@reach/dialog": "^0.17.0",
     "@vitejs/plugin-react": "^1.3.0",
     "axe-core": "^4.4.1",
     "boxen": "^5.1.2",
@@ -89,8 +88,5 @@
       ".ts",
       ".tsx"
     ]
-  },
-  "volta": {
-    "extends": "../../package.json"
   }
 }
