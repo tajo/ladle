@@ -1,11 +1,8 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
 name: Node.js CI
 
 on:
   pull_request:
-    branches: [master]
+    types: [opened, synchronize]
 
 jobs:
   commitlint:
@@ -15,22 +12,44 @@ jobs:
         with:
           fetch-depth: 0
       - uses: wagoid/commitlint-github-action@v2
+
   build:
-    runs-on: ubuntu-latest
+    name: Build and Test
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
     strategy:
       matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        os: [ubuntu-latest, macos-latest]
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Check out code
+        uses: actions/checkout@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install -g yarn@1.22.15
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm playwright install
-      - run: pnpm lint
-      - run: pnpm typecheck
-      - run: pnpm build
+          fetch-depth: 2
+
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 7.0.0
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install playwright
+        run: pnpm playwright install
+
+      - name: Eslint
+        run: pnpm lint
+
+      - name: Typescript
+        run: pnpm typecheck
+
+      - name: Build
+        run: pnpm build
+
+      - name: Unit and e2e tests
       - run: pnpm test
