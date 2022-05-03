@@ -11,7 +11,8 @@
     "test": "turbo run test",
     "build": "turbo run build",
     "typecheck": "tsc",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "turbo run build && changeset publish"
   },
   "workspaces": [
     "packages/example",
