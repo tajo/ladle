@@ -8,7 +8,7 @@ Ladle is a single package & command that does not require any initial configurat
 ## Dependencies
 
 ```bash
-yarn add @ladle/react
+pnpm add @ladle/react
 ```
 
 It expects that `react` and `react-dom` are already installed.
@@ -26,13 +26,13 @@ export const World = () => <p>Hey!</p>;
 If you use `.js` for your React components (JSX), you have to import React explicitly:
 
 ```jsx
-import * as React from 'react';
+import * as React from "react";
 ```
 
 ## Run and develop
 
 ```bash
-yarn ladle serve
+pnpm ladle serve
 ```
 
 Development mode. It will start a dev server and opens your browser. This is ideal when you want to quickly develop your components.
@@ -40,7 +40,7 @@ Development mode. It will start a dev server and opens your browser. This is ide
 ## Build
 
 ```bash
-yarn ladle build
+pnpm ladle build
 ```
 
 Production build. It creates a `build` folder and outputs Ladle assets into it. This is optimized and minified version that you can deploy or use for testing.
@@ -58,11 +58,35 @@ This is a full set of commands you can follow to get a basic setup from scratch:
 ```bash
 mkdir my-ladle
 cd my-ladle
+pnpm init
+pnpm add @ladle/react react react-dom
+mkdir src
+echo "export const World = () => <p>Hey</p>;" > src/hello.stories.tsx
+pnpm ladle serve
+```
+
+or with yarn
+
+```bash
+mkdir my-ladle
+cd my-ladle
 yarn init --yes
 yarn add @ladle/react react react-dom
 mkdir src
 echo "export const World = () => <p>Hey</p>;" > src/hello.stories.tsx
 yarn ladle serve
+```
+
+or with npm
+
+```bash
+mkdir my-ladle
+cd my-ladle
+npm init --yes
+npm install @ladle/react react react-dom
+mkdir src
+echo "export const World = () => <p>Hey</p>;" > src/hello.stories.tsx
+npx ladle serve
 ```
 
 ## StackBlitz

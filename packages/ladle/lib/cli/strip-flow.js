@@ -41,7 +41,7 @@ export function flowPlugin(
 /**
  * Create an esbuild plugin object
  *
- * @returns {import('esbuild').Plugin} Returns esbuild plugin object
+ * @returns {any} Returns esbuild plugin object
  */
 export function esbuildFlowPlugin(
   filter = /\.(flow|jsx?)$/,
@@ -53,6 +53,7 @@ export function esbuildFlowPlugin(
 ) {
   return {
     name: "flow",
+    // @ts-ignore
     setup(build) {
       // @ts-ignore
       build.onLoad({ filter }, async ({ path, namespace }) => {

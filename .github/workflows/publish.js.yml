@@ -16,12 +16,12 @@ jobs:
         with:
           node-version: 16
       - run: npm install -g yarn@1.22.15
-      - run: yarn install --frozen-lockfile
-      - run: npx playwright install
-      - run: yarn lint
-      - run: yarn typecheck
-      - run: yarn build
-      - run: yarn test
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm playwright install
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm build
+      - run: pnpm test
       - name: Publish packages
         run: ./scripts/publish.sh
         env:

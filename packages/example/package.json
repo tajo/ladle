@@ -10,11 +10,8 @@
     "test": "echo 'no test'"
   },
   "dependencies": {
-    "@ladle/react": "^0.14.1",
+    "@ladle/react": "workspace:*",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
-  },
-  "volta": {
-    "extends": "../../package.json"
   }
 }

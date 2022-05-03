@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Dialog } from "@reach/dialog";
+import { Dialog } from "./dialog";
 import { Close } from "./icons";
 
 export const Button: React.FC<{
@@ -43,40 +43,43 @@ export const Modal: React.FC<{
   close: () => void;
   isOpen: boolean;
   label?: string;
-}> = ({ children, close, isOpen, label }) => (
-  <Dialog
-    isOpen={isOpen}
-    onDismiss={() => close()}
-    aria-label={label || "Modal"}
-    data-testid="ladle-dialog"
-  >
-    <div
-      style={{
-        position: "absolute",
-        insetInlineEnd: "-6px",
-        top: "0px",
-      }}
+}> = ({ children, close, isOpen, label }) => {
+  return (
+    //@ts-ignore
+    <Dialog
+      isOpen={isOpen}
+      onDismiss={() => close()}
+      aria-label={label || "Modal"}
+      data-testid="ladle-dialog"
     >
-      <Button
-        onClick={() => close()}
-        aria-label="Close modal"
+      <div
         style={{
-          height: "36px",
-          width: "36px",
-          borderColor: "transparent",
-          boxShadow: "none",
+          position: "absolute",
+          insetInlineEnd: "-6px",
+          top: "0px",
         }}
       >
-        <Close />
-      </Button>
-    </div>
-    <div
-      style={{
-        maxHeight: "80vh",
-        overflow: "auto",
-      }}
-    >
-      {children}
-    </div>
-  </Dialog>
-);
+        <Button
+          onClick={() => close()}
+          aria-label="Close modal"
+          style={{
+            height: "36px",
+            width: "36px",
+            borderColor: "transparent",
+            boxShadow: "none",
+          }}
+        >
+          <Close />
+        </Button>
+      </div>
+      <div
+        style={{
+          maxHeight: "80vh",
+          overflow: "auto",
+        }}
+      >
+        {children}
+      </div>
+    </Dialog>
+  );
+};

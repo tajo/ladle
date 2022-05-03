@@ -88,7 +88,6 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         "history",
         "lodash.merge",
         "query-string",
-        "@reach/dialog",
         "prism-react-renderer",
         "prism-react-renderer/themes/github",
         "prism-react-renderer/themes/nightOwl",
