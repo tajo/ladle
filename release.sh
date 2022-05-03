@@ -3,7 +3,6 @@
 set -eo pipefail
 
 echo "Running release"
-echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > ~/.npmrc
 
 echo "Build @ladle/react"
 turbo run build --filter=@ladle/react
