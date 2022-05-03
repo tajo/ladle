@@ -14,5 +14,10 @@ module.exports = {
     "config",
     "programmatic",
     "troubleshooting",
+    {
+      type: "link",
+      label: "Contributing",
+      href: "https://github.com/tajo/ladle/blob/master/CONTRIBUTING.md",
+    },
   ],
 };

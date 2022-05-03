@@ -8,7 +8,14 @@ Ladle is a single package & command that does not require any initial configurat
 ## Dependencies
 
 ```bash
+# pnpm
 pnpm add @ladle/react
+
+# npm
+npm install @ladle/react
+
+# yarn
+yarn add @ladle/react
 ```
 
 It expects that `react` and `react-dom` are already installed.
