@@ -4,7 +4,7 @@ set -eo pipefail
 
 echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
 
-turbo run build
+turbo run build --filter=@ladle/react
 changeset publish
 
 # build and publish @ladle/react-cjs
