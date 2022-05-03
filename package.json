@@ -12,7 +12,7 @@
     "build": "turbo run build",
     "typecheck": "tsc",
     "prepare": "husky install",
-    "release": "turbo run build && changeset publish"
+    "release": "./release.sh"
   },
   "workspaces": [
     "packages/example",
