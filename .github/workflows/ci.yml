@@ -55,7 +55,7 @@ jobs:
         run: pnpm typecheck
 
       - name: Build
-        run: pnpm build -- --concurrency=1
+        run: pnpm build
 
       - name: Unit and e2e tests
         run: pnpm test -- --concurrency=1
