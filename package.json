@@ -29,6 +29,7 @@
     "@changesets/cli": "^2.22.0",
     "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^16.2.4",
+    "@playwright/test": "1.19.2",
     "@types/react": "^18.0.8",
     "@types/react-dom": "^18.0.3",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
