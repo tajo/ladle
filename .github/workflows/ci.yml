@@ -55,7 +55,7 @@ jobs:
         run: pnpm build
 
       - name: Unit and e2e tests
-        run: pnpm test
+        run: pnpm test -- --concurrency=1
 
   publish:
     name: Publish
