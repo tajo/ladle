@@ -73,4 +73,3 @@ You can create a new package in `packages` or `e2e` (playwright apps+tests). It 
 
 - `package.json#workspaces`
 - `pnpm-workspace.yaml#packages`
-- `.changeset/config.json#ignore` (if not publishable)

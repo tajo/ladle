@@ -6,16 +6,5 @@
   "linked": [],
   "access": "public",
   "baseBranch": "master",
-  "updateInternalDependencies": "patch",
-  "ignore": [
-    "test-addons",
-    "test-commonjs",
-    "test-css",
-    "test-decorators",
-    "test-flow",
-    "test-programmatic",
-    "test-provider",
-    "example",
-    "website"
-  ]
+  "updateInternalDependencies": "patch"
 }
