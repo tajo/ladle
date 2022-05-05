@@ -170,9 +170,7 @@ export type Config = {
   css: {
     modules: CSSModulesOptions;
   };
-  resolve: {
-    alias: { [key: string]: string };
-  };
+  resolve: { [key: string]: any };
   optimizeDeps: {
     include: string[];
   };

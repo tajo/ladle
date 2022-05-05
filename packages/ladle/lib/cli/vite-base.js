@@ -67,6 +67,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     envDir: process.cwd(),
     envPrefix: ladleConfig.envPrefix,
     resolve: {
+      ...ladleConfig.resolve,
       alias: {
         ...reactAlias,
         ...ladleConfig.resolve.alias,

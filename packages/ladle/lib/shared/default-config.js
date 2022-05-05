@@ -26,9 +26,8 @@ export default {
   css: {
     modules: {},
   },
-  resolve: {
-    alias: {}, // https://vitejs.dev/config/#resolve-alias
-  },
+  // see resolve section at https://vitejs.dev/config
+  resolve: {},
   optimizeDeps: {
     include: [], // https://vitejs.dev/config/#optimizedeps-include
   },
