@@ -8,22 +8,24 @@ assignees: ''
 ---
 
 **Describe the bug**
+
 A clear and concise description of what the bug is.
 
-**To Reproduce**
+**Reproduction**
 
-Reproduce with [Stackblitz](https://node.new/ladle).
+Please, try to reproduce your issue with [Stackblitz](https://node.new/ladle). Your issue gets much higher priority since it can be triaged effeciently.
 
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+Alternatively, create a repo. Or describe steps to reproduce and copy&paste the output from:
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+```sh
+DEBUG=ladle* pnpm ladle serve
+DEBUG=ladle* pnpm ladle build
+```
 
-**Desktop (please complete the following information):**
+More about [troubleshooting](https://ladle.dev/docs/troubleshooting).
+
+**Environment**
+
  - OS: [e.g. iOS]
  - Browser [e.g. chrome, safari]
  - Version [e.g. 22]
