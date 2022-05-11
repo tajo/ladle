@@ -27,6 +27,7 @@
     "e2e/provider"
   ],
   "devDependencies": {
+    "@changesets/changelog-github": "^0.4.4",
     "@changesets/cli": "^2.22.0",
     "@commitlint/cli": "^16.2.4",
     "@commitlint/config-conventional": "^16.2.4",
