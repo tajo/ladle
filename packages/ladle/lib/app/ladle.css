@@ -36,6 +36,12 @@ body {
   flex-direction: column;
 }
 
+.ladle-aside img,
+.ladle-aside svg {
+  display: inline;
+  vertical-align: baseline;
+}
+
 .ladle-main {
   background-color: var(--ladle-bg-color-primary);
   flex: 1 1 auto;
@@ -400,6 +406,18 @@ div[data-reach-dialog-overlay] {
   font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
 }
 
+.ladle-addon-modal-body {
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.ladle-addon-modal-body ul {
+  list-style: square;
+  overflow: auto;
+  margin: 8px;
+  padding-left: 40px;
+}
+
 @media (min-width: 768px) {
   html,
   body {
@@ -418,6 +436,10 @@ div[data-reach-dialog-overlay] {
   [data-mode="full"] .ladle-wrapper {
     height: 100vh;
     overflow: hidden;
+  }
+
+  .ladle-aside {
+    box-sizing: content-box;
   }
 
   .ladle-main {
@@ -447,9 +469,11 @@ div[data-reach-dialog-overlay] {
 
   .ladle-aside li {
     margin: 0.35em 0.35em;
+    line-height: 18px;
   }
 
   .ladle-aside input {
+    line-height: 1;
     background-color: var(--ladle-bg-color-secondary);
   }
 
