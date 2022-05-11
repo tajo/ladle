@@ -1,5 +1,14 @@
+import * as React from "react";
 import { useLadleState } from "./src/context";
 import { ActionType, GlobalState } from "../shared/types";
+
+type ReactNodeWithoutObject =
+  | React.ReactElement
+  | string
+  | number
+  | boolean
+  | null
+  | undefined;
 
 export { useLadleState };
 
@@ -8,7 +17,10 @@ export const useLink = () => {
   return (value: string) => dispatch({ type: ActionType.UpdateStory, value });
 };
 
-export type GlobalProvider = React.FC<{ globalState: GlobalState }>;
+export type GlobalProvider = React.FC<{
+  globalState: GlobalState;
+  children: ReactNodeWithoutObject;
+}>;
 
 export interface Story<P = {}> extends React.FC<P> {
   storyName?: string;
