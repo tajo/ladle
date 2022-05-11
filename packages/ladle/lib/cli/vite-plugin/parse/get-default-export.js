@@ -12,6 +12,9 @@ const getDefaultExport = (result, astPath) => {
       objNode =
         astPath.scope.bindings[astPath.node.declaration.name].path.node.init;
     }
+    if (astPath.node.declaration.type === "TSAsExpression") {
+      objNode = astPath.node.declaration.expression;
+    }
     objNode.properties.forEach((/** @type {any} */ prop) => {
       if (prop.type === "ObjectProperty" && prop.key.name === "title") {
         if (prop.value.type !== "StringLiteral") {
@@ -29,6 +32,7 @@ const getDefaultExport = (result, astPath) => {
       }
     });
   } catch (e) {
+    console.log(e);
     throw new Error(
       `Can't parse the default title and meta of ${result.entry}. Meta must be serializable and title a string literal.`,
     );
