@@ -10,39 +10,40 @@ const ArgsProvider: React.FC<{
   const [globalState, dispatch] = useLadleState();
   React.useEffect(() => {
     const controls: ControlState = {};
-    Object.keys(args).forEach((argKey) => {
-      const argValue = args[argKey];
-      if (globalState.control[argKey]) {
-        controls[argKey] = {
-          type: globalState.control[argKey].type,
-          defaultValue: argValue,
-          value: globalState.control[argKey].value,
-          description: "",
-        };
-      } else {
-        let type = ControlType.Complex;
-        switch (typeof argValue) {
-          case "function":
-            type = ControlType.Function;
-            break;
-          case "boolean":
-            type = ControlType.Boolean;
-            break;
-          case "number":
-            type = ControlType.Number;
-            break;
-          case "string":
-            type = ControlType.String;
-            break;
+    args &&
+      Object.keys(args).forEach((argKey) => {
+        const argValue = args[argKey];
+        if (globalState.control[argKey]) {
+          controls[argKey] = {
+            type: globalState.control[argKey].type,
+            defaultValue: argValue,
+            value: globalState.control[argKey].value,
+            description: "",
+          };
+        } else {
+          let type = ControlType.Complex;
+          switch (typeof argValue) {
+            case "function":
+              type = ControlType.Function;
+              break;
+            case "boolean":
+              type = ControlType.Boolean;
+              break;
+            case "number":
+              type = ControlType.Number;
+              break;
+            case "string":
+              type = ControlType.String;
+              break;
+          }
+          controls[argKey] = {
+            type,
+            defaultValue: argValue,
+            value: argValue,
+            description: "",
+          };
         }
-        controls[argKey] = {
-          type,
-          defaultValue: argValue,
-          value: argValue,
-          description: "",
-        };
-      }
-    });
+      });
     argTypes &&
       Object.keys(argTypes).forEach((argKey) => {
         const argValue = argTypes[argKey];
