@@ -79,9 +79,9 @@ function ladlePlugin(config, configFolder, mode) {
           detectDuplicateStoryNames(entryData);
           return getGeneratedList(entryData, configFolder, config);
         } catch (/** @type {any} */ e) {
-          printError("Error when generating the story list:");
-          console.log("");
+          printError("\nStory discovering failed:\n");
           printError(e);
+          printError("\nMore info: https://ladle.dev/docs/stories#limitations");
           if (mode === "production") {
             process.exit(1);
           }

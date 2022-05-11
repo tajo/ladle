@@ -45,6 +45,8 @@ export const Button = () => <button>My Button</button>;
 Button.storyName = "Renamed Button";
 ```
 
+All story names and titles [need to be string literals](#limitations).
+
 You can also replace the filename (level name) part:
 
 ```tsx
@@ -147,3 +149,38 @@ CardWorld.args = {
   label: "World",
 };
 ```
+
+## Limitations
+
+There are limitations in place to support features like the automatic code-splitting or [meta](./meta) file. Some parts of the stories syntax must be static and serializable.
+
+### `storyName`, `title` and `meta` need to be serializable
+
+```tsx
+export default {
+  title: "Welcome",
+  meta: {
+    key: "value",
+  },
+};
+export const Story = () => "Hey";
+Story.storyName = "Renamed";
+```
+
+however, this does not work
+
+```tsx
+export default {
+  title: "Welcome" + " Everybody",
+  meta: {
+    key: 1 + 2,
+  },
+};
+export const Story = () => "Hey";
+const newName = "Renamed";
+Story.storyName = newName;
+```
+
+### Story names and files need to be unique
+
+File names and named exports (or storyNames) are [normalized](#navigation-and-routes) and used together as an unique identifier for each story. There cannot be two stories with the same ID. If that occurs, Ladle tells you what stories and files are clashing and you need to rename something.
