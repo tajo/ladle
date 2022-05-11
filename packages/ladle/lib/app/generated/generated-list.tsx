@@ -5,6 +5,7 @@ import * as React from "react";
 export const Foo = lazy(() => Promise.resolve() as any);
 export const list = ["Foo"];
 export const config = {};
+export const errorMessage = "";
 export const stories: {
   [key: string]: { entry: string; locStart: number; locEnd: number };
 } = {};

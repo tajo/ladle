@@ -4,18 +4,25 @@ import { fileURLToPath } from "url";
 import debugFactory from "debug";
 import getGeneratedList from "./generate/get-generated-list.js";
 import { getEntryData } from "./parse/get-entry-data.js";
+import { detectDuplicateStoryNames, printError } from "./utils.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const debug = debugFactory("ladle:vite");
 
-const defaultListModule = `
+/**
+ * @param errorMessage {string}
+ */
+const defaultListModule = (errorMessage) => `
 import { lazy } from "react";
 import * as React from "react";
 export const Foo = lazy(() => Promise.resolve() as any);
 export const list = ["Foo"];
 export const config = {};
 export const stories = {};
+
+export const storySource = {};
+export const errorMessage = \`${errorMessage}\`;
 
 export const Provider = ({ children }: { children: any }) =>
   /*#__PURE__*/ React.createElement(React.Fragment, null, children);
@@ -24,8 +31,9 @@ export const Provider = ({ children }: { children: any }) =>
 /**
  * @param config {import("../../shared/types").Config}
  * @param configFolder {string}
+ * @param mode {string}
  */
-function ladlePlugin(config, configFolder) {
+function ladlePlugin(config, configFolder, mode) {
   const virtualFileId = "lib/app/generated/generated-list";
   return {
     name: "generated-list", // required, will show up in warnings and errors
@@ -68,14 +76,17 @@ function ladlePlugin(config, configFolder) {
         try {
           debug("Initial generation of the list");
           const entryData = await getEntryData(await globby([config.stories]));
+          detectDuplicateStoryNames(entryData);
           return getGeneratedList(entryData, configFolder, config);
-        } catch (e) {
-          debug("Error when generating the list:");
-          debug(e);
-          return /** @type {string} */ (defaultListModule);
+        } catch (/** @type {any} */ e) {
+          printError("Error when generating the story list:");
+          console.log("");
+          printError(e);
+          if (mode === "production") {
+            process.exit(1);
+          }
+          return /** @type {string} */ (defaultListModule(e.message));
         }
-        debug("Error when generating the list, using the default mock.");
-        return /** @type {string} */ (defaultListModule);
       }
       return;
     },
