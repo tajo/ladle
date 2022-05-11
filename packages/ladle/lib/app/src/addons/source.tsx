@@ -18,6 +18,9 @@ export const getQuery = (locationSearch: string) => {
 
 const CodeFrame: React.FC<{ globalState: GlobalState }> = ({ globalState }) => {
   const theme = globalState.theme === "dark" ? themeDark : themeLight;
+  if (!stories[globalState.story]) {
+    return <>There is no story loaded.</>;
+  }
   const { entry, locStart, locEnd } = stories[globalState.story];
   React.useEffect(() => {
     window.location.hash = ``;

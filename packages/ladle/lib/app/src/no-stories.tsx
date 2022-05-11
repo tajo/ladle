@@ -29,13 +29,6 @@ const NoStories: React.FC<{ wrongUrl?: boolean; activeStory?: string }> = ({
           </Link>{" "}
           or CLI flag <Code>--stories=your-glob</Code>.
         </p>
-        <p>
-          This might be also an internal error, try{" "}
-          <Link href="https://www.ladle.dev/docs/troubleshooting">
-            troubleshooting
-          </Link>
-          .
-        </p>
       </>
     )}
     <p>

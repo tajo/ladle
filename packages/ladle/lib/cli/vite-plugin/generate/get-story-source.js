@@ -58,7 +58,7 @@ const getStorySource = (entryData, enabled) => {
       ]),
     ),
   ).code;
-  return `${fileSources}\n${storyToSource}`;
+  return `${fileSources}\n${storyToSource}\n`;
 };
 
 export default getStorySource;

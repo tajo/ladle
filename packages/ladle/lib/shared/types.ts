@@ -216,16 +216,16 @@ export type Config = {
 };
 
 export type UserConfig = RecursivePartial<Config>;
-
+export type StoryEntry = {
+  storyId: string;
+  componentName: string;
+  namedExport: string;
+  locStart: number;
+  locEnd: number;
+};
 export type ParsedStoriesResult = {
   entry: string;
-  stories: {
-    storyId: string;
-    componentName: string;
-    namedExport: string;
-    locStart: number;
-    locEnd: number;
-  }[];
+  stories: StoryEntry[];
   exportDefaultProps: {
     title?: string;
     meta: any;

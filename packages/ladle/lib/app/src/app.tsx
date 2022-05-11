@@ -1,7 +1,11 @@
 import * as React from "react";
-import { stories as unsortedStories } from "../generated/generated-list";
+import {
+  stories as unsortedStories,
+  errorMessage,
+} from "../generated/generated-list";
 import Story from "./story";
 import NoStories from "./no-stories";
+import NoStoriesError from "./no-stories-error";
 import Navigation from "./sidebar/main";
 import AddonPanel from "./addon-panel";
 import { modifyParams, history, Action } from "./history";
@@ -119,6 +123,8 @@ const App: React.FC<{}> = () => {
       <main className="ladle-main">
         {stories.length > 0 ? (
           <Story globalState={globalState} dispatch={dispatch} />
+        ) : errorMessage ? (
+          <NoStoriesError error={errorMessage} />
         ) : (
           <NoStories />
         )}
