@@ -108,7 +108,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         root: process.cwd(),
       }),
       ...(ladleConfig.enableFlow ? [flowPlugin()] : []),
-      ladlePlugin(ladleConfig, configFolder),
+      ladlePlugin(ladleConfig, configFolder, viteConfig.mode || ""),
       //@ts-ignore
       react({
         babel: {

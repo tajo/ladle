@@ -31,8 +31,9 @@ export const Provider = ({ children }: { children: any }) =>
 /**
  * @param config {import("../../shared/types").Config}
  * @param configFolder {string}
+ * @param mode {string}
  */
-function ladlePlugin(config, configFolder) {
+function ladlePlugin(config, configFolder, mode) {
   const virtualFileId = "lib/app/generated/generated-list";
   return {
     name: "generated-list", // required, will show up in warnings and errors
@@ -81,6 +82,9 @@ function ladlePlugin(config, configFolder) {
           printError("Error when generating the story list:");
           console.log("");
           printError(e);
+          if (mode === "production") {
+            process.exit(1);
+          }
           return /** @type {string} */ (defaultListModule(e.message));
         }
       }
