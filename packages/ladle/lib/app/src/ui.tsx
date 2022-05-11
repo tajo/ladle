@@ -72,14 +72,7 @@ export const Modal: React.FC<{
           <Close />
         </Button>
       </div>
-      <div
-        style={{
-          maxHeight: "80vh",
-          overflow: "auto",
-        }}
-      >
-        {children}
-      </div>
+      <div className="ladle-addon-modal-body">{children}</div>
     </Dialog>
   );
 };
