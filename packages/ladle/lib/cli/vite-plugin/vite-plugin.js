@@ -59,7 +59,16 @@ function ladlePlugin(config, configFolder, mode) {
           .relative(id, path.join(__dirname, "../../app/src"))
           .slice(3);
         const watcherImport = `import { storyUpdated } from "${from}/story-hmr";`;
-        return `${code}\n${watcherImport}\nif (import.meta.hot) {
+        // if stories are defined through .bind({}) we need to force full reloads since
+        // react-refresh can't pick it up
+        const invalidateHmr = code.includes(".bind({})")
+          ? `if (import.meta.hot) {
+          import.meta.hot.on("vite:beforeUpdate", () => {
+            import.meta.hot.invalidate();
+          });
+        }`
+          : "";
+        return `${code}\n${invalidateHmr}\n${watcherImport}\nif (import.meta.hot) {
           import.meta.hot.accept(() => {
             storyUpdated();
           });
