@@ -12,10 +12,12 @@ const getConfigImport = (configFolder) => {
   const configExists = fs.existsSync(configPath);
   let configCode = `export let config = {};\n`;
   if (configExists) {
-    configCode += `import customConfig from '${path.relative(
-      path.join(__dirname, "../../../app/src"),
-      path.join(configFolder, "config.mjs"),
-    )}';\nconfig = customConfig;\n`;
+    configCode += `import customConfig from '${path
+      .relative(
+        path.join(__dirname, "../../../app/src"),
+        path.join(configFolder, "config.mjs"),
+      )
+      .slice(2)}';\nconfig = customConfig;\n`;
   }
   return `${configCode}`;
 };

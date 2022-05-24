@@ -24,7 +24,10 @@
     "esModuleInterop": true,
     "skipLibCheck": false,
     "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "paths": {
+      "virtual:generated-list": ["./packages/ladle/types/generated-list.d.ts"]
+    }
   },
   "include": ["packages/*/lib/**/*", "packages/*/src/**/*"],
   "exclude": [

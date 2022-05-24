@@ -3,7 +3,7 @@ import queryString from "query-string";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import themeLight from "prism-react-renderer/themes/github";
 import themeDark from "prism-react-renderer/themes/nightOwl";
-import { storySource, stories } from "../../generated/generated-list";
+import { storySource, stories } from "virtual:generated-list";
 import { AddonProps, GlobalState, ActionType } from "../../../shared/types";
 import { Source } from "../icons";
 import { Modal, Code } from "../ui";

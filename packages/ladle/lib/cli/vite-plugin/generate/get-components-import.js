@@ -42,7 +42,8 @@ const getComponents = (configFolder) => {
     path.join(configFolder, "components.js"),
   ];
   const firstFoundComponentsPath = componentsPaths.find((componentsPath) =>
-    fs.existsSync(componentsPath));
+    fs.existsSync(componentsPath),
+  );
 
   if (!firstFoundComponentsPath) {
     debug(`Returning default no-op Provider.`);
@@ -54,10 +55,12 @@ const getComponents = (configFolder) => {
 
   firstFoundComponentsPath && debug(`${configFolder}/${filename} found.`);
 
-  const componentsRelativePath = path.relative(
-    path.join(__dirname, "../../../app/src"),
-    path.join(configFolder, filename),
-  );
+  const componentsRelativePath = path
+    .relative(
+      path.join(__dirname, "../../../app/src"),
+      path.join(configFolder, filename),
+    )
+    .slice(2);
   if (checkIfNamedExportExists("Provider", sourceCode, filename)) {
     debug(`Custom provider found.`);
     return `import {Provider as CustomProvider} from '${componentsRelativePath}';\nexport const Provider = CustomProvider;\n`;

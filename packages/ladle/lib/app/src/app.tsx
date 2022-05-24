@@ -2,7 +2,7 @@ import * as React from "react";
 import {
   stories as unsortedStories,
   errorMessage,
-} from "../generated/generated-list";
+} from "virtual:generated-list";
 import Story from "./story";
 import NoStories from "./no-stories";
 import NoStoriesError from "./no-stories-error";
