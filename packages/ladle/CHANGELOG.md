@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 0.15.2
+
+### Patch Changes
+
+- [#139](https://github.com/tajo/ladle/pull/139) [`421a0c3`](https://github.com/tajo/ladle/commit/421a0c3ef1b97ec2db416c49cadcdd422398ec06) Thanks [@tajo](https://github.com/tajo)! - Force page reload for stories that are defined through .bind({}) syntax (controls). It seems that react-refresh can't detect those when creating boundaries.
+
 ## 0.15.1
 
 ### Patch Changes
