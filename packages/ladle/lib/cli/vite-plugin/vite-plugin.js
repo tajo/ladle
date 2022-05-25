@@ -66,13 +66,16 @@ function ladlePlugin(config, configFolder, mode) {
           });
         }`
           : "";
-        return `${code}\n${invalidateHmr}\n${watcherImport}\nif (import.meta.hot) {
+        return {
+          code: `${code}\n${invalidateHmr}\n${watcherImport}\nif (import.meta.hot) {
           import.meta.hot.accept(() => {
             storyUpdated();
           });
-        }`;
+        }`,
+          map: null,
+        };
       }
-      return code;
+      return { code, map: null };
     },
     /**
      * @param {string} id
