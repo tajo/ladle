@@ -4,6 +4,7 @@ import getPort from "get-port";
 import globby from "globby";
 import boxen from "boxen";
 import open from "open";
+import chokidar from "chokidar";
 import debug from "./debug.js";
 import getBaseViteConfig from "./vite-base.js";
 import { getMetaJsonObject } from "./vite-plugin/generate/get-meta-json.js";
@@ -36,6 +37,7 @@ const bundler = async (config, configFolder) => {
       },
     });
     const vite = await createServer(viteConfig);
+    const { moduleGraph, ws } = vite;
     app.head("*", async (_, res) => res.sendStatus(200));
     app.get("/meta.json", async (_, res) => {
       const entryData = await getEntryData(await globby([config.stories]));
@@ -64,6 +66,46 @@ const bundler = async (config, configFolder) => {
         );
       }
     });
+
+    // trigger full reload when new stories are added or removed
+    const watcher = chokidar.watch(config.stories, {
+      persistent: true,
+    });
+    let checkSum = "";
+    const getChecksum = async () => {
+      try {
+        const entryData = await getEntryData(await globby([config.stories]));
+        const jsonContent = getMetaJsonObject(entryData);
+        // loc changes should not grant a full reload
+        Object.keys(jsonContent.stories).forEach((storyId) => {
+          jsonContent.stories[storyId].locStart = 0;
+          jsonContent.stories[storyId].locEnd = 0;
+        });
+        return JSON.stringify(jsonContent);
+      } catch (e) {
+        return checkSum;
+      }
+    };
+    checkSum = await getChecksum();
+    const invalidate = async () => {
+      const newChecksum = await getChecksum();
+      if (checkSum === newChecksum) return;
+      checkSum = newChecksum;
+      const module = moduleGraph.getModuleById("\0virtual:generated-list");
+      if (module) {
+        moduleGraph.invalidateModule(module);
+        if (ws) {
+          ws.send({
+            type: "full-reload",
+            path: "*",
+          });
+        }
+      }
+    };
+    watcher
+      .on("add", invalidate)
+      .on("change", invalidate)
+      .on("unlink", invalidate);
   } catch (e) {
     console.log(e);
   }

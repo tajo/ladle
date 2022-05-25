@@ -64,7 +64,7 @@ const getAst = (code, filename) => {
       ),
     );
     console.log("");
-    process.exit(1);
+    throw e;
   }
 };
 
