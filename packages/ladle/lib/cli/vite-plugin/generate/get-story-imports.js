@@ -11,7 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
  */
 const getStoryImports = (entryData) => {
   let storyImports = `import { lazy, createElement, Fragment } from "react";\n`;
-  storyImports += `import composeEnhancers from "../src/compose-enhancers";\n`;
+  storyImports += `import composeEnhancers from "/src/compose-enhancers";\n`;
   const lazyImport = /** @type {any} */ (template).default(`
     const %%component%% = lazy(() =>
      import(%%source%%).then((module) => {
@@ -24,10 +24,12 @@ const getStoryImports = (entryData) => {
     entryData[entry].stories.forEach(({ componentName, namedExport }) => {
       const ast = lazyImport({
         source: t.stringLiteral(
-          path.relative(
-            path.join(__dirname, "../../../app/src"),
-            path.join(process.cwd(), entry),
-          ),
+          path
+            .relative(
+              path.join(__dirname, "../../../app/src"),
+              path.join(process.cwd(), entry),
+            )
+            .slice(2),
         ),
         component: t.identifier(componentName),
         story: t.stringLiteral(namedExport),

@@ -16,14 +16,11 @@ const debug = debugFactory("ladle:vite");
 const defaultListModule = (errorMessage) => `
 import { lazy } from "react";
 import * as React from "react";
-export const Foo = lazy(() => Promise.resolve() as any);
-export const list = ["Foo"];
+export const list = [];
 export const config = {};
 export const stories = {};
-
 export const storySource = {};
 export const errorMessage = \`${errorMessage}\`;
-
 export const Provider = ({ children }: { children: any }) =>
   /*#__PURE__*/ React.createElement(React.Fragment, null, children);
 `;
@@ -34,15 +31,16 @@ export const Provider = ({ children }: { children: any }) =>
  * @param mode {string}
  */
 function ladlePlugin(config, configFolder, mode) {
-  const virtualFileId = "lib/app/generated/generated-list";
+  const virtualModuleId = "virtual:generated-list";
+  const resolvedVirtualModuleId = "\0" + virtualModuleId;
   return {
-    name: "generated-list", // required, will show up in warnings and errors
+    name: "ladle-plugin",
     /**
      * @param {string} id
      */
     resolveId(id) {
-      if (id.includes(virtualFileId)) {
-        return virtualFileId;
+      if (id === virtualModuleId) {
+        return resolvedVirtualModuleId;
       }
       return null;
     },
@@ -68,19 +66,22 @@ function ladlePlugin(config, configFolder, mode) {
           });
         }`
           : "";
-        return `${code}\n${invalidateHmr}\n${watcherImport}\nif (import.meta.hot) {
+        return {
+          code: `${code}\n${invalidateHmr}\n${watcherImport}\nif (import.meta.hot) {
           import.meta.hot.accept(() => {
             storyUpdated();
           });
-        }`;
+        }`,
+          map: null,
+        };
       }
-      return code;
+      return { code, map: null };
     },
     /**
      * @param {string} id
      */
     async load(id) {
-      if (id.includes(virtualFileId)) {
+      if (id === resolvedVirtualModuleId) {
         debug(`transforming: ${id}`);
         try {
           debug("Initial generation of the list");

@@ -1,17 +1,16 @@
 import merge from "lodash.merge";
-import { config as configAny, stories } from "../generated/generated-list";
+import { config, stories } from "virtual:generated-list";
 import defaultConfig from "../../shared/default-config";
 import type { Config } from "../../shared/types";
 import debug from "./debug";
 
-const configTyped = configAny as Config;
-if (Object.keys(configTyped).length === 0) {
+if (Object.keys(config).length === 0) {
   debug("No custom config found.");
 } else {
   debug(`Custom config found:`);
-  debug(configTyped);
+  debug(config);
 }
-const mergedConfig: Config = merge(defaultConfig, configTyped);
+const mergedConfig: Config = merge(defaultConfig, config);
 if (mergedConfig.defaultStory === "") {
   mergedConfig.defaultStory = Object.keys(stories).sort()[0];
 }

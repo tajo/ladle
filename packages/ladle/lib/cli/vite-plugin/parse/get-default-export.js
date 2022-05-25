@@ -32,7 +32,6 @@ const getDefaultExport = (result, astPath) => {
       }
     });
   } catch (e) {
-    console.log(e);
     throw new Error(
       `Can't parse the default title and meta of ${result.entry}. Meta must be serializable and title a string literal.`,
     );
