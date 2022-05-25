@@ -1,5 +1,15 @@
 # @ladle/react
 
+## 0.16.0
+
+### Minor Changes
+
+- [#146](https://github.com/tajo/ladle/pull/146) [`8568de6`](https://github.com/tajo/ladle/commit/8568de64640823bb0e66797195288a3b4e81fdb6) Thanks [@tajo](https://github.com/tajo)! - Reload the page if there was a new story added or removed.
+
+### Patch Changes
+
+- [#144](https://github.com/tajo/ladle/pull/144) [`daa717d`](https://github.com/tajo/ladle/commit/daa717dd680cf55da5afbc53809109212555fc3c) Thanks [@tajo](https://github.com/tajo)! - Fixing sourcemaps when using ladle build --sourcemap while using virtual module for our story list and metadata.
+
 ## 0.15.2
 
 ### Patch Changes
