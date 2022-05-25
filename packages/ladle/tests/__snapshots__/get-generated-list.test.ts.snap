@@ -3,14 +3,14 @@
 exports[`Capital letters in story names converted into delimiters 1`] = `
 "
 import { lazy, createElement, Fragment } from \\"react\\";
-import composeEnhancers from \\"../src/compose-enhancers\\";
+import composeEnhancers from \\"/src/compose-enhancers\\";
 
-const capitalization$$blue$tiny$cat = lazy(() => import(\\"../../../tests/fixtures/capitalization.stories.tsx\\").then(module => {
+const capitalization$$blue$tiny$cat = lazy(() => import(\\"/../../tests/fixtures/capitalization.stories.tsx\\").then(module => {
   return {
     default: composeEnhancers(module, \\"BlueTinyCat\\")
   };
 }));
-const capitalization$$big$barking$dog = lazy(() => import(\\"../../../tests/fixtures/capitalization.stories.tsx\\").then(module => {
+const capitalization$$big$barking$dog = lazy(() => import(\\"/../../tests/fixtures/capitalization.stories.tsx\\").then(module => {
   return {
     default: composeEnhancers(module, \\"BigBarkingDog\\")
   };
@@ -49,9 +49,9 @@ export const errorMessage = '';
 exports[`Capital letters in the filename converted into delimiters 1`] = `
 "
 import { lazy, createElement, Fragment } from \\"react\\";
-import composeEnhancers from \\"../src/compose-enhancers\\";
+import composeEnhancers from \\"/src/compose-enhancers\\";
 
-const filename$capitalization$$test = lazy(() => import(\\"../../../tests/fixtures/filenameCapitalization.stories.tsx\\").then(module => {
+const filename$capitalization$$test = lazy(() => import(\\"/../../tests/fixtures/filenameCapitalization.stories.tsx\\").then(module => {
   return {
     default: composeEnhancers(module, \\"Test\\")
   };
@@ -83,9 +83,9 @@ export const errorMessage = '';
 exports[`Default title is used instead of the file name 1`] = `
 "
 import { lazy, createElement, Fragment } from \\"react\\";
-import composeEnhancers from \\"../src/compose-enhancers\\";
+import composeEnhancers from \\"/src/compose-enhancers\\";
 
-const title$$cat = lazy(() => import(\\"../../../tests/fixtures/default-title.stories.tsx\\").then(module => {
+const title$$cat = lazy(() => import(\\"/../../tests/fixtures/default-title.stories.tsx\\").then(module => {
   return {
     default: composeEnhancers(module, \\"Cat\\")
   };
@@ -117,14 +117,14 @@ export const errorMessage = '';
 exports[`Extract and merge story meta 1`] = `
 "
 import { lazy, createElement, Fragment } from \\"react\\";
-import composeEnhancers from \\"../src/compose-enhancers\\";
+import composeEnhancers from \\"/src/compose-enhancers\\";
 
-const title$$cat = lazy(() => import(\\"../../../tests/fixtures/story-meta.stories.tsx\\").then(module => {
+const title$$cat = lazy(() => import(\\"/../../tests/fixtures/story-meta.stories.tsx\\").then(module => {
   return {
     default: composeEnhancers(module, \\"Cat\\")
   };
 }));
-const title$$dog = lazy(() => import(\\"../../../tests/fixtures/story-meta.stories.tsx\\").then(module => {
+const title$$dog = lazy(() => import(\\"/../../tests/fixtures/story-meta.stories.tsx\\").then(module => {
   return {
     default: composeEnhancers(module, \\"Dog\\")
   };
@@ -183,9 +183,9 @@ export const errorMessage = '';
 exports[`Extract default meta 1`] = `
 "
 import { lazy, createElement, Fragment } from \\"react\\";
-import composeEnhancers from \\"../src/compose-enhancers\\";
+import composeEnhancers from \\"/src/compose-enhancers\\";
 
-const title$$cat = lazy(() => import(\\"../../../tests/fixtures/default-meta.stories.tsx\\").then(module => {
+const title$$cat = lazy(() => import(\\"/../../tests/fixtures/default-meta.stories.tsx\\").then(module => {
   return {
     default: composeEnhancers(module, \\"Cat\\")
   };
@@ -225,14 +225,14 @@ export const errorMessage = '';
 exports[`Single file with two stories 1`] = `
 "
 import { lazy, createElement, Fragment } from \\"react\\";
-import composeEnhancers from \\"../src/compose-enhancers\\";
+import composeEnhancers from \\"/src/compose-enhancers\\";
 
-const animals$$cat = lazy(() => import(\\"../../../tests/fixtures/animals.stories.tsx\\").then(module => {
+const animals$$cat = lazy(() => import(\\"/../../tests/fixtures/animals.stories.tsx\\").then(module => {
   return {
     default: composeEnhancers(module, \\"Cat\\")
   };
 }));
-const animals$$dog = lazy(() => import(\\"../../../tests/fixtures/animals.stories.tsx\\").then(module => {
+const animals$$dog = lazy(() => import(\\"/../../tests/fixtures/animals.stories.tsx\\").then(module => {
   return {
     default: composeEnhancers(module, \\"Dog\\")
   };
@@ -271,19 +271,19 @@ export const errorMessage = '';
 exports[`Story name replaces named export as a story name 1`] = `
 "
 import { lazy, createElement, Fragment } from \\"react\\";
-import composeEnhancers from \\"../src/compose-enhancers\\";
+import composeEnhancers from \\"/src/compose-enhancers\\";
 
-const storyname$$doggo = lazy(() => import(\\"../../../tests/fixtures/storyname.stories.tsx\\").then(module => {
+const storyname$$doggo = lazy(() => import(\\"/../../tests/fixtures/storyname.stories.tsx\\").then(module => {
   return {
     default: composeEnhancers(module, \\"Cat\\")
   };
 }));
-const storyname$$capital$city = lazy(() => import(\\"../../../tests/fixtures/storyname.stories.tsx\\").then(module => {
+const storyname$$capital$city = lazy(() => import(\\"/../../tests/fixtures/storyname.stories.tsx\\").then(module => {
   return {
     default: composeEnhancers(module, \\"CapitalCity\\")
   };
 }));
-const storyname$$champs$élysées = lazy(() => import(\\"../../../tests/fixtures/storyname.stories.tsx\\").then(module => {
+const storyname$$champs$élysées = lazy(() => import(\\"/../../tests/fixtures/storyname.stories.tsx\\").then(module => {
   return {
     default: composeEnhancers(module, \\"CapitalReplaced\\")
   };
@@ -329,9 +329,9 @@ export const errorMessage = '';
 exports[`Turn file name delimiters into spaces and levels correctly 1`] = `
 "
 import { lazy, createElement, Fragment } from \\"react\\";
-import composeEnhancers from \\"../src/compose-enhancers\\";
+import composeEnhancers from \\"/src/compose-enhancers\\";
 
-const our$animals$$mammals$$cat = lazy(() => import(\\"../../../tests/fixtures/our-animals--mammals.stories.tsx\\").then(module => {
+const our$animals$$mammals$$cat = lazy(() => import(\\"/../../tests/fixtures/our-animals--mammals.stories.tsx\\").then(module => {
   return {
     default: composeEnhancers(module, \\"Cat\\")
   };
