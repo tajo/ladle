@@ -25,7 +25,7 @@ const getMetaJson = (entryData) => {
       version: 1,
     },
     stories:
-      /** @type {{[key: string]: {name: string; levels: string[]; meta: any}}} */ ({}),
+      /** @type {{[key: string]: {name: string; levels: string[]; meta: any, locStart: number; locEnd: number;}}} */ ({}),
   };
   storyIds.forEach((storyId) => {
     result.stories[storyId] = {
