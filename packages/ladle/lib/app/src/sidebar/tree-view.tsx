@@ -170,7 +170,7 @@ const NavigationSection: React.FC<{
                 ? undefined
                 : (element) => (treeItemRefs.current[treeProps.id] = element)
             }
-            role={treeProps.isLinkable ? "none" : "treeitem"}
+            role="treeitem"
             key={treeProps.id}
             className={cx({
               "ladle-linkable": treeProps.isLinkable,
@@ -186,7 +186,6 @@ const NavigationSection: React.FC<{
                   ref={(element) =>
                     (treeItemRefs.current[treeProps.id] = element)
                   }
-                  role="treeitem"
                   href={getHref({ story: treeProps.id })}
                   onKeyDown={(e) => onKeyDownFn(e, treeProps)}
                   onClick={(e) => {

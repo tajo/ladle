@@ -47,6 +47,7 @@ importers:
     specifiers:
       "@ladle/react": workspace:*
       "@playwright/test": 1.19.2
+      axe-playwright: ^1.1.11
       http-server: ^14.1.0
       react: ^18.1.0
       react-dom: ^18.1.0
@@ -54,6 +55,7 @@ importers:
     dependencies:
       "@ladle/react": link:../../packages/ladle
       "@playwright/test": 1.19.2
+      axe-playwright: 1.1.11
       http-server: 14.1.0
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
@@ -6087,6 +6089,17 @@ packages:
     engines: { node: ">=4" }
     dev: false
 
+  /axe-playwright/1.1.11:
+    resolution:
+      {
+        integrity: sha512-YHmUouvF/dFNxoFFwbCjPFmEPwoJSzPgZsD0KZs3xjsR03Rf2mAh771ugre950MaBYuiyxYDlurH5BOEJBK34Q==,
+      }
+    peerDependencies:
+      playwright-core: ">1.0.0"
+    dependencies:
+      axe-core: 4.4.1
+    dev: false
+
   /axios/0.21.4_debug@4.3.2:
     resolution:
       {
@@ -7616,6 +7629,11 @@ packages:
       {
         integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==,
       }
+    peerDependencies:
+      supports-color: "*"
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
     dependencies:
       ms: 2.1.3
     dev: false
@@ -10204,6 +10222,7 @@ packages:
       url-join: 4.0.1
     transitivePeerDependencies:
       - debug
+      - supports-color
     dev: false
 
   /https-proxy-agent/5.0.0:
@@ -13098,6 +13117,8 @@ packages:
       async: 2.6.4
       debug: 3.2.7
       mkdirp: 0.5.6
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /postcss-calc/8.2.4_postcss@8.4.13:
