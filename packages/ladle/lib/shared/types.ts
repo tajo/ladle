@@ -212,6 +212,7 @@ export type Config = {
     sourcemap: boolean | "hidden" | "inline" | undefined;
     baseUrl: string;
     define: { [key: string]: string };
+    minify: boolean;
   };
 };
 

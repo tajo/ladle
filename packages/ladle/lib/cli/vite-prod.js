@@ -19,6 +19,7 @@ const viteProd = async (config, configFolder) => {
         sourcemap: config.build.sourcemap,
         emptyOutDir: true,
         chunkSizeWarningLimit: 1024,
+        minify: config.build.minify,
       },
     });
     await build(viteConfig);

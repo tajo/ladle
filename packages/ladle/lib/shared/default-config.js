@@ -72,5 +72,6 @@ export default {
     sourcemap: false,
     baseUrl: "/",
     define: {}, // https://vitejs.dev/config/#define for prod build
+    minify: false,
   },
 };

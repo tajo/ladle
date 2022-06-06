@@ -68,6 +68,10 @@ const build = async (params = {}) => {
     params.build && params.build.baseUrl
       ? params.build.baseUrl
       : config.build.baseUrl;
+  config.build.minify =
+    params.build && params.build.minify
+      ? params.build.minify
+      : config.build.minify;
   config.babelPlugins = params.babelPlugins
     ? params.babelPlugins
     : config.babelPlugins;
