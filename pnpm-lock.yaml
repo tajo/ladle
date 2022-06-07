@@ -185,6 +185,7 @@ importers:
       "@babel/preset-env": ^7.16.11
       "@babel/preset-react": ^7.16.7
       "@babel/preset-typescript": ^7.16.7
+      "@babel/register": ^7.17.7
       "@babel/runtime": ^7.17.8
       "@babel/template": ^7.16.7
       "@babel/traverse": ^7.17.3
@@ -233,6 +234,7 @@ importers:
       "@babel/preset-env": 7.17.10_@babel+core@7.17.10
       "@babel/preset-react": 7.16.7_@babel+core@7.17.10
       "@babel/preset-typescript": 7.16.7_@babel+core@7.17.10
+      "@babel/register": 7.17.7_@babel+core@7.17.10
       "@babel/runtime": 7.17.9
       "@babel/template": 7.16.7
       "@babel/traverse": 7.17.10
@@ -2579,6 +2581,23 @@ packages:
       "@babel/plugin-transform-typescript": 7.16.8_@babel+core@7.17.10
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@babel/register/7.17.7_@babel+core@7.17.10:
+    resolution:
+      {
+        integrity: sha512-fg56SwvXRifootQEDQAu1mKdjh5uthPzdO0N6t358FktfL4XjAVXuH58ULoiW8mesxiOgNIrxiImqEwv0+hRRA==,
+      }
+    engines: { node: ">=6.9.0" }
+    peerDependencies:
+      "@babel/core": ^7.0.0-0
+    dependencies:
+      "@babel/core": 7.17.10
+      clone-deep: 4.0.1
+      find-cache-dir: 2.1.0
+      make-dir: 2.1.0
+      pirates: 4.0.5
+      source-map-support: 0.5.21
     dev: false
 
   /@babel/runtime-corejs3/7.17.9:
@@ -7029,7 +7048,10 @@ packages:
     engines: { node: ">= 12" }
 
   /commondir/1.0.1:
-    resolution: { integrity: sha1-3dgA2gxmEnOTzKWVDqloo6rxJTs= }
+    resolution:
+      {
+        integrity: sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg==,
+      }
     dev: false
 
   /compare-func/2.0.0:
@@ -9206,6 +9228,18 @@ packages:
       json5: 0.5.1
       path-exists: 3.0.0
 
+  /find-cache-dir/2.1.0:
+    resolution:
+      {
+        integrity: sha512-Tq6PixE0w/VMFfCgbONnkiQIVol/JJL7nRMi20fqzA4NRs9AfeqMGeRdPi3wIhYkxjeBaWh2rxwapn5Tu3IqOQ==,
+      }
+    engines: { node: ">=6" }
+    dependencies:
+      commondir: 1.0.1
+      make-dir: 2.1.0
+      pkg-dir: 3.0.0
+    dev: false
+
   /find-cache-dir/3.3.2:
     resolution:
       {
@@ -10856,7 +10890,10 @@ packages:
     resolution: { integrity: sha1-6PvzdNxVb/iUehDcsFctYz8s+hA= }
 
   /isobject/3.0.1:
-    resolution: { integrity: sha1-TkMekrEalzFjaqH5yNHMvP2reN8= }
+    resolution:
+      {
+        integrity: sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg==,
+      }
     engines: { node: ">=0.10.0" }
     dev: false
 
@@ -11972,7 +12009,6 @@ packages:
     dependencies:
       pify: 4.0.1
       semver: 5.7.1
-    dev: true
 
   /make-dir/3.1.0:
     resolution:
@@ -12924,7 +12960,10 @@ packages:
     dev: false
 
   /path-exists/3.0.0:
-    resolution: { integrity: sha1-zg6+ql94yxiSXqfYENe1mwEP1RU= }
+    resolution:
+      {
+        integrity: sha512-bpC7GYwiDYQ4wYLe+FA8lhRjhQCMcQGuSgGGqDkg/QerRWw9CmGRT0iSOVRSZJ29NMLZgIzqaljJ63oaL4NIJQ==,
+      }
     engines: { node: ">=4" }
 
   /path-exists/4.0.0:
@@ -13010,7 +13049,6 @@ packages:
         integrity: sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==,
       }
     engines: { node: ">=6" }
-    dev: true
 
   /pirates/3.0.2:
     resolution:
@@ -13035,7 +13073,6 @@ packages:
         integrity: sha512-8V9+HQPupnaXMA23c5hvl69zXvTwTzyAYasnkb0Tts4XvO4CliqONMOnvlq26rkhLC3nWDFBJf73LU1e1VZLaQ==,
       }
     engines: { node: ">= 6" }
-    dev: true
 
   /pixelmatch/5.2.1:
     resolution:
@@ -13045,6 +13082,16 @@ packages:
     hasBin: true
     dependencies:
       pngjs: 4.0.1
+
+  /pkg-dir/3.0.0:
+    resolution:
+      {
+        integrity: sha512-/E57AYkoeQ25qkxMj5PBOVgF8Kiu/h7cYS30Z5+R7WaiCCBfLq58ZI/dSeaEKb9WVJV5n/03QwrN3IeWIFllvw==,
+      }
+    engines: { node: ">=6" }
+    dependencies:
+      find-up: 3.0.0
+    dev: false
 
   /pkg-dir/4.2.0:
     resolution:

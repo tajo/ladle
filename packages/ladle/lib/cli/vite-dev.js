@@ -26,10 +26,8 @@ const bundler = async (config, configFolder) => {
      */
     const viteConfig = await getBaseViteConfig(config, configFolder, {
       mode: "development",
-      define: config.serve.define,
       server: {
         port: config.serve.port,
-        open: config.serve.open,
         fs: {
           strict: false,
         },
@@ -37,6 +35,7 @@ const bundler = async (config, configFolder) => {
       },
     });
     const vite = await createServer(viteConfig);
+    console.log(vite.config);
     const { moduleGraph, ws } = vite;
     app.head("*", async (_, res) => res.sendStatus(200));
     app.get("/meta.json", async (_, res) => {

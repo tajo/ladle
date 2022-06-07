@@ -33,6 +33,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
+    "@babel/register": "^7.17.7",
     "@babel/runtime": "^7.17.8",
     "@babel/template": "^7.16.7",
     "@babel/traverse": "^7.17.3",
