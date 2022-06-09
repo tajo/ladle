@@ -1,3 +1,3 @@
-import build from "@ladle/react/api/build.js";
+import build from "@ladle/react/build";
 
 build();

@@ -5,6 +5,13 @@
   "author": "Vojtech Miksu <vojtech@miksu.cz>",
   "license": "MIT",
   "type": "module",
+  "types": "./lib/app/exports.ts",
+  "exports": {
+    ".": "./lib/app/exports.ts",
+    "./serve": "./api/serve.js",
+    "./build": "./api/build.js"
+  },
+  "packageManager": "pnpm@7.1.9",
   "publishConfig": {
     "access": "public"
   },
@@ -15,8 +22,6 @@
   "bin": {
     "ladle": "./lib/cli/cli.js"
   },
-  "main": "./lib/app/exports.ts",
-  "module": "./lib/app/exports.ts",
   "scripts": {
     "cli": "node ./lib/cli/cli.js",
     "clean": "rimraf dist && rimraf .ladle && rimraf build && rimraf *.tsbuildinfo",
@@ -33,7 +38,6 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
-    "@babel/register": "^7.17.7",
     "@babel/runtime": "^7.17.8",
     "@babel/template": "^7.16.7",
     "@babel/traverse": "^7.17.3",

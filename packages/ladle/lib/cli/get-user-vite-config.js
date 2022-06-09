@@ -1,6 +1,6 @@
 import { isAbsolute, join } from "path";
 import debug from "./debug.js";
-import loadUserViteConfig from "./load-user-vite-config.cjs";
+import loadUserViteConfig from "./load-user-vite-config.js";
 
 // vite.config.js paths are relative to the project root
 // but for ladle, the root is in a different package, so
@@ -44,8 +44,7 @@ export default async (command, mode, viteConfig) => {
    * @type {import('vite').UserConfigExport}
    */
   //@ts-ignore
-  let rawUserViteConfig = loadUserViteConfig(viteConfig).default;
-
+  let rawUserViteConfig = await loadUserViteConfig(viteConfig);
   if (!rawUserViteConfig) {
     return {
       userViteConfig: {},

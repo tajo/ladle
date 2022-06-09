@@ -8,8 +8,10 @@ const manifestRaw = fs.readFileSync("package.json");
 const manifest = JSON.parse(manifestRaw);
 
 manifest.name = "@ladle/react-cjs";
+manifest.main = "./lib/app/exports.ts";
 delete manifest.type;
 delete manifest.module;
+delete manifest.exports;
 
 fs.writeFile(
   "./cjs/package.json",

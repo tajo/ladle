@@ -7,9 +7,9 @@ Ladle does not require any configuration and some features can be controlled thr
 
 - [`.ladle/components.tsx`](./providers), used in browser only to enhance your stories or provide them a context
 - `.ladle/config.mjs`, used in browser and CLI to configure things like the story search pattern or addons visibility
-- [`vite.config.js` or `vite.config.ts`](https://vitejs.dev/config/#config-file-resolving), used only by Vite (CLI node environment) to change any parameters of the compilation (things like aliasing, dependency pre-bundling, babel plugins...) and some aspects of the dev server (open browser on start...). You should get familiar with Vite docs!
+- [`vite.config.{js|mjs|ts}`](https://vitejs.dev/config/#config-file-resolving), used only by Vite (CLI node environment) to change any parameters of the compilation (things like aliasing, dependency pre-bundling, babel plugins...) and some aspects of the dev server (open browser on start...). You should get familiar with Vite docs!
 
-## vite.config.js
+## vite.config.{js|mjs|ts}
 
 - **[Documentation](https://vitejs.dev/config).**
 - The parameter `root` is replaced so Ladle can function properly.
@@ -61,7 +61,7 @@ export default {
 
 ### viteConfig
 
-Alternative path for the [Vite config](https://vitejs.dev/config). By default, `vite.config.js` and `vite.config.ts` in the project root are being checked.
+Alternative path for the [Vite config](https://vitejs.dev/config). By default, `vite.config.{js|mjs|ts}` and `vite.config.ts` in the project root are being checked.
 
 ```tsx
 export default {

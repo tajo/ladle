@@ -1,4 +1,4 @@
-import { flowPlugin, esbuildFlowPlugin } from "./strip-flow";
+import { flowPlugin, esbuildFlowPlugin } from "./strip-flow.mjs";
 
 export default {
   plugins: [flowPlugin()],
@@ -6,6 +6,9 @@ export default {
     esbuildOptions: {
       plugins: [esbuildFlowPlugin()],
     },
+  },
+  server: {
+    open: "none",
   },
   esbuild: {
     include: /\.(tsx?|jsx?)$/,
