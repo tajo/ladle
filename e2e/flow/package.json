@@ -4,7 +4,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "serve": "ladle serve --open=none --port=61104",
+    "serve": "ladle serve --port=61104",
     "serve-prod": "http-server build -c-1 -s -p 61104",
     "build": "ladle build",
     "lint": "echo 'no lint'",
@@ -15,9 +15,11 @@
   "dependencies": {
     "@ladle/react": "workspace:*",
     "@playwright/test": "1.19.2",
+    "flow-remove-types": "^2.176.3",
     "http-server": "^14.1.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "rollup-pluginutils": "^2.8.2",
     "start-server-and-test": "^1.14.0"
   }
 }

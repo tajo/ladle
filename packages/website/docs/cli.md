@@ -25,13 +25,12 @@ Usage: ladle serve [options]
 start developing
 
 Options:
-  --stories [string]  glob to find stories
-  --port [number]     port to serve the application
-  --theme [string]    theme light, dark or auto
-  --open [string]     open browser, e.g. chrome, firefox, safari. Set none to disable
-  --output [string]   console logging, e.g. dashboard or stream
-  --config [string]   folder where config is located, default .ladle
-  -h, --help          display help for command
+  -p, --port [number]      port to serve the application
+  --stories [string]       glob to find stories
+  --theme [string]         theme light, dark or auto
+  --config [string]        folder where Ladle configs are located, default .ladle
+  --viteConfig [string]    file with Vite configuration
+  -h, --help               display help for command
 ```
 
 ## Build command
@@ -42,11 +41,10 @@ Usage: ladle build [options]
 build static production app
 
 Options:
-  --stories [string]   glob to find stories
-  --out <path>         output directory
-  --sourcemap          generate source maps
-  --theme [string]     theme light, dark or auto
-  --base-url [string]  when hosted in a sub-directory, default /
-  --config [string]    folder where config is located, default .ladle
-  -h, --help           display help for command
+  -o, --outDir <path>      output directory
+  --stories [string]       glob to find stories
+  --theme [string]         theme light, dark or auto
+  --config [string]        folder where config is located, default .ladle
+  --viteConfig [string]    file with Vite configuration
+  -h, --help               display help for command
 ```

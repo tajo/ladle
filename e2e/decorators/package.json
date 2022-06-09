@@ -4,7 +4,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "serve": "ladle serve --open=none --port=61103",
+    "serve": "ladle serve --port=61103",
     "serve-prod": "http-server build -c-1 -s -p 61103",
     "build": "ladle build",
     "lint": "echo 'no lint'",

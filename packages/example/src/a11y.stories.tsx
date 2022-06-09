@@ -1,7 +1,8 @@
+const empty = "";
 export const Issues = () => (
   <>
     <input />
-    <button style={{ backgroundColor: "red", color: "darkRed" }}>
+    <button style={{ backgroundColor: `red${empty}`, color: "darkRed" }}>
       Inaccessible button
     </button>
     <img />

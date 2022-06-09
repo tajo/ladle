@@ -1,25 +1,11 @@
-import { dirname, isAbsolute, join } from "path";
+import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import path from "path";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import ladlePlugin from "./vite-plugin/vite-plugin.js";
-import { flowPlugin, esbuildFlowPlugin } from "./strip-flow.js";
-
-/**
- * @param publicDir {string | false}
- */
-const getPublicDir = (publicDir) => {
-  if (!publicDir) {
-    return false;
-  }
-
-  if (isAbsolute(publicDir)) {
-    return publicDir;
-  }
-
-  return join(process.cwd(), publicDir || "public");
-};
+import mergeViteConfigs from "./merge-vite-configs.js";
+import getUserViteConfig from "./get-user-vite-config.js";
 
 /**
  * @param ladleConfig {import("../shared/types").Config}
@@ -27,6 +13,35 @@ const getPublicDir = (publicDir) => {
  * @param viteConfig {import('vite').InlineConfig}
  */
 const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
+  const _removedLadleConfigOptions = [
+    "publicDir",
+    "enableFlow",
+    "babelParserOpts",
+    "babelPresets",
+    "babelPlugins",
+    "vitePlugins",
+    "css",
+    "envPrefix",
+    "define",
+    "resolve",
+    "optimizeDeps",
+    "serve",
+    "build",
+  ];
+
+  // we moved all vite settings into vite.config.js, fail legacy Ladle configs
+  // remove this later
+  let oldKeyUsed = false;
+  Object.keys(ladleConfig).forEach((configKey) => {
+    if (_removedLadleConfigOptions.includes(configKey)) {
+      console.error(
+        `ERROR: ${configKey} was removed from the Ladle config in v1. Move it to vite.config.js. https://ladle.dev/docs/config`,
+      );
+      oldKeyUsed = true;
+    }
+  });
+  oldKeyUsed && process.exit(1);
+
   const __dirname = dirname(fileURLToPath(import.meta.url));
 
   // We need to fake react-dom/client import in case user still uses React v17
@@ -38,13 +53,12 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     reactAlias["react-dom/client"] = "react-dom";
   }
 
-  const userVitePlugins = (
-    await Promise.all(
-      ladleConfig.vitePlugins.map(async (plugin) =>
-        typeof plugin === "function" ? plugin() : plugin,
-      ),
-    )
-  ).filter((v) => !!v);
+  const { userViteConfig, hasReactPlugin, hasTSConfigPathPlugin } =
+    await getUserViteConfig(
+      viteConfig.build ? "build" : "serve",
+      viteConfig.mode || "production",
+      ladleConfig.viteConfig,
+    );
 
   /**
    * @type {import('vite').InlineConfig}
@@ -53,34 +67,16 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     ...viteConfig,
     configFile: false,
     root: join(__dirname, "../app/"),
-    publicDir: getPublicDir(ladleConfig.publicDir),
-    base: ladleConfig.build.baseUrl,
-    define: {
-      ...(ladleConfig.define ? ladleConfig.define : {}),
-      ...(viteConfig.define ? viteConfig.define : {}),
-    },
-    cacheDir: join(process.cwd(), "node_modules/.vite"),
     css: {
-      modules: ladleConfig.css.modules,
       postcss: process.cwd(),
     },
     envDir: process.cwd(),
-    envPrefix: ladleConfig.envPrefix,
     resolve: {
-      ...ladleConfig.resolve,
       alias: {
         ...reactAlias,
-        ...ladleConfig.resolve.alias,
       },
     },
     optimizeDeps: {
-      ...(ladleConfig.enableFlow
-        ? {
-            esbuildOptions: {
-              plugins: [esbuildFlowPlugin()],
-            },
-          }
-        : {}),
       include: [
         "react",
         "react-dom",
@@ -94,7 +90,6 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         "prism-react-renderer/themes/nightOwl",
         "axe-core",
         ...(Object.keys(reactAlias).length ? [] : ["react-dom/client"]),
-        ...ladleConfig.optimizeDeps.include,
       ],
       entries: [
         path.join(process.cwd(), ".ladle/components.js"),
@@ -104,34 +99,15 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
       ],
     },
     plugins: [
-      tsconfigPaths({
-        root: process.cwd(),
-      }),
-      ...(ladleConfig.enableFlow ? [flowPlugin()] : []),
+      !hasTSConfigPathPlugin &&
+        tsconfigPaths({
+          root: process.cwd(),
+        }),
       ladlePlugin(ladleConfig, configFolder, viteConfig.mode || ""),
-      //@ts-ignore
-      react({
-        babel: {
-          parserOpts: ladleConfig.babelParserOpts,
-          presets: ladleConfig.babelPresets,
-          plugins: ladleConfig.babelPlugins,
-          compact: true,
-        },
-      }),
-      ...(viteConfig.plugins ? viteConfig.plugins : []),
-      ...userVitePlugins,
+      !hasReactPlugin && react(),
     ],
-    ...(ladleConfig.enableFlow
-      ? {
-          esbuild: {
-            include: /\.(tsx?|jsx?)$/,
-            exclude: [],
-            loader: "tsx",
-          },
-        }
-      : {}),
   };
-  return config;
+  return mergeViteConfigs(userViteConfig, config);
 };
 
 export default getBaseViteConfig;

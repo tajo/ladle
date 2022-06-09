@@ -373,26 +373,6 @@ let checkStyles = noop;
     // only check once per package
     if (checkedPkgs[packageName]) return;
     checkedPkgs[packageName] = true;
-
-    if (
-      env.NODE_ENV !== "test" &&
-      parseInt(
-        window
-          .getComputedStyle(document.body)
-          .getPropertyValue("--reach-" + packageName),
-        10,
-      ) !== 1
-    ) {
-      console.warn(
-        "@reach/" +
-          packageName +
-          ' styles not found. If you are using a bundler like webpack or parcel include this in the entry file of your app before any of your own styles:\n\n    import "@reach/' +
-          packageName +
-          '/styles.css";\n\n  Otherwise you\'ll need to include them some other way:\n\n    <link rel="stylesheet" type="text/css" href="node_modules/@reach/' +
-          packageName +
-          '/styles.css" />\n\n  For more information visit https://ui.reach.tech/styling.\n  ',
-      );
-    }
   };
 }
 /**

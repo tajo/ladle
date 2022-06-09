@@ -13,12 +13,9 @@ const viteProd = async (config, configFolder) => {
      */
     const viteConfig = await getBaseViteConfig(config, configFolder, {
       mode: "production",
-      define: config.build.define,
       build: {
-        outDir: path.join(process.cwd(), config.build.out),
-        sourcemap: config.build.sourcemap,
+        outDir: path.join(process.cwd(), config.outDir),
         emptyOutDir: true,
-        chunkSizeWarningLimit: 1024,
       },
     });
     await build(viteConfig);

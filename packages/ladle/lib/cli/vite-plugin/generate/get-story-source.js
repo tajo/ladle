@@ -33,7 +33,22 @@ const getStorySource = (entryData, enabled) => {
           Object.keys(fileSourceCodes).map((fileHash) =>
             t.objectProperty(
               t.stringLiteral(fileHash),
-              t.stringLiteral(fileSourceCodes[fileHash]),
+              t.templateLiteral(
+                [
+                  t.templateElement(
+                    {
+                      raw: fileSourceCodes[fileHash]
+                        .replace(/`/g, "\\`")
+                        .replace(/\$\{/g, "\\${"),
+                      cooked: fileSourceCodes[fileHash]
+                        .replace(/`/g, "\\`")
+                        .replace(/\$\{/g, "\\${"),
+                    },
+                    true,
+                  ),
+                ],
+                [],
+              ),
             ),
           ),
         ),

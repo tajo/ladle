@@ -4,7 +4,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "serve": "ladle serve --open=none --port=61100",
+    "serve": "ladle serve --port=61100",
     "serve-prod": "http-server build -c-1 -s -p 61100",
     "build": "ladle build",
     "lint": "echo 'no lint'",
@@ -17,6 +17,7 @@
     "@playwright/test": "1.19.2",
     "axe-playwright": "^1.1.11",
     "http-server": "^14.1.0",
+    "playwright-core": "^1.22.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "start-server-and-test": "^1.14.0"

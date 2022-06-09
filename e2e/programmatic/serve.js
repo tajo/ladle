@@ -1,8 +1,5 @@
-import serve from "@ladle/react/api/serve.js";
+import serve from "@ladle/react/serve";
 
 serve({
-  serve: {
-    open: "none",
-    port: 61105,
-  },
+  port: 61105,
 });

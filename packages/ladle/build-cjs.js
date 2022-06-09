@@ -8,8 +8,10 @@ const manifestRaw = fs.readFileSync("package.json");
 const manifest = JSON.parse(manifestRaw);
 
 manifest.name = "@ladle/react-cjs";
+manifest.main = "./lib/app/exports.ts";
 delete manifest.type;
 delete manifest.module;
+delete manifest.exports;
 
 fs.writeFile(
   "./cjs/package.json",
@@ -30,6 +32,7 @@ const filesWithDirname = [
   "./cjs/lib/cli/vite-plugin/generate/get-story-source.js",
   "./cjs/lib/cli/vite-plugin/ast-to-obj.js",
   "./cjs/lib/cli/vite-plugin/vite-plugin.js",
+  "./cjs/lib/cli/get-user-vite-config.js",
 ];
 
 filesWithDirname.forEach((file) => {
@@ -37,6 +40,7 @@ filesWithDirname.forEach((file) => {
   fs.writeFile(
     file,
     content
+      .replace("load-user-vite-config.cjs", "load-user-vite-config.js")
       .replace(
         `const __dirname = (0, _path.dirname)((0, _url.fileURLToPath)(import.meta.url));`,
         "",

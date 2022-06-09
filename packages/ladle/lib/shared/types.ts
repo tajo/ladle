@@ -1,4 +1,4 @@
-import type { CSSModulesOptions, Plugin } from "vite";
+import type { UserConfig as ViteUserConfig } from "vite";
 
 type RecursivePartial<T> = {
   [P in keyof T]?: RecursivePartial<T[P]>;
@@ -130,50 +130,12 @@ export type PluginOptions = {
   configFolder: string;
 };
 
-/**
- * We accept not only the normal {@link Plugin} but also
- * the conditional function that returns {@link Plugin} or `null`.
- * Therefore, we can have a plugin that is conditionally enabled or disabled:
- *
- * ```js
- * {
- *   vitePlugins: [
- *     // The normal plugin.
- *     plugin(),
- *
- *     // The plugin that is returned by a function.
- *     () => process.env.ENABLE_PLUGIN === '1' && plugin(),
- *
- *     // The plugin that is returned by an asynchronous function.
- *     () => import('vite-plugin').then(({ default: plugin }) => plugin()),
- *   ],
- * }
- * ```
- */
-export type VitePluginInput =
-  | Plugin
-  | (() => Plugin | null)
-  | (() => Promise<Plugin | null>);
-
 export type Config = {
   stories: string;
-  root: string;
-  publicDir: string | false;
-  enableFlow: boolean;
   defaultStory: string;
-  babelParserOpts: { [key: string]: any };
-  babelPlugins: any[];
-  babelPresets: any[];
-  vitePlugins: VitePluginInput[];
-  define: { [key: string]: string };
-  envPrefix: string | string[];
-  css: {
-    modules: CSSModulesOptions;
-  };
-  resolve: { [key: string]: any };
-  optimizeDeps: {
-    include: string[];
-  };
+  viteConfig?: string;
+  port: number;
+  outDir: string;
   addons: {
     control: {
       enabled: boolean;
@@ -202,17 +164,6 @@ export type Config = {
       enabled: boolean;
     };
   };
-  serve: {
-    open: string;
-    port: number;
-    define: { [key: string]: string };
-  };
-  build: {
-    out: string;
-    sourcemap: boolean | "hidden" | "inline" | undefined;
-    baseUrl: string;
-    define: { [key: string]: string };
-  };
 };
 
 export type UserConfig = RecursivePartial<Config>;
@@ -235,6 +186,12 @@ export type ParsedStoriesResult = {
   storyParams: { [key: string]: { title?: string; meta: any } };
   fileId: string;
   storySource: string;
+};
+
+export type GetUserViteConfig = {
+  userViteConfig: ViteUserConfig;
+  hasReactPlugin: boolean;
+  hasTSConfigPathPlugin: boolean;
 };
 
 export type EntryData = {

@@ -6,8 +6,8 @@ title: Programmatic
 Ladle can be also used through its JavaScript API:
 
 ```tsx
-import serve from "@ladle/react/api/serve.js";
-import build from "@ladle/react/api/build.js";
+import serve from "@ladle/react/serve";
+import build from "@ladle/react/build";
 
 await serve({
   /* config */
@@ -17,4 +17,4 @@ await build({
 });
 ```
 
-Both commands accept all [configuration options](./config).
+Both commands accept all [configuration options](./config#ladleconfigmjs).
