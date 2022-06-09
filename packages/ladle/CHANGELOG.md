@@ -1,5 +1,24 @@
 # @ladle/react
 
+## 1.0.0
+
+### Major Changes
+
+- [#153](https://github.com/tajo/ladle/pull/153) [`05bee5d`](https://github.com/tajo/ladle/commit/05bee5d155703fdbd57e4984e21eae6e20a24184) Thanks [@tajo](https://github.com/tajo)! - - Ladle now loads top-level `vite.config.js/ts/mjs` and uses all its options.
+  - All Vite related options from `config.mjs` removed and an error will be thrown, use `vite.config.js` instead.
+  - `enableFlow` option removed, you can create your own plugin (check our e2e/flow test).
+  - Programmatic API imports changed to `@ladle/react/serve` and `@ladle/react/build`.
+  - `--out` renamed to `--outDir` to mimic Vite configuration, added `-o` alias, `outDir` moved to top-level in `config.mjs`.
+  - `--port` has alias `-p`, `port` moved to top-level in `config.mjs`.
+  - `vite.config.js` can be customized through `viteConfig` and `--viteConfig`.
+  - `--base-url` removed, use `base` in `vite.config.js`.
+  - `--open` removed, use `server.open` in `vite.config.js`.
+  - `--sourcemap` removed, use `build.sourcemap` in `vite.config.js`.
+
+### Patch Changes
+
+- [#147](https://github.com/tajo/ladle/pull/147) [`f9a4965`](https://github.com/tajo/ladle/commit/f9a4965e8a7940f9aa41df2c2c8418d37f9f0d35) Thanks [@tajo](https://github.com/tajo)! - Add generic Axe check for (mostly) empty Ladle instance to make sure that projects running axe don't have a problem with Ladle.
+
 ## 0.16.0
 
 ### Minor Changes
