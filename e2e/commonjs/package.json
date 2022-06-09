@@ -4,7 +4,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "serve": "../../packages/ladle/cjs/lib/cli/cli.js serve --open=none --port=61101",
+    "serve": "../../packages/ladle/cjs/lib/cli/cli.js serve --port=61101",
     "serve-prod": "http-server build -c-1 -s -p 61101",
     "build": "(cd ../../packages/ladle; ./build-cjs.sh) && ../../packages/ladle/cjs/lib/cli/cli.js build",
     "lint": "echo 'no lint'",

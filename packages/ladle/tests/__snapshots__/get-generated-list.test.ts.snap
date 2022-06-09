@@ -34,7 +34,16 @@ export let config = {};
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
 let fileSourceCodes = {
-  \\"bcf1fa0f\\": \\"import * as React from \\\\\\"react\\\\\\";\\\\n\\\\nexport const BlueTinyCat = () => {\\\\n  return <h1>Blue Tiny Cat</h1>;\\\\n};\\\\n\\\\nexport const BigBarkingDog = () => {\\\\n  return <h1> Big Barking Dog</h1>;\\\\n};\\\\n\\"
+  \\"bcf1fa0f\\": \`import * as React from \\"react\\";
+
+export const BlueTinyCat = () => {
+  return <h1>Blue Tiny Cat</h1>;
+};
+
+export const BigBarkingDog = () => {
+  return <h1> Big Barking Dog</h1>;
+};
+\`
 };
 export let storySource = {
   \\"capitalization--blue-tiny-cat\\": fileSourceCodes[\\"bcf1fa0f\\"],
@@ -69,7 +78,12 @@ export let config = {};
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
 let fileSourceCodes = {
-  \\"445f0671\\": \\"import * as React from \\\\\\"react\\\\\\";\\\\n\\\\nexport const Test = () => {\\\\n  return <h1>Test</h1>;\\\\n};\\\\n\\"
+  \\"445f0671\\": \`import * as React from \\"react\\";
+
+export const Test = () => {
+  return <h1>Test</h1>;
+};
+\`
 };
 export let storySource = {
   \\"filename-capitalization--test\\": fileSourceCodes[\\"445f0671\\"]
@@ -103,7 +117,16 @@ export let config = {};
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
 let fileSourceCodes = {
-  \\"0dc60faf\\": \\"import * as React from \\\\\\"react\\\\\\";\\\\n\\\\nexport default {\\\\n  title: \\\\\\"Title\\\\\\",\\\\n};\\\\n\\\\nexport const Cat = () => {\\\\n  return <h1>Cat</h1>;\\\\n};\\\\n\\"
+  \\"0dc60faf\\": \`import * as React from \\"react\\";
+
+export default {
+  title: \\"Title\\",
+};
+
+export const Cat = () => {
+  return <h1>Cat</h1>;
+};
+\`
 };
 export let storySource = {
   \\"title--cat\\": fileSourceCodes[\\"0dc60faf\\"]
@@ -168,7 +191,34 @@ export let config = {};
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
 let fileSourceCodes = {
-  \\"551a9524\\": \\"import * as React from \\\\\\"react\\\\\\";\\\\n\\\\nexport default {\\\\n  title: \\\\\\"Title\\\\\\",\\\\n  meta: {\\\\n    baseweb: {\\\\n      theme: \\\\\\"dark\\\\\\",\\\\n      browsers: [\\\\\\"chrome\\\\\\", \\\\\\"webkit\\\\\\"],\\\\n    },\\\\n  },\\\\n};\\\\n\\\\nexport const Cat = () => {\\\\n  return <h1>Cat</h1>;\\\\n};\\\\n\\\\nCat.meta = {\\\\n  baseweb: {\\\\n    browsers: [\\\\\\"chrome\\\\\\", \\\\\\"firefox\\\\\\"],\\\\n    width: \\\\\\"500px\\\\\\",\\\\n  },\\\\n  links: true,\\\\n};\\\\n\\\\nexport const Dog = () => {\\\\n  return <h1>Dog</h1>;\\\\n};\\\\n\\"
+  \\"551a9524\\": \`import * as React from \\"react\\";
+
+export default {
+  title: \\"Title\\",
+  meta: {
+    baseweb: {
+      theme: \\"dark\\",
+      browsers: [\\"chrome\\", \\"webkit\\"],
+    },
+  },
+};
+
+export const Cat = () => {
+  return <h1>Cat</h1>;
+};
+
+Cat.meta = {
+  baseweb: {
+    browsers: [\\"chrome\\", \\"firefox\\"],
+    width: \\"500px\\",
+  },
+  links: true,
+};
+
+export const Dog = () => {
+  return <h1>Dog</h1>;
+};
+\`
 };
 export let storySource = {
   \\"title--cat\\": fileSourceCodes[\\"551a9524\\"],
@@ -211,7 +261,21 @@ export let config = {};
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
 let fileSourceCodes = {
-  \\"6f46f563\\": \\"import * as React from \\\\\\"react\\\\\\";\\\\n\\\\nexport default {\\\\n  title: \\\\\\"Title\\\\\\",\\\\n  meta: {\\\\n    baseweb: {\\\\n      foo: \\\\\\"title\\\\\\",\\\\n    },\\\\n  },\\\\n};\\\\n\\\\nexport const Cat = () => {\\\\n  return <h1>Cat</h1>;\\\\n};\\\\n\\"
+  \\"6f46f563\\": \`import * as React from \\"react\\";
+
+export default {
+  title: \\"Title\\",
+  meta: {
+    baseweb: {
+      foo: \\"title\\",
+    },
+  },
+};
+
+export const Cat = () => {
+  return <h1>Cat</h1>;
+};
+\`
 };
 export let storySource = {
   \\"title--cat\\": fileSourceCodes[\\"6f46f563\\"]
@@ -256,7 +320,16 @@ export let config = {};
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
 let fileSourceCodes = {
-  \\"29b55362\\": \\"import * as React from \\\\\\"react\\\\\\";\\\\n\\\\nexport const Cat = () => {\\\\n  return <h1>Cat</h1>;\\\\n};\\\\n\\\\nexport const Dog = () => {\\\\n  return <h1>Dog</h1>;\\\\n};\\\\n\\"
+  \\"29b55362\\": \`import * as React from \\"react\\";
+
+export const Cat = () => {
+  return <h1>Cat</h1>;
+};
+
+export const Dog = () => {
+  return <h1>Dog</h1>;
+};
+\`
 };
 export let storySource = {
   \\"animals--cat\\": fileSourceCodes[\\"29b55362\\"],
@@ -313,7 +386,27 @@ export let config = {};
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
 let fileSourceCodes = {
-  \\"2ab17fea\\": \\"import * as React from \\\\\\"react\\\\\\";\\\\n\\\\nexport const Cat = () => {\\\\n  const Stop = { storyName: \\\\\\"\\\\\\" };\\\\n  // should be ignored\\\\n  Stop.storyName = \\\\\\"What\\\\\\";\\\\n  return <h1>Cat</h1>;\\\\n};\\\\n\\\\nCat.storyName = \\\\\\"Doggo\\\\\\";\\\\nCat.foo = \\\\\\"Ha\\\\\\";\\\\n\\\\nexport const CapitalCity = () => {\\\\n  return <h1>DC</h1>;\\\\n};\\\\n\\\\nexport const CapitalReplaced = () => {\\\\n  return <h1>CapitalReplaced</h1>;\\\\n};\\\\nCapitalReplaced.storyName = \\\\\\"Champs \\\\xC9lys\\\\xE9es\\\\\\";\\\\n\\"
+  \\"2ab17fea\\": \`import * as React from \\"react\\";
+
+export const Cat = () => {
+  const Stop = { storyName: \\"\\" };
+  // should be ignored
+  Stop.storyName = \\"What\\";
+  return <h1>Cat</h1>;
+};
+
+Cat.storyName = \\"Doggo\\";
+Cat.foo = \\"Ha\\";
+
+export const CapitalCity = () => {
+  return <h1>DC</h1>;
+};
+
+export const CapitalReplaced = () => {
+  return <h1>CapitalReplaced</h1>;
+};
+CapitalReplaced.storyName = \\"Champs Élysées\\";
+\`
 };
 export let storySource = {
   \\"storyname--doggo\\": fileSourceCodes[\\"2ab17fea\\"],
@@ -349,7 +442,12 @@ export let config = {};
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
 let fileSourceCodes = {
-  \\"347c8ecc\\": \\"import * as React from \\\\\\"react\\\\\\";\\\\n\\\\nexport const Cat = () => {\\\\n  return <h1>Cat</h1>;\\\\n};\\\\n\\"
+  \\"347c8ecc\\": \`import * as React from \\"react\\";
+
+export const Cat = () => {
+  return <h1>Cat</h1>;
+};
+\`
 };
 export let storySource = {
   \\"our-animals--mammals--cat\\": fileSourceCodes[\\"347c8ecc\\"]
