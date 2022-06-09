@@ -17,7 +17,7 @@ import { getEntryData } from "./vite-plugin/parse/get-entry-data.js";
 const bundler = async (config, configFolder) => {
   const app = express();
   const port = await getPort({
-    port: [config.serve.port, 61001, 62002, 62003, 62004, 62005],
+    port: [config.port, 61001, 62002, 62003, 62004, 62005],
   });
   debug(`Port set to: ${port}`);
   try {
@@ -27,7 +27,7 @@ const bundler = async (config, configFolder) => {
     const viteConfig = await getBaseViteConfig(config, configFolder, {
       mode: "development",
       server: {
-        port: config.serve.port,
+        port: config.port,
         fs: {
           strict: false,
         },
@@ -35,7 +35,6 @@ const bundler = async (config, configFolder) => {
       },
     });
     const vite = await createServer(viteConfig);
-    console.log(vite.config);
     const { moduleGraph, ws } = vite;
     app.head("*", async (_, res) => res.sendStatus(200));
     app.get("/meta.json", async (_, res) => {
@@ -56,11 +55,12 @@ const bundler = async (config, configFolder) => {
         }),
       );
 
-      if (config.serve.open !== "none") {
+      if (vite.config.server.open !== "none") {
+        const browser = /** @type {string} */ (vite.config.server.open);
         await open(
           `http://localhost:${port}`,
-          ["chrome", "firefox", "edge", "safari"].includes(config.serve.open)
-            ? { app: { name: config.serve.open } }
+          ["chrome", "firefox", "edge", "safari"].includes(browser)
+            ? { app: { name: browser } }
             : {},
         );
       }

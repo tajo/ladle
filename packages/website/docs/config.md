@@ -3,9 +3,25 @@ id: config
 title: Config
 ---
 
-Ladle does not require any configuration and many features can be controlled through the CLI parameters. However, more advanced setups might require some configuration. In that case, you can add `.ladle/config.mjs` file.
+Ladle does not require any configuration and some features can be controlled through the CLI parameters. However, more advanced setups might require some configuration. There are three different files you can create and use:
 
-## Story filenames
+- [`.ladle/components.tsx`](./providers), used in browser only to enhance your stories or provide them a context
+- `.ladle/config.mjs`, used in browser and CLI to configure things like the story search pattern or addons visibility
+- [`vite.config.js` or `vite.config.ts`](https://vitejs.dev/config/#config-file-resolving), used only by Vite (CLI node environment) to change any parameters of the compilation (things like aliasing, dependency pre-bundling, babel plugins...) and some aspects of the dev server (open browser on start...). You should get familiar with Vite docs!
+
+## vite.config.js
+
+- **[Documentation](https://vitejs.dev/config).**
+- The parameter `root` is replaced so Ladle can function properly.
+- [`server.port`](https://vitejs.dev/config/#server-port) and [`build.outDir`](https://vitejs.dev/config/#build-outdir) are overridden by Ladle as well so they can be configured separately from your main project since you probably don't want them to clash.
+- Vite config assumes that paths are relative to the project root; however, Ladle's root is burried in `node_modules`. You should always use absolute paths. Ladle tries to resolve relative paths relative to the project root but that doesn't work when configuring custom plugins for example.
+- Ladle adds [@vitejs/plugin-react](https://www.npmjs.com/package/@vitejs/plugin-react) and [vite-tsconfig-paths](https://www.npmjs.com/package/vite-tsconfig-paths) plugins by default. If you need to customize them (for example adding babel presets into the react plugin), you can add them for yourself and Ladle will use yours.
+
+## `.ladle/config.mjs`
+
+### stories
+
+We use [globby](https://github.com/sindresorhus/globby), go there to learn about all possible search patterns. Ladle uses this parameter to find story files in your project.
 
 ```tsx
 export default {
@@ -13,71 +29,52 @@ export default {
 };
 ```
 
-This would change the default glob that is used for story discovery
+### port
 
-## Import Aliases
-
-Some projects use shortcuts like `@` for the `root` when importing modules. You can define your own import aliases as:
-
-```js
-export default {
-  resolve: {
-    alias: {
-      "@": "../src",
-    },
-  },
-};
-```
-
-Ladle also respects `paths` and `baseUrl` specified in your [`tsconfig`](https://www.typescriptlang.org/tsconfig#paths).
-
-## Env Variables and Modes
-
-Ladle uses Vite's env variables and exposes it's modes. [Read more](https://vitejs.dev/guide/env-and-mode.html).
-
-Ladle uses [dotenv](https://github.com/motdotla/dotenv) so you can pass variables through `.env` files:
-
-```
-.env                # loaded in all cases
-.env.local          # loaded in all cases, ignored by git
-.env.[mode]         # only loaded in specified mode
-.env.[mode].local   # only loaded in specified mode, ignored by git
-```
-
-Loaded env variables are exposed to your client source code via `import.meta.env`. However, to prevent accidentally leaking env variables to the client, only variables prefixed with `VITE_` are exposed to your Ladle/Vite-processed code. This prefix can be customized through the `envPrefix` config parameter.
-
-## Global Constant Replacements
-
-[https://vitejs.dev/config/#define](https://vitejs.dev/config/#define)
-
-Ladle config exposes `define` on the top level (all modes), and in `serve` (dev) and `build` (prod) modes.
-
-## All Options
-
-All settings you can change and their details:
+Specify the dev server port.
 
 ```tsx
 export default {
-  stories: "src/**/*.stories.{js,jsx,ts,tsx}",
-  root: "./",
-  publicDir: "public", // can be an absolute path or `false` to disable the feature
-  enableFlow: false, // enable flow types support
-  defaultStory: "", // default story id to load, alphabetical by default
-  babelParserOpts: {}, // https://babeljs.io/docs/en/babel-parser#options
-  babelPresets: [], // https://babeljs.io/docs/en/presets
-  babelPlugins: [], // https://babeljs.io/docs/en/plugins
-  vitePlugins: [], // https://vitejs.dev/config/#plugins
-  envPrefix: "VITE_", // can be a string or string[]
-  css: {
-    modules: {}, // https://vitejs.dev/config/#css-modules
-  },
-  define: {}, // https://vitejs.dev/config/#define
-  // see resolve section at https://vitejs.dev/config
-  resolve: {},
-  optimizeDeps: {
-    include: [], // https://vitejs.dev/config/#optimizedeps-include
-  },
-  // enable/disable addons and their default state
+  port: 61000,
+};
+```
+
+### outDir
+
+Specify the output directory (relative to project root).
+
+```tsx
+export default {
+  outDir: "build",
+};
+```
+
+### defaultStory
+
+You can change what story is loaded when Ladle starts. It's the `?story=` portion of URL. The default value is `""` - open the first story in alphabetical order.
+
+```tsx
+export default {
+  defaultStory: "a11y--welcome",
+};
+```
+
+### viteConfig
+
+Alternative path for the [Vite config](https://vitejs.dev/config). By default, `vite.config.js` and `vite.config.ts` in the project root are being checked.
+
+```tsx
+export default {
+  viteConfig: process.cwd() + "/ladle-vite.config.ts",
+};
+```
+
+### addons
+
+You can enable or disable all Ladle addons (the buttons in the left bottom corner). You can also control their default state.
+
+```tsx
+export default {
   addons: {
     a11y: {
       enabled: true,
@@ -106,20 +103,5 @@ export default {
       defaultState: "light",
     },
   },
-  serve: {
-    open: "**Default**", // browser to open, none to open nothing
-    port: 61000,
-    define: {}, // https://vitejs.dev/config/#define for dev build
-  },
-  build: {
-    out: "build",
-    sourcemap: false,
-    baseUrl: "/",
-    define: {}, // https://vitejs.dev/config/#define for prod build
-  },
 };
 ```
-
-## Common Problems
-
-- Configuration is shared between the Ladle CLI and frontend client so you can't use Node APIs/imports like `path`.

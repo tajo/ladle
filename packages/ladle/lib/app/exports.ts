@@ -2,8 +2,6 @@ import * as React from "react";
 import { useLadleState } from "./src/context";
 import { ActionType, GlobalState } from "../shared/types";
 
-export { defineConfig } from "vite";
-
 type ReactNodeWithoutObject =
   | React.ReactElement
   | string

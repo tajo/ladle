@@ -1,38 +1,11 @@
-import { dirname, isAbsolute, join } from "path";
+import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import path from "path";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import ladlePlugin from "./vite-plugin/vite-plugin.js";
-import { flowPlugin, esbuildFlowPlugin } from "./strip-flow.js";
 import mergeViteConfigs from "./merge-vite-configs.js";
-import getUserViteConfig from "./get-user-vite-config.cjs";
-
-/**
- * @param publicDir {string | false}
- */
-const getPublicDir = (publicDir) => {
-  if (!publicDir) {
-    return false;
-  }
-  if (isAbsolute(publicDir)) {
-    return publicDir;
-  }
-  return join(process.cwd(), publicDir || "public");
-};
-
-/**
- * @param cacheDir {string | undefined}
- */
-const getCacheDir = (cacheDir) => {
-  if (!cacheDir) {
-    return join(process.cwd(), "node_modules/.vite");
-  }
-  if (isAbsolute(cachedDir)) {
-    return cacheDir;
-  }
-  return join(process.cwd(), cacheDir);
-};
+import getUserViteConfig from "./get-user-vite-config.js";
 
 /**
  * @param ladleConfig {import("../shared/types").Config}
@@ -40,6 +13,35 @@ const getCacheDir = (cacheDir) => {
  * @param viteConfig {import('vite').InlineConfig}
  */
 const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
+  const _removedLadleConfigOptions = [
+    "publicDir",
+    "enableFlow",
+    "babelParserOpts",
+    "babelPresets",
+    "babelPlugins",
+    "vitePlugins",
+    "css",
+    "envPrefix",
+    "define",
+    "resolve",
+    "optimizeDeps",
+    "serve",
+    "build",
+  ];
+
+  // we moved all vite settings into vite.config.js, fail legacy Ladle configs
+  // remove this later
+  let oldKeyUsed = false;
+  Object.keys(ladleConfig).forEach((configKey) => {
+    if (_removedLadleConfigOptions.includes(configKey)) {
+      console.error(
+        `ERROR: ${configKey} was removed from the Ladle config in v1. Move it to vite.config.js. https://ladle.dev/docs/config`,
+      );
+      oldKeyUsed = true;
+    }
+  });
+  oldKeyUsed && process.exit(1);
+
   const __dirname = dirname(fileURLToPath(import.meta.url));
 
   // We need to fake react-dom/client import in case user still uses React v17
@@ -51,15 +53,12 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     reactAlias["react-dom/client"] = "react-dom";
   }
 
-  const userViteConfig = getUserViteConfig().default;
-  if (userViteConfig.publicDir) {
-    userViteConfig.publicDir = getPublicDir(userViteConfig.publicDir);
-  }
-  if (userViteConfig.cacheDir) {
-    userViteConfig.cacheDir = getCacheDir(userViteConfig.cacheDir);
-  }
-
-  console.log(userViteConfig);
+  const { userViteConfig, hasReactPlugin, hasTSConfigPathPlugin } =
+    await getUserViteConfig(
+      viteConfig.build ? "build" : "serve",
+      viteConfig.mode || "production",
+      ladleConfig.viteConfig,
+    );
 
   /**
    * @type {import('vite').InlineConfig}
@@ -78,21 +77,12 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
       },
     },
     optimizeDeps: {
-      ...(ladleConfig.enableFlow
-        ? {
-            esbuildOptions: {
-              plugins: [esbuildFlowPlugin()],
-            },
-          }
-        : {}),
       include: [
         "react",
         "react-dom",
         "classnames",
         "debug",
         "history",
-        "lodash.merge",
-        "lodash.merge",
         "lodash.merge",
         "query-string",
         "prism-react-renderer",
@@ -109,22 +99,13 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
       ],
     },
     plugins: [
-      tsconfigPaths({
-        root: process.cwd(),
-      }),
-      ...(ladleConfig.enableFlow ? [flowPlugin()] : []),
+      !hasTSConfigPathPlugin &&
+        tsconfigPaths({
+          root: process.cwd(),
+        }),
       ladlePlugin(ladleConfig, configFolder, viteConfig.mode || ""),
-      react(),
+      !hasReactPlugin && react(),
     ],
-    ...(ladleConfig.enableFlow
-      ? {
-          esbuild: {
-            include: /\.(tsx?|jsx?)$/,
-            exclude: [],
-            loader: "tsx",
-          },
-        }
-      : {}),
   };
   return mergeViteConfigs(userViteConfig, config);
 };

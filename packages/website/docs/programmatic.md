@@ -17,4 +17,4 @@ await build({
 });
 ```
 
-Both commands accept all [configuration options](./config).
+Both commands accept all [configuration options](./config#ladleconfigmjs).
