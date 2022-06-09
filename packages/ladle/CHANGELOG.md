@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 1.0.1
+
+### Patch Changes
+
+- [#154](https://github.com/tajo/ladle/pull/154) [`a53c25a`](https://github.com/tajo/ladle/commit/a53c25abc20d18068bc9a404dfb0bf6c47ca428e) Thanks [@tajo](https://github.com/tajo)! - Set default cacheDir to process.cwd() + node_modules/.vite
+
 ## 1.0.0
 
 ### Major Changes
