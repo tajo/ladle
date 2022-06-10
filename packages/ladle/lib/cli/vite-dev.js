@@ -3,8 +3,8 @@ import express from "express";
 import getPort from "get-port";
 import globby from "globby";
 import boxen from "boxen";
-import open from "open";
 import chokidar from "chokidar";
+import openBrowser from "./open-browser.js";
 import debug from "./debug.js";
 import getBaseViteConfig from "./vite-base.js";
 import { getMetaJsonObject } from "./vite-plugin/generate/get-meta-json.js";
@@ -57,12 +57,7 @@ const bundler = async (config, configFolder) => {
 
       if (vite.config.server.open !== "none") {
         const browser = /** @type {string} */ (vite.config.server.open);
-        await open(
-          `http://localhost:${port}`,
-          ["chrome", "firefox", "edge", "safari"].includes(browser)
-            ? { app: { name: browser } }
-            : {},
-        );
+        await openBrowser(`http://localhost:${port}`, browser);
       }
     });
 
