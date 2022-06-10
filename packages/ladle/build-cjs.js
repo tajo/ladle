@@ -33,6 +33,7 @@ const filesWithDirname = [
   "./cjs/lib/cli/vite-plugin/ast-to-obj.js",
   "./cjs/lib/cli/vite-plugin/vite-plugin.js",
   "./cjs/lib/cli/get-user-vite-config.js",
+  "./cjs/lib/cli/open-browser.js",
 ];
 
 filesWithDirname.forEach((file) => {
@@ -44,6 +45,10 @@ filesWithDirname.forEach((file) => {
       .replace(
         `const __dirname = (0, _path.dirname)((0, _url.fileURLToPath)(import.meta.url));`,
         "",
+      )
+      .replace(
+        "const _dirname = (0, _path.dirname)((0, _url.fileURLToPath)(import.meta.url))",
+        "const _dirname = __dirname",
       )
       .replace(
         `const _dirname = _path.default.dirname((0, _url.fileURLToPath)(import.meta.url));`,

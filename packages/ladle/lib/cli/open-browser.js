@@ -1,11 +1,12 @@
 // adapted from https://github.com/facebook/create-react-app/blob/main/packages/react-dev-utils/openBrowser.js
 
-import * as url from "url";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 import { execSync } from "child_process";
 import spawn from "cross-spawn";
 import open from "open";
 
-const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // https://github.com/sindresorhus/open#app
 var OSX_CHROME = "google chrome";
