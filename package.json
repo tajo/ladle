@@ -14,6 +14,12 @@
     "prepare": "husky install",
     "release": "./release.sh"
   },
+  "pnpm": {
+    "overrides": {
+      "vite": "link:../vite/packages/vite",
+      "@vite/plugin-react": "link:../vite/packages/plugin-react"
+    }
+  },
   "workspaces": [
     "packages/example",
     "packages/ladle",
