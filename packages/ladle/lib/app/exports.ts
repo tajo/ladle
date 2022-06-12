@@ -22,25 +22,33 @@ export type GlobalProvider = React.FC<{
   children: ReactNodeWithoutObject;
 }>;
 
+/**
+ * @see https://ladle.dev/docs/stories
+ */
 export interface Story<P = {}> extends React.FC<P> {
   storyName?: string;
   parameters?: any;
   meta?: any;
-  args?: Args;
-  argTypes?: ArgTypes;
+  args?: Args<P>;
+  argTypes?: ArgTypes<P>;
 }
 
-export interface Args {
-  [key: string]: any;
-}
+export type Args<P> = Partial<P>;
 
-export interface ArgType {
+/**
+ * @see https://ladle.dev/docs/stories#controls-args-and-argtypes
+ */
+export type ArgType<T> = {
   name?: string;
   description?: string;
-  defaultValue?: any;
-  [key: string]: any;
-}
+  defaultValue?: T;
+} & ArgOptionType<T>;
 
-export interface ArgTypes {
-  [key: string]: ArgType;
-}
+export type ArgOptionType<T> = {
+  options: T[];
+  control: { type: "radio" | "select" };
+};
+
+export type ArgTypes<P = {}> = {
+  [AP in keyof P]?: ArgType<P[AP]>;
+};
