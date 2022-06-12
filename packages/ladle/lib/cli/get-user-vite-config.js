@@ -1,6 +1,6 @@
 import { isAbsolute, join } from "path";
+import { loadConfigFromFile } from "vite";
 import debug from "./debug.js";
-import loadUserViteConfig from "./load-user-vite-config.js";
 
 // vite.config.js paths are relative to the project root
 // but for ladle, the root is in a different package, so
@@ -40,26 +40,16 @@ const getCacheDir = (cacheDir) => {
  * @return {Promise<import('../shared/types').GetUserViteConfig>}
  */
 export default async (command, mode, viteConfig) => {
-  /**
-   * @type {import('vite').UserConfigExport}
-   */
-  //@ts-ignore
-  let rawUserViteConfig = await loadUserViteConfig(viteConfig);
-  if (!rawUserViteConfig) {
+  const userViteConfig = await loadConfigFromFile(
+    { command, mode },
+    viteConfig,
+  ).then((loaded) => loaded?.config);
+  if (!userViteConfig) {
     return {
       userViteConfig: {},
       hasReactPlugin: false,
       hasTSConfigPathPlugin: false,
     };
-  }
-  /** @type {import('vite').UserConfig} */
-  let userViteConfig;
-  if (typeof rawUserViteConfig === "function") {
-    userViteConfig = await rawUserViteConfig({ command, mode });
-  } else {
-    userViteConfig = /** @type {import('vite').UserConfig} */ (
-      rawUserViteConfig
-    );
   }
 
   debug(`user vite config loaded:`);

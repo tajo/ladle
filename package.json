@@ -21,6 +21,7 @@
     "e2e/addons",
     "e2e/commonjs",
     "e2e/config",
+    "e2e/config-ts",
     "e2e/css",
     "e2e/decorators",
     "e2e/flow",

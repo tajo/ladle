@@ -1,0 +1,23 @@
+{
+  "name": "test-config-ts",
+  "version": "0.2.30",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "serve": "ladle serve --port=61108",
+    "serve-prod": "http-server build -c-1 -s -p 61108",
+    "build": "ladle build",
+    "lint": "echo 'no lint'",
+    "test-dev": "start-server-and-test serve 61108 'PW_EXPERIMENTAL_TS_ESM=1 npx playwright test'",
+    "test-prod": "start-server-and-test serve-prod 61108 'PW_EXPERIMENTAL_TS_ESM=1 npx playwright test'",
+    "test": "npm run test-dev && npm run test-prod"
+  },
+  "dependencies": {
+    "@ladle/react": "workspace:*",
+    "@playwright/test": "1.19.2",
+    "http-server": "^14.1.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "start-server-and-test": "^1.14.0"
+  }
+}
