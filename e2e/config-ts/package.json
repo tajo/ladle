@@ -4,12 +4,12 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "serve": "ladle serve --port=61107",
-    "serve-prod": "http-server build -c-1 -s -p 61107",
+    "serve": "ladle serve --port=61108",
+    "serve-prod": "http-server build -c-1 -s -p 61108",
     "build": "ladle build",
     "lint": "echo 'no lint'",
-    "test-dev": "start-server-and-test serve 61107 'PW_EXPERIMENTAL_TS_ESM=1 npx playwright test'",
-    "test-prod": "start-server-and-test serve-prod 61107 'PW_EXPERIMENTAL_TS_ESM=1 npx playwright test'",
+    "test-dev": "start-server-and-test serve 61108 'PW_EXPERIMENTAL_TS_ESM=1 npx playwright test'",
+    "test-prod": "start-server-and-test serve-prod 61108 'PW_EXPERIMENTAL_TS_ESM=1 npx playwright test'",
     "test": "npm run test-dev && npm run test-prod"
   },
   "dependencies": {
