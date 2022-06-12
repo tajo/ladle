@@ -1,5 +1,26 @@
 # @ladle/react
 
+## 1.1.0
+
+### Minor Changes
+
+- [#162](https://github.com/tajo/ladle/pull/162) [`ff731f5`](https://github.com/tajo/ladle/commit/ff731f5205b0a993f16edae59a159836bd897244) Thanks [@kazuma1989](https://github.com/kazuma1989)! - Load vite.config.ts the same way as Vite
+
+  ## WHAT the breaking change is
+
+  (Only for the package maintainers) a new E2E packages is added.
+
+  ## WHY the change was made
+
+  Ladle was not able to handle `vite.config.ts` the way Vite does.
+  For example, Ladle was not able to load `vite.config.ts` which imported other TS modules.
+
+  ## HOW a consumer should update their code
+
+  (Only for the package maintainers) recognize a new e2e workspace with `pnpm install`.
+
+* [#156](https://github.com/tajo/ladle/pull/156) [`0e316d6`](https://github.com/tajo/ladle/commit/0e316d645bc215af384adcc2b785c8f953f57357) Thanks [@tajo](https://github.com/tajo)! - Reuse the same tab for Ladle serve when the env is Google Chrome and OSX.
+
 ## 1.0.1
 
 ### Patch Changes
