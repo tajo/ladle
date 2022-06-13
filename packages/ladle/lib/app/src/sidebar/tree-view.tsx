@@ -162,6 +162,7 @@ const NavigationSection: React.FC<{
           <li
             onKeyDown={(e) => onKeyDownFn(e, treeProps)}
             aria-expanded={treeProps.isExpanded}
+            title={treeProps.name}
             tabIndex={
               treeProps.id === selectedItemId && !treeProps.isLinkable ? 0 : -1
             }
@@ -200,11 +201,23 @@ const NavigationSection: React.FC<{
               </div>
             ) : (
               <div
-                style={{ display: "flex", cursor: "pointer" }}
+                style={{
+                  display: "flex",
+                  cursor: "pointer",
+                }}
+                title={treeProps.name}
                 onClick={() => onItemClick(treeProps)}
               >
                 <Down rotate={!treeProps.isExpanded} />
-                <div>{treeProps.name}</div>
+                <div
+                  style={{
+                    textOverflow: "ellipsis",
+                    overflow: "hidden",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {treeProps.name}
+                </div>
               </div>
             )}
             {Object.keys(treeProps.children).length > 0 &&
