@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 1.1.1
+
+### Patch Changes
+
+- [#163](https://github.com/tajo/ladle/pull/163) [`06d8a62`](https://github.com/tajo/ladle/commit/06d8a6273ae8583000249e0cf122803a4f25344e) Thanks [@tajo](https://github.com/tajo)! - Set ellipsis to top level sidebar items.
+
 ## 1.1.0
 
 ### Minor Changes
