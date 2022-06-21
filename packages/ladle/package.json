@@ -1,6 +1,6 @@
 {
   "name": "@ladle/react",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "repository": "git@github.com:tajo/ladle.git",
   "author": "Vojtech Miksu <vojtech@miksu.cz>",
   "license": "MIT",
@@ -42,7 +42,7 @@
     "@babel/template": "^7.16.7",
     "@babel/traverse": "^7.17.3",
     "@babel/types": "^7.17.0",
-    "@ladle/react-context": "workspace:^1.0.0",
+    "@ladle/react-context": "workspace:^1.0.1",
     "@vitejs/plugin-react": "^1.3.0",
     "axe-core": "^4.4.1",
     "boxen": "^5.1.2",
