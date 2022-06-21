@@ -1,0 +1,21 @@
+{
+  "name": "playwright",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "serve": "ladle serve",
+    "build": "ladle build",
+    "lint": "echo 'no lint'",
+    "test": "pnpx playwright test",
+    "test-update": "pnpx playwright test -u"
+  },
+  "dependencies": {
+    "@ladle/react": "workspace:*",
+    "http-server": "^14.1.0",
+    "node-fetch": "^3.2.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sync-fetch": "^0.4.1"
+  }
+}

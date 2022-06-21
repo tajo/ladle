@@ -1,0 +1,23 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1,
+    "workspacePrefix": "/Users/vojtech/Projects/ladle"
+  },
+  "1 error pnpm": {
+    "code": "ELIFECYCLE",
+    "errno": "ENOENT",
+    "syscall": "spawn",
+    "file": "sh",
+    "pkgid": "playwright@0.0.1",
+    "stage": "serve",
+    "script": "ladle serve",
+    "pkgname": "playwright",
+    "err": {
+      "name": "pnpm",
+      "message": "playwright@0.0.1 serve: `ladle serve`\nspawn ENOENT",
+      "code": "ELIFECYCLE",
+      "stack": "pnpm: playwright@0.0.1 serve: `ladle serve`\nspawn ENOENT\n    at ChildProcess.<anonymous> (/Users/vojtech/.nvm/versions/node/v16.15.0/lib/node_modules/pnpm/dist/pnpm.cjs:93535:22)\n    at ChildProcess.emit (node:events:527:28)\n    at maybeClose (node:internal/child_process:1092:16)\n    at Process.ChildProcess._handle.onexit (node:internal/child_process:302:5)"
+    }
+  },
+  "2 warn pnpm:global": " Local package.json exists, but node_modules missing, did you mean to install?"
+}
