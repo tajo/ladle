@@ -19,13 +19,16 @@ const Actions = Object.freeze({
 
 /**
  *
- * @param {string | undefined} browser
+ * @param {string | undefined | boolean} browser
  * @returns
  */
 function getBrowserEnv(browser) {
   // Attempt to honor this environment variable.
   // It is specific to the operating system.
   // See https://github.com/sindresorhus/open#app for documentation.
+
+  // some legacy values from Ladle v0.x
+  browser = browser === true || browser === "**Default**" ? undefined : browser;
   const value = browser || process.env.BROWSER;
   const args = process.env.BROWSER_ARGS
     ? process.env.BROWSER_ARGS.split(" ")

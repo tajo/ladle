@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useLadleState } from "./context";
+import { useLadleContext } from "./context";
 import { ActionType, ControlType, ControlState } from "../../shared/types";
 
 const ArgsProvider: React.FC<{
@@ -7,7 +7,7 @@ const ArgsProvider: React.FC<{
   args: any;
   argTypes: any;
 }> = ({ component, args, argTypes }) => {
-  const [globalState, dispatch] = useLadleState();
+  const { globalState, dispatch } = useLadleContext();
   React.useEffect(() => {
     const controls: ControlState = {};
     args &&
