@@ -1,6 +1,11 @@
 import * as React from "react";
-import { useLadleState } from "./src/context";
-import { ActionType, GlobalState } from "../shared/types";
+import { useLadleContext } from "./src/context";
+import {
+  ActionType,
+  GlobalState,
+  ThemeState,
+  ModeState,
+} from "../shared/types";
 
 type ReactNodeWithoutObject =
   | React.ReactElement
@@ -10,10 +15,10 @@ type ReactNodeWithoutObject =
   | null
   | undefined;
 
-export { useLadleState };
+export { useLadleContext, ActionType, ThemeState, ModeState };
 
 export const useLink = () => {
-  const [, dispatch] = useLadleState();
+  const { dispatch } = useLadleContext();
   return (value: string) => dispatch({ type: ActionType.UpdateStory, value });
 };
 

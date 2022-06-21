@@ -19,7 +19,7 @@ const Actions = Object.freeze({
 
 /**
  *
- * @param {string | undefined} browser
+ * @param {string | undefined | boolean} browser
  * @returns
  */
 function getBrowserEnv(browser) {

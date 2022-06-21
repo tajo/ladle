@@ -1,31 +1,15 @@
 import * as React from "react";
-import {
-  GlobalAction,
-  GlobalState,
-  ThemeState,
-  ModeState,
-} from "../../shared/types";
+//@ts-ignore
+import LadleContext from "@ladle/react-context";
+import { GlobalAction, GlobalState } from "../../shared/types";
 
-export const Context = React.createContext<{
+export const Context: React.Context<{
   globalState: GlobalState;
   dispatch: React.Dispatch<GlobalAction>;
-}>({
-  globalState: {
-    theme: ThemeState.Light,
-    mode: ModeState.Full,
-    story: "",
-    rtl: false,
-    source: false,
-    control: {},
-  },
-  /* eslint-disable-next-line @typescript-eslint/no-empty-function*/
-  dispatch: () => {},
-});
+}> = LadleContext;
 
-export const useLadleState = (): [
-  GlobalState,
-  React.Dispatch<GlobalAction>,
-] => {
-  const { globalState, dispatch } = React.useContext(Context);
-  return [globalState, dispatch];
-};
+export const useLadleContext = () =>
+  React.useContext<{
+    globalState: GlobalState;
+    dispatch: React.Dispatch<GlobalAction>;
+  }>(LadleContext);

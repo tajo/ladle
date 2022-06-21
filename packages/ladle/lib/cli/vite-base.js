@@ -81,6 +81,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     },
     optimizeDeps: {
       include: [
+        "@ladle/react-context",
         "react",
         "react-dom",
         "classnames",
