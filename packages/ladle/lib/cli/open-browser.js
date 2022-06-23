@@ -106,6 +106,16 @@ function startBrowserProcess(browser, url, args) {
         // Try our best to reuse existing tab
         // on OSX Chromium-based browser with AppleScript
         execSync('ps cax | grep "' + chromiumBrowser + '"');
+        let cwd = __dirname;
+
+        // in pnp we need to get cwd differently
+        if (process.versions.pnp) {
+          // eslint-disable-next-line @typescript-eslint/no-var-requires
+          const pnpApi = require("pnpapi");
+          if (typeof pnpApi.resolveVirtual === "function") {
+            cwd = pnpApi.resolveVirtual(cwd) || cwd;
+          }
+        }
         execSync(
           'osascript openChrome.applescript "' +
             encodeURI(url) +
@@ -113,7 +123,7 @@ function startBrowserProcess(browser, url, args) {
             chromiumBrowser +
             '"',
           {
-            cwd: __dirname,
+            cwd,
             stdio: "ignore",
           },
         );
