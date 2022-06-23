@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 // adapted from https://github.com/facebook/create-react-app/blob/main/packages/react-dev-utils/openBrowser.js
 
 import { dirname } from "path";
@@ -106,6 +107,16 @@ function startBrowserProcess(browser, url, args) {
         // Try our best to reuse existing tab
         // on OSX Chromium-based browser with AppleScript
         execSync('ps cax | grep "' + chromiumBrowser + '"');
+        let cwd = __dirname;
+
+        // in pnp we need to get cwd differently
+        if (process.versions.pnp) {
+          // @ts-ignore
+          const pnpApi = require("pnpapi");
+          if (typeof pnpApi.resolveVirtual === "function") {
+            cwd = pnpApi.resolveVirtual(cwd) || cwd;
+          }
+        }
         execSync(
           'osascript openChrome.applescript "' +
             encodeURI(url) +
@@ -113,7 +124,7 @@ function startBrowserProcess(browser, url, args) {
             chromiumBrowser +
             '"',
           {
-            cwd: __dirname,
+            cwd,
             stdio: "ignore",
           },
         );
