@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 // adapted from https://github.com/facebook/create-react-app/blob/main/packages/react-dev-utils/openBrowser.js
 
 import { dirname } from "path";
@@ -110,7 +111,7 @@ function startBrowserProcess(browser, url, args) {
 
         // in pnp we need to get cwd differently
         if (process.versions.pnp) {
-          // eslint-disable-next-line @typescript-eslint/no-var-requires
+          // @ts-ignore
           const pnpApi = require("pnpapi");
           if (typeof pnpApi.resolveVirtual === "function") {
             cwd = pnpApi.resolveVirtual(cwd) || cwd;
