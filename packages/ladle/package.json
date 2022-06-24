@@ -9,9 +9,10 @@
   "exports": {
     ".": "./lib/app/exports.ts",
     "./serve": "./api/serve.js",
+    "./preview": "./api/preview.js",
     "./build": "./api/build.js"
   },
-  "packageManager": "pnpm@7.1.9",
+  "packageManager": "pnpm@7.3.0",
   "publishConfig": {
     "access": "public"
   },

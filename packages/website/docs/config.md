@@ -39,6 +39,16 @@ export default {
 };
 ```
 
+### previewPort
+
+Specify the preview server port.
+
+```tsx
+export default {
+  previewPort: 8080,
+};
+```
+
 ### outDir
 
 Specify the output directory (relative to project root).

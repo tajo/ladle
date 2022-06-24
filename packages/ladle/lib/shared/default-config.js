@@ -6,6 +6,7 @@ export default {
   defaultStory: "", // default story id to load, alphabetical by default
   viteConfig: undefined,
   port: 61000,
+  previewPort: 8080,
   outDir: "build",
   // enable/disable addons and their default state
   addons: {

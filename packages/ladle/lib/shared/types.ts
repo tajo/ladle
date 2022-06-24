@@ -135,6 +135,7 @@ export type Config = {
   defaultStory: string;
   viteConfig?: string;
   port: number;
+  previewPort: number;
   outDir: string;
   addons: {
     control: {
