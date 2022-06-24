@@ -1,8 +1,26 @@
 {
   "name": "@ladle/react",
   "version": "1.2.0",
-  "repository": "git@github.com:tajo/ladle.git",
   "author": "Vojtech Miksu <vojtech@miksu.cz>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tajo/ladle.git",
+    "directory": "packages/ladle"
+  },
+  "bugs": {
+    "url": "https://github.com/tajo/ladle/issues"
+  },
+  "homepage": "https://github.com/tajo/ladle",
+  "description": "Develop, test and document your React story components faster.",
+  "keywords": [
+    "react",
+    "stories",
+    "storybook",
+    "testing",
+    "components",
+    "documentation",
+    "vitejs"
+  ],
   "license": "MIT",
   "type": "module",
   "types": "./lib/app/exports.ts",
@@ -44,7 +62,7 @@
     "@babel/traverse": "^7.17.3",
     "@babel/types": "^7.17.0",
     "@ladle/react-context": "workspace:^1.0.1",
-    "@vitejs/plugin-react": "^1.3.0",
+    "@vitejs/plugin-react": "2.0.0-beta.0",
     "axe-core": "^4.4.1",
     "boxen": "^5.1.2",
     "chokidar": "^3.5.3",
@@ -61,7 +79,7 @@
     "open": "^8.4.0",
     "prism-react-renderer": "^1.3.1",
     "query-string": "^7.1.1",
-    "vite": "^2.9.6",
+    "vite": "3.0.0-beta.2",
     "vite-tsconfig-paths": "^3.4.1"
   },
   "peerDependencies": {
