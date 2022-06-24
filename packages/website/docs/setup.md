@@ -52,10 +52,10 @@ pnpm ladle build
 
 Production build. It creates a `build` folder and outputs Ladle assets into it. This is optimized and minified version that you can deploy or use for testing.
 
-You need to serve it through a http server. For example, you can use a simple python command:
+You need to serve it through a http server. Ladle has the `preview` command you can use.
 
 ```bash
-cd build && python -m SimpleHTTPServer 8000
+pnpm ladle preview
 ```
 
 ## All-in-one
