@@ -1,5 +1,21 @@
 # @ladle/react
 
+## 1.2.0
+
+### Minor Changes
+
+- [#174](https://github.com/tajo/ladle/pull/174) [`5abef5f`](https://github.com/tajo/ladle/commit/5abef5fec446ba8efd82b4e9f0ed3e24bc904458) Thanks [@tajo](https://github.com/tajo)! - - Add ladle preview command to quickly open a serve for the build folder.
+  - Fix host and https options for serve and preview commands.
+  - Measure time and size of the build. Display it.
+
+### Patch Changes
+
+- [#173](https://github.com/tajo/ladle/pull/173) [`ddaebfd`](https://github.com/tajo/ladle/commit/ddaebfd6e0042285d3f225bc4a8a25ba0f8d3bbf) Thanks [@GeorgeNagel](https://github.com/GeorgeNagel)! - Add engine settings and node restriction for @ladle/react so that install fails for users when node < 16.x
+
+* [#170](https://github.com/tajo/ladle/pull/170) [`04714c9`](https://github.com/tajo/ladle/commit/04714c9f5343cef539cac2c44b58e3b7d5255479) Thanks [@GeorgeNagel](https://github.com/GeorgeNagel)! - Enforce that Node version >= v16.0.0. This causes a loud failure when installing ladle with an old version of Node, as opposed to silently failing and causing difficult-to-diagnose bugs.
+
+- [#172](https://github.com/tajo/ladle/pull/172) [`5049ce9`](https://github.com/tajo/ladle/commit/5049ce9c79ffdd5afdb87ff953c0aa9b9d834a16) Thanks [@tajo](https://github.com/tajo)! - Fix Chrome (tab) re-opening for pnp environments..
+
 ## 1.1.2
 
 ### Patch Changes
