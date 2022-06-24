@@ -31,7 +31,7 @@ const bundler = async (config, configFolder) => {
         fs: {
           strict: false,
         },
-        middlewareMode: "html",
+        middlewareMode: true,
       },
     });
     const vite = await createServer(viteConfig);
@@ -43,9 +43,12 @@ const bundler = async (config, configFolder) => {
       res.json(jsonContent);
     });
     app.use(vite.middlewares);
+    const serverUrl = `${vite.config.server.https ? "https" : "http"}://${
+      vite.config.server.host || "localhost"
+    }:${port}`;
     app.listen(port, async () => {
       console.log(
-        boxen(`🥄 Ladle.dev served at http://localhost:${port}`, {
+        boxen(`🥄 Ladle.dev served at ${serverUrl}`, {
           padding: 1,
           margin: 1,
           borderStyle: "round",
@@ -60,7 +63,7 @@ const bundler = async (config, configFolder) => {
         vite.config.server.open !== false
       ) {
         const browser = /** @type {string} */ (vite.config.server.open);
-        await openBrowser(`http://localhost:${port}`, browser);
+        await openBrowser(serverUrl, browser);
       }
     });
 
