@@ -4,8 +4,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "serve": "ladle serve --port=61100",
-    "serve-prod": "http-server build -c-1 -s -p 61100",
+    "serve": "ladle serve",
+    "serve-prod": "ladle preview -p 61100",
     "build": "ladle build",
     "lint": "echo 'no lint'",
     "test-dev": "start-server-and-test serve 61100 'PW_EXPERIMENTAL_TS_ESM=1 npx playwright test'",

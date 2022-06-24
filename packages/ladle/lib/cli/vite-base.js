@@ -55,7 +55,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
 
   const { userViteConfig, hasReactPlugin, hasTSConfigPathPlugin } =
     await getUserViteConfig(
-      viteConfig.mode === "production" ? "build" : "serve",
+      viteConfig.build ? "build" : "serve",
       viteConfig.mode || "production",
       ladleConfig.viteConfig,
     );

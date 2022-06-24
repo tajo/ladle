@@ -19,8 +19,6 @@ jobs:
           fetch-depth: 0
 
       - uses: pnpm/action-setup@v2.0.1
-        with:
-          version: 7.0.0
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v2

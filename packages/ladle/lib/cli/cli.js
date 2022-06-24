@@ -26,11 +26,11 @@ program
   .action(async (params) => {
     await serve({ ...params, serve: params });
   });
+
 program
   .command("build")
   .description("build static production app")
   .option("-o, --outDir <path>", "output directory")
-  .option("-p, --port [number]", "port to serve the application", strToInt)
   .option("--theme [string]", "theme light, dark or auto")
   .option("--config [string]", "folder where config is located, default .ladle")
   .option("--viteConfig [string]", "file with Vite configuration")

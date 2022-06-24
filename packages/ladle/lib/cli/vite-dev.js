@@ -31,7 +31,7 @@ const bundler = async (config, configFolder) => {
         fs: {
           strict: false,
         },
-        middlewareMode: true,
+        middlewareMode: "html",
       },
     });
     const vite = await createServer(viteConfig);
