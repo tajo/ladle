@@ -50,7 +50,7 @@ program
   .option("--config [string]", "folder where config is located, default .ladle")
   .option("--viteConfig [string]", "file with Vite configuration")
   .action(async (params) => {
-    await preview({ ...params });
+    await preview({ ...params, previewPort: params.port });
   });
 
 program.parse(process.argv);

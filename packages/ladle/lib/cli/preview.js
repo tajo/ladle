@@ -16,10 +16,11 @@ const preview = async (params = {}) => {
     ? params.config
     : path.join(process.cwd(), params.config);
   const config = await loadConfig(configFolder);
-  config.previewPort = params.port ? params.port : config.previewPort;
+  config.previewPort = params.previewPort
+    ? params.previewPort
+    : config.previewPort;
   config.outDir = params.outDir ? params.outDir : config.outDir;
   config.viteConfig = params.viteConfig ? params.viteConfig : config.viteConfig;
-
   debug(`Final config:\n${JSON.stringify(config, null, "  ")}`);
   await vitePreview(config, configFolder);
 };
