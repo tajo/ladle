@@ -48,7 +48,6 @@ importers:
       "@ladle/react": workspace:*
       "@playwright/test": 1.19.2
       axe-playwright: ^1.1.11
-      http-server: ^14.1.0
       playwright-core: ^1.22.2
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -57,7 +56,6 @@ importers:
       "@ladle/react": link:../../packages/ladle
       "@playwright/test": 1.19.2
       axe-playwright: 1.1.11_playwright-core@1.22.2
-      http-server: 14.1.0
       playwright-core: 1.22.2
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -67,14 +65,12 @@ importers:
     specifiers:
       "@ladle/react": workspace:*
       "@playwright/test": 1.19.2
-      http-server: ^14.1.0
       react: ^18.2.0
       react-dom: ^18.2.0
       start-server-and-test: ^1.14.0
     dependencies:
       "@ladle/react": link:../../packages/ladle
       "@playwright/test": 1.19.2
-      http-server: 14.1.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       start-server-and-test: 1.14.0
@@ -83,14 +79,12 @@ importers:
     specifiers:
       "@ladle/react": workspace:*
       "@playwright/test": 1.19.2
-      http-server: ^14.1.0
       react: ^18.2.0
       react-dom: ^18.2.0
       start-server-and-test: ^1.14.0
     dependencies:
       "@ladle/react": link:../../packages/ladle
       "@playwright/test": 1.19.2
-      http-server: 14.1.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       start-server-and-test: 1.14.0
@@ -99,14 +93,12 @@ importers:
     specifiers:
       "@ladle/react": workspace:*
       "@playwright/test": 1.19.2
-      http-server: ^14.1.0
       react: ^18.2.0
       react-dom: ^18.2.0
       start-server-and-test: ^1.14.0
     dependencies:
       "@ladle/react": link:../../packages/ladle
       "@playwright/test": 1.19.2
-      http-server: 14.1.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       start-server-and-test: 1.14.0
@@ -116,7 +108,6 @@ importers:
       "@ladle/react": workspace:*
       "@playwright/test": 1.19.2
       autoprefixer: ^10.4.5
-      http-server: ^14.1.0
       postcss: ^8.4.12
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -126,7 +117,6 @@ importers:
       "@ladle/react": link:../../packages/ladle
       "@playwright/test": 1.19.2
       autoprefixer: 10.4.7_postcss@8.4.13
-      http-server: 14.1.0
       postcss: 8.4.13
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -137,14 +127,12 @@ importers:
     specifiers:
       "@ladle/react": workspace:*
       "@playwright/test": 1.19.2
-      http-server: ^14.1.0
       react: ^18.2.0
       react-dom: ^18.2.0
       start-server-and-test: ^1.14.0
     dependencies:
       "@ladle/react": link:../../packages/ladle
       "@playwright/test": 1.19.2
-      http-server: 14.1.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       start-server-and-test: 1.14.0
@@ -154,7 +142,6 @@ importers:
       "@ladle/react": workspace:*
       "@playwright/test": 1.19.2
       flow-remove-types: ^2.176.3
-      http-server: ^14.1.0
       react: ^18.2.0
       react-dom: ^18.2.0
       rollup-pluginutils: ^2.8.2
@@ -163,7 +150,6 @@ importers:
       "@ladle/react": link:../../packages/ladle
       "@playwright/test": 1.19.2
       flow-remove-types: 2.176.3
-      http-server: 14.1.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       rollup-pluginutils: 2.8.2
@@ -173,14 +159,12 @@ importers:
     specifiers:
       "@ladle/react": workspace:*
       "@playwright/test": 1.19.2
-      http-server: ^14.1.0
       react: ^18.2.0
       react-dom: ^18.2.0
       start-server-and-test: ^1.14.0
     dependencies:
       "@ladle/react": link:../../packages/ladle
       "@playwright/test": 1.19.2
-      http-server: 14.1.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       start-server-and-test: 1.14.0
@@ -189,14 +173,12 @@ importers:
     specifiers:
       "@ladle/react": workspace:*
       "@playwright/test": 1.19.2
-      http-server: ^14.1.0
       react: ^18.2.0
       react-dom: ^18.2.0
       start-server-and-test: ^1.14.0
     dependencies:
       "@ladle/react": link:../../packages/ladle
       "@playwright/test": 1.19.2
-      http-server: 14.1.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       start-server-and-test: 1.14.0
@@ -849,7 +831,7 @@ packages:
     dependencies:
       "@babel/core": 7.16.12
       "@babel/helper-annotate-as-pure": 7.16.7
-      "@babel/helper-environment-visitor": 7.16.7
+      "@babel/helper-environment-visitor": 7.18.2
       "@babel/helper-function-name": 7.17.9
       "@babel/helper-member-expression-to-functions": 7.17.7
       "@babel/helper-optimise-call-expression": 7.16.7
@@ -1384,7 +1366,7 @@ packages:
     dependencies:
       "@babel/core": 7.16.12
       "@babel/helper-create-class-features-plugin": 7.17.9_@babel+core@7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
     transitivePeerDependencies:
       - supports-color
 
@@ -1464,7 +1446,7 @@ packages:
       "@babel/core": ^7.0.0-0
     dependencies:
       "@babel/core": 7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
       "@babel/plugin-syntax-dynamic-import": 7.8.3_@babel+core@7.16.12
 
   /@babel/plugin-proposal-dynamic-import/7.16.7_@babel+core@7.17.10:
@@ -1505,7 +1487,7 @@ packages:
       "@babel/core": ^7.0.0-0
     dependencies:
       "@babel/core": 7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
       "@babel/plugin-syntax-export-namespace-from": 7.8.3_@babel+core@7.16.12
 
   /@babel/plugin-proposal-export-namespace-from/7.16.7_@babel+core@7.17.10:
@@ -1574,7 +1556,7 @@ packages:
       "@babel/core": ^7.0.0-0
     dependencies:
       "@babel/core": 7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
       "@babel/plugin-syntax-logical-assignment-operators": 7.10.4_@babel+core@7.16.12
 
   /@babel/plugin-proposal-logical-assignment-operators/7.16.7_@babel+core@7.17.10:
@@ -1615,7 +1597,7 @@ packages:
       "@babel/core": ^7.0.0-0
     dependencies:
       "@babel/core": 7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
       "@babel/plugin-syntax-nullish-coalescing-operator": 7.8.3_@babel+core@7.16.12
 
   /@babel/plugin-proposal-nullish-coalescing-operator/7.16.7_@babel+core@7.17.10:
@@ -1656,7 +1638,7 @@ packages:
       "@babel/core": ^7.0.0-0
     dependencies:
       "@babel/core": 7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
       "@babel/plugin-syntax-numeric-separator": 7.10.4_@babel+core@7.16.12
 
   /@babel/plugin-proposal-numeric-separator/7.16.7_@babel+core@7.17.10:
@@ -1773,7 +1755,7 @@ packages:
       "@babel/core": ^7.0.0-0
     dependencies:
       "@babel/core": 7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
       "@babel/helper-skip-transparent-expression-wrappers": 7.16.0
       "@babel/plugin-syntax-optional-chaining": 7.8.3_@babel+core@7.16.12
 
@@ -1818,7 +1800,7 @@ packages:
     dependencies:
       "@babel/core": 7.16.12
       "@babel/helper-create-class-features-plugin": 7.17.9_@babel+core@7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
     transitivePeerDependencies:
       - supports-color
 
@@ -1866,7 +1848,7 @@ packages:
       "@babel/core": 7.16.12
       "@babel/helper-annotate-as-pure": 7.16.7
       "@babel/helper-create-class-features-plugin": 7.17.9_@babel+core@7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
       "@babel/plugin-syntax-private-property-in-object": 7.14.5_@babel+core@7.16.12
     transitivePeerDependencies:
       - supports-color
@@ -1958,7 +1940,7 @@ packages:
       "@babel/core": ^7.0.0-0
     dependencies:
       "@babel/core": 7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
 
   /@babel/plugin-syntax-async-generators/7.8.4_@babel+core@7.17.10:
     resolution:
@@ -2088,7 +2070,7 @@ packages:
       "@babel/core": ^7.0.0-0
     dependencies:
       "@babel/core": 7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
 
   /@babel/plugin-syntax-export-namespace-from/7.8.3_@babel+core@7.17.10:
     resolution:
@@ -2148,7 +2130,7 @@ packages:
       "@babel/core": ^7.0.0-0
     dependencies:
       "@babel/core": 7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
 
   /@babel/plugin-syntax-json-strings/7.8.3_@babel+core@7.17.10:
     resolution:
@@ -2195,7 +2177,7 @@ packages:
       "@babel/core": ^7.0.0-0
     dependencies:
       "@babel/core": 7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
 
   /@babel/plugin-syntax-jsx/7.16.7_@babel+core@7.17.10:
     resolution:
@@ -2245,7 +2227,7 @@ packages:
       "@babel/core": ^7.0.0-0
     dependencies:
       "@babel/core": 7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
 
   /@babel/plugin-syntax-logical-assignment-operators/7.10.4_@babel+core@7.17.10:
     resolution:
@@ -2279,7 +2261,7 @@ packages:
       "@babel/core": ^7.0.0-0
     dependencies:
       "@babel/core": 7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
 
   /@babel/plugin-syntax-nullish-coalescing-operator/7.8.3_@babel+core@7.17.10:
     resolution:
@@ -2313,7 +2295,7 @@ packages:
       "@babel/core": ^7.0.0-0
     dependencies:
       "@babel/core": 7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
 
   /@babel/plugin-syntax-numeric-separator/7.10.4_@babel+core@7.17.10:
     resolution:
@@ -2359,7 +2341,7 @@ packages:
       "@babel/core": ^7.0.0-0
     dependencies:
       "@babel/core": 7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
 
   /@babel/plugin-syntax-object-rest-spread/7.8.3_@babel+core@7.17.10:
     resolution:
@@ -2393,7 +2375,7 @@ packages:
       "@babel/core": ^7.0.0-0
     dependencies:
       "@babel/core": 7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
 
   /@babel/plugin-syntax-optional-catch-binding/7.8.3_@babel+core@7.17.10:
     resolution:
@@ -2427,7 +2409,7 @@ packages:
       "@babel/core": ^7.0.0-0
     dependencies:
       "@babel/core": 7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
 
   /@babel/plugin-syntax-optional-chaining/7.8.3_@babel+core@7.17.10:
     resolution:
@@ -2462,7 +2444,7 @@ packages:
       "@babel/core": ^7.0.0-0
     dependencies:
       "@babel/core": 7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
 
   /@babel/plugin-syntax-private-property-in-object/7.14.5_@babel+core@7.17.10:
     resolution:
@@ -2525,7 +2507,7 @@ packages:
       "@babel/core": ^7.0.0-0
     dependencies:
       "@babel/core": 7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
 
   /@babel/plugin-syntax-typescript/7.17.10_@babel+core@7.17.10:
     resolution:
@@ -3678,7 +3660,7 @@ packages:
     dependencies:
       "@babel/core": 7.16.12
       "@babel/helper-create-class-features-plugin": 7.17.9_@babel+core@7.16.12
-      "@babel/helper-plugin-utils": 7.16.7
+      "@babel/helper-plugin-utils": 7.17.12
       "@babel/plugin-syntax-typescript": 7.17.10_@babel+core@7.16.12
     transitivePeerDependencies:
       - supports-color
@@ -8145,7 +8127,7 @@ packages:
         integrity: sha512-cD8FOb0tRH3uuEe6+evtAbgJtfxr7ly3fQjYcMcuPlgkwVS9xboaVIpcDV+cYQe+yGykgwZCs1pzjntcGa6l5g==,
       }
     dependencies:
-      follow-redirects: 1.14.9
+      follow-redirects: 1.14.9_debug@4.3.2
     transitivePeerDependencies:
       - debug
     dev: false
@@ -8430,16 +8412,6 @@ packages:
 
   /base16/1.0.0:
     resolution: { integrity: sha1-4pf2DX7BAUp6lxo568ipjAtoHnA= }
-    dev: false
-
-  /basic-auth/2.0.1:
-    resolution:
-      {
-        integrity: sha512-NF+epuEdnUYVlGuhaxbbq+dvJttwLnGY+YixlXlME5KpQ5W3CnXA5cVTneY3SPbPDRkcjMbifrwmFYcClgOZeg==,
-      }
-    engines: { node: ">= 0.8" }
-    dependencies:
-      safe-buffer: 5.1.2
     dev: false
 
   /batch/0.6.1:
@@ -9376,11 +9348,6 @@ packages:
       {
         integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==,
       }
-    dev: false
-
-  /corser/2.0.1:
-    resolution: { integrity: sha1-jtolLsqrWEDc2XXOuQ2TcMgZ/4c= }
-    engines: { node: ">= 0.4.0" }
     dev: false
 
   /cosmiconfig-typescript-loader/1.0.9_l47be6km5p57gglrggidw5gsgm:
@@ -11700,19 +11667,6 @@ packages:
       - encoding
     dev: false
 
-  /follow-redirects/1.14.9:
-    resolution:
-      {
-        integrity: sha512-MQDfihBQYMcyy5dhRDJUHcw7lb2Pv/TuE6xP1vyraLukNDHKbDxDNaOE3NbCAdKQApno+GPRyo1YAp89yCjK4w==,
-      }
-    engines: { node: ">=4.0" }
-    peerDependencies:
-      debug: "*"
-    peerDependenciesMeta:
-      debug:
-        optional: true
-    dev: false
-
   /follow-redirects/1.14.9_debug@4.3.2:
     resolution:
       {
@@ -12477,16 +12431,6 @@ packages:
       wbuf: 1.7.3
     dev: false
 
-  /html-encoding-sniffer/3.0.0:
-    resolution:
-      {
-        integrity: sha512-oWv4T4yJ52iKrufjnyZPkrN0CH3QnrUqdB6In1g5Fe1mia8GmF36gnfNySxoZtxD5+NmYw1EElVXiBk93UeskA==,
-      }
-    engines: { node: ">=12" }
-    dependencies:
-      whatwg-encoding: 2.0.0
-    dev: false
-
   /html-entities/2.3.3:
     resolution:
       {
@@ -12677,36 +12621,10 @@ packages:
     engines: { node: ">=8.0.0" }
     dependencies:
       eventemitter3: 4.0.7
-      follow-redirects: 1.14.9
+      follow-redirects: 1.14.9_debug@4.3.2
       requires-port: 1.0.0
     transitivePeerDependencies:
       - debug
-    dev: false
-
-  /http-server/14.1.0:
-    resolution:
-      {
-        integrity: sha512-5lYsIcZtf6pdR8tCtzAHTWrAveo4liUlJdWc7YafwK/maPgYHs+VNP6KpCClmUnSorJrARVMXqtT055zBv11Yg==,
-      }
-    engines: { node: ">=12" }
-    hasBin: true
-    dependencies:
-      basic-auth: 2.0.1
-      chalk: 4.1.2
-      corser: 2.0.1
-      he: 1.2.0
-      html-encoding-sniffer: 3.0.0
-      http-proxy: 1.18.1
-      mime: 1.6.0
-      minimist: 1.2.6
-      opener: 1.5.2
-      portfinder: 1.0.28
-      secure-compare: 3.0.1
-      union: 0.5.0
-      url-join: 4.0.1
-    transitivePeerDependencies:
-      - debug
-      - supports-color
     dev: false
 
   /https-proxy-agent/5.0.0:
@@ -12760,16 +12678,6 @@ packages:
     engines: { node: ">=0.10.0" }
     dependencies:
       safer-buffer: 2.1.2
-
-  /iconv-lite/0.6.3:
-    resolution:
-      {
-        integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==,
-      }
-    engines: { node: ">=0.10.0" }
-    dependencies:
-      safer-buffer: 2.1.2
-    dev: false
 
   /icss-utils/5.1.0_postcss@8.4.13:
     resolution:
@@ -18115,10 +18023,6 @@ packages:
       kind-of: 6.0.3
     dev: false
 
-  /secure-compare/3.0.1:
-    resolution: { integrity: sha1-8aAymzCLIh+uN7mXTz1XjQypmeM= }
-    dev: false
-
   /select-hose/2.0.0:
     resolution: { integrity: sha1-Yl2GWPhlr0Psliv8N2o3NZpJlMo= }
     dev: false
@@ -19750,16 +19654,6 @@ packages:
       vfile: 4.2.1
     dev: false
 
-  /union/0.5.0:
-    resolution:
-      {
-        integrity: sha512-N6uOhuW6zO95P3Mel2I2zMsbsanvvtgn6jVqJv4vbVcz/JN0OkL9suomjQGmWtxJQXOCqUJvquc1sMeNz/IwlA==,
-      }
-    engines: { node: ">= 0.8.0" }
-    dependencies:
-      qs: 6.10.3
-    dev: false
-
   /unique-string/2.0.0:
     resolution:
       {
@@ -19896,13 +19790,6 @@ packages:
       }
     dependencies:
       punycode: 2.1.1
-
-  /url-join/4.0.1:
-    resolution:
-      {
-        integrity: sha512-jk1+QP6ZJqyOiuEI9AEWQfju/nB2Pw466kbA0LEZljHwKeMgd9WrAEgEGxjPDD2+TNbbb37rTyhEfrCXfuKXnA==,
-      }
-    dev: false
 
   /url-loader/4.1.1_csgzzuwaerdr4d7s3u52mzcn7m:
     resolution:
@@ -20560,16 +20447,6 @@ packages:
         integrity: sha512-OqedPIGOfsDlo31UNwYbCFMSaO9m9G/0faIHj5/dZFDMFqPTcx6UwqyOy3COEaEOg/9VsGIpdqn62W5KhoKSpg==,
       }
     engines: { node: ">=0.8.0" }
-    dev: false
-
-  /whatwg-encoding/2.0.0:
-    resolution:
-      {
-        integrity: sha512-p41ogyeMUrw3jWclHWTQg1k05DSVXPLcVxRTYsXUk+ZooOCZLcoYgPZ/HL/D/N+uQPOtcp1me1WhBEaX02mhWg==,
-      }
-    engines: { node: ">=12" }
-    dependencies:
-      iconv-lite: 0.6.3
     dev: false
 
   /whatwg-url/5.0.0:

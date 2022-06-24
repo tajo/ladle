@@ -4,8 +4,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "serve": "ladle serve --port=61104",
-    "serve-prod": "http-server build -c-1 -s -p 61104",
+    "serve": "ladle serve -p 61104",
+    "serve-prod": "ladle preview -p 61104",
     "build": "ladle build",
     "lint": "echo 'no lint'",
     "test-dev": "start-server-and-test serve 61104 'PW_EXPERIMENTAL_TS_ESM=1 npx playwright test'",
@@ -16,7 +16,6 @@
     "@ladle/react": "workspace:*",
     "@playwright/test": "1.19.2",
     "flow-remove-types": "^2.176.3",
-    "http-server": "^14.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup-pluginutils": "^2.8.2",

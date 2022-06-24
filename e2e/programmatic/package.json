@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "serve": "node serve.js",
-    "serve-prod": "http-server build -c-1 -s -p 61105",
+    "serve-prod": "node preview.js",
     "build": "node build.js",
     "lint": "echo 'no lint'",
     "test-dev": "start-server-and-test serve 61105 'PW_EXPERIMENTAL_TS_ESM=1 npx playwright test'",
@@ -16,7 +16,6 @@
   "dependencies": {
     "@ladle/react": "workspace:*",
     "@playwright/test": "1.19.2",
-    "http-server": "^14.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "start-server-and-test": "^1.14.0"
