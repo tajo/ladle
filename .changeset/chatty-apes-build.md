@@ -1,5 +1,5 @@
 ---
-"@ladle/react": patch
+"@ladle/react": minor
 ---
 
 - Add ladle preview command to quickly open a serve for the build folder.
