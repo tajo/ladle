@@ -13,6 +13,9 @@ const viteProd = async (config, configFolder) => {
      */
     const viteConfig = await getBaseViteConfig(config, configFolder, {
       mode: "production",
+      legacy: {
+        buildRollupPluginCommonjs: true,
+      },
       build: {
         outDir: path.join(process.cwd(), config.outDir),
         emptyOutDir: true,
