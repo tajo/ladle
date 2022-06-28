@@ -4,18 +4,19 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "serve": "ladle serve",
-    "build": "ladle build",
+    "serve": "ladle serve --viteConfig=vite.test.config.ts",
+    "build": "ladle build && ladle preview -p 61000 --viteConfig=vite.test.config.ts",
     "lint": "echo 'no lint'",
-    "test": "pnpx playwright test",
-    "test-update": "pnpx playwright test -u"
+    "test:dev": "start-server-and-test serve 61000 'pnpx playwright test'",
+    "test": "start-server-and-test build 61000 'pnpx playwright test'",
+    "test:update": "start-server-and-test build 61000 'pnpx playwright test -u'"
   },
   "dependencies": {
     "@ladle/react": "workspace:*",
-    "http-server": "^14.1.0",
-    "node-fetch": "^3.2.6",
+    "@playwright/test": "^1.23.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "start-server-and-test": "^1.14.0",
     "sync-fetch": "^0.4.1"
   }
 }
