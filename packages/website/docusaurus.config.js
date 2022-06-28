@@ -9,6 +9,24 @@ module.exports = {
   organizationName: "tajo", // Usually your GitHub org/user name.
   projectName: "ladle", // Usually your repo name.
   themeConfig: {
+    algolia: {
+      // The application ID provided by Algolia
+      appId: "Y8CCBFSCU4",
+
+      // Public API key: it is safe to commit it
+      apiKey: "312760dfd820f97bfb685a443601973e",
+
+      indexName: "ladle",
+
+      // Optional: see doc section below
+      contextualSearch: true,
+
+      // Optional: Algolia search parameters
+      searchParameters: {},
+
+      // Optional: path for search page that enabled by default (`false` to disable it)
+      searchPagePath: "search",
+    },
     image: "img/ladle-baseweb.png",
     navbar: {
       title: "Ladle",
