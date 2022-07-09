@@ -4,17 +4,17 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "serve": "../../packages/ladle/cjs/lib/cli/cli.js serve -p 61101",
-    "serve-prod": "../../packages/ladle/cjs/lib/cli/cli.js preview -p 61101",
+    "serve": "node ../../packages/ladle/cjs/lib/cli/cli.js serve -p 61101",
+    "serve-prod": "node ../../packages/ladle/cjs/lib/cli/cli.js preview -p 61101",
     "build": "pnpm --filter @ladel/react build && node ../../packages/ladle/cjs/lib/cli/cli.js build",
     "lint": "echo 'no lint'",
-    "test-dev": "start-server-and-test serve 61101 'PW_EXPERIMENTAL_TS_ESM=1 npx playwright test'",
-    "test-prod": "start-server-and-test serve-prod 61101 'PW_EXPERIMENTAL_TS_ESM=1 npx playwright test'",
+    "test-dev": "start-server-and-test serve 61101 'npx playwright test'",
+    "test-prod": "start-server-and-test serve-prod 61101 'npx playwright test'",
     "test": "npm run test-prod && npm run test-dev"
   },
   "dependencies": {
     "@ladle/react": "workspace:*",
-    "@playwright/test": "1.19.2",
+    "@playwright/test": "1.23.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "start-server-and-test": "^1.14.0"

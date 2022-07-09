@@ -8,13 +8,13 @@
     "serve-prod": "ladle preview -p 61104",
     "build": "ladle build",
     "lint": "echo 'no lint'",
-    "test-dev": "start-server-and-test serve 61104 'PW_EXPERIMENTAL_TS_ESM=1 npx playwright test'",
-    "test-prod": "start-server-and-test serve-prod 61104 'PW_EXPERIMENTAL_TS_ESM=1 npx playwright test'",
+    "test-dev": "start-server-and-test serve 61104 'npx playwright test'",
+    "test-prod": "start-server-and-test serve-prod 61104 'npx playwright test'",
     "test": "npm run test-dev && npm run test-prod"
   },
   "dependencies": {
     "@ladle/react": "workspace:*",
-    "@playwright/test": "1.19.2",
+    "@playwright/test": "1.23.2",
     "flow-remove-types": "^2.176.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
