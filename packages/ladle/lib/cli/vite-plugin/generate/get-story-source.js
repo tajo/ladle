@@ -37,12 +37,8 @@ const getStorySource = (entryData, enabled) => {
                 [
                   t.templateElement(
                     {
-                      raw: fileSourceCodes[fileHash]
-                        .replace(/`/g, "\\`")
-                        .replace(/\$\{/g, "\\${"),
-                      cooked: fileSourceCodes[fileHash]
-                        .replace(/`/g, "\\`")
-                        .replace(/\$\{/g, "\\${"),
+                      raw: encodeURIComponent(fileSourceCodes[fileHash]),
+                      cooked: encodeURIComponent(fileSourceCodes[fileHash]),
                     },
                     true,
                   ),

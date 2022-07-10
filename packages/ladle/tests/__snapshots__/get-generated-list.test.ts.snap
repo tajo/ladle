@@ -34,16 +34,7 @@ export let config = {};
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
 let fileSourceCodes = {
-  \\"bcf1fa0f\\": \`import * as React from \\"react\\";
-
-export const BlueTinyCat = () => {
-  return <h1>Blue Tiny Cat</h1>;
-};
-
-export const BigBarkingDog = () => {
-  return <h1> Big Barking Dog</h1>;
-};
-\`
+  \\"bcf1fa0f\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0A%0Aexport%20const%20BlueTinyCat%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3EBlue%20Tiny%20Cat%3C%2Fh1%3E%3B%0A%7D%3B%0A%0Aexport%20const%20BigBarkingDog%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3E%20Big%20Barking%20Dog%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
 };
 export let storySource = {
   \\"capitalization--blue-tiny-cat\\": fileSourceCodes[\\"bcf1fa0f\\"],
@@ -78,12 +69,7 @@ export let config = {};
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
 let fileSourceCodes = {
-  \\"445f0671\\": \`import * as React from \\"react\\";
-
-export const Test = () => {
-  return <h1>Test</h1>;
-};
-\`
+  \\"445f0671\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0A%0Aexport%20const%20Test%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ETest%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
 };
 export let storySource = {
   \\"filename-capitalization--test\\": fileSourceCodes[\\"445f0671\\"]
@@ -117,16 +103,7 @@ export let config = {};
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
 let fileSourceCodes = {
-  \\"0dc60faf\\": \`import * as React from \\"react\\";
-
-export default {
-  title: \\"Title\\",
-};
-
-export const Cat = () => {
-  return <h1>Cat</h1>;
-};
-\`
+  \\"0dc60faf\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0A%0Aexport%20default%20%7B%0A%20%20title%3A%20%22Title%22%2C%0A%7D%3B%0A%0Aexport%20const%20Cat%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
 };
 export let storySource = {
   \\"title--cat\\": fileSourceCodes[\\"0dc60faf\\"]
@@ -191,34 +168,7 @@ export let config = {};
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
 let fileSourceCodes = {
-  \\"551a9524\\": \`import * as React from \\"react\\";
-
-export default {
-  title: \\"Title\\",
-  meta: {
-    baseweb: {
-      theme: \\"dark\\",
-      browsers: [\\"chrome\\", \\"webkit\\"],
-    },
-  },
-};
-
-export const Cat = () => {
-  return <h1>Cat</h1>;
-};
-
-Cat.meta = {
-  baseweb: {
-    browsers: [\\"chrome\\", \\"firefox\\"],
-    width: \\"500px\\",
-  },
-  links: true,
-};
-
-export const Dog = () => {
-  return <h1>Dog</h1>;
-};
-\`
+  \\"551a9524\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0A%0Aexport%20default%20%7B%0A%20%20title%3A%20%22Title%22%2C%0A%20%20meta%3A%20%7B%0A%20%20%20%20baseweb%3A%20%7B%0A%20%20%20%20%20%20theme%3A%20%22dark%22%2C%0A%20%20%20%20%20%20browsers%3A%20%5B%22chrome%22%2C%20%22webkit%22%5D%2C%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D%3B%0A%0Aexport%20const%20Cat%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A%0ACat.meta%20%3D%20%7B%0A%20%20baseweb%3A%20%7B%0A%20%20%20%20browsers%3A%20%5B%22chrome%22%2C%20%22firefox%22%5D%2C%0A%20%20%20%20width%3A%20%22500px%22%2C%0A%20%20%7D%2C%0A%20%20links%3A%20true%2C%0A%7D%3B%0A%0Aexport%20const%20Dog%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3EDog%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
 };
 export let storySource = {
   \\"title--cat\\": fileSourceCodes[\\"551a9524\\"],
@@ -261,21 +211,7 @@ export let config = {};
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
 let fileSourceCodes = {
-  \\"6f46f563\\": \`import * as React from \\"react\\";
-
-export default {
-  title: \\"Title\\",
-  meta: {
-    baseweb: {
-      foo: \\"title\\",
-    },
-  },
-};
-
-export const Cat = () => {
-  return <h1>Cat</h1>;
-};
-\`
+  \\"6f46f563\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0A%0Aexport%20default%20%7B%0A%20%20title%3A%20%22Title%22%2C%0A%20%20meta%3A%20%7B%0A%20%20%20%20baseweb%3A%20%7B%0A%20%20%20%20%20%20foo%3A%20%22title%22%2C%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D%3B%0A%0Aexport%20const%20Cat%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
 };
 export let storySource = {
   \\"title--cat\\": fileSourceCodes[\\"6f46f563\\"]
@@ -320,16 +256,7 @@ export let config = {};
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
 let fileSourceCodes = {
-  \\"29b55362\\": \`import * as React from \\"react\\";
-
-export const Cat = () => {
-  return <h1>Cat</h1>;
-};
-
-export const Dog = () => {
-  return <h1>Dog</h1>;
-};
-\`
+  \\"29b55362\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0A%0Aexport%20const%20Cat%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A%0Aexport%20const%20Dog%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3EDog%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
 };
 export let storySource = {
   \\"animals--cat\\": fileSourceCodes[\\"29b55362\\"],
@@ -386,27 +313,7 @@ export let config = {};
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
 let fileSourceCodes = {
-  \\"2ab17fea\\": \`import * as React from \\"react\\";
-
-export const Cat = () => {
-  const Stop = { storyName: \\"\\" };
-  // should be ignored
-  Stop.storyName = \\"What\\";
-  return <h1>Cat</h1>;
-};
-
-Cat.storyName = \\"Doggo\\";
-Cat.foo = \\"Ha\\";
-
-export const CapitalCity = () => {
-  return <h1>DC</h1>;
-};
-
-export const CapitalReplaced = () => {
-  return <h1>CapitalReplaced</h1>;
-};
-CapitalReplaced.storyName = \\"Champs Élysées\\";
-\`
+  \\"2ab17fea\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0A%0Aexport%20const%20Cat%20%3D%20()%20%3D%3E%20%7B%0A%20%20const%20Stop%20%3D%20%7B%20storyName%3A%20%22%22%20%7D%3B%0A%20%20%2F%2F%20should%20be%20ignored%0A%20%20Stop.storyName%20%3D%20%22What%22%3B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A%0ACat.storyName%20%3D%20%22Doggo%22%3B%0ACat.foo%20%3D%20%22Ha%22%3B%0A%0Aexport%20const%20CapitalCity%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3EDC%3C%2Fh1%3E%3B%0A%7D%3B%0A%0Aexport%20const%20CapitalReplaced%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECapitalReplaced%3C%2Fh1%3E%3B%0A%7D%3B%0ACapitalReplaced.storyName%20%3D%20%22Champs%20%C3%89lys%C3%A9es%22%3B%0A\`
 };
 export let storySource = {
   \\"storyname--doggo\\": fileSourceCodes[\\"2ab17fea\\"],
@@ -442,12 +349,7 @@ export let config = {};
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
 let fileSourceCodes = {
-  \\"347c8ecc\\": \`import * as React from \\"react\\";
-
-export const Cat = () => {
-  return <h1>Cat</h1>;
-};
-\`
+  \\"347c8ecc\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0A%0Aexport%20const%20Cat%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
 };
 export let storySource = {
   \\"our-animals--mammals--cat\\": fileSourceCodes[\\"347c8ecc\\"]

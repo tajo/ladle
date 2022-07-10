@@ -28,9 +28,17 @@
 .ladle-wrapper,
 html,
 body {
-  background-color: var(--ladle-bg-color-primary);
   margin: 0;
 }
+
+.ladle-background {
+  position: absolute;
+  z-index: -1000;
+  width: 100%;
+  height: 100%;
+  background-color: var(--ladle-bg-color-primary);
+}
+
 .ladle-wrapper {
   display: flex;
   flex-direction: column;
@@ -43,7 +51,6 @@ body {
 }
 
 .ladle-main {
-  background-color: var(--ladle-bg-color-primary);
   flex: 1 1 auto;
   padding: 1em;
 }
