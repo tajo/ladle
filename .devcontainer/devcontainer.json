@@ -1,0 +1,20 @@
+{
+  "name": "Ladle",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "v1.23.0-focal"
+    }
+  },
+  "runArgs": [
+    // https://playwright.dev/docs/docker#usage
+    "--security-opt",
+    "seccomp=${localWorkspaceFolder}/.devcontainer/seccomp_profile.json"
+  ],
+  "remoteUser": "pwuser",
+  "customizations": {
+    "vscode": {
+      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
+    }
+  }
+}

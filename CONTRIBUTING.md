@@ -16,6 +16,14 @@ Install the depedencies after forking and cloning the repository
 pnpm install
 ```
 
+Install `playwright` dependencies used in testing
+
+```sh
+pnpm exec playwright install
+```
+
+> **NOTE:** this project has a [VS Code Devcontainer](https://code.visualstudio.com/docs/remote/containers) configuration which enables development inside of a docker container, as well as on [GitHub Codespaces](https://code.visualstudio.com/docs/remote/codespaces). This is a great option if you want to contribute to the project, but don't necessarily want to install this project's toolset and dependencies globally on your computer.
+
 ## Developing
 
 The main `@ladle/react` package can be found in `packages/ladle`. You can quickly test and debug your changes in `@ladle/react` by running `packages/example` (it's a toy project so feel free to add more stories there):

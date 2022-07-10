@@ -7,7 +7,4 @@ build
 yarn-error.log
 cjs
 .turbo
-
-
-
-
+.pnpm-store
