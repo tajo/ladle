@@ -11,8 +11,9 @@ const loadConfig = async (configFolder) => {
     /**
      * @type {import('../shared/types').UserConfig}
      */
-    const config = (await import(path.join(configFolder, "config.mjs")))
-      .default;
+    const config = (
+      await import("file:///" + path.join(configFolder, "config.mjs"))
+    ).default;
     if (Object.keys(config).length === 0) {
       debug("Custom config is empty.");
     } else {

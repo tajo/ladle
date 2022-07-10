@@ -26,7 +26,7 @@
   "scripts": {
     "cli": "node ./lib/cli/cli.js",
     "clean": "rimraf dist && rimraf .ladle && rimraf build && rimraf *.tsbuildinfo",
-    "build": "./build-cjs.sh",
+    "build": "zx build-cjs.shell.mjs",
     "serve": "node ./lib/cli/cli.js serve",
     "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest"
   },
@@ -81,12 +81,14 @@
     "@types/jest": "^27.4.1",
     "@types/lodash.merge": "^4.6.7",
     "@types/micromatch": "^4.0.2",
+    "@types/node": "^18",
     "@types/ws": "^8.5.3",
     "babel-jest": "^28.0.2",
     "jest": "^28.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "rollup": "^2.70.1"
+    "rollup": "^2.70.1",
+    "zx": "^7.0.7"
   },
   "jest": {
     "transform": {
