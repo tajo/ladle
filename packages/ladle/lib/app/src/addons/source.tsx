@@ -33,7 +33,7 @@ const CodeFrame: React.FC<{ globalState: GlobalState }> = ({ globalState }) => {
       </div>
       <Highlight
         {...defaultProps}
-        code={storySource[globalState.story]}
+        code={decodeURIComponent(storySource[globalState.story])}
         language="tsx"
         theme={{
           ...theme,
