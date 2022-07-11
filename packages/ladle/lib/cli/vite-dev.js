@@ -70,6 +70,7 @@ const bundler = async (config, configFolder) => {
     // trigger full reload when new stories are added or removed
     const watcher = chokidar.watch(config.stories, {
       persistent: true,
+      ignoreInitial: true,
     });
     let checkSum = "";
     const getChecksum = async () => {
