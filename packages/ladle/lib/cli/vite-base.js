@@ -44,21 +44,36 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
 
   const __dirname = dirname(fileURLToPath(import.meta.url));
 
-  // We need to fake react-dom/client import in case user still uses React v17
-  // and not v18, otherwise Vite would fail the import analysis step
-  const reactAlias = {};
-  try {
-    await import("react-dom/client");
-  } catch (e) {
-    reactAlias["react-dom/client"] = "react-dom";
-  }
-
   const { userViteConfig, hasReactPlugin, hasTSConfigPathPlugin } =
     await getUserViteConfig(
       viteConfig.build ? "build" : "serve",
       viteConfig.mode || "production",
       ladleConfig.viteConfig,
     );
+
+  // We need to fake react-dom/client import in case user still uses React v17
+  // and not v18, otherwise Vite would fail the import analysis step
+  const resolve = {};
+  try {
+    await import("react-dom/client");
+  } catch (e) {
+    // If the user already has custom `resolve.alias` configured, we must match
+    // the same format. This logic is heavily inspired from:
+    // https://github.com/rollup/plugins/blob/985cf4c422896ac2b21279f0f99db9d281ef73c2/packages/alias/src/index.ts#L19-L34
+
+    if (Array.isArray(userViteConfig.resolve?.alias)) {
+      resolve.alias = [
+        {
+          find: "react-dom/client",
+          replacement: "react-dom",
+        },
+      ];
+    } else {
+      resolve.alias = {
+        "react-dom/client": "react-dom",
+      };
+    }
+  }
 
   /**
    * @type {import('vite').InlineConfig}
@@ -74,11 +89,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
       postcss: process.cwd(),
     },
     envDir: process.cwd(),
-    resolve: {
-      alias: {
-        ...reactAlias,
-      },
-    },
+    resolve,
     optimizeDeps: {
       include: [
         "@ladle/react-context",
@@ -93,7 +104,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         "prism-react-renderer/themes/github",
         "prism-react-renderer/themes/nightOwl",
         "axe-core",
-        ...(Object.keys(reactAlias).length ? [] : ["react-dom/client"]),
+        ...(!!resolve.alias ? [] : ["react-dom/client"]),
       ],
       entries: [
         path.join(process.cwd(), ".ladle/components.js"),
