@@ -24,8 +24,14 @@ export const Button: React.FC<AddonProps> = ({ globalState, dispatch }) => {
   const text = "Change the story viewport.";
   const [open, setOpen] = React.useState(false);
   const storyData = stories[globalState.story];
-  const metaWidth = storyData && storyData.meta ? storyData.meta.meta.width : 0;
+  let metaWidth = storyData && storyData.meta ? storyData.meta.meta.width : 0;
   let options = config.addons.width.options;
+  Object.keys(options).forEach((key) => {
+    if (key === metaWidth) {
+      metaWidth = options[key];
+    }
+  });
+
   if (metaWidth && !Object.values(options).includes(metaWidth)) {
     options = {
       custom: metaWidth,

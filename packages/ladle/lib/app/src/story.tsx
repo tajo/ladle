@@ -9,6 +9,8 @@ import config from "./get-config";
 import NoStories from "./no-stories";
 import { ModeState, ThemeState } from "../../shared/types";
 
+const frameDefaultHead = `<base target="_parent" />`;
+
 const StoryFrame: React.FC<{
   children: (storyWindow: Window) => React.ReactElement;
   active: boolean;
@@ -22,7 +24,6 @@ const StoryFrame: React.FC<{
   return (
     <Frame
       title={`Story ${story}`}
-      initialContent={`<!DOCTYPE html><html><head><meta charset="utf-8" /><base target="_parent" /><meta name="viewport" content="width=device-width,initial-scale=1" /><style>html,body{margin:0;padding:0}</style></head><body><div></div></body></html>`}
       style={{
         height: width ? "calc(100% - 128px)" : "100%",
         width: width || "100%",
@@ -43,6 +44,39 @@ const StoryFrame: React.FC<{
   );
 };
 
+// detecting parent's document.head changes so we can apply the same CSS for
+// the iframe, for CSS in JS we could target correct document directly but
+// import './foo.css' always ends up in the parent only
+const SynchronizeHead: React.FC<{
+  active: boolean;
+  storyWindow: Window;
+  children: JSX.Element;
+}> = ({ active, children, storyWindow }) => {
+  const syncHead = () =>
+    (storyWindow.document.head.innerHTML =
+      `${document.head.innerHTML}${frameDefaultHead}`.replace(
+        /<script[\s\S]*?>[\s\S]*?<\/script>/gi,
+        "",
+      ));
+  React.useEffect(() => {
+    if (active) {
+      syncHead();
+      const observer = new MutationObserver(() => syncHead());
+      document.documentElement.setAttribute("data-iframed", "");
+      observer.observe(document.head, {
+        subtree: true,
+        characterData: true,
+        childList: true,
+      });
+      return () => {
+        observer && observer.disconnect();
+      };
+    }
+    return () => null;
+  }, [active]);
+  return children;
+};
+
 const Story: React.FC<{
   globalState: GlobalState;
   dispatch: React.Dispatch<GlobalAction>;
@@ -53,10 +87,14 @@ const Story: React.FC<{
   const storyData = stories[globalState.story];
   const width = globalState.width;
 
-  const iframeActive =
+  const iframeActive: boolean =
     storyData && storyData.meta ? storyData.meta.meta.iframed : false;
-
-  const metaWidth = storyData && storyData.meta ? storyData.meta.meta.width : 0;
+  let metaWidth = storyData && storyData.meta ? storyData.meta.meta.width : 0;
+  Object.keys(config.addons.width.options).forEach((key) => {
+    if (key === metaWidth) {
+      metaWidth = config.addons.width.options[key];
+    }
+  });
   React.useEffect(() => {
     if (metaWidth && metaWidth !== 0) {
       dispatch({ type: ActionType.UpdateWidth, value: metaWidth });
@@ -77,6 +115,7 @@ const Story: React.FC<{
       document.documentElement.removeAttribute("data-iframed");
     }
   }, [iframeActive, globalState.story, globalState.mode, globalState.width]);
+
   return (
     <ErrorBoundary>
       <React.Suspense fallback={<Ring />}>
@@ -88,18 +127,26 @@ const Story: React.FC<{
           darkTheme={globalState.theme === ThemeState.Dark}
         >
           {(storyWindow) => (
-            <Provider
-              config={config}
-              globalState={globalState}
-              dispatch={dispatch}
+            <SynchronizeHead
               storyWindow={storyWindow}
+              active={
+                (iframeActive || width > 0) &&
+                globalState.mode !== ModeState.Preview
+              }
             >
-              {storyData ? (
-                React.createElement(storyData.component)
-              ) : (
-                <NoStories wrongUrl activeStory={globalState.story} />
-              )}
-            </Provider>
+              <Provider
+                config={config}
+                globalState={globalState}
+                dispatch={dispatch}
+                storyWindow={storyWindow}
+              >
+                {storyData ? (
+                  React.createElement(storyData.component)
+                ) : (
+                  <NoStories wrongUrl activeStory={globalState.story} />
+                )}
+              </Provider>
+            </SynchronizeHead>
           )}
         </StoryFrame>
       </React.Suspense>

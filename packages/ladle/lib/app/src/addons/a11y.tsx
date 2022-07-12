@@ -19,12 +19,14 @@ const runAxe = async (
   el: HTMLElement | null,
 ) => {
   const axe = await import("axe-core");
-  const results = await axe.default.run(
-    document.getElementsByTagName("main") as any,
-  );
-  setViolations(results.violations as ViolationsT);
-  setReportFinished(true);
-  if (el) el.setAttribute("aria-hidden", "true");
+  try {
+    const results = await axe.default.run(
+      document.getElementsByTagName("main") as any,
+    );
+    setViolations(results.violations as ViolationsT);
+    setReportFinished(true);
+    if (el) el.setAttribute("aria-hidden", "true");
+  } catch (e) {}
 };
 
 const Violation: React.FC<{ violation: ViolationT }> = ({ violation }) => {
