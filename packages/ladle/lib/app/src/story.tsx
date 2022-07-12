@@ -72,7 +72,7 @@ const SynchronizeHead: React.FC<{
         observer && observer.disconnect();
       };
     }
-    return () => null;
+    return;
   }, [active]);
   return children;
 };
