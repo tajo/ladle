@@ -7,6 +7,7 @@ import { Button as RtlButton } from "./addons/rtl";
 import { Button as SourceButton } from "./addons/source";
 import { Button as LadleButton } from "./addons/ladle";
 import { Button as A11yButton } from "./addons/a11y";
+import { Button as WidthButton } from "./addons/width";
 import config from "./get-config";
 
 type AddonNames = keyof Config["addons"];
@@ -34,6 +35,9 @@ const AddonPanel: React.FC<{
         )}
         {config.addons.mode.enabled && (
           <ModeButton globalState={globalState} dispatch={dispatch} />
+        )}
+        {config.addons.width.enabled && (
+          <WidthButton globalState={globalState} dispatch={dispatch} />
         )}
         {config.addons.rtl.enabled && (
           <RtlButton globalState={globalState} dispatch={dispatch} />

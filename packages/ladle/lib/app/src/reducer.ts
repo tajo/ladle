@@ -13,9 +13,11 @@ const reducer = (state: GlobalState, action: GlobalAction): GlobalState => {
     case ActionType.UpdateSource:
       return { ...state, source: action.value };
     case ActionType.UpdateStory:
-      return { ...state, story: action.value, control: {} };
+      return { ...state, story: action.value, control: {}, width: 0 };
     case ActionType.UpdateTheme:
       return { ...state, theme: action.value };
+    case ActionType.UpdateWidth:
+      return { ...state, width: action.value };
     case ActionType.UpdateControl:
       return { ...state, control: action.value };
     default:

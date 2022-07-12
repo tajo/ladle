@@ -10,6 +10,11 @@ if (Object.keys(config).length === 0) {
   debug(`Custom config found:`);
   debug(config);
 }
+
+// don't merge default width options
+if (config?.addons?.width?.options) {
+  defaultConfig.addons.width.options = {};
+}
 const mergedConfig: Config = merge(defaultConfig, config);
 if (mergedConfig.defaultStory === "") {
   mergedConfig.defaultStory = Object.keys(stories).sort()[0];

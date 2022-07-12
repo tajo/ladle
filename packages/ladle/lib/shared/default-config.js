@@ -38,5 +38,15 @@ export default {
     ladle: {
       enabled: true,
     },
+    width: {
+      enabled: true,
+      options: {
+        xsmall: 414,
+        small: 640,
+        medium: 768,
+        large: 1024,
+      },
+      defaultState: 0,
+    },
   },
 };

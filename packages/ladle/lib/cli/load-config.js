@@ -19,6 +19,10 @@ const loadConfig = async (configFolder) => {
     } else {
       debug(`Custom config found: ${JSON.stringify(config, null, "  ")}`);
     }
+    // don't merge default width options
+    if (config?.addons?.width?.options) {
+      defaultConfig.addons.width.options = {};
+    }
     return /** @type {import("../shared/types").Config} */ (
       merge(defaultConfig, config)
     );
