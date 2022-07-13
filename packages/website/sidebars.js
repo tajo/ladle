@@ -1,23 +1,37 @@
 module.exports = {
   someSidebar: [
-    "introduction",
-    "setup",
-    "stories",
-    "providers",
-    "css",
-    "links",
-    "a11y",
-    "source",
-    "addons",
-    "meta",
-    "cli",
-    "config",
-    "programmatic",
-    "troubleshooting",
     {
-      type: "link",
-      label: "Contributing",
-      href: "https://github.com/tajo/ladle/blob/master/CONTRIBUTING.md",
+      type: "category",
+      label: "Getting Started",
+      collapsible: false,
+      items: ["introduction", "setup", "stories"],
+    },
+    {
+      type: "category",
+      label: "Features",
+      items: ["css", "providers", "meta"],
+    },
+    {
+      type: "category",
+      label: "Addons",
+      items: ["addons", "a11y", "links", "source", "width"],
+    },
+    {
+      type: "category",
+      label: "Configuration",
+      items: ["cli", "config", "programmatic"],
+    },
+    {
+      type: "category",
+      label: "Help",
+      items: [
+        "troubleshooting",
+        {
+          type: "link",
+          label: "Contributing",
+          href: "https://github.com/tajo/ladle/blob/master/CONTRIBUTING.md",
+        },
+      ],
     },
   ],
 };

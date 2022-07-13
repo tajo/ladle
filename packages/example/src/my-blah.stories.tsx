@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default {
-  title: "Big Blah / Ruck",
+  title: "Demo",
   meta: {
     baseweb: "test",
     browsers: ["chrome"],
