@@ -1,5 +1,12 @@
 # test-commonjs
 
+## 0.2.35
+
+### Patch Changes
+
+- Updated dependencies [[`2f142cc`](https://github.com/tajo/ladle/commit/2f142cc2d8354b120236d29d4cc78132a6510a55), [`ebb1923`](https://github.com/tajo/ladle/commit/ebb192340a331756ce49424ee823435814bf5611), [`21959e9`](https://github.com/tajo/ladle/commit/21959e96878c65681a090b32d82028bd9470e030), [`f84bbde`](https://github.com/tajo/ladle/commit/f84bbdeada095746698434b18b79d7d751dd631c), [`ebb1923`](https://github.com/tajo/ladle/commit/ebb192340a331756ce49424ee823435814bf5611), [`21959e9`](https://github.com/tajo/ladle/commit/21959e96878c65681a090b32d82028bd9470e030), [`1745a95`](https://github.com/tajo/ladle/commit/1745a95eb664404db51168a4adaeec2f87841044)]:
+  - @ladle/react@1.3.0
+
 ## 0.2.34
 
 ### Patch Changes
