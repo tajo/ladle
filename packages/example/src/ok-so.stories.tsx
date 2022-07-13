@@ -1,5 +1,9 @@
 import identity from "./syntax";
 
+export default {
+  title: "Test",
+};
+
 export const Yeah = () => {
   return (
     <div>

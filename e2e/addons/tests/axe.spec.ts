@@ -6,8 +6,8 @@ test("empty label doesn't violate axe run", async ({ page }) => {
   await page.waitForSelector("[data-storyloaded]");
   await injectAxe(page);
   await configureAxe(page);
-  await checkA11y(page, null, {
+  await checkA11y(page, undefined, {
     detailedReport: true,
-    axeOptions: undefined,
+    axeOptions: {},
   });
 });

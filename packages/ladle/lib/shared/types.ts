@@ -43,6 +43,7 @@ export enum ActionType {
   UpdateSource = "update-source",
   UpdateStory = "update-story",
   UpdateTheme = "update-theme",
+  UpdateWidth = "update-width",
   UpdateControl = "update-control",
 }
 
@@ -64,6 +65,10 @@ export type GlobalAction =
       value: boolean;
     }
   | {
+      type: ActionType.UpdateWidth;
+      value: number;
+    }
+  | {
       type: ActionType.UpdateStory;
       value: string;
     }
@@ -83,6 +88,7 @@ export type GlobalState = {
   rtl: boolean;
   source: boolean;
   control: ControlState;
+  width: number;
 };
 
 export type UpdateStory = (story: string) => void;
@@ -163,6 +169,11 @@ export type Config = {
     };
     ladle: {
       enabled: boolean;
+    };
+    width: {
+      enabled: boolean;
+      options: { [key: string]: number };
+      defaultState: number;
     };
   };
 };

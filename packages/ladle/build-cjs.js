@@ -57,9 +57,9 @@ filesWithDirname.forEach((file) => {
         `const _require = (0, _module.createRequire)(import.meta.url);`,
         `const _require = require;`,
       )
-      .replace("_template.default.default", "_template.default")
+      .replace(/_template.default.default/gi, "_template.default")
       .replace(/_generator.default.default/gi, "_generator.default")
-      .replace("_traverse.default.default", "_traverse.default")
+      .replace(/_traverse.default.default/gi, "_traverse.default")
       .replace(/_types.default./gi, "_types."),
     (err) => {
       if (err) return console.log(err);

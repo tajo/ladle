@@ -9,7 +9,10 @@
   --ladle-ring-thickness: 6px;
   --ladle-mode-overflow: hidden;
   --ladle-mode-height: 100vh;
+  --ladle-main-padding: 3em;
+  --ladle-main-padding-mobile: 1em;
   --reach-dialog: 1;
+  --ladle-blueprint: #aaa;
 }
 [data-theme="dark"] {
   --ladle-bg-color-primary: #141414;
@@ -18,17 +21,38 @@
   --ladle-color-secondary: #bbb;
   --ladle-color-hover: #e2e2e2;
   --ladle-color-accent: #276ef1;
+  --ladle-blueprint: #1f1f1f;
 }
 [data-mode="single-scroll"],
 [data-mode="preview"] {
   --ladle-mode-overflow: visible;
   --ladle-mode-height: 100%;
 }
+[data-iframed=""] {
+  --ladle-main-padding: 0;
+  --ladle-main-padding-mobile: 0;
+  --ladle-main-padding: 0;
+}
 
 .ladle-wrapper,
 html,
 body {
   margin: 0;
+}
+
+[data-iframed=""] .ladle-main {
+  display: flex;
+  justify-content: center;
+  background-color: var(--ladle-blueprint);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.1) 2px,
+      transparent 2px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
 }
 
 .ladle-background {
@@ -52,7 +76,7 @@ body {
 
 .ladle-main {
   flex: 1 1 auto;
-  padding: 1em;
+  padding: var(--ladle-main-padding-mobile);
 }
 
 .ladle-error-content {
@@ -231,7 +255,8 @@ body {
   color: var(--ladle-color-accent);
 }
 
-.ladle-addons > ul > li > .source-active {
+.ladle-addons > ul > li > .source-active,
+.ladle-addons > ul > li > .width-active {
   color: var(--ladle-color-accent);
 }
 
@@ -450,7 +475,7 @@ div[data-reach-dialog-overlay] {
   }
 
   .ladle-main {
-    padding: 3em;
+    padding: var(--ladle-main-padding);
     align-self: stretch;
   }
 

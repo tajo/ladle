@@ -22,6 +22,7 @@ import { getQuery as getQueryMode } from "./addons/mode";
 import { getQuery as getQueryRtl } from "./addons/rtl";
 import { getQuery as getQuerySource } from "./addons/source";
 import { getQuery as getQueryControl } from "./addons/control";
+import { getQuery as getQueryWidth } from "./addons/width";
 import { Context } from "./context";
 import {
   getQueryStory,
@@ -39,6 +40,7 @@ const getUrlState = (search: string): GlobalState => ({
   story: getQueryStory(search),
   rtl: getQueryRtl(search),
   source: getQuerySource(search),
+  width: getQueryWidth(search),
   control: getQueryControl(search),
 });
 
@@ -61,6 +63,7 @@ const App: React.FC<{}> = () => {
       source: globalState.source,
       story: globalState.story,
       theme: globalState.theme,
+      width: globalState.width,
       control: globalState.control,
     });
     if (globalState.story !== prevGlobalState.story) {

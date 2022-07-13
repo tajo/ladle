@@ -215,3 +215,20 @@ export const A11y: React.FC<{}> = () => (
     <circle cx={12} cy={7.5} r={0.5} fill="currentColor" />
   </svg>
 );
+
+export const Width: React.FC<{}> = () => (
+  <svg
+    width={24}
+    height={24}
+    strokeWidth={2}
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M0 0h24v24H0z" stroke="none" />
+    <rect x={13} y={8} width={8} height={12} rx={1} />
+    <path d="M18 8V5a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h9M16 9h2" />
+  </svg>
+);

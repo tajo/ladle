@@ -46,7 +46,11 @@ export const getSingleEntry = async (entry) => {
   const ast = getAst(code, entry);
   /** @type {any} */ (traverse).default(ast, {
     Program: getStorynameAndMeta.bind(this, result),
+  });
+  /** @type {any} */ (traverse).default(ast, {
     ExportDefaultDeclaration: getDefaultExport.bind(this, result),
+  });
+  /** @type {any} */ (traverse).default(ast, {
     ExportNamedDeclaration: getNamedExports.bind(this, result),
   });
   debug(`Parsed data for ${entry}:`);

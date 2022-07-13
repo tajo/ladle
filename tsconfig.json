@@ -29,10 +29,16 @@
       "virtual:generated-list": ["./packages/ladle/types/generated-list.d.ts"]
     }
   },
-  "include": ["packages/*/lib/**/*", "packages/*/src/**/*"],
+  "include": [
+    "packages/*/lib/**/*",
+    "packages/*/src/**/*",
+    "e2e/*/src/*",
+    "e2e/*/tests/*"
+  ],
   "exclude": [
     "packages/website/**",
     "packages/example/src/button.stories.js",
-    "packages/example/src/flow-types.js"
+    "packages/example/src/flow-types.js",
+    "e2e/flow"
   ]
 }
