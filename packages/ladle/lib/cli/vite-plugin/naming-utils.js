@@ -4,7 +4,6 @@ export const storyEncodeDelimiter = "$";
 // BUT preserving delimiters --
 const wordSeparators =
   /[\s\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,.\/:;<=>?@\[\]^_`{|}~]+/;
-const capitals = /[A-Z\u00C0-\u00D6\u00D9-\u00DD]/g;
 
 /**
  * @param {string} str
@@ -31,11 +30,15 @@ export const storyIdToMeta = (str) => {
  * @param {string} str
  */
 export const kebabCase = (str) => {
-  //replace capitals with space + lower case equivalent for later parsing
-  str = str.replace(capitals, function (match) {
-    return " " + (match.toLowerCase() || match);
-  });
-  return str.trim().split(wordSeparators).join("-");
+  return str
+    .replace(
+      /[A-Z\u00C0-\u00D6\u00D9-\u00DD]+(?![a-z])|[A-Z\u00C0-\u00D6\u00D9-\u00DD]/g,
+      ($, ofs) => (ofs ? "-" : "") + $.toLowerCase(),
+    )
+    .replace(/\s-/g, "-")
+    .trim()
+    .split(wordSeparators)
+    .join("-");
 };
 
 /**
