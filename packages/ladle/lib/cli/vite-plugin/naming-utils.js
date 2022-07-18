@@ -31,11 +31,15 @@ export const storyIdToMeta = (str) => {
  * @param {string} str
  */
 export const kebabCase = (str) => {
-  //replace capitals with space + lower case equivalent for later parsing
-  str = str.replace(capitals, function (match) {
-    return " " + (match.toLowerCase() || match);
-  });
-  return str.trim().split(wordSeparators).join("-");
+  return str
+    .replace(
+      /[A-Z\u00C0-\u00DC]+(?![a-z])|[A-Z\u00C0-\u00DC]/g,
+      ($, ofs) => (ofs ? "-" : "") + $.toLowerCase(),
+    )
+    .replace(/\s-/g, "-")
+    .trim()
+    .split(wordSeparators)
+    .join("-");
 };
 
 /**
