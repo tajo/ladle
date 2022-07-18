@@ -1,5 +1,5 @@
 import * as React from "react";
-import Frame, { FrameContextConsumer } from "react-frame-component";
+import Frame, { useFrame } from "react-frame-component";
 import ErrorBoundary from "./error-boundary";
 import { stories, Provider } from "virtual:generated-list";
 import { Ring } from "./icons";
@@ -12,18 +12,22 @@ import { ModeState, ThemeState } from "../../shared/types";
 const frameDefaultHead = `<base target="_parent" />`;
 
 const StoryFrame: React.FC<{
-  children: (storyWindow: Window) => React.ReactElement;
+  children: React.ReactElement;
   active: boolean;
   width: number;
   darkTheme: boolean;
   mode: ModeState;
   story: string;
 }> = ({ children, active, width, darkTheme, story, mode }) => {
-  if ((!active && width === 0) || mode === ModeState.Preview)
-    return children(window);
+  if ((!active && width === 0) || mode === ModeState.Preview) return children;
   return (
     <Frame
       title={`Story ${story}`}
+      initialContent={`<!DOCTYPE html><html><head>${document.head.innerHTML.replace(
+        /<script[\s\S]*?>[\s\S]*?<\/script>/gi,
+        "",
+      )}${frameDefaultHead}</head><body><div id="root"></div></body></html>`}
+      mountTarget="#root"
       style={{
         height: width ? "calc(100% - 128px)" : "100%",
         width: width || "100%",
@@ -37,9 +41,7 @@ const StoryFrame: React.FC<{
           : "none",
       }}
     >
-      <FrameContextConsumer>
-        {(frameContext) => children(frameContext.window as Window)}
-      </FrameContextConsumer>
+      {children}
     </Frame>
   );
 };
@@ -49,15 +51,17 @@ const StoryFrame: React.FC<{
 // import './foo.css' always ends up in the parent only
 const SynchronizeHead: React.FC<{
   active: boolean;
-  storyWindow: Window;
   children: JSX.Element;
-}> = ({ active, children, storyWindow }) => {
-  const syncHead = () =>
-    (storyWindow.document.head.innerHTML =
+}> = ({ active, children }) => {
+  const { window: storyWindow } = useFrame();
+  const syncHead = () => {
+    if (!storyWindow) return;
+    storyWindow.document.head.innerHTML =
       `${document.head.innerHTML}${frameDefaultHead}`.replace(
         /<script[\s\S]*?>[\s\S]*?<\/script>/gi,
         "",
-      ));
+      );
+  };
   React.useEffect(() => {
     if (active) {
       syncHead();
@@ -81,9 +85,6 @@ const Story: React.FC<{
   globalState: GlobalState;
   dispatch: React.Dispatch<GlobalAction>;
 }> = ({ globalState, dispatch }) => {
-  if (!globalState.story) {
-    return null;
-  }
   const storyData = stories[globalState.story];
   const width = globalState.width;
 
@@ -106,7 +107,7 @@ const Story: React.FC<{
         value: config.addons.width.defaultState,
       });
     }
-  }, [metaWidth]);
+  }, [metaWidth, globalState.story]);
 
   React.useEffect(() => {
     if (globalState.mode !== ModeState.Preview && (iframeActive || width)) {
@@ -115,6 +116,10 @@ const Story: React.FC<{
       document.documentElement.removeAttribute("data-iframed");
     }
   }, [iframeActive, globalState.story, globalState.mode, globalState.width]);
+
+  if (!globalState.story) {
+    return null;
+  }
 
   return (
     <ErrorBoundary>
@@ -126,28 +131,24 @@ const Story: React.FC<{
           mode={globalState.mode}
           darkTheme={globalState.theme === ThemeState.Dark}
         >
-          {(storyWindow) => (
-            <SynchronizeHead
-              storyWindow={storyWindow}
-              active={
-                (iframeActive || width > 0) &&
-                globalState.mode !== ModeState.Preview
-              }
+          <SynchronizeHead
+            active={
+              (iframeActive || width > 0) &&
+              globalState.mode !== ModeState.Preview
+            }
+          >
+            <Provider
+              config={config}
+              globalState={globalState}
+              dispatch={dispatch}
             >
-              <Provider
-                config={config}
-                globalState={globalState}
-                dispatch={dispatch}
-                storyWindow={storyWindow}
-              >
-                {storyData ? (
-                  React.createElement(storyData.component)
-                ) : (
-                  <NoStories wrongUrl activeStory={globalState.story} />
-                )}
-              </Provider>
-            </SynchronizeHead>
-          )}
+              {storyData ? (
+                React.createElement(storyData.component)
+              ) : (
+                <NoStories wrongUrl activeStory={globalState.story} />
+              )}
+            </Provider>
+          </SynchronizeHead>
         </StoryFrame>
       </React.Suspense>
     </ErrorBoundary>
