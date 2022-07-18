@@ -19,6 +19,9 @@ const bundler = async (config, configFolder) => {
   const port = await getPort({
     port: [config.port, 61001, 62002, 62003, 62004, 62005],
   });
+  const hmrPort = await getPort({
+    port: [24678, 24679, 24680, 24681, 24682, 24683, 24684, 24685],
+  });
   debug(`Port set to: ${port}`);
   try {
     /**
@@ -28,10 +31,13 @@ const bundler = async (config, configFolder) => {
       mode: "development",
       server: {
         port: config.port,
+        hmr: {
+          port: hmrPort,
+        },
         fs: {
           strict: false,
         },
-        middlewareMode: "html",
+        middlewareMode: true,
       },
     });
     const vite = await createServer(viteConfig);
