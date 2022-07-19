@@ -27,6 +27,7 @@ const serve = async (params = {}) => {
   config.viteConfig = params.viteConfig ? params.viteConfig : config.viteConfig;
   debug(`Final config:\n${JSON.stringify(config, null, "  ")}`);
   process.env["VITE_PUBLIC_LADLE_THEME"] = config.addons.theme.defaultState;
+  process.env["VITE_PUBLIC_STORIES"] = config.stories;
   await viteDev(config, configFolder);
 };
 

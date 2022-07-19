@@ -31,6 +31,7 @@ program
   .command("build")
   .description("build static production app")
   .option("-o, --outDir <path>", "output directory")
+  .option("--stories [string]", "glob to find stories")
   .option("--theme [string]", "theme light, dark or auto")
   .option("--config [string]", "folder where config is located, default .ladle")
   .option("--viteConfig [string]", "file with Vite configuration")

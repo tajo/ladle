@@ -1,5 +1,4 @@
 import * as React from "react";
-import config from "./get-config";
 import { Code, Link } from "./ui";
 
 const NoStories: React.FC<{ wrongUrl?: boolean; activeStory?: string }> = ({
@@ -20,7 +19,7 @@ const NoStories: React.FC<{ wrongUrl?: boolean; activeStory?: string }> = ({
         <h1>No stories found</h1>
         <p>
           The configured glob pattern for stories is:{" "}
-          <Code>{config.stories}</Code>.{" "}
+          <Code>{(import.meta as any).env.VITE_PUBLIC_STORIES}</Code>.{" "}
         </p>
         <p>
           It can be changed through the{" "}
