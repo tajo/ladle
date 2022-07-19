@@ -1,5 +1,27 @@
 # @ladle/react
 
+## 2.0.0
+
+### Major Changes
+
+- [#191](https://github.com/tajo/ladle/pull/191) [`3209be6`](https://github.com/tajo/ladle/commit/3209be62042ffe700f505ca84e468998288e44bd) Thanks [@tajo](https://github.com/tajo)! - Upgrade to Vite 3. It should not be really a big breaking change for Ladle but we expose the whole `vite.config.js` so you might run into some deprecations. [Read more](https://vitejs.dev/blog/announcing-vite3.html) to see if this could impact you.
+
+  Vite 3 also ships as ESM module. That forces us to stop distributing `@ladle/react-cjs`. We used it for our internal yarn pnp setup but we don't need it anymore. Pure ESM everywhere!
+
+### Minor Changes
+
+- [#194](https://github.com/tajo/ladle/pull/194) [`63c8821`](https://github.com/tajo/ladle/commit/63c88217bc6b80f1e0809c91f3cce2efdd64ffdc) Thanks [@tajo](https://github.com/tajo)! - Bump all repo dependencies do the latest and abondon cjs build&publish.
+
+### Patch Changes
+
+- [#191](https://github.com/tajo/ladle/pull/191) [`3209be6`](https://github.com/tajo/ladle/commit/3209be62042ffe700f505ca84e468998288e44bd) Thanks [@tajo](https://github.com/tajo)! - Uses hook version for iframe window ref to prevent some re-renders. Fix viewport when navigating from a different story.
+
+* [#193](https://github.com/tajo/ladle/pull/193) [`e573adc`](https://github.com/tajo/ladle/commit/e573adcfeeb8ea5d78566e5ce0ac3495eed77734) Thanks [@tajo](https://github.com/tajo)! - Improve the kebab casing of story names to convert MapSDK into map-sdk and not map-s-d-k.
+
+- [#194](https://github.com/tajo/ladle/pull/194) [`63c8821`](https://github.com/tajo/ladle/commit/63c88217bc6b80f1e0809c91f3cce2efdd64ffdc) Thanks [@tajo](https://github.com/tajo)! - Add margin 0 to iframe's body just as Stackblitz workaround
+
+* [#191](https://github.com/tajo/ladle/pull/191) [`3209be6`](https://github.com/tajo/ladle/commit/3209be62042ffe700f505ca84e468998288e44bd) Thanks [@tajo](https://github.com/tajo)! - Find a free port for HMR server. Before, if there were multiple instances of Ladle, the client would always connect to the initial HMR server and reloads didn't work.
+
 ## 1.3.0
 
 ### Minor Changes
