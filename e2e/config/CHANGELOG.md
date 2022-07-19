@@ -1,5 +1,12 @@
 # test-provider
 
+## 0.2.36
+
+### Patch Changes
+
+- Updated dependencies [[`3209be6`](https://github.com/tajo/ladle/commit/3209be62042ffe700f505ca84e468998288e44bd), [`e573adc`](https://github.com/tajo/ladle/commit/e573adcfeeb8ea5d78566e5ce0ac3495eed77734), [`63c8821`](https://github.com/tajo/ladle/commit/63c88217bc6b80f1e0809c91f3cce2efdd64ffdc), [`3209be6`](https://github.com/tajo/ladle/commit/3209be62042ffe700f505ca84e468998288e44bd), [`3209be6`](https://github.com/tajo/ladle/commit/3209be62042ffe700f505ca84e468998288e44bd), [`63c8821`](https://github.com/tajo/ladle/commit/63c88217bc6b80f1e0809c91f3cce2efdd64ffdc)]:
+  - @ladle/react@2.0.0
+
 ## 0.2.35
 
 ### Patch Changes
