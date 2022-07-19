@@ -34,6 +34,7 @@ const build = async (params = {}) => {
   config.outDir = params.outDir ? params.outDir : config.outDir;
   debug(`Final config:\n${JSON.stringify(config, null, "  ")}`);
   process.env["VITE_PUBLIC_LADLE_THEME"] = config.addons.theme.defaultState;
+  process.env["VITE_PUBLIC_STORIES"] = config.stories;
   await viteProd(config, configFolder);
   const entryData = await getEntryData(await globby([config.stories]));
   const jsonContent = getMetaJsonString(entryData);

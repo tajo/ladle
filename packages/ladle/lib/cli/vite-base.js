@@ -86,9 +86,12 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
       : join(process.cwd(), "node_modules/.vite"),
     root: join(__dirname, "../app/"),
     css: {
-      postcss: process.cwd(),
+      postcss:
+        userViteConfig.css && userViteConfig.css.postcss
+          ? userViteConfig.css.postcss
+          : process.cwd(),
     },
-    envDir: process.cwd(),
+    envDir: userViteConfig.envDir ? userViteConfig.envDir : process.cwd(),
     resolve,
     optimizeDeps: {
       include: [
