@@ -1,5 +1,13 @@
 # @ladle/react
 
+## 2.0.2
+
+### Patch Changes
+
+- [#198](https://github.com/tajo/ladle/pull/198) [`3c8b35c`](https://github.com/tajo/ladle/commit/3c8b35c0add52224aa6480be4065b5c496a9dc8c) Thanks [@tajo](https://github.com/tajo)! - Fix missing --stories flag for ladle build.
+
+* [#198](https://github.com/tajo/ladle/pull/198) [`3c8b35c`](https://github.com/tajo/ladle/commit/3c8b35c0add52224aa6480be4065b5c496a9dc8c) Thanks [@tajo](https://github.com/tajo)! - Don't replace user provided css.postcss in config
+
 ## 2.0.1
 
 ### Patch Changes
