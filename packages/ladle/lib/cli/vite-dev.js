@@ -1,7 +1,7 @@
 import { createServer } from "vite";
 import express from "express";
 import getPort from "get-port";
-import globby from "globby";
+import { globby } from "globby";
 import boxen from "boxen";
 import chokidar from "chokidar";
 import openBrowser from "./open-browser.js";

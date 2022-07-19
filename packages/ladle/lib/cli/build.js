@@ -2,7 +2,7 @@
 
 import path from "path";
 import { promises as fs } from "fs";
-import globby from "globby";
+import { globby } from "globby";
 import viteProd from "./vite-prod.js";
 import loadConfig from "./load-config.js";
 import debug from "./debug.js";
