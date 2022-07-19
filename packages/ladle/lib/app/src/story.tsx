@@ -54,7 +54,9 @@ const SynchronizeHead: React.FC<{
     [...(document.head.children as any)].forEach((child) => {
       if (
         child.tagName === "STYLE" ||
-        (child.tagName === "LINK" && child.getAttribute("type") === "text/css")
+        (child.tagName === "LINK" &&
+          (child.getAttribute("type") === "text/css" ||
+            child.getAttribute("rel") === "stylesheet"))
       ) {
         storyWindow.document.head.appendChild(
           child.cloneNode(true),
