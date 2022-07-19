@@ -91,7 +91,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
           ? userViteConfig.css.postcss
           : process.cwd(),
     },
-    envDir: process.cwd(),
+    envDir: userViteConfig.envDir ? userViteConfig.envDir : process.cwd(),
     resolve,
     optimizeDeps: {
       include: [
