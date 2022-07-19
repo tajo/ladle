@@ -9,8 +9,6 @@ import config from "./get-config";
 import NoStories from "./no-stories";
 import { ModeState, ThemeState } from "../../shared/types";
 
-const frameDefaultHead = `<base target="_parent" />`;
-
 const StoryFrame: React.FC<{
   children: React.ReactElement;
   active: boolean;
@@ -23,10 +21,7 @@ const StoryFrame: React.FC<{
   return (
     <Frame
       title={`Story ${story}`}
-      initialContent={`<!DOCTYPE html><html><head>${document.head.innerHTML.replace(
-        /<script[\s\S]*?>[\s\S]*?<\/script>/gi,
-        "",
-      )}${frameDefaultHead}</head><body style="margin:0"><div id="root"></div></body></html>`}
+      initialContent={`<!DOCTYPE html><html><head><base target="_parent" /></head><body style="margin:0"><div id="root"></div></body></html>`}
       mountTarget="#root"
       style={{
         height: width ? "calc(100% - 128px)" : "100%",
@@ -56,11 +51,18 @@ const SynchronizeHead: React.FC<{
   const { window: storyWindow } = useFrame();
   const syncHead = () => {
     if (!storyWindow) return;
-    storyWindow.document.head.innerHTML =
-      `${document.head.innerHTML}${frameDefaultHead}`.replace(
-        /<script[\s\S]*?>[\s\S]*?<\/script>/gi,
-        "",
-      );
+    [...(document.head.children as any)].forEach((child) => {
+      if (
+        child.tagName === "STYLE" ||
+        (child.tagName === "LINK" &&
+          (child.getAttribute("type") === "text/css" ||
+            child.getAttribute("rel") === "stylesheet"))
+      ) {
+        storyWindow.document.head.appendChild(
+          child.cloneNode(true),
+        ) as HTMLStyleElement;
+      }
+    });
   };
   React.useEffect(() => {
     if (active) {
