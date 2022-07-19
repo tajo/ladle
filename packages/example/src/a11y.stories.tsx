@@ -10,7 +10,6 @@ export const Responsive = () => {
           background: "#000",
           color: "#FFF",
           padding: "32px 32px",
-          margin: -1,
           border: "1px solid black",
           fontFamily: "arial",
           fontSize: 28,

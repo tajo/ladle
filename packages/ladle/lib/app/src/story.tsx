@@ -26,7 +26,7 @@ const StoryFrame: React.FC<{
       initialContent={`<!DOCTYPE html><html><head>${document.head.innerHTML.replace(
         /<script[\s\S]*?>[\s\S]*?<\/script>/gi,
         "",
-      )}${frameDefaultHead}</head><body><div id="root"></div></body></html>`}
+      )}${frameDefaultHead}</head><body style="margin:0"><div id="root"></div></body></html>`}
       mountTarget="#root"
       style={{
         height: width ? "calc(100% - 128px)" : "100%",

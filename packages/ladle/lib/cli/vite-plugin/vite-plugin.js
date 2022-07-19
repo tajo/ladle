@@ -1,4 +1,4 @@
-import globby from "globby";
+import { globby } from "globby";
 import path from "path";
 import { fileURLToPath } from "url";
 import debugFactory from "debug";
