@@ -13,7 +13,7 @@ A clear and concise description of what the bug is.
 
 **Reproduction**
 
-Please, try to reproduce your issue with [Stackblitz](https://node.new/ladle). Your issue gets much higher priority since it can be triaged effeciently.
+Please, try to reproduce your issue with [Stackblitz](https://node.new/ladle). Your issue gets much higher priority since it can be triaged efficiently.
 
 Alternatively, create a repo. Or describe steps to reproduce and copy&paste the output from:
 
