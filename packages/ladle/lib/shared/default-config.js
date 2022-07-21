@@ -8,6 +8,7 @@ export default {
   port: 61000,
   previewPort: 8080,
   outDir: "build",
+  base: undefined,
   // enable/disable addons and their default state
   addons: {
     control: {

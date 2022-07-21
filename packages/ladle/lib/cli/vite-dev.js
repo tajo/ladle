@@ -28,7 +28,7 @@ const bundler = async (config, configFolder) => {
      * @type {import('vite').InlineConfig}
      */
     const viteConfig = await getBaseViteConfig(config, configFolder, {
-      mode: "development",
+      mode: config.mode || "development",
       server: {
         port: config.port,
         hmr: {
@@ -48,10 +48,17 @@ const bundler = async (config, configFolder) => {
       const jsonContent = getMetaJsonObject(entryData);
       res.json(jsonContent);
     });
+    // When `middlewareMode` is true, vite's own base middleware won't redirect requests,
+    // so we need to do that ourselves.
+    const { base } = viteConfig;
+    if (base && base !== "/") {
+      app.get("/", (_, res) => res.redirect(base));
+      app.get("/index.html", (_, res) => res.redirect(base));
+    }
     app.use(vite.middlewares);
     const serverUrl = `${vite.config.server.https ? "https" : "http"}://${
       vite.config.server.host || "localhost"
-    }:${port}`;
+    }:${port}${vite.config.base || ""}`;
     app.listen(port, async () => {
       console.log(
         boxen(`🥄 Ladle.dev served at ${serverUrl}`, {

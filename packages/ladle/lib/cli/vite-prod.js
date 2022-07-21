@@ -12,7 +12,7 @@ const viteProd = async (config, configFolder) => {
      * @type {import('vite').InlineConfig}
      */
     const viteConfig = await getBaseViteConfig(config, configFolder, {
-      mode: "production",
+      mode: config.mode || "production",
       build: {
         outDir: path.join(process.cwd(), config.outDir),
         emptyOutDir: true,

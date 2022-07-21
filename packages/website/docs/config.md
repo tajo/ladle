@@ -79,6 +79,28 @@ export default {
 };
 ```
 
+### base
+
+Base path for building the output; useful for e.g. hosting your project's storybook on GitHub Pages:
+
+```tsx
+export default {
+  base: "/my-project/",
+};
+```
+
+### mode
+
+Vite [mode](https://vitejs.dev/guide/env-and-mode.html#modes). If not set, defaults to `development` when developing and `production` for building static output.
+
+This also affects [Vite's .env file loading](https://vitejs.dev/guide/env-and-mode.html#env-files), as well as anything else setting `mode` affects.
+
+```tsx
+export default {
+  mode: "my-custom-mode",
+};
+```
+
 ### addons
 
 You can enable or disable all Ladle addons (the buttons in the left bottom corner). You can also control their default state.

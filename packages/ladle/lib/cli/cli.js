@@ -21,6 +21,8 @@ program
   .option("--theme [string]", "theme light, dark or auto")
   .option("--config [string]", "folder where config is located, default .ladle")
   .option("--viteConfig [string]", "file with Vite configuration")
+  .option("--base [string]", "base URL path for build output")
+  .option("--mode [string]", "Vite mode")
   .action(async (params) => {
     await serve({ ...params, serve: params });
   });
@@ -33,6 +35,8 @@ program
   .option("--theme [string]", "theme light, dark or auto")
   .option("--config [string]", "folder where config is located, default .ladle")
   .option("--viteConfig [string]", "file with Vite configuration")
+  .option("--base [string]", "base URL path for build output")
+  .option("--mode [string]", "Vite mode")
   .action(async (params) => {
     const success = await build({ ...params, build: params });
     if (success) {
@@ -48,6 +52,8 @@ program
   .option("-p, --port [number]", "port to serve the application", strToInt)
   .option("--config [string]", "folder where config is located, default .ladle")
   .option("--viteConfig [string]", "file with Vite configuration")
+  .option("--base [string]", "base URL path for build output")
+  .option("--mode [string]", "Vite mode")
   .action(async (params) => {
     await preview({ ...params, previewPort: params.port });
   });

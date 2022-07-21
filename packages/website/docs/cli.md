@@ -31,6 +31,8 @@ Options:
   --theme [string]       theme light, dark or auto
   --config [string]      folder where config is located, default .ladle
   --viteConfig [string]  file with Vite configuration
+  --base [string]        base URL path for build output
+  --mode [string]        Vite mode
   -h, --help             display help for command
 
 ```
@@ -48,7 +50,10 @@ Options:
   --theme [string]       theme light, dark or auto
   --config [string]      folder where config is located, default .ladle
   --viteConfig [string]  file with Vite configuration
+  --base [string]        base URL path for build output
+  --mode [string]        Vite mode
   -h, --help             display help for command
+
 ```
 
 ## Preview command
@@ -63,5 +68,8 @@ Options:
   -p, --port [number]    port to serve the application
   --config [string]      folder where config is located, default .ladle
   --viteConfig [string]  file with Vite configuration
+  --base [string]        base URL path for build output
+  --mode [string]        Vite mode
   -h, --help             display help for command
+
 ```

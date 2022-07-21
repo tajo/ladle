@@ -139,6 +139,8 @@ export type Config = {
   port: number;
   previewPort: number;
   outDir: string;
+  base?: string;
+  mode?: string;
   addons: {
     control: {
       enabled: boolean;
