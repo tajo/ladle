@@ -51,7 +51,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
       ladleConfig.viteConfig,
     );
 
-  // We need to fake react-dom/client import in case user still uses React v17
+  // We need to fake react-dom/client import if the user still uses React v17
   // and not v18, otherwise Vite would fail the import analysis step
   const resolve = {};
   try {

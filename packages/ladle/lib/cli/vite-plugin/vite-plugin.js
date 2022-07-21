@@ -67,7 +67,7 @@ function ladlePlugin(config, configFolder, mode) {
           });
         }`
           : "";
-        // make sure that loaded attr is set even if the story is loaded through iframe
+        // make sure the `loaded` attr is set even if the story is loaded through iframe
         const setLoadedAttr = `typeof window !== 'undefined' &&
           window.document &&
           window.document.createElement && document.documentElement.setAttribute("data-storyloaded", "");`;

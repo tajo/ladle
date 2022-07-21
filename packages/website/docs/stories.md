@@ -3,7 +3,7 @@ id: stories
 title: Stories
 ---
 
-Stories are the entrypoint to your components. They are simple modules that export your components and can add additional meta data to describe and parametrize them. You can create them anywhere in your project's `src/` folder and they should be named as `*.stories.jsx` or `*.stories.tsx`. Ladle searches your project and loads all the stories into a single playground so you can develop and test them.
+Stories are the entrypoint to your components. They are simple modules that export your components and can add additional metadata to describe and parametrize them. You can create them anywhere in your project's `src/` folder; they should be named as `*.stories.jsx` or `*.stories.tsx`. Ladle searches your project and loads all the stories into a single playground so you can develop and test them.
 
 ## Navigation and Routes
 
@@ -56,7 +56,7 @@ export default {
 export const Button = () => <button>My Button</button>;
 ```
 
-`/` can be used to create sub-levels. This creates following navigation structure:
+`/` can be used to create sublevels. This creates following navigation structure:
 
 ```
 Level
@@ -66,7 +66,7 @@ Level
 
 ## Decorators
 
-Ladle supports story decorators so you can wrap all stories in file with additional React component(s). This can be very useful if your stories/components rely on [React Context](https://reactjs.org/docs/context.html) and libraries like `react-router` or `redux`. In the example bellow , we are adding an extra `margin: 3em` to each story:
+Ladle supports story decorators, so you can wrap all stories in a file with additional React component(s). This is useful if your stories/components rely on [React Context](https://reactjs.org/docs/context.html) and libraries like `react-router` or `redux`. In the example bellow , we are adding an extra `margin: 3em` to each story:
 
 ```tsx
 export default {
@@ -80,11 +80,11 @@ export default {
 };
 ```
 
-`decorators` is an array so you can compose multiple components together. You can also set a [global decorator or provider](./providers).
+`decorators` is an array, so you can compose multiple components together. You can also set a [global decorator or provider](./providers).
 
 ## Controls, Args and ArgTypes
 
-Stories can be parametrized. You can define the props that your component expects and then update them through the UI without changing the code or creating multiple additional stories with the same component. The example bellow covers all available `args` and `argTypes` that Ladle currently supports:
+Stories can be parametrized. You can define the props that your component expects and then update them through the UI without changing the code or creating multiple additional stories with the same component. The example below covers all available `args` and `argTypes` that Ladle currently supports:
 
 ```tsx
 import type { Story } from "@ladle/react";
@@ -152,7 +152,7 @@ CardWorld.args = {
 
 ## Limitations
 
-There are limitations in place to support features like the automatic code-splitting or [meta](./meta) file. Some parts of the stories syntax must be static and serializable.
+There are limitations in place to support features like the automatic code-splitting or [meta](./meta) file. Some parts of the stories' syntax must be static and serializable.
 
 ### `storyName`, `title` and `meta` need to be serializable
 
@@ -183,4 +183,4 @@ Story.storyName = newName;
 
 ### Story names and files need to be unique
 
-File names and named exports (or storyNames) are [normalized](#navigation-and-routes) and used together as an unique identifier for each story. There cannot be two stories with the same ID. If that occurs, Ladle tells you what stories and files are clashing and you need to rename something.
+File names and named exports (or storyNames) are [normalized](#navigation-and-routes) and used together as a unique identifier for each story. There cannot be two stories with the same ID. If that occurs, Ladle tells you what stories and files are clashing and you need to rename something.

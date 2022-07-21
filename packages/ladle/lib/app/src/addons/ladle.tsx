@@ -22,8 +22,8 @@ export const Button: React.FC<{}> = () => {
           label="Dialog with information about Ladle."
         >
           <p>
-            Ladle is a modern and very fast playground for React components
-            powered by Vite. For more information:
+            Ladle is a modern and fast playground for React components powered
+            by Vite. For more information:
           </p>
           <ul>
             <li>

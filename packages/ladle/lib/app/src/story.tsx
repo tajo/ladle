@@ -41,7 +41,7 @@ const StoryFrame: React.FC<{
   );
 };
 
-// detecting parent's document.head changes so we can apply the same CSS for
+// detecting parent's document.head changes, so we can apply the same CSS for
 // the iframe, for CSS in JS we could target correct document directly but
 // import './foo.css' always ends up in the parent only
 const SynchronizeHead: React.FC<{

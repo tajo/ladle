@@ -25,7 +25,7 @@ Ladle exports `meta.json` with the list of all stories and some additional infor
 }
 ```
 
-You can also add some additional annotations to each story (or stories) through its `meta` parameter. It needs to be statically analyzable. `control.stories.tsx`:
+You can also add additional annotations to each story (or stories) through the `meta` object. It needs to be statically analyzable. `control.stories.tsx`:
 
 ```tsx
 export default {
@@ -56,11 +56,11 @@ First.meta = {
 }
 ```
 
-This is very useful for further automation. For example, you can load this file in your CI and create visual snapshots for each story.
+This is useful for further automation. For example, you can load this file in your CI and create visual snapshots for each story.
 
 ## Testing
 
-If you use Ladle for end to end testing with framework as [Playwright](https://playwright.dev/), make sure that your story is fully loaded before you run the test. Stories are code-split and loaded later in the process. Ladle adds `data-storyloaded` attribute to the `<html>` tag so you can `await` it:
+If you use Ladle for end-to-end testing with a framework as [Playwright](https://playwright.dev/), make sure your story is fully loaded before you run the test. Stories are code-split and loaded later in the process. Ladle adds `data-storyloaded` attribute to the `<html>` tag, so you can `await` for it in Playwright:
 
 ```tsx
 await page.waitForSelector("[data-storyloaded]");

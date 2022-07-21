@@ -3,7 +3,7 @@ id: setup
 title: Setup
 ---
 
-Ladle is a single package & command that does not require any initial configuration. It is made to be quickly deployable even into complex monorepo setups.
+Ladle is a single package and command that does not require any initial configuration. It is quickly deployable even into complex monorepo setups.
 
 ## Dependencies
 
@@ -42,7 +42,7 @@ import * as React from "react";
 pnpm ladle serve
 ```
 
-Development mode. It will start a dev server and opens your browser. This is ideal when you want to quickly develop your components.
+Development mode. It will start a dev server and open your browser. This is ideal when you want to quickly develop your components.
 
 ## Build
 
