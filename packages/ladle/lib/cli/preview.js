@@ -5,7 +5,7 @@ import debug from "./debug.js";
 import applyCLIConfig from "./apply-cli-config.js";
 
 /**
- * @param params {import("../shared/types").DevParams}
+ * @param params {import("../shared/types").CLIParams}
  */
 const preview = async (params = {}) => {
   debug("Starting preview command");

@@ -11,7 +11,7 @@ import getFolderSize from "./get-folder-size.js";
 import applyCLIConfig from "./apply-cli-config.js";
 
 /**
- * @param params {import("../shared/types").BuildParams}
+ * @param params {import("../shared/types").CLIParams}
  */
 const build = async (params = {}) => {
   const startTime = performance.now();

@@ -3,7 +3,7 @@ import path from "path";
 import loadConfig from "./load-config.js";
 
 /**
- * @param params {import("../shared/types").DevParams}
+ * @param params {import("../shared/types").CLIParams}
  */
 export default async function applyCLIConfig(params) {
   debug(`CLI theme: ${params.theme}`);
