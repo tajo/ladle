@@ -24,7 +24,7 @@
 
 ### Minor Changes
 
-- [#194](https://github.com/tajo/ladle/pull/194) [`63c8821`](https://github.com/tajo/ladle/commit/63c88217bc6b80f1e0809c91f3cce2efdd64ffdc) Thanks [@tajo](https://github.com/tajo)! - Bump all repo dependencies do the latest and abondon cjs build&publish.
+- [#194](https://github.com/tajo/ladle/pull/194) [`63c8821`](https://github.com/tajo/ladle/commit/63c88217bc6b80f1e0809c91f3cce2efdd64ffdc) Thanks [@tajo](https://github.com/tajo)! - Bump all repo dependencies do the latest and abandon cjs build&publish.
 
 ### Patch Changes
 
@@ -40,7 +40,7 @@
 
 ### Minor Changes
 
-- [#190](https://github.com/tajo/ladle/pull/190) [`21959e9`](https://github.com/tajo/ladle/commit/21959e96878c65681a090b32d82028bd9470e030) Thanks [@tajo](https://github.com/tajo)! - Add addon-width and iframe mode. You can set `meta.width` and `meta.iframed` to render stories inside of an iframe. This is useful for testing responsivness or components like modal that take full screen.
+- [#190](https://github.com/tajo/ladle/pull/190) [`21959e9`](https://github.com/tajo/ladle/commit/21959e96878c65681a090b32d82028bd9470e030) Thanks [@tajo](https://github.com/tajo)! - Add addon-width and iframe mode. You can set `meta.width` and `meta.iframed` to render stories inside of an iframe. This is useful for testing responsiveness or components like modal that take full screen.
 
 * [`1745a95`](https://github.com/tajo/ladle/commit/1745a95eb664404db51168a4adaeec2f87841044) Thanks [@tajo](https://github.com/tajo)! - Add support for native Windows.
 
@@ -48,7 +48,7 @@
 
 - [#188](https://github.com/tajo/ladle/pull/188) [`2f142cc`](https://github.com/tajo/ladle/commit/2f142cc2d8354b120236d29d4cc78132a6510a55) Thanks [@pdeslaur](https://github.com/pdeslaur)! - Fix compatibility issue with resolve.alias vite config to fix issue tajo/ladle#187.
 
-* [#187](https://github.com/tajo/ladle/pull/187) [`ebb1923`](https://github.com/tajo/ladle/commit/ebb192340a331756ce49424ee823435814bf5611) Thanks [@tajo](https://github.com/tajo)! - Move background color to negative zindex to support cases when components use some negative zindexes as well.
+* [#187](https://github.com/tajo/ladle/pull/187) [`ebb1923`](https://github.com/tajo/ladle/commit/ebb192340a331756ce49424ee823435814bf5611) Thanks [@tajo](https://github.com/tajo)! - Move background color to negative zindex to support cases when components use some negative z-indexes as well.
 
 - [#189](https://github.com/tajo/ladle/pull/189) [`f84bbde`](https://github.com/tajo/ladle/commit/f84bbdeada095746698434b18b79d7d751dd631c) Thanks [@tajo](https://github.com/tajo)! - Improve the performance of virtual stories modules. fs.promises.readFile much slower than fs.promises.readSync and it blocking CPU doesn't matter in our use case anyway. Also don't run the story watcher on the startup.
 

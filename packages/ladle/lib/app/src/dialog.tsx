@@ -76,10 +76,10 @@ if (typeof globalContext.clearTimeout === "function") {
 
 function runTimeout(fun) {
   if (cachedSetTimeout === setTimeout) {
-    //normal enviroments in sane situations
+    //normal environments in sane situations
     return setTimeout(fun, 0);
   }
-  // if setTimeout wasn't available but was latter defined
+  // if setTimeout wasn't available but was later defined
   if (
     (cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) &&
     setTimeout
@@ -88,24 +88,24 @@ function runTimeout(fun) {
     return setTimeout(fun, 0);
   }
   try {
-    // when when somebody has screwed with setTimeout but no I.E. maddness
+    // when when somebody has screwed with setTimeout but no I.E. madness
     return cachedSetTimeout(fun, 0);
   } catch (e) {
     try {
       // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
       return cachedSetTimeout.call(null, fun, 0);
     } catch (e) {
-      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+      // same as above but when it's a version of I.E. that must have the global object for 'this', hopefully our context correct otherwise it will throw a global error
       return cachedSetTimeout.call(this, fun, 0);
     }
   }
 }
 function runClearTimeout(marker) {
   if (cachedClearTimeout === clearTimeout) {
-    //normal enviroments in sane situations
+    //normal environments in sane situations
     return clearTimeout(marker);
   }
-  // if clearTimeout wasn't available but was latter defined
+  // if clearTimeout wasn't available but was later defined
   if (
     (cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) &&
     clearTimeout
@@ -121,7 +121,7 @@ function runClearTimeout(marker) {
       // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
       return cachedClearTimeout.call(null, marker);
     } catch (e) {
-      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+      // same as above but when it's a version of I.E. that must have the global object for 'this', hopefully our context correct otherwise it will throw a global error.
       // Some versions of I.E. have different rules for clearTimeout vs setTimeout
       return cachedClearTimeout.call(this, marker);
     }
@@ -182,7 +182,7 @@ function nextTick(fun) {
     runTimeout(drainQueue);
   }
 }
-// v8 likes predictible objects
+// v8 likes predictable objects
 function Item(fun, array) {
   this.fun = fun;
   this.array = array;
@@ -1853,7 +1853,7 @@ function useCallbackRef(initialValue, callback) {
  * @param {RefObject|Ref} refs
  * @returns {MutableRefObject} - a new ref, which translates all changes to {refs}
  *
- * @see {@link mergeRefs} a version without buit-in memoization
+ * @see {@link mergeRefs} a version without built-in memoization
  * @see https://github.com/theKashey/use-callback-ref#usemergerefs
  * @example
  * const Component = React.forwardRef((props, ref) => {
@@ -2901,7 +2901,7 @@ const setFocus = function (topNode, lastNode) {
 };
 
 function deferAction(action) {
-  // Hidding setImmediate from Webpack to avoid inserting polyfill
+  // Hiding setImmediate from Webpack to avoid inserting polyfill
   const _window = window,
     setImmediate = _window.setImmediate;
 

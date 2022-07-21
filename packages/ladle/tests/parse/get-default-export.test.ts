@@ -49,7 +49,7 @@ test("Get default export meta", async () => {
   );
 });
 
-test("Get simple refference ", async () => {
+test("Get simple reference ", async () => {
   expect(
     parseWithFn(
       `const params = { meta: { some: 'foo', flag: true } }; export default params;`,

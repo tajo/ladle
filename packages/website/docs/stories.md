@@ -3,7 +3,7 @@ id: stories
 title: Stories
 ---
 
-Stories are the entrypoint to your components. They are simple modules that export your components and can add aditional meta data to describe and parametrize them. You can create them anywhere in your project's `src/` folder and they should be named as `*.stories.jsx` or `*.stories.tsx`. Ladle searches your project and loads all the stories into a single playground so you can develop and test them.
+Stories are the entrypoint to your components. They are simple modules that export your components and can add additional meta data to describe and parametrize them. You can create them anywhere in your project's `src/` folder and they should be named as `*.stories.jsx` or `*.stories.tsx`. Ladle searches your project and loads all the stories into a single playground so you can develop and test them.
 
 ## Navigation and Routes
 

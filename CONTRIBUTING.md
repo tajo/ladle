@@ -10,7 +10,7 @@ Ladle is a monorepo using pnpm workspaces. We use Node v16. The package manager 
 npm install -g pnpm@7
 ```
 
-Install the depedencies after forking and cloning the repository
+Install the dependencies after forking and cloning the repository
 
 ```sh
 pnpm install

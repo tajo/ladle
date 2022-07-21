@@ -9,7 +9,6 @@ import styles from "./styles.module.css";
 const features = [
   {
     title: "🤝 Works with your existing tools",
-    //imageUrl: "img/undraw_docusaurus_mountain.svg",
     description: (
       <>
         Ladle is compatible with the{" "}
@@ -31,7 +30,6 @@ const features = [
   },
   {
     title: "⚡ Fast, Accessible and Small",
-    //imageUrl: "img/undraw_docusaurus_tree.svg",
     description: (
       <>
         Powered by{" "}
@@ -45,7 +43,6 @@ const features = [
   },
   {
     title: "🛠️ Zero Configuration",
-    //imageUrl: "img/undraw_docusaurus_react.svg",
     description: (
       <>
         No configuration needed but still customizable. Ladle is a single

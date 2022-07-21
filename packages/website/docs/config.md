@@ -14,7 +14,7 @@ Ladle does not require any configuration and some features can be controlled thr
 - **[Documentation](https://vitejs.dev/config).**
 - The parameter `root` is replaced so Ladle can function properly.
 - [`server.port`](https://vitejs.dev/config/#server-port) and [`build.outDir`](https://vitejs.dev/config/#build-outdir) are overridden by Ladle as well so they can be configured separately from your main project since you probably don't want them to clash.
-- Vite config assumes that paths are relative to the project root; however, Ladle's root is burried in `node_modules`. You should always use absolute paths. Ladle tries to resolve relative paths relative to the project root but that doesn't work when configuring custom plugins for example.
+- Vite config assumes that paths are relative to the project root; however, Ladle's root is buried in `node_modules`. You should always use absolute paths. Ladle tries to resolve relative paths relative to the project root but that doesn't work when configuring custom plugins for example.
 - Ladle adds [@vitejs/plugin-react](https://www.npmjs.com/package/@vitejs/plugin-react) and [vite-tsconfig-paths](https://www.npmjs.com/package/vite-tsconfig-paths) plugins by default. If you need to customize them (for example adding babel presets into the react plugin), you can add them for yourself and Ladle will use yours.
 
 ## `.ladle/config.mjs`

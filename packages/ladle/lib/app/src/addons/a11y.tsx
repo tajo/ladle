@@ -76,7 +76,7 @@ const AxeReport: React.FC<{
     return (
       <p>
         There are no <a href="https://github.com/dequelabs/axe-core">axe</a>{" "}
-        accessbility violations. Good job!
+        accessibility violations. Good job!
       </p>
     );
   }
@@ -106,7 +106,7 @@ export const Button: React.FC<{}> = () => {
       setTimeout(() => {
         const el = document.getElementById("ladle-root") as HTMLElement;
         // Addon Dialog aria hides the rest of page, we need to temporarily
-        // make it visible for Axe funcion properly
+        // make it visible for Axe function properly
         el.removeAttribute("aria-hidden");
         runAxe(setViolations, setReportFinished, el).catch(console.error);
       }, 50);

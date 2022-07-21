@@ -56,11 +56,11 @@ First.meta = {
 }
 ```
 
-This is very useful for further automatization. For example, you can load this file in your CI and create visual snapshots for each story.
+This is very useful for further automation. For example, you can load this file in your CI and create visual snapshots for each story.
 
 ## Testing
 
-If you use Ladle for end to end testing with framework as [Playwright](https://playwright.dev/), make sure that your story is fully loaded before you run the test. Stories are code-splitted and loaded later in the process. Ladle adds `data-storyloaded` attribute to the `<html>` tag so you can `await` it:
+If you use Ladle for end to end testing with framework as [Playwright](https://playwright.dev/), make sure that your story is fully loaded before you run the test. Stories are code-split and loaded later in the process. Ladle adds `data-storyloaded` attribute to the `<html>` tag so you can `await` it:
 
 ```tsx
 await page.waitForSelector("[data-storyloaded]");
