@@ -3,7 +3,7 @@ id: providers
 title: Providers
 ---
 
-Your components might need some global [React Context Provider](https://reactjs.org/docs/context.html#contextprovider). This is typically used for localization, state sharing or routing. You can add a provider to individual stories through [decorators](./stories#decorators). However, you can also create a global provider by adding `.ladle/components.tsx` (or `.ts`, `.jsx`, or `.js`):
+Your components might need some global [React Context Provider](https://reactjs.org/docs/context.html#contextprovider). This is typically used for localization, state sharing or routing. You can add a provider to individual stories through [decorators](./stories#decorators). You can also create a global provider by adding `.ladle/components.tsx` (or `.ts`, `.jsx`, or `.js`):
 
 ```tsx
 import type { GlobalProvider } from "@ladle/react";
@@ -22,7 +22,7 @@ Now, all stories will have the same heading. The global provider also has access
 
 > **Warning**: This is an experimental API that can be changed or removed with any release.
 
-Ladle exports the `useLadleContext` hook that gives you full access to the whole internal state `globalState` and `dispatch` function so you can also modify it within your stories. For example, your story can inspect and change the Ladle theme. It can control all other addons as well. Example:
+Ladle exports the `useLadleContext` hook that gives you full access to the whole internal `globalState` and a `dispatch` function, so you can also modify it within your stories. For example, your story can inspect and change the Ladle theme. It can control all other addons as well. Example:
 
 ```tsx
 import { useLadleContext, ActionType, ThemeState } from "@ladle/react";

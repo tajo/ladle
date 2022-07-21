@@ -35,7 +35,7 @@ const checkIfNamedExportExists = (namedExport, sourceCode, filename) => {
  */
 const getComponents = (configFolder) => {
   const noopProvider = `export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);\n`;
-  // order matters. if tsx isn't found, ts is going to be used, then jsx, then js.
+  // order matters. if tsx isn't found, ts is used, then jsx, then js.
   const componentsPaths = [
     path.join(configFolder, "components.tsx"),
     path.join(configFolder, "components.ts"),

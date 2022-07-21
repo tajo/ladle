@@ -3,7 +3,7 @@ id: config
 title: Config
 ---
 
-Ladle does not require any configuration and some features can be controlled through the CLI parameters. However, more advanced setups might require some configuration. There are three different files you can create and use:
+Ladle does not require any configuration and some features can be controlled through CLI parameters. However, more advanced setups might require some configuration. There are three different files you can create and use:
 
 - [`.ladle/components.tsx`](./providers), used in browser only to enhance your stories or provide them a context
 - `.ladle/config.mjs`, used in browser and CLI to configure things like the story search pattern or addons visibility
@@ -13,9 +13,9 @@ Ladle does not require any configuration and some features can be controlled thr
 
 - **[Documentation](https://vitejs.dev/config).**
 - The parameter `root` is replaced so Ladle can function properly.
-- [`server.port`](https://vitejs.dev/config/#server-port) and [`build.outDir`](https://vitejs.dev/config/#build-outdir) are overridden by Ladle as well so they can be configured separately from your main project since you probably don't want them to clash.
-- Vite config assumes that paths are relative to the project root; however, Ladle's root is burried in `node_modules`. You should always use absolute paths. Ladle tries to resolve relative paths relative to the project root but that doesn't work when configuring custom plugins for example.
-- Ladle adds [@vitejs/plugin-react](https://www.npmjs.com/package/@vitejs/plugin-react) and [vite-tsconfig-paths](https://www.npmjs.com/package/vite-tsconfig-paths) plugins by default. If you need to customize them (for example adding babel presets into the react plugin), you can add them for yourself and Ladle will use yours.
+- [`server.port`](https://vitejs.dev/config/#server-port) and [`build.outDir`](https://vitejs.dev/config/#build-outdir) are overridden by Ladle as well, so they can be configured separately from your main project since you probably don't want them to clash.
+- Vite config assumes that paths are relative to the project root; however, Ladle's root is buried in `node_modules`. You should always use absolute paths. Ladle tries to resolve relative paths relative to the project root but that doesn't work when configuring custom plugins for example.
+- Ladle adds [@vitejs/plugin-react](https://www.npmjs.com/package/@vitejs/plugin-react) and [vite-tsconfig-paths](https://www.npmjs.com/package/vite-tsconfig-paths) plugins by default. If you need to customize them (for example adding babel presets into the React plugin), you can add them for yourself and Ladle will use yours.
 
 ## `.ladle/config.mjs`
 
@@ -51,7 +51,7 @@ export default {
 
 ### outDir
 
-Specify the output directory (relative to project root).
+Specify the output directory (relative to the project root).
 
 ```tsx
 export default {
@@ -61,7 +61,7 @@ export default {
 
 ### defaultStory
 
-You can change what story is loaded when Ladle starts. It's the `?story=` portion of URL. The default value is `""` - open the first story in alphabetical order.
+Change which story is loaded when Ladle starts. It's the `?story=` portion of URL. The default value is `""` - open the first story in alphabetical order.
 
 ```tsx
 export default {
@@ -71,7 +71,7 @@ export default {
 
 ### viteConfig
 
-Alternative path for the [Vite config](https://vitejs.dev/config). By default, `vite.config.{js|mjs|ts}` and `vite.config.ts` in the project root are being checked.
+Override the path for the [Vite config](https://vitejs.dev/config). By default, `vite.config.{js|mjs|ts}` and `vite.config.ts` in the project root are being checked.
 
 ```tsx
 export default {

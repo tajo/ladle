@@ -10,7 +10,7 @@ Ladle is a monorepo using pnpm workspaces. We use Node v16. The package manager 
 npm install -g pnpm@7
 ```
 
-Install the depedencies after forking and cloning the repository
+Install the dependencies after forking and cloning the repository
 
 ```sh
 pnpm install
@@ -22,7 +22,7 @@ Install `playwright` dependencies used in testing
 pnpm exec playwright install
 ```
 
-> **NOTE:** this project has a [VS Code Devcontainer](https://code.visualstudio.com/docs/remote/containers) configuration which enables development inside of a docker container, as well as on [GitHub Codespaces](https://code.visualstudio.com/docs/remote/codespaces). This is a great option if you want to contribute to the project, but don't necessarily want to install this project's toolset and dependencies globally on your computer.
+> **NOTE:** this project has a [VS Code Devcontainer](https://code.visualstudio.com/docs/remote/containers) configuration which enables development in a Docker container, as well as on [GitHub Codespaces](https://code.visualstudio.com/docs/remote/codespaces). This is a great option if you want to contribute to the project, but don't necessarily want to install this project's toolset and dependencies globally on your computer.
 
 ## Developing
 
@@ -36,7 +36,7 @@ pnpm ladle build
 
 ## Tests
 
-Before creating a PR you should make sure that all tests are still passing:
+Before creating a PR you should make sure all tests are still passing:
 
 ```sh
 # root
@@ -48,7 +48,7 @@ pnpm build
 pnpm test
 ```
 
-There are unit tests and also end-to-end tests powered by Playwright in `e2e/` folder. If you are adding a new feature, you will be almost always asked to add a new e2e test. You can add it to one of the existing suites / test applications or create new one.
+There are unit tests and end-to-end tests powered by Playwright in `e2e/` folder. If you are adding a new feature, you will be almost always asked to add a new e2e test. You can add it to one of the existing suites / test applications or create new one.
 
 ## Documentation
 
@@ -61,7 +61,7 @@ pnpm start
 
 ## Changesets
 
-Ladle uses [changesets](https://github.com/changesets/changesets) to manage the changelog and releases. If your are changing `@ladle/react` you need to [add a changeset](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md) (or you will be prompted in your PR):
+Ladle uses [changesets](https://github.com/changesets/changesets) to manage the changelog and releases. If you are changing `@ladle/react` you need to [add a changeset](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md) (or you will be prompted in your PR):
 
 ```sh
 pnpm changeset

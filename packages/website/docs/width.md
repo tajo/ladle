@@ -3,7 +3,7 @@ id: width
 title: Width
 ---
 
-Ladle is responsive by default so to test your components for different screens you can use Chrome Devtools. However, Ladle also provides an addon to streamline this workflow even more:
+Ladle is responsive by default, so to test your components for different screens you can use your browser's dev tools. However, Ladle also provides an addon to streamline this workflow even more:
 
 ![Width addon](/img/width.png)
 
@@ -18,7 +18,7 @@ You can use these default viewport widths (px):
 }
 ```
 
-Every application might need to optimize for a different set of devices, so you change the defaults through the `.ladle/config.mjs` configuration:
+An application might need to optimize for a different set of devices, so you change the defaults through the `.ladle/config.mjs` configuration:
 
 ```js
 export default {
@@ -38,7 +38,7 @@ export default {
 
 ## Default values
 
-You can set the global default (above) or one that is story specific:
+You can set the global default (above) or per-story via `meta`:
 
 ```js
 export default {
@@ -55,13 +55,13 @@ export const Second = () => <h1>Second</h1>;
 Second.meta = { width: 345 };
 ```
 
-The number value can be adhoc and not matching the configured set. In that case, the addon popover will display an additional `custom - 345px` item.
+The number value doesn't need to match the configured set. In that case, the addon popover will display an additional `custom - 345px` item.
 
 ## Iframe
 
-Ladle doesn't normally use iframes around your stories but to make this addon working, it has to. It should not change anything for you other than a slightly different debugging experience.
+Ladle doesn't normally use iframes around your stories but to make this addon work, it has to. It should not change anything for you other than a slightly different debugging experience.
 
-Some story components like modals might use the entire screen and cover the Ladle's navigation. If you want to restrict the story's space, you can activate the iframed version of Ladle even without specifying a viewport width:
+Some story components like modals might use the entire screen and cover Ladle's navigation. If you want to restrict the story's space, you can activate the iframed version of Ladle even without specifying a viewport width:
 
 ```js
 export const Modal = () => <FullScreenModal />;
@@ -70,7 +70,7 @@ Modal.meta = { iframed: true };
 
 ## Preview Mode and Testing
 
-When you switch Ladle to the preview mode, this addon is disabled since there is no Ladle UI available and the story takes the full screen. For testing with Playwright, you can set the viewport width within the test:
+When you switch Ladle to the preview mode, this addon is disabled since the Ladle UI isn't available and the story takes up the full screen. For testing with Playwright, you can set the viewport width within the test:
 
 ```ts
 // example.spec.ts

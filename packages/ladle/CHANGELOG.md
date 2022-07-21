@@ -18,13 +18,13 @@
 
 ### Major Changes
 
-- [#191](https://github.com/tajo/ladle/pull/191) [`3209be6`](https://github.com/tajo/ladle/commit/3209be62042ffe700f505ca84e468998288e44bd) Thanks [@tajo](https://github.com/tajo)! - Upgrade to Vite 3. It should not be really a big breaking change for Ladle but we expose the whole `vite.config.js` so you might run into some deprecations. [Read more](https://vitejs.dev/blog/announcing-vite3.html) to see if this could impact you.
+- [#191](https://github.com/tajo/ladle/pull/191) [`3209be6`](https://github.com/tajo/ladle/commit/3209be62042ffe700f505ca84e468998288e44bd) Thanks [@tajo](https://github.com/tajo)! - Upgrade to Vite 3. It should not be a big breaking change for Ladle, but we expose the whole `vite.config.js` so you might run into some deprecations. [Read more](https://vitejs.dev/blog/announcing-vite3.html) to see if this could impact you.
 
   Vite 3 also ships as ESM module. That forces us to stop distributing `@ladle/react-cjs`. We used it for our internal yarn pnp setup but we don't need it anymore. Pure ESM everywhere!
 
 ### Minor Changes
 
-- [#194](https://github.com/tajo/ladle/pull/194) [`63c8821`](https://github.com/tajo/ladle/commit/63c88217bc6b80f1e0809c91f3cce2efdd64ffdc) Thanks [@tajo](https://github.com/tajo)! - Bump all repo dependencies do the latest and abondon cjs build&publish.
+- [#194](https://github.com/tajo/ladle/pull/194) [`63c8821`](https://github.com/tajo/ladle/commit/63c88217bc6b80f1e0809c91f3cce2efdd64ffdc) Thanks [@tajo](https://github.com/tajo)! - Bump all repo dependencies do the latest and abandon cjs build&publish.
 
 ### Patch Changes
 
@@ -40,17 +40,17 @@
 
 ### Minor Changes
 
-- [#190](https://github.com/tajo/ladle/pull/190) [`21959e9`](https://github.com/tajo/ladle/commit/21959e96878c65681a090b32d82028bd9470e030) Thanks [@tajo](https://github.com/tajo)! - Add addon-width and iframe mode. You can set `meta.width` and `meta.iframed` to render stories inside of an iframe. This is useful for testing responsivness or components like modal that take full screen.
+- [#190](https://github.com/tajo/ladle/pull/190) [`21959e9`](https://github.com/tajo/ladle/commit/21959e96878c65681a090b32d82028bd9470e030) Thanks [@tajo](https://github.com/tajo)! - Add addon-width and iframe mode. You can set `meta.width` and `meta.iframed` to render stories inside an iframe. This is useful for testing responsiveness or components like modals that occupy the full screen.
 
 * [`1745a95`](https://github.com/tajo/ladle/commit/1745a95eb664404db51168a4adaeec2f87841044) Thanks [@tajo](https://github.com/tajo)! - Add support for native Windows.
 
 ### Patch Changes
 
-- [#188](https://github.com/tajo/ladle/pull/188) [`2f142cc`](https://github.com/tajo/ladle/commit/2f142cc2d8354b120236d29d4cc78132a6510a55) Thanks [@pdeslaur](https://github.com/pdeslaur)! - Fix compatibility issue with resolve.alias vite config to fix issue tajo/ladle#187.
+- [#188](https://github.com/tajo/ladle/pull/188) [`2f142cc`](https://github.com/tajo/ladle/commit/2f142cc2d8354b120236d29d4cc78132a6510a55) Thanks [@pdeslaur](https://github.com/pdeslaur)! - Fix compatibility issue with `resolve.alias` vite config to fix issue tajo/ladle#187.
 
-* [#187](https://github.com/tajo/ladle/pull/187) [`ebb1923`](https://github.com/tajo/ladle/commit/ebb192340a331756ce49424ee823435814bf5611) Thanks [@tajo](https://github.com/tajo)! - Move background color to negative zindex to support cases when components use some negative zindexes as well.
+* [#187](https://github.com/tajo/ladle/pull/187) [`ebb1923`](https://github.com/tajo/ladle/commit/ebb192340a331756ce49424ee823435814bf5611) Thanks [@tajo](https://github.com/tajo)! - Move background color to negative z-index to support cases when components use some negative z-indexes as well.
 
-- [#189](https://github.com/tajo/ladle/pull/189) [`f84bbde`](https://github.com/tajo/ladle/commit/f84bbdeada095746698434b18b79d7d751dd631c) Thanks [@tajo](https://github.com/tajo)! - Improve the performance of virtual stories modules. fs.promises.readFile much slower than fs.promises.readSync and it blocking CPU doesn't matter in our use case anyway. Also don't run the story watcher on the startup.
+- [#189](https://github.com/tajo/ladle/pull/189) [`f84bbde`](https://github.com/tajo/ladle/commit/f84bbdeada095746698434b18b79d7d751dd631c) Thanks [@tajo](https://github.com/tajo)! - Improve the performance of virtual stories modules. `fs.promises.readFile` is much slower than `fs.promises.readSync` and it blocking CPU doesn't matter in our use case anyway. Also don't run the story watcher on the startup.
 
 * [#187](https://github.com/tajo/ladle/pull/187) [`ebb1923`](https://github.com/tajo/ladle/commit/ebb192340a331756ce49424ee823435814bf5611) Thanks [@tajo](https://github.com/tajo)! - Fix story source escaping.
 
@@ -78,7 +78,7 @@
 
 - [#166](https://github.com/tajo/ladle/pull/166) [`14a1619`](https://github.com/tajo/ladle/commit/14a1619b89ea43b94816ab088897a7311cf587f9) Thanks [@tajo](https://github.com/tajo)! - Move React Context into a separate package so there is a single instance in the dev mode and useLadleContext hook works. Also, adding some documentation for the hook.
 
-* [#166](https://github.com/tajo/ladle/pull/166) [`14a1619`](https://github.com/tajo/ladle/commit/14a1619b89ea43b94816ab088897a7311cf587f9) Thanks [@tajo](https://github.com/tajo)! - Align server.open more with the official Vite's API.
+* [#166](https://github.com/tajo/ladle/pull/166) [`14a1619`](https://github.com/tajo/ladle/commit/14a1619b89ea43b94816ab088897a7311cf587f9) Thanks [@tajo](https://github.com/tajo)! - Align `server.open` more with the official Vite API.
 
 * Updated dependencies [[`14a1619`](https://github.com/tajo/ladle/commit/14a1619b89ea43b94816ab088897a7311cf587f9)]:
   - @ladle/react-context@1.0.1
@@ -101,8 +101,8 @@
 
   ## WHY the change was made
 
-  Ladle was not able to handle `vite.config.ts` the way Vite does.
-  For example, Ladle was not able to load `vite.config.ts` which imported other TS modules.
+  Ladle was unable to handle `vite.config.ts` the way Vite does.
+  For example, Ladle was unable to load `vite.config.ts` which imported other TS modules.
 
   ## HOW a consumer should update their code
 
@@ -133,7 +133,7 @@
 
 ### Patch Changes
 
-- [#147](https://github.com/tajo/ladle/pull/147) [`f9a4965`](https://github.com/tajo/ladle/commit/f9a4965e8a7940f9aa41df2c2c8418d37f9f0d35) Thanks [@tajo](https://github.com/tajo)! - Add generic Axe check for (mostly) empty Ladle instance to make sure that projects running axe don't have a problem with Ladle.
+- [#147](https://github.com/tajo/ladle/pull/147) [`f9a4965`](https://github.com/tajo/ladle/commit/f9a4965e8a7940f9aa41df2c2c8418d37f9f0d35) Thanks [@tajo](https://github.com/tajo)! - Add generic Axe check for (mostly) empty Ladle instance to make sure projects running axe don't have a problem with Ladle.
 
 ## 0.16.0
 
@@ -159,7 +159,7 @@
 
 * [#133](https://github.com/tajo/ladle/pull/133) [`f0a42ad`](https://github.com/tajo/ladle/commit/f0a42ad7123e30c8ab71d63d843bf0d9670b4931) Thanks [@tajo](https://github.com/tajo)! - Add explicit types for children of GlobalProvider (required for React 18 compatibility)
 
-- [#137](https://github.com/tajo/ladle/pull/137) [`515d069`](https://github.com/tajo/ladle/commit/515d0696665df786e45b5c76aed88239c68cdf24) Thanks [@tajo](https://github.com/tajo)! - Allow typescript typecast default export syntax when parsing stories.
+- [#137](https://github.com/tajo/ladle/pull/137) [`515d069`](https://github.com/tajo/ladle/commit/515d0696665df786e45b5c76aed88239c68cdf24) Thanks [@tajo](https://github.com/tajo)! - Allow TypeScript typecast default export syntax when parsing stories.
 
 * [#135](https://github.com/tajo/ladle/pull/135) [`c027c8c`](https://github.com/tajo/ladle/commit/c027c8c0a8a2442317b068787c039a580bf2c502) Thanks [@tajo](https://github.com/tajo)! - Surface all errors that happen during the story discovery (parsing) stage. Show them in the UI (a new landing page) and the CLI. Adds information how to deal with them as well.
 

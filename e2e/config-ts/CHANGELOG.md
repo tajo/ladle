@@ -61,8 +61,8 @@
 
   ## WHY the change was made
 
-  Ladle was not able to handle `vite.config.ts` the way Vite does.
-  For example, Ladle was not able to load `vite.config.ts` which imported other TS modules.
+  Ladle was unable to handle `vite.config.ts` the way Vite does.
+  For example, Ladle was unable to load `vite.config.ts` which imported other TS modules.
 
   ## HOW a consumer should update their code
 

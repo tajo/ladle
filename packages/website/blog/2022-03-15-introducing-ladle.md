@@ -8,7 +8,7 @@ author_image_url: https://miksu.cz/images/profile.jpg
 tags: [ladle, storybook, react, testing, components]
 ---
 
-Ladle is a tool for developing and testing your React components in an environment that's isolated and faster than most real-world applications. It supports [Component Story Format](https://storybook.js.org/docs/react/api/csf) - a concept widely popular thanks to [Storybook](https://storybook.js.org/). In fact, **Ladle has been developed as a drop-in replacement of Storybook** - it should already work with your existing stories.
+Ladle is a tool for developing and testing your React components in an environment that's isolated and faster than most real-world applications. It supports [Component Story Format](https://storybook.js.org/docs/react/api/csf) – a concept widely popular thanks to [Storybook](https://storybook.js.org/). In fact, **Ladle has been developed as a drop-in replacement of Storybook** – it should already work with your existing stories.
 
 ![Ladel Demo](/img/ladle-baseweb.png)
 
@@ -26,13 +26,13 @@ Unfortunately, there are some areas where Storybook is not doing as good as we w
 
 ## Next Generation Frontend Tooling ⚡
 
-There is a shift happening. ES modules are now natively supported by all browsers and Node. We don't need to bundle our components anymore in order to serve them. This is a major slowdown for Storybook and other Webpack based environments.
+A shift is happening. ES modules are now natively supported by all browsers and Node. We don't need to bundle our components anymore in order to serve them. This is a major slowdown for Storybook and other Webpack based environments.
 
-Ladle is built around [Vite](https://vitejs.dev/). It serves modules directly to the browser and uses fast [esbuild](https://esbuild.github.io/) when bundling is required for dependencies. It provides the performance leap we were looking for.
+Ladle is built around [Vite](https://vitejs.dev/), which serves modules directly to the browser and uses fast [esbuild](https://esbuild.github.io/) when bundling is required for dependencies. It provides the performance leap we were looking for.
 
 ## Performance Numbers ⏱️
 
-We used [Base Web](https://baseweb.design/) to benchmark Ladle and latest Storybook v6.4.19. Base Web is a complex component library and has about 350 stories. The Storybook uses the default bootstrapped settings. The test is made on MBP 2018, i7 2.7 GHz. The time is measured in seconds and less is better.
+We used [Base Web](https://baseweb.design/) to benchmark Ladle and latest Storybook v6.4.19. Base Web is a complex component library and has about 350 stories. The Storybook uses the default bootstrapped settings. The test is made on a 2018 Macbook Pro, i7 2.7 GHz. The time is measured in seconds and less is better.
 
 ![BaseWeb stories compilation time](/img/compilation-time.svg)
 
@@ -45,11 +45,11 @@ We also care about the bundle size and the amount of resources that browser has 
 - Ladle build folder is **4.6 MB vs Storybook's 16.1 MB**
 - Ladle downloads **388 kB** of resources to open the default story, Storybook **14.3 MB**
 
-How is this even possible? Ladle code-splits each story by default so it doesn't matter how many stories you have. It always keeps the initial bundle reasonable.
+How is this even possible? Ladle code-splits each story by default, so it doesn't matter how many stories you have. It always keeps the initial bundle reasonable.
 
 ## Not Just Fast 📝
 
-Ladle is a single package and command. It's easy to install and setup - there is no configuration required. Some other features:
+Ladle is a single package and command. It's easy to install and setup - no configuration required. Some other features:
 
 - Supports controls, links, dark theme, RTL and preview mode
 - Built-in addons always preserve the state through the URL - useful for testing
