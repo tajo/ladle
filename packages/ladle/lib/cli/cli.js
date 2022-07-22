@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { program } from "commander";
+import { Command } from "commander";
 import serve from "./serve.js";
 import build from "./build.js";
 import preview from "./preview.js";
@@ -9,6 +9,7 @@ import preview from "./preview.js";
  */
 const strToInt = (n) => parseInt(n, 10);
 
+const program = new Command("ladle");
 program.showHelpAfterError().showSuggestionAfterError();
 
 program
