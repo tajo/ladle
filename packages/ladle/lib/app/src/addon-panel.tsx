@@ -6,7 +6,6 @@ import { Button as ModeButton } from "./addons/mode";
 import { Button as RtlButton } from "./addons/rtl";
 import { Button as LadleButton } from "./addons/ladle";
 import config from "./get-config";
-import { ChevronRight, Circle } from "./icons";
 import { StoryName } from "./addons/story-name";
 
 type AddonNames = keyof Config["addons"];

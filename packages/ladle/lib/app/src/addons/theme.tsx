@@ -1,7 +1,8 @@
 import * as React from "react";
 import queryString from "query-string";
-import { Sun } from "../icons";
+import { Moon, Sun } from "../icons";
 import { ThemeState, AddonProps, ActionType } from "../../../shared/types";
+import Tooltip from "@reach/tooltip";
 
 export const getQuery = (locationSearch: string) => {
   const theme = queryString.parse(locationSearch).theme as string;
@@ -18,36 +19,25 @@ export const getQuery = (locationSearch: string) => {
 };
 
 export const Button: React.FC<AddonProps> = ({ globalState, dispatch }) => {
-  const darkText = "Switch to dark theme.";
-  const lightText = "Switch to light theme.";
+  const { theme } = globalState;
+  const isLightTheme = theme === ThemeState.Light;
+
+  const label = isLightTheme ? "Switch to Dark theme" : "Switch to Light theme";
+  const Icon = isLightTheme ? Sun : Moon;
+
+  const handleClick = () => {
+    const newTheme = isLightTheme ? ThemeState.Dark : ThemeState.Light;
+    document.documentElement.setAttribute("data-theme", newTheme);
+    dispatch({ type: ActionType.UpdateTheme, value: newTheme });
+  };
+
   return (
     <li>
-      <button
-        aria-label={
-          globalState.theme === ThemeState.Light ? darkText : lightText
-        }
-        title={globalState.theme === ThemeState.Light ? darkText : lightText}
-        onClick={() => {
-          const newTheme =
-            globalState.theme === ThemeState.Light
-              ? ThemeState.Dark
-              : ThemeState.Light;
-          document.documentElement.setAttribute("data-theme", newTheme);
-          dispatch({ type: ActionType.UpdateTheme, value: newTheme });
-        }}
-      >
-        <Sun />
-        <span className="ladle-addon-tooltip">
-          {globalState.theme === ThemeState.Light ? darkText : lightText}
-        </span>
-        <label>
-          Switch to{" "}
-          {globalState.theme === ThemeState.Light
-            ? ThemeState.Dark
-            : ThemeState.Light}{" "}
-          theme
-        </label>
-      </button>
+      <Tooltip label={label}>
+        <button onClick={handleClick}>
+          <Icon />
+        </button>
+      </Tooltip>
     </li>
   );
 };

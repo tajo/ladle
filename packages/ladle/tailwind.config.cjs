@@ -28,6 +28,15 @@ module.exports = {
           900: "var(--ladle-accent-900)",
         },
       },
+      keyframes: {
+        fadeInUp: {
+          "0%": { opacity: 0, transform: "translateY(30px)" },
+          "100%": { opacity: 1, transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        "fade-in-up": "fadeInUp 100ms linear 1",
+      },
     },
   },
 };

@@ -36,7 +36,7 @@
   }
 
   svg {
-    @apply absolute top-0 bottom-0 h-4 m-auto left-4 text-primary-500;
+    @apply absolute top-0 bottom-0 h-4 m-auto left-5 text-primary-500;
   }
 }
 
@@ -47,7 +47,7 @@ html[dir="rtl"] {
 
   .ladle-search {
     svg {
-      @apply left-auto right-4;
+      @apply left-auto right-5;
     }
   }
 
@@ -55,7 +55,7 @@ html[dir="rtl"] {
     @apply right-auto left-4;
   }
 
-  input {
+  .ladle-search input {
     @apply pl-3 pr-8;
   }
 }

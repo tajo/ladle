@@ -6,6 +6,8 @@
 @import "./aside.css";
 @import "./tooltip.css";
 @import "./tree-view.css";
+@import "./reach.css";
+@import "./controls.css";
 
 .ladle-error-content {
   font-family: var(--ladle-font-family);

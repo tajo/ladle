@@ -3,6 +3,7 @@ import queryString from "query-string";
 import { Rtl } from "../icons";
 import { AddonProps, ActionType } from "../../../shared/types";
 import config from "../get-config";
+import Tooltip from "@reach/tooltip";
 
 export const getQuery = (locationSearch: string) => {
   const urlVal = queryString.parse(locationSearch).rtl;
@@ -14,22 +15,19 @@ export const getQuery = (locationSearch: string) => {
 export const Button: React.FC<AddonProps> = ({ dispatch, globalState }) => {
   const rtlText = "Switch text direction to right to left.";
   const ltrText = "Switch text direction to left to right.";
+  const label = globalState.rtl ? ltrText : rtlText;
   return (
     <li>
-      <button
-        aria-label={globalState.rtl ? ltrText : rtlText}
-        title={globalState.rtl ? ltrText : rtlText}
-        className={globalState.rtl ? "ladle-active" : ""}
-        onClick={() =>
-          dispatch({ type: ActionType.UpdateRtl, value: !globalState.rtl })
-        }
-      >
-        <Rtl />
-        <span className="ladle-addon-tooltip">
-          {globalState.rtl ? ltrText : rtlText}
-        </span>
-        <label>Right to left</label>
-      </button>
+      <Tooltip label={label}>
+        <button
+          aria-label={label}
+          onClick={() =>
+            dispatch({ type: ActionType.UpdateRtl, value: !globalState.rtl })
+          }
+        >
+          <Rtl />
+        </button>
+      </Tooltip>
     </li>
   );
 };

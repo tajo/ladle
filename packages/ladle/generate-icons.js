@@ -32,6 +32,7 @@ async function main() {
         .replace(/stroke-linejoin/g, "strokeLinejoin")
         .replace(/clip-path/g, "clipPath")
         .replace(/fill-opacity/g, "fillOpacity")
+        .replace(/<svg(\s+(width|height)="\w+")+/g, "<svg ")
         .replace(">", "{...props}>")
         .replace(/black/g, "currentcolor");
 

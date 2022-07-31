@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Controls } from "../icons";
+import { Controls, Refresh } from "../icons";
 import { Modal } from "../ui";
 import queryString from "query-string";
 import type { AddonProps } from "../../../shared/types";
@@ -10,6 +10,7 @@ import {
   GlobalAction,
   ControlState,
 } from "../../../shared/types";
+import { isAnyControlValuePreSet } from "../utils/controls";
 
 const getInputType = (type?: ControlType) => {
   switch (type) {
@@ -116,12 +117,13 @@ const Control: React.FC<{
         <td>{controlKey}</td>
         <td>
           {(globalState.control[controlKey].options || []).map((option) => (
-            <span key={option}>
+            <span key={option} className="ladle-control-radio-option">
               <input
                 id={`${controlKey}-${option}`}
                 type="radio"
                 name={controlKey}
                 value={option}
+                className="ladle-input"
                 onChange={(e) => {
                   dispatch({
                     type: ActionType.UpdateControl,
@@ -249,23 +251,67 @@ const Control: React.FC<{
 };
 
 export const Button: React.FC<AddonProps> = ({ globalState, dispatch }) => {
-  const [open, setOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(isAnyControlValuePreSet());
+  const [isDirty, setIsDirty] = React.useState(isAnyControlValuePreSet());
   const text = "Explore different versions of this story through controls.";
+  const handleResetToDefaults = () => {
+    setIsDirty(false);
+    const controls: ControlState = {};
+    Object.keys(globalState.control).forEach((control) => {
+      controls[control] = {
+        ...globalState.control[control],
+        value: globalState.control[control].defaultValue,
+      };
+    });
+    dispatch({
+      type: ActionType.UpdateControl,
+      value: controls,
+    });
+  };
+
+  const controlledDispatch = React.useCallback(
+    (...args: Parameters<React.Dispatch<GlobalAction>>) => {
+      if (args[0].type === ActionType.UpdateControl) {
+        setIsDirty(true);
+      }
+
+      dispatch(...args);
+    },
+    [dispatch],
+  );
+
   return (
     <li>
       <button
         aria-label={text}
         title={text}
-        onClick={() => setOpen(true)}
-        className={open ? "ladle-active" : ""}
+        onClick={() => setIsOpen(true)}
+        data-active={isOpen || undefined}
         data-testid="addon-control"
       >
         <Controls />
-        <span className="ladle-addon-tooltip">{text}</span>
-        <label>Story Controls</label>
         <Modal
-          isOpen={open}
-          close={() => setOpen(false)}
+          title={
+            <>
+              <Controls />
+              Controls
+            </>
+          }
+          nav={
+            isDirty && (
+              <>
+                <button
+                  className="ladle-control-reset"
+                  onClick={handleResetToDefaults}
+                >
+                  <Refresh />
+                  Reset to defaults
+                </button>
+              </>
+            )
+          }
+          isOpen={isOpen}
+          close={() => setIsOpen(false)}
           label="Toggle different controls to update the story."
         >
           <table className="ladle-controls-table">
@@ -277,30 +323,13 @@ export const Button: React.FC<AddonProps> = ({ globalState, dispatch }) => {
                     <Control
                       key={controlKey}
                       globalState={globalState}
-                      dispatch={dispatch}
+                      dispatch={controlledDispatch}
                       controlKey={controlKey}
                     />
                   );
                 })}
             </tbody>
           </table>
-          <button
-            onClick={() => {
-              const controls: ControlState = {};
-              Object.keys(globalState.control).forEach((control) => {
-                controls[control] = {
-                  ...globalState.control[control],
-                  value: globalState.control[control].defaultValue,
-                };
-              });
-              dispatch({
-                type: ActionType.UpdateControl,
-                value: controls,
-              });
-            }}
-          >
-            Reset to defaults
-          </button>
         </Modal>
       </button>
     </li>

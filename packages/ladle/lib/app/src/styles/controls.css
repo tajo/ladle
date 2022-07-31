@@ -1,0 +1,56 @@
+[data-ladle] {
+  .ladle-controls-table {
+    @apply w-full table-auto;
+
+    tbody tr:first-child td {
+      @apply pt-4;
+    }
+
+    tbody tr:last-child td {
+      @apply pb-8;
+    }
+
+    td {
+      @apply pb-3 pl-2 align-top;
+    }
+
+    td:first-child {
+      width: 0;
+      @apply pl-5 pr-4;
+    }
+
+    input,
+    textarea,
+    select {
+      @apply max-w-xs;
+    }
+
+    textarea {
+      @apply font-mono;
+    }
+
+    input[type="radio"] {
+      @apply mr-2;
+    }
+  }
+
+  .ladle-control-radio-option {
+    @apply mr-4;
+
+    label {
+      @apply cursor-pointer;
+    }
+
+    &:last-child {
+      @apply mr-0;
+    }
+  }
+
+  .ladle-control-reset {
+    @apply ml-auto text-primary-600;
+
+    svg {
+      @apply mr-2;
+    }
+  }
+}

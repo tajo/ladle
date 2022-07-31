@@ -1,10 +1,33 @@
 [data-ladle] {
-  input {
-    @apply px-2 py-1 text-sm bg-transparent border rounded-md shadow-sm border-primary-400 text-primary-900;
+  input,
+  textarea,
+  select {
+    @apply w-full px-2 py-1 text-sm bg-transparent border rounded-md shadow-sm border-primary-400 text-primary-900;
     @apply transition-colors duration-75;
+
+    &:focus {
+      @apply outline-none bg-primary-50 border-accent-500 ring-2 ring-gray-500 ring-opacity-20;
+    }
   }
 
-  input:focus {
-    @apply outline-none bg-primary-50 border-accent-500 ring-2 ring-gray-500 ring-opacity-20;
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: auto;
+    appearance: none;
+    @apply inline-block w-5 h-5 rounded-sm cursor-pointer checked:bg-accent-500 border-accent-500;
+    @apply align-middle bg-center bg-no-repeat;
+
+    &:checked {
+      background-image: url("data:image/svg+xml;utf8,<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M20 6L9 17L4 12' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+      background-size: 16px 16px;
+    }
   }
+
+  input[type="radio"] {
+    @apply rounded-full;
+  }
+}
+
+.ladle-button {
+  @apply bg-transparent cursor-pointer text-primary-900;
 }

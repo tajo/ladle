@@ -3,6 +3,7 @@ import queryString from "query-string";
 import { Maximize } from "../icons";
 import { ModeState, AddonProps, ActionType } from "../../../shared/types";
 import config from "../get-config";
+import Tooltip from "@reach/tooltip";
 
 export const getQuery = (locationSearch: string) => {
   const mode = queryString.parse(locationSearch).mode as string;
@@ -17,21 +18,21 @@ export const getQuery = (locationSearch: string) => {
 };
 
 export const Button: React.FC<AddonProps> = ({ dispatch }) => {
-  const text =
+  const label =
     "Open fullscreen mode. It removes all other styles and wrappers.";
   return (
     <li>
-      <button
-        aria-label={text}
-        title={text}
-        onClick={() =>
-          dispatch({ type: ActionType.UpdateMode, value: ModeState.Preview })
-        }
-      >
-        <Maximize />
-        <span className="ladle-addon-tooltip">{text}</span>
-        <label>Open fullscreen mode</label>
-      </button>
+      <Tooltip label={label}>
+        <button
+          aria-label={label}
+          type="button"
+          onClick={() =>
+            dispatch({ type: ActionType.UpdateMode, value: ModeState.Preview })
+          }
+        >
+          <Maximize />
+        </button>
+      </Tooltip>
     </li>
   );
 };

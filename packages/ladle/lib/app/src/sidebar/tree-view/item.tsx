@@ -104,7 +104,7 @@ export const TreeViewItem = memo(
               className="ladle-tree-view-chevron"
               data-expanded={isExpanded ? "true" : undefined}
             />
-            <ButtonIcon className="ladle-tree-view-folder" />
+            <ButtonIcon className="ladle-tree-view-button-icon" />
             <p>{name}</p>
           </button>
         )}

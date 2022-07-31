@@ -138,7 +138,7 @@ export const TreeView: FC<{
       />
       {searchActive && tree.length === 0 && (
         <div className="ladle-tree-not-found">
-          <Package />
+          <Package width="24px" />
           <h4>No components found</h4>
           <p>Find components by path or name</p>
         </div>

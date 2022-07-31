@@ -1,14 +1,20 @@
 import * as React from "react";
 import { Dialog } from "@reach/dialog";
 import { Close } from "./icons";
+import cx from "classnames";
 
 export const Button: React.FC<{
   children: React.ReactNode;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   style?: React.CSSProperties;
-}> = ({ children, onClick, style }) => {
+  className?: string;
+}> = ({ children, onClick, style, className }) => {
   return (
-    <button className="ladle-button" onClick={onClick} style={style}>
+    <button
+      className={cx("ladle-button", className)}
+      onClick={onClick}
+      style={style}
+    >
       {children}
     </button>
   );
@@ -35,34 +41,30 @@ export const Code: React.FC<{
 export const Modal: React.FC<{
   children: React.ReactNode;
   close: () => void;
+  title?: React.ReactNode;
+  nav?: React.ReactNode;
   isOpen: boolean;
   label?: string;
-}> = ({ children, close, isOpen, label }) => (
+}> = ({ children, title, nav, close, isOpen, label }) => (
   <Dialog
     isOpen={isOpen}
     onDismiss={() => close()}
     aria-label={label || "Modal"}
+    data-ladle
   >
-    <div
-      style={{
-        position: "absolute",
-        insetInlineEnd: "-6px",
-        top: "0px",
-      }}
+    {title && (
+      <header className="ladle-modal-header">
+        <h4 className="ladle-modal-heading">{title}</h4>
+        {nav}
+      </header>
+    )}
+    <Button
+      onClick={() => close()}
+      aria-label="Close modal"
+      className="ladle-modal-close-button"
     >
-      <Button
-        onClick={() => close()}
-        aria-label="Close modal"
-        style={{
-          height: "36px",
-          width: "36px",
-          borderColor: "transparent",
-          boxShadow: "none",
-        }}
-      >
-        <Close />
-      </Button>
-    </div>
+      <Close />
+    </Button>
     {children}
   </Dialog>
 );

@@ -1,0 +1,48 @@
+:root {
+  --reach-tooltip: 1;
+  --reach-dialog: 1;
+}
+
+[data-reach-tooltip] {
+  @apply absolute px-2 py-1 border border-solid shadow-md pointer-events-none bg-primary-50 text-primary-800 border-primary-300 whitespace-nowrap animate-fade-in-up;
+  font-size: 85%;
+  z-index: 1000;
+}
+
+[data-reach-dialog-overlay] {
+  @apply fixed left-0 overflow-auto bottom-6;
+  right: var(--ladle-aside-width);
+}
+
+html[dir="rtl"] {
+  [data-reach-dialog-overlay] {
+    left: var(--ladle-aside-width);
+    @apply right-0;
+  }
+}
+
+[data-reach-dialog-content] {
+  @apply border-0 border-t-2 border-solid border-primary-300 bg-primary-100 text-primary-900;
+}
+
+[data-ladle] {
+  .ladle-modal-close-button {
+    @apply absolute top-0 right-0 px-2 py-4 text-sm border-0;
+
+    svg {
+      @apply w-auto h-4;
+    }
+  }
+
+  .ladle-modal-header {
+    @apply flex px-5 pt-3 pr-12 text-sm;
+
+    svg {
+      @apply inline-block h-4 mr-1 align-sub;
+    }
+  }
+
+  .ladle-modal-heading {
+    @apply m-0 font-medium uppercase text-primary-500;
+  }
+}
