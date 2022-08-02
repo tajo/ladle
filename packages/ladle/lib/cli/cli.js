@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { program } from "commander";
+import { Command } from "commander";
 import serve from "./serve.js";
 import build from "./build.js";
 import preview from "./preview.js";
@@ -9,6 +9,7 @@ import preview from "./preview.js";
  */
 const strToInt = (n) => parseInt(n, 10);
 
+const program = new Command("ladle");
 program.showHelpAfterError().showSuggestionAfterError();
 
 program
@@ -18,11 +19,10 @@ program
   .option("-p, --port [number]", "port to serve the application", strToInt)
   .option("--stories [string]", "glob to find stories")
   .option("--theme [string]", "theme light, dark or auto")
-  .option(
-    "--config [string]",
-    "folder where Ladle configs are located, default .ladle",
-  )
+  .option("--config [string]", "folder where config is located, default .ladle")
   .option("--viteConfig [string]", "file with Vite configuration")
+  .option("--base [string]", "base URL path for build output")
+  .option("--mode [string]", "Vite mode")
   .action(async (params) => {
     await serve({ ...params, serve: params });
   });
@@ -35,6 +35,8 @@ program
   .option("--theme [string]", "theme light, dark or auto")
   .option("--config [string]", "folder where config is located, default .ladle")
   .option("--viteConfig [string]", "file with Vite configuration")
+  .option("--base [string]", "base URL path for build output")
+  .option("--mode [string]", "Vite mode")
   .action(async (params) => {
     const success = await build({ ...params, build: params });
     if (success) {
@@ -50,6 +52,8 @@ program
   .option("-p, --port [number]", "port to serve the application", strToInt)
   .option("--config [string]", "folder where config is located, default .ladle")
   .option("--viteConfig [string]", "file with Vite configuration")
+  .option("--base [string]", "base URL path for build output")
+  .option("--mode [string]", "Vite mode")
   .action(async (params) => {
     await preview({ ...params, previewPort: params.port });
   });

@@ -122,11 +122,7 @@ export type GeneratedStories = {
   };
 };
 
-export type DevParams = Partial<Config> & {
-  theme?: ThemeState;
-  config?: string;
-};
-export type BuildParams = Partial<Config> & {
+export type CLIParams = Partial<Config> & {
   theme?: ThemeState;
   config?: string;
 };
@@ -143,6 +139,8 @@ export type Config = {
   port: number;
   previewPort: number;
   outDir: string;
+  base?: string;
+  mode?: string;
   addons: {
     control: {
       enabled: boolean;

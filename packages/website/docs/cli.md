@@ -14,24 +14,27 @@ Options:
 Commands:
   serve|dev [options]  start developing
   build [options]      build static production app
-  preview [options]    start a server to preview the build
+  preview [options]    start a server to preview the build in outDir
   help [command]       display help for command
 ```
 
 ## Serve command
 
 ```bash
-Usage: ladle serve [options]
+Usage: ladle serve|dev [options]
 
 start developing
 
 Options:
-  -p, --port [number]      port to serve the application
-  --stories [string]       glob to find stories
-  --theme [string]         theme light, dark or auto
-  --config [string]        folder where Ladle configs are located, default .ladle
-  --viteConfig [string]    file with Vite configuration
-  -h, --help               display help for command
+  -p, --port [number]    port to serve the application
+  --stories [string]     glob to find stories
+  --theme [string]       theme light, dark or auto
+  --config [string]      folder where config is located, default .ladle
+  --viteConfig [string]  file with Vite configuration
+  --base [string]        base URL path for build output
+  --mode [string]        Vite mode
+  -h, --help             display help for command
+
 ```
 
 ## Build command
@@ -42,12 +45,15 @@ Usage: ladle build [options]
 build static production app
 
 Options:
-  -o, --outDir <path>      output directory
-  --stories [string]       glob to find stories
-  --theme [string]         theme light, dark or auto
-  --config [string]        folder where config is located, default .ladle
-  --viteConfig [string]    file with Vite configuration
-  -h, --help               display help for command
+  -o, --outDir <path>    output directory
+  --stories [string]     glob to find stories
+  --theme [string]       theme light, dark or auto
+  --config [string]      folder where config is located, default .ladle
+  --viteConfig [string]  file with Vite configuration
+  --base [string]        base URL path for build output
+  --mode [string]        Vite mode
+  -h, --help             display help for command
+
 ```
 
 ## Preview command
@@ -62,5 +68,8 @@ Options:
   -p, --port [number]    port to serve the application
   --config [string]      folder where config is located, default .ladle
   --viteConfig [string]  file with Vite configuration
+  --base [string]        base URL path for build output
+  --mode [string]        Vite mode
   -h, --help             display help for command
+
 ```

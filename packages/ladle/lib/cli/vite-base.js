@@ -80,6 +80,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
    */
   const config = {
     ...viteConfig,
+    base: ladleConfig.base,
     configFile: false,
     cacheDir: userViteConfig.cacheDir
       ? userViteConfig.cacheDir
