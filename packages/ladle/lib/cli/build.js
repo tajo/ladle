@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import path from "path";
+import { performance } from "perf_hooks";
 import { promises as fs } from "fs";
 import { globby } from "globby";
 import viteProd from "./vite-prod.js";
