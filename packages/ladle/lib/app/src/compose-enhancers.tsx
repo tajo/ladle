@@ -1,4 +1,5 @@
-import * as React from "react";
+// @ts-nocheck
+import React from "react";
 import ArgsProvider from "./args-provider";
 
 export default function composeEnhancers(module: any, storyName: string) {
