@@ -1,4 +1,4 @@
-import * as React from "react";
+import type * as React from "react";
 import { useLadleContext } from "./src/context";
 import {
   ActionType,

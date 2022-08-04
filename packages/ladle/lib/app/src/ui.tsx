@@ -1,4 +1,4 @@
-import * as React from "react";
+import type * as React from "react";
 import { Dialog } from "./dialog";
 import { Close } from "./icons";
 

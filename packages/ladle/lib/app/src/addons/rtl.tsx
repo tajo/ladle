@@ -1,4 +1,4 @@
-import * as React from "react";
+import type * as React from "react";
 import queryString from "query-string";
 import { Rtl } from "../icons";
 import { AddonProps, ActionType } from "../../../shared/types";

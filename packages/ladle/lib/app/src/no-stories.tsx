@@ -1,4 +1,4 @@
-import * as React from "react";
+import type * as React from "react";
 import { Code, Link } from "./ui";
 
 const NoStories: React.FC<{ wrongUrl?: boolean; activeStory?: string }> = ({

@@ -1,7 +1,7 @@
 import * as React from "react";
 //@ts-ignore
 import LadleContext from "@ladle/react-context";
-import { GlobalAction, GlobalState } from "../../shared/types";
+import type { GlobalAction, GlobalState } from "../../shared/types";
 
 export const Context: React.Context<{
   globalState: GlobalState;
