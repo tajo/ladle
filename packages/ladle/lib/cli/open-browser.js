@@ -112,8 +112,9 @@ function startBrowserProcess(browser, url, args) {
 
         // in pnp we need to get cwd differently
         if (process.versions.pnp) {
+          //@ts-ignore
           const require = createRequire(import.meta.url);
-          // @ts-ignore
+          //@ts-ignore
           const pnpApi = require("pnpapi");
           if (typeof pnpApi.resolveVirtual === "function") {
             cwd = pnpApi.resolveVirtual(cwd) || cwd;
