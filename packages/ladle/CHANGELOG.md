@@ -1,5 +1,21 @@
 # @ladle/react
 
+## 2.1.0
+
+### Minor Changes
+
+- [#202](https://github.com/tajo/ladle/pull/202) [`7fcdc97`](https://github.com/tajo/ladle/commit/7fcdc9752b053629b609beee96ea646e12abe630) Thanks [@akx](https://github.com/akx)! - Add `--base` and `--mode` options à la `vite build`
+
+### Patch Changes
+
+- [#214](https://github.com/tajo/ladle/pull/214) [`8ff5d29`](https://github.com/tajo/ladle/commit/8ff5d29b367d53ea97d00227c1a77c6cb9ca8db7) Thanks [@tajo](https://github.com/tajo)! - Enforce importsNotUsedAsValues tsc option, fix bad imports.
+
+* [#216](https://github.com/tajo/ladle/pull/216) [`e9c2318`](https://github.com/tajo/ladle/commit/e9c23188add4d7533c32ac0f98cbd037dcf4e996) Thanks [@tajo](https://github.com/tajo)! - Error out when story named export has \_\_. We use it to encode sublevels internally and this would break the sidebar navigation.
+
+- [#215](https://github.com/tajo/ladle/pull/215) [`46a6b97`](https://github.com/tajo/ladle/commit/46a6b97a67ea46a79edbadf0a7b5f6c8bce0f6f4) Thanks [@tajo](https://github.com/tajo)! - Fix browser open script when for pnp environments.
+
+* [#217](https://github.com/tajo/ladle/pull/217) [`bc6ad85`](https://github.com/tajo/ladle/commit/bc6ad85efef15676cb1bcc2e86dc48b2dcea02e1) Thanks [@tajo](https://github.com/tajo)! - Bump all dependencies to the latest versions.
+
 ## 2.0.2
 
 ### Patch Changes
