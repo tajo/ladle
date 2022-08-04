@@ -1,5 +1,14 @@
 # test-programmatic
 
+## 0.2.39
+
+### Patch Changes
+
+- [#217](https://github.com/tajo/ladle/pull/217) [`bc6ad85`](https://github.com/tajo/ladle/commit/bc6ad85efef15676cb1bcc2e86dc48b2dcea02e1) Thanks [@tajo](https://github.com/tajo)! - Bump all dependencies to the latest versions.
+
+- Updated dependencies [[`8ff5d29`](https://github.com/tajo/ladle/commit/8ff5d29b367d53ea97d00227c1a77c6cb9ca8db7), [`e9c2318`](https://github.com/tajo/ladle/commit/e9c23188add4d7533c32ac0f98cbd037dcf4e996), [`46a6b97`](https://github.com/tajo/ladle/commit/46a6b97a67ea46a79edbadf0a7b5f6c8bce0f6f4), [`7fcdc97`](https://github.com/tajo/ladle/commit/7fcdc9752b053629b609beee96ea646e12abe630), [`bc6ad85`](https://github.com/tajo/ladle/commit/bc6ad85efef15676cb1bcc2e86dc48b2dcea02e1)]:
+  - @ladle/react@2.1.0
+
 ## 0.2.38
 
 ### Patch Changes

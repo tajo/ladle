@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.4
+
+### Patch Changes
+
+- [#217](https://github.com/tajo/ladle/pull/217) [`bc6ad85`](https://github.com/tajo/ladle/commit/bc6ad85efef15676cb1bcc2e86dc48b2dcea02e1) Thanks [@tajo](https://github.com/tajo)! - Bump all dependencies to the latest versions.
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
