@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Config, GlobalState, GlobalAction } from "../../shared/types";
+import type * as React from "react";
+import type { Config, GlobalState, GlobalAction } from "../../shared/types";
 import { Button as ThemeButton } from "./addons/theme";
 import { Button as ControlButton } from "./addons/control";
 import { Button as ModeButton } from "./addons/mode";

@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import * as React from "react";
+import type * as React from "react";
 import { Link } from "./ui";
 
 const NoStoriesError: React.FC<{ error: string }> = ({ error }) => {
