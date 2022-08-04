@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 import { execSync } from "child_process";
 import spawn from "cross-spawn";
 import open from "open";
+import { createRequire } from "module";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -111,7 +112,9 @@ function startBrowserProcess(browser, url, args) {
 
         // in pnp we need to get cwd differently
         if (process.versions.pnp) {
-          // @ts-ignore
+          //@ts-ignore
+          const require = createRequire(import.meta.url);
+          //@ts-ignore
           const pnpApi = require("pnpapi");
           if (typeof pnpApi.resolveVirtual === "function") {
             cwd = pnpApi.resolveVirtual(cwd) || cwd;
@@ -175,7 +178,10 @@ function openBrowser(url, browser) {
       // Special case: BROWSER="none" will prevent opening completely.
       return false;
     case Actions.SCRIPT:
-      return executeNodeScript(value, url);
+      try {
+        return executeNodeScript(value, url);
+      } catch (e) {}
+      return true;
     case Actions.BROWSER:
       return startBrowserProcess(value, url, args);
     default:
