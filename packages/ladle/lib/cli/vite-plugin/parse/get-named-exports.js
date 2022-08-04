@@ -40,6 +40,12 @@ const getNamedExports = (
     );
   }
 
+  if (namedExport.includes("__")) {
+    throw new Error(
+      `Story named ${namedExport} can't contain "__". It's reserved for internal encoding. Please rename this export.`,
+    );
+  }
+
   let storyNamespace = fileId;
   if (exportDefaultProps && exportDefaultProps.title) {
     storyNamespace = titleToFileId(exportDefaultProps.title);
