@@ -23,7 +23,8 @@ function Footer() {
     <>
       <p
         style={{
-          backgroundColor: "rgb(239, 243, 254)",
+          backgroundColor: "var(--ifm-footer-background-color)",
+          color: "var(--ifm-footer-color)",
           padding: "16px",
           margin: "32px auto",
           maxWidth: "630px",
