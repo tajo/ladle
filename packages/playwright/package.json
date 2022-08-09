@@ -4,8 +4,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "serve": "ladle serve --viteConfig=vite.test.config.ts",
-    "build": "ladle build && ladle preview -p 61000 --viteConfig=vite.test.config.ts",
+    "serve": "ladle serve",
+    "build": "ladle build && ladle preview -p 61000",
     "lint": "echo 'no lint'",
     "test:dev": "start-server-and-test serve 61000 'pnpx playwright test'",
     "test": "start-server-and-test build 61000 'pnpx playwright test'",

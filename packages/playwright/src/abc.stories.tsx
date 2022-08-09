@@ -5,3 +5,6 @@ export const First = () => {
 export const Second = () => {
   return <h1>Second</h1>;
 };
+Second.meta = {
+  skip: true,
+};
