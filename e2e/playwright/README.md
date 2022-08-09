@@ -10,6 +10,7 @@ Clone this repo, navigate to this folder and run:
 
 ```sh
 pnpm install
+pnpm build #build ladle
 pnpm test #run tests
 pnpm test:update #update snapshots if there are changes
 ```
