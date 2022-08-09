@@ -2,7 +2,7 @@
 
 This package demonstrates how you can quickly automate visual snapshots with Ladle and Playwright to cover all your stories.
 
-Read the [post](https://ladle.dev/blog/visual-snapshots) for more information.
+Read the [post](https://ladle.dev/blog/visual-snapshots) for more information. (The actual source code here a slightly different since it has a double purpose as an e2e test.)
 
 ## Run it
 

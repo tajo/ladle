@@ -81,7 +81,7 @@ Object.keys(stories).forEach((storyKey) => {
     await page.goto(`${url}/?story=${storyKey}&mode=preview`);
     // stories are code-splitted, wait for them to be loaded
     await page.waitForSelector("[data-storyloaded]");
-    // take a screenshot and compare it with the baseline (if it exists)
+    // take a screenshot and compare it with the baseline
     await expect(page).toHaveScreenshot(`${storyKey}.png`);
   });
 });
