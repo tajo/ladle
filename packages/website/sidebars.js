@@ -9,7 +9,7 @@ module.exports = {
     {
       type: "category",
       label: "Features",
-      items: ["css", "providers", "meta"],
+      items: ["css", "providers", "meta", "visual-snapshots"],
     },
     {
       type: "category",
