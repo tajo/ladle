@@ -12,7 +12,7 @@ If you use stories to develop your React components, you might be also intereste
 
 It might surprise you how easy it is - less than 10 lines of code! Ladle exports a static [meta.json](/docs/meta) file that lists all your stories and their parameters. We can use this file to generate our tests. _Note: Terms snapshots and screenshots are used interchangeably._
 
-You can jump into the [working example](https://github.com/tajo/ladle/tree/main/packages/playwright) right away. Or you can follow the steps below.
+You can jump into the [working example](https://github.com/tajo/ladle/tree/main/e2e/playwright) right away. Or you can follow the steps below.
 
 ## The Workflow
 

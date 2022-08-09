@@ -143,6 +143,22 @@ importers:
       rollup-pluginutils: 2.8.2
       start-server-and-test: 1.14.0
 
+  e2e/playwright:
+    specifiers:
+      "@ladle/react": workspace:*
+      "@playwright/test": ^1.23.0
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      start-server-and-test: ^1.14.0
+      sync-fetch: ^0.4.1
+    dependencies:
+      "@ladle/react": link:../../packages/ladle
+      "@playwright/test": 1.24.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      start-server-and-test: 1.14.0
+      sync-fetch: 0.4.1
+
   e2e/programmatic:
     specifiers:
       "@ladle/react": workspace:*
@@ -288,22 +304,6 @@ importers:
 
   packages/ladle-react-context:
     specifiers: {}
-
-  packages/playwright:
-    specifiers:
-      "@ladle/react": workspace:*
-      "@playwright/test": ^1.23.0
-      react: ^18.2.0
-      react-dom: ^18.2.0
-      start-server-and-test: ^1.14.0
-      sync-fetch: ^0.4.1
-    dependencies:
-      "@ladle/react": link:../ladle
-      "@playwright/test": 1.24.2
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      start-server-and-test: 1.14.0
-      sync-fetch: 0.4.1
 
   packages/website:
     specifiers:
@@ -6610,7 +6610,10 @@ packages:
     dev: true
 
   /check-more-types/2.24.0:
-    resolution: { integrity: sha1-FCD/sQ/URNz8ebQ4kbv//TKoRgA= }
+    resolution:
+      {
+        integrity: sha512-Pj779qHxV2tuapviy1bSZNEL1maXr13bPYpsvSDB68HlYcYuhlDrmGd63i0JHMCLKzc7rUSNIrpdJlhVlNwrxA==,
+      }
     engines: { node: ">= 0.8.0" }
     dev: false
 
@@ -8710,7 +8713,10 @@ packages:
     dev: false
 
   /event-stream/3.3.4:
-    resolution: { integrity: sha1-SrTJoPWlTbkzi0w02Gv86PSzVXE= }
+    resolution:
+      {
+        integrity: sha512-QHpkERcGsR0T7Qm3HNJSyXKEEj8AHNxkY3PK8TS2KJvQ7NiSHe3DDpwVKKtoYprL/AreyzFBeIkBIWChAqn60g==,
+      }
     dependencies:
       duplexer: 0.1.2
       from: 0.1.7
@@ -9228,7 +9234,10 @@ packages:
     dev: false
 
   /from/0.1.7:
-    resolution: { integrity: sha1-g8YK/Fi5xWmXAH7Rp2izqzA6RP4= }
+    resolution:
+      {
+        integrity: sha512-twe20eF1OxVxp/ML/kq2p1uc6KvFK/+vs8WjEbeKmV2He22MKm7YF2ANIt+EOqhJ5L3K/SuuPhk0hWQDjOM23g==,
+      }
     dev: false
 
   /fs-extra/10.1.0:
@@ -11444,7 +11453,10 @@ packages:
     dev: false
 
   /lazy-ass/1.6.0:
-    resolution: { integrity: sha1-eZllXoZGwX8In90YfRUNMyTVRRM= }
+    resolution:
+      {
+        integrity: sha512-cc8oEVoctTvsFZ/Oje/kGnHbpWHYBe8IAJe4C0QNc3t8uM/0Y8+erSz/7Y1ALuXTEZTMvxXwO6YbX1ey3ujiZw==,
+      }
     engines: { node: "> 0.8" }
     dev: false
 
@@ -11720,7 +11732,10 @@ packages:
     dev: true
 
   /map-stream/0.1.0:
-    resolution: { integrity: sha1-5WqpTEyAVaFkBKBnS3jyFffI4ZQ= }
+    resolution:
+      {
+        integrity: sha512-CkYQrPYZfWnu/DAmVCpTSX/xHpKZ80eKh2lAkyA6AJTef6bW+6JpbQZN5rofum7da+SyN1bi5ctTm+lTfcCW3g==,
+      }
     dev: false
 
   /markdown-escapes/1.0.4:
@@ -12699,7 +12714,10 @@ packages:
     engines: { node: ">=8" }
 
   /pause-stream/0.0.11:
-    resolution: { integrity: sha1-/lo0sMvOErWqaitAPuLnO2AvFEU= }
+    resolution:
+      {
+        integrity: sha512-e3FBlXLmN/D1S+zHzanP4E/4Z60oFAa3O051qt1pxa7DEJWKAyil6upYVXCWadEnuoqa4Pkc9oUx9zsxYeRv8A==,
+      }
     dependencies:
       through: 2.3.8
     dev: false
@@ -15144,7 +15162,10 @@ packages:
     dev: false
 
   /split/0.3.3:
-    resolution: { integrity: sha1-zQ7qXmOiEd//frDwkcQTPi0N0o8= }
+    resolution:
+      {
+        integrity: sha512-wD2AeVmxXRBoX44wAycgjVpMhvbwdI2aZjCkvfNcH1YqHQvJVa1duWc73OyVGJUc05fhFaTZeQ/PYsrmyH0JVA==,
+      }
     dependencies:
       through: 2.3.8
     dev: false
@@ -15232,7 +15253,10 @@ packages:
     dev: false
 
   /stream-combiner/0.0.4:
-    resolution: { integrity: sha1-TV5DPBhSYd3mI8o/RMWGvPXErRQ= }
+    resolution:
+      {
+        integrity: sha512-rT00SPnTVyRsaSz5zgSPma/aHSOic5U1prhYdRy5HS2kTZviFpmDgzilbtsJsxiroqACmayynDN/9VzIbX5DOw==,
+      }
     dependencies:
       duplexer: 0.1.2
     dev: false
@@ -15665,7 +15689,10 @@ packages:
       }
 
   /through/2.3.8:
-    resolution: { integrity: sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU= }
+    resolution:
+      {
+        integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==,
+      }
 
   /through2/4.0.2:
     resolution:

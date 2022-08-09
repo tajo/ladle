@@ -1,0 +1,24 @@
+{
+  "name": "playwright",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "serve": "ladle serve -p 61110",
+    "build": "ladle build",
+    "build-preview": "ladle build && ladle preview -p 61110",
+    "preview": "ladle preview -p 61110",
+    "lint": "echo 'no lint'",
+    "test:dev": "start-server-and-test serve 61110 'pnpx playwright test'",
+    "test": "start-server-and-test preview 61110 'pnpx playwright test'",
+    "test:update": "start-server-and-test build-preview 61110 'pnpx playwright test -u'"
+  },
+  "dependencies": {
+    "@ladle/react": "workspace:*",
+    "@playwright/test": "^1.23.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "start-server-and-test": "^1.14.0",
+    "sync-fetch": "^0.4.1"
+  }
+}
