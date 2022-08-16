@@ -1,5 +1,13 @@
 # @ladle/react
 
+## 2.1.1
+
+### Patch Changes
+
+- [#222](https://github.com/tajo/ladle/pull/222) [`5b3d113`](https://github.com/tajo/ladle/commit/5b3d1135f5fc5935aba346a38398b948063abfb9) Thanks [@moltar](https://github.com/moltar)! - fix: import performance explicitly to fix node 14
+
+* [#225](https://github.com/tajo/ladle/pull/225) [`34bf386`](https://github.com/tajo/ladle/commit/34bf38692683caf2469c7d5524a0c97771dc716e) Thanks [@tajo](https://github.com/tajo)! - Update all dependencies, remove React.FC in most places.
+
 ## 2.1.0
 
 ### Minor Changes
