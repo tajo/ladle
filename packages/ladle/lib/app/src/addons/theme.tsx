@@ -1,4 +1,3 @@
-import type * as React from "react";
 import queryString from "query-string";
 import { Bulb } from "../icons";
 import { ThemeState, AddonProps, ActionType } from "../../../shared/types";
@@ -17,7 +16,7 @@ export const getQuery = (locationSearch: string) => {
   }
 };
 
-export const Button: React.FC<AddonProps> = ({ globalState, dispatch }) => {
+export const Button = ({ globalState, dispatch }: AddonProps) => {
   const darkText = "Switch to dark theme.";
   const lightText = "Switch to light theme.";
   return (

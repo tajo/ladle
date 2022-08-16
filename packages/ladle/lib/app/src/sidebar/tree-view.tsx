@@ -21,20 +21,20 @@ type TreeItemRefs = {
   current: { [key: string]: HTMLElement | null };
 };
 
-const TreeView: React.FC<{
-  stories: string[];
-  story: string;
-  searchRef: React.Ref<HTMLLinkElement>;
-  updateStory: UpdateStory;
-  setTreeRootRef: (root: HTMLUListElement | null) => void;
-  searchActive?: boolean;
-}> = ({
+const TreeView = ({
   stories,
   story,
   updateStory,
   searchActive,
   searchRef,
   setTreeRootRef,
+}: {
+  stories: string[];
+  story: string;
+  searchRef: React.Ref<HTMLLinkElement>;
+  updateStory: UpdateStory;
+  setTreeRootRef: (root: HTMLUListElement | null) => void;
+  searchActive?: boolean;
 }) => {
   const treeItemRefs: TreeItemRefs = React.useRef({});
   const [tree, setTree] = React.useState(
@@ -133,7 +133,16 @@ const TreeView: React.FC<{
   );
 };
 
-const NavigationSection: React.FC<{
+const NavigationSection = ({
+  tree,
+  fullTree,
+  story,
+  updateStory,
+  onItemClick,
+  onKeyDownFn,
+  selectedItemId,
+  treeItemRefs,
+}: {
   tree: StoryTree;
   fullTree: StoryTree;
   story: string;
@@ -145,15 +154,6 @@ const NavigationSection: React.FC<{
   selectedItemId: string | null;
   onItemClick: (item: StoryTreeItem) => void;
   treeItemRefs: TreeItemRefs;
-}> = ({
-  tree,
-  fullTree,
-  story,
-  updateStory,
-  onItemClick,
-  onKeyDownFn,
-  selectedItemId,
-  treeItemRefs,
 }) => {
   return (
     <React.Fragment>

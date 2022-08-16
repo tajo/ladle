@@ -97,11 +97,15 @@ export const getQuery = (locationSearch: string) => {
   return controls;
 };
 
-const Control: React.FC<{
+const Control = ({
+  controlKey,
+  globalState,
+  dispatch,
+}: {
   controlKey: string;
   globalState: GlobalState;
   dispatch: React.Dispatch<GlobalAction>;
-}> = ({ controlKey, globalState, dispatch }) => {
+}) => {
   if (globalState.control[controlKey].type === ControlType.Function) {
     return (
       <tr>
@@ -248,7 +252,7 @@ const Control: React.FC<{
   );
 };
 
-export const Button: React.FC<AddonProps> = ({ globalState, dispatch }) => {
+export const Button = ({ globalState, dispatch }: AddonProps) => {
   const [open, setOpen] = React.useState(false);
   const text = "Explore different versions of this story through controls.";
   return (

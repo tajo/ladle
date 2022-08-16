@@ -1,4 +1,3 @@
-import type * as React from "react";
 import queryString from "query-string";
 import { Preview } from "../icons";
 import { ModeState, AddonProps, ActionType } from "../../../shared/types";
@@ -16,7 +15,7 @@ export const getQuery = (locationSearch: string) => {
   }
 };
 
-export const Button: React.FC<AddonProps> = ({ dispatch }) => {
+export const Button = ({ dispatch }: AddonProps) => {
   const text =
     "Open fullscreen mode. It removes all other styles and wrappers.";
   return (

@@ -12,10 +12,13 @@ import config from "./get-config";
 
 type AddonNames = keyof Config["addons"];
 
-const AddonPanel: React.FC<{
+const AddonPanel = ({
+  globalState,
+  dispatch,
+}: {
   globalState: GlobalState;
   dispatch: React.Dispatch<GlobalAction>;
-}> = ({ globalState, dispatch }) => {
+}) => {
   if (
     Object.keys(config.addons).every(
       (addonName) => config.addons[addonName as AddonNames].enabled === false,

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const Close: React.FC<{}> = () => {
+export const Close = () => {
   return (
     <svg
       width={18}
@@ -18,7 +18,7 @@ export const Close: React.FC<{}> = () => {
   );
 };
 
-export const Ladle: React.FC<{}> = () => {
+export const Ladle = () => {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -33,7 +33,7 @@ export const Ladle: React.FC<{}> = () => {
   );
 };
 
-export const Rtl: React.FC<{}> = () => {
+export const Rtl = () => {
   return (
     <svg
       width={24}
@@ -51,7 +51,7 @@ export const Rtl: React.FC<{}> = () => {
   );
 };
 
-export const Ring: React.FC<{}> = () => {
+export const Ring = () => {
   React.useEffect(() => {
     document.documentElement.removeAttribute("data-storyloaded");
     return () => document.documentElement.setAttribute("data-storyloaded", "");
@@ -68,7 +68,7 @@ export const Ring: React.FC<{}> = () => {
   );
 };
 
-export const Preview: React.FC<{}> = () => {
+export const Preview = () => {
   const size = 24;
   const color = "currentColor";
   const stroke = 2;
@@ -89,7 +89,7 @@ export const Preview: React.FC<{}> = () => {
   );
 };
 
-export const Bulb: React.FC<{}> = () => {
+export const Bulb = () => {
   const size = 24;
   const color = "currentColor";
   const stroke = 2;
@@ -112,7 +112,7 @@ export const Bulb: React.FC<{}> = () => {
   );
 };
 
-export const Page: React.FC<{}> = () => {
+export const Page = () => {
   return (
     <div
       style={{
@@ -128,7 +128,7 @@ export const Page: React.FC<{}> = () => {
   );
 };
 
-export const Down: React.FC<{ rotate?: boolean }> = ({ rotate }) => {
+export const Down = ({ rotate }: { rotate?: boolean }) => {
   return (
     <div
       aria-hidden
@@ -146,7 +146,7 @@ export const Down: React.FC<{ rotate?: boolean }> = ({ rotate }) => {
   );
 };
 
-export const Right: React.FC<{}> = () => {
+export const Right = () => {
   return (
     <div style={{ width: "6px", marginInlineEnd: "0.65em" }}>
       <svg fill="currentColor" viewBox="0 0 574 1024">
@@ -156,7 +156,7 @@ export const Right: React.FC<{}> = () => {
   );
 };
 
-export const Controls: React.FC<{}> = () => {
+export const Controls = () => {
   return (
     <svg
       width={24}
@@ -180,7 +180,7 @@ export const Controls: React.FC<{}> = () => {
   );
 };
 
-export const Source: React.FC<{}> = () => {
+export const Source = () => {
   return (
     <svg
       width={24}
@@ -198,7 +198,7 @@ export const Source: React.FC<{}> = () => {
   );
 };
 
-export const A11y: React.FC<{}> = () => (
+export const A11y = () => (
   <svg
     width={24}
     height={24}
@@ -216,7 +216,7 @@ export const A11y: React.FC<{}> = () => (
   </svg>
 );
 
-export const Width: React.FC<{}> = () => (
+export const Width = () => (
   <svg
     width={24}
     height={24}

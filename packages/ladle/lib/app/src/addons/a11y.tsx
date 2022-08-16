@@ -29,7 +29,7 @@ const runAxe = async (
   } catch (e) {}
 };
 
-const Violation: React.FC<{ violation: ViolationT }> = ({ violation }) => {
+const Violation = ({ violation }: { violation: ViolationT }) => {
   const [more, setMore] = React.useState(false);
   return (
     <li>
@@ -67,10 +67,13 @@ const Violation: React.FC<{ violation: ViolationT }> = ({ violation }) => {
   );
 };
 
-const AxeReport: React.FC<{
+const AxeReport = ({
+  reportFinished,
+  violations,
+}: {
   reportFinished: boolean;
   violations: ViolationsT;
-}> = ({ reportFinished, violations }) => {
+}) => {
   if (!reportFinished) return <p>Report is loading...</p>;
   if (violations.length === 0) {
     return (
@@ -96,7 +99,7 @@ const AxeReport: React.FC<{
   );
 };
 
-export const Button: React.FC<{}> = () => {
+export const Button = () => {
   const [showReport, setShowReport] = React.useState(false);
   const [reportFinished, setReportFinished] = React.useState(false);
   const [violations, setViolations] = React.useState<ViolationsT>([]);

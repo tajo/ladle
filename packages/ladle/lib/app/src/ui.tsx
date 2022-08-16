@@ -2,12 +2,17 @@ import type * as React from "react";
 import { Dialog } from "./dialog";
 import { Close } from "./icons";
 
-export const Button: React.FC<{
+export const Button = ({
+  children,
+  onClick,
+  style,
+  ...rest
+}: {
   children: React.ReactNode;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   style?: React.CSSProperties;
   "aria-label"?: string;
-}> = ({ children, onClick, style, ...rest }) => {
+}) => {
   return (
     <button
       className="ladle-button"
@@ -20,11 +25,15 @@ export const Button: React.FC<{
   );
 };
 
-export const Link: React.FC<{
+export const Link = ({
+  children,
+  href,
+  style,
+}: {
   href: string;
   children: React.ReactNode;
   style?: React.CSSProperties;
-}> = ({ children, href, style }) => {
+}) => {
   return (
     <a className="ladle-link" href={href} style={style}>
       {children}
@@ -32,18 +41,21 @@ export const Link: React.FC<{
   );
 };
 
-export const Code: React.FC<{
-  children: React.ReactNode;
-}> = ({ children }) => {
+export const Code = ({ children }: { children: React.ReactNode }) => {
   return <code className="ladle-code">{children}</code>;
 };
 
-export const Modal: React.FC<{
+export const Modal = ({
+  children,
+  close,
+  isOpen,
+  label,
+}: {
   children: React.ReactNode;
   close: () => void;
   isOpen: boolean;
   label?: string;
-}> = ({ children, close, isOpen, label }) => {
+}) => {
   return (
     //@ts-ignore
     <Dialog
