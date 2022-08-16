@@ -2,6 +2,7 @@
 
 import path from "path";
 import { promises as fs } from "fs";
+import { performance } from 'perf_hooks';
 import { globby } from "globby";
 import viteProd from "./vite-prod.js";
 import debug from "./debug.js";
