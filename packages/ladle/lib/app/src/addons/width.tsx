@@ -20,7 +20,7 @@ export const getQuery = (locationSearch: string) => {
   return res !== 0 ? res : config.addons.width.defaultState;
 };
 
-export const Button: React.FC<AddonProps> = ({ globalState, dispatch }) => {
+export const Button = ({ globalState, dispatch }: AddonProps) => {
   const text = "Change the story viewport.";
   const [open, setOpen] = React.useState(false);
   const storyData = stories[globalState.story];

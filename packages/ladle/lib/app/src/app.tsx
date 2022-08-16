@@ -44,7 +44,7 @@ const getUrlState = (search: string): GlobalState => ({
   control: getQueryControl(search),
 });
 
-const App: React.FC<{}> = () => {
+const App = () => {
   const initialGlobalState = getUrlState(location.search);
   const [globalState, dispatch] = React.useReducer(reducer, initialGlobalState);
   const prevGlobalStateRef = React.useRef<Partial<GlobalState>>({});

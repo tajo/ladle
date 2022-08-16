@@ -19,7 +19,7 @@
     "@docusaurus/preset-classic": "2.0.1",
     "@docusaurus/theme-common": "2.0.1",
     "@mdx-js/react": "^1.6.22",
-    "@types/react": "^18.0.15",
+    "@types/react": "^18.0.17",
     "clsx": "^1.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

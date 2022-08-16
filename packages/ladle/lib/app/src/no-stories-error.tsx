@@ -1,8 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-import type * as React from "react";
 import { Link } from "./ui";
 
-const NoStoriesError: React.FC<{ error: string }> = ({ error }) => {
+const NoStoriesError = ({ error }: { error: string }) => {
   console.log(error);
   return (
     <div className="ladle-error-content">

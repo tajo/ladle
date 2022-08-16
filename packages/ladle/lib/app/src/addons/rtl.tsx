@@ -1,4 +1,3 @@
-import type * as React from "react";
 import queryString from "query-string";
 import { Rtl } from "../icons";
 import { AddonProps, ActionType } from "../../../shared/types";
@@ -11,7 +10,7 @@ export const getQuery = (locationSearch: string) => {
   return config.addons.rtl.defaultState;
 };
 
-export const Button: React.FC<AddonProps> = ({ dispatch, globalState }) => {
+export const Button = ({ dispatch, globalState }: AddonProps) => {
   const rtlText = "Switch text direction to right to left.";
   const ltrText = "Switch text direction to left to right.";
   return (
