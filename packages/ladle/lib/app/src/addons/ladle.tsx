@@ -2,7 +2,7 @@ import * as React from "react";
 import { Ladle } from "../icons";
 import { Modal, Code } from "../ui";
 
-export const Button: React.FC<{}> = () => {
+export const Button = () => {
   const [open, setOpen] = React.useState(false);
   const text = "Get more information about Ladle.";
   return (

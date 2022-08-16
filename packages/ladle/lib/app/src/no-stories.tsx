@@ -1,9 +1,11 @@
-import type * as React from "react";
 import { Code, Link } from "./ui";
 
-const NoStories: React.FC<{ wrongUrl?: boolean; activeStory?: string }> = ({
+const NoStories = ({
   wrongUrl,
   activeStory,
+}: {
+  wrongUrl?: boolean;
+  activeStory?: string;
 }) => (
   <div className="ladle-error-content">
     {wrongUrl ? (

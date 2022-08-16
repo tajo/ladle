@@ -47,7 +47,7 @@ test("Basic named exports", async () => {
 test("Basic named exports in typescript", async () => {
   expect(
     parseWithFn(
-      `export const MyStory: React.FC<{}> = () => null;`,
+      `export const MyStory = () => null;`,
       {},
       getNamedExports,
       "ExportNamedDeclaration",

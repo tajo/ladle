@@ -9,14 +9,21 @@ import config from "./get-config";
 import NoStories from "./no-stories";
 import { ModeState, ThemeState } from "../../shared/types";
 
-const StoryFrame: React.FC<{
+const StoryFrame = ({
+  children,
+  active,
+  width,
+  darkTheme,
+  story,
+  mode,
+}: {
   children: React.ReactElement;
   active: boolean;
   width: number;
   darkTheme: boolean;
   mode: ModeState;
   story: string;
-}> = ({ children, active, width, darkTheme, story, mode }) => {
+}) => {
   if ((!active && width === 0) || mode === ModeState.Preview) return children;
   return (
     <Frame
@@ -44,10 +51,13 @@ const StoryFrame: React.FC<{
 // detecting parent's document.head changes, so we can apply the same CSS for
 // the iframe, for CSS in JS we could target correct document directly but
 // import './foo.css' always ends up in the parent only
-const SynchronizeHead: React.FC<{
+const SynchronizeHead = ({
+  active,
+  children,
+}: {
   active: boolean;
   children: JSX.Element;
-}> = ({ active, children }) => {
+}) => {
   const { window: storyWindow } = useFrame();
   const syncHead = () => {
     if (!storyWindow) return;
@@ -83,10 +93,13 @@ const SynchronizeHead: React.FC<{
   return children;
 };
 
-const Story: React.FC<{
+const Story = ({
+  globalState,
+  dispatch,
+}: {
   globalState: GlobalState;
   dispatch: React.Dispatch<GlobalAction>;
-}> = ({ globalState, dispatch }) => {
+}) => {
   const storyData = stories[globalState.story];
   const width = globalState.width;
 

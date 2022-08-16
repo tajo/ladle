@@ -16,7 +16,7 @@ export const getQuery = (locationSearch: string) => {
   return config.addons.source.defaultState;
 };
 
-const CodeFrame: React.FC<{ globalState: GlobalState }> = ({ globalState }) => {
+const CodeFrame = ({ globalState }: { globalState: GlobalState }) => {
   const theme = globalState.theme === "dark" ? themeDark : themeLight;
   if (!stories[globalState.story]) {
     return <>There is no story loaded.</>;
@@ -94,7 +94,7 @@ const CodeFrame: React.FC<{ globalState: GlobalState }> = ({ globalState }) => {
   );
 };
 
-export const Button: React.FC<AddonProps> = ({ globalState, dispatch }) => {
+export const Button = ({ globalState, dispatch }: AddonProps) => {
   const text = "Show the story source code.";
 
   return (

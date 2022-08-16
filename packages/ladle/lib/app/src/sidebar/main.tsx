@@ -2,11 +2,15 @@ import * as React from "react";
 import TreeView from "./tree-view";
 import type { UpdateStory } from "../../../shared/types";
 
-const Main: React.FC<{
+const Main = ({
+  stories,
+  story,
+  updateStory,
+}: {
   stories: string[];
   story: string;
   updateStory: UpdateStory;
-}> = ({ stories, story, updateStory }) => {
+}) => {
   const [search, setSearch] = React.useState("");
   const searchEl = React.useRef(null);
   const treeRoot = React.useRef<HTMLUListElement | null>(null);

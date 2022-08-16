@@ -2,11 +2,15 @@ import * as React from "react";
 import { useLadleContext } from "./context";
 import { ActionType, ControlType, ControlState } from "../../shared/types";
 
-const ArgsProvider: React.FC<{
+const ArgsProvider = ({
+  component,
+  args,
+  argTypes,
+}: {
   component: any;
   args: any;
   argTypes: any;
-}> = ({ component, args, argTypes }) => {
+}) => {
   const { globalState, dispatch } = useLadleContext();
   React.useEffect(() => {
     const controls: ControlState = {};
