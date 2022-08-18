@@ -51,7 +51,7 @@ const bundler = async (config, configFolder) => {
     // When `middlewareMode` is true, vite's own base middleware won't redirect requests,
     // so we need to do that ourselves.
     const { base } = viteConfig;
-    if (base && base !== "/") {
+    if (base && base !== "/" && base !== "./") {
       app.get("/", (_, res) => res.redirect(base));
       app.get("/index.html", (_, res) => res.redirect(base));
     }
