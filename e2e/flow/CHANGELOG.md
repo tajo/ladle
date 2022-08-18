@@ -1,5 +1,12 @@
 # test-flow
 
+## 0.2.40
+
+### Patch Changes
+
+- Updated dependencies [[`2891aba`](https://github.com/tajo/ladle/commit/2891aba3a5bf59be190e1278d19469c8d626d103)]:
+  - @ladle/react@2.1.2
+
 ## 0.2.39
 
 ### Patch Changes
