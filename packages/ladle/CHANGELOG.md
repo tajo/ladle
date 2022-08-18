@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.1.2
+
+### Patch Changes
+
+- [#228](https://github.com/tajo/ladle/pull/228) [`2891aba`](https://github.com/tajo/ladle/commit/2891aba3a5bf59be190e1278d19469c8d626d103) Thanks [@Shinyaigeek](https://github.com/Shinyaigeek)! - fix prevent dev-server from redirecting loop in top page
+
 ## 2.1.1
 
 ### Patch Changes
