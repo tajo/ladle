@@ -24,6 +24,14 @@ test("meta.json is correctly using defaults and overrides", async ({
         version: 1,
       },
       stories: {
+        "args--card-hello": {
+          filePath: "src/args.stories.tsx",
+          levels: ["Args"],
+          locEnd: 39,
+          locStart: 39,
+          meta: {},
+          name: "Card hello",
+        },
         "hello--world": {
           name: "World",
           levels: ["Hello"],
