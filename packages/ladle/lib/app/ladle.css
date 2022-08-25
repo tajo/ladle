@@ -245,8 +245,8 @@ body {
 }
 
 .ladle-addon-modal-body select,
-input,
-textarea {
+.ladle-addon-modal-body input,
+.ladle-addon-modal-body textarea {
   font-size: 14px;
   border-radius: 4px;
   border: 1px solid var(--ladle-color-primary);
