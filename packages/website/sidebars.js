@@ -4,7 +4,7 @@ module.exports = {
       type: "category",
       label: "Getting Started",
       collapsible: false,
-      items: ["introduction", "setup", "stories"],
+      items: ["introduction", "setup", "stories", "decorators"],
     },
     {
       type: "category",
@@ -14,7 +14,7 @@ module.exports = {
     {
       type: "category",
       label: "Addons",
-      items: ["addons", "a11y", "links", "source", "width"],
+      items: ["addons", "a11y", "controls", "links", "source", "width"],
     },
     {
       type: "category",

@@ -104,6 +104,11 @@ export type StoryProps = {
   config: Config;
 };
 
+export type StoryDecorator = (
+  Story: React.FC,
+  context: StoryProps,
+) => React.ReactElement;
+
 export type StoryTreeItem = {
   id: string;
   subId: string;

@@ -1,15 +1,18 @@
 import * as React from "react";
+import config from "./get-config";
 import { useLadleContext } from "./context";
 import { ActionType, ControlType, ControlState } from "../../shared/types";
 
 const ArgsProvider = ({
   component,
+  decorator,
   args,
   argTypes,
 }: {
   component: any;
   args: any;
   argTypes: any;
+  decorator: any;
 }) => {
   const { globalState, dispatch } = useLadleContext();
   React.useEffect(() => {
@@ -101,7 +104,12 @@ const ArgsProvider = ({
   ) {
     return null;
   }
-  return React.createElement(component, props);
+  if (!decorator) return component(props);
+  return decorator(() => component(props), {
+    globalState,
+    dispatch,
+    config,
+  });
 };
 
 export default ArgsProvider;
