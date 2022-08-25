@@ -1,10 +1,13 @@
 import type * as React from "react";
 import { useLadleContext } from "./src/context";
 import {
+  StoryDecorator,
   ActionType,
   GlobalState,
   ThemeState,
   ModeState,
+  GlobalAction,
+  Config,
 } from "../shared/types";
 
 type ReactNodeWithoutObject =
@@ -16,6 +19,7 @@ type ReactNodeWithoutObject =
   | undefined;
 
 export { useLadleContext, ActionType, ThemeState, ModeState };
+export type { StoryDecorator };
 
 export const useLink = () => {
   const { dispatch } = useLadleContext();
@@ -24,6 +28,8 @@ export const useLink = () => {
 
 export type GlobalProvider = React.FC<{
   globalState: GlobalState;
+  dispatch: React.Dispatch<GlobalAction>;
+  config: Config;
   children: ReactNodeWithoutObject;
 }>;
 
@@ -33,8 +39,8 @@ export interface Story<P = {}> extends React.FC<P> {
   meta?: any;
   args?: Args;
   argTypes?: ArgTypes;
+  decorators?: StoryDecorator[];
 }
-
 export interface Args {
   [key: string]: any;
 }
