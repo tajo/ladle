@@ -1,5 +1,12 @@
 # test-css
 
+## 0.0.33
+
+### Patch Changes
+
+- Updated dependencies [[`2ecf274`](https://github.com/tajo/ladle/commit/2ecf2741249bd29b2fea08960b2add0f0d026c00), [`2ecf274`](https://github.com/tajo/ladle/commit/2ecf2741249bd29b2fea08960b2add0f0d026c00)]:
+  - @ladle/react@2.2.0
+
 ## 0.0.32
 
 ### Patch Changes

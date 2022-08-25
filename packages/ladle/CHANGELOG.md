@@ -1,5 +1,15 @@
 # @ladle/react
 
+## 2.2.0
+
+### Minor Changes
+
+- [#230](https://github.com/tajo/ladle/pull/230) [`2ecf274`](https://github.com/tajo/ladle/commit/2ecf2741249bd29b2fea08960b2add0f0d026c00) Thanks [@tajo](https://github.com/tajo)! - Add Ladle context as the second parameter for decorators. This change also fixes a bug when the usage of arg/argTypes disabled the decorators for the related story. More documentation added. New StoryDecorator type exported.
+
+### Patch Changes
+
+- [#230](https://github.com/tajo/ladle/pull/230) [`2ecf274`](https://github.com/tajo/ladle/commit/2ecf2741249bd29b2fea08960b2add0f0d026c00) Thanks [@tajo](https://github.com/tajo)! - Add default styles to addon inputs and buttons.
+
 ## 2.1.2
 
 ### Patch Changes
