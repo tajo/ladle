@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.2.1
+
+### Patch Changes
+
+- [`8d50c58`](https://github.com/tajo/ladle/commit/8d50c58475ea1536e5c2077e9ad58f522cb65da4) Thanks [@tajo](https://github.com/tajo)! - Fix leaking CSS styles for input and textarea
+
 ## 2.2.0
 
 ### Minor Changes
