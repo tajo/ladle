@@ -106,7 +106,9 @@ body {
   border-left: 0;
   border-right: 0;
   border-color: var(--ladle-color-hover);
-  border-width: 1px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-radius: 0;
   background-color: var(--ladle-bg-color-primary);
   font-size: 1em;
   color: var(--ladle-color-primary);
@@ -228,6 +230,34 @@ body {
   font-size: 18px;
   margin-inline-start: 0.5em;
   padding-top: 0.1em;
+}
+
+.ladle-addon-modal-body > button {
+  border: 0;
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 0.25em 0.5em;
+  margin: 1em 0em;
+  background: var(--ladle-color-accent);
+  color: #fff;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+.ladle-addon-modal-body select,
+input,
+textarea {
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid var(--ladle-color-primary);
+  padding: 0.5em 0.75em;
+  margin: 0;
+  background: var(--ladle-bg-color-primary);
+  color: var(--ladle-color-primary);
+}
+
+.ladle-addon-modal-body > button:hover {
+  color: #ccc;
 }
 
 .ladle-addon-tooltip {
