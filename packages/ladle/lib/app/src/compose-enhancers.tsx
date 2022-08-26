@@ -9,6 +9,7 @@ export default function composeEnhancers(module: any, storyName: string) {
     args: module[storyName].args,
     argTypes: module[storyName].argTypes,
     component: module[storyName],
+    decorator: (Component) => <Component />,
   };
   if (module[storyName] && Array.isArray(module[storyName].decorators)) {
     funcs = [...funcs, ...module[storyName].decorators];
