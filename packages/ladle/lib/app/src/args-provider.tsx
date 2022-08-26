@@ -104,7 +104,6 @@ const ArgsProvider = ({
   ) {
     return null;
   }
-  if (!decorator) return component(props);
   return decorator(() => component(props), {
     globalState,
     dispatch,
