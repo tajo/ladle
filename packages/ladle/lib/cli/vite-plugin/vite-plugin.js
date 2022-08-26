@@ -90,7 +90,11 @@ function ladlePlugin(config, configFolder, mode) {
         debug(`transforming: ${id}`);
         try {
           debug("Initial generation of the list");
-          const entryData = await getEntryData(await globby([config.stories]));
+          const entryData = await getEntryData(
+            await globby(
+              Array.isArray(config.stories) ? config.stories : [config.stories],
+            ),
+          );
           detectDuplicateStoryNames(entryData);
           return getGeneratedList(entryData, configFolder, config);
         } catch (/** @type {any} */ e) {

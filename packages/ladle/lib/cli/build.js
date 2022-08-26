@@ -2,7 +2,7 @@
 
 import path from "path";
 import { promises as fs } from "fs";
-import { performance } from 'perf_hooks';
+import { performance } from "perf_hooks";
 import { globby } from "globby";
 import viteProd from "./vite-prod.js";
 import debug from "./debug.js";
@@ -19,7 +19,11 @@ const build = async (params = {}) => {
   debug("Starting build command");
   const { configFolder, config } = await applyCLIConfig(params);
   await viteProd(config, configFolder);
-  const entryData = await getEntryData(await globby([config.stories]));
+  const entryData = await getEntryData(
+    await globby(
+      Array.isArray(config.stories) ? config.stories : [config.stories],
+    ),
+  );
   const jsonContent = getMetaJsonString(entryData);
   await fs.writeFile(
     path.join(process.cwd(), config.outDir, "meta.json"),

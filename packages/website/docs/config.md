@@ -23,9 +23,17 @@ Ladle does not require any configuration and some features can be controlled thr
 
 We use [globby](https://github.com/sindresorhus/globby), go there to learn about all possible search patterns. Ladle uses this parameter to find story files in your project.
 
+The entry of stories supports string or array of strings
+
 ```tsx
+// string
 export default {
   stories: "src/**/control.stories.{js,jsx,ts,tsx}",
+};
+
+// array of strings
+export default {
+  stories: ["src/**/control.stories.{js,jsx,ts,tsx}", "src/stories.custom.tsx"],
 };
 ```
 
