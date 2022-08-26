@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.2.2
+
+### Patch Changes
+
+- [#235](https://github.com/tajo/ladle/pull/235) [`7aee108`](https://github.com/tajo/ladle/commit/7aee1081276e994b0be611fec662d7fa7fa29740) Thanks [@tajo](https://github.com/tajo)! - Fix an edge case where args/decorators could cause a React hook rules error.
+
 ## 2.2.1
 
 ### Patch Changes
