@@ -244,6 +244,20 @@ body {
   letter-spacing: inherit;
 }
 
+.ladle-addons > ul > li > button > .ladle-badge {
+  font-style: normal;
+  min-width: 1.6em;
+  margin-left: 1em;
+  height: 1.6em;
+  border-radius: 0.8em;
+  background-color: #fa3e3e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  color: white;
+}
+
 .ladle-addon-modal-body select,
 .ladle-addon-modal-body input,
 .ladle-addon-modal-body textarea {
@@ -572,5 +586,12 @@ div[data-reach-dialog-overlay] {
 
   .ladle-addons > ul > li > button:hover .ladle-addon-tooltip {
     display: block;
+  }
+
+  .ladle-addons > ul > li > button > .ladle-badge {
+    position: absolute;
+    margin-left: 3.1em;
+    top: -0.7em;
+    font-size: 0.7em;
   }
 }

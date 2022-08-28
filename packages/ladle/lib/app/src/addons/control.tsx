@@ -255,6 +255,11 @@ const Control = ({
 export const Button = ({ globalState, dispatch }: AddonProps) => {
   const [open, setOpen] = React.useState(false);
   const text = "Explore different versions of this story through controls.";
+  const activeControls = Object.keys(globalState.control).filter(
+    (key) =>
+      JSON.stringify(globalState.control[key].value) !==
+      JSON.stringify(globalState.control[key].defaultValue),
+  );
   return (
     <li>
       <button
@@ -267,6 +272,9 @@ export const Button = ({ globalState, dispatch }: AddonProps) => {
         <Controls />
         <span className="ladle-addon-tooltip">{text}</span>
         <label>Story Controls</label>
+        {activeControls.length ? (
+          <div className="ladle-badge">{activeControls.length}</div>
+        ) : null}
         <Modal
           isOpen={open}
           close={() => setOpen(false)}
