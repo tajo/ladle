@@ -133,6 +133,9 @@ export const Button = () => {
         <A11y />
         <span className="ladle-addon-tooltip">{text}</span>
         <label>Accessibility report</label>
+        {violations.length ? (
+          <div className="ladle-badge">{violations.length}</div>
+        ) : null}
         <Modal
           isOpen={showReport}
           close={() => setShowReport(false)}
