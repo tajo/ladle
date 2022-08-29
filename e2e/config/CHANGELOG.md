@@ -1,5 +1,28 @@
 # test-provider
 
+## 0.3.0
+
+### Minor Changes
+
+- [#234](https://github.com/tajo/ladle/pull/234) [`15e179e`](https://github.com/tajo/ladle/commit/15e179e51d237bbeb153a306c0fcd64f32ec9590) Thanks [@jcleefw](https://github.com/jcleefw)! - Fix config file to support entry files of array of strings
+
+  The `.ladle/config.mjs` files now supports array of strings for stories
+
+  ```tsx
+  // array of strings
+  export default {
+    stories: [
+      "src/**/control.stories.{js,jsx,ts,tsx}",
+      "src/stories.custom.tsx",
+    ],
+  };
+  ```
+
+### Patch Changes
+
+- Updated dependencies [[`41d6e97`](https://github.com/tajo/ladle/commit/41d6e977125ba9c7d1d6d63f4b625573c1a88449), [`5ca04b6`](https://github.com/tajo/ladle/commit/5ca04b65f9a4ad00e663a42b5fc3a1146d7a49cd), [`5ca04b6`](https://github.com/tajo/ladle/commit/5ca04b65f9a4ad00e663a42b5fc3a1146d7a49cd), [`15e179e`](https://github.com/tajo/ladle/commit/15e179e51d237bbeb153a306c0fcd64f32ec9590)]:
+  - @ladle/react@2.3.0
+
 ## 0.2.44
 
 ### Patch Changes
