@@ -44,7 +44,11 @@ const bundler = async (config, configFolder) => {
     const { moduleGraph, ws } = vite;
     app.head("*", async (_, res) => res.sendStatus(200));
     app.get("/meta.json", async (_, res) => {
-      const entryData = await getEntryData(await globby([config.stories]));
+      const entryData = await getEntryData(
+        await globby(
+          Array.isArray(config.stories) ? config.stories : [config.stories],
+        ),
+      );
       const jsonContent = getMetaJsonObject(entryData);
       res.json(jsonContent);
     });
@@ -88,7 +92,11 @@ const bundler = async (config, configFolder) => {
     let checkSum = "";
     const getChecksum = async () => {
       try {
-        const entryData = await getEntryData(await globby([config.stories]));
+        const entryData = await getEntryData(
+          await globby(
+            Array.isArray(config.stories) ? config.stories : [config.stories],
+          ),
+        );
         const jsonContent = getMetaJsonObject(entryData);
         // loc changes should not grant a full reload
         Object.keys(jsonContent.stories).forEach((storyId) => {
