@@ -15,6 +15,13 @@ const ArgsProvider = ({
   decorator: any;
 }) => {
   const { globalState, dispatch } = useLadleContext();
+  const actionLogger = (name: String) => (event: Event) => {
+    dispatch({
+      type: ActionType.UpdateAction,
+      value: { name, event },
+      clear: false,
+    });
+  };
   React.useEffect(() => {
     const controls: ControlState = {};
     args &&
@@ -54,6 +61,15 @@ const ArgsProvider = ({
     argTypes &&
       Object.keys(argTypes).forEach((argKey) => {
         const argValue = argTypes[argKey];
+        if (argValue && argValue.action) {
+          controls[argKey] = {
+            type: ControlType.Action,
+            defaultValue: actionLogger(argKey),
+            value: actionLogger(argKey),
+            description: "",
+          };
+          return;
+        }
         if (!argValue.control || !argValue.control.type) {
           throw new Error("argTypes should have control type specified");
         }

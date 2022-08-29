@@ -36,6 +36,10 @@ export default {
     a11y: {
       enabled: true,
     },
+    action: {
+      enabled: true,
+      defaultState: [],
+    },
     ladle: {
       enabled: true,
     },

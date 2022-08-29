@@ -50,11 +50,13 @@ export const Modal = ({
   close,
   isOpen,
   label,
+  maxWidth = "40em",
 }: {
   children: React.ReactNode;
   close: () => void;
   isOpen: boolean;
   label?: string;
+  maxWidth?: string;
 }) => {
   return (
     //@ts-ignore
@@ -63,6 +65,7 @@ export const Modal = ({
       onDismiss={() => close()}
       aria-label={label || "Modal"}
       data-testid="ladle-dialog"
+      style={{ maxWidth }}
     >
       <div
         style={{

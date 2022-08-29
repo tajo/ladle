@@ -106,6 +106,14 @@ const Control = ({
   globalState: GlobalState;
   dispatch: React.Dispatch<GlobalAction>;
 }) => {
+  if (globalState.control[controlKey].type === ControlType.Action) {
+    return (
+      <tr>
+        <td>{controlKey}</td>
+        <td>action</td>
+      </tr>
+    );
+  }
   if (globalState.control[controlKey].type === ControlType.Function) {
     return (
       <tr>

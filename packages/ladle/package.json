@@ -61,6 +61,7 @@
     "prop-types": "^15.8.1",
     "query-string": "^7.1.1",
     "react-frame-component": "^5.2.3",
+    "react-inspector": "^6.0.1",
     "vite": "^3.0.8",
     "vite-tsconfig-paths": "^3.5.0"
   },

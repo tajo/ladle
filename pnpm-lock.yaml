@@ -249,6 +249,7 @@ importers:
       react: ^18.2.0
       react-dom: ^18.2.0
       react-frame-component: ^5.2.3
+      react-inspector: ^6.0.1
       vite: ^3.0.8
       vite-tsconfig-paths: ^3.5.0
     dependencies:
@@ -283,6 +284,7 @@ importers:
       prop-types: 15.8.1
       query-string: 7.1.1
       react-frame-component: 5.2.3_v2m5e27vhdewzwhryxwfaorcca
+      react-inspector: 6.0.1_react@18.2.0
       vite: 3.0.8
       vite-tsconfig-paths: 3.5.0_vite@3.0.8
     devDependencies:
@@ -14017,6 +14019,17 @@ packages:
       react-dom: 17.0.2_react@17.0.2
       react-fast-compare: 3.2.0
       shallowequal: 1.1.0
+    dev: false
+
+  /react-inspector/6.0.1_react@18.2.0:
+    resolution:
+      {
+        integrity: sha512-cxKSeFTf7jpSSVddm66sKdolG90qURAX3g1roTeaN6x0YEbtWc8JpmFN9+yIqLNH2uEkYerWLtJZIXRIFuBKrg==,
+      }
+    peerDependencies:
+      react: ^16.8.4 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-is/16.13.1:
