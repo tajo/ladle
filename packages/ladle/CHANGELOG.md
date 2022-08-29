@@ -1,5 +1,29 @@
 # @ladle/react
 
+## 2.3.0
+
+### Minor Changes
+
+- [#238](https://github.com/tajo/ladle/pull/238) [`41d6e97`](https://github.com/tajo/ladle/commit/41d6e977125ba9c7d1d6d63f4b625573c1a88449) Thanks [@tajo](https://github.com/tajo)! - Add red badges to addon buttons to signify when their state is changed.
+
+* [#240](https://github.com/tajo/ladle/pull/240) [`5ca04b6`](https://github.com/tajo/ladle/commit/5ca04b65f9a4ad00e663a42b5fc3a1146d7a49cd) Thanks [@tajo](https://github.com/tajo)! - Add the addon Action. Can be used through argTypes or dynamically as a direct import from Ladle.
+
+- [#240](https://github.com/tajo/ladle/pull/240) [`5ca04b6`](https://github.com/tajo/ladle/commit/5ca04b65f9a4ad00e663a42b5fc3a1146d7a49cd) Thanks [@tajo](https://github.com/tajo)! - Add linkTo as a simpler alternative to the useLink hook. It seems you can't really break the rule of hooks while using it directly.
+
+* [#234](https://github.com/tajo/ladle/pull/234) [`15e179e`](https://github.com/tajo/ladle/commit/15e179e51d237bbeb153a306c0fcd64f32ec9590) Thanks [@jcleefw](https://github.com/jcleefw)! - Fix config file to support entry files of array of strings
+
+  The `.ladle/config.mjs` files now supports array of strings for stories
+
+  ```tsx
+  // array of strings
+  export default {
+    stories: [
+      "src/**/control.stories.{js,jsx,ts,tsx}",
+      "src/stories.custom.tsx",
+    ],
+  };
+  ```
+
 ## 2.2.2
 
 ### Patch Changes
