@@ -99,6 +99,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         "@ladle/react-context",
         "react",
         "react-dom",
+        "react-inspector",
         "classnames",
         "debug",
         "history",

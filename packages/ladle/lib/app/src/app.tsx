@@ -42,6 +42,7 @@ const getUrlState = (search: string): GlobalState => ({
   source: getQuerySource(search),
   width: getQueryWidth(search),
   control: getQueryControl(search),
+  action: [],
 });
 
 const App = () => {

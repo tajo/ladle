@@ -4,6 +4,8 @@ type RecursivePartial<T> = {
   [P in keyof T]?: RecursivePartial<T[P]>;
 };
 
+export type ActionState = any[];
+
 export enum ModeState {
   Full = "full",
   Preview = "preview",
@@ -24,6 +26,7 @@ export enum ControlType {
   Function = "function",
   Radio = "radio",
   Select = "select",
+  Action = "action",
 }
 
 export type ControlState = {
@@ -39,6 +42,7 @@ export type ControlState = {
 export enum ActionType {
   UpdateAll = "update-all",
   UpdateMode = "update-mode",
+  UpdateAction = "update-action",
   UpdateRtl = "update-rtl",
   UpdateSource = "update-source",
   UpdateStory = "update-story",
@@ -55,6 +59,11 @@ export type GlobalAction =
   | {
       type: ActionType.UpdateMode;
       value: ModeState;
+    }
+  | {
+      type: ActionType.UpdateAction;
+      clear: boolean;
+      value: any;
     }
   | {
       type: ActionType.UpdateRtl;
@@ -84,6 +93,7 @@ export type GlobalAction =
 export type GlobalState = {
   mode: ModeState;
   theme: ThemeState;
+  action: ActionState;
   story: string;
   rtl: boolean;
   source: boolean;
@@ -158,6 +168,10 @@ export type Config = {
     mode: {
       enabled: boolean;
       defaultState: ModeState;
+    };
+    action: {
+      enabled: boolean;
+      defaultState: ActionState;
     };
     rtl: {
       enabled: boolean;

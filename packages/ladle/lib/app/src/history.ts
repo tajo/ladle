@@ -54,6 +54,10 @@ export const getHref = (params: Partial<GlobalState>) => {
       // for controls we are spreading individual args into URL
       Object.keys(params[key] as any).forEach((argKey) => {
         const arg = (params[key] as any)[argKey];
+        if (arg.type === ControlType.Action) {
+          // a special case, actions are handled by the addon-action
+          return;
+        }
 
         let type = "s";
         let value = arg.value;

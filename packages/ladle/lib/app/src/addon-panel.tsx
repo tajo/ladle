@@ -3,6 +3,7 @@ import type { Config, GlobalState, GlobalAction } from "../../shared/types";
 import { Button as ThemeButton } from "./addons/theme";
 import { Button as ControlButton } from "./addons/control";
 import { Button as ModeButton } from "./addons/mode";
+import { Button as ActionButton } from "./addons/action";
 import { Button as RtlButton } from "./addons/rtl";
 import { Button as SourceButton } from "./addons/source";
 import { Button as LadleButton } from "./addons/ladle";
@@ -50,6 +51,9 @@ const AddonPanel = ({
         )}
         {config.addons.a11y.enabled && <A11yButton />}
         {config.addons.ladle.enabled && <LadleButton />}
+        {config.addons.control.enabled && globalState.action.length > 0 && (
+          <ActionButton globalState={globalState} dispatch={dispatch} />
+        )}
       </ul>
     </header>
   );

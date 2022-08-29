@@ -14,7 +14,15 @@ module.exports = {
     {
       type: "category",
       label: "Addons",
-      items: ["addons", "a11y", "controls", "links", "source", "width"],
+      items: [
+        "addons",
+        "a11y",
+        "actions",
+        "controls",
+        "links",
+        "source",
+        "width",
+      ],
     },
     {
       type: "category",

@@ -21,9 +21,25 @@ type ReactNodeWithoutObject =
 export { useLadleContext, ActionType, ThemeState, ModeState };
 export type { StoryDecorator };
 
+// deprecated, linkTo is just easier to use
 export const useLink = () => {
   const { dispatch } = useLadleContext();
   return (value: string) => dispatch({ type: ActionType.UpdateStory, value });
+};
+
+export const linkTo = (value: string) => {
+  const { dispatch } = useLadleContext();
+  return () => dispatch({ type: ActionType.UpdateStory, value });
+};
+
+export const action = (name: string) => {
+  const { dispatch } = useLadleContext();
+  return (event: any) =>
+    dispatch({
+      type: ActionType.UpdateAction,
+      value: { name, event },
+      clear: false,
+    });
 };
 
 export type GlobalProvider = React.FC<{

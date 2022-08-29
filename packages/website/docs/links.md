@@ -7,11 +7,10 @@ You can link story from another story:
 
 ```tsx
 import * as React from "react";
-import { useLink } from "@ladle/react";
+import { linkTo } from "@ladle/react";
 
 export const Link = () => {
-  const to = useLink();
-  return <button onClick={() => to("controls--first")}>Controls</button>;
+  return <button onClick={linkTo("controls--first")}>Controls</button>;
 };
 ```
 
