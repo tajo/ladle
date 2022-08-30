@@ -1,5 +1,15 @@
 # @ladle/react
 
+## 2.4.0
+
+### Minor Changes
+
+- [#243](https://github.com/tajo/ladle/pull/243) [`f2d2cd3`](https://github.com/tajo/ladle/commit/f2d2cd3f5fd8991e7c65748c3854a9e6bdd48dab) Thanks [@tajo](https://github.com/tajo)! - Inject HTML into <head> through .ladle/head.html or appendToHead config option.
+
+### Patch Changes
+
+- [#241](https://github.com/tajo/ladle/pull/241) [`946f060`](https://github.com/tajo/ladle/commit/946f060f66ace419718e72974d30212bd102ae2d) Thanks [@tajo](https://github.com/tajo)! - Use the system settings for default browser if nothing is specified by user.
+
 ## 2.3.0
 
 ### Minor Changes
