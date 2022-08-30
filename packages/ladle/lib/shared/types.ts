@@ -150,6 +150,7 @@ export type PluginOptions = {
 export type Config = {
   stories: string;
   defaultStory: string;
+  appendToHead: string;
   viteConfig?: string;
   port: number;
   previewPort: number;

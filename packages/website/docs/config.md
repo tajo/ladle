@@ -3,10 +3,11 @@ id: config
 title: Config
 ---
 
-Ladle does not require any configuration and some features can be controlled through CLI parameters. However, more advanced setups might require some configuration. There are three different files you can create and use:
+Ladle does not require any configuration and some features can be controlled through CLI parameters. However, more advanced setups might require some configuration. There are a few different files you can create and use:
 
 - [`.ladle/components.tsx`](./providers), used in browser only to enhance your stories or provide them a context
 - `.ladle/config.mjs`, used in browser and CLI to configure things like the story search pattern or addons visibility
+- `.ladle/head.html`, injects additional HTML into the `<head>` of Ladle. Can be handy to load additional fonts or stylesheets. Alternative to the [appendToHead](#appendtohead) parameter.
 - [`vite.config.{js|mjs|ts}`](https://vitejs.dev/config/#config-file-resolving), used only by Vite (CLI node environment) to change any parameters of the compilation (things like aliasing, dependency pre-bundling, babel plugins...) and some aspects of the dev server (open browser on start...). You should get familiar with Vite docs!
 
 ## vite.config.{js|mjs|ts}
@@ -109,6 +110,18 @@ export default {
 };
 ```
 
+### appendToHead
+
+You can inject additional HTML into the `<head>` of Ladle:
+
+```tsx
+export default {
+  appendToHead: "<style>h1 {color:pink}</style>",
+};
+```
+
+The same effect can be achieved by creating a file `.ladle/head.html`.
+
 ### addons
 
 You can enable or disable all Ladle addons (the buttons in the left bottom corner). You can also control their default state.
@@ -118,6 +131,10 @@ export default {
   addons: {
     a11y: {
       enabled: true,
+    },
+    action: {
+      enabled: false,
+      defaultState: [],
     },
     control: {
       enabled: true,
