@@ -137,7 +137,7 @@ async function startBrowserProcess(browser, url, args) {
   // (It will always open new tab)
   try {
     var options = {
-      app: { name: browser ? browser : undefined },
+      ...(browser ? { app: { name: browser } } : {}),
       wait: false,
       url: true,
     };
