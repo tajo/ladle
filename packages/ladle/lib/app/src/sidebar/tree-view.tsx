@@ -188,11 +188,13 @@ const NavigationSection = ({
                     (treeItemRefs.current[treeProps.id] = element)
                   }
                   href={getHref({ story: treeProps.id })}
-                  onKeyDown={(e) => onKeyDownFn(e, treeProps)}
+                  onKeyDown={(e) =>
+                    story !== treeProps.id && onKeyDownFn(e, treeProps)
+                  }
                   onClick={(e) => {
                     if (!e.ctrlKey && !e.metaKey) {
                       e.preventDefault();
-                      updateStory(treeProps.id);
+                      story !== treeProps.id && updateStory(treeProps.id);
                     }
                   }}
                 >
