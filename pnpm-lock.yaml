@@ -236,6 +236,7 @@ importers:
       commander: ^9.4.0
       cross-spawn: ^7.0.3
       debug: ^4.3.4
+      default-browser: ^3.1.0
       express: ^4.18.1
       get-port: ^6.1.2
       globby: ^13.1.2
@@ -274,6 +275,7 @@ importers:
       commander: 9.4.0
       cross-spawn: 7.0.3
       debug: 4.3.4
+      default-browser: 3.1.0
       express: 4.18.1
       get-port: 6.1.2
       globby: 13.1.2
@@ -6268,6 +6270,14 @@ packages:
       is-windows: 1.0.2
     dev: true
 
+  /big-integer/1.6.51:
+    resolution:
+      {
+        integrity: sha512-GPEid2Y9QU1Exl1rpO9B2IPJGHPSupF5GnVIP0blYvNOMer2bTvSWs1jGOUg04hTmu67nmLsQ9TBo1puaotBHg==,
+      }
+    engines: { node: ">=0.6" }
+    dev: false
+
   /big.js/5.2.2:
     resolution:
       {
@@ -6382,6 +6392,16 @@ packages:
       wrap-ansi: 8.0.1
     dev: false
 
+  /bplist-parser/0.2.0:
+    resolution:
+      {
+        integrity: sha512-z0M+byMThzQmD9NILRniCUXYsYpjwnlO8N5uCFaCqIOpqRsJCrQL9NK3JsD67CN5a08nF5oIL2bD6loTdHOuKw==,
+      }
+    engines: { node: ">= 5.10.0" }
+    dependencies:
+      big-integer: 1.6.51
+    dev: false
+
   /brace-expansion/1.1.11:
     resolution:
       {
@@ -6445,6 +6465,16 @@ packages:
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.2.1
+    dev: false
+
+  /bundle-name/3.0.0:
+    resolution:
+      {
+        integrity: sha512-PKA4BeSvBpQKQ8iPOGCSiell+N8P+Tf1DlwqmYhpe2gAhKPHn8EYOxVT+ShuGmhg8lN8XiSlS80yiExKXrURlw==,
+      }
+    engines: { node: ">=12" }
+    dependencies:
+      run-applescript: 5.0.0
     dev: false
 
   /bytes/3.0.0:
@@ -7274,6 +7304,17 @@ packages:
       - encoding
     dev: false
 
+  /cross-spawn-async/2.2.5:
+    resolution:
+      {
+        integrity: sha512-snteb3aVrxYYOX9e8BabYFK9WhCDhTlw1YQktfTthBogxri4/2r9U2nQc0ffY73ZAxezDc+U8gvHAeU1wy1ubQ==,
+      }
+    deprecated: cross-spawn no longer requires a build toolchain, use it instead
+    dependencies:
+      lru-cache: 4.1.5
+      which: 1.3.1
+    dev: false
+
   /cross-spawn/5.1.0:
     resolution:
       {
@@ -7681,6 +7722,30 @@ packages:
         integrity: sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==,
       }
     engines: { node: ">=0.10.0" }
+
+  /default-browser-id/3.0.0:
+    resolution:
+      {
+        integrity: sha512-OZ1y3y0SqSICtE8DE4S8YOE9UZOJ8wO16fKWVP5J1Qz42kV9jcnMVFrEE/noXb/ss3Q4pZIH79kxofzyNNtUNA==,
+      }
+    engines: { node: ">=12" }
+    dependencies:
+      bplist-parser: 0.2.0
+      untildify: 4.0.0
+    dev: false
+
+  /default-browser/3.1.0:
+    resolution:
+      {
+        integrity: sha512-SOHecvSoairSAWxEHP/0qcsld/KtI3DargfEuELQDyHIYmS2EMgdGhHOTC1GxaYr+NLUV6kDroeiSBfnNHnn8w==,
+      }
+    engines: { node: ">=12" }
+    dependencies:
+      bundle-name: 3.0.0
+      default-browser-id: 3.0.0
+      execa: 5.1.1
+      xdg-default-browser: 2.1.0
+    dev: false
 
   /default-gateway/6.0.3:
     resolution:
@@ -8825,6 +8890,20 @@ packages:
         integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==,
       }
     engines: { node: ">=0.8.x" }
+    dev: false
+
+  /execa/0.2.2:
+    resolution:
+      {
+        integrity: sha512-zmBGzLd3nhA/NB9P7VLoceAO6vyYPftvl809Vjwe5U2fYI9tYWbeKqP3wZlAw9WS+znnkogf/bhSU+Gcn2NbkQ==,
+      }
+    engines: { node: ">=0.12" }
+    dependencies:
+      cross-spawn-async: 2.2.5
+      npm-run-path: 1.0.0
+      object-assign: 4.1.1
+      path-key: 1.0.0
+      strip-eof: 1.0.0
     dev: false
 
   /execa/4.1.0:
@@ -11770,7 +11849,6 @@ packages:
     dependencies:
       pseudomap: 1.0.2
       yallist: 2.1.2
-    dev: true
 
   /lru-cache/6.0.0:
     resolution:
@@ -12365,6 +12443,16 @@ packages:
     engines: { node: ">=10" }
     dev: false
 
+  /npm-run-path/1.0.0:
+    resolution:
+      {
+        integrity: sha512-PrGAi1SLlqNvKN5uGBjIgnrTb8fl0Jz0a3JJmeMcGnIBh7UE9Gc4zsAMlwDajOMg2b1OgP6UPvoLUboTmMZPFA==,
+      }
+    engines: { node: ">=0.10.0" }
+    dependencies:
+      path-key: 1.0.0
+    dev: false
+
   /npm-run-path/4.0.1:
     resolution:
       {
@@ -12804,6 +12892,14 @@ packages:
       {
         integrity: sha512-DUWJr3+ULp4zXmol/SZkFf3JGsS9/SIv+Y3Rt93/UjPpDpklB5f1er4O3POIbUuUJ3FXgqte2Q7SrU6zAqwk8w==,
       }
+    dev: false
+
+  /path-key/1.0.0:
+    resolution:
+      {
+        integrity: sha512-T3hWy7tyXlk3QvPFnT+o2tmXRzU4GkitkUWLp/WZ0S/FXd7XMx176tRurgTvHTNMJOQzTcesHNpBqetH86mQ9g==,
+      }
+    engines: { node: ">=0.10.0" }
     dev: false
 
   /path-key/3.1.1:
@@ -13742,7 +13838,6 @@ packages:
       {
         integrity: sha512-b/YwNhb8lk1Zz2+bXXpS/LK9OisiZZ1SNsSLxN1x2OXVEhW2Ckr/7mWE5vrC1ZTiJlD9g19jWszTmJsB+oEpFQ==,
       }
-    dev: true
 
   /pump/3.0.0:
     resolution:
@@ -14701,6 +14796,16 @@ packages:
       strip-json-comments: 3.1.1
     dev: false
 
+  /run-applescript/5.0.0:
+    resolution:
+      {
+        integrity: sha512-XcT5rBksx1QdIhlFOCtgZkB99ZEouFZ1E2Kc2LHqNW13U3/74YGdkQRmThTwxy4QIyookibDKYZOPqX//6BlAg==,
+      }
+    engines: { node: ">=12" }
+    dependencies:
+      execa: 5.1.1
+    dev: false
+
   /run-parallel/1.2.0:
     resolution:
       {
@@ -15568,6 +15673,14 @@ packages:
     engines: { node: ">=8" }
     dev: true
 
+  /strip-eof/1.0.0:
+    resolution:
+      {
+        integrity: sha512-7FCwGGmx8mD5xQd3RPUvnSpUXHM3BWuzjtpD4TXsfcZ9EL4azvVVUscFYwD9nx8Kh+uCBC00XBtAykoMHwTh8Q==,
+      }
+    engines: { node: ">=0.10.0" }
+    dev: false
+
   /strip-final-newline/2.0.0:
     resolution:
       {
@@ -15875,6 +15988,14 @@ packages:
       {
         integrity: sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==,
       }
+    dev: false
+
+  /titleize/1.0.1:
+    resolution:
+      {
+        integrity: sha512-rUwGDruKq1gX+FFHbTl5qjI7teVO7eOe+C8IcQ7QT+1BK3eEUXJqbZcBOeaRP4FwSC/C1A5jDoIVta0nIQ9yew==,
+      }
+    engines: { node: ">=0.10.0" }
     dev: false
 
   /tmp/0.0.33:
@@ -16536,6 +16657,14 @@ packages:
         integrity: sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ==,
       }
     engines: { node: ">= 0.8" }
+    dev: false
+
+  /untildify/4.0.0:
+    resolution:
+      {
+        integrity: sha512-KK8xQ1mkzZeg9inewmFVDNkg3l5LUhoq9kN6iWYB/CC9YMG8HA+c1Q8HwDe6dEX7kErrEVNVBO3fWsVq5iDgtw==,
+      }
+    engines: { node: ">=8" }
     dev: false
 
   /update-browserslist-db/1.0.5_browserslist@4.21.3:
@@ -17298,6 +17427,17 @@ packages:
     engines: { node: ">=8" }
     dev: false
 
+  /xdg-default-browser/2.1.0:
+    resolution:
+      {
+        integrity: sha512-HY4G725+IDQr16N8XOjAms5qJGArdJaWIuC7Q7A8UXIwj2mifqnPXephazyL7sIkQPvmEoPX3E0v2yFv6hQUNg==,
+      }
+    engines: { node: ">=4" }
+    dependencies:
+      execa: 0.2.2
+      titleize: 1.0.1
+    dev: false
+
   /xml-js/1.6.11:
     resolution:
       {
@@ -17336,7 +17476,6 @@ packages:
       {
         integrity: sha512-ncTzHV7NvsQZkYe1DW7cbDLm0YpzHmZF5r/iyP3ZnQtMiJ+pjzisCiMNI+Sj+xQF5pXhSHxSB3uDbsBTzY/c2A==,
       }
-    dev: true
 
   /yallist/4.0.0:
     resolution:
