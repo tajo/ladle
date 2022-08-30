@@ -24,6 +24,7 @@ export default async function applyCLIConfig(params) {
   config.previewPort = params.previewPort || config.previewPort;
   config.base = params.base || config.base;
   config.mode = params.mode || config.mode;
+  config.appendToHead = params.appendToHead || config.appendToHead;
   debug(`Final config:\n${JSON.stringify(config, null, "  ")}`);
   process.env["VITE_PUBLIC_LADLE_THEME"] = config.addons.theme.defaultState;
   process.env["VITE_PUBLIC_STORIES"] = config.stories;

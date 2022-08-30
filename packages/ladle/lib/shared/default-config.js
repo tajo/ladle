@@ -5,6 +5,7 @@ export default {
   stories: "src/**/*.stories.{js,jsx,ts,tsx}",
   defaultStory: "", // default story id to load, alphabetical by default
   viteConfig: undefined,
+  appendToHead: "",
   port: 61000,
   previewPort: 8080,
   outDir: "build",

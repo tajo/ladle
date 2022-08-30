@@ -1,5 +1,6 @@
 import { globby } from "globby";
 import path from "path";
+import fs from "fs";
 import { fileURLToPath } from "url";
 import debugFactory from "debug";
 import getGeneratedList from "./generate/get-generated-list.js";
@@ -34,6 +35,7 @@ export const Provider = ({ children }: { children: any }) =>
 function ladlePlugin(config, configFolder, mode) {
   const virtualModuleId = "virtual:generated-list";
   const resolvedVirtualModuleId = "\0" + virtualModuleId;
+  const headHtmlPath = path.join(configFolder, "head.html");
   return {
     name: "ladle-plugin",
     /**
@@ -44,6 +46,24 @@ function ladlePlugin(config, configFolder, mode) {
         return resolvedVirtualModuleId;
       }
       return null;
+    },
+    transformIndexHtml: {
+      /**
+       * @param {string} html
+       * @param {any} ctx
+       */
+      transform(html, ctx) {
+        if (ctx.path === "/index.html") {
+          if (fs.existsSync(headHtmlPath)) {
+            const headHtml = fs.readFileSync(headHtmlPath, "utf8");
+            html = html.replace("</head>", `${headHtml}</head>`);
+          }
+          if (config.appendToHead !== "") {
+            html = html.replace("</head>", `${config.appendToHead}</head>`);
+          }
+        }
+        return html;
+      },
     },
     /**
      * @param {string} code
