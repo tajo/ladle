@@ -1,5 +1,13 @@
 # @ladle/react
 
+## 2.4.1
+
+### Patch Changes
+
+- [#251](https://github.com/tajo/ladle/pull/251) [`223d904`](https://github.com/tajo/ladle/commit/223d9040067bc9fcfb42dd7faef150d37ce62a49) Thanks [@tajo](https://github.com/tajo)! - Don't navigate to an already active story.
+
+- [#248](https://github.com/tajo/ladle/pull/248) [`0b52fe0`](https://github.com/tajo/ladle/commit/0b52fe05c3e8599b51e2d1038be42c84b08a22cc) Thanks [@tajo](https://github.com/tajo)! - Fix HMR and add e2e tests.
+
 ## 2.4.0
 
 ### Minor Changes
