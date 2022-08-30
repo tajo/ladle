@@ -120,7 +120,7 @@ const ArgsProvider = ({
   ) {
     return null;
   }
-  return decorator(() => component(props), {
+  return decorator(() => React.createElement(component, props), {
     globalState,
     dispatch,
     config,
