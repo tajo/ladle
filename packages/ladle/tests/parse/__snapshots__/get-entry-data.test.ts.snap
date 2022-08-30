@@ -1,24 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Capital letters in story names converted into delimiters 1`] = `
-Object {
+{
   "entry": "tests/fixtures/capitalization.stories.tsx",
-  "exportDefaultProps": Object {
+  "exportDefaultProps": {
     "meta": undefined,
     "title": undefined,
   },
   "fileId": "capitalization",
-  "namedExportToMeta": Object {},
-  "namedExportToStoryName": Object {},
-  "stories": Array [
-    Object {
+  "namedExportToMeta": {},
+  "namedExportToStoryName": {},
+  "stories": [
+    {
       "componentName": "capitalization$$blue$tiny$cat",
       "locEnd": 5,
       "locStart": 3,
       "namedExport": "BlueTinyCat",
       "storyId": "capitalization--blue-tiny-cat",
     },
-    Object {
+    {
       "componentName": "capitalization$$big$barking$dog",
       "locEnd": 9,
       "locStart": 7,
@@ -26,8 +26,8 @@ Object {
       "storyId": "capitalization--big-barking-dog",
     },
   ],
-  "storyParams": Object {},
-  "storySource": "import * as React from \\"react\\";
+  "storyParams": {},
+  "storySource": "import * as React from "react";
 
 export const BlueTinyCat = () => {
   return <h1>Blue Tiny Cat</h1>;
@@ -41,17 +41,17 @@ export const BigBarkingDog = () => {
 `;
 
 exports[`Capital letters in the filename converted into delimiters 1`] = `
-Object {
+{
   "entry": "tests/fixtures/filenameCapitalization.stories.tsx",
-  "exportDefaultProps": Object {
+  "exportDefaultProps": {
     "meta": undefined,
     "title": undefined,
   },
   "fileId": "filenameCapitalization",
-  "namedExportToMeta": Object {},
-  "namedExportToStoryName": Object {},
-  "stories": Array [
-    Object {
+  "namedExportToMeta": {},
+  "namedExportToStoryName": {},
+  "stories": [
+    {
       "componentName": "filename$capitalization$$test",
       "locEnd": 5,
       "locStart": 3,
@@ -59,8 +59,8 @@ Object {
       "storyId": "filename-capitalization--test",
     },
   ],
-  "storyParams": Object {},
-  "storySource": "import * as React from \\"react\\";
+  "storyParams": {},
+  "storySource": "import * as React from "react";
 
 export const Test = () => {
   return <h1>Test</h1>;
@@ -70,17 +70,17 @@ export const Test = () => {
 `;
 
 exports[`Default title is used instead of the file name 1`] = `
-Object {
+{
   "entry": "tests/fixtures/default-title.stories.tsx",
-  "exportDefaultProps": Object {
+  "exportDefaultProps": {
     "meta": undefined,
     "title": "Title",
   },
   "fileId": "default-title",
-  "namedExportToMeta": Object {},
-  "namedExportToStoryName": Object {},
-  "stories": Array [
-    Object {
+  "namedExportToMeta": {},
+  "namedExportToStoryName": {},
+  "stories": [
+    {
       "componentName": "title$$cat",
       "locEnd": 9,
       "locStart": 7,
@@ -88,11 +88,11 @@ Object {
       "storyId": "title--cat",
     },
   ],
-  "storyParams": Object {},
-  "storySource": "import * as React from \\"react\\";
+  "storyParams": {},
+  "storySource": "import * as React from "react";
 
 export default {
-  title: \\"Title\\",
+  title: "Title",
 };
 
 export const Cat = () => {
@@ -103,12 +103,12 @@ export const Cat = () => {
 `;
 
 exports[`Extract and merge story meta 1`] = `
-Object {
+{
   "entry": "tests/fixtures/story-meta.stories.tsx",
-  "exportDefaultProps": Object {
-    "meta": Object {
-      "baseweb": Object {
-        "browsers": Array [
+  "exportDefaultProps": {
+    "meta": {
+      "baseweb": {
+        "browsers": [
           "chrome",
           "webkit",
         ],
@@ -118,10 +118,10 @@ Object {
     "title": "Title",
   },
   "fileId": "story-meta",
-  "namedExportToMeta": Object {
-    "Cat": Object {
-      "baseweb": Object {
-        "browsers": Array [
+  "namedExportToMeta": {
+    "Cat": {
+      "baseweb": {
+        "browsers": [
           "chrome",
           "firefox",
         ],
@@ -130,16 +130,16 @@ Object {
       "links": true,
     },
   },
-  "namedExportToStoryName": Object {},
-  "stories": Array [
-    Object {
+  "namedExportToStoryName": {},
+  "stories": [
+    {
       "componentName": "title$$cat",
       "locEnd": 15,
       "locStart": 13,
       "namedExport": "Cat",
       "storyId": "title--cat",
     },
-    Object {
+    {
       "componentName": "title$$dog",
       "locEnd": 27,
       "locStart": 25,
@@ -147,11 +147,11 @@ Object {
       "storyId": "title--dog",
     },
   ],
-  "storyParams": Object {
-    "title--cat": Object {
-      "meta": Object {
-        "baseweb": Object {
-          "browsers": Array [
+  "storyParams": {
+    "title--cat": {
+      "meta": {
+        "baseweb": {
+          "browsers": [
             "chrome",
             "firefox",
           ],
@@ -162,10 +162,10 @@ Object {
       },
       "title": "Title",
     },
-    "title--dog": Object {
-      "meta": Object {
-        "baseweb": Object {
-          "browsers": Array [
+    "title--dog": {
+      "meta": {
+        "baseweb": {
+          "browsers": [
             "chrome",
             "webkit",
           ],
@@ -175,14 +175,14 @@ Object {
       "title": "Title",
     },
   },
-  "storySource": "import * as React from \\"react\\";
+  "storySource": "import * as React from "react";
 
 export default {
-  title: \\"Title\\",
+  title: "Title",
   meta: {
     baseweb: {
-      theme: \\"dark\\",
-      browsers: [\\"chrome\\", \\"webkit\\"],
+      theme: "dark",
+      browsers: ["chrome", "webkit"],
     },
   },
 };
@@ -193,8 +193,8 @@ export const Cat = () => {
 
 Cat.meta = {
   baseweb: {
-    browsers: [\\"chrome\\", \\"firefox\\"],
-    width: \\"500px\\",
+    browsers: ["chrome", "firefox"],
+    width: "500px",
   },
   links: true,
 };
@@ -207,21 +207,21 @@ export const Dog = () => {
 `;
 
 exports[`Extract default meta 1`] = `
-Object {
+{
   "entry": "tests/fixtures/default-meta.stories.tsx",
-  "exportDefaultProps": Object {
-    "meta": Object {
-      "baseweb": Object {
+  "exportDefaultProps": {
+    "meta": {
+      "baseweb": {
         "foo": "title",
       },
     },
     "title": "Title",
   },
   "fileId": "default-meta",
-  "namedExportToMeta": Object {},
-  "namedExportToStoryName": Object {},
-  "stories": Array [
-    Object {
+  "namedExportToMeta": {},
+  "namedExportToStoryName": {},
+  "stories": [
+    {
       "componentName": "title$$cat",
       "locEnd": 14,
       "locStart": 12,
@@ -229,23 +229,23 @@ Object {
       "storyId": "title--cat",
     },
   ],
-  "storyParams": Object {
-    "title--cat": Object {
-      "meta": Object {
-        "baseweb": Object {
+  "storyParams": {
+    "title--cat": {
+      "meta": {
+        "baseweb": {
           "foo": "title",
         },
       },
       "title": "Title",
     },
   },
-  "storySource": "import * as React from \\"react\\";
+  "storySource": "import * as React from "react";
 
 export default {
-  title: \\"Title\\",
+  title: "Title",
   meta: {
     baseweb: {
-      foo: \\"title\\",
+      foo: "title",
     },
   },
 };
@@ -258,24 +258,24 @@ export const Cat = () => {
 `;
 
 exports[`Single file with two stories 1`] = `
-Object {
+{
   "entry": "tests/fixtures/animals.stories.tsx",
-  "exportDefaultProps": Object {
+  "exportDefaultProps": {
     "meta": undefined,
     "title": undefined,
   },
   "fileId": "animals",
-  "namedExportToMeta": Object {},
-  "namedExportToStoryName": Object {},
-  "stories": Array [
-    Object {
+  "namedExportToMeta": {},
+  "namedExportToStoryName": {},
+  "stories": [
+    {
       "componentName": "animals$$cat",
       "locEnd": 5,
       "locStart": 3,
       "namedExport": "Cat",
       "storyId": "animals--cat",
     },
-    Object {
+    {
       "componentName": "animals$$dog",
       "locEnd": 9,
       "locStart": 7,
@@ -283,8 +283,8 @@ Object {
       "storyId": "animals--dog",
     },
   ],
-  "storyParams": Object {},
-  "storySource": "import * as React from \\"react\\";
+  "storyParams": {},
+  "storySource": "import * as React from "react";
 
 export const Cat = () => {
   return <h1>Cat</h1>;
@@ -298,34 +298,34 @@ export const Dog = () => {
 `;
 
 exports[`Story name replaces named export as a story name 1`] = `
-Object {
+{
   "entry": "tests/fixtures/storyname.stories.tsx",
-  "exportDefaultProps": Object {
+  "exportDefaultProps": {
     "meta": undefined,
     "title": undefined,
   },
   "fileId": "storyname",
-  "namedExportToMeta": Object {},
-  "namedExportToStoryName": Object {
+  "namedExportToMeta": {},
+  "namedExportToStoryName": {
     "CapitalReplaced": "Champs Élysées",
     "Cat": "Doggo",
   },
-  "stories": Array [
-    Object {
+  "stories": [
+    {
       "componentName": "storyname$$doggo",
       "locEnd": 8,
       "locStart": 3,
       "namedExport": "Cat",
       "storyId": "storyname--doggo",
     },
-    Object {
+    {
       "componentName": "storyname$$capital$city",
       "locEnd": 15,
       "locStart": 13,
       "namedExport": "CapitalCity",
       "storyId": "storyname--capital-city",
     },
-    Object {
+    {
       "componentName": "storyname$$champs$élysées",
       "locEnd": 19,
       "locStart": 17,
@@ -333,18 +333,18 @@ Object {
       "storyId": "storyname--champs-élysées",
     },
   ],
-  "storyParams": Object {},
-  "storySource": "import * as React from \\"react\\";
+  "storyParams": {},
+  "storySource": "import * as React from "react";
 
 export const Cat = () => {
-  const Stop = { storyName: \\"\\" };
+  const Stop = { storyName: "" };
   // should be ignored
-  Stop.storyName = \\"What\\";
+  Stop.storyName = "What";
   return <h1>Cat</h1>;
 };
 
-Cat.storyName = \\"Doggo\\";
-Cat.foo = \\"Ha\\";
+Cat.storyName = "Doggo";
+Cat.foo = "Ha";
 
 export const CapitalCity = () => {
   return <h1>DC</h1>;
@@ -353,23 +353,23 @@ export const CapitalCity = () => {
 export const CapitalReplaced = () => {
   return <h1>CapitalReplaced</h1>;
 };
-CapitalReplaced.storyName = \\"Champs Élysées\\";
+CapitalReplaced.storyName = "Champs Élysées";
 ",
 }
 `;
 
 exports[`Turn file name delimiters into spaces and levels correctly 1`] = `
-Object {
+{
   "entry": "tests/fixtures/our-animals--mammals.stories.tsx",
-  "exportDefaultProps": Object {
+  "exportDefaultProps": {
     "meta": undefined,
     "title": undefined,
   },
   "fileId": "our-animals--mammals",
-  "namedExportToMeta": Object {},
-  "namedExportToStoryName": Object {},
-  "stories": Array [
-    Object {
+  "namedExportToMeta": {},
+  "namedExportToStoryName": {},
+  "stories": [
+    {
       "componentName": "our$animals$$mammals$$cat",
       "locEnd": 5,
       "locStart": 3,
@@ -377,8 +377,8 @@ Object {
       "storyId": "our-animals--mammals--cat",
     },
   ],
-  "storyParams": Object {},
-  "storySource": "import * as React from \\"react\\";
+  "storyParams": {},
+  "storySource": "import * as React from "react";
 
 export const Cat = () => {
   return <h1>Cat</h1>;
