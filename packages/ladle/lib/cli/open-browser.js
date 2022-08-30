@@ -4,7 +4,7 @@
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { execSync } from "child_process";
-import spawn from "cross-spawn";
+import defaultBrowser from "default-browser";
 import open from "open";
 import { createRequire } from "module";
 
@@ -39,8 +39,6 @@ function getBrowserEnv(browser) {
   if (!value) {
     // Default.
     action = Actions.BROWSER;
-  } else if (value.toLowerCase().endsWith(".js")) {
-    action = Actions.SCRIPT;
   } else if (value.toLowerCase() === "none") {
     action = Actions.NONE;
   } else {
@@ -51,57 +49,43 @@ function getBrowserEnv(browser) {
 
 /**
  *
- * @param {string} scriptPath
- * @param {string} url
- * @returns
- */
-function executeNodeScript(scriptPath = "", url) {
-  const extraArgs = process.argv.slice(2);
-  const child = spawn(process.execPath, [scriptPath, ...extraArgs, url], {
-    stdio: "inherit",
-  });
-  child.on("close", (code) => {
-    if (code !== 0) {
-      console.log();
-      console.log(
-        "The script specified as BROWSER environment variable failed.",
-      );
-      console.log(scriptPath + " exited with code " + code + ".");
-      console.log();
-      return;
-    }
-  });
-  return true;
-}
-
-/**
- *
  * @param {string | string[] | undefined} browser
  * @param {string} url
  * @param {string[]} args
  * @returns
  */
-function startBrowserProcess(browser, url, args) {
-  // If we're on OS X, the user hasn't specifically
-  // requested a different browser, we can try opening
-  // Chrome with AppleScript. This lets us reuse an
-  // existing tab when possible instead of creating a new one.
+async function startBrowserProcess(browser, url, args) {
+  const supportedChromiumBrowsers = [
+    "Google Chrome Canary",
+    "Google Chrome Dev",
+    "Google Chrome Beta",
+    "Google Chrome",
+    "Microsoft Edge",
+    "Brave Browser",
+    "Vivaldi",
+    "Chromium",
+  ];
+
+  let isDefaultChromium = true;
+
+  try {
+    // if no browser is set we prefer to use the system default
+    const systemBrowser = await defaultBrowser();
+    isDefaultChromium = supportedChromiumBrowsers.some((chrome) =>
+      chrome
+        .toLocaleLowerCase()
+        .includes(systemBrowser.name.toLocaleLowerCase()),
+    );
+  } catch (e) {}
+
+  // chromium is able to reuse open tabs so it needs special handling
   const shouldTryOpenChromiumWithAppleScript =
     process.platform === "darwin" &&
-    (typeof browser !== "string" || browser === OSX_CHROME);
+    ((typeof browser !== "string" && isDefaultChromium) ||
+      browser === OSX_CHROME);
 
   if (shouldTryOpenChromiumWithAppleScript) {
     // Will use the first open browser found from list
-    const supportedChromiumBrowsers = [
-      "Google Chrome Canary",
-      "Google Chrome Dev",
-      "Google Chrome Beta",
-      "Google Chrome",
-      "Microsoft Edge",
-      "Brave Browser",
-      "Vivaldi",
-      "Chromium",
-    ];
 
     for (let chromiumBrowser of supportedChromiumBrowsers) {
       try {
@@ -153,7 +137,7 @@ function startBrowserProcess(browser, url, args) {
   // (It will always open new tab)
   try {
     var options = {
-      app: { name: browser || OSX_CHROME },
+      ...(browser ? { app: { name: browser } } : {}),
       wait: false,
       url: true,
     };
@@ -171,17 +155,12 @@ function startBrowserProcess(browser, url, args) {
  * @param {string | undefined} browser
  * @returns
  */
-function openBrowser(url, browser) {
+async function openBrowser(url, browser) {
   const { action, value, args } = getBrowserEnv(browser);
   switch (action) {
     case Actions.NONE:
       // Special case: BROWSER="none" will prevent opening completely.
       return false;
-    case Actions.SCRIPT:
-      try {
-        return executeNodeScript(value, url);
-      } catch (e) {}
-      return true;
     case Actions.BROWSER:
       return startBrowserProcess(value, url, args);
     default:
