@@ -14,4 +14,4 @@ Ladle supports only React, embraces the latest standards (ES Modules) and focuse
 
 Ladle still produces an optimized bundle using [rollup](https://rollupjs.org/guide/en/) when it's time to deploy it. Without adding a single component **Storybook 6.4 outputs 5.1MB of assets. Ladle only 250KB**. Ladle is almost 20x smaller.
 
-Each Ladle story gets automatically code-split, so it doesn't matter how many components your want it to handle. Ladle always loads fast.
+Each Ladle story gets automatically code-split, so it doesn't matter how many components you want it to handle. Ladle always loads fast.
