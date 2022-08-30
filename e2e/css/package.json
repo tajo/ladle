@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@ladle/react": "workspace:*",
-    "@playwright/test": "^1.25.0",
+    "@playwright/test": "^1.25.1",
     "autoprefixer": "^10.4.8",
     "postcss": "^8.4.16",
     "react": "^18.2.0",
