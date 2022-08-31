@@ -1,8 +1,7 @@
-import * as template from "@babel/template";
-import * as generate from "@babel/generator";
 import t from "@babel/types";
 import path from "path";
 import { fileURLToPath } from "url";
+import { template, generate } from "../babel.js";
 import cleanupWindowsPath from "./cleanup-windows-path.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -13,7 +12,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const getStoryImports = (entryData) => {
   let storyImports = `import { lazy, createElement, Fragment } from "react";\n`;
   storyImports += `import composeEnhancers from "/src/compose-enhancers";\n`;
-  const lazyImport = /** @type {any} */ template.default(`
+  const lazyImport = template(`
     const %%component%% = lazy(() =>
      import(%%source%%).then((module) => {
         return { default: composeEnhancers(module, %%story%%) };
@@ -35,7 +34,7 @@ const getStoryImports = (entryData) => {
         component: t.identifier(componentName),
         story: t.stringLiteral(namedExport),
       });
-      storyImports += `\n${/** @type {any} */ (generate).default(ast).code}`;
+      storyImports += `\n${generate(ast).code}`;
     });
   });
 

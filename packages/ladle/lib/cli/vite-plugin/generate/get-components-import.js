@@ -1,8 +1,8 @@
-import * as traverse from "@babel/traverse";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import debugFactory from "debug";
+import { traverse } from "../babel.js";
 import getAst from "../get-ast.js";
 import cleanupWindowsPath from "./cleanup-windows-path.js";
 
@@ -17,7 +17,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const checkIfNamedExportExists = (namedExport, sourceCode, filename) => {
   let exists = false;
   const ast = getAst(sourceCode, filename);
-  /** @type {any} */ (traverse).default(ast, {
+  traverse(ast, {
     /**
      * @param {any} astPath
      */
