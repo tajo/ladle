@@ -1,6 +1,6 @@
 import t from "@babel/types";
-import generate from "@babel/generator";
-import template from "@babel/template";
+import * as generate from "@babel/generator";
+import * as template from "@babel/template";
 import { storyDelimiter, storyEncodeDelimiter } from "../naming-utils.js";
 
 /**
@@ -26,7 +26,7 @@ const getStoryList = (entryData) => {
     storyParams = { ...storyParams, ...entryData[entry].storyParams };
   });
 
-  const output = /** @type {any} */ generate(
+  const output = /** @type {any} */ generate.default(
     t.exportNamedDeclaration(
       t.variableDeclaration("let", [
         t.variableDeclarator(
@@ -38,7 +38,7 @@ const getStoryList = (entryData) => {
                 paramsAst = t.objectProperty(
                   t.identifier("meta"),
                   /** @type {any} */ (
-                    template.ast(
+                    template.default.ast(
                       `const foo = ${JSON.stringify(storyParams[story])}`,
                     )
                   ).declarations[0].init,

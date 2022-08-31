@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import traverse from "@babel/traverse";
+import * as traverse from "@babel/traverse";
 import debugFactory from "debug";
 import { getFileId } from "../naming-utils.js";
 import getAst from "../get-ast.js";
@@ -44,13 +44,13 @@ export const getSingleEntry = async (entry) => {
     fileId: getFileId(entry),
   };
   const ast = getAst(code, entry);
-  /** @type {any} */ traverse(ast, {
+  /** @type {any} */ traverse.default(ast, {
     Program: getStorynameAndMeta.bind(this, result),
   });
-  /** @type {any} */ traverse(ast, {
+  /** @type {any} */ traverse.default(ast, {
     ExportDefaultDeclaration: getDefaultExport.bind(this, result),
   });
-  /** @type {any} */ traverse(ast, {
+  /** @type {any} */ traverse.default(ast, {
     ExportNamedDeclaration: getNamedExports.bind(this, result),
   });
   debug(`Parsed data for ${entry}:`);

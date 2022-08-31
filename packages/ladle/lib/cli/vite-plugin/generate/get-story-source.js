@@ -1,6 +1,6 @@
 import { createHash } from "crypto";
 import t from "@babel/types";
-import generate from "@babel/generator";
+import * as generate from "@babel/generator";
 
 /**
  * @param entryData {import('../../../shared/types').EntryData}
@@ -25,7 +25,7 @@ const getStorySource = (entryData, enabled) => {
     });
   });
 
-  const fileSources = /** @type {any} */ generate(
+  const fileSources = /** @type {any} */ generate.default(
     t.variableDeclaration("let", [
       t.variableDeclarator(
         t.identifier("fileSourceCodes"),
@@ -52,7 +52,7 @@ const getStorySource = (entryData, enabled) => {
     ]),
   ).code;
 
-  const storyToSource = /** @type {any} */ generate(
+  const storyToSource = /** @type {any} */ generate.default(
     t.exportNamedDeclaration(
       t.variableDeclaration("let", [
         t.variableDeclarator(

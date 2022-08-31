@@ -1,4 +1,4 @@
-import traverse from "@babel/traverse";
+import * as traverse from "@babel/traverse";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
