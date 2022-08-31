@@ -1,3 +1,4 @@
+import { test, expect } from "vitest";
 import { getSingleEntry } from "../../lib/cli/vite-plugin/parse/get-entry-data.js";
 
 test("Single file with two stories", async () => {

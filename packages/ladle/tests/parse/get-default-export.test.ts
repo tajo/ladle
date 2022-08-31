@@ -1,3 +1,4 @@
+import { test, expect } from "vitest";
 import getDefaultExport from "../../lib/cli/vite-plugin/parse/get-default-export.js";
 import { parseWithFn, getOutput } from "./utils";
 

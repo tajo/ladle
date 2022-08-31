@@ -1,3 +1,4 @@
+import { test, expect } from "vitest";
 import getNamedExports from "../../lib/cli/vite-plugin/parse/get-named-exports.js";
 import { parseWithFn, getOutput } from "./utils";
 

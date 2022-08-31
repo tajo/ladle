@@ -1,3 +1,4 @@
+import { test, expect } from "vitest";
 import getStorynameAndMeta from "../../lib/cli/vite-plugin/parse/get-storyname-and-meta.js";
 import { parseWithFn, getOutput } from "./utils";
 
