@@ -28,12 +28,14 @@ export const useLink = () => {
 };
 
 export const linkTo = (value: string) => {
-  const { dispatch } = useLadleContext();
+  const dispatch = (window as any)
+    .ladleDispatch as React.Dispatch<GlobalAction>;
   return () => dispatch({ type: ActionType.UpdateStory, value });
 };
 
 export const action = (name: string) => {
-  const { dispatch } = useLadleContext();
+  const dispatch = (window as any)
+    .ladleDispatch as React.Dispatch<GlobalAction>;
   return (event: any) =>
     dispatch({
       type: ActionType.UpdateAction,

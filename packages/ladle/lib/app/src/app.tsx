@@ -52,6 +52,12 @@ const App = () => {
   React.useEffect(() => {
     prevGlobalStateRef.current = globalState;
   });
+  React.useEffect(() => {
+    // a workaround to allow APIs like action() and linkTo() getting around
+    // the context hook limitations
+    //@ts-ignore
+    window.ladleDispatch = dispatch;
+  }, []);
   const prevGlobalState = prevGlobalStateRef.current;
   React.useEffect(() => {
     debug("Global state update", globalState);
