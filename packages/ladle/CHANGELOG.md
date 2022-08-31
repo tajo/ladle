@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.4.2
+
+### Patch Changes
+
+- [#254](https://github.com/tajo/ladle/pull/254) [`4ea7124`](https://github.com/tajo/ladle/commit/4ea71241545d869e3b7527cea2976bcf5f5fba80) Thanks [@tajo](https://github.com/tajo)! - Remove React hooks from action() and linkTo()
+
 ## 2.4.1
 
 ### Patch Changes
