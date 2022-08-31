@@ -1,3 +1,4 @@
+import { test, expect } from "vitest";
 import { getEntryData } from "../lib/cli/vite-plugin/parse/get-entry-data.js";
 import defaultConfig from "../lib/shared/default-config.js";
 import getGeneratedList from "../lib/cli/vite-plugin/generate/get-generated-list.js";

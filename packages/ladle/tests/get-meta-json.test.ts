@@ -1,3 +1,4 @@
+import { test, expect } from "vitest";
 import { getEntryData } from "../lib/cli/vite-plugin/parse/get-entry-data.js";
 import { getMetaJsonString as getMetaJson } from "../lib/cli/vite-plugin/generate/get-meta-json.js";
 

@@ -24,7 +24,7 @@ export const parseWithFn = (
     input,
   );
   const end: ParsedStoriesResult = cloneDeep(start);
-  (traverse as any).default(getAst(code, filename) as any, {
+  (traverse as any)(getAst(code, filename) as any, {
     [visitor]: fn.bind(this, end),
   });
   return end;

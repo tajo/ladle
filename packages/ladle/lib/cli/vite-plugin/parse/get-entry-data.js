@@ -44,13 +44,13 @@ export const getSingleEntry = async (entry) => {
     fileId: getFileId(entry),
   };
   const ast = getAst(code, entry);
-  /** @type {any} */ (traverse).default(ast, {
+  /** @type {any} */ traverse(ast, {
     Program: getStorynameAndMeta.bind(this, result),
   });
-  /** @type {any} */ (traverse).default(ast, {
+  /** @type {any} */ traverse(ast, {
     ExportDefaultDeclaration: getDefaultExport.bind(this, result),
   });
-  /** @type {any} */ (traverse).default(ast, {
+  /** @type {any} */ traverse(ast, {
     ExportNamedDeclaration: getNamedExports.bind(this, result),
   });
   debug(`Parsed data for ${entry}:`);

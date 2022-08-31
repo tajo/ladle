@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
 exports[`Capital letters in story names converted into delimiters 1`] = `
 {
@@ -27,7 +27,7 @@ exports[`Capital letters in story names converted into delimiters 1`] = `
     },
   ],
   "storyParams": {},
-  "storySource": "import * as React from "react";
+  "storySource": "import * as React from \\"react\\";
 
 export const BlueTinyCat = () => {
   return <h1>Blue Tiny Cat</h1>;
@@ -60,7 +60,7 @@ exports[`Capital letters in the filename converted into delimiters 1`] = `
     },
   ],
   "storyParams": {},
-  "storySource": "import * as React from "react";
+  "storySource": "import * as React from \\"react\\";
 
 export const Test = () => {
   return <h1>Test</h1>;
@@ -89,10 +89,10 @@ exports[`Default title is used instead of the file name 1`] = `
     },
   ],
   "storyParams": {},
-  "storySource": "import * as React from "react";
+  "storySource": "import * as React from \\"react\\";
 
 export default {
-  title: "Title",
+  title: \\"Title\\",
 };
 
 export const Cat = () => {
@@ -175,14 +175,14 @@ exports[`Extract and merge story meta 1`] = `
       "title": "Title",
     },
   },
-  "storySource": "import * as React from "react";
+  "storySource": "import * as React from \\"react\\";
 
 export default {
-  title: "Title",
+  title: \\"Title\\",
   meta: {
     baseweb: {
-      theme: "dark",
-      browsers: ["chrome", "webkit"],
+      theme: \\"dark\\",
+      browsers: [\\"chrome\\", \\"webkit\\"],
     },
   },
 };
@@ -193,8 +193,8 @@ export const Cat = () => {
 
 Cat.meta = {
   baseweb: {
-    browsers: ["chrome", "firefox"],
-    width: "500px",
+    browsers: [\\"chrome\\", \\"firefox\\"],
+    width: \\"500px\\",
   },
   links: true,
 };
@@ -239,13 +239,13 @@ exports[`Extract default meta 1`] = `
       "title": "Title",
     },
   },
-  "storySource": "import * as React from "react";
+  "storySource": "import * as React from \\"react\\";
 
 export default {
-  title: "Title",
+  title: \\"Title\\",
   meta: {
     baseweb: {
-      foo: "title",
+      foo: \\"title\\",
     },
   },
 };
@@ -284,7 +284,7 @@ exports[`Single file with two stories 1`] = `
     },
   ],
   "storyParams": {},
-  "storySource": "import * as React from "react";
+  "storySource": "import * as React from \\"react\\";
 
 export const Cat = () => {
   return <h1>Cat</h1>;
@@ -334,17 +334,17 @@ exports[`Story name replaces named export as a story name 1`] = `
     },
   ],
   "storyParams": {},
-  "storySource": "import * as React from "react";
+  "storySource": "import * as React from \\"react\\";
 
 export const Cat = () => {
-  const Stop = { storyName: "" };
+  const Stop = { storyName: \\"\\" };
   // should be ignored
-  Stop.storyName = "What";
+  Stop.storyName = \\"What\\";
   return <h1>Cat</h1>;
 };
 
-Cat.storyName = "Doggo";
-Cat.foo = "Ha";
+Cat.storyName = \\"Doggo\\";
+Cat.foo = \\"Ha\\";
 
 export const CapitalCity = () => {
   return <h1>DC</h1>;
@@ -353,7 +353,7 @@ export const CapitalCity = () => {
 export const CapitalReplaced = () => {
   return <h1>CapitalReplaced</h1>;
 };
-CapitalReplaced.storyName = "Champs Élysées";
+CapitalReplaced.storyName = \\"Champs Élysées\\";
 ",
 }
 `;
@@ -378,7 +378,7 @@ exports[`Turn file name delimiters into spaces and levels correctly 1`] = `
     },
   ],
   "storyParams": {},
-  "storySource": "import * as React from "react";
+  "storySource": "import * as React from \\"react\\";
 
 export const Cat = () => {
   return <h1>Cat</h1>;

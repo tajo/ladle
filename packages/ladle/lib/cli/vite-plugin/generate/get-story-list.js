@@ -26,7 +26,7 @@ const getStoryList = (entryData) => {
     storyParams = { ...storyParams, ...entryData[entry].storyParams };
   });
 
-  const output = /** @type {any} */ (generate).default(
+  const output = /** @type {any} */ generate(
     t.exportNamedDeclaration(
       t.variableDeclaration("let", [
         t.variableDeclarator(
@@ -37,8 +37,10 @@ const getStoryList = (entryData) => {
               if (storyParams[story]) {
                 paramsAst = t.objectProperty(
                   t.identifier("meta"),
-                  /** @type {any} */ (template).default.ast(
-                    `const foo = ${JSON.stringify(storyParams[story])}`,
+                  /** @type {any} */ (
+                    template.ast(
+                      `const foo = ${JSON.stringify(storyParams[story])}`,
+                    )
                   ).declarations[0].init,
                 );
               }
