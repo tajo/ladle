@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://ladle.dev" target="_blank" rel="noopener noreferrer">
-    <img style="filter: invert(50%)" width="180" src="https://raw.githubusercontent.com/tajo/ladle/main/packages/website/static/img/logo.svg" alt="Ladle logo">
+    <img style="filter: invert(50%)" width="180" src="https://raw.githubusercontent.com/tajo/ladle/main/packages/website/static/img/logo-visible.svg" alt="Ladle logo">
   </a>
 </p>
 <br/>
