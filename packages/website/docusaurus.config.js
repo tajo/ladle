@@ -48,6 +48,11 @@ module.exports = {
           position: "right",
         },
         {
+          href: "https://twitter.com/ladlejs",
+          label: "Twitter",
+          position: "right",
+        },
+        {
           href: "https://github.com/tajo/ladle",
           label: "GitHub",
           position: "right",
