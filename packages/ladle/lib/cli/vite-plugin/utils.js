@@ -1,3 +1,6 @@
+// needed for unit tests to remove local specific paths from snapshots
+export const IMPORT_ROOT = process.env.IMPORT_ROOT || process.cwd();
+
 /**
  * @param message {string}
  */

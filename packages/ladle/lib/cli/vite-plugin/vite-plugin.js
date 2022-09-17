@@ -75,9 +75,9 @@ function ladlePlugin(config, configFolder, mode) {
       // on HMR updates
       if (id.includes(".stories.")) {
         const from = cleanupWindowsPath(
-          path.relative(id, path.join(__dirname, "../../app/src")),
-        ).slice(3);
-        const watcherImport = `import { storyUpdated } from "${from}/story-hmr";`;
+          path.join(__dirname, "../../app/src/story-hmr"),
+        );
+        const watcherImport = `import { storyUpdated } from "${from}";`;
         // if stories are defined through .bind({}) we need to force full reloads since
         // react-refresh can't pick it up
         const invalidateHmr = code.includes(".bind({})")

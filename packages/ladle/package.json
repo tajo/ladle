@@ -27,7 +27,7 @@
     "cli": "node ./lib/cli/cli.js",
     "clean": "rimraf dist && rimraf .ladle && rimraf build && rimraf *.tsbuildinfo",
     "serve": "node ./lib/cli/cli.js serve",
-    "test": "vitest"
+    "test": "cross-env IMPORT_ROOT=\"./\" vitest"
   },
   "dependencies": {
     "@babel/code-frame": "^7.18.6",
@@ -84,8 +84,12 @@
     "@types/lodash.merge": "^4.6.7",
     "@types/node": "^18.7.14",
     "@types/ws": "^8.5.3",
+    "cross-env": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "vitest": "^0.22.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
