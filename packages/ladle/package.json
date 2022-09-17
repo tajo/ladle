@@ -27,7 +27,7 @@
     "cli": "node ./lib/cli/cli.js",
     "clean": "rimraf dist && rimraf .ladle && rimraf build && rimraf *.tsbuildinfo",
     "serve": "node ./lib/cli/cli.js serve",
-    "test": "vitest"
+    "test": "IMPORT_ROOT=\"./\" vitest"
   },
   "dependencies": {
     "@babel/code-frame": "^7.18.6",
