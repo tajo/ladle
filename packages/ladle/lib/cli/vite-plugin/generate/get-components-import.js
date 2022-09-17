@@ -1,13 +1,10 @@
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
 import debugFactory from "debug";
 import { traverse } from "../babel.js";
 import getAst from "../get-ast.js";
-import cleanupWindowsPath from "./cleanup-windows-path.js";
 
 const debug = debugFactory("ladle:vite");
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
  * @param {string} namedExport
@@ -56,19 +53,16 @@ const getComponents = (configFolder) => {
 
   firstFoundComponentsPath && debug(`${configFolder}/${filename} found.`);
 
-  const componentsRelativePath = cleanupWindowsPath(
-    path.relative(
-      path.join(__dirname, "../../../app/src"),
-      path.join(configFolder, filename),
-    ),
-  ).slice(2);
   if (checkIfNamedExportExists("Provider", sourceCode, filename)) {
     debug(`Custom provider found.`);
-    return `import {Provider as CustomProvider} from '${componentsRelativePath}';\nexport const Provider = CustomProvider;\n`;
+    return `import {Provider as CustomProvider} from '${path.join(
+      configFolder,
+      filename,
+    )}';\nexport const Provider = CustomProvider;\n`;
   }
   debug(`Custom provider not found.`);
   debug(`Returning default no-op Provider.`);
-  return `import '${componentsRelativePath}';\n${noopProvider}`;
+  return `import '${path.join(configFolder, filename)}';\n${noopProvider}`;
 };
 
 export default getComponents;
