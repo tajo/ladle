@@ -1,5 +1,13 @@
 # @ladle/react
 
+## 2.4.3
+
+### Patch Changes
+
+- [#257](https://github.com/tajo/ladle/pull/257) [`7d2af89`](https://github.com/tajo/ladle/commit/7d2af89540ce00cd054fb8e085358398adb365ba) Thanks [@tajo](https://github.com/tajo)! - Replace Jest with Vitest
+
+- [#263](https://github.com/tajo/ladle/pull/263) [`7880686`](https://github.com/tajo/ladle/commit/78806861070e894f539cad3fa6fa913275472291) Thanks [@tajo](https://github.com/tajo)! - Use absolute paths for imports to simplify and fix resolver issues in workspaces
+
 ## 2.4.2
 
 ### Patch Changes
