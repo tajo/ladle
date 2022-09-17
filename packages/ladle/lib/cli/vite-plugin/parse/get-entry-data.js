@@ -41,7 +41,7 @@ export const getSingleEntry = async (entry) => {
     namedExportToMeta: {},
     namedExportToStoryName: {},
     storyParams: {},
-    storySource: code,
+    storySource: code.replace(/\r/g, ""),
     fileId: getFileId(entry),
   };
   const ast = getAst(code, entry);

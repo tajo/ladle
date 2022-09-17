@@ -3,6 +3,7 @@ import path from "path";
 import debugFactory from "debug";
 import { traverse } from "../babel.js";
 import getAst from "../get-ast.js";
+import cleanupWindowsPath from "./cleanup-windows-path.js";
 
 const debug = debugFactory("ladle:vite");
 
@@ -55,14 +56,15 @@ const getComponents = (configFolder) => {
 
   if (checkIfNamedExportExists("Provider", sourceCode, filename)) {
     debug(`Custom provider found.`);
-    return `import {Provider as CustomProvider} from '${path.join(
-      configFolder,
-      filename,
+    return `import {Provider as CustomProvider} from '${cleanupWindowsPath(
+      path.join(configFolder, filename),
     )}';\nexport const Provider = CustomProvider;\n`;
   }
   debug(`Custom provider not found.`);
   debug(`Returning default no-op Provider.`);
-  return `import '${path.join(configFolder, filename)}';\n${noopProvider}`;
+  return `import '${cleanupWindowsPath(
+    path.join(configFolder, filename),
+  )}';\n${noopProvider}`;
 };
 
 export default getComponents;

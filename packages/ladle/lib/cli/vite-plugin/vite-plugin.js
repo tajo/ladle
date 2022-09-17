@@ -6,6 +6,7 @@ import debugFactory from "debug";
 import getGeneratedList from "./generate/get-generated-list.js";
 import { getEntryData } from "./parse/get-entry-data.js";
 import { detectDuplicateStoryNames, printError } from "./utils.js";
+import cleanupWindowsPath from "./generate/cleanup-windows-path.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -73,7 +74,9 @@ function ladlePlugin(config, configFolder, mode) {
       // some addons (like a11y) can subscribe to changes and re-run
       // on HMR updates
       if (id.includes(".stories.")) {
-        const from = path.join(__dirname, "../../app/src/story-hmr");
+        const from = cleanupWindowsPath(
+          path.join(__dirname, "../../app/src/story-hmr"),
+        );
         const watcherImport = `import { storyUpdated } from "${from}";`;
         // if stories are defined through .bind({}) we need to force full reloads since
         // react-refresh can't pick it up
