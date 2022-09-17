@@ -16,7 +16,7 @@ jobs:
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
     steps:
       - name: Check out code
         uses: actions/checkout@v2
