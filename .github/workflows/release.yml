@@ -46,3 +46,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_DEPLOY_KEY }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publishing next version
+        run: cd packages/ladle && ./publish-next.js
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
