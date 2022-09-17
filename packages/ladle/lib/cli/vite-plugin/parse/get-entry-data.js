@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import debugFactory from "debug";
+import { compile } from "@mdx-js/mdx";
 import { traverse } from "../babel.js";
 import { getFileId } from "../naming-utils.js";
 import getAst from "../get-ast.js";
@@ -44,7 +45,9 @@ export const getSingleEntry = async (entry) => {
     storySource: code.replace(/\r/g, ""),
     fileId: getFileId(entry),
   };
-  const ast = getAst(code, entry);
+  console.log(String(await compile(code, { jsx: true })));
+  const ast = getAst(String(await compile(code, { jsx: true })), entry);
+  console.log(ast);
   traverse(ast, {
     Program: getStorynameAndMeta.bind(this, result),
   });

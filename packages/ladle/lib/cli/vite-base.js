@@ -2,6 +2,7 @@ import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import path from "path";
 import react from "@vitejs/plugin-react";
+import mdx from "@mdx-js/rollup";
 import tsconfigPaths from "vite-tsconfig-paths";
 import ladlePlugin from "./vite-plugin/vite-plugin.js";
 import mergeViteConfigs from "./merge-vite-configs.js";
@@ -120,6 +121,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
       ],
     },
     plugins: [
+      mdx({}),
       !hasTSConfigPathPlugin &&
         tsconfigPaths({
           root: process.cwd(),

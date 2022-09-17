@@ -5,9 +5,9 @@
   "author": "Vojtech Miksu <vojtech@miksu.cz>",
   "license": "MIT",
   "type": "module",
-  "types": "./lib/app/exports.ts",
+  "types": "./lib/app/exports.tsx",
   "exports": {
-    ".": "./lib/app/exports.ts",
+    ".": "./lib/app/exports.tsx",
     "./serve": "./api/serve.js",
     "./preview": "./api/preview.js",
     "./build": "./api/build.js"
@@ -43,6 +43,9 @@
     "@babel/traverse": "^7.18.13",
     "@babel/types": "^7.18.13",
     "@ladle/react-context": "workspace:^1.0.1",
+    "@mdx-js/mdx": "^2.1.3",
+    "@mdx-js/react": "^1.6.22",
+    "@mdx-js/rollup": "^2.1.3",
     "@vitejs/plugin-react": "^2.0.1",
     "axe-core": "^4.4.3",
     "boxen": "^7.0.0",

@@ -1,4 +1,7 @@
 import { useLadleContext, ActionType, ThemeState } from "@ladle/react";
+import Mdx from "./mdx.stories.mdx";
+
+console.log(Mdx);
 
 const empty = "";
 export const Responsive = () => {
@@ -42,6 +45,7 @@ export const Issues = () => {
   const { globalState, dispatch } = useLadleContext();
   return (
     <>
+      <Mdx />
       <input />
       <button style={{ backgroundColor: `red${empty}`, color: "darkRed" }}>
         Inaccessible button

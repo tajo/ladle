@@ -21,6 +21,21 @@ type ReactNodeWithoutObject =
 export { useLadleContext, ActionType, ThemeState, ModeState };
 export type { StoryDecorator };
 
+export const Story = ({
+  children,
+  name,
+}: {
+  children: React.ReactNode;
+  name: string;
+}) => {
+  return (
+    <>
+      <h1>{name}</h1>
+      {children}
+    </>
+  );
+};
+
 // deprecated, linkTo is just easier to use
 export const useLink = () => {
   const { dispatch } = useLadleContext();
