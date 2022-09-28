@@ -216,7 +216,6 @@ importers:
       "@ladle/react-context": workspace:^1.0.1
       "@mdx-js/mdx": ^2.1.3
       "@mdx-js/react": ^1.6.22
-      "@mdx-js/rollup": ^2.1.3
       "@types/babel__code-frame": ^7.0.3
       "@types/babel__core": ^7.1.19
       "@types/babel__generator": ^7.6.4
@@ -251,6 +250,8 @@ importers:
       react-dom: ^18.2.0
       react-frame-component: ^5.2.3
       react-inspector: ^6.0.1
+      source-map: ^0.7.4
+      vfile: ^5.3.5
       vite: ^3.0.9
       vite-tsconfig-paths: ^3.5.0
       vitest: ^0.22.1
@@ -270,7 +271,6 @@ importers:
       "@ladle/react-context": link:../ladle-react-context
       "@mdx-js/mdx": 2.1.3
       "@mdx-js/react": 1.6.22_react@18.2.0
-      "@mdx-js/rollup": 2.1.3
       "@vitejs/plugin-react": 2.0.1_vite@3.0.9
       axe-core: 4.4.3
       boxen: 7.0.0
@@ -291,6 +291,8 @@ importers:
       query-string: 7.1.1
       react-frame-component: 5.2.3_v2m5e27vhdewzwhryxwfaorcca
       react-inspector: 6.0.1_react@18.2.0
+      source-map: 0.7.4
+      vfile: 5.3.5
       vite: 3.0.9
       vite-tsconfig-paths: 3.5.0_vite@3.0.9
     devDependencies:
@@ -4060,22 +4062,6 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@mdx-js/rollup/2.1.3:
-    resolution:
-      {
-        integrity: sha512-KaX9GcZ63TDaLNH9UYYE94+naZQldV2IUzmMkDVOlPxDtTh8kcEn8l6/4W1P79wxZZbakSOFejTuaYmcstl5sA==,
-      }
-    peerDependencies:
-      rollup: ">=2"
-    dependencies:
-      "@mdx-js/mdx": 2.1.3
-      "@rollup/pluginutils": 4.2.1
-      source-map: 0.7.4
-      vfile: 5.3.5
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /@mdx-js/util/1.6.22:
     resolution:
       {
@@ -4135,17 +4121,6 @@ packages:
       {
         integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==,
       }
-    dev: false
-
-  /@rollup/pluginutils/4.2.1:
-    resolution:
-      {
-        integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==,
-      }
-    engines: { node: ">= 8.0.0" }
-    dependencies:
-      estree-walker: 2.0.2
-      picomatch: 2.3.1
     dev: false
 
   /@sideway/address/4.1.4:
@@ -8545,13 +8520,6 @@ packages:
     resolution:
       {
         integrity: sha512-SqmZANLWS0mnatqbSfRP5g8OXZC12Fgg1IwNtLsyHDzJizORW4khDfjPqJZsemPWBB2uqykUah5YpQ6epsqC/w==,
-      }
-    dev: false
-
-  /estree-walker/2.0.2:
-    resolution:
-      {
-        integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==,
       }
     dev: false
 
