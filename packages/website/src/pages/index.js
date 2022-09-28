@@ -106,7 +106,7 @@ function Home() {
                 "button button--outline button--secondary button--lg",
                 styles.getStarted,
               )}
-              to="https://node.new/ladle"
+              to="https://ladle.dev/new"
             >
               StackBlitz
             </Link>

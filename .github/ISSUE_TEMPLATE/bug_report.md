@@ -1,10 +1,9 @@
 ---
 name: Bug report
 about: Create a report to help us improve Ladle
-title: ''
+title: ""
 labels: needs triage
-assignees: ''
-
+assignees: ""
 ---
 
 **Describe the bug**
@@ -13,7 +12,7 @@ A clear and concise description of what the bug is.
 
 **Reproduction**
 
-Please, try to reproduce your issue with [Stackblitz](https://node.new/ladle). Your issue gets much higher priority since it can be triaged efficiently.
+Please, try to reproduce your issue with [Stackblitz](https://ladle.dev/new). Your issue gets much higher priority since it can be triaged efficiently.
 
 Alternatively, create a repo. Or describe steps to reproduce and copy&paste the output from:
 
@@ -26,6 +25,6 @@ More about [troubleshooting](https://ladle.dev/docs/troubleshooting).
 
 **Environment**
 
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+- OS: [e.g. iOS]
+- Browser [e.g. chrome, safari]
+- Version [e.g. 22]

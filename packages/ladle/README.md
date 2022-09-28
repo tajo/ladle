@@ -4,7 +4,7 @@ Ladle is an environment to develop, test, and share your React components faster
 
 - [Documentation](https://www.ladle.dev)
 - [Demo](https://baseweb.design/ladle)
-- [StackBlitz](https://node.new/ladle)
+- [StackBlitz](https://ladle.dev/new)
 - [Discord](https://discord.gg/H6FSHjyW7e)
 
 ![Ladle BaseWeb](https://raw.githubusercontent.com/tajo/ladle/main/packages/website/static/img/ladle-baseweb.png)

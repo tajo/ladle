@@ -11,7 +11,7 @@
   <a href="https://discord.gg/H6FSHjyW7e"><img src="https://img.shields.io/badge/chat-discord-blue?style=flat&logo=discord" alt="discord chat"></a>
   <a href="https://twitter.com/ladlejs"><img src="https://img.shields.io/twitter/follow/ladlejs?style=social" alt="twitter profile"></a>
   <a href="https://ladle.dev"><img src="https://img.shields.io/website?url=https%3A%2F%2Fladle.dev" alt="homepage"></a>
-  <a href="https://node.new/ladle"><img src="https://img.shields.io/badge/stackblitz-sandbox-orange" alt="stackblitz"></a>
+  <a href="https://ladle.dev/new"><img src="https://img.shields.io/badge/stackblitz-sandbox-orange" alt="stackblitz"></a>
 </p>
 <br/>
 
@@ -22,7 +22,7 @@ Ladle is an environment to develop, test, and share your React components faster
 - [Documentation](https://www.ladle.dev)
 - [Demo](https://baseweb.design/ladle)
 - [Twitter](https://twitter.com/ladlejs)
-- [StackBlitz](https://node.new/ladle)
+- [StackBlitz](https://ladle.dev/new)
 - [Discord](https://discord.gg/H6FSHjyW7e)
 
 ## Quick start

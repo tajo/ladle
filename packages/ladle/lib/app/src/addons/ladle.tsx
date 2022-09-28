@@ -33,7 +33,7 @@ export const Button = () => {
               <a href="https://github.com/tajo/ladle">GitHub</a>
             </li>
             <li>
-              <a href="https://node.new/ladle">StackBlitz</a>
+              <a href="https://ladle.dev/new">StackBlitz</a>
             </li>
             <li>
               <a href="https://discord.gg/H6FSHjyW7e">Discord</a>
