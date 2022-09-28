@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/new",
+      "destination": "https://node.new/ladle",
+      "permanent": true
+    }
+  ]
+}
