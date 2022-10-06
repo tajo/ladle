@@ -9,9 +9,9 @@
     "build-preview": "ladle build && ladle preview -p 61110",
     "preview": "ladle preview -p 61110",
     "lint": "echo 'no lint'",
-    "test:dev": "start-server-and-test serve 61110 'pnpx playwright test'",
-    "test": "start-server-and-test preview 61110 'pnpx playwright test'",
-    "test:update": "start-server-and-test build-preview 61110 'pnpx playwright test -u'"
+    "test:dev": "start-server-and-test serve 61110 'pnpm playwright test'",
+    "test": "start-server-and-test preview 61110 'pnpm playwright test'",
+    "test:update": "start-server-and-test build-preview 61110 'pnpm playwright test -u'"
   },
   "dependencies": {
     "@ladle/react": "workspace:*",
