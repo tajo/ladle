@@ -27,7 +27,8 @@
     "cli": "node ./lib/cli/cli.js",
     "clean": "rimraf dist && rimraf .ladle && rimraf build && rimraf *.tsbuildinfo",
     "serve": "node ./lib/cli/cli.js serve",
-    "test": "cross-env IMPORT_ROOT=\"./\" vitest"
+    "test": "cross-env IMPORT_ROOT=\"./\" vitest",
+    "types": "tsc --project tsconfig.typesoutput.json"
   },
   "dependencies": {
     "@babel/code-frame": "^7.18.6",
