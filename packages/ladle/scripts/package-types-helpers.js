@@ -9,7 +9,10 @@ export function preparePackageJsonForPublish(packageJson) {
 
   oldExports = JSON.parse(JSON.stringify(packageJson.exports));
   packageJson.exports["."] = {
-    types: "./lib/app/exports.d.ts",
+    types: {
+      import: "./lib/app/exports.d.ts",
+      require: "./lib/app/exports.d.cts",
+    },
     default: "./lib/app/exports.ts",
   };
 
