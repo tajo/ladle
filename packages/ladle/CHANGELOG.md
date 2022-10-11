@@ -1,5 +1,13 @@
 # @ladle/react
 
+## 2.4.4
+
+### Patch Changes
+
+- [#277](https://github.com/tajo/ladle/pull/277) [`6245aa7`](https://github.com/tajo/ladle/commit/6245aa7cad918a7576dc452669d6f07fde935a91) Thanks [@frehner](https://github.com/frehner)! - Fix types for CJS projects using TypeScript's "NodeNext" or "Node16" resolution.
+
+- [#275](https://github.com/tajo/ladle/pull/275) [`4ef2e1d`](https://github.com/tajo/ladle/commit/4ef2e1d23ab27b77f65922388e248da686061f9c) Thanks [@frehner](https://github.com/frehner)! - Update `package.json`'s "types" and "exports" so that they point to the type definition file, but only when publishing to NPM.
+
 ## 2.4.3
 
 ### Patch Changes
