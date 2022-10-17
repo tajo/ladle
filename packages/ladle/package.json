@@ -18,7 +18,8 @@
   },
   "files": [
     "lib",
-    "api"
+    "api",
+    "typings-for-build"
   ],
   "bin": {
     "ladle": "./lib/cli/cli.js"
