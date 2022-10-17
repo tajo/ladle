@@ -5,13 +5,13 @@ let oldExports = null;
 
 export function preparePackageJsonForPublish(packageJson) {
   oldTypes = packageJson.types;
-  packageJson.types = "./lib/app/exports.d.ts";
+  packageJson.types = "./typings-for-build/app/exports.d.ts";
 
   oldExports = JSON.parse(JSON.stringify(packageJson.exports));
   packageJson.exports["."] = {
     types: {
-      import: "./lib/app/exports.d.ts",
-      require: "./lib/app/exports.d.cts",
+      import: "./typings-for-build/app/exports.d.ts",
+      require: "./typings-for-build/app/exports.d.cts",
     },
     default: "./lib/app/exports.ts",
   };
