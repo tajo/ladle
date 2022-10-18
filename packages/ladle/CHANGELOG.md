@@ -1,5 +1,13 @@
 # @ladle/react
 
+## 2.4.5
+
+### Patch Changes
+
+- [#283](https://github.com/tajo/ladle/pull/283) [`6a4db14`](https://github.com/tajo/ladle/commit/6a4db1437a67d5d1632dc08e21ba5e2e21a90081) Thanks [@frehner](https://github.com/frehner)! - Include the typings folder when publishing
+
+- [#281](https://github.com/tajo/ladle/pull/281) [`30e9299`](https://github.com/tajo/ladle/commit/30e92998ce9977ed510507030047511fb613d436) Thanks [@frehner](https://github.com/frehner)! - Fix issue in GitHub Actions when publishing both next and current release.
+
 ## 2.4.4
 
 ### Patch Changes
