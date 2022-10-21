@@ -28,5 +28,6 @@ declare module "virtual:generated-list" {
     dispatch: React.Dispatch<GlobalAction>;
     config: Config;
     children: ReactNodeWithoutObject;
+    storyMeta?: any;
   }>;
 }
