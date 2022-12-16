@@ -102,10 +102,11 @@ const Story = ({
 }) => {
   const storyData = stories[globalState.story];
   const width = globalState.width;
+  const storyDataMeta = storyData?.meta?.meta;
 
   const iframeActive: boolean =
-    storyData && storyData.meta ? storyData.meta.meta.iframed : false;
-  let metaWidth = storyData && storyData.meta ? storyData.meta.meta.width : 0;
+    storyData && storyDataMeta ? storyDataMeta.iframed : false;
+  let metaWidth = storyData && storyDataMeta ? storyDataMeta.width : 0;
   Object.keys(config.addons.width.options).forEach((key) => {
     if (key === metaWidth) {
       metaWidth = config.addons.width.options[key];
@@ -156,6 +157,7 @@ const Story = ({
               config={config}
               globalState={globalState}
               dispatch={dispatch}
+              storyMeta={storyDataMeta}
             >
               {storyData ? (
                 React.createElement(storyData.component)

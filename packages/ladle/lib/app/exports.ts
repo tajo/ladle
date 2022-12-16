@@ -49,6 +49,7 @@ export type GlobalProvider = React.FC<{
   dispatch: React.Dispatch<GlobalAction>;
   config: Config;
   children: ReactNodeWithoutObject;
+  storyMeta?: any;
 }>;
 
 export interface Story<P = {}> extends React.FC<P> {
