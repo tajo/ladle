@@ -82,6 +82,10 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     ...viteConfig,
     base: ladleConfig.base,
     configFile: false,
+    publicDir:
+      typeof userViteConfig.publicDir === "undefined"
+        ? join(process.cwd(), "public")
+        : userViteConfig.publicDir,
     cacheDir: userViteConfig.cacheDir
       ? userViteConfig.cacheDir
       : join(process.cwd(), "node_modules/.vite"),
