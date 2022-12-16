@@ -8,15 +8,20 @@ Your components might need some global [React Context Provider](https://reactjs.
 ```tsx
 import type { GlobalProvider } from "@ladle/react";
 
-export const Provider: GlobalProvider = ({ children, globalState }) => (
+export const Provider: GlobalProvider = ({
+  children,
+  globalState,
+  storyMeta,
+}) => (
   <>
     <h1>Theme: {globalState.theme}</h1>
+    <h2>{storyMeta.customValue}</h2>
     {children}
   </>
 );
 ```
 
-Now, all stories will have the same heading. The global provider also has access to the `globalState` (the addon state) so you can set your providers based on light vs dark theme or RTL.
+Now, all stories will have the same heading. The global provider also has access to the `globalState` (the addon state) so you can set your providers based on light vs dark theme or RTL and `storyMeta` to access the [story metadata](/docs/meta).
 
 ## Ladle Context
 
