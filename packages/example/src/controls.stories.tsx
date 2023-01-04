@@ -36,12 +36,12 @@ Controls.args = {
 };
 Controls.argTypes = {
   variant: {
-    options: ["primary", "secondary"],
+    options: [undefined, "primary", "secondary"],
     control: { type: "radio" },
     defaultValue: "primary",
   },
   size: {
-    options: ["small", "medium", "big", "huuuuge"],
+    options: [undefined, "small", "medium", "big", "huuuuge"],
     control: { type: "select" },
   },
   onClick: {
