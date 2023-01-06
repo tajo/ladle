@@ -127,35 +127,32 @@ const Control = ({
       <tr>
         <td>{controlKey}</td>
         <td>
-          {(globalState.control[controlKey].options || []).map((option) => {
-            const optionString = String(option);
-            return (
-              <span key={optionString + controlKey}>
-                <input
-                  id={`${controlKey}-${option}`}
-                  type="radio"
-                  name={controlKey}
-                  value={option}
-                  onChange={(e) => {
-                    dispatch({
-                      type: ActionType.UpdateControl,
-                      value: {
-                        ...globalState.control,
-                        [controlKey]: {
-                          ...globalState.control[controlKey],
-                          value: e.target.value || undefined,
-                        },
+          {(globalState.control[controlKey].options || []).map((option) => (
+            <span key={`${option}-${controlKey}`}>
+              <input
+                id={`${controlKey}-${option}`}
+                type="radio"
+                name={controlKey}
+                value={option}
+                onChange={(e) => {
+                  dispatch({
+                    type: ActionType.UpdateControl,
+                    value: {
+                      ...globalState.control,
+                      [controlKey]: {
+                        ...globalState.control[controlKey],
+                        value: e.target.value || undefined,
                       },
-                    });
-                  }}
-                  checked={globalState.control[controlKey].value === option}
-                />
-                <label htmlFor={`${controlKey}-${option}`}>
-                  {optionString}
-                </label>
-              </span>
-            );
-          })}
+                    },
+                  });
+                }}
+                checked={globalState.control[controlKey].value === option}
+              />
+              <label htmlFor={`${controlKey}-${option}`}>
+                {String(option)}
+              </label>
+            </span>
+          ))}
         </td>
       </tr>
     );
@@ -183,14 +180,11 @@ const Control = ({
               });
             }}
           >
-            {(globalState.control[controlKey].options || []).map((option) => {
-              const optionString = String(option);
-              return (
-                <option key={optionString + controlKey} value={option}>
-                  {optionString}
-                </option>
-              );
-            })}
+            {(globalState.control[controlKey].options || []).map((option) => (
+              <option key={`${option}-${controlKey}`} value={option}>
+                {String(option)}
+              </option>
+            ))}
           </select>
         </td>
       </tr>
