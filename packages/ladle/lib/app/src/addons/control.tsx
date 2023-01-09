@@ -128,7 +128,7 @@ const Control = ({
         <td>{controlKey}</td>
         <td>
           {(globalState.control[controlKey].options || []).map((option) => (
-            <span key={option}>
+            <span key={`${option}-${controlKey}`}>
               <input
                 id={`${controlKey}-${option}`}
                 type="radio"
@@ -141,14 +141,16 @@ const Control = ({
                       ...globalState.control,
                       [controlKey]: {
                         ...globalState.control[controlKey],
-                        value: e.target.value,
+                        value: e.target.value || undefined,
                       },
                     },
                   });
                 }}
                 checked={globalState.control[controlKey].value === option}
               />
-              <label htmlFor={`${controlKey}-${option}`}>{option}</label>
+              <label htmlFor={`${controlKey}-${option}`}>
+                {String(option)}
+              </label>
             </span>
           ))}
         </td>
@@ -179,8 +181,8 @@ const Control = ({
             }}
           >
             {(globalState.control[controlKey].options || []).map((option) => (
-              <option key={option} value={option}>
-                {option}
+              <option key={`${option}-${controlKey}`} value={option}>
+                {String(option)}
               </option>
             ))}
           </select>
