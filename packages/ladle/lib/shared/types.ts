@@ -13,8 +13,8 @@ export enum ModeState {
 }
 
 export enum ThemeState {
-  Light = "light",
-  Dark = "dark",
+  Light = "ladle-light",
+  Dark = "ladle-dark",
   Auto = "auto",
 }
 

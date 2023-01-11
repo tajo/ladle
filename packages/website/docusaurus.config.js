@@ -60,7 +60,7 @@ module.exports = {
       ],
     },
     footer: {
-      style: "light",
+      style: "ladle-light",
       links: [],
       copyright: `Copyright © ${new Date().getFullYear()} Ladle`,
     },

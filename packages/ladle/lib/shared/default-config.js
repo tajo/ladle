@@ -19,7 +19,7 @@ export default {
     theme: {
       enabled: true,
       defaultState: /** @type {import('../shared/types').ThemeState} */ (
-        "light"
+        "ladle-light"
       ),
     },
     mode: {

@@ -17,7 +17,7 @@ export const getQuery = (locationSearch: string) => {
 };
 
 const CodeFrame = ({ globalState }: { globalState: GlobalState }) => {
-  const theme = globalState.theme === "dark" ? themeDark : themeLight;
+  const theme = globalState.theme === "ladle-dark" ? themeDark : themeLight;
   if (!stories[globalState.story]) {
     return <>There is no story loaded.</>;
   }

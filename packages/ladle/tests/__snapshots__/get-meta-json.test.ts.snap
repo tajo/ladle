@@ -94,7 +94,7 @@ exports[`Extract and merge story meta 1`] = `
       \\"filePath\\": \\"tests/fixtures/story-meta.stories.tsx\\",
       \\"meta\\": {
         \\"baseweb\\": {
-          \\"theme\\": \\"dark\\",
+          \\"theme\\": \\"ladle-dark\\",
           \\"browsers\\": [
             \\"chrome\\",
             \\"firefox\\"
@@ -114,7 +114,7 @@ exports[`Extract and merge story meta 1`] = `
       \\"filePath\\": \\"tests/fixtures/story-meta.stories.tsx\\",
       \\"meta\\": {
         \\"baseweb\\": {
-          \\"theme\\": \\"dark\\",
+          \\"theme\\": \\"ladle-dark\\",
           \\"browsers\\": [
             \\"chrome\\",
             \\"webkit\\"

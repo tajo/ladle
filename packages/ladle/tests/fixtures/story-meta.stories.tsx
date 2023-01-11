@@ -4,7 +4,7 @@ export default {
   title: "Title",
   meta: {
     baseweb: {
-      theme: "dark",
+      theme: "ladle-dark",
       browsers: ["chrome", "webkit"],
     },
   },
