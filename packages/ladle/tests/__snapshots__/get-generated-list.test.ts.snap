@@ -168,11 +168,11 @@ export let config = {};
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
 let fileSourceCodes = {
-  \\"551a9524\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0A%0Aexport%20default%20%7B%0A%20%20title%3A%20%22Title%22%2C%0A%20%20meta%3A%20%7B%0A%20%20%20%20baseweb%3A%20%7B%0A%20%20%20%20%20%20theme%3A%20%22dark%22%2C%0A%20%20%20%20%20%20browsers%3A%20%5B%22chrome%22%2C%20%22webkit%22%5D%2C%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D%3B%0A%0Aexport%20const%20Cat%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A%0ACat.meta%20%3D%20%7B%0A%20%20baseweb%3A%20%7B%0A%20%20%20%20browsers%3A%20%5B%22chrome%22%2C%20%22firefox%22%5D%2C%0A%20%20%20%20width%3A%20%22500px%22%2C%0A%20%20%7D%2C%0A%20%20links%3A%20true%2C%0A%7D%3B%0A%0Aexport%20const%20Dog%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3EDog%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
+  \\"b2369c99\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0A%0Aexport%20default%20%7B%0A%20%20title%3A%20%22Title%22%2C%0A%20%20meta%3A%20%7B%0A%20%20%20%20baseweb%3A%20%7B%0A%20%20%20%20%20%20theme%3A%20%22ladle-dark%22%2C%0A%20%20%20%20%20%20browsers%3A%20%5B%22chrome%22%2C%20%22webkit%22%5D%2C%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D%3B%0A%0Aexport%20const%20Cat%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A%0ACat.meta%20%3D%20%7B%0A%20%20baseweb%3A%20%7B%0A%20%20%20%20browsers%3A%20%5B%22chrome%22%2C%20%22firefox%22%5D%2C%0A%20%20%20%20width%3A%20%22500px%22%2C%0A%20%20%7D%2C%0A%20%20links%3A%20true%2C%0A%7D%3B%0A%0Aexport%20const%20Dog%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3EDog%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
 };
 export let storySource = {
-  \\"title--cat\\": fileSourceCodes[\\"551a9524\\"],
-  \\"title--dog\\": fileSourceCodes[\\"551a9524\\"]
+  \\"title--cat\\": fileSourceCodes[\\"b2369c99\\"],
+  \\"title--dog\\": fileSourceCodes[\\"b2369c99\\"]
 };
 
 export const errorMessage = '';
