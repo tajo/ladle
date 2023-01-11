@@ -32,26 +32,26 @@
   color: #000 !important;
 }
 
-[data-theme="ladle-dark"] .hero {
+[data-theme="dark"] .hero {
   color: #fff;
 }
 
-[data-theme="ladle-dark"] a {
+[data-theme="dark"] a {
   color: #58a6ff;
 }
 
-[data-theme="ladle-dark"] a:hover {
+[data-theme="dark"] a:hover {
   color: #58a6ff;
 }
 .navbar__logo {
   margin-right: 32px;
 }
 
-[data-theme="ladle-dark"] .navbar__logo > img {
+[data-theme="dark"] .navbar__logo > img {
   filter: invert(1);
 }
 
-[data-theme="ladle-dark"] .navbar__brand > img {
+[data-theme="dark"] .navbar__brand > img {
   filter: invert(1);
 }
 

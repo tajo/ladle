@@ -157,7 +157,7 @@ export default {
     },
     theme: {
       enabled: true,
-      defaultState: "ladle-light",
+      defaultState: "light",
     },
     width: {
       enabled: true,

@@ -139,7 +139,7 @@ export let stories = {
       \\"title\\": \\"Title\\",
       \\"meta\\": {
         \\"baseweb\\": {
-          \\"theme\\": \\"ladle-dark\\",
+          \\"theme\\": \\"dark\\",
           \\"browsers\\": [\\"chrome\\", \\"firefox\\"],
           \\"width\\": \\"500px\\"
         },
@@ -156,7 +156,7 @@ export let stories = {
       \\"title\\": \\"Title\\",
       \\"meta\\": {
         \\"baseweb\\": {
-          \\"theme\\": \\"ladle-dark\\",
+          \\"theme\\": \\"dark\\",
           \\"browsers\\": [\\"chrome\\", \\"webkit\\"]
         }
       }
