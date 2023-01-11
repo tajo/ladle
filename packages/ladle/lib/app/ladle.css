@@ -14,7 +14,7 @@
   --reach-dialog: 1;
   --ladle-blueprint: #aaa;
 }
-[data-theme="dark"] {
+[data-theme="ladle-dark"] {
   --ladle-bg-color-primary: #141414;
   --ladle-bg-color-secondary: #1f1f1f;
   --ladle-color-primary: #f6f6f6;

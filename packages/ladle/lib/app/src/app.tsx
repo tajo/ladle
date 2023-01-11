@@ -77,7 +77,10 @@ const App = () => {
       document.title = `${storyIdToTitle(globalState.story)} | Ladle`;
     }
     if (globalState.theme !== prevGlobalState.theme) {
-      document.documentElement.setAttribute("data-theme", globalState.theme);
+      document.documentElement.setAttribute(
+        "data-theme",
+        `ladle-${globalState.theme}`,
+      );
     }
     if (globalState.rtl !== prevGlobalState.rtl) {
       if (globalState.rtl) {

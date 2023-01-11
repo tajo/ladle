@@ -31,7 +31,10 @@ export const Button = ({ globalState, dispatch }: AddonProps) => {
             globalState.theme === ThemeState.Light
               ? ThemeState.Dark
               : ThemeState.Light;
-          document.documentElement.setAttribute("data-theme", newTheme);
+          document.documentElement.setAttribute(
+            "data-theme",
+            `ladle-${newTheme}`,
+          );
           dispatch({ type: ActionType.UpdateTheme, value: newTheme });
         }}
       >
