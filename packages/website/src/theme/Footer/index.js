@@ -33,7 +33,7 @@ function Footer() {
         }}
       >
         Do you want to work on Ladle and other web tooling? Our team at Uber is{" "}
-        <a href="https://www.uber.com/global/en/careers/list/108900/">hiring</a>
+        <a href="https://www.uber.com/us/en/careers/list/">hiring</a>
         !
       </p>
       <FooterLayout
