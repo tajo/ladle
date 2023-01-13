@@ -20,29 +20,12 @@ function Footer() {
 
   const { copyright, links, logo, style } = footer;
   return (
-    <>
-      <p
-        style={{
-          backgroundColor: "var(--ifm-footer-background-color)",
-          color: "var(--ifm-footer-color)",
-          padding: "16px",
-          margin: "32px auto",
-          maxWidth: "630px",
-          textAlign: "center",
-          borderRadius: "16px",
-        }}
-      >
-        Do you want to work on Ladle and other web tooling? Our team at Uber is{" "}
-        <a href="https://www.uber.com/us/en/careers/list/">hiring</a>
-        !
-      </p>
-      <FooterLayout
-        style={style}
-        links={links && links.length > 0 && <FooterLinks links={links} />}
-        logo={logo && <FooterLogo logo={logo} />}
-        copyright={copyright && <FooterCopyright copyright={copyright} />}
-      />
-    </>
+    <FooterLayout
+      style={style}
+      links={links && links.length > 0 && <FooterLinks links={links} />}
+      logo={logo && <FooterLogo logo={logo} />}
+      copyright={copyright && <FooterCopyright copyright={copyright} />}
+    />
   );
 }
 
