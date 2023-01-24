@@ -5,7 +5,7 @@ title: Addons
 
 Ladle currently does not support third-party addons, but it might in the future. For now, it comes with a set of default addons you can find in the bottom left corner (button icons):
 
-- [Controls](./stories#controls-args-and-argtypes) (only if `args` or `argTypes` are defined)
+- [Controls](./controls) (only if `args` or `argTypes` are defined)
 - [Links](./links)
 - [Width](./width)
 - Dark theme
