@@ -82,7 +82,10 @@ const ArgsProvider = ({
         if (globalState.control[argKey]) {
           controls[argKey] = {
             type: globalState.control[argKey].type,
-            defaultValue: argValue.defaultValue || argValue.options[0],
+            defaultValue:
+              typeof argValue.defaultValue === "undefined"
+                ? argValue.options[0]
+                : argValue.defaultValue,
             value: globalState.control[argKey].value,
             options: argValue.options,
             description: "",
@@ -90,9 +93,15 @@ const ArgsProvider = ({
         } else {
           controls[argKey] = {
             type: argValue.control.type,
-            defaultValue: argValue.defaultValue || argValue.options[0],
+            defaultValue:
+              typeof argValue.defaultValue === "undefined"
+                ? argValue.options[0]
+                : argValue.defaultValue,
             options: argValue.options,
-            value: argValue.defaultValue || argValue.options[0],
+            value:
+              typeof argValue.defaultValue === "undefined"
+                ? argValue.options[0]
+                : argValue.defaultValue,
             description: argValue.name || argKey,
           };
         }

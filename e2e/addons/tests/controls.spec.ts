@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 test("default control values", async ({ page }) => {
   await page.goto("http://localhost:61100/?story=controls--controls");
   await expect(page.locator("#content")).toHaveText(
-    "Count: 2Disabled: noLabel: Hello worldColors: Red,BlueVariant: primarySize: small",
+    "Count: 2Disabled: noLabel: Hello worldColors: Red,BlueVariant: primarySize: smallvariant is stringsize is string",
   );
 });
 
@@ -46,6 +46,19 @@ test("radio control works", async ({ page }) => {
   await button.click();
   await page.check("#variant-secondary");
   await expect(page.locator("#content")).toContainText("Variant: secondary");
+  await expect(page.locator("#content")).toContainText("variant is string");
+});
+
+test("radio control non-string types work", async ({ page }) => {
+  await page.goto("http://localhost:61100/?story=controls--controls");
+  const button = await page.locator('[data-testid="addon-control"]');
+  await button.click();
+  await page.check("#variant-false");
+  await expect(page.locator("#content")).toContainText("variant is boolean");
+  await page.check("#variant-undefined");
+  await expect(page.locator("#content")).toContainText("variant is undefined");
+  await page.check("#variant-true");
+  await expect(page.locator("#content")).toContainText("variant is boolean");
 });
 
 test("select control works", async ({ page }) => {
@@ -56,12 +69,24 @@ test("select control works", async ({ page }) => {
   await expect(page.locator("#content")).toContainText("Size: big");
 });
 
+test("select control non-string types work", async ({ page }) => {
+  await page.goto("http://localhost:61100/?story=controls--controls");
+  const button = await page.locator('[data-testid="addon-control"]');
+  await button.click();
+  await page.selectOption("select#size", "false");
+  await expect(page.locator("#content")).toContainText("size is boolean");
+  await page.selectOption("select#size", "undefined");
+  await expect(page.locator("#content")).toContainText("size is undefined");
+  await page.selectOption("select#size", "true");
+  await expect(page.locator("#content")).toContainText("size is boolean");
+});
+
 test("controls state is passed through the URL", async ({ page }) => {
   await page.goto(
-    "http://localhost:61100/?arg-b-disabled=true&arg-c-colors=%255B%2522Red%2522%2C%2522Green%2522%255D&arg-l-size=medium&arg-n-count=3&arg-r-variant=secondary&arg-s-label=Hello%20earth&story=controls--controls",
+    "http://localhost:61100/?arg-b-disabled=true&arg-c-colors=%255B%2522Red%2522%2C%2522Green%2522%255D&arg-l-size=medium&arg-n-count=3&arg-r-variant=false&arg-s-label=Hello%20earth&story=controls--controls",
   );
   await expect(page.locator("#content")).toHaveText(
-    "Count: 3Disabled: yesLabel: Hello earthColors: Red,GreenVariant: secondarySize: medium",
+    "Count: 3Disabled: yesLabel: Hello earthColors: Red,GreenVariant: Size: mediumvariant is booleansize is string",
   );
 });
 
@@ -70,7 +95,7 @@ test("reset to defaults", async ({ page }) => {
     "http://localhost:61100/?arg-b-disabled=true&arg-c-colors=%255B%2522Red%2522%2C%2522Green%2522%255D&arg-l-size=medium&arg-n-count=3&arg-r-variant=secondary&arg-s-label=Hello%20earth&story=controls--controls",
   );
   await expect(page.locator("#content")).toHaveText(
-    "Count: 3Disabled: yesLabel: Hello earthColors: Red,GreenVariant: secondarySize: medium",
+    "Count: 3Disabled: yesLabel: Hello earthColors: Red,GreenVariant: secondarySize: mediumvariant is stringsize is string",
   );
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
@@ -79,6 +104,6 @@ test("reset to defaults", async ({ page }) => {
   );
   await resetButton.click();
   await expect(page.locator("#content")).toHaveText(
-    "Count: 2Disabled: noLabel: Hello worldColors: Red,BlueVariant: primarySize: small",
+    "Count: 2Disabled: noLabel: Hello worldColors: Red,BlueVariant: primarySize: smallvariant is stringsize is string",
   );
 });

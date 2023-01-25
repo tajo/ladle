@@ -15,6 +15,12 @@ export const Controls: Story<{
     <p>Colors: {colors.join(",")}</p>
     <p>Variant: {variant}</p>
     <p>Size: {size}</p>
+    {typeof variant === "undefined" && <p>variant is undefined</p>}
+    {typeof variant === "boolean" && <p>variant is boolean</p>}
+    {typeof variant === "string" && <p>variant is string</p>}
+    {typeof size === "undefined" && <p>size is undefined</p>}
+    {typeof size === "boolean" && <p>size is boolean</p>}
+    {typeof size === "string" && <p>size is string</p>}
   </div>
 );
 
@@ -26,12 +32,12 @@ Controls.args = {
 };
 Controls.argTypes = {
   variant: {
-    options: ["primary", "secondary"],
+    options: ["primary", "secondary", true, false, undefined],
     control: { type: "radio" },
     defaultValue: "primary",
   },
   size: {
-    options: ["small", "medium", "big", "huuuuge"],
+    options: ["small", "medium", "big", true, false, undefined],
     control: { type: "select" },
   },
 };
