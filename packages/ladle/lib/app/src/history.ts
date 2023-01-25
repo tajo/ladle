@@ -71,9 +71,11 @@ export const getHref = (params: Partial<GlobalState>) => {
             break;
           case ControlType.Radio:
             type = "r";
+            value = String(value);
             break;
           case ControlType.Select:
             type = "l";
+            value = String(value);
             break;
           case ControlType.Complex:
             type = "c";
@@ -84,7 +86,7 @@ export const getHref = (params: Partial<GlobalState>) => {
             } catch (e) {}
             break;
         }
-        if (!isValueDefault && value !== arg.defaultValue) {
+        if (!isValueDefault && String(value) !== String(arg.defaultValue)) {
           encodedParams[`arg-${type}-${argKey}`] = value;
         }
       });
