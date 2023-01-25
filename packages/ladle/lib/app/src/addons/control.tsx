@@ -76,7 +76,7 @@ export const getQuery = (locationSearch: string) => {
           break;
         case "r":
           controls[keyParts.slice(2).join("-")] = {
-            value: coerceString(params[paramKey]),
+            value: coerceString(params[paramKey] as string),
             defaultValue: params[paramKey],
             description: "",
             options: [params[paramKey]],
@@ -85,7 +85,7 @@ export const getQuery = (locationSearch: string) => {
           break;
         case "l":
           controls[keyParts.slice(2).join("-")] = {
-            value: coerceString(params[paramKey]),
+            value: coerceString(params[paramKey] as string),
             defaultValue: params[paramKey],
             description: "",
             options: [params[paramKey]],
