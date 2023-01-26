@@ -15,7 +15,8 @@ export const Controls: Story<{
   colors: string[];
   variant: string;
   size: string;
-}> = ({ count, disabled, label, colors, variant, size }) => (
+  airpots: string[];
+}> = ({ count, disabled, label, colors, variant, size, airports }) => (
   <>
     <p>Count: {count}</p>
     <p>Disabled: {disabled ? "yes" : "no"}</p>
@@ -23,6 +24,7 @@ export const Controls: Story<{
     <p>Colors: {colors.join(",")}</p>
     <p>Variant: {variant}</p>
     <p>Size: {size}</p>
+    <p>Airports: {airports.join(",")}</p>
   </>
 );
 
@@ -35,12 +37,16 @@ Controls.args = {
 Controls.argTypes = {
   variant: {
     options: ["primary", "secondary"],
-    control: { type: "radio" },
+    control: { type: "radio" }, // or type: inline-radio
     defaultValue: "primary",
   },
   size: {
     options: ["small", "medium", "big", "huuuuge"],
-    control: { type: "select" },
+    control: { type: "select" }, // or type: multi-select
+  },
+  airports: {
+    options: ["sfo", "slc", "prg"],
+    control: { type: "check" }, // or type: inline-check
   },
 };
 ```
@@ -66,5 +72,21 @@ CardHello.args = {
 export const CardWorld = Card.bind({});
 CardWorld.args = {
   label: "World",
+};
+```
+
+Both `args` and `argTypes` can be also set for all stories in a single file:
+
+```tsx
+export default {
+  args: {
+    label: "Hello world",
+  },
+  argTypes: {
+    cities: {
+      options: ["Prague", "NYC"],
+      control: { type: "check" },
+    },
+  },
 };
 ```

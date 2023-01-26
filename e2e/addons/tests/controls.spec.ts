@@ -119,3 +119,11 @@ test("reset to defaults", async ({ page }) => {
     "Count: 2Disabled: noLabel: Hello worldColors: Red,BlueVariant: primarySize: smallvariant is stringsize is string",
   );
 });
+
+test("test export default level argTypes", async ({ page }) => {
+  await page.goto("http://localhost:61100/?story=controls--controls");
+  const button = await page.locator('[data-testid="addon-control"]');
+  await button.click();
+  await page.check("#cities-Prague");
+  await expect(page.locator("#content")).toContainText("Cities: Prague");
+});
