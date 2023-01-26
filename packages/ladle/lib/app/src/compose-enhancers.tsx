@@ -7,11 +7,13 @@ export default function composeEnhancers(module: any, storyName: string) {
   let funcs: any[] = [];
   const props = {
     args: {
-      ...(module.default.args ? module.default.args : {}),
+      ...(module.default && module.default.args ? module.default.args : {}),
       ...(module[storyName].args ? module[storyName].args : {}),
     },
     argTypes: {
-      ...(module.default.argTypes ? module.default.argTypes : {}),
+      ...(module.default && module.default.argTypes
+        ? module.default.argTypes
+        : {}),
       ...(module[storyName].argTypes ? module[storyName].argTypes : {}),
     },
     component: module[storyName],
