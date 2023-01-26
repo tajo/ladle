@@ -7,7 +7,8 @@ export const Controls: Story<{
   colors: string[];
   variant: string;
   size: string;
-}> = ({ count, disabled, label, colors, variant, size }) => (
+  airports: string;
+}> = ({ count, disabled, label, colors, variant, size, airports }) => (
   <div id="content">
     <p>Count: {count}</p>
     <p>Disabled: {disabled ? "yes" : "no"}</p>
@@ -15,6 +16,7 @@ export const Controls: Story<{
     <p>Colors: {colors.join(",")}</p>
     <p>Variant: {variant}</p>
     <p>Size: {size}</p>
+    {airports && airports.length ? <p>Airport: {airports}</p> : ""}
     {typeof variant === "undefined" && <p>variant is undefined</p>}
     {typeof variant === "boolean" && <p>variant is boolean</p>}
     {typeof variant === "string" && <p>variant is string</p>}
@@ -39,5 +41,9 @@ Controls.argTypes = {
   size: {
     options: ["small", "medium", "big", true, false, undefined],
     control: { type: "select" },
+  },
+  airports: {
+    options: ["sfo", "slc", "prg"],
+    control: { type: "check" },
   },
 };

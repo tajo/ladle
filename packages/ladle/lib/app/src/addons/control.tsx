@@ -53,7 +53,6 @@ export const getQuery = (locationSearch: string) => {
             value: params[paramKey] === "true",
             defaultValue: undefined,
             description: "",
-            type: ControlType.Boolean,
           };
           break;
         case "n":
@@ -61,7 +60,6 @@ export const getQuery = (locationSearch: string) => {
             value: parseInt(params[paramKey] as string, 10),
             defaultValue: undefined,
             description: "",
-            type: ControlType.Number,
           };
           break;
         case "c":
@@ -70,7 +68,6 @@ export const getQuery = (locationSearch: string) => {
               value: JSON.parse(decodeURI(params[paramKey] as string)),
               defaultValue: undefined,
               description: "",
-              type: ControlType.Complex,
             };
           } catch (e) {}
           break;
@@ -80,7 +77,6 @@ export const getQuery = (locationSearch: string) => {
             defaultValue: params[paramKey],
             description: "",
             options: [params[paramKey]],
-            type: ControlType.Radio,
           };
           break;
         case "l":
@@ -89,7 +85,6 @@ export const getQuery = (locationSearch: string) => {
             defaultValue: params[paramKey],
             description: "",
             options: [params[paramKey]],
-            type: ControlType.Select,
           };
           break;
         default:
@@ -97,7 +92,6 @@ export const getQuery = (locationSearch: string) => {
             value: params[paramKey],
             defaultValue: undefined,
             description: "",
-            type: ControlType.String,
           };
       }
     }
@@ -130,11 +124,20 @@ const Control = ({
       </tr>
     );
   }
-  if (globalState.control[controlKey].type === ControlType.Radio) {
+  if (
+    globalState.control[controlKey].type === ControlType.Radio ||
+    globalState.control[controlKey].type === ControlType.InlineRadio
+  ) {
     return (
       <tr>
         <td>{controlKey}</td>
-        <td>
+        <td
+          style={
+            globalState.control[controlKey].type === ControlType.InlineRadio
+              ? { display: "flex" }
+              : {}
+          }
+        >
           {(globalState.control[controlKey].options || []).map((option) => {
             const value = globalState.control[controlKey].value;
             const isChecked =
@@ -142,7 +145,17 @@ const Control = ({
               value === String(option) ||
               (typeof option === "undefined" && typeof value === "undefined");
             return (
-              <span key={`${String(option)}-${controlKey}`}>
+              <div
+                key={`${String(option)}-${controlKey}`}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  ...(globalState.control[controlKey].type ===
+                  ControlType.InlineRadio
+                    ? { paddingRight: "0.5em" }
+                    : {}),
+                }}
+              >
                 <input
                   id={`${controlKey}-${String(option)}`}
                   type="radio"
@@ -165,7 +178,74 @@ const Control = ({
                 <label htmlFor={`${controlKey}-${String(option)}`}>
                   {String(option)}
                 </label>
-              </span>
+              </div>
+            );
+          })}
+        </td>
+      </tr>
+    );
+  }
+  if (
+    globalState.control[controlKey].type === ControlType.Check ||
+    globalState.control[controlKey].type === ControlType.InlineCheck ||
+    globalState.control[controlKey].type === ControlType.MultiSelect
+  ) {
+    return (
+      <tr>
+        <td>{controlKey}</td>
+        <td
+          style={
+            globalState.control[controlKey].type === ControlType.InlineCheck
+              ? { display: "flex" }
+              : {}
+          }
+        >
+          {(globalState.control[controlKey].options || []).map((option) => {
+            const value = new Set(globalState.control[controlKey].value);
+            return (
+              <div
+                key={`${String(option)}-${controlKey}`}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  ...(globalState.control[controlKey].type ===
+                  ControlType.InlineCheck
+                    ? { paddingRight: "0.5em" }
+                    : {}),
+                }}
+              >
+                <input
+                  id={`${controlKey}-${String(option)}`}
+                  type="checkbox"
+                  name={`${controlKey}-${String(option)}`}
+                  value={String(option)}
+                  checked={value.has(String(option))}
+                  onChange={(e) => {
+                    const newValue = e.target.value;
+                    if (value.has(newValue)) {
+                      value.delete(newValue);
+                    } else {
+                      value.add(newValue);
+                    }
+                    dispatch({
+                      type: ActionType.UpdateControl,
+                      value: {
+                        ...globalState.control,
+                        [controlKey]: {
+                          ...globalState.control[controlKey],
+                          value: Array.from(value),
+                        },
+                      },
+                    });
+                  }}
+                />
+                <label
+                  htmlFor={`${controlKey}-${String(option)}`}
+                  style={{ marginLeft: "0.3em" }}
+                >
+                  {String(option)}
+                </label>
+              </div>
             );
           })}
         </td>

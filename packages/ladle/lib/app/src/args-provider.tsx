@@ -3,6 +3,15 @@ import config from "./get-config";
 import { useLadleContext } from "./context";
 import { ActionType, ControlType, ControlState } from "../../shared/types";
 
+const ALLOWED_ARGTYPES = [
+  "select",
+  "multi-select",
+  "radio",
+  "inline-radio",
+  "check",
+  "inline-check",
+];
+
 const ArgsProvider = ({
   component,
   decorator,
@@ -73,15 +82,16 @@ const ArgsProvider = ({
         if (!argValue.control || !argValue.control.type) {
           throw new Error("argTypes should have control type specified");
         }
-        if (
-          argValue.control.type !== "select" &&
-          argValue.control.type !== "radio"
-        ) {
-          throw new Error("only select and radio argTypes are supported now");
+        if (ALLOWED_ARGTYPES.indexOf(argValue.control.type) === -1) {
+          throw new Error(
+            `only ${ALLOWED_ARGTYPES.join(
+              ", ",
+            )} argTypes are supported now. For strings, booleans and numbers use just args.`,
+          );
         }
         if (globalState.control[argKey]) {
           controls[argKey] = {
-            type: globalState.control[argKey].type,
+            type: argValue.control.type,
             defaultValue:
               typeof argValue.defaultValue === "undefined"
                 ? argValue.options[0]
@@ -104,6 +114,19 @@ const ArgsProvider = ({
                 : argValue.defaultValue,
             description: argValue.name || argKey,
           };
+          // for checkboxes set defaultValue/value to [] if not set
+          if (
+            ["check", "inline-check", "multi-select"].includes(
+              argValue.control.type,
+            )
+          ) {
+            if (typeof argValue.defaultValue === "undefined") {
+              controls[argKey].defaultValue = [];
+            }
+            if (typeof argValue.value === "undefined") {
+              controls[argKey].value = controls[argKey].defaultValue;
+            }
+          }
         }
       });
     if (Object.keys(controls).length) {

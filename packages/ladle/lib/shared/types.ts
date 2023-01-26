@@ -25,7 +25,11 @@ export enum ControlType {
   Complex = "complex",
   Function = "function",
   Radio = "radio",
+  InlineRadio = "inline-radio",
   Select = "select",
+  MultiSelect = "multi-select",
+  Check = "check",
+  InlineCheck = "inline-check",
   Action = "action",
 }
 
