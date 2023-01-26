@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.5.1
+
+### Patch Changes
+
+- [#321](https://github.com/tajo/ladle/pull/321) [`320b13d`](https://github.com/tajo/ladle/commit/320b13d8b74836ed95e80fbc4f16856ba4ff17b4) Thanks [@tajo](https://github.com/tajo)! - Use undefined as default for controls
+
 ## 2.5.0
 
 ### Minor Changes
