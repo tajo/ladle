@@ -89,44 +89,15 @@ const ArgsProvider = ({
             )} argTypes are supported now. For strings, booleans and numbers use just args.`,
           );
         }
+        controls[argKey] = {
+          type: argValue.control.type,
+          defaultValue: args[argKey] ? args[argKey] : argValue.defaultValue,
+          options: argValue.options,
+          value: args[argKey] ? args[argKey] : argValue.defaultValue,
+          description: argValue.description || argKey,
+        };
         if (globalState.control[argKey]) {
-          controls[argKey] = {
-            type: argValue.control.type,
-            defaultValue:
-              typeof argValue.defaultValue === "undefined"
-                ? argValue.options[0]
-                : argValue.defaultValue,
-            value: globalState.control[argKey].value,
-            options: argValue.options,
-            description: "",
-          };
-        } else {
-          controls[argKey] = {
-            type: argValue.control.type,
-            defaultValue:
-              typeof argValue.defaultValue === "undefined"
-                ? argValue.options[0]
-                : argValue.defaultValue,
-            options: argValue.options,
-            value:
-              typeof argValue.defaultValue === "undefined"
-                ? argValue.options[0]
-                : argValue.defaultValue,
-            description: argValue.name || argKey,
-          };
-          // for checkboxes set defaultValue/value to [] if not set
-          if (
-            ["check", "inline-check", "multi-select"].includes(
-              argValue.control.type,
-            )
-          ) {
-            if (typeof argValue.defaultValue === "undefined") {
-              controls[argKey].defaultValue = [];
-            }
-            if (typeof argValue.value === "undefined") {
-              controls[argKey].value = controls[argKey].defaultValue;
-            }
-          }
+          controls[argKey].value = globalState.control[argKey].value;
         }
       });
     if (Object.keys(controls).length) {

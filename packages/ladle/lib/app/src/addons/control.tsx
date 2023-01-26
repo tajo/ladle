@@ -34,9 +34,6 @@ const getInputValue = (target: HTMLInputElement, type?: ControlType) => {
 };
 
 const coerceString = (value: string) => {
-  if (value === "undefined") {
-    return undefined;
-  }
   const isBoolean = value === "true" || value === "false";
   return isBoolean ? (value === "false" ? false : true) : value;
 };
@@ -140,10 +137,7 @@ const Control = ({
         >
           {(globalState.control[controlKey].options || []).map((option) => {
             const value = globalState.control[controlKey].value;
-            const isChecked =
-              value === option ||
-              value === String(option) ||
-              (typeof option === "undefined" && typeof value === "undefined");
+            const isChecked = value === option || value === String(option);
             return (
               <div
                 key={`${String(option)}-${controlKey}`}
@@ -275,10 +269,11 @@ const Control = ({
               });
             }}
           >
+            <option value="undefined" disabled>
+              Choose option...
+            </option>
             {(globalState.control[controlKey].options || []).map((option) => (
-              <option key={`${option}-${controlKey}`} value={String(option)}>
-                {String(option)}
-              </option>
+              <option key={`${option}-${controlKey}`}>{String(option)}</option>
             ))}
           </select>
         </td>
