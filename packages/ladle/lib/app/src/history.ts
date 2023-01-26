@@ -70,6 +70,7 @@ export const getHref = (params: Partial<GlobalState>) => {
             type = "n";
             break;
           case ControlType.Radio:
+          case ControlType.InlineRadio:
             type = "r";
             value = String(value);
             break;
@@ -77,6 +78,9 @@ export const getHref = (params: Partial<GlobalState>) => {
             type = "l";
             value = String(value);
             break;
+          case ControlType.Check:
+          case ControlType.InlineCheck:
+          case ControlType.MultiSelect:
           case ControlType.Complex:
             type = "c";
             value = encodeURI(JSON.stringify(arg.value));

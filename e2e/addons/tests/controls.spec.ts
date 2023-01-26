@@ -81,6 +81,18 @@ test("select control non-string types work", async ({ page }) => {
   await expect(page.locator("#content")).toContainText("size is boolean");
 });
 
+test("check control works", async ({ page }) => {
+  await page.goto("http://localhost:61100/?story=controls--controls");
+  const button = await page.locator('[data-testid="addon-control"]');
+  await button.click();
+  await page.check("#airports-sfo");
+  await expect(page.locator("#content")).toContainText("Airport: sfo");
+  await page.check("#airports-slc");
+  await expect(page.locator("#content")).toContainText("Airport: sfoslc");
+  await page.check("#airports-slc");
+  await expect(page.locator("#content")).toContainText("Airport: sfo");
+});
+
 test("controls state is passed through the URL", async ({ page }) => {
   await page.goto(
     "http://localhost:61100/?arg-b-disabled=true&arg-c-colors=%255B%2522Red%2522%2C%2522Green%2522%255D&arg-l-size=medium&arg-n-count=3&arg-r-variant=false&arg-s-label=Hello%20earth&story=controls--controls",
