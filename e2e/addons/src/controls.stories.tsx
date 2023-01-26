@@ -1,5 +1,14 @@
 import type { Story } from "@ladle/react";
 
+export default {
+  argTypes: {
+    cities: {
+      options: ["Prague", "NYC"],
+      control: { type: "check" },
+    },
+  },
+};
+
 export const Controls: Story<{
   label: string;
   disabled: boolean;
@@ -8,7 +17,8 @@ export const Controls: Story<{
   variant: string;
   size: string;
   airports: string;
-}> = ({ count, disabled, label, colors, variant, size, airports }) => (
+  cities: string;
+}> = ({ count, disabled, label, colors, variant, size, airports, cities }) => (
   <div id="content">
     <p>Count: {count}</p>
     <p>Disabled: {disabled ? "yes" : "no"}</p>
@@ -17,6 +27,7 @@ export const Controls: Story<{
     <p>Variant: {variant}</p>
     <p>Size: {size}</p>
     {airports && airports.length ? <p>Airport: {airports}</p> : ""}
+    {cities && cities.length ? <p>Cities: {cities}</p> : ""}
     {typeof variant === "undefined" && <p>variant is undefined</p>}
     {typeof variant === "boolean" && <p>variant is boolean</p>}
     {typeof variant === "string" && <p>variant is string</p>}
