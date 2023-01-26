@@ -45,16 +45,62 @@ Controls.args = {
 };
 Controls.argTypes = {
   variant: {
-    options: ["primary", "secondary", true, false, undefined],
+    options: ["primary", "secondary", true, false],
     control: { type: "radio" },
     defaultValue: "primary",
   },
   size: {
-    options: ["small", "medium", "big", true, false, undefined],
+    options: ["small", "medium", "big", true, false],
     control: { type: "select" },
   },
   airports: {
     options: ["sfo", "slc", "prg"],
+    control: { type: "check" },
+  },
+};
+
+export const Initial: Story<{
+  variant: string;
+  airports: string[];
+  cities: string[];
+  empty: string;
+  countries: string;
+  food: string;
+}> = ({ variant, airports, cities, empty, countries, food }) => (
+  <div id="content">
+    <p>Variant: {variant}</p>
+    <p>Airport: {airports}</p>
+    <p>Country: {countries}</p>
+    <p>Empty: {empty}</p>
+    <p>City: {cities}</p>
+    <p>Food: {food}</p>
+  </div>
+);
+
+Initial.args = {
+  variant: "secondary",
+};
+
+Initial.argTypes = {
+  variant: {
+    options: ["primary", "secondary"],
+    control: { type: "radio" },
+    defaultValue: "primary",
+  },
+  food: {
+    options: ["burger", "pizza"],
+    control: { type: "radio" },
+  },
+  airports: {
+    options: ["sfo", "slc", "prg"],
+    control: { type: "check" },
+    defaultValue: ["slc"],
+  },
+  countries: {
+    options: ["USA", "Germany"],
+    control: { type: "select" },
+  },
+  empty: {
     control: { type: "check" },
   },
 };
