@@ -62,7 +62,11 @@ const bundler = async (config, configFolder) => {
     }:${port}${vite.config.base || ""}`;
     app.listen(
       port,
-      vite.config.server.host ? vite.config.server.host : "localhost",
+      vite.config.server.host === true
+        ? "0.0.0.0"
+        : typeof vite.config.server.host === "string"
+        ? vite.config.server.host
+        : "localhost",
       async () => {
         console.log(
           boxen(`🥄 Ladle.dev served at ${serverUrl}`, {
