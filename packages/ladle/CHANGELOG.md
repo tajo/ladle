@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.5.2
+
+### Patch Changes
+
+- [#324](https://github.com/tajo/ladle/pull/324) [`116f219`](https://github.com/tajo/ladle/commit/116f2199637a7945f212e2378ea5bc2c58a0c7fc) Thanks [@tajo](https://github.com/tajo)! - Preventing Vite to serve files outside of root workspace. The dev server also doens't autobind to all network interfaces (aligned with the Vite's default).
+
 ## 2.5.1
 
 ### Patch Changes
