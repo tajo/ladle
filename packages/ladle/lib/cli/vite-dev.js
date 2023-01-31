@@ -34,9 +34,6 @@ const bundler = async (config, configFolder) => {
         hmr: {
           port: hmrPort,
         },
-        fs: {
-          strict: false,
-        },
         middlewareMode: true,
       },
     });
@@ -63,26 +60,34 @@ const bundler = async (config, configFolder) => {
     const serverUrl = `${vite.config.server.https ? "https" : "http"}://${
       vite.config.server.host || "localhost"
     }:${port}${vite.config.base || ""}`;
-    app.listen(port, async () => {
-      console.log(
-        boxen(`🥄 Ladle.dev served at ${serverUrl}`, {
-          padding: 1,
-          margin: 1,
-          borderStyle: "round",
-          borderColor: "yellow",
-          titleAlignment: "center",
-          textAlignment: "center",
-        }),
-      );
+    app.listen(
+      port,
+      vite.config.server.host === true
+        ? "0.0.0.0"
+        : typeof vite.config.server.host === "string"
+        ? vite.config.server.host
+        : "localhost",
+      async () => {
+        console.log(
+          boxen(`🥄 Ladle.dev served at ${serverUrl}`, {
+            padding: 1,
+            margin: 1,
+            borderStyle: "round",
+            borderColor: "yellow",
+            titleAlignment: "center",
+            textAlignment: "center",
+          }),
+        );
 
-      if (
-        vite.config.server.open !== "none" &&
-        vite.config.server.open !== false
-      ) {
-        const browser = /** @type {string} */ (vite.config.server.open);
-        await openBrowser(serverUrl, browser);
-      }
-    });
+        if (
+          vite.config.server.open !== "none" &&
+          vite.config.server.open !== false
+        ) {
+          const browser = /** @type {string} */ (vite.config.server.open);
+          await openBrowser(serverUrl, browser);
+        }
+      },
+    );
 
     // trigger full reload when new stories are added or removed
     const watcher = chokidar.watch(config.stories, {
