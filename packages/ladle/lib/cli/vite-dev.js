@@ -1,4 +1,4 @@
-import { createServer } from "vite";
+import { createServer, searchForWorkspaceRoot } from "vite";
 import express from "express";
 import getPort from "get-port";
 import { globby } from "globby";
@@ -34,6 +34,7 @@ const bundler = async (config, configFolder) => {
         hmr: {
           port: hmrPort,
         },
+        fs: { allow: [searchForWorkspaceRoot(process.cwd())] },
         middlewareMode: true,
       },
     });
