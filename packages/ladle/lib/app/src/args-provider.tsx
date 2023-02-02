@@ -21,9 +21,11 @@ export const areControlsInitialized = (
   args: any,
   argTypes: any,
 ) =>
-  Object.keys(globalState.control).length ===
-  (args ? Object.keys(args).length : 0) +
-    (argTypes ? Object.keys(argTypes).length : 0);
+  Object.keys(globalState.control).length >=
+  Math.max(
+    args ? Object.keys(args).length : 0,
+    argTypes ? Object.keys(argTypes).length : 0,
+  );
 
 const ArgsProvider = ({
   component,
