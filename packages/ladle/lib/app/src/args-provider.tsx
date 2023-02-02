@@ -1,7 +1,11 @@
 import * as React from "react";
-import config from "./get-config";
 import { useLadleContext } from "./context";
-import { ActionType, ControlType, ControlState } from "../../shared/types";
+import {
+  ActionType,
+  ControlType,
+  ControlState,
+  GlobalState,
+} from "../../shared/types";
 
 const ALLOWED_ARGTYPES = [
   "select",
@@ -12,16 +16,25 @@ const ALLOWED_ARGTYPES = [
   "inline-check",
 ];
 
+export const areControlsInitialized = (
+  globalState: GlobalState,
+  args: any,
+  argTypes: any,
+) =>
+  Object.keys(globalState.control).length >=
+  Math.max(
+    args ? Object.keys(args).length : 0,
+    argTypes ? Object.keys(argTypes).length : 0,
+  );
+
 const ArgsProvider = ({
   component,
-  decorator,
   args,
   argTypes,
 }: {
   component: any;
   args: any;
   argTypes: any;
-  decorator: any;
 }) => {
   const { globalState, dispatch } = useLadleContext();
   const actionLogger = (name: String) => (event: Event) => {
@@ -113,21 +126,10 @@ const ArgsProvider = ({
     }
   });
 
-  // make sure we don't render story before args are passed through the state
-  if (
-    Object.keys(globalState.control).length <
-    Math.max(
-      args ? Object.keys(args).length : 0,
-      argTypes ? Object.keys(argTypes).length : 0,
-    )
-  ) {
+  if (!areControlsInitialized(globalState, args, argTypes)) {
     return null;
   }
-  return decorator(() => React.createElement(component, props), {
-    globalState,
-    dispatch,
-    config,
-  });
+  return React.createElement(component, props);
 };
 
 export default ArgsProvider;
