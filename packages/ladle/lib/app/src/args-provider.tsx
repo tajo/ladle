@@ -1,6 +1,11 @@
 import * as React from "react";
 import { useLadleContext } from "./context";
-import { ActionType, ControlType, ControlState } from "../../shared/types";
+import {
+  ActionType,
+  ControlType,
+  ControlState,
+  GlobalState,
+} from "../../shared/types";
 
 const ALLOWED_ARGTYPES = [
   "select",
@@ -10,6 +15,15 @@ const ALLOWED_ARGTYPES = [
   "check",
   "inline-check",
 ];
+
+export const areControlsInitialized = (
+  globalState: GlobalState,
+  args: any,
+  argTypes: any,
+) =>
+  Object.keys(globalState.control).length ===
+  (args ? Object.keys(args).length : 0) +
+    (argTypes ? Object.keys(argTypes).length : 0);
 
 const ArgsProvider = ({
   component,
@@ -110,14 +124,7 @@ const ArgsProvider = ({
     }
   });
 
-  // make sure we don't render story before args are passed through the state
-  if (
-    Object.keys(globalState.control).length <
-    Math.max(
-      args ? Object.keys(args).length : 0,
-      argTypes ? Object.keys(argTypes).length : 0,
-    )
-  ) {
+  if (!areControlsInitialized(globalState, args, argTypes)) {
     return null;
   }
   return React.createElement(component, props);

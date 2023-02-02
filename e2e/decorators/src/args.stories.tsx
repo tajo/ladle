@@ -34,7 +34,12 @@ export default {
 
 const Card: Story<{
   label: string;
-}> = ({ label }) => <p>Label: {label}</p>;
+}> = ({ label }) => (
+  <>
+    <p>Label: {label}</p>
+    <input id="persist-input" />
+  </>
+);
 
 export const CardHello = Card.bind({});
 
