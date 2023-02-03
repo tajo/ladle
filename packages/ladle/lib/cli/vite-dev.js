@@ -36,12 +36,7 @@ const bundler = async (config, configFolder) => {
         },
         middlewareMode: true,
         fs: {
-          allow: [
-            searchForWorkspaceRoot(process.cwd()),
-            ...(config.server && config.server.fs && config.server.fs.allow
-              ? config.server.fs.allow
-              : []),
-          ],
+          allow: [searchForWorkspaceRoot(process.cwd())],
         },
       },
     });
