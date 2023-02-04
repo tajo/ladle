@@ -38,58 +38,55 @@ const coerceString = (value: string) => {
   return isBoolean ? (value === "false" ? false : true) : value;
 };
 
-export const getQuery = (locationSearch: string) => {
+export const getQuery = (
+  locationSearch: string,
+  controlState: ControlState,
+) => {
   const params = queryString.parse(locationSearch);
   const controls: { [key: string]: any } = {};
+  // we first need controls being initialized from stories so we know types
+  // before taking over from url
+  if (Object.keys(controlState).length === 0) {
+    return controlState;
+  }
   Object.keys(params).forEach((paramKey) => {
     if (paramKey.startsWith("arg-")) {
       const keyParts = paramKey.split("-");
-      switch (keyParts[1]) {
-        case "b":
-          controls[keyParts.slice(2).join("-")] = {
-            value: params[paramKey] === "true",
-            defaultValue: undefined,
-            description: "",
-          };
-          break;
-        case "n":
-          controls[keyParts.slice(2).join("-")] = {
-            value: parseInt(params[paramKey] as string, 10),
-            defaultValue: undefined,
-            description: "",
-          };
-          break;
-        case "c":
-          try {
-            controls[keyParts.slice(2).join("-")] = {
-              value: JSON.parse(decodeURI(params[paramKey] as string)),
-              defaultValue: undefined,
-              description: "",
-            };
-          } catch (e) {}
-          break;
-        case "r":
-          controls[keyParts.slice(2).join("-")] = {
-            value: coerceString(params[paramKey] as string),
-            defaultValue: params[paramKey],
-            description: "",
-            options: [params[paramKey]],
-          };
-          break;
-        case "l":
-          controls[keyParts.slice(2).join("-")] = {
-            value: coerceString(params[paramKey] as string),
-            defaultValue: params[paramKey],
-            description: "",
-            options: [params[paramKey]],
-          };
-          break;
-        default:
-          controls[keyParts.slice(2).join("-")] = {
-            value: params[paramKey],
-            defaultValue: undefined,
-            description: "",
-          };
+      const argKey = keyParts[1];
+      const argValue = params[paramKey] as string;
+      const argType = controlState[argKey].type;
+      if (argType !== ControlType.Action) {
+        let realValue: any = argValue;
+        switch (argType) {
+          case ControlType.String:
+            realValue = decodeURI(argValue);
+            break;
+          case ControlType.Boolean:
+            realValue = argValue === "true";
+            break;
+          case ControlType.Number:
+            realValue = parseInt(argValue, 10);
+            break;
+          case ControlType.Complex:
+            realValue = JSON.parse(decodeURI(argValue));
+            break;
+          case ControlType.Radio:
+          case ControlType.InlineRadio:
+          case ControlType.Select:
+            realValue = coerceString(decodeURI(argValue));
+            break;
+          case ControlType.InlineCheck:
+          case ControlType.MultiSelect:
+          case ControlType.Check:
+            realValue = coerceString(JSON.parse(decodeURI(argValue)));
+            break;
+        }
+        controls[argKey] = {
+          value: realValue,
+          defaultValue: controlState[argKey].defaultValue,
+          description: controlState[argKey].description,
+          type: controlState[argKey].type,
+        };
       }
     }
   });
@@ -227,7 +224,7 @@ const Control = ({
                         ...globalState.control,
                         [controlKey]: {
                           ...globalState.control[controlKey],
-                          value: Array.from(value),
+                          value: value.size > 0 ? Array.from(value) : undefined,
                         },
                       },
                     });

@@ -34,14 +34,17 @@ import {
 const stories = Object.keys(unsortedStories).sort(sortStories);
 debug("Stories found", stories);
 
-const getUrlState = (search: string): GlobalState => ({
+const getUrlState = (
+  search: string,
+  globalState?: GlobalState,
+): GlobalState => ({
   theme: getQueryTheme(search),
   mode: getQueryMode(search),
   story: getQueryStory(search),
   rtl: getQueryRtl(search),
   source: getQuerySource(search),
   width: getQueryWidth(search),
-  control: getQueryControl(search),
+  control: getQueryControl(search, globalState ? globalState.control : {}),
   action: [],
 });
 
@@ -104,7 +107,9 @@ const App = () => {
       if (action === Action.Pop) {
         const controls: ControlState = {};
         Object.keys(globalState.control).forEach((control) => {
-          const urlControl = getUrlState(location.search).control[control];
+          const urlControl = getUrlState(location.search, globalState).control[
+            control
+          ];
           controls[control] = {
             ...globalState.control[control],
             value: urlControl
@@ -114,7 +119,10 @@ const App = () => {
         });
         dispatch({
           type: ActionType.UpdateAll,
-          value: { ...getUrlState(location.search), control: controls },
+          value: {
+            ...getUrlState(location.search, globalState),
+            control: controls,
+          },
         });
       }
     });
