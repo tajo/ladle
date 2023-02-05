@@ -5,8 +5,9 @@ const NoStoriesError = ({ error }: { error: string }) => {
   console.log(error);
   return (
     <div className="ladle-error-content">
-      <h1>❌ Error when discovering stories ❌</h1>
+      <h1>SyntaxError when parsing stories ❌</h1>
       <pre>{error}</pre>
+      <p>Check the terminal for more info.</p>
       <p>
         <Link href="https://ladle.dev/docs/stories#limitations">
           More information.
