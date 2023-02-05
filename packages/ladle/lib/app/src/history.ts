@@ -25,23 +25,28 @@ const removeDefaultValues = (params: Partial<GlobalState>) => {
 export const modifyParams = (params: Partial<GlobalState>) => {
   removeDefaultValues(params);
   const urlParams = queryString.parse(location.search);
-  const noUpdateNeeded =
-    Object.keys(params).length === Object.keys(urlParams).length &&
-    Object.keys(params).every((key) => {
-      const val = params[key as keyof GlobalState];
-      if (typeof val === "boolean") {
-        return val === (urlParams[key] === "true" ? true : false);
-      }
-      if (typeof val === "number") {
-        return val === parseInt(urlParams[key] as string);
-      }
-      return val === urlParams[key];
-    });
+  const noUpdateNeeded = Object.keys(params).every((key) => {
+    if (
+      key === "control" &&
+      Object.keys(params["control"] as {}).length === 0
+    ) {
+      return true;
+    }
+    const val = params[key as keyof GlobalState];
+    if (typeof val === "boolean") {
+      return val === (urlParams[key] === "true" ? true : false);
+    }
+    if (typeof val === "number") {
+      return val === parseInt(urlParams[key] as string);
+    }
+    return val === urlParams[key];
+  });
   if (noUpdateNeeded) {
     debug("No URL updated needed");
     return;
   }
   if (location.search !== getHref(params)) {
+    debug("Updating URL");
     history.push(getHref(params));
   }
 };
@@ -58,41 +63,22 @@ export const getHref = (params: Partial<GlobalState>) => {
           // a special case, actions are handled by the addon-action
           return;
         }
-
-        let type = "s";
         let value = arg.value;
         let isValueDefault = false;
-        switch (arg.type) {
-          case ControlType.Boolean:
-            type = "b";
-            break;
-          case ControlType.Number:
-            type = "n";
-            break;
-          case ControlType.Radio:
-          case ControlType.InlineRadio:
-            type = "r";
-            value = String(value);
-            break;
-          case ControlType.Select:
-            type = "l";
-            value = String(value);
-            break;
-          case ControlType.Check:
-          case ControlType.InlineCheck:
-          case ControlType.MultiSelect:
-          case ControlType.Complex:
-            type = "c";
-            value = encodeURI(JSON.stringify(arg.value));
-            try {
-              isValueDefault =
-                JSON.stringify(arg.value) === JSON.stringify(arg.defaultValue);
-            } catch (e) {}
-            break;
-        }
-        if (!isValueDefault && String(value) !== String(arg.defaultValue)) {
-          encodedParams[`arg-${type}-${argKey}`] = value;
-        }
+
+        value = encodeURI(
+          typeof arg.value === "string" ? arg.value : JSON.stringify(arg.value),
+        );
+        try {
+          isValueDefault =
+            JSON.stringify(arg.value) === JSON.stringify(arg.defaultValue);
+          if (
+            !isValueDefault &&
+            JSON.stringify(value) !== JSON.stringify(arg.defaultValue)
+          ) {
+            encodedParams[`arg-${argKey}`] = value;
+          }
+        } catch (e) {}
       });
     } else {
       encodedParams[key] = (params as any)[key];

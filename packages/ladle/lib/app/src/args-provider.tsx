@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useLadleContext } from "./context";
+import { getQuery } from "./addons/control";
 import {
   ActionType,
   ControlType,
@@ -114,16 +115,20 @@ const ArgsProvider = ({
         }
       });
     if (Object.keys(controls).length) {
-      dispatch({ type: ActionType.UpdateControl, value: controls });
+      const urlValues = getQuery(location.search, controls);
+      Object.keys(urlValues).forEach((key) => {
+        controls[key].value = urlValues[key].value;
+      });
+      dispatch({
+        type: ActionType.UpdateControl,
+        value: controls,
+      });
     }
   }, []);
+
   const props: any = {};
   Object.keys(globalState.control).forEach((key) => {
-    if (!globalState.control[key].type) {
-      props[key] = globalState.control[key].value;
-    } else {
-      props[key] = globalState.control[key].value;
-    }
+    props[key] = globalState.control[key].value;
   });
 
   if (!areControlsInitialized(globalState, args, argTypes)) {
