@@ -46,6 +46,7 @@ const getUrlState = (
   width: getQueryWidth(search),
   control: getQueryControl(search, globalState ? globalState.control : {}),
   action: [],
+  controlInitialized: false,
 });
 
 const App = () => {
@@ -65,17 +66,9 @@ const App = () => {
   React.useEffect(() => {
     debug("Global state update", globalState);
     if (!isQueryStorySet(location.search)) {
-      modifyParams({ story: globalState.story });
+      modifyParams(globalState);
     }
-    modifyParams({
-      mode: globalState.mode,
-      rtl: globalState.rtl,
-      source: globalState.source,
-      story: globalState.story,
-      theme: globalState.theme,
-      width: globalState.width,
-      control: globalState.control,
-    });
+    modifyParams(globalState);
     if (globalState.story !== prevGlobalState.story) {
       document.title = `${storyIdToTitle(globalState.story)} | Ladle`;
     }

@@ -54,13 +54,19 @@ const StoryFrame = ({
 const SynchronizeHead = ({
   active,
   children,
+  rtl,
 }: {
   active: boolean;
   children: JSX.Element;
+  rtl: boolean;
 }) => {
   const { window: storyWindow } = useFrame();
   const syncHead = () => {
     if (!storyWindow) return;
+    storyWindow.document.documentElement.setAttribute(
+      "dir",
+      rtl ? "rtl" : "ltr",
+    );
     [...(document.head.children as any)].forEach((child) => {
       if (
         child.tagName === "STYLE" ||
@@ -89,7 +95,7 @@ const SynchronizeHead = ({
       };
     }
     return;
-  }, [active]);
+  }, [active, rtl]);
   return children;
 };
 
@@ -152,6 +158,7 @@ const Story = ({
               (iframeActive || width > 0) &&
               globalState.mode !== ModeState.Preview
             }
+            rtl={globalState.rtl}
           >
             <Provider
               config={config}
