@@ -1,5 +1,21 @@
 # @ladle/react
 
+## 2.5.3
+
+### Patch Changes
+
+- [#330](https://github.com/tajo/ladle/pull/330) [`2f85341`](https://github.com/tajo/ladle/commit/2f85341836d038e978cd97f5661f4a92dbc76cdd) Thanks [@tajo](https://github.com/tajo)! - Fix default files/folders that are allowed to be served by Ladle. It didn't work correctly when the Vite's base setting was used.
+
+- [#331](https://github.com/tajo/ladle/pull/331) [`2ba29c8`](https://github.com/tajo/ladle/commit/2ba29c8a7635a2509837f93d7bea88f310510094) Thanks [@tajo](https://github.com/tajo)! - Change internal implementation of controls to keep it simpler. Remove typings from the URL args.
+
+- [`2ea1605`](https://github.com/tajo/ladle/commit/2ea1605fe492fc2eed696f756c79f2747e4bf69e) Thanks [@tajo](https://github.com/tajo)! - Greenkeeping
+
+- [#332](https://github.com/tajo/ladle/pull/332) [`b3de582`](https://github.com/tajo/ladle/commit/b3de582561c0beab0ffba5c6c51b738ac4420fba) Thanks [@tajo](https://github.com/tajo)! - Fix RTL in inframed mode. Simplify URL state persistance.
+
+- [#327](https://github.com/tajo/ladle/pull/327) [`fb6634f`](https://github.com/tajo/ladle/commit/fb6634f10f99b1eb1a80cab46a90b7b61d324361) Thanks [@tajo](https://github.com/tajo)! - Prevent story remounts when Ladle state changes (control changed, action fired...)
+
+- [#333](https://github.com/tajo/ladle/pull/333) [`1cf19bd`](https://github.com/tajo/ladle/commit/1cf19bd564bc561f46ae0a72b3d9078e4b6a4b48) Thanks [@tajo](https://github.com/tajo)! - Remove types from the virtual-module
+
 ## 2.5.2
 
 ### Patch Changes
