@@ -23,7 +23,7 @@ export const config = {};
 export const stories = {};
 export const storySource = {};
 export const errorMessage = \`${errorMessage}\`;
-export const Provider = ({ children }: { children: any }) =>
+export const Provider = ({ children }) =>
   /*#__PURE__*/ React.createElement(React.Fragment, null, children);
 `;
 
