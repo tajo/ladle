@@ -53,6 +53,7 @@ export enum ActionType {
   UpdateTheme = "update-theme",
   UpdateWidth = "update-width",
   UpdateControl = "update-control",
+  UpdateControlIntialized = "update-control-initialized",
 }
 
 export type GlobalAction =
@@ -90,6 +91,10 @@ export type GlobalAction =
       value: ThemeState;
     }
   | {
+      type: ActionType.UpdateControlIntialized;
+      value: boolean;
+    }
+  | {
       type: ActionType.UpdateControl;
       value: ControlState;
     };
@@ -102,6 +107,7 @@ export type GlobalState = {
   rtl: boolean;
   source: boolean;
   control: ControlState;
+  controlInitialized: boolean;
   width: number;
 };
 

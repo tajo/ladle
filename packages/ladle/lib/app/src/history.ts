@@ -22,31 +22,20 @@ const removeDefaultValues = (params: Partial<GlobalState>) => {
   });
 };
 
-export const modifyParams = (params: Partial<GlobalState>) => {
+export const modifyParams = (globalState: GlobalState) => {
+  if (!globalState.controlInitialized) return;
+  const params = {
+    mode: globalState.mode,
+    rtl: globalState.rtl,
+    source: globalState.source,
+    story: globalState.story,
+    theme: globalState.theme,
+    width: globalState.width,
+    control: globalState.control,
+  };
   removeDefaultValues(params);
-  const urlParams = queryString.parse(location.search);
-  const noUpdateNeeded = Object.keys(params).every((key) => {
-    if (
-      key === "control" &&
-      Object.keys(params["control"] as {}).length === 0
-    ) {
-      return true;
-    }
-    const val = params[key as keyof GlobalState];
-    if (typeof val === "boolean") {
-      return val === (urlParams[key] === "true" ? true : false);
-    }
-    if (typeof val === "number") {
-      return val === parseInt(urlParams[key] as string);
-    }
-    return val === urlParams[key];
-  });
-  if (noUpdateNeeded) {
-    debug("No URL updated needed");
-    return;
-  }
   if (location.search !== getHref(params)) {
-    debug("Updating URL");
+    debug(`Updating URL to ${getHref(params)}`);
     history.push(getHref(params));
   }
 };

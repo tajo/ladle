@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from "react";
-import ArgsProvider, { areControlsInitialized } from "./args-provider";
+import ArgsProvider from "./args-provider";
 import config from "./get-config";
 import { useLadleContext } from "./context";
 
@@ -28,14 +28,9 @@ export default function composeEnhancers(module: any, storyName: string) {
 
   return () => {
     const { globalState, dispatch } = useLadleContext();
-    const controlsInitialized = areControlsInitialized(
-      globalState,
-      props.args,
-      props.argTypes,
-    );
     return React.useMemo(
       () =>
-        controlsInitialized ? (
+        globalState.controlInitialized ? (
           decorators.reduce(
             (story, decorator) =>
               decorator(() => story, { globalState, dispatch, config }),
@@ -44,7 +39,7 @@ export default function composeEnhancers(module: any, storyName: string) {
         ) : (
           <ArgsProvider {...props} />
         ),
-      [controlsInitialized],
+      [globalState.controlInitialized],
     );
   };
 }

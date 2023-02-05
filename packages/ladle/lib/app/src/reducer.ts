@@ -24,6 +24,7 @@ const reducer = (state: GlobalState, action: GlobalAction): GlobalState => {
         ...state,
         story: action.value,
         control: {},
+        controlInitialized: false,
         width: 0,
         action: [],
       };
@@ -32,7 +33,9 @@ const reducer = (state: GlobalState, action: GlobalAction): GlobalState => {
     case ActionType.UpdateWidth:
       return { ...state, width: action.value };
     case ActionType.UpdateControl:
-      return { ...state, control: action.value };
+      return { ...state, control: action.value, controlInitialized: true };
+    case ActionType.UpdateControlIntialized:
+      return { ...state, controlInitialized: action.value };
     default:
       return state;
   }
