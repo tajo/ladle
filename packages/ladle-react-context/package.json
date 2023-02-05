@@ -8,7 +8,7 @@
   "exports": {
     ".": "./index.js"
   },
-  "packageManager": "pnpm@7.1.9",
+  "packageManager": "pnpm@7.26.3",
   "publishConfig": {
     "access": "public"
   },

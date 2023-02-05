@@ -12,7 +12,7 @@
     "./preview": "./api/preview.js",
     "./build": "./api/build.js"
   },
-  "packageManager": "pnpm@7.3.0",
+  "packageManager": "pnpm@7.26.3",
   "publishConfig": {
     "access": "public"
   },
