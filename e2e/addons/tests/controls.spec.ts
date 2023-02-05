@@ -102,7 +102,7 @@ test("set defaults and args inheritence works", async ({ page }) => {
 
 test("controls state is passed through the URL", async ({ page }) => {
   await page.goto(
-    "http://localhost:61100/?arg-b-disabled=true&arg-c-colors=%255B%2522Red%2522%2C%2522Green%2522%255D&arg-l-size=medium&arg-n-count=3&arg-r-variant=false&arg-s-label=Hello%20earth&story=controls--controls",
+    "http://localhost:61100/?arg-disabled=true&arg-colors=%255B%2522Red%2522%2C%2522Green%2522%255D&arg-size=medium&arg-count=3&arg-variant=false&arg-label=Hello%20earth&story=controls--controls",
   );
   await expect(page.locator("#content")).toHaveText(
     "Count: 3Disabled: yesLabel: Hello earthColors: Red,GreenVariant: Size: mediumvariant is booleansize is string",
@@ -111,7 +111,7 @@ test("controls state is passed through the URL", async ({ page }) => {
 
 test("reset to defaults", async ({ page }) => {
   await page.goto(
-    "http://localhost:61100/?arg-b-disabled=true&arg-c-colors=%255B%2522Red%2522%2C%2522Green%2522%255D&arg-l-size=medium&arg-n-count=3&arg-r-variant=secondary&arg-s-label=Hello%20earth&story=controls--controls",
+    "http://localhost:61100/?arg-disabled=true&arg-colors=%255B%2522Red%2522%2C%2522Green%2522%255D&arg-size=medium&arg-count=3&arg-variant=secondary&arg-label=Hello%20earth&story=controls--controls",
   );
   await expect(page.locator("#content")).toHaveText(
     "Count: 3Disabled: yesLabel: Hello earthColors: Red,GreenVariant: secondarySize: mediumvariant is stringsize is string",
