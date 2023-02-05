@@ -40,6 +40,9 @@ const bundler = async (config, configFolder) => {
         },
       },
     });
+    if (viteConfig.plugins[0].some(({name}) => name === 'vite:react-swc')) {
+      viteConfig.plugins[0] = (await import('@vitejs/plugin-react')).default();
+    }
     const vite = await createServer(viteConfig);
     const { moduleGraph, ws } = vite;
     app.head("*", async (_, res) => res.sendStatus(200));
