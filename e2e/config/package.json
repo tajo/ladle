@@ -1,6 +1,6 @@
 {
   "name": "test-config",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "license": "MIT",
   "private": true,
   "scripts": {
