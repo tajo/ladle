@@ -12,42 +12,56 @@ import mdxToStories from "./mdx-to-stories.js";
  * @return {Plugin}
  */
 function mdxPlugin() {
+  /** @type Plugin['transform'] | undefined */
+  let reactPluginTransform;
   const { extnames, process } = createFormatAwareProcessors({
     SourceMapGenerator,
+    // preserve JSX for our AST transform into component story format (CSF)
     jsx: true,
   });
 
-  console.log(extnames);
-
   return {
-    name: "custom-mdx-js-plugin",
+    name: "ladle:stories-mdx",
     enforce: "pre",
+    configResolved: ({ plugins }) => {
+      reactPluginTransform = plugins.find(
+        (p) =>
+          p.name === "vite:react-babel" && typeof p.transform === "function",
+      )?.transform;
+      if (!reactPluginTransform) {
+        throw new Error(
+          `Can't find an instance of @vitejs/plugin-react. You should apply this plugin to make mdx work.`,
+        );
+      }
+    },
     async transform(value, path) {
+      const [filepath, querystring = ""] = path.split("?");
       const file = new VFile({ value, path });
-      console.log(file.extname);
       if (file.extname && extnames.includes(file.extname)) {
-        console.log("****compiling ", path);
-
         const compiled = await process(file);
-        // console.log(String(compiled.value));
-        // console.log(path);
-        // console.log("------");
-        // stories files needs to go through named export transform
-
         let code = String(compiled.value);
-        if (path.endsWith(".stories.mdx")) {
-          code = await mdxToStories(String(compiled.value), path);
+        if (filepath.endsWith(".stories.mdx")) {
+          // AST transform from MDX compiler output into CSF
+          code = await mdxToStories(String(compiled.value), filepath);
         }
-        return await transformAsync(code, {
-          plugins: [
-            [
-              "@babel/plugin-transform-react-jsx",
-              {
-                runtime: "automatic", // defaults to classic
-              },
-            ],
-          ],
-        });
+
+        return await reactPluginTransform(
+          // compile JSX away since we skip this part in MDX compiler
+          (
+            await transformAsync(code, {
+              plugins: [
+                [
+                  "@babel/plugin-transform-react-jsx",
+                  {
+                    runtime: "automatic",
+                  },
+                ],
+              ],
+            })
+          ).code,
+          // trick vitejs/plugin-react into adding HMR/fast-refresh
+          `${filepath}${querystring ? "&ext=.jsx" : "?ext=.jsx"}`,
+        );
       }
     },
   };
