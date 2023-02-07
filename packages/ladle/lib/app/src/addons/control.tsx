@@ -50,7 +50,7 @@ export const getQuery = (
     return controlState;
   }
   Object.keys(params).forEach((paramKey) => {
-    if (paramKey.startsWith("arg-")) {
+    if (paramKey.startsWith("arg-") && controlState[paramKey.split("-")[1]]) {
       const keyParts = paramKey.split("-");
       const argKey = keyParts[1];
       const argValue = params[paramKey] as string;

@@ -143,9 +143,16 @@ const App = () => {
       <Navigation
         stories={stories}
         story={globalState.story}
-        updateStory={(story) =>
-          dispatch({ type: ActionType.UpdateStory, value: story })
-        }
+        updateStory={(story) => {
+          // we need to strip the control state from the URL first
+          // so it doesn't leak into other stories with the same named controls
+          modifyParams({
+            ...globalState,
+            story,
+            control: {},
+          });
+          dispatch({ type: ActionType.UpdateStory, value: story });
+        }}
       />
       <AddonPanel globalState={globalState} dispatch={dispatch} />
     </Context.Provider>
