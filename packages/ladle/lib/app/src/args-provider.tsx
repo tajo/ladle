@@ -108,10 +108,12 @@ const ArgsProvider = ({
         value: controls,
       });
     } else {
-      dispatch({
-        type: ActionType.UpdateControlIntialized,
-        value: true,
-      });
+      if (!globalState.controlInitialized) {
+        dispatch({
+          type: ActionType.UpdateControlIntialized,
+          value: true,
+        });
+      }
     }
   }, []);
 
