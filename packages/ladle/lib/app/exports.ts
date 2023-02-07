@@ -1,5 +1,6 @@
 import type * as React from "react";
 import { useLadleContext } from "./src/context";
+import ExportStory from "./export-story";
 import {
   StoryDecorator,
   ActionType,
@@ -9,6 +10,8 @@ import {
   GlobalAction,
   Config,
 } from "../shared/types";
+
+export const Story = ExportStory;
 
 type ReactNodeWithoutObject =
   | React.ReactElement

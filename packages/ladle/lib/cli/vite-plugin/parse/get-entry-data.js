@@ -8,6 +8,7 @@ import getDefaultExport from "./get-default-export.js";
 import getStorynameAndMeta from "./get-storyname-and-meta.js";
 import getNamedExports from "./get-named-exports.js";
 import { IMPORT_ROOT } from "../utils.js";
+import mdxToStories from "../mdx-to-stories.js";
 
 const debug = debugFactory("ladle:vite");
 
@@ -32,7 +33,10 @@ export const getEntryData = async (entries) => {
 export const getSingleEntry = async (entry) => {
   // fs.promises.readFile is much slower and we don't mind hogging
   // the whole CPU core since this is blocking everything else
-  const code = fs.readFileSync(path.join(IMPORT_ROOT, entry), "utf8");
+  const fileCode = fs.readFileSync(path.join(IMPORT_ROOT, entry), "utf8");
+  const code = entry.endsWith(".mdx")
+    ? await mdxToStories(fileCode, entry, true)
+    : fileCode;
   /** @type {import('../../../shared/types').ParsedStoriesResult} */
   const result = {
     entry,
