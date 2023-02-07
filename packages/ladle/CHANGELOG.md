@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.5.4
+
+### Patch Changes
+
+- [#340](https://github.com/tajo/ladle/pull/340) [`047dcab`](https://github.com/tajo/ladle/commit/047dcab6b1de8cec75aaa0f3da010ad7972ee317) Thanks [@tajo](https://github.com/tajo)! - Reset control state when navigating between stories.
+
 ## 2.5.3
 
 ### Patch Changes
