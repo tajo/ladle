@@ -1,9 +1,20 @@
 import { test, expect } from "@playwright/test";
+import queryString from "query-string";
 
 test("default control values", async ({ page }) => {
   await page.goto("http://localhost:61100/?story=controls--controls");
   await expect(page.locator("#content")).toHaveText(
-    "Count: 2Disabled: noLabel: Hello worldColors: Red,BlueVariant: primarySize: variant is stringsize is undefined",
+    [
+      "Count: 2",
+      "Disabled: no",
+      "Label: Hello world",
+      "Colors: Red,Blue",
+      "Variant: primary",
+      "Size: ",
+      "Range: 1",
+      "variant is string",
+      "size is undefined",
+    ].join(""),
   );
 });
 
@@ -30,6 +41,20 @@ test("number control works", async ({ page }) => {
   await button.click();
   await page.fill("#count", "5");
   await expect(page.locator("#content")).toContainText("Count: 5");
+});
+
+test("range control works", async ({ page }) => {
+  await page.goto("http://localhost:61100/?story=controls--controls");
+  const button = await page.locator('[data-testid="addon-control"]');
+  await button.click();
+  const rangeControl = await page.locator(
+    '[data-testid="ladle-dialog"] >> tr:has(:text("range"))',
+  );
+  await expect(rangeControl).toContainText("1");
+  await expect(rangeControl).toContainText("1 / 10");
+  await page.fill("#range", "5.5");
+  await expect(page.locator("#content")).toContainText("Range: 5.5");
+  await expect(rangeControl).toContainText("5.5 / 10");
 });
 
 test("string control works", async ({ page }) => {
@@ -102,19 +127,55 @@ test("set defaults and args inheritence works", async ({ page }) => {
 
 test("controls state is passed through the URL", async ({ page }) => {
   await page.goto(
-    "http://localhost:61100/?arg-disabled=true&arg-colors=%255B%2522Red%2522%2C%2522Green%2522%255D&arg-size=medium&arg-count=3&arg-variant=false&arg-label=Hello%20earth&story=controls--controls",
+    `http://localhost:61100/?story=controls--controls&${queryString.stringify({
+      "arg-count": 3,
+      "arg-disabled": true,
+      "arg-label": "Hello earth",
+      "arg-colors": '["Red","Green"]',
+      "arg-variant": false,
+      "arg-size": "medium",
+      "arg-range": 10,
+    })}`,
   );
   await expect(page.locator("#content")).toHaveText(
-    "Count: 3Disabled: yesLabel: Hello earthColors: Red,GreenVariant: Size: mediumvariant is booleansize is string",
+    [
+      "Count: 3",
+      "Disabled: yes",
+      "Label: Hello earth",
+      "Colors: Red,Green",
+      "Variant: ",
+      "Size: medium",
+      "Range: 10",
+      "variant is boolean",
+      "size is string",
+    ].join(""),
   );
 });
 
 test("reset to defaults", async ({ page }) => {
   await page.goto(
-    "http://localhost:61100/?arg-disabled=true&arg-colors=%255B%2522Red%2522%2C%2522Green%2522%255D&arg-size=medium&arg-count=3&arg-variant=secondary&arg-label=Hello%20earth&story=controls--controls",
+    `http://localhost:61100/?story=controls--controls&${queryString.stringify({
+      "arg-count": 3,
+      "arg-disabled": true,
+      "arg-label": "Hello earth",
+      "arg-colors": '["Red","Green"]',
+      "arg-variant": "secondary",
+      "arg-size": "medium",
+      "arg-range": 10,
+    })}`,
   );
   await expect(page.locator("#content")).toHaveText(
-    "Count: 3Disabled: yesLabel: Hello earthColors: Red,GreenVariant: secondarySize: mediumvariant is stringsize is string",
+    [
+      "Count: 3",
+      "Disabled: yes",
+      "Label: Hello earth",
+      "Colors: Red,Green",
+      "Variant: secondary",
+      "Size: medium",
+      "Range: 10",
+      "variant is string",
+      "size is string",
+    ].join(""),
   );
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
@@ -123,7 +184,17 @@ test("reset to defaults", async ({ page }) => {
   );
   await resetButton.click();
   await expect(page.locator("#content")).toHaveText(
-    "Count: 2Disabled: noLabel: Hello worldColors: Red,BlueVariant: primarySize: variant is stringsize is undefined",
+    [
+      "Count: 2",
+      "Disabled: no",
+      "Label: Hello world",
+      "Colors: Red,Blue",
+      "Variant: primary",
+      "Size: ",
+      "Range: 1",
+      "variant is string",
+      "size is undefined",
+    ].join(""),
   );
 });
 

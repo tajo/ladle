@@ -10,6 +10,7 @@ const ALLOWED_ARGTYPES = [
   "inline-radio",
   "check",
   "inline-check",
+  "range",
 ];
 
 const ArgsProvider = ({
@@ -93,6 +94,9 @@ const ArgsProvider = ({
           options: argValue.options,
           value: args[argKey] ? args[argKey] : argValue.defaultValue,
           description: argValue.description || argKey,
+          min: argValue.control.min,
+          max: argValue.control.max,
+          step: argValue.control.step,
         };
         if (globalState.control[argKey]) {
           controls[argKey].value = globalState.control[argKey].value;

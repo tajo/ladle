@@ -9,7 +9,8 @@ export const Controls: Story<{
   colors: string[];
   variant: string;
   size: string;
-}> = ({ count, disabled, label, colors, variant, size, onClick }) => {
+  range: number;
+}> = ({ count, disabled, label, colors, variant, size, range, onClick }) => {
   if (count > 2) {
     return <p>done</p>;
   }
@@ -21,6 +22,7 @@ export const Controls: Story<{
       <p>Colors: {colors.join(",")}</p>
       <p>Variant: {variant}</p>
       <p>Size: {size}</p>
+      <p>Range: {range}</p>
       <button onClick={onClick}>Click</button>
       <button onClick={action("second")}>Second button</button>
       <button onClick={linkTo("a11y--issues")}>Link button</button>
@@ -43,6 +45,10 @@ Controls.argTypes = {
   size: {
     options: ["small", "medium", "big", "huuuuge"],
     control: { type: "select" },
+  },
+  range: {
+    control: { type: "range", min: 10, step: 0.5 },
+    defaultValue: 10,
   },
   onClick: {
     action: "clicked",

@@ -5,10 +5,10 @@ import queryString from "query-string";
 import type { AddonProps } from "../../../shared/types";
 import {
   ActionType,
-  ControlType,
-  GlobalState,
-  GlobalAction,
   ControlState,
+  ControlType,
+  GlobalAction,
+  GlobalState,
 } from "../../../shared/types";
 
 const getInputType = (type?: ControlType) => {
@@ -17,6 +17,8 @@ const getInputType = (type?: ControlType) => {
       return "checkbox";
     case ControlType.Number:
       return "number";
+    case ControlType.Range:
+      return "range";
     default:
       return "text";
   }
@@ -27,7 +29,8 @@ const getInputValue = (target: HTMLInputElement, type?: ControlType) => {
     case ControlType.Boolean:
       return target.checked;
     case ControlType.Number:
-      return parseInt(target.value, 10);
+    case ControlType.Range:
+      return parseFloat(target.value);
     default:
       return target.value;
   }
@@ -102,6 +105,8 @@ const Control = ({
   globalState: GlobalState;
   dispatch: React.Dispatch<GlobalAction>;
 }) => {
+  const controlState = globalState.control[controlKey];
+
   if (globalState.control[controlKey].type === ControlType.Action) {
     return (
       <tr>
@@ -310,6 +315,44 @@ const Control = ({
               });
             }}
           />
+        </td>
+      </tr>
+    );
+  }
+  if (controlState.type === ControlType.Range) {
+    // the fallback values are based on the standard range validation defaults,
+    // see: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#validation
+    const displayMin = controlState.min ?? 0;
+    const displayMax = controlState.max ?? 100;
+
+    return (
+      <tr>
+        <td>
+          <label htmlFor={controlKey}>{controlKey}</label>
+        </td>
+        <td>
+          {displayMin}
+          <input
+            id={controlKey}
+            type={getInputType(controlState.type)}
+            value={controlState.value}
+            min={controlState.min}
+            max={controlState.max}
+            step={controlState.step}
+            onChange={(e) =>
+              dispatch({
+                type: ActionType.UpdateControl,
+                value: {
+                  ...globalState.control,
+                  [controlKey]: {
+                    ...controlState,
+                    value: getInputValue(e.target, controlState.type),
+                  },
+                },
+              })
+            }
+          />
+          {controlState.value} / {displayMax}
         </td>
       </tr>
     );
