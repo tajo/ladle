@@ -50,3 +50,16 @@ Types2.argTypes = {
     control: {},
   },
 };
+
+export const Types3: Story<FooProps> = ({ foo, bar }) => {
+  return <div>{foo + bar}</div>;
+};
+
+Types3.argTypes = {
+  foo: {
+    control: {
+      // @ts-expect-error - type is not a valid control type
+      type: "potato",
+    },
+  },
+};

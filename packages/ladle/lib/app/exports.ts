@@ -72,10 +72,18 @@ export type Args<
   },
 > = Partial<P>;
 
+export type ControlType =
+  | "select"
+  | "multi-select"
+  | "radio"
+  | "inline-radio"
+  | "check"
+  | "inline-check";
+
 export interface ArgType<K = any> {
   control?: {
     options?: K[];
-    type: string;
+    type: ControlType;
     [key: string]: any;
   };
   defaultValue?: any;
