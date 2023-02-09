@@ -63,3 +63,18 @@ Types3.argTypes = {
     },
   },
 };
+
+export const Types4: Story<FooProps> = ({ foo, bar }) => {
+  return <div>{foo + bar}</div>;
+};
+
+Types4.argTypes = {
+  foo: {
+    control: {
+      type: "select",
+      options: ["foo", "bar"],
+    },
+    // @ts-expect-error - defaultValue is not a string
+    defaultValue: 5,
+  },
+};

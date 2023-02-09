@@ -86,7 +86,7 @@ export interface ArgType<K = any> {
     type: ControlType;
     [key: string]: any;
   };
-  defaultValue?: any;
+  defaultValue?: K;
   description?: string;
   name?: string;
   [key: string]: any;
