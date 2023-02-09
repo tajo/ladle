@@ -61,13 +61,16 @@ export interface Story<P = {}> extends React.FC<P> {
   storyName?: string;
   parameters?: any;
   meta?: any;
-  args?: Args;
-  argTypes?: ArgTypes;
+  args?: Args<P>;
+  argTypes?: ArgTypes<P>;
   decorators?: StoryDecorator[];
 }
-export interface Args {
-  [key: string]: any;
-}
+
+export type Args<
+  P = {
+    [key: string]: any;
+  },
+> = Partial<P>;
 
 export interface ArgType {
   name?: string;
@@ -76,6 +79,10 @@ export interface ArgType {
   [key: string]: any;
 }
 
-export interface ArgTypes {
-  [key: string]: ArgType;
-}
+export type ArgTypes<
+  P = {
+    [key: string]: any;
+  },
+> = {
+  [key in keyof P]?: ArgType;
+};
