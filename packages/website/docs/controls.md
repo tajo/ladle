@@ -12,13 +12,15 @@ export const Controls: Story<{
   label: string;
   disabled: boolean;
   count: number;
+  range: number;
   colors: string[];
   variant: string;
   size: string;
   airpots: string[];
-}> = ({ count, disabled, label, colors, variant, size, airports }) => (
+}> = ({ count, range, disabled, label, colors, variant, size, airports }) => (
   <>
     <p>Count: {count}</p>
+    <p>Range: {range}</p>
     <p>Disabled: {disabled ? "yes" : "no"}</p>
     <p>Label: {label}</p>
     <p>Colors: {colors.join(",")}</p>
@@ -47,6 +49,10 @@ Controls.argTypes = {
   airports: {
     options: ["sfo", "slc", "prg"],
     control: { type: "check" }, // or type: inline-check
+  },
+  range: {
+    control: { type: "range", min: 1, max: 10, step: 0.5 },
+    defaultValue: 5,
   },
 };
 ```

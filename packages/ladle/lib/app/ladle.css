@@ -270,6 +270,12 @@ body {
   color: var(--ladle-color-primary);
 }
 
+.ladle-addon-modal-body input[type="range"] {
+  padding: 0;
+  margin: 0 0.5em;
+  vertical-align: middle;
+}
+
 .ladle-addon-modal-body > button:hover {
   color: #ccc;
 }
