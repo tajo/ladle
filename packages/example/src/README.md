@@ -1,8 +1,8 @@
 # test-page
 
-React uOwn Tree Datarich component
+React component
 
-<img alt="Screenshot" src="https://ladle.dev/img/ladle-baseweb.png" />
+<img alt="Screenshot" src="https://ladle.dev/img/ladle-baseweb.png" width="400px" />
 
 ---
 

@@ -10,6 +10,7 @@ import {
   Config,
 } from "../shared/types";
 
+export { useMDXComponents } from "@mdx-js/react";
 export const Story = (props: any) => props.children;
 export const Meta = (props: any) => props.children;
 export const Description = (props: any) => props.children;

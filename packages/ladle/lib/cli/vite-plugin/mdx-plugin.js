@@ -45,14 +45,14 @@ function mdxPlugin(opts) {
   const { process } = createFormatAwareProcessors({
     SourceMapGenerator,
     development: opts.mode === "development",
-    providerImportSource: "@mdx-js/react",
+    providerImportSource: "@ladle/react",
     jsx: true,
     remarkPlugins: [remarkGfm],
   });
 
   const markdownProcessor = createFormatAwareProcessors({
     format: "md",
-    providerImportSource: "@mdx-js/react",
+    providerImportSource: "@ladle/react",
     remarkPlugins: [remarkGfm],
     rehypePlugins: [rehypeRaw],
   });
@@ -75,7 +75,6 @@ function mdxPlugin(opts) {
       const [filepath, querystring = ""] = path.split("?");
       if (path.endsWith(".md") || path.endsWith(".mdx")) {
         value = unknownBackticks(value);
-        console.log(value);
       }
       const file = new VFile({ value, path });
       if (path.endsWith(".md")) {
