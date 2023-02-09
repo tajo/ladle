@@ -13,6 +13,29 @@ Types.argTypes = {
   foo: {
     control: {
       type: "select",
+      options: [
+        "foo",
+        // @ts-expect-error - 1 is not a string
+        5,
+      ],
+    },
+  },
+  bar: {
+    control: {
+      type: "select",
+      options: [1, 2, 3],
+    },
+  },
+};
+
+export const Types2: Story<FooProps> = ({ foo, bar }) => {
+  return <div>{foo + bar}</div>;
+};
+
+Types2.argTypes = {
+  foo: {
+    control: {
+      type: "select",
       options: ["foo", "bar"],
     },
   },
@@ -23,5 +46,7 @@ Types.argTypes = {
     },
   },
   // @ts-expect-error - baz is not a valid arg
-  baz: {},
+  baz: {
+    control: {},
+  },
 };

@@ -72,10 +72,15 @@ export type Args<
   },
 > = Partial<P>;
 
-export interface ArgType {
-  name?: string;
-  description?: string;
+export interface ArgType<K = any> {
+  control?: {
+    options?: K[];
+    type: string;
+    [key: string]: any;
+  };
   defaultValue?: any;
+  description?: string;
+  name?: string;
   [key: string]: any;
 }
 
@@ -84,5 +89,5 @@ export type ArgTypes<
     [key: string]: any;
   },
 > = {
-  [key in keyof P]?: ArgType;
+  [key in keyof P]?: ArgType<P[key]>;
 };
