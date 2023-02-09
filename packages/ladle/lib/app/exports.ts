@@ -54,13 +54,13 @@ export type GlobalProvider = React.FC<{
   dispatch: React.Dispatch<GlobalAction>;
   config: Config;
   children: ReactNodeWithoutObject;
-  storyMeta?: any;
+  storyMeta?: Meta;
 }>;
 
 export interface Story<P = {}> extends React.FC<P> {
   storyName?: string;
   parameters?: any;
-  meta?: any;
+  meta?: Meta;
   args?: Args<P>;
   argTypes?: ArgTypes<P>;
   decorators?: StoryDecorator[];
@@ -98,4 +98,8 @@ export type ArgTypes<
   },
 > = {
   [key in keyof P]?: ArgType<P[key]>;
+};
+
+export type Meta = {
+  [key: string]: any;
 };

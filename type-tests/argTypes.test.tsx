@@ -5,11 +5,13 @@ type FooProps = {
   bar: number;
 };
 
-export const Types: Story<FooProps> = ({ foo, bar }) => {
+function Foo({ foo, bar }: FooProps) {
   return <div>{foo + bar}</div>;
-};
+}
 
-Types.argTypes = {
+export const ArgTypes: Story<FooProps> = Foo;
+
+ArgTypes.argTypes = {
   foo: {
     control: {
       type: "select",
@@ -28,11 +30,9 @@ Types.argTypes = {
   },
 };
 
-export const Types2: Story<FooProps> = ({ foo, bar }) => {
-  return <div>{foo + bar}</div>;
-};
+export const ArgTypes2: Story<FooProps> = Foo;
 
-Types2.argTypes = {
+ArgTypes2.argTypes = {
   foo: {
     control: {
       type: "select",
@@ -51,11 +51,9 @@ Types2.argTypes = {
   },
 };
 
-export const Types3: Story<FooProps> = ({ foo, bar }) => {
-  return <div>{foo + bar}</div>;
-};
+export const ArgTypes3: Story<FooProps> = Foo;
 
-Types3.argTypes = {
+ArgTypes3.argTypes = {
   foo: {
     control: {
       // @ts-expect-error - type is not a valid control type
@@ -64,11 +62,11 @@ Types3.argTypes = {
   },
 };
 
-export const Types4: Story<FooProps> = ({ foo, bar }) => {
+export const ArgTypes4: Story<FooProps> = ({ foo, bar }) => {
   return <div>{foo + bar}</div>;
 };
 
-Types4.argTypes = {
+ArgTypes4.argTypes = {
   foo: {
     control: {
       type: "select",
