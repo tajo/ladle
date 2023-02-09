@@ -1,15 +1,6 @@
 import type { Story } from "@ladle/react";
 
-export default {
-  argTypes: {
-    cities: {
-      options: ["Prague", "NYC"],
-      control: { type: "check" },
-    },
-  },
-};
-
-export const Controls: Story<{
+type Props = {
   label: string;
   disabled: boolean;
   count: number;
@@ -19,7 +10,18 @@ export const Controls: Story<{
   range: number;
   airports: string;
   cities: string;
-}> = ({
+};
+
+export default {
+  argTypes: {
+    cities: {
+      options: ["Prague", "NYC"],
+      control: { type: "check" },
+    },
+  },
+};
+
+export const Controls: Story<Props> = ({
   count,
   disabled,
   label,

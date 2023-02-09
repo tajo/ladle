@@ -1,9 +1,11 @@
+import type { Story } from "@ladle/react";
+
 declare const __filename_root: string;
 declare const __dirname_root: string;
 declare const __filename_myPlugin: string;
 declare const __dirname_myPlugin: string;
 
-export const World = () => {
+export const World: Story = () => {
   return (
     <div>
       <h1>Hello World</h1>
