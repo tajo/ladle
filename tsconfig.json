@@ -34,7 +34,8 @@
     "packages/*/lib/**/*",
     "packages/*/src/**/*",
     "e2e/*/src/*",
-    "e2e/*/tests/*"
+    "e2e/*/tests/*",
+    "type-tests/*"
   ],
   "exclude": [
     "packages/website/**",
