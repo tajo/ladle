@@ -1,5 +1,6 @@
 import * as React from "react";
 import Frame, { useFrame } from "react-frame-component";
+import { MDXProvider } from "@mdx-js/react";
 import ErrorBoundary from "./error-boundary";
 import { stories, Provider } from "virtual:generated-list";
 import { Ring } from "./icons";
@@ -8,6 +9,7 @@ import { ActionType } from "../../shared/types";
 import config from "./get-config";
 import NoStories from "./no-stories";
 import { ModeState, ThemeState } from "../../shared/types";
+import { CodeHighlight } from "./addons/source";
 
 const StoryFrame = ({
   children,
@@ -160,18 +162,29 @@ const Story = ({
             }
             rtl={globalState.rtl}
           >
-            <Provider
-              config={config}
-              globalState={globalState}
-              dispatch={dispatch}
-              storyMeta={storyDataMeta}
+            <MDXProvider
+              components={{
+                code: (props) => (
+                  <CodeHighlight
+                    {...(props as any)}
+                    theme={globalState.theme}
+                  />
+                ),
+              }}
             >
-              {storyData ? (
-                React.createElement(storyData.component)
-              ) : (
-                <NoStories wrongUrl activeStory={globalState.story} />
-              )}
-            </Provider>
+              <Provider
+                config={config}
+                globalState={globalState}
+                dispatch={dispatch}
+                storyMeta={storyDataMeta}
+              >
+                {storyData ? (
+                  React.createElement(storyData.component)
+                ) : (
+                  <NoStories wrongUrl activeStory={globalState.story} />
+                )}
+              </Provider>
+            </MDXProvider>
           </SynchronizeHead>
         </StoryFrame>
       </React.Suspense>

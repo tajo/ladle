@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { transformFromAstAsync } from "@babel/core";
 import { compile } from "@mdx-js/mdx";
 import getAst from "./get-ast.js";
@@ -5,14 +6,8 @@ import getAst from "./get-ast.js";
 const transformPlugin = (babel) => {
   const { types: t } = babel;
   const packageName = "@ladle/react";
-  const moduleName = "Story";
-
-  const compareToModuleName = Array.isArray(moduleName)
-    ? (s) => moduleName.includes(s)
-    : (s) => s === moduleName;
 
   return {
-    name: "ast-transform", // not required
     visitor: {
       ImportDeclaration(path /*: Object */, state /*: Object */) {
         const program = path.findParent((path) => path.isProgram());
@@ -25,6 +20,7 @@ const transformPlugin = (babel) => {
           return;
         }
         state.importedPackageName = sourceName;
+        let metaOccurances = 0;
         path.get("specifiers").forEach((specifier) => {
           const localPath = specifier.get("local");
           const localName = localPath.node.name;
@@ -33,9 +29,77 @@ const transformPlugin = (babel) => {
           }
           const refPaths = localPath.scope.bindings[localName].referencePaths;
           if (t.isImportSpecifier(specifier)) {
-            // import {moduleName} from 'packageName';
             const specifierName = specifier.get("imported").node.name;
-            if (compareToModuleName(specifierName)) {
+            if (specifierName === "Meta") {
+              refPaths.forEach((refPath) => {
+                const parentPath = refPath.parentPath;
+                if (!t.isJSXOpeningElement(parentPath)) {
+                  return;
+                }
+                metaOccurances++;
+                if (metaOccurances > 1) {
+                  throw new Error(
+                    "Only one Meta component can be defined per file",
+                  );
+                }
+                const metaAttributes =
+                  refPath.parentPath.container.openingElement.attributes;
+
+                const exportDefaultProps = [];
+                let storyName = "Readme";
+                metaAttributes.forEach((attr) => {
+                  if (attr.value.type === "JSXExpressionContainer") {
+                    exportDefaultProps.push(
+                      t.objectProperty(
+                        t.identifier(attr.name.name),
+                        attr.value.expression,
+                      ),
+                    );
+                  }
+                  if (
+                    attr.value.type === "StringLiteral" &&
+                    attr.name.name === "title"
+                  ) {
+                    const titleParts = attr.value.value.split("/");
+                    if (titleParts.length > 1) {
+                      storyName = titleParts.pop();
+                      exportDefaultProps.push(
+                        t.objectProperty(
+                          t.identifier(attr.name.name),
+                          t.stringLiteral(titleParts.join("/")),
+                        ),
+                      );
+                    } else {
+                      storyName = titleParts[0];
+                    }
+                  }
+                });
+                if (exportDefaultProps.length > 0) {
+                  program.pushContainer(
+                    "body",
+                    t.exportDefaultDeclaration(
+                      t.objectExpression(exportDefaultProps),
+                    ),
+                  );
+                }
+
+                program
+                  .get("body")[0]
+                  .container.push(
+                    t.expressionStatement(
+                      t.assignmentExpression(
+                        "=",
+                        t.memberExpression(
+                          t.identifier("MDXContent"),
+                          t.identifier("storyName"),
+                        ),
+                        t.stringLiteral(storyName),
+                      ),
+                    ),
+                  );
+              });
+            }
+            if (specifierName === "Story") {
               refPaths.forEach((refPath, index) => {
                 let identifier = `LadleStory${index}`;
                 const parentPath = refPath.parentPath;
@@ -85,8 +149,6 @@ const transformPlugin = (babel) => {
               });
             }
           } else if (t.isImportNamespaceSpecifier(specifier)) {
-            // import * as pkg from 'packageName';
-            // TODO(#5): Handle this case, or issue a warning because this may not be 100% robust
           }
         });
       },
@@ -96,13 +158,25 @@ const transformPlugin = (babel) => {
 
 const prepare = async (code, filename, transformMdx = false) => {
   const inputCode = transformMdx
-    ? String(await compile(code, { jsx: true }))
+    ? String(
+        await compile(code, {
+          jsx: true,
+          providerImportSource: "@mdx-js/react",
+        }),
+      )
     : code;
   const ast = getAst(inputCode, filename);
   const output = await transformFromAstAsync(ast, inputCode, {
     plugins: [transformPlugin],
   });
-  return output.code;
+  let result = output?.code
+    ?.replace("export default MDXContent;", "")
+    .replace("function MDXContent(", "export function MDXContent(");
+
+  if (!result.includes("MDXContent.storyName")) {
+    result = `${result}\nMDXContent.storyName = 'Readme';`;
+  }
+  return result;
 };
 
 export default prepare;

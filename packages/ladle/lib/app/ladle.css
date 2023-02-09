@@ -472,7 +472,8 @@ div[data-reach-dialog-overlay] {
   margin: 0px 7px;
 }
 
-.ladle-code {
+.ladle-code,
+code {
   padding: 0.2em 0.4em;
   margin: 0;
   line-height: 2;
@@ -533,6 +534,16 @@ div[data-reach-dialog-overlay] {
     background-color: var(--ladle-bg-color-secondary);
     min-height: max-content;
     align-self: stretch;
+  }
+
+  [data-mdx="true"] .ladle-main {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: var(--ladle-color-primary);
+  }
+
+  [data-mdx="true"] .ladle-main a {
+    color: var(--ladle-color-accent);
   }
 
   [data-mode="full"] .ladle-main,

@@ -45,9 +45,11 @@ export const getSingleEntry = async (entry) => {
     namedExportToMeta: {},
     namedExportToStoryName: {},
     storyParams: {},
+    //@ts-ignore
     storySource: code.replace(/\r/g, ""),
     fileId: getFileId(entry),
   };
+  //@ts-ignore
   const ast = getAst(code, entry);
   traverse(ast, {
     Program: getStorynameAndMeta.bind(this, result),

@@ -68,6 +68,8 @@
     "query-string": "^8.1.0",
     "react-frame-component": "^5.2.6",
     "react-inspector": "^6.0.1",
+    "rehype-raw": "^6.1.1",
+    "remark-gfm": "^3.0.1",
     "source-map": "^0.7.4",
     "vfile": "^5.3.6",
     "vite": "^4.1.1",

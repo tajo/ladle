@@ -12,6 +12,6 @@
  *  */
 
 export default {
-  stories: ["src/**/mdx.stories.mdx", "src/a11y.stories.tsx"],
+  stories: "src/**/*.stories.{js,jsx,ts,tsx,mdx}",
   appendToHead: `<style>.append {}</style>`,
 };

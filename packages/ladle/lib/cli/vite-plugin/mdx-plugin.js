@@ -1,23 +1,60 @@
-// originated here: https://github.com/mdx-js/mdx/blob/main/packages/rollup/lib/index.js
+// @ts-nocheck
 import { SourceMapGenerator } from "source-map";
 import { VFile } from "vfile";
 import { transformAsync } from "@babel/core";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 import { createFormatAwareProcessors } from "@mdx-js/mdx/lib/util/create-format-aware-processors.js";
 import mdxToStories from "./mdx-to-stories.js";
 
 /**
- * Compile MDX w/ rollup.
- *
- * @param {Options} [options]
- * @return {Plugin}
+ * @param {string} code
+ * @return {string}
  */
-function mdxPlugin() {
-  /** @type Plugin['transform'] | undefined */
+const unknownBackticks = (code) => {
+  const lines = code.split("\n");
+  const newLines = [...lines];
+  let hits = 0;
+  let knownBlock = false;
+  lines.forEach((line, lineNumber) => {
+    if (line.startsWith("```") && line.length > 3) {
+      knownBlock = true;
+      return;
+    }
+    if (line === "```") {
+      if (knownBlock) {
+        knownBlock = false;
+        return;
+      }
+      hits++;
+      if (hits & 1) {
+        newLines[lineNumber] = "```unknown";
+      }
+    }
+  });
+  return newLines.join("\n");
+};
+
+/**
+ * @param {any} opts
+ * @return {any}
+ */
+function mdxPlugin(opts) {
+  /** @type any */
   let reactPluginTransform;
-  const { extnames, process } = createFormatAwareProcessors({
+  const { process } = createFormatAwareProcessors({
     SourceMapGenerator,
-    // preserve JSX for our AST transform into component story format (CSF)
+    development: opts.mode === "development",
+    providerImportSource: "@mdx-js/react",
     jsx: true,
+    remarkPlugins: [remarkGfm],
+  });
+
+  const markdownProcessor = createFormatAwareProcessors({
+    format: "md",
+    providerImportSource: "@mdx-js/react",
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypeRaw],
   });
 
   return {
@@ -36,10 +73,19 @@ function mdxPlugin() {
     },
     async transform(value, path) {
       const [filepath, querystring = ""] = path.split("?");
+      if (path.endsWith(".md") || path.endsWith(".mdx")) {
+        value = unknownBackticks(value);
+        console.log(value);
+      }
       const file = new VFile({ value, path });
-      if (file.extname && extnames.includes(file.extname)) {
+      if (path.endsWith(".md")) {
+        const compiled = await markdownProcessor.process(file);
+        return { code: String(compiled.value), map: compiled.map };
+      }
+      if (path.endsWith(".mdx")) {
         const compiled = await process(file);
         let code = String(compiled.value);
+
         if (filepath.endsWith(".stories.mdx")) {
           // AST transform from MDX compiler output into CSF
           code = await mdxToStories(String(compiled.value), filepath);
