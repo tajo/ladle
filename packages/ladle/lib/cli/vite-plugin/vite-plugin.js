@@ -37,7 +37,7 @@ function ladlePlugin(config, configFolder, mode) {
   const resolvedVirtualModuleId = "\0" + virtualModuleId;
   const headHtmlPath = path.join(configFolder, "head.html");
   return {
-    name: "ladle-plugin",
+    name: "ladle:core",
     /**
      * @param {string} id
      */

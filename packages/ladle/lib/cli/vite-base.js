@@ -6,6 +6,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import ladlePlugin from "./vite-plugin/vite-plugin.js";
 import mergeViteConfigs from "./merge-vite-configs.js";
 import getUserViteConfig from "./get-user-vite-config.js";
+import mdxPlugin from "./vite-plugin/mdx-plugin.js";
 
 /**
  * @param ladleConfig {import("../shared/types").Config}
@@ -124,6 +125,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
       ],
     },
     plugins: [
+      mdxPlugin({ mode: viteConfig.mode || "production" }),
       !hasTSConfigPathPlugin &&
         tsconfigPaths({
           root: process.cwd(),

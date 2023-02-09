@@ -1,6 +1,7 @@
 import * as React from "react";
 import queryString from "query-string";
 import Highlight, { defaultProps } from "prism-react-renderer";
+import type { Language } from "prism-react-renderer";
 import themeLight from "prism-react-renderer/themes/github";
 import themeDark from "prism-react-renderer/themes/nightOwl";
 import { storySource, stories } from "virtual:generated-list";
@@ -16,29 +17,73 @@ export const getQuery = (locationSearch: string) => {
   return config.addons.source.defaultState;
 };
 
-const CodeFrame = ({ globalState }: { globalState: GlobalState }) => {
-  const theme = globalState.theme === "dark" ? themeDark : themeLight;
-  if (!stories[globalState.story]) {
-    return <>There is no story loaded.</>;
-  }
-  const { entry, locStart, locEnd } = stories[globalState.story];
-  React.useEffect(() => {
-    window.location.hash = ``;
-    window.location.hash = `ladle_loc_${locStart}`;
-  }, [locStart]);
-  return (
-    <>
-      <div style={{ paddingTop: "2em" }}>
-        <Code>{entry}</Code> source code
-      </div>
+export const CodeHighlight = ({
+  children,
+  theme,
+  language = "tsx",
+  locStart,
+  locEnd,
+  className,
+}: {
+  children: string;
+  theme: string;
+  language?: Language;
+  locStart?: number;
+  locEnd?: number;
+  className?: string;
+}) => {
+  const withLoc =
+    typeof locStart !== "undefined" && typeof locEnd !== "undefined";
+  const match = /language-(\w+)/.exec(className || "");
+
+  if (match) {
+    language = match[1] as Language;
+    return (
       <Highlight
         {...defaultProps}
-        code={decodeURIComponent(storySource[globalState.story])}
-        language="tsx"
+        code={children.trim()}
+        language={language}
         theme={{
-          ...theme,
+          ...(theme === "dark" ? themeDark : themeLight),
           plain: {
-            ...theme.plain,
+            ...(theme === "dark" ? themeDark : themeLight).plain,
+            backgroundColor: "var(--ladle-bg-color-secondary)",
+          },
+        }}
+      >
+        {({ className, style, tokens, getTokenProps }) => (
+          <div
+            className={className}
+            style={{
+              ...style,
+              textAlign: "left",
+              margin: "0.5em 0 1em 0",
+              padding: "1em",
+            }}
+          >
+            {tokens.map((line, i) => (
+              <div key={i}>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+          </div>
+        )}
+      </Highlight>
+    );
+  }
+
+  if (withLoc) {
+    return (
+      <Highlight
+        {...defaultProps}
+        code={children.trim()}
+        language={language}
+        theme={{
+          ...(theme === "dark" ? themeDark : themeLight),
+          plain: {
+            ...(theme === "dark" ? themeDark : themeLight).plain,
             backgroundColor: "var(--ladle-bg-color-secondary)",
           },
         }}
@@ -90,6 +135,33 @@ const CodeFrame = ({ globalState }: { globalState: GlobalState }) => {
           </pre>
         )}
       </Highlight>
+    );
+  }
+  return <code>{children}</code>;
+};
+
+const CodeFrame = ({ globalState }: { globalState: GlobalState }) => {
+  if (!stories[globalState.story]) {
+    return <>There is no story loaded.</>;
+  }
+  const { entry, locStart, locEnd } = stories[globalState.story];
+  React.useEffect(() => {
+    window.location.hash = ``;
+    window.location.hash = `ladle_loc_${locStart}`;
+  }, [locStart]);
+  return (
+    <>
+      <div style={{ paddingTop: "2em" }}>
+        <Code>{entry}</Code> source code
+      </div>
+      <CodeHighlight
+        theme={globalState.theme}
+        language="tsx"
+        locEnd={locEnd}
+        locStart={locStart}
+      >
+        {decodeURIComponent(storySource[globalState.story])}
+      </CodeHighlight>
     </>
   );
 };
