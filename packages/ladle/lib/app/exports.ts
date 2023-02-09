@@ -77,17 +77,22 @@ export type ControlType =
   | "radio"
   | "inline-radio"
   | "check"
-  | "inline-check";
+  | "inline-check"
+  | "range";
 
 export interface ArgType<K = any> {
   control?: {
     options?: K[];
     type: ControlType;
+    min?: number;
+    max?: number;
+    step?: number;
     [key: string]: any;
   };
   defaultValue?: K;
   description?: string;
   name?: string;
+  action?: string;
   [key: string]: any;
 }
 
