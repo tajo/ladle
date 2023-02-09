@@ -16,9 +16,20 @@ export const Controls: Story<{
   colors: string[];
   variant: string;
   size: string;
+  range: number;
   airports: string;
   cities: string;
-}> = ({ count, disabled, label, colors, variant, size, airports, cities }) => (
+}> = ({
+  count,
+  disabled,
+  label,
+  colors,
+  variant,
+  size,
+  range,
+  airports,
+  cities,
+}) => (
   <div id="content">
     <p>Count: {count}</p>
     <p>Disabled: {disabled ? "yes" : "no"}</p>
@@ -26,6 +37,7 @@ export const Controls: Story<{
     <p>Colors: {colors.join(",")}</p>
     <p>Variant: {variant}</p>
     <p>Size: {size}</p>
+    <p>Range: {range}</p>
     {airports && airports.length ? <p>Airport: {airports}</p> : ""}
     {cities && cities.length ? <p>Cities: {cities}</p> : ""}
     {typeof variant === "undefined" && <p>variant is undefined</p>}
@@ -56,6 +68,10 @@ Controls.argTypes = {
   airports: {
     options: ["sfo", "slc", "prg"],
     control: { type: "check" },
+  },
+  range: {
+    control: { type: "range", min: 1, max: 10, step: 0.5 },
+    defaultValue: 1,
   },
 };
 
