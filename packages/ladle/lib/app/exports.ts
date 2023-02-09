@@ -58,12 +58,11 @@ export type GlobalProvider = React.FC<{
 }>;
 
 export interface Story<P = {}> extends React.FC<P> {
-  storyName?: string;
-  parameters?: any;
-  meta?: Meta;
   args?: Args<P>;
   argTypes?: ArgTypes<P>;
   decorators?: StoryDecorator[];
+  meta?: Meta;
+  storyName?: string;
 }
 
 export type Args<
