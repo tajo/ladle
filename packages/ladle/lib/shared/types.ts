@@ -130,8 +130,8 @@ export type StoryProps = {
   config: Config;
 };
 
-export type StoryDecorator = (
-  Story: React.FC,
+export type StoryDecorator<P = {}> = (
+  Story: React.FC<P>,
   context: StoryProps,
 ) => React.ReactElement;
 
