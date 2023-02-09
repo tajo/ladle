@@ -1,4 +1,4 @@
-import type { Story, StoryDecorator } from "@ladle/react";
+import type { GlobalStory, Story } from "@ladle/react";
 
 type Props = { label: string };
 
@@ -31,8 +31,8 @@ export default {
         </div>
       );
     },
-  ] as StoryDecorator[],
-};
+  ],
+} satisfies GlobalStory<Props>;
 
 const Card: Story<Props> = ({ label }) => (
   <>
