@@ -17,7 +17,9 @@ if (config?.addons?.width?.options) {
 }
 const mergedConfig: Config = merge(defaultConfig, config);
 if (mergedConfig.defaultStory === "") {
-  mergedConfig.defaultStory = Object.keys(stories).sort()[0];
+  mergedConfig.defaultStory = Array.isArray(mergedConfig.storyOrder)
+    ? mergedConfig.storyOrder[0]
+    : mergedConfig.storyOrder(Object.keys(stories).sort())[0];
 }
 debug("Final config", mergedConfig);
 

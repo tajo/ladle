@@ -23,9 +23,7 @@ program
   .option("--viteConfig [string]", "file with Vite configuration")
   .option("--base [string]", "base URL path for build output")
   .option("--mode [string]", "Vite mode")
-  .action(async (params) => {
-    await serve({ ...params, serve: params });
-  });
+  .action(serve);
 
 program
   .command("build")
@@ -38,7 +36,7 @@ program
   .option("--base [string]", "base URL path for build output")
   .option("--mode [string]", "Vite mode")
   .action(async (params) => {
-    const success = await build({ ...params, build: params });
+    const success = await build(params);
     if (success) {
       process.exit(0);
     }

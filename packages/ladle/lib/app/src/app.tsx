@@ -17,6 +17,7 @@ import {
   ControlState,
 } from "../../shared/types";
 import debug from "./debug";
+import config from "./get-config";
 import { getQuery as getQueryTheme } from "./addons/theme";
 import { getQuery as getQueryMode } from "./addons/mode";
 import { getQuery as getQueryRtl } from "./addons/rtl";
@@ -31,7 +32,7 @@ import {
   sortStories,
 } from "./story-name";
 
-const stories = Object.keys(unsortedStories).sort(sortStories);
+const stories = sortStories(Object.keys(unsortedStories), config.storyOrder);
 debug("Stories found", stories);
 
 const getUrlState = (
@@ -40,7 +41,7 @@ const getUrlState = (
 ): GlobalState => ({
   theme: getQueryTheme(search),
   mode: getQueryMode(search),
-  story: getQueryStory(search),
+  story: getQueryStory(search, config.defaultStory),
   rtl: getQueryRtl(search),
   source: getQuerySource(search),
   width: getQueryWidth(search),

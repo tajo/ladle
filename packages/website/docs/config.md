@@ -78,6 +78,43 @@ export default {
 };
 ```
 
+### storyOrder
+
+Change the order of stories in the navigation . By default, stories are sorted alphabetically where "folders" have priority over individual stories. You should supply an array of story IDs (as used in the URL) or a function that returns such an array.
+
+#### Default setting
+
+```tsx
+export default {
+  // note that alphabetically sorted stories are provided
+  storyOrder: (stories) => stories,
+};
+```
+
+#### Using an array
+
+```tsx
+export default {
+  storyOrder: ["folder--story1", "folder--story2"],
+};
+```
+
+#### Using an function
+
+```tsx
+export default {
+  storyOrder: () => ["folder--story1", "folder--story2"],
+};
+```
+
+A wildcard can be used in both cases to match and sort multiple stories at once. For example, `["folder*"]` will match all stories starting with `"folder"` and sorts them alphabetically.
+
+#### Additional rules
+
+- If you omit a story from the output array, it will not be visible.
+- If you specify a story ID that does not exist, an error will be thrown.
+- The result array is de-duplicated.
+
 ### viteConfig
 
 Override the path for the [Vite config](https://vitejs.dev/config). By default, `vite.config.{js|mjs|ts}` and `vite.config.ts` in the project root are being checked.

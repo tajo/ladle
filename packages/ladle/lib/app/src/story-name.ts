@@ -1,12 +1,11 @@
 import queryString from "query-string";
-import type { StoryTree } from "../../shared/types";
-import config from "./get-config";
+import type { StoryTree, StoryOrder } from "../../shared/types";
 
 export const storyDelimiter = "-";
 export const storyEncodeDelimiter = "$";
 
-export const getQueryStory = (locationSearch: string) =>
-  (queryString.parse(locationSearch).story as string) || config.defaultStory;
+export const getQueryStory = (locationSearch: string, defaultStory: string) =>
+  (queryString.parse(locationSearch).story as string) || defaultStory;
 
 export const isQueryStorySet = (locationSearch: string) =>
   !!queryString.parse(locationSearch).story;
@@ -75,7 +74,8 @@ export const getStoryTree = (
   return tree;
 };
 
-export const sortStories = (a: string, b: string) => {
+// alphabetically sort stories but prefering "folders" over leaf nodes
+const storySort = (a: string, b: string) => {
   const aParts = a.split("--");
   const bParts = b.split("--");
   const len = Math.min(aParts.length, bParts.length);
@@ -95,4 +95,33 @@ export const sortStories = (a: string, b: string) => {
     }
   }
   return 0;
+};
+
+export const sortStories = (stories: string[], storyOrder: StoryOrder) => {
+  const initialSort = stories.sort(storySort);
+  let configSort = [...initialSort];
+  if (Array.isArray(storyOrder)) {
+    configSort = storyOrder;
+  } else {
+    configSort = storyOrder(initialSort);
+  }
+  const finalSort = new Set<string>();
+  configSort.forEach((story) => {
+    if (story.includes("*")) {
+      const prefix = story.split("*")[0];
+      initialSort.forEach((s) => {
+        if (s.startsWith(prefix)) {
+          finalSort.add(s);
+        }
+      });
+    } else {
+      if (!initialSort.includes(story)) {
+        throw new Error(
+          `Story "${story}" does not exist in your storybook. Please check your storyOrder config.`,
+        );
+      }
+      finalSort.add(story);
+    }
+  });
+  return [...finalSort];
 };
