@@ -1,4 +1,6 @@
-export const First = () => {
+import type { Story } from "@ladle/react";
+
+export const First: Story = () => {
   // not rendering a text since fonts render differently in different operation systems
   // and we use this package in our Github Actions CI which runs Ubuntu and Windows
   // so doing a blue rectangle instead to keep the setup simple
@@ -7,7 +9,7 @@ export const First = () => {
   return <div style={{ width: 200, height: 100, backgroundColor: "blue" }} />;
 };
 
-export const Second = () => {
+export const Second: Story = () => {
   return <h1>Second</h1>;
 };
 Second.meta = {

@@ -1,7 +1,9 @@
+import type { Story } from "@ladle/react";
+
 // @ts-ignore
 import classes from "./more.module.css";
 
-export const World = () => {
+export const World: Story = () => {
   return (
     <>
       <h1>Yellow</h1>

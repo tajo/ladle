@@ -19,8 +19,8 @@ test("meta.json has a single story ok", async ({ request }) => {
         "hello--world": {
           name: "World",
           levels: ["Hello"],
-          locEnd: 7,
           locStart: 4,
+          locEnd: 7,
           filePath: "src/hello.stories.tsx",
           meta: {},
         },

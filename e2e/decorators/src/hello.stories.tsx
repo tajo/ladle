@@ -1,3 +1,5 @@
+import type { Story, StoryDecorator } from "@ladle/react";
+
 export default {
   decorators: [
     (Stories: React.FC) => (
@@ -10,10 +12,10 @@ export default {
         Decorator 2<Stories />
       </>
     ),
-  ],
+  ] as StoryDecorator[],
 };
 
-export const World = () => {
+export const World: Story = () => {
   return <h2>world</h2>;
 };
 

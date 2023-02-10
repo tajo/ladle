@@ -1,5 +1,7 @@
 import type { Story, StoryDecorator } from "@ladle/react";
 
+type Props = { label: string };
+
 export default {
   decorators: [
     (Component, context) => {
@@ -32,9 +34,7 @@ export default {
   ] as StoryDecorator[],
 };
 
-const Card: Story<{
-  label: string;
-}> = ({ label }) => (
+const Card: Story<Props> = ({ label }) => (
   <>
     <p>Label: {label}</p>
     <input id="persist-input" />
