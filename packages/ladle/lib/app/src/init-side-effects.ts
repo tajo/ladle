@@ -1,10 +1,13 @@
 // a separate non-react script, to ensure this is executed asap
 import debug from "./debug";
 import { storyIdToTitle, getQueryStory } from "./story-name";
+import config from "./get-config";
 import { getQuery as getQueryTheme } from "./addons/theme";
 import { ThemeState } from "../../shared/types";
 
-const title = storyIdToTitle(getQueryStory(location.search));
+const title = storyIdToTitle(
+  getQueryStory(location.search, config.defaultStory),
+);
 debug(`Initial document.title: ${title}`);
 document.title = `${title} | Ladle`;
 

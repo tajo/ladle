@@ -1,6 +1,8 @@
 import debug from "./debug.js";
 import path from "path";
+import merge from "lodash.merge";
 import loadConfig from "./load-config.js";
+import boxen from "boxen";
 
 /**
  * @param params {import("../shared/types").CLIParams}
@@ -15,16 +17,33 @@ export default async function applyCLIConfig(params) {
     ? params.config
     : path.join(process.cwd(), params.config);
   const config = await loadConfig(configFolder);
-  config.addons.theme.defaultState =
-    params.theme || config.addons.theme.defaultState;
-  config.stories = params.stories || config.stories;
-  config.viteConfig = params.viteConfig || config.viteConfig;
-  config.outDir = params.outDir || config.outDir;
-  config.port = params.port || config.port;
-  config.previewPort = params.previewPort || config.previewPort;
-  config.base = params.base || config.base;
-  config.mode = params.mode || config.mode;
-  config.appendToHead = params.appendToHead || config.appendToHead;
+  if (params.theme) {
+    config.addons.theme.defaultState = params.theme;
+    delete params.theme;
+  }
+  if (params.addons || params.defaultStory || params.storyOrder) {
+    console.log(
+      boxen(
+        `These settings are not supported through the programatic API:
+
+  - addons, 
+  - defaultStory
+  - storyOrder
+
+Add them to .ladle/config.mjs instead.`,
+        {
+          padding: 1,
+          margin: 1,
+          borderStyle: "round",
+          borderColor: "red",
+          titleAlignment: "left",
+          textAlignment: "left",
+        },
+      ),
+    );
+    process.exit(1);
+  }
+  merge(config, params);
   debug(`Final config:\n${JSON.stringify(config, null, "  ")}`);
   process.env["VITE_PUBLIC_LADLE_THEME"] = config.addons.theme.defaultState;
   process.env["VITE_PUBLIC_STORIES"] = config.stories;

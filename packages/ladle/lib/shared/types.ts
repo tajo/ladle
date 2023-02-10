@@ -6,6 +6,8 @@ type RecursivePartial<T> = {
 
 export type ActionState = any[];
 
+export type StoryOrder = string[] | ((stories: string[]) => string[]);
+
 export enum ModeState {
   Full = "full",
   Preview = "preview",
@@ -164,6 +166,7 @@ export type PluginOptions = {
 export type Config = {
   stories: string;
   defaultStory: string;
+  storyOrder: StoryOrder;
   appendToHead: string;
   viteConfig?: string;
   port: number;

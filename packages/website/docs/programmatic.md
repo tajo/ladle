@@ -11,14 +11,14 @@ import build from "@ladle/react/build";
 import preview from "@ladle/react/preview";
 
 await serve({
-  /* config */
+  config: ".ladle", // default folder for config.mjs
 });
 await build({
-  /* config */
+  config: ".ladle", // default folder for config.mjs
 });
 await preview({
-  /* config */
+  config: ".ladle", // default folder for config.mjs
 });
 ```
 
-Both commands accept all [configuration options](./config#ladleconfigmjs).
+Explore all config.mjs [options](./config#ladleconfigmjs).
