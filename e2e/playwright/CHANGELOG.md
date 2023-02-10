@@ -1,5 +1,12 @@
 # playwright
 
+## 0.0.21
+
+### Patch Changes
+
+- Updated dependencies [[`efb6193`](https://github.com/tajo/ladle/commit/efb619325fcac2b1972765b95b7d877968aa90bc)]:
+  - @ladle/react@2.6.2
+
 ## 0.0.20
 
 ### Patch Changes
