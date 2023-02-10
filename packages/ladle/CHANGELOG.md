@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.6.1
+
+### Patch Changes
+
+- [#350](https://github.com/tajo/ladle/pull/350) [`dc57fa2`](https://github.com/tajo/ladle/commit/dc57fa2a33edbb39db341f0f99592638eab00c06) Thanks [@tajo](https://github.com/tajo)! - Fix leaky <code> CSS
+
 ## 2.6.0
 
 ### Minor Changes

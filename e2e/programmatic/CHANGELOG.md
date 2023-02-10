@@ -1,5 +1,14 @@
 # test-programmatic
 
+## 0.2.58
+
+### Patch Changes
+
+- [#348](https://github.com/tajo/ladle/pull/348) [`be4980d`](https://github.com/tajo/ladle/commit/be4980d10b33af302c4f860e44b3f41a1492db79) Thanks [@wojtekmaj](https://github.com/wojtekmaj)! - Add types to all tests to increase type test coverage
+
+- Updated dependencies [[`dc57fa2`](https://github.com/tajo/ladle/commit/dc57fa2a33edbb39db341f0f99592638eab00c06)]:
+  - @ladle/react@2.6.1
+
 ## 0.2.57
 
 ### Patch Changes
