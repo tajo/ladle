@@ -1,5 +1,12 @@
 # test-addons
 
+## 0.2.33
+
+### Patch Changes
+
+- Updated dependencies [[`28a307b`](https://github.com/tajo/ladle/commit/28a307b202270aba8124aa56b4580c8f16325344), [`1ba8ed5`](https://github.com/tajo/ladle/commit/1ba8ed5e10776bee225ae1612cf432238e5e0edf), [`c75cdf9`](https://github.com/tajo/ladle/commit/c75cdf92cebf5ec3be331f3710dab3caa19faae6), [`2b7df77`](https://github.com/tajo/ladle/commit/2b7df7792f1e2ba6395bd0602145ed3f61ebf7f6)]:
+  - @ladle/react@2.6.0
+
 ## 0.2.32
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @ladle/react
 
+## 2.6.0
+
+### Minor Changes
+
+- [#342](https://github.com/tajo/ladle/pull/342) [`c75cdf9`](https://github.com/tajo/ladle/commit/c75cdf92cebf5ec3be331f3710dab3caa19faae6) Thanks [@smajl](https://github.com/smajl)! - range type control added
+
+- [#347](https://github.com/tajo/ladle/pull/347) [`2b7df77`](https://github.com/tajo/ladle/commit/2b7df7792f1e2ba6395bd0602145ed3f61ebf7f6) Thanks [@tajo](https://github.com/tajo)! - Add storySort setting to customize the order of stories in the navigation.
+
+### Patch Changes
+
+- [#343](https://github.com/tajo/ladle/pull/343) [`28a307b`](https://github.com/tajo/ladle/commit/28a307b202270aba8124aa56b4580c8f16325344) Thanks [@tajo](https://github.com/tajo)! - Shadow release of basic MDX support
+
+- [#345](https://github.com/tajo/ladle/pull/345) [`1ba8ed5`](https://github.com/tajo/ladle/commit/1ba8ed5e10776bee225ae1612cf432238e5e0edf) Thanks [@wojtekmaj](https://github.com/wojtekmaj)! - Improved type safety in `args`, `argTypes` and `meta` in Stories
+
 ## 2.5.4
 
 ### Patch Changes
