@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.6.2
+
+### Patch Changes
+
+- [#352](https://github.com/tajo/ladle/pull/352) [`efb6193`](https://github.com/tajo/ladle/commit/efb619325fcac2b1972765b95b7d877968aa90bc) Thanks [@tajo](https://github.com/tajo)! - Use esbuild to compile JSX after MDX. Remove unused babel deps.
+
 ## 2.6.1
 
 ### Patch Changes
