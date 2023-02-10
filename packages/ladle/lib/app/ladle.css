@@ -479,7 +479,7 @@ div[data-reach-dialog-overlay] {
 }
 
 .ladle-code,
-code {
+[data-mdx="true"] .ladle-main code {
   padding: 0.2em 0.4em;
   margin: 0;
   line-height: 2;
