@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { SourceMapGenerator } from "source-map";
+import { transformWithEsbuild } from "vite";
 import { VFile } from "vfile";
-import { transformAsync } from "@babel/core";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { createFormatAwareProcessors } from "@mdx-js/mdx/lib/util/create-format-aware-processors.js";
@@ -89,23 +89,15 @@ function mdxPlugin(opts) {
           // AST transform from MDX compiler output into CSF
           code = await mdxToStories(String(compiled.value), filepath);
         }
-
+        // trick esbuild and vitejs/plugin-react into compiling it as jsx
+        const filename = `${filepath}${
+          querystring ? "&ext=.jsx" : "?ext=.jsx"
+        }`;
         return await reactPluginTransform(
-          // compile JSX away since we skip this part in MDX compiler
           (
-            await transformAsync(code, {
-              plugins: [
-                [
-                  "@babel/plugin-transform-react-jsx",
-                  {
-                    runtime: "automatic",
-                  },
-                ],
-              ],
-            })
+            await transformWithEsbuild(code, filename)
           ).code,
-          // trick vitejs/plugin-react into adding HMR/fast-refresh
-          `${filepath}${querystring ? "&ext=.jsx" : "?ext=.jsx"}`,
+          filename,
         );
       }
     },

@@ -206,13 +206,6 @@ importers:
       "@babel/core": ^7.20.12
       "@babel/generator": ^7.20.14
       "@babel/parser": ^7.20.15
-      "@babel/plugin-proposal-class-properties": ^7.18.6
-      "@babel/plugin-transform-modules-commonjs": ^7.20.11
-      "@babel/plugin-transform-react-jsx": ^7.20.13
-      "@babel/preset-env": ^7.20.2
-      "@babel/preset-react": ^7.18.6
-      "@babel/preset-typescript": ^7.18.6
-      "@babel/runtime": ^7.20.13
       "@babel/template": ^7.20.7
       "@babel/traverse": ^7.20.13
       "@babel/types": ^7.20.7
@@ -265,12 +258,6 @@ importers:
       "@babel/core": 7.20.12
       "@babel/generator": 7.20.14
       "@babel/parser": 7.20.15
-      "@babel/plugin-proposal-class-properties": 7.18.6_@babel+core@7.20.12
-      "@babel/plugin-transform-react-jsx": 7.20.13_@babel+core@7.20.12
-      "@babel/preset-env": 7.20.2_@babel+core@7.20.12
-      "@babel/preset-react": 7.18.6_@babel+core@7.20.12
-      "@babel/preset-typescript": 7.18.6_@babel+core@7.20.12
-      "@babel/runtime": 7.20.13
       "@babel/template": 7.20.7
       "@babel/traverse": 7.20.13
       "@babel/types": 7.20.7
@@ -305,7 +292,6 @@ importers:
       vite-tsconfig-paths: 4.0.5
     devDependencies:
       "@babel/cli": 7.20.7_@babel+core@7.20.12
-      "@babel/plugin-transform-modules-commonjs": 7.20.11_@babel+core@7.20.12
       "@types/babel__code-frame": 7.0.3
       "@types/babel__core": 7.20.0
       "@types/babel__generator": 7.6.4
@@ -860,6 +846,7 @@ packages:
         tarball: "%40babel%2Fhelper-plugin-utils/-/helper-plugin-utils-7.20.2.tgz",
       }
     engines: { node: ">=6.9.0" }
+    dev: false
 
   /@babel/helper-remap-async-to-generator/7.18.9_@babel+core@7.20.12:
     resolution:
@@ -1796,6 +1783,7 @@ packages:
       "@babel/helper-simple-access": 7.20.2
     transitivePeerDependencies:
       - supports-color
+    dev: false
 
   /@babel/plugin-transform-modules-systemjs/7.20.11_@babel+core@7.20.12:
     resolution:
@@ -10271,7 +10259,10 @@ packages:
     dev: false
 
   /loose-envify/1.4.0:
-    resolution: { integrity: sha1-ce5R+nvkyuwaY4OffmgtgTLTDK8= }
+    resolution:
+      {
+        integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==,
+      }
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
@@ -12403,7 +12394,10 @@ packages:
     dev: false
 
   /prop-types/15.8.1:
-    resolution: { integrity: sha1-Z9h78aaU9IQ1zzMsJK8QIUoxQLU= }
+    resolution:
+      {
+        integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==,
+      }
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
@@ -12663,7 +12657,10 @@ packages:
     dev: false
 
   /react-is/16.13.1:
-    resolution: { integrity: sha1-eJcppNw23imZ3BVt1sHZwYzqVqQ= }
+    resolution:
+      {
+        integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==,
+      }
 
   /react-is/17.0.2:
     resolution: { integrity: sha1-5pHUqOnHiTZWVVOas3J2Kw77VPA= }
