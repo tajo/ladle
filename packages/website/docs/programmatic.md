@@ -11,13 +11,13 @@ import build from "@ladle/react/build";
 import preview from "@ladle/react/preview";
 
 await serve({
-  config: ".ladle", // default folder for config.mjs
+  // config: {}
 });
 await build({
-  config: ".ladle", // default folder for config.mjs
+  // config: {}
 });
 await preview({
-  config: ".ladle", // default folder for config.mjs
+  // config: {}
 });
 ```
 

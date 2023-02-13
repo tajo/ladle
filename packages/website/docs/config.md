@@ -70,7 +70,7 @@ export default {
 
 ### defaultStory
 
-Change which story is loaded when Ladle starts. It's the `?story=` portion of URL. The default value is `""` - open the first story in alphabetical order.
+Change which story is loaded when Ladle starts. It's the `?story=` portion of URL. The default value is `""` - open the first story in alphabetical order. Must be serializable.
 
 ```tsx
 export default {
@@ -80,7 +80,7 @@ export default {
 
 ### storyOrder
 
-Change the order of stories in the navigation . By default, stories are sorted alphabetically where "folders" have priority over individual stories. You should supply an array of story IDs (as used in the URL) or a function that returns such an array.
+Change the order of stories in the navigation . By default, stories are sorted alphabetically where "folders" have priority over individual stories. You should supply an array of story IDs (as used in the URL) or a function that returns such an array. Must be serializable.
 
 #### Default setting
 
@@ -127,7 +127,7 @@ export default {
 
 ### base
 
-Base path for building the output; useful for e.g. hosting your project's storybook on GitHub Pages:
+Base path for building the output; useful for e.g. hosting your project's storybook on GitHub Pages. Must be serializable.
 
 ```tsx
 export default {
@@ -139,7 +139,7 @@ export default {
 
 Vite [mode](https://vitejs.dev/guide/env-and-mode.html#modes). If not set, defaults to `development` when developing and `production` for building static output.
 
-This also affects [Vite's .env file loading](https://vitejs.dev/guide/env-and-mode.html#env-files), as well as anything else setting `mode` affects.
+This also affects [Vite's .env file loading](https://vitejs.dev/guide/env-and-mode.html#env-files), as well as anything else setting `mode` affects. Must be serializable.
 
 ```tsx
 export default {
@@ -161,7 +161,7 @@ The same effect can be achieved by creating a file `.ladle/head.html`.
 
 ### addons
 
-You can enable or disable all Ladle addons (the buttons in the left bottom corner). You can also control their default state.
+You can enable or disable all Ladle addons (the buttons in the left bottom corner). You can also control their default state. Must be serializable.
 
 ```tsx
 export default {

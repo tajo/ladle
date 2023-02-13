@@ -1,3 +1,4 @@
+import { config } from "virtual:generated-list";
 import { Code, Link } from "./ui";
 
 const NoStories = ({
@@ -21,7 +22,7 @@ const NoStories = ({
         <h1>No stories found</h1>
         <p>
           The configured glob pattern for stories is:{" "}
-          <Code>{(import.meta as any).env.VITE_PUBLIC_STORIES}</Code>.{" "}
+          <Code>{config.stories}</Code>.{" "}
         </p>
         <p>
           It can be changed through the{" "}

@@ -85,6 +85,7 @@ const App = () => {
     }
     if (
       globalState.story &&
+      unsortedStories[globalState.story] &&
       unsortedStories[globalState.story].entry.endsWith(".mdx")
     ) {
       document.documentElement.setAttribute("data-mdx", "true");

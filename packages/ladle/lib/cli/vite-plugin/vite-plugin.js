@@ -116,7 +116,7 @@ function ladlePlugin(config, configFolder, mode) {
             ),
           );
           detectDuplicateStoryNames(entryData);
-          return getGeneratedList(entryData, configFolder, config);
+          return await getGeneratedList(entryData, configFolder, config);
         } catch (/** @type {any} */ e) {
           printError("\nStory discovering failed:\n");
           printError(e);
