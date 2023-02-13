@@ -2,7 +2,6 @@ import debug from "./debug.js";
 import path from "path";
 import merge from "lodash.merge";
 import loadConfig from "./load-config.js";
-import boxen from "boxen";
 
 /**
  * @param params {import("../shared/types").CLIParams}
