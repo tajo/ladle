@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.6.3
+
+### Patch Changes
+
+- [#355](https://github.com/tajo/ladle/pull/355) [`3277dce`](https://github.com/tajo/ladle/commit/3277dceb31b3f0d89a4cd2114a530ba78432f130) Thanks [@tajo](https://github.com/tajo)! - Change the way how values from config.mjs are passed to the client. We were doing direct import into the app but that breaks cases when config.mjs uses Node APIs. Also, it risks leaking potentially sensitive stuff from the CLI side. And it's cubersome when used through programatic API / wrapper libraries. The new solution picks just a subset of config.mjs values that are really needed in the client, serializes them and embeds them into our virtual module.
+
 ## 2.6.2
 
 ### Patch Changes
