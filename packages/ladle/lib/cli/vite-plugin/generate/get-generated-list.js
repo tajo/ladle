@@ -9,11 +9,11 @@ import getComponentsImport from "./get-components-import.js";
  * @param configFolder {string}
  * @param config {import("../../../shared/types").Config}
  */
-const getGeneratedList = (entryData, configFolder, config) => {
+const getGeneratedList = async (entryData, configFolder, config) => {
   return `
 ${getStoryImports(entryData)}
 ${getStoryList(entryData)}
-${getConfigImport(configFolder)}
+${await getConfigImport(configFolder)}
 ${getComponentsImport(configFolder)}
 ${getStorySource(entryData, config.addons.source.enabled)}
 export const errorMessage = '';\n

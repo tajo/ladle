@@ -1,5 +1,5 @@
 import serve from "@ladle/react/serve";
 
 serve({
-  config: ".ladle",
+  port: 61105,
 });

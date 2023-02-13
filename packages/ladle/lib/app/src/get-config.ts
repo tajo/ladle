@@ -7,6 +7,9 @@ import debug from "./debug";
 if (Object.keys(config).length === 0) {
   debug("No custom config found.");
 } else {
+  if (config.storyOrder && typeof config.storyOrder === "string") {
+    config.storyOrder = new Function("return " + config.storyOrder)();
+  }
   debug(`Custom config found:`);
   debug(config);
 }
