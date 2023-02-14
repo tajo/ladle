@@ -1,31 +1,14 @@
 import { globby } from "globby";
 import path from "path";
 import fs from "fs";
-import { fileURLToPath } from "url";
 import debugFactory from "debug";
 import getGeneratedList from "./generate/get-generated-list.js";
 import { getEntryData } from "./parse/get-entry-data.js";
 import { detectDuplicateStoryNames, printError } from "./utils.js";
 import cleanupWindowsPath from "./generate/cleanup-windows-path.js";
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+import { getFrameworkConfig } from "../framework.js";
 
 const debug = debugFactory("ladle:vite");
-
-/**
- * @param errorMessage {string}
- */
-const defaultListModule = (errorMessage) => `
-import { lazy } from "react";
-import * as React from "react";
-export const list = [];
-export const config = {};
-export const stories = {};
-export const storySource = {};
-export const errorMessage = \`${errorMessage}\`;
-export const Provider = ({ children }) =>
-  /*#__PURE__*/ React.createElement(React.Fragment, null, children);
-`;
 
 /**
  * @param config {import("../../shared/types").Config}
@@ -74,25 +57,18 @@ function ladlePlugin(config, configFolder, mode) {
       // some addons (like a11y) can subscribe to changes and re-run
       // on HMR updates
       if (id.includes(".stories.")) {
-        const from = cleanupWindowsPath(
-          path.join(__dirname, "../../app/src/story-hmr"),
-        );
+        const frameworkConfig = getFrameworkConfig();
+        const from = cleanupWindowsPath(frameworkConfig.transformer.hmrPath);
         const watcherImport = `import { storyUpdated } from "${from}";`;
-        // if stories are defined through .bind({}) we need to force full reloads since
-        // react-refresh can't pick it up
-        const invalidateHmr = code.includes(".bind({})")
-          ? `if (import.meta.hot) {
-          import.meta.hot.on("vite:beforeUpdate", () => {
-            import.meta.hot.invalidate();
-          });
-        }`
-          : "";
+
         // make sure the `loaded` attr is set even if the story is loaded through iframe
         const setLoadedAttr = `typeof window !== 'undefined' &&
           window.document &&
           window.document.createElement && document.documentElement.setAttribute("data-storyloaded", "");`;
         return {
-          code: `${code}\n${setLoadedAttr}\n${invalidateHmr}\n${watcherImport}\nif (import.meta.hot) {
+          code: `${code}\n${setLoadedAttr}\n${frameworkConfig.transformer.extraCode(
+            code,
+          )}\n${watcherImport}\nif (import.meta.hot) {
           import.meta.hot.accept(() => {
             storyUpdated();
           });
@@ -108,6 +84,8 @@ function ladlePlugin(config, configFolder, mode) {
     async load(id) {
       if (id === resolvedVirtualModuleId) {
         debug(`transforming: ${id}`);
+
+        const frameworkConfig = getFrameworkConfig();
         try {
           debug("Initial generation of the list");
           const entryData = await getEntryData(
@@ -124,7 +102,9 @@ function ladlePlugin(config, configFolder, mode) {
           if (mode === "production") {
             process.exit(1);
           }
-          return /** @type {string} */ (defaultListModule(e.message));
+          return /** @type {string} */ (
+            frameworkConfig.generator.defaultListModule(e.message)
+          );
         }
       }
       return;

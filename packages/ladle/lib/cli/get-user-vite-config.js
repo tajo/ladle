@@ -40,6 +40,7 @@ const getCacheDir = (cacheDir) => {
  * @return {Promise<import('../shared/types').GetUserViteConfig>}
  */
 export default async (command, mode, viteConfig) => {
+  /** @type {undefined | import('vite').UserConfig} */
   const userViteConfig = await loadConfigFromFile(
     { command, mode },
     viteConfig,
@@ -47,7 +48,6 @@ export default async (command, mode, viteConfig) => {
   if (!userViteConfig) {
     return {
       userViteConfig: {},
-      hasReactPlugin: false,
       hasTSConfigPathPlugin: false,
     };
   }
@@ -62,19 +62,6 @@ export default async (command, mode, viteConfig) => {
     userViteConfig.cacheDir = getCacheDir(userViteConfig.cacheDir);
   }
 
-  // detect if user's config has react and TS Config plugins
-  // so we can't avoid adding them through our defaults again
-  const hasReactPlugin = userViteConfig.plugins
-    ? userViteConfig.plugins.some((plugin) => {
-        return Array.isArray(plugin)
-          ? plugin.some(
-              //@ts-ignore
-              (item) => item && item.name && item.name.includes("vite:react-"),
-            )
-          : //@ts-ignore
-            plugin && plugin.name && plugin.name.includes("vite:react-");
-      })
-    : false;
   const hasTSConfigPathPlugin = userViteConfig.plugins
     ? userViteConfig.plugins.some(
         //@ts-ignore
@@ -82,5 +69,5 @@ export default async (command, mode, viteConfig) => {
       )
     : false;
 
-  return { userViteConfig, hasReactPlugin, hasTSConfigPathPlugin };
+  return { userViteConfig, hasTSConfigPathPlugin };
 };

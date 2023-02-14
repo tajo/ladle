@@ -1,4 +1,4 @@
-import type { Story } from "../packages/ladle/lib/app/exports";
+import type { Story } from "../packages/ladle-react/lib/app/exports";
 
 type FooProps = {
   foo: string;

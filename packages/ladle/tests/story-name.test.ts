@@ -1,5 +1,5 @@
 import { test, expect, describe } from "vitest";
-import { sortStories } from "../lib/app/src/story-name";
+import { sortStories } from "../../ladle-react/lib/app/src/story-name";
 
 const identity = (s: string[]) => s;
 

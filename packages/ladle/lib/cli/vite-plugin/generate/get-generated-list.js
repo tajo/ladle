@@ -1,8 +1,8 @@
-import getStoryImports from "./get-story-imports.js";
 import getStoryList from "./get-story-list.js";
 import getStorySource from "./get-story-source.js";
 import getConfigImport from "./get-config-import.js";
 import getComponentsImport from "./get-components-import.js";
+import { getFrameworkConfig } from "../../framework.js";
 
 /**
  * @param entryData {import('../../../shared/types').EntryData}
@@ -10,8 +10,9 @@ import getComponentsImport from "./get-components-import.js";
  * @param config {import("../../../shared/types").Config}
  */
 const getGeneratedList = async (entryData, configFolder, config) => {
+  const frameworkConfig = getFrameworkConfig();
   return `
-${getStoryImports(entryData)}
+${frameworkConfig.generator.getStoryImports(entryData)}
 ${getStoryList(entryData)}
 ${await getConfigImport(configFolder)}
 ${getComponentsImport(configFolder)}

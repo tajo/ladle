@@ -4,6 +4,7 @@ import debugFactory from "debug";
 import { traverse } from "../babel.js";
 import getAst from "../get-ast.js";
 import cleanupWindowsPath from "./cleanup-windows-path.js";
+import { getFrameworkConfig } from "../../framework.js";
 
 const debug = debugFactory("ladle:vite");
 
@@ -32,7 +33,8 @@ const checkIfNamedExportExists = (namedExport, sourceCode, filename) => {
  * @param {string} configFolder
  */
 const getComponents = (configFolder) => {
-  const noopProvider = `export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);\n`;
+  const frameworkConfig = getFrameworkConfig();
+  const noopProvider = frameworkConfig.generator.noopProvider;
   // order matters. if tsx isn't found, ts is used, then jsx, then js.
   const componentsPaths = [
     path.join(configFolder, "components.tsx"),

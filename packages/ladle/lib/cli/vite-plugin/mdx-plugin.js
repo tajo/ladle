@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { createFormatAwareProcessors } from "@mdx-js/mdx/lib/util/create-format-aware-processors.js";
 import mdxToStories from "./mdx-to-stories.js";
+import { getFrameworkConfig } from "../framework.js";
 
 /**
  * @param {string} code
@@ -37,37 +38,40 @@ const unknownBackticks = (code) => {
 
 /**
  * @param {any} opts
- * @return {any}
+ * @return {import('vite').Plugin}
  */
 function mdxPlugin(opts) {
-  /** @type any */
-  let reactPluginTransform;
+  const frameworkConfig = getFrameworkConfig();
+
+  /** @type {import('vite').Plugin['transform']} */
+  let pluginTransform;
   const { process } = createFormatAwareProcessors({
     SourceMapGenerator,
     development: opts.mode === "development",
-    providerImportSource: "@ladle/react",
     jsx: true,
     remarkPlugins: [remarkGfm],
+    ...frameworkConfig.mdx.mdxOptions,
   });
 
   const markdownProcessor = createFormatAwareProcessors({
     format: "md",
-    providerImportSource: "@ladle/react",
     remarkPlugins: [remarkGfm],
     rehypePlugins: [rehypeRaw],
+    ...frameworkConfig.mdx.mdOptions,
   });
 
   return {
     name: "ladle:stories-mdx",
     enforce: "pre",
     configResolved: ({ plugins }) => {
-      reactPluginTransform = plugins.find(
+      pluginTransform = plugins.find(
         (p) =>
-          p.name === "vite:react-babel" && typeof p.transform === "function",
+          p.name === frameworkConfig.mdx.transformPluginName &&
+          typeof p.transform === "function",
       )?.transform;
-      if (!reactPluginTransform) {
+      if (!pluginTransform) {
         throw new Error(
-          `Can't find an instance of @vitejs/plugin-react. You should apply this plugin to make mdx work.`,
+          `Can't find an instance of ${frameworkConfig.mdx.transformPluginName}. You should apply this plugin to make mdx work.`,
         );
       }
     },
@@ -93,10 +97,8 @@ function mdxPlugin(opts) {
         const filename = `${filepath}${
           querystring ? "&ext=.jsx" : "?ext=.jsx"
         }`;
-        return await reactPluginTransform(
-          (
-            await transformWithEsbuild(code, filename)
-          ).code,
+        return pluginTransform(
+          (await transformWithEsbuild(code, filename)).code,
           filename,
         );
       }

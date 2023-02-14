@@ -6,6 +6,6 @@
     "emitDeclarationOnly": true,
     "declarationDir": "typings-for-build"
   },
-  "include": ["lib/**/*", "src/**/*"],
+  "include": ["lib/**/*"],
   "exclude": ["typings-for-build"]
 }

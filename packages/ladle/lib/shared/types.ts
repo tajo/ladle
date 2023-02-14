@@ -1,4 +1,5 @@
-import type { UserConfig as ViteUserConfig } from "vite";
+import type { UserConfig as ViteUserConfig, InlineConfig } from "vite";
+import type { CompileOptions } from "@mdx-js/mdx";
 
 type RecursivePartial<T> = {
   [P in keyof T]?: RecursivePartial<T[P]>;
@@ -237,10 +238,57 @@ export type ParsedStoriesResult = {
 
 export type GetUserViteConfig = {
   userViteConfig: ViteUserConfig;
-  hasReactPlugin: boolean;
   hasTSConfigPathPlugin: boolean;
 };
 
 export type EntryData = {
   [key: string]: ParsedStoriesResult;
 };
+
+export interface LadleFrameworkConfig {
+  /**
+   * The name of the plugin package. eg. @ladle/react.
+   */
+  name: string;
+
+  /** The base path of the framework package. */
+  base: string;
+
+  vite: {
+    // app dir path
+    app: string;
+    /** override cli default vite config, return new default config */
+    config?: (
+      userViteConfig: ViteUserConfig,
+      cliDefaultConfig: InlineConfig,
+    ) => Promise<InlineConfig>;
+  };
+
+  /** rewrite transform code on stories files [used in ladle plugin] */
+  transformer: {
+    hmrPath: string;
+    extraCode: (code: string) => string;
+  };
+
+  generator: {
+    defaultListModule: (errorMessage: string) => string;
+    getStoryImports: (entryData: EntryData) => string;
+    noopProvider: string;
+  };
+
+  mdx: {
+    /** used in mdx transform plugin  */
+    packageName: string;
+    /** parse md options */
+    mdOptions?: CompileOptions;
+    /** parse mdx options */
+    mdxOptions?: CompileOptions;
+    /** parse mdx to js options */
+    compileOptions?: CompileOptions;
+    /**
+     * framework transform plugin name,
+     * @example "vite:react-babel"
+     */
+    transformPluginName: string;
+  };
+}

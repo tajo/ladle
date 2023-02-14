@@ -1,5 +1,5 @@
 {
-  "name": "@ladle/react",
+  "name": "@ladle/core",
   "version": "2.6.3",
   "repository": "git@github.com:tajo/ladle.git",
   "author": "Vojtech Miksu <vojtech@miksu.cz>",
@@ -10,7 +10,23 @@
     ".": "./lib/app/exports.ts",
     "./serve": "./api/serve.js",
     "./preview": "./api/preview.js",
-    "./build": "./api/build.js"
+    "./build": "./api/build.js",
+    "./framework": "./lib/cli/framework.js",
+    "./shared/types": "./lib/shared/types.ts",
+    "./shared/default-config": "./lib/shared/default-config.js"
+  },
+  "typesVersions": {
+    "*": {
+      "framework": [
+        "typings-for-build/cli/framework.d.ts"
+      ],
+      "shared/types": [
+        "./lib/shared/types.ts"
+      ],
+      "shared/default-config": [
+        "typings-for-build/shared/default-config.d.ts"
+      ]
+    }
   },
   "packageManager": "pnpm@7.26.3",
   "publishConfig": {
@@ -28,22 +44,10 @@
     "cli": "node ./lib/cli/cli.js",
     "clean": "rimraf dist && rimraf .ladle && rimraf build && rimraf *.tsbuildinfo",
     "serve": "node ./lib/cli/cli.js serve",
-    "test": "cross-env IMPORT_ROOT=\"./\" vitest",
     "types": "tsc --project tsconfig.typesoutput.json && cp ./typings-for-build/app/exports.d.ts ./typings-for-build/app/exports.d.cts"
   },
   "dependencies": {
-    "@babel/code-frame": "^7.18.6",
-    "@babel/core": "^7.20.12",
-    "@babel/generator": "^7.20.14",
-    "@babel/parser": "^7.20.15",
-    "@babel/template": "^7.20.7",
-    "@babel/traverse": "^7.20.13",
-    "@babel/types": "^7.20.7",
-    "@ladle/react-context": "workspace:^1.0.1",
     "@mdx-js/mdx": "^2.2.1",
-    "@mdx-js/react": "^2.2.1",
-    "@vitejs/plugin-react": "^3.1.0",
-    "axe-core": "^4.6.3",
     "boxen": "^7.0.1",
     "chokidar": "^3.5.3",
     "classnames": "^2.3.2",
@@ -57,11 +61,7 @@
     "history": "^5.3.0",
     "lodash.merge": "^4.6.2",
     "open": "^8.4.0",
-    "prism-react-renderer": "^1.3.5",
-    "prop-types": "^15.8.1",
     "query-string": "^8.1.0",
-    "react-frame-component": "^5.2.6",
-    "react-inspector": "^6.0.1",
     "rehype-raw": "^6.1.1",
     "remark-gfm": "^3.0.1",
     "source-map": "^0.7.4",
@@ -69,11 +69,14 @@
     "vite": "^4.1.1",
     "vite-tsconfig-paths": "^4.0.5"
   },
-  "peerDependencies": {
-    "react": ">=16.14.0",
-    "react-dom": ">=16.14.0"
-  },
   "devDependencies": {
+    "@babel/code-frame": "^7.18.6",
+    "@babel/core": "^7.20.12",
+    "@babel/generator": "^7.20.14",
+    "@babel/parser": "^7.20.15",
+    "@babel/template": "^7.20.7",
+    "@babel/traverse": "^7.20.13",
+    "@babel/types": "^7.20.7",
     "@babel/cli": "^7.20.7",
     "@types/babel__code-frame": "^7.0.3",
     "@types/babel__core": "^7.20.0",
@@ -87,8 +90,6 @@
     "@types/node": "^18.11.19",
     "@types/ws": "^8.5.4",
     "cross-env": "^7.0.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "vitest": "^0.28.4"
   },
   "engines": {

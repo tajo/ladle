@@ -2,10 +2,13 @@
 import { transformFromAstAsync } from "@babel/core";
 import { compile } from "@mdx-js/mdx";
 import getAst from "./get-ast.js";
+import { getFrameworkConfig } from "../framework.js";
 
 const transformPlugin = (babel) => {
   const { types: t } = babel;
-  const packageName = "@ladle/react";
+
+  const frameworkConfig = getFrameworkConfig();
+  const packageName = frameworkConfig.mdx.packageName;
 
   return {
     visitor: {
@@ -157,11 +160,12 @@ const transformPlugin = (babel) => {
 };
 
 const prepare = async (code, filename, transformMdx = false) => {
+  const frameworkConfig = getFrameworkConfig();
   const inputCode = transformMdx
     ? String(
         await compile(code, {
           jsx: true,
-          providerImportSource: "@mdx-js/react",
+          ...frameworkConfig.mdx.compileOptions,
         }),
       )
     : code;
