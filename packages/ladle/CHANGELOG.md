@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.6.4
+
+### Patch Changes
+
+- [#358](https://github.com/tajo/ladle/pull/358) [`6a5c5a2`](https://github.com/tajo/ladle/commit/6a5c5a2650de4e610a0808778f63eb163536f251) Thanks [@tajo](https://github.com/tajo)! - Fix absolute import path on windows.
+
 ## 2.6.3
 
 ### Patch Changes
