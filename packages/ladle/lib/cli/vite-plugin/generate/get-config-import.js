@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { pathToFileURL } from "url";
 
 /**
  * @param {string} configFolder
@@ -9,7 +10,7 @@ const getConfigImport = async (configFolder) => {
   const configExists = fs.existsSync(configPath);
   let configCode = `export let config = {};\n`;
   if (configExists) {
-    const config = (await import(configPath)).default;
+    const config = (await import(pathToFileURL(configPath).href)).default;
     let serializedConfig = {};
     try {
       serializedConfig = JSON.stringify({

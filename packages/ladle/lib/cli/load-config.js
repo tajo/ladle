@@ -1,4 +1,5 @@
 import path from "path";
+import { pathToFileURL } from "url";
 import merge from "lodash.merge";
 import debug from "./debug.js";
 import defaultConfig from "../shared/default-config.js";
@@ -12,7 +13,7 @@ const loadConfig = async (configFolder) => {
      * @type {import('../shared/types').UserConfig}
      */
     const config = (
-      await import("file:///" + path.join(configFolder, "config.mjs"))
+      await import(pathToFileURL(path.join(configFolder, "config.mjs")).href)
     ).default;
     if (Object.keys(config).length === 0) {
       debug("Custom config is empty.");
