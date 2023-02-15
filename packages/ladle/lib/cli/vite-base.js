@@ -1,5 +1,6 @@
-import { join } from "path";
 import path from "path";
+import fs from "fs";
+import { fileURLToPath } from "url";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import getAppRoot from "./get-app-root.js";
@@ -8,6 +9,8 @@ import debug from "./debug.js";
 import mergeViteConfigs from "./merge-vite-configs.js";
 import getUserViteConfig from "./get-user-vite-config.js";
 import mdxPlugin from "./vite-plugin/mdx-plugin.js";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
  * @param ladleConfig {import("../shared/types").Config}
@@ -82,6 +85,11 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     }
   }
 
+  const inladleMonorepo = fs.existsSync(
+    path.join(__dirname, "../../../ladle-react-context/package.json"),
+  );
+  debug("Executed from the ladle monorepo: %s", inladleMonorepo);
+
   /**
    * @type {import('vite').InlineConfig}
    */
@@ -91,11 +99,11 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     configFile: false,
     publicDir:
       typeof userViteConfig.publicDir === "undefined"
-        ? join(process.cwd(), "public")
+        ? path.join(process.cwd(), "public")
         : userViteConfig.publicDir,
     cacheDir: userViteConfig.cacheDir
       ? userViteConfig.cacheDir
-      : join(process.cwd(), "node_modules/.vite"),
+      : path.join(process.cwd(), "node_modules/.vite"),
     root: getAppRoot(),
     css: {
       postcss:
@@ -111,9 +119,6 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         "react-dom",
         "react/jsx-runtime",
         "react/jsx-dev-runtime",
-        // esbuild fails to resolve react import in this package if @vitejs/react-plugin is not used
-        // really strange?
-        //"@ladle/react-context",
         "react-inspector",
         "classnames",
         "debug",
@@ -126,6 +131,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         "axe-core",
         "react-frame-component",
         "@mdx-js/react",
+        ...(inladleMonorepo ? [] : ["@ladle/react", "@ladle/react-context"]),
         ...(!!resolve.alias ? [] : ["react-dom/client"]),
       ],
       entries: [
