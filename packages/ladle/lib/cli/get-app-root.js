@@ -11,7 +11,7 @@ const getAppRoot = () => {
     )
   ) {
     // published/compiled folder of our app
-    return path.join(__dirname, "../../dist/app");
+    return path.join(__dirname, "../../typings-for-build/app");
   }
   return path.join(__dirname, "../app");
 };

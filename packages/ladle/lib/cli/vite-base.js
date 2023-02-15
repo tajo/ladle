@@ -109,6 +109,8 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
       include: [
         "react",
         "react-dom",
+        "react/jsx-runtime",
+        "react/jsx-dev-runtime",
         // esbuild fails to resolve react import in this package if @vitejs/react-plugin is not used
         // really strange?
         //"@ladle/react-context",
