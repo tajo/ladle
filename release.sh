@@ -12,7 +12,6 @@ node ./packages/ladle/scripts/update-package-types.js
 
 echo "Generate Types":
 pnpm --filter @ladle/react types
-node ./packages/ladle/scripts/update-index-path.js
 
 echo "Changeset publish"
 changeset publish

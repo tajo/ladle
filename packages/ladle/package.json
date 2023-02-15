@@ -29,7 +29,7 @@
     "clean": "rimraf dist && rimraf .ladle && rimraf build && rimraf *.tsbuildinfo",
     "serve": "node ./lib/cli/cli.js serve",
     "test": "cross-env IMPORT_ROOT=\"./\" vitest",
-    "types": "tsc --project tsconfig.typesoutput.json && cp ./typings-for-build/app/exports.d.ts ./typings-for-build/app/exports.d.cts && cp -r -n ./lib/app ./typings-for-build/ || true"
+    "types": "tsc --project tsconfig.typesoutput.json && cp ./typings-for-build/app/exports.d.ts ./typings-for-build/app/exports.d.cts && cp -r -n ./lib/app ./typings-for-build/ || true && ./scripts/update-index-path.js"
   },
   "dependencies": {
     "@babel/code-frame": "^7.18.6",
