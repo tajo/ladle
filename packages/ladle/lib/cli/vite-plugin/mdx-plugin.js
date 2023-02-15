@@ -42,6 +42,7 @@ const unknownBackticks = (code) => {
 function mdxPlugin(opts) {
   /** @type any */
   let reactPluginTransform;
+  let reactPluginSwcTransform;
   const { process } = createFormatAwareProcessors({
     SourceMapGenerator,
     development: opts.mode === "development",
@@ -65,11 +66,9 @@ function mdxPlugin(opts) {
         (p) =>
           p.name === "vite:react-babel" && typeof p.transform === "function",
       )?.transform;
-      if (!reactPluginTransform) {
-        throw new Error(
-          `Can't find an instance of @vitejs/plugin-react. You should apply this plugin to make mdx work.`,
-        );
-      }
+      reactPluginSwcTransform = plugins.find(
+        (p) => p.name === "vite:react-swc" && typeof p.transform === "function",
+      )?.transform;
     },
     async transform(value, path) {
       const [filepath, querystring = ""] = path.split("?");
@@ -93,6 +92,18 @@ function mdxPlugin(opts) {
         const filename = `${filepath}${
           querystring ? "&ext=.jsx" : "?ext=.jsx"
         }`;
+        if (!reactPluginSwcTransform && !reactPluginTransform) {
+          throw new Error(
+            `You need to install @vitejs/plugin-react or @vitejs/plugin-react-swc so ${filename} can be compiled.`,
+          );
+        }
+        if (reactPluginSwcTransform) {
+          // swc plugin can compile JSX, no need for esbuild
+          return await reactPluginSwcTransform(
+            code,
+            filepath.replace(".mdx", ".jsx"),
+          );
+        }
         return await reactPluginTransform(
           (
             await transformWithEsbuild(code, filename)

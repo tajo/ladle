@@ -4,6 +4,7 @@ import path from "path";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import ladlePlugin from "./vite-plugin/vite-plugin.js";
+import debug from "./debug.js";
 import mergeViteConfigs from "./merge-vite-configs.js";
 import getUserViteConfig from "./get-user-vite-config.js";
 import mdxPlugin from "./vite-plugin/mdx-plugin.js";
@@ -45,12 +46,19 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
 
   const __dirname = dirname(fileURLToPath(import.meta.url));
 
-  const { userViteConfig, hasReactPlugin, hasTSConfigPathPlugin } =
-    await getUserViteConfig(
-      viteConfig.build ? "build" : "serve",
-      viteConfig.mode || "production",
-      ladleConfig.viteConfig,
-    );
+  const {
+    userViteConfig,
+    hasReactPlugin,
+    hasReactSwcPlugin,
+    hasTSConfigPathPlugin,
+  } = await getUserViteConfig(
+    viteConfig.build ? "build" : "serve",
+    viteConfig.mode || "production",
+    ladleConfig.viteConfig,
+  );
+
+  debug("Use provided @vite/plugin-react: %s", hasReactPlugin);
+  debug("Use provided @vite/plugin-react-swc: %s", hasReactSwcPlugin);
 
   // We need to fake react-dom/client import if the user still uses React v17
   // and not v18, otherwise Vite would fail the import analysis step
@@ -101,9 +109,11 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     resolve,
     optimizeDeps: {
       include: [
-        "@ladle/react-context",
         "react",
         "react-dom",
+        // esbuild fails to resolve react import in this package if @vitejs/react-plugin is not used
+        // really strange?
+        //"@ladle/react-context",
         "react-inspector",
         "classnames",
         "debug",
@@ -132,7 +142,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
           root: process.cwd(),
         }),
       ladlePlugin(ladleConfig, configFolder, viteConfig.mode || ""),
-      !hasReactPlugin && react(),
+      !hasReactPlugin && !hasReactSwcPlugin && react(),
     ],
   };
   return mergeViteConfigs(userViteConfig, config);
