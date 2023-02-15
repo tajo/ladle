@@ -10,9 +10,6 @@ turbo run build --filter=@ladle/react
 echo "Update package.json"
 node ./packages/ladle/scripts/update-package-types.js
 
-echo "Compile Ladle App UI":
-pnpm --filter @ladle/react compile-app
-
 echo "Generate Types":
 pnpm --filter @ladle/react types
 

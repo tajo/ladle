@@ -3,8 +3,9 @@
   "compilerOptions": {
     "noEmit": false,
     "declaration": true,
-    "emitDeclarationOnly": true,
-    "declarationDir": "typings-for-build"
+    "emitDeclarationOnly": false,
+    "declarationDir": "typings-for-build",
+    "outDir": "typings-for-build"
   },
   "include": ["lib/**/*", "src/**/*"],
   "exclude": ["typings-for-build"]

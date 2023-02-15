@@ -9,4 +9,4 @@ cjs
 .turbo
 .pnpm-store
 packages/ladle/typings-for-build
-packages/ladle/dist
+
