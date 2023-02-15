@@ -27,7 +27,7 @@ module.exports = {
     {
       type: "category",
       label: "Configuration",
-      items: ["cli", "config", "programmatic"],
+      items: ["cli", "config", "programmatic", "swc"],
     },
     {
       type: "category",
