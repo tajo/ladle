@@ -1,14 +1,12 @@
 import { globby } from "globby";
 import path from "path";
 import fs from "fs";
-import { fileURLToPath } from "url";
 import debugFactory from "debug";
+import getAppRoot from "../get-app-root.js";
 import getGeneratedList from "./generate/get-generated-list.js";
 import { getEntryData } from "./parse/get-entry-data.js";
 import { detectDuplicateStoryNames, printError } from "./utils.js";
 import cleanupWindowsPath from "./generate/cleanup-windows-path.js";
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const debug = debugFactory("ladle:vite");
 
@@ -75,7 +73,7 @@ function ladlePlugin(config, configFolder, mode) {
       // on HMR updates
       if (id.includes(".stories.")) {
         const from = cleanupWindowsPath(
-          path.join(__dirname, "../../app/src/story-hmr"),
+          path.join(getAppRoot(), "src/story-hmr"),
         );
         const watcherImport = `import { storyUpdated } from "${from}";`;
         // if stories are defined through .bind({}) we need to force full reloads since
