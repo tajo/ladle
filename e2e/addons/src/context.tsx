@@ -1,3 +1,4 @@
+// @ts-ignore
 import { useLadleContext } from "@ladle/react";
 
 function Context() {
