@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.7.0
+
+### Minor Changes
+
+- [#361](https://github.com/tajo/ladle/pull/361) [`54832e4`](https://github.com/tajo/ladle/commit/54832e4d07e9e06dcfa4a63710a270944b7a7a00) Thanks [@tajo](https://github.com/tajo)! - Add support for the SWC plugin.
+
 ## 2.6.4
 
 ### Patch Changes
