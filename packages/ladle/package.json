@@ -43,6 +43,7 @@
     "@mdx-js/mdx": "^2.2.1",
     "@mdx-js/react": "^2.2.1",
     "@vitejs/plugin-react": "^3.1.0",
+    "@vitejs/plugin-react-swc": "^3.1.0",
     "axe-core": "^4.6.3",
     "boxen": "^7.0.1",
     "chokidar": "^3.5.3",

@@ -238,6 +238,7 @@ export type ParsedStoriesResult = {
 export type GetUserViteConfig = {
   userViteConfig: ViteUserConfig;
   hasReactPlugin: boolean;
+  hasReactSwcPlugin: boolean;
   hasTSConfigPathPlugin: boolean;
 };
 

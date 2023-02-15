@@ -48,6 +48,7 @@ export default async (command, mode, viteConfig) => {
     return {
       userViteConfig: {},
       hasReactPlugin: false,
+      hasReactSwcPlugin: false,
       hasTSConfigPathPlugin: false,
     };
   }
@@ -69,10 +70,21 @@ export default async (command, mode, viteConfig) => {
         return Array.isArray(plugin)
           ? plugin.some(
               //@ts-ignore
-              (item) => item && item.name && item.name.includes("vite:react-"),
+              (item) => item && item.name && item.name === "vite:react-babel",
             )
           : //@ts-ignore
-            plugin && plugin.name && plugin.name.includes("vite:react-");
+            plugin && plugin.name && plugin.name === "vite:react-babel";
+      })
+    : false;
+  const hasReactSwcPlugin = userViteConfig.plugins
+    ? userViteConfig.plugins.some((plugin) => {
+        return Array.isArray(plugin)
+          ? plugin.some(
+              //@ts-ignore
+              (item) => item && item.name && item.name === "vite:react-swc",
+            )
+          : //@ts-ignore
+            plugin && plugin.name && plugin.name === "vite:react-swc";
       })
     : false;
   const hasTSConfigPathPlugin = userViteConfig.plugins
@@ -82,5 +94,10 @@ export default async (command, mode, viteConfig) => {
       )
     : false;
 
-  return { userViteConfig, hasReactPlugin, hasTSConfigPathPlugin };
+  return {
+    userViteConfig,
+    hasReactPlugin,
+    hasReactSwcPlugin,
+    hasTSConfigPathPlugin,
+  };
 };
