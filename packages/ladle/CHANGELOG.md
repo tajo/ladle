@@ -1,5 +1,13 @@
 # @ladle/react
 
+## 2.7.1
+
+### Patch Changes
+
+- [#367](https://github.com/tajo/ladle/pull/367) [`c48817a`](https://github.com/tajo/ladle/commit/c48817a03756dca1ef38f50904fa48b1d867712f) Thanks [@tajo](https://github.com/tajo)! - Fix useLandleContext()
+
+- [#364](https://github.com/tajo/ladle/pull/364) [`0c462a6`](https://github.com/tajo/ladle/commit/0c462a6011ce7a9677542a17ffec8cfb09713ff3) Thanks [@justb3a](https://github.com/justb3a)! - Add `--base` cli option in preview mode
+
 ## 2.7.0
 
 ### Minor Changes
