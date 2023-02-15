@@ -1,8 +1,8 @@
-import { dirname, join } from "path";
-import { fileURLToPath } from "url";
+import { join } from "path";
 import path from "path";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
+import getAppRoot from "./get-app-root.js";
 import ladlePlugin from "./vite-plugin/vite-plugin.js";
 import debug from "./debug.js";
 import mergeViteConfigs from "./merge-vite-configs.js";
@@ -44,8 +44,6 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
   });
   oldKeyUsed && process.exit(1);
 
-  const __dirname = dirname(fileURLToPath(import.meta.url));
-
   const {
     userViteConfig,
     hasReactPlugin,
@@ -57,8 +55,8 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     ladleConfig.viteConfig,
   );
 
-  debug("Use provided @vite/plugin-react: %s", hasReactPlugin);
-  debug("Use provided @vite/plugin-react-swc: %s", hasReactSwcPlugin);
+  debug("User provided @vite/plugin-react: %s", hasReactPlugin);
+  debug("User provided @vite/plugin-react-swc: %s", hasReactSwcPlugin);
 
   // We need to fake react-dom/client import if the user still uses React v17
   // and not v18, otherwise Vite would fail the import analysis step
@@ -98,7 +96,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     cacheDir: userViteConfig.cacheDir
       ? userViteConfig.cacheDir
       : join(process.cwd(), "node_modules/.vite"),
-    root: join(__dirname, "../app/"),
+    root: getAppRoot(),
     css: {
       postcss:
         userViteConfig.css && userViteConfig.css.postcss
