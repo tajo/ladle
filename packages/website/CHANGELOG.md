@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.5
+
+### Patch Changes
+
+- [#374](https://github.com/tajo/ladle/pull/374) [`9ff28f9`](https://github.com/tajo/ladle/commit/9ff28f9a3e0774229de81d62facd15314e882faf) Thanks [@tajo](https://github.com/tajo)! - Add docs about next/image and typescript
+
 ## 0.3.4
 
 ### Patch Changes

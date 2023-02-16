@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.7.4
+
+### Patch Changes
+
+- [#372](https://github.com/tajo/ladle/pull/372) [`4fb1cf2`](https://github.com/tajo/ladle/commit/4fb1cf2b089f46213c52bef8c1e794294af9fa4e) Thanks [@tajo](https://github.com/tajo)! - Add zindex to addons panel so it's always at the top.
+
 ## 2.7.3
 
 ### Patch Changes
