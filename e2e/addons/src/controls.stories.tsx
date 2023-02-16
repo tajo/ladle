@@ -42,6 +42,8 @@ export const Controls: Story<Props> = ({
     <p>Range: {range}</p>
     {airports && airports.length ? <p>Airport: {airports}</p> : ""}
     {cities && cities.length ? <p>Cities: {cities}</p> : ""}
+    {typeof count !== "number" && <p>count is not number</p>}
+    {typeof range !== "number" && <p>range is not number</p>}
     {typeof variant === "undefined" && <p>variant is undefined</p>}
     {typeof variant === "boolean" && <p>variant is boolean</p>}
     {typeof variant === "string" && <p>variant is string</p>}

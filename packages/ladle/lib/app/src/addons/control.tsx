@@ -67,6 +67,9 @@ export const getQuery = (
           case ControlType.Boolean:
             realValue = argValue === "true";
             break;
+          case ControlType.Range:
+            realValue = parseFloat(argValue);
+            break;
           case ControlType.Number:
             realValue = parseInt(argValue, 10);
             break;
