@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.7.2
+
+### Patch Changes
+
+- [#368](https://github.com/tajo/ladle/pull/368) [`34b006e`](https://github.com/tajo/ladle/commit/34b006ecc78501adff263d635d298b47df926c9b) Thanks [@tajo](https://github.com/tajo)! - Pass programatic params into client's config. Add storyOrder e2e tests.
+
 ## 2.7.1
 
 ### Patch Changes
