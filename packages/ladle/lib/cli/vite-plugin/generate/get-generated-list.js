@@ -13,7 +13,7 @@ const getGeneratedList = async (entryData, configFolder, config) => {
   return `
 ${getStoryImports(entryData)}
 ${getStoryList(entryData)}
-${await getConfigImport(configFolder)}
+${await getConfigImport(configFolder, config)}
 ${getComponentsImport(configFolder)}
 ${getStorySource(entryData, config.addons.source.enabled)}
 export const errorMessage = '';\n
