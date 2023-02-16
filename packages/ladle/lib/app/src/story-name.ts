@@ -106,7 +106,8 @@ export const sortStories = (stories: string[], storyOrder: StoryOrder) => {
     configSort = storyOrder(initialSort);
   }
   const finalSort = new Set<string>();
-  configSort.forEach((story) => {
+  configSort.forEach((storyOrig) => {
+    const story = storyOrig.toLowerCase();
     if (story.includes("*")) {
       const prefix = story.split("*")[0];
       initialSort.forEach((s) => {
@@ -117,7 +118,7 @@ export const sortStories = (stories: string[], storyOrder: StoryOrder) => {
     } else {
       if (!initialSort.includes(story)) {
         throw new Error(
-          `Story "${story}" does not exist in your storybook. Please check your storyOrder config.`,
+          `Story "${storyOrig}" does not exist in your storybook. Please check your storyOrder config.`,
         );
       }
       finalSort.add(story);

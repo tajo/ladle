@@ -29,7 +29,7 @@ export let stories = {
     entry: \\"tests/fixtures/capitalization.stories.tsx\\"
   }
 };
-export let config = {};
+export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":true},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"storyOrder\\":\\"(stories) => stories\\"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
@@ -64,7 +64,7 @@ export let stories = {
     entry: \\"tests/fixtures/filenameCapitalization.stories.tsx\\"
   }
 };
-export let config = {};
+export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":true},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"storyOrder\\":\\"(stories) => stories\\"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
@@ -98,7 +98,7 @@ export let stories = {
     entry: \\"tests/fixtures/default-title.stories.tsx\\"
   }
 };
-export let config = {};
+export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":true},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"storyOrder\\":\\"(stories) => stories\\"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
@@ -163,7 +163,7 @@ export let stories = {
     }
   }
 };
-export let config = {};
+export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":true},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"storyOrder\\":\\"(stories) => stories\\"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
@@ -206,7 +206,7 @@ export let stories = {
     }
   }
 };
-export let config = {};
+export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":true},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"storyOrder\\":\\"(stories) => stories\\"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
@@ -251,7 +251,7 @@ export let stories = {
     entry: \\"tests/fixtures/animals.stories.tsx\\"
   }
 };
-export let config = {};
+export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":true},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"storyOrder\\":\\"(stories) => stories\\"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
@@ -308,7 +308,7 @@ export let stories = {
     entry: \\"tests/fixtures/storyname.stories.tsx\\"
   }
 };
-export let config = {};
+export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":true},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"storyOrder\\":\\"(stories) => stories\\"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
@@ -344,7 +344,7 @@ export let stories = {
     entry: \\"tests/fixtures/our-animals--mammals.stories.tsx\\"
   }
 };
-export let config = {};
+export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":true},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"storyOrder\\":\\"(stories) => stories\\"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
 
