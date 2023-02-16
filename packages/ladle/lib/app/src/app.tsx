@@ -120,11 +120,14 @@ const App = () => {
               : globalState.control[control].defaultValue,
           };
         });
+        const newState = getUrlState(location.search, globalState);
         dispatch({
           type: ActionType.UpdateAll,
           value: {
-            ...getUrlState(location.search, globalState),
+            ...newState,
             control: controls,
+            controlInitialized:
+              globalState.story === newState.story ? true : false,
           },
         });
       }
