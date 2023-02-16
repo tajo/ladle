@@ -575,6 +575,7 @@ div[data-reach-dialog-overlay] {
   .ladle-addons {
     position: fixed;
     margin-bottom: 0;
+    z-index: 2147483647;
   }
 
   .ladle-addons ul {
