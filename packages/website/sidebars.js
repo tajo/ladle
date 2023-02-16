@@ -9,7 +9,7 @@ module.exports = {
     {
       type: "category",
       label: "Features",
-      items: ["css", "providers", "meta", "visual-snapshots"],
+      items: ["css", "providers", "meta", "typescript", "visual-snapshots"],
     },
     {
       type: "category",
@@ -23,6 +23,11 @@ module.exports = {
         "source",
         "width",
       ],
+    },
+    {
+      type: "category",
+      label: "Recipes",
+      items: ["nextjs"],
     },
     {
       type: "category",
