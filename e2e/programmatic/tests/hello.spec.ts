@@ -23,7 +23,22 @@ test("meta.json has a single story ok", async ({ request }) => {
           filePath: "src/hello.stories.tsx",
           meta: {},
         },
+        "hello--ayo": {
+          filePath: "src/hello.stories.tsx",
+          levels: ["Hello"],
+          locEnd: 9,
+          locStart: 7,
+          meta: {},
+          name: "Ayo",
+        },
       },
     }),
   );
+});
+
+test("navigation respects storyOrder from the programatic API", async ({
+  page,
+}) => {
+  await page.goto("http://localhost:61105");
+  await expect(page.locator("nav")).toHaveText("HelloWorldAyo");
 });
