@@ -10,3 +10,15 @@ export const Provider: GlobalProvider = ({ children, storyMeta }) => (
     <p>rendered by provider</p>
   </MyContext.Provider>
 );
+
+//@ts-ignore
+const config: string = LADLE_PROJECT_PATH;
+
+export const StorySourceHeader = ({ path }: { path: string }) => {
+  return (
+    <span id="source-header">
+      {config}
+      {path}
+    </span>
+  );
+};

@@ -12,7 +12,7 @@ test.afterEach(async () => {
   }
 });
 
-test.only("adding new story triggers a full page reload", async ({ page }) => {
+test("adding new story triggers a full page reload", async ({ page }) => {
   await page.goto("http://localhost:61106/?story=hmr--with-state");
   fs.writeFileSync("./src/add.stories.tsx", code);
   await page.waitForTimeout(1000);
