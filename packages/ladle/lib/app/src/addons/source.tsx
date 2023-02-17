@@ -11,7 +11,7 @@ import {
 } from "virtual:generated-list";
 import { AddonProps, GlobalState, ActionType } from "../../../shared/types";
 import { Source } from "../icons";
-import { Modal, Code } from "../ui";
+import { Modal } from "../ui";
 import config from "../get-config";
 
 export const getQuery = (locationSearch: string) => {

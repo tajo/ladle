@@ -57,6 +57,10 @@ export type GlobalProvider = React.FC<{
   storyMeta?: Meta;
 }>;
 
+export type SourceHeader = React.FC<{
+  path: string;
+}>;
+
 export interface Story<P = {}> extends React.FC<P> {
   args?: Args<P>;
   argTypes?: ArgTypes<P>;

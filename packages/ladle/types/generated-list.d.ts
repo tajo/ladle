@@ -30,4 +30,7 @@ declare module "virtual:generated-list" {
     children: ReactNodeWithoutObject;
     storyMeta?: any;
   }>;
+  export const StorySourceHeader: React.FC<{
+    path: string;
+  }>;
 }

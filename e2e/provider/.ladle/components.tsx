@@ -1,4 +1,4 @@
-import type { GlobalProvider } from "@ladle/react";
+import type { GlobalProvider, SourceHeader } from "@ladle/react";
 import { createContext } from "react";
 
 export const MyContext = createContext("my-context");
@@ -14,7 +14,7 @@ export const Provider: GlobalProvider = ({ children, storyMeta }) => (
 //@ts-ignore
 const config: string = LADLE_PROJECT_PATH;
 
-export const StorySourceHeader = ({ path }: { path: string }) => {
+export const StorySourceHeader: SourceHeader = ({ path }) => {
   return (
     <span id="source-header">
       {config}
