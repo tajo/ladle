@@ -1,5 +1,7 @@
 import { createServer, searchForWorkspaceRoot } from "vite";
 import koa from "koa";
+import http from "http";
+import http2 from "http2";
 import c2k from "koa-connect";
 import path from "path";
 import getPort from "get-port";
@@ -79,37 +81,68 @@ const bundler = async (config, configFolder) => {
       await next();
     });
     app.use(c2k(vite.middlewares));
-    const serverUrl = `${vite.config.server.https ? "https" : "http"}://${
-      vite.config.server.host || "localhost"
-    }:${port}${vite.config.base || ""}`;
-    app.listen(
-      port,
+
+    // activate https if key and cert are provided
+    const useHttps =
+      typeof vite.config.server?.https === "object" &&
+      vite.config.server.https.key &&
+      vite.config.server.https.cert;
+    const hostname =
       vite.config.server.host === true
         ? "0.0.0.0"
         : typeof vite.config.server.host === "string"
         ? vite.config.server.host
-        : "localhost",
-      async () => {
-        console.log(
-          boxen(`🥄 Ladle.dev served at ${serverUrl}`, {
-            padding: 1,
-            margin: 1,
-            borderStyle: "round",
-            borderColor: "yellow",
-            titleAlignment: "center",
-            textAlignment: "center",
-          }),
-        );
+        : "localhost";
+    const serverUrl = `${useHttps ? "https" : "http"}://${hostname}:${port}${
+      vite.config.base || ""
+    }`;
 
-        if (
-          vite.config.server.open !== "none" &&
-          vite.config.server.open !== false
-        ) {
-          const browser = /** @type {string} */ (vite.config.server.open);
-          await openBrowser(serverUrl, browser);
-        }
-      },
-    );
+    const listenCallback = async () => {
+      console.log(
+        boxen(`🥄 Ladle.dev served at ${serverUrl}`, {
+          padding: 1,
+          margin: 1,
+          borderStyle: "round",
+          borderColor: "yellow",
+          titleAlignment: "center",
+          textAlignment: "center",
+        }),
+      );
+
+      if (
+        vite.config.server.open !== "none" &&
+        vite.config.server.open !== false
+      ) {
+        const browser = /** @type {string} */ (vite.config.server.open);
+        await openBrowser(serverUrl, browser);
+      }
+    };
+
+    if (useHttps) {
+      http2
+        .createSecureServer(
+          {
+            // Support HMR WS connection
+            allowHTTP1: true,
+            maxSessionMemory: 100,
+            settings: {
+              // Note: Chromium-based browser will initially allow 100 concurrent streams to be open
+              // over a single HTTP/2 connection, unless HTTP/2 server advertises a different value,
+              // in which case it will be capped at maximum of 256 concurrent streams. Hence pushing
+              // to the limit while in development, in an attempt to maximize the dev performance by
+              // minimizing the chances of the module requests queuing/stalling on the client-side.
+              // @see https://source.chromium.org/chromium/chromium/src/+/4c44ff10bcbdb2d113dcc43c72f3f47a84a8dd45:net/spdy/spdy_session.cc;l=477-479
+              maxConcurrentStreams: 256,
+            },
+            // @ts-ignore
+            ...vite.config.server.https,
+          },
+          app.callback(),
+        )
+        .listen(port, hostname, listenCallback);
+    } else {
+      http.createServer(app.callback()).listen(port, hostname, listenCallback);
+    }
 
     // trigger full reload when new stories are added or removed
     const watcher = chokidar.watch(config.stories, {
