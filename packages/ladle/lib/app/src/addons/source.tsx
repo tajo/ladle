@@ -4,10 +4,14 @@ import Highlight, { defaultProps } from "prism-react-renderer";
 import type { Language } from "prism-react-renderer";
 import themeLight from "prism-react-renderer/themes/github";
 import themeDark from "prism-react-renderer/themes/nightOwl";
-import { storySource, stories } from "virtual:generated-list";
+import {
+  storySource,
+  stories,
+  StorySourceHeader,
+} from "virtual:generated-list";
 import { AddonProps, GlobalState, ActionType } from "../../../shared/types";
 import { Source } from "../icons";
-import { Modal, Code } from "../ui";
+import { Modal } from "../ui";
 import config from "../get-config";
 
 export const getQuery = (locationSearch: string) => {
@@ -151,9 +155,7 @@ const CodeFrame = ({ globalState }: { globalState: GlobalState }) => {
   }, [locStart]);
   return (
     <>
-      <div style={{ paddingTop: "2em" }}>
-        <Code>{entry}</Code> source code
-      </div>
+      <StorySourceHeader path={entry} />
       <CodeHighlight
         theme={globalState.theme}
         language="tsx"

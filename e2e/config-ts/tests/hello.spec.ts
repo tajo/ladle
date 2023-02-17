@@ -1,12 +1,12 @@
 import { expect, test } from "@playwright/test";
 
 test("default story is rendered", async ({ page }) => {
-  await page.goto("http://localhost:61108");
+  await page.goto("http://localhost:61108/?story=hello--world");
   await expect(page.locator("h1")).toHaveText("Hello World");
 });
 
 test("__filename and __dirname are replaced", async ({ page }) => {
-  await page.goto("http://localhost:61108");
+  await page.goto("http://localhost:61108/?story=hello--world");
 
   await expect(page.locator("[data-test=filename_root]")).toHaveText(
     /e2e[\/\\]config-ts[\/\\]vite\.config\.ts/,

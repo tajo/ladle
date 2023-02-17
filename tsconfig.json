@@ -31,8 +31,10 @@
     }
   },
   "include": [
+    "packages/*/.ladle/*",
     "packages/*/lib/**/*",
     "packages/*/src/**/*",
+    "e2e/*/.ladle/*",
     "e2e/*/src/*",
     "e2e/*/tests/*",
     "type-tests/*"
