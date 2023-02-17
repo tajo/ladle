@@ -32,8 +32,8 @@ const checkIfNamedExportExists = (namedExport, sourceCode, filename) => {
  * @param {string} configFolder
  */
 const getComponents = (configFolder) => {
-  const noopProvider = `export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);\n`;
-  // order matters. if tsx isn't found, ts is used, then jsx, then js.
+  let defaultProvider = `export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);\n`;
+  let defaultStorySourceHeader = `export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: "2em" }}, /*#__PURE__*/createElement('code', { className: "ladle-code" }, path));\n`;
   const componentsPaths = [
     path.join(configFolder, "components.tsx"),
     path.join(configFolder, "components.ts"),
@@ -45,8 +45,8 @@ const getComponents = (configFolder) => {
   );
 
   if (!firstFoundComponentsPath) {
-    debug(`Returning default no-op Provider.`);
-    return noopProvider;
+    debug(`Custom components.{tsx,ts,jsx,js} not found.`);
+    return `${defaultProvider}${defaultStorySourceHeader}`;
   }
 
   const sourceCode = fs.readFileSync(firstFoundComponentsPath, "utf8");
@@ -54,17 +54,39 @@ const getComponents = (configFolder) => {
 
   firstFoundComponentsPath && debug(`${configFolder}/${filename} found.`);
 
-  if (checkIfNamedExportExists("Provider", sourceCode, filename)) {
-    debug(`Custom provider found.`);
-    return `import {Provider as CustomProvider} from '${cleanupWindowsPath(
+  const isProvider = checkIfNamedExportExists("Provider", sourceCode, filename);
+  const isStorySourceHeader = checkIfNamedExportExists(
+    "StorySourceHeader",
+    sourceCode,
+    filename,
+  );
+
+  if (!isStorySourceHeader && !isProvider) {
+    return `import '${cleanupWindowsPath(
       path.join(configFolder, filename),
-    )}';\nexport const Provider = CustomProvider;\n`;
+    )}';\n${defaultProvider}${defaultStorySourceHeader}`;
   }
-  debug(`Custom provider not found.`);
-  debug(`Returning default no-op Provider.`);
-  return `import '${cleanupWindowsPath(
-    path.join(configFolder, filename),
-  )}';\n${noopProvider}`;
+
+  let output = "";
+  const componentsPath = cleanupWindowsPath(path.join(configFolder, filename));
+
+  if (isProvider) {
+    debug(`Custom Provider found.`);
+    output += `export { Provider } from '${componentsPath}';\n`;
+  } else {
+    debug(`Custom Provider not found. Returning the default.`);
+    output += defaultProvider;
+  }
+
+  if (isStorySourceHeader) {
+    debug(`Custom StorySourceHeader found.`);
+    output += `export { StorySourceHeader } from '${componentsPath}';\n`;
+  } else {
+    debug(`Custom StorySourceHeader not found. Returning the default.`);
+    output += defaultStorySourceHeader;
+  }
+
+  return output;
 };
 
 export default getComponents;
