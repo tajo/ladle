@@ -50,7 +50,7 @@ const vitePreview = async (config, configFolder) => {
       previewServer.config.preview.https ? "https" : "http"
     }://${previewServer.config.preview.host || "localhost"}:${
       config.previewPort
-    }${config.base}`;
+    }${config.base ? config.base : ""}`;
     console.log(
       boxen(`🥄 Ladle.dev previewed at ${serverUrl}`, {
         padding: 1,
