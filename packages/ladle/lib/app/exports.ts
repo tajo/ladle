@@ -71,6 +71,10 @@ export type GlobalStory<P = {}> = {
   title?: string;
 };
 
+export type SourceHeader = React.FC<{
+  path: string;
+}>;
+
 export interface Story<P = {}> extends React.FC<P> {
   args?: Args<P>;
   argTypes?: ArgTypes<P>;
