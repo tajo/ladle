@@ -1,5 +1,19 @@
 # @ladle/react
 
+## 2.8.0
+
+### Minor Changes
+
+- [#377](https://github.com/tajo/ladle/pull/377) [`c6fb86b`](https://github.com/tajo/ladle/commit/c6fb86b629a45fbf140eb7938ba3504693244c7d) Thanks [@tajo](https://github.com/tajo)! - Add StorySourceHeader export into components.tsx to be able customizing the addon's header.
+
+- [#379](https://github.com/tajo/ladle/pull/379) [`6bce3dd`](https://github.com/tajo/ladle/commit/6bce3dd52e63bb16c8d84189dd01e2b95bbc6928) Thanks [@tajo](https://github.com/tajo)! - Add support for HTTP/2 for better dev performance.
+
+### Patch Changes
+
+- [#375](https://github.com/tajo/ladle/pull/375) [`4f68427`](https://github.com/tajo/ladle/commit/4f68427b82cdce607b11dd189221097788f539a6) Thanks [@tajo](https://github.com/tajo)! - Fix unmounting story when source code addon is open
+
+- [#378](https://github.com/tajo/ladle/pull/378) [`6da7689`](https://github.com/tajo/ladle/commit/6da7689407d3e26839a57ef9ebd3a938a4fa8f53) Thanks [@tajo](https://github.com/tajo)! - Allow to pass undefined into action()
+
 ## 2.7.4
 
 ### Patch Changes
