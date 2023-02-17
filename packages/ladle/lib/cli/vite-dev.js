@@ -1,5 +1,9 @@
 import { createServer, searchForWorkspaceRoot } from "vite";
-import express from "express";
+import koa from "koa";
+import http from "http";
+import http2 from "http2";
+import c2k from "koa-connect";
+import path from "path";
 import getPort from "get-port";
 import { globby } from "globby";
 import boxen from "boxen";
@@ -15,7 +19,7 @@ import { getEntryData } from "./vite-plugin/parse/get-entry-data.js";
  * @param configFolder {string}
  */
 const bundler = async (config, configFolder) => {
-  const app = express();
+  const app = new koa();
   const port = await getPort({
     port: [config.port, 61001, 62002, 62003, 62004, 62005],
   });
@@ -42,55 +46,103 @@ const bundler = async (config, configFolder) => {
     });
     const vite = await createServer(viteConfig);
     const { moduleGraph, ws } = vite;
-    app.head("*", async (_, res) => res.sendStatus(200));
-    app.get("/meta.json", async (_, res) => {
-      const entryData = await getEntryData(
-        await globby(
-          Array.isArray(config.stories) ? config.stories : [config.stories],
-        ),
-      );
-      const jsonContent = getMetaJsonObject(entryData);
-      res.json(jsonContent);
-    });
-    // When `middlewareMode` is true, vite's own base middleware won't redirect requests,
-    // so we need to do that ourselves.
     const { base } = viteConfig;
-    if (base && base !== "/" && base !== "./") {
-      app.get("/", (_, res) => res.redirect(base));
-      app.get("/index.html", (_, res) => res.redirect(base));
-    }
-    app.use(vite.middlewares);
-    const serverUrl = `${vite.config.server.https ? "https" : "http"}://${
-      vite.config.server.host || "localhost"
-    }:${port}${vite.config.base || ""}`;
-    app.listen(
-      port,
+    const redirectBase = base && base !== "/" && base !== "./" ? base : "";
+
+    app.use(async (ctx, next) => {
+      if (
+        ctx.request.method === "GET" &&
+        ctx.request.url ===
+          (redirectBase ? path.join(redirectBase, "meta.json") : "/meta.json")
+      ) {
+        const entryData = await getEntryData(
+          await globby(
+            Array.isArray(config.stories) ? config.stories : [config.stories],
+          ),
+        );
+        const jsonContent = getMetaJsonObject(entryData);
+        ctx.body = jsonContent;
+        return;
+      }
+      if (redirectBase && ctx.request.method === "GET") {
+        if (ctx.request.url === "/" || ctx.request.url === "/index.html") {
+          ctx.redirect(redirectBase);
+          return;
+        }
+        if (ctx.request.url === "/meta.json") {
+          ctx.redirect(path.join(redirectBase, "meta.json"));
+          return;
+        }
+      }
+      if (ctx.request.method === "HEAD") {
+        ctx.status = 200;
+        return;
+      }
+      await next();
+    });
+    app.use(c2k(vite.middlewares));
+
+    // activate https if key and cert are provided
+    const useHttps =
+      typeof vite.config.server?.https === "object" &&
+      vite.config.server.https.key &&
+      vite.config.server.https.cert;
+    const hostname =
       vite.config.server.host === true
         ? "0.0.0.0"
         : typeof vite.config.server.host === "string"
         ? vite.config.server.host
-        : "localhost",
-      async () => {
-        console.log(
-          boxen(`🥄 Ladle.dev served at ${serverUrl}`, {
-            padding: 1,
-            margin: 1,
-            borderStyle: "round",
-            borderColor: "yellow",
-            titleAlignment: "center",
-            textAlignment: "center",
-          }),
-        );
+        : "localhost";
+    const serverUrl = `${useHttps ? "https" : "http"}://${hostname}:${port}${
+      vite.config.base || ""
+    }`;
 
-        if (
-          vite.config.server.open !== "none" &&
-          vite.config.server.open !== false
-        ) {
-          const browser = /** @type {string} */ (vite.config.server.open);
-          await openBrowser(serverUrl, browser);
-        }
-      },
-    );
+    const listenCallback = async () => {
+      console.log(
+        boxen(`🥄 Ladle.dev served at ${serverUrl}`, {
+          padding: 1,
+          margin: 1,
+          borderStyle: "round",
+          borderColor: "yellow",
+          titleAlignment: "center",
+          textAlignment: "center",
+        }),
+      );
+
+      if (
+        vite.config.server.open !== "none" &&
+        vite.config.server.open !== false
+      ) {
+        const browser = /** @type {string} */ (vite.config.server.open);
+        await openBrowser(serverUrl, browser);
+      }
+    };
+
+    if (useHttps) {
+      http2
+        .createSecureServer(
+          {
+            // Support HMR WS connection
+            allowHTTP1: true,
+            maxSessionMemory: 100,
+            settings: {
+              // Note: Chromium-based browser will initially allow 100 concurrent streams to be open
+              // over a single HTTP/2 connection, unless HTTP/2 server advertises a different value,
+              // in which case it will be capped at maximum of 256 concurrent streams. Hence pushing
+              // to the limit while in development, in an attempt to maximize the dev performance by
+              // minimizing the chances of the module requests queuing/stalling on the client-side.
+              // @see https://source.chromium.org/chromium/chromium/src/+/4c44ff10bcbdb2d113dcc43c72f3f47a84a8dd45:net/spdy/spdy_session.cc;l=477-479
+              maxConcurrentStreams: 256,
+            },
+            // @ts-ignore
+            ...vite.config.server.https,
+          },
+          app.callback(),
+        )
+        .listen(port, hostname, listenCallback);
+    } else {
+      http.createServer(app.callback()).listen(port, hostname, listenCallback);
+    }
 
     // trigger full reload when new stories are added or removed
     const watcher = chokidar.watch(config.stories, {

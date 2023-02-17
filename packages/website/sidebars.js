@@ -32,7 +32,7 @@ module.exports = {
     {
       type: "category",
       label: "Configuration",
-      items: ["cli", "config", "programmatic", "swc"],
+      items: ["cli", "config", "programmatic", "swc", "http2"],
     },
     {
       type: "category",
