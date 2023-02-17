@@ -1,4 +1,4 @@
-import { useLadleContext, ActionType, ThemeState } from "@ladle/react";
+import { useLadleContext, ActionType, ThemeState, action } from "@ladle/react";
 
 const empty = "";
 export const Responsive = () => {
@@ -43,7 +43,10 @@ export const Issues = () => {
   return (
     <>
       <input />
-      <button style={{ backgroundColor: `red${empty}`, color: "darkRed" }}>
+      <button
+        style={{ backgroundColor: `red${empty}`, color: "darkRed" }}
+        onClick={() => action("test")()}
+      >
         Inaccessible button
       </button>
       <button
