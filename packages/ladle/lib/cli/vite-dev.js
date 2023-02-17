@@ -1,5 +1,7 @@
 import { createServer, searchForWorkspaceRoot } from "vite";
-import express from "express";
+import koa from "koa";
+import c2k from "koa-connect";
+import path from "path";
 import getPort from "get-port";
 import { globby } from "globby";
 import boxen from "boxen";
@@ -15,7 +17,7 @@ import { getEntryData } from "./vite-plugin/parse/get-entry-data.js";
  * @param configFolder {string}
  */
 const bundler = async (config, configFolder) => {
-  const app = express();
+  const app = new koa();
   const port = await getPort({
     port: [config.port, 61001, 62002, 62003, 62004, 62005],
   });
@@ -42,24 +44,41 @@ const bundler = async (config, configFolder) => {
     });
     const vite = await createServer(viteConfig);
     const { moduleGraph, ws } = vite;
-    app.head("*", async (_, res) => res.sendStatus(200));
-    app.get("/meta.json", async (_, res) => {
-      const entryData = await getEntryData(
-        await globby(
-          Array.isArray(config.stories) ? config.stories : [config.stories],
-        ),
-      );
-      const jsonContent = getMetaJsonObject(entryData);
-      res.json(jsonContent);
-    });
-    // When `middlewareMode` is true, vite's own base middleware won't redirect requests,
-    // so we need to do that ourselves.
     const { base } = viteConfig;
-    if (base && base !== "/" && base !== "./") {
-      app.get("/", (_, res) => res.redirect(base));
-      app.get("/index.html", (_, res) => res.redirect(base));
-    }
-    app.use(vite.middlewares);
+    const redirectBase = base && base !== "/" && base !== "./" ? base : "";
+
+    app.use(async (ctx, next) => {
+      if (
+        ctx.request.method === "GET" &&
+        ctx.request.url ===
+          (redirectBase ? path.join(redirectBase, "meta.json") : "/meta.json")
+      ) {
+        const entryData = await getEntryData(
+          await globby(
+            Array.isArray(config.stories) ? config.stories : [config.stories],
+          ),
+        );
+        const jsonContent = getMetaJsonObject(entryData);
+        ctx.body = jsonContent;
+        return;
+      }
+      if (redirectBase && ctx.request.method === "GET") {
+        if (ctx.request.url === "/" || ctx.request.url === "/index.html") {
+          ctx.redirect(redirectBase);
+          return;
+        }
+        if (ctx.request.url === "/meta.json") {
+          ctx.redirect(path.join(redirectBase, "meta.json"));
+          return;
+        }
+      }
+      if (ctx.request.method === "HEAD") {
+        ctx.status = 200;
+        return;
+      }
+      await next();
+    });
+    app.use(c2k(vite.middlewares));
     const serverUrl = `${vite.config.server.https ? "https" : "http"}://${
       vite.config.server.host || "localhost"
     }:${port}${vite.config.base || ""}`;
