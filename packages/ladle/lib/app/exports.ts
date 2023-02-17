@@ -41,7 +41,7 @@ export const linkTo = (value: string) => {
 export const action = (name: string) => {
   const dispatch = (window as any)
     .ladleDispatch as React.Dispatch<GlobalAction>;
-  return (event: any) =>
+  return (event: any = undefined) =>
     dispatch({
       type: ActionType.UpdateAction,
       value: { name, event },
