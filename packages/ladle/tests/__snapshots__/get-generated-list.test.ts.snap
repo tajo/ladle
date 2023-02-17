@@ -32,6 +32,7 @@ export let stories = {
 export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":true},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"storyOrder\\":\\"(stories) => stories\\"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
+export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: \\"2em\\" }}, /*#__PURE__*/createElement('code', { className: \\"ladle-code\\" }, path));
 
 let fileSourceCodes = {
   \\"bcf1fa0f\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0A%0Aexport%20const%20BlueTinyCat%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3EBlue%20Tiny%20Cat%3C%2Fh1%3E%3B%0A%7D%3B%0A%0Aexport%20const%20BigBarkingDog%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3E%20Big%20Barking%20Dog%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
@@ -67,6 +68,7 @@ export let stories = {
 export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":true},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"storyOrder\\":\\"(stories) => stories\\"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
+export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: \\"2em\\" }}, /*#__PURE__*/createElement('code', { className: \\"ladle-code\\" }, path));
 
 let fileSourceCodes = {
   \\"445f0671\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0A%0Aexport%20const%20Test%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ETest%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
@@ -101,6 +103,7 @@ export let stories = {
 export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":true},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"storyOrder\\":\\"(stories) => stories\\"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
+export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: \\"2em\\" }}, /*#__PURE__*/createElement('code', { className: \\"ladle-code\\" }, path));
 
 let fileSourceCodes = {
   \\"0dc60faf\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0A%0Aexport%20default%20%7B%0A%20%20title%3A%20%22Title%22%2C%0A%7D%3B%0A%0Aexport%20const%20Cat%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
@@ -166,6 +169,7 @@ export let stories = {
 export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":true},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"storyOrder\\":\\"(stories) => stories\\"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
+export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: \\"2em\\" }}, /*#__PURE__*/createElement('code', { className: \\"ladle-code\\" }, path));
 
 let fileSourceCodes = {
   \\"551a9524\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0A%0Aexport%20default%20%7B%0A%20%20title%3A%20%22Title%22%2C%0A%20%20meta%3A%20%7B%0A%20%20%20%20baseweb%3A%20%7B%0A%20%20%20%20%20%20theme%3A%20%22dark%22%2C%0A%20%20%20%20%20%20browsers%3A%20%5B%22chrome%22%2C%20%22webkit%22%5D%2C%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D%3B%0A%0Aexport%20const%20Cat%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A%0ACat.meta%20%3D%20%7B%0A%20%20baseweb%3A%20%7B%0A%20%20%20%20browsers%3A%20%5B%22chrome%22%2C%20%22firefox%22%5D%2C%0A%20%20%20%20width%3A%20%22500px%22%2C%0A%20%20%7D%2C%0A%20%20links%3A%20true%2C%0A%7D%3B%0A%0Aexport%20const%20Dog%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3EDog%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
@@ -209,6 +213,7 @@ export let stories = {
 export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":true},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"storyOrder\\":\\"(stories) => stories\\"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
+export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: \\"2em\\" }}, /*#__PURE__*/createElement('code', { className: \\"ladle-code\\" }, path));
 
 let fileSourceCodes = {
   \\"6f46f563\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0A%0Aexport%20default%20%7B%0A%20%20title%3A%20%22Title%22%2C%0A%20%20meta%3A%20%7B%0A%20%20%20%20baseweb%3A%20%7B%0A%20%20%20%20%20%20foo%3A%20%22title%22%2C%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D%3B%0A%0Aexport%20const%20Cat%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
@@ -254,6 +259,7 @@ export let stories = {
 export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":true},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"storyOrder\\":\\"(stories) => stories\\"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
+export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: \\"2em\\" }}, /*#__PURE__*/createElement('code', { className: \\"ladle-code\\" }, path));
 
 let fileSourceCodes = {
   \\"29b55362\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0A%0Aexport%20const%20Cat%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A%0Aexport%20const%20Dog%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3EDog%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
@@ -311,6 +317,7 @@ export let stories = {
 export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":true},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"storyOrder\\":\\"(stories) => stories\\"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
+export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: \\"2em\\" }}, /*#__PURE__*/createElement('code', { className: \\"ladle-code\\" }, path));
 
 let fileSourceCodes = {
   \\"2ab17fea\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0A%0Aexport%20const%20Cat%20%3D%20()%20%3D%3E%20%7B%0A%20%20const%20Stop%20%3D%20%7B%20storyName%3A%20%22%22%20%7D%3B%0A%20%20%2F%2F%20should%20be%20ignored%0A%20%20Stop.storyName%20%3D%20%22What%22%3B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A%0ACat.storyName%20%3D%20%22Doggo%22%3B%0ACat.foo%20%3D%20%22Ha%22%3B%0A%0Aexport%20const%20CapitalCity%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3EDC%3C%2Fh1%3E%3B%0A%7D%3B%0A%0Aexport%20const%20CapitalReplaced%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECapitalReplaced%3C%2Fh1%3E%3B%0A%7D%3B%0ACapitalReplaced.storyName%20%3D%20%22Champs%20%C3%89lys%C3%A9es%22%3B%0A\`
@@ -347,6 +354,7 @@ export let stories = {
 export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":true},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"storyOrder\\":\\"(stories) => stories\\"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
+export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: \\"2em\\" }}, /*#__PURE__*/createElement('code', { className: \\"ladle-code\\" }, path));
 
 let fileSourceCodes = {
   \\"347c8ecc\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0A%0Aexport%20const%20Cat%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
