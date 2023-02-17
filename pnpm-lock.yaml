@@ -220,6 +220,7 @@ importers:
       "@types/cross-spawn": ^6.0.2
       "@types/debug": ^4.1.7
       "@types/express": ^4.17.17
+      "@types/koa": ^2.13.5
       "@types/lodash.merge": ^4.6.7
       "@types/node": ^18.11.19
       "@types/ws": ^8.5.4
@@ -304,6 +305,7 @@ importers:
       "@types/cross-spawn": 6.0.2
       "@types/debug": 4.1.7
       "@types/express": 4.17.17
+      "@types/koa": 2.13.5
       "@types/lodash.merge": 4.6.7
       "@types/node": 18.11.19
       "@types/ws": 8.5.4
@@ -5131,6 +5133,15 @@ packages:
       }
     dev: true
 
+  /@types/accepts/1.3.5:
+    resolution:
+      {
+        integrity: sha512-jOdnI/3qTpHABjM5cx1Hc0sKsPoYCp+DP/GJRGtDlPd7fiV9oXGGIcjW/ZOxLIvjGz8MA+uMZI9metHlgqbgwQ==,
+      }
+    dependencies:
+      "@types/node": 18.11.19
+    dev: true
+
   /@types/acorn/4.0.6:
     resolution:
       {
@@ -5252,6 +5263,25 @@ packages:
     dependencies:
       "@types/node": 18.11.19
 
+  /@types/content-disposition/0.5.5:
+    resolution:
+      {
+        integrity: sha512-v6LCdKfK6BwcqMo+wYW05rLS12S0ZO0Fl4w1h4aaZMD7bqT3gVUns6FvLJKGZHQmYn3SX55JWGpziwJRwVgutA==,
+      }
+    dev: true
+
+  /@types/cookies/0.7.7:
+    resolution:
+      {
+        integrity: sha512-h7BcvPUogWbKCzBR2lY4oqaZbO3jXZksexYJVFvkrFeLgbZjQkU4x8pRq6eg2MHXQhY0McQdqmmsxRWlVAHooA==,
+      }
+    dependencies:
+      "@types/connect": 3.4.35
+      "@types/express": 4.17.17
+      "@types/keygrip": 1.0.2
+      "@types/node": 18.11.19
+    dev: true
+
   /@types/cross-spawn/6.0.2:
     resolution:
       {
@@ -5367,6 +5397,20 @@ packages:
       }
     dev: false
 
+  /@types/http-assert/1.5.3:
+    resolution:
+      {
+        integrity: sha512-FyAOrDuQmBi8/or3ns4rwPno7/9tJTijVW6aQQjK02+kOQ8zmoNg2XJtAuQhvQcy1ASJq38wirX5//9J1EqoUA==,
+      }
+    dev: true
+
+  /@types/http-errors/2.0.1:
+    resolution:
+      {
+        integrity: sha512-/K3ds8TRAfBvi5vfjuz8y6+GiAYBZ0x4tXv1Av6CWBWn0IlADc+ZX9pMq7oU0fNQPnBwIZl3rmeLp6SBApbxSQ==,
+      }
+    dev: true
+
   /@types/http-proxy/1.17.9:
     resolution:
       {
@@ -5422,6 +5466,13 @@ packages:
         tarball: "%40types%2Fjson-schema/-/json-schema-7.0.11.tgz",
       }
 
+  /@types/keygrip/1.0.2:
+    resolution:
+      {
+        integrity: sha512-GJhpTepz2udxGexqos8wgaBx4I/zWIDPh/KOGEwAqtuGDkOUJu5eFvwmdBX4AmB8Odsr+9pHCQqiAqDL/yKMKw==,
+      }
+    dev: true
+
   /@types/keyv/3.1.4:
     resolution:
       {
@@ -5431,6 +5482,31 @@ packages:
     dependencies:
       "@types/node": 18.11.19
     dev: false
+
+  /@types/koa-compose/3.2.5:
+    resolution:
+      {
+        integrity: sha512-B8nG/OoE1ORZqCkBVsup/AKcvjdgoHnfi4pZMn5UwAPCbhk/96xyv284eBYW8JlQbQ7zDmnpFr68I/40mFoIBQ==,
+      }
+    dependencies:
+      "@types/koa": 2.13.5
+    dev: true
+
+  /@types/koa/2.13.5:
+    resolution:
+      {
+        integrity: sha512-HSUOdzKz3by4fnqagwthW/1w/yJspTgppyyalPVbgZf8jQWvdIXcVW5h2DGtw4zYntOaeRGx49r1hxoPWrD4aA==,
+      }
+    dependencies:
+      "@types/accepts": 1.3.5
+      "@types/content-disposition": 0.5.5
+      "@types/cookies": 0.7.7
+      "@types/http-assert": 1.5.3
+      "@types/http-errors": 2.0.1
+      "@types/keygrip": 1.0.2
+      "@types/koa-compose": 3.2.5
+      "@types/node": 18.11.19
+    dev: true
 
   /@types/lodash.merge/4.6.7:
     resolution:
