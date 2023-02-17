@@ -9,7 +9,7 @@
     "build": "ladle build",
     "lint": "echo 'no lint'",
     "test-dev": "start-server-and-test serve 61108 'npx playwright test'",
-    "test-prod": "start-server-and-test serve-prod 61108 'npx playwright test'",
+    "test-prod": "start-server-and-test serve-prod 61108 'MODE=prod npx playwright test'",
     "test": "npm run test-dev && npm run test-prod"
   },
   "dependencies": {
