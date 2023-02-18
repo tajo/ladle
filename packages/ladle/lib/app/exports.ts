@@ -67,6 +67,8 @@ export type GlobalStory<P = {}> = {
 
 export type SourceHeader = React.FC<{
   path: string;
+  locStart: number;
+  locEnd: number;
 }>;
 
 export interface Story<P = {}> extends React.FC<P> {

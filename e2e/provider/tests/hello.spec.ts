@@ -11,7 +11,7 @@ test("StorySourceHeader sets a custom source header", async ({ page }) => {
   const button = await page.locator('[data-testid="addon-source"]');
   await button.click();
   await expect(page.locator("#source-header")).toContainText(
-    "project/aaa/src/hello.stories.tsx",
+    "project/aaa/src/hello.stories.tsx5-8",
   );
 });
 
