@@ -32,5 +32,7 @@ declare module "virtual:generated-list" {
   }>;
   export const StorySourceHeader: React.FC<{
     path: string;
+    locStart: number;
+    locEnd: number;
   }>;
 }
