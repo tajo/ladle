@@ -1,5 +1,15 @@
 # @ladle/react
 
+## 2.9.0
+
+### Minor Changes
+
+- [#382](https://github.com/tajo/ladle/pull/382) [`36f65d8`](https://github.com/tajo/ladle/commit/36f65d8a58e530231300ba38b0c6d589c102aac1) Thanks [@tajo](https://github.com/tajo)! - Add locStart and locEnd to SourceHeader
+
+### Patch Changes
+
+- [#380](https://github.com/tajo/ladle/pull/380) [`2404878`](https://github.com/tajo/ladle/commit/2404878d4f279e43ca2d559ba38e0d384e2a878f) Thanks [@tajo](https://github.com/tajo)! - Use create-react-app openBrowser script. Remove the default-browser logic.
+
 ## 2.8.0
 
 ### Minor Changes
