@@ -63,8 +63,7 @@ const vitePreview = async (config, configFolder) => {
     );
 
     if (openBrowserValue !== "none" && openBrowserValue !== false) {
-      const browser = /** @type {string} */ (openBrowserValue);
-      await openBrowser(serverUrl, browser);
+      openBrowser(serverUrl);
     }
   } catch (e) {
     console.log(e);

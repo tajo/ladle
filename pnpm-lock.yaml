@@ -234,7 +234,6 @@ importers:
       cross-env: ^7.0.3
       cross-spawn: ^7.0.3
       debug: ^4.3.4
-      default-browser: ^3.1.0
       get-port: ^6.1.2
       globby: ^13.1.3
       history: ^5.3.0
@@ -276,7 +275,6 @@ importers:
       commander: 10.0.0
       cross-spawn: 7.0.3
       debug: 4.3.4
-      default-browser: 3.1.0
       get-port: 6.1.2
       globby: 13.1.3
       history: 5.3.0
@@ -2679,7 +2677,8 @@ packages:
   /@colors/colors/1.5.0:
     resolution:
       {
-        integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==,
+        integrity: sha1-u1BFecHK6SPmV2pPXaQ9Jfl729k=,
+        tarball: "%40colors%2Fcolors/-/colors-1.5.0.tgz",
       }
     engines: { node: ">=0.1.90" }
     requiresBuild: true
@@ -3676,7 +3675,8 @@ packages:
   /@docusaurus/react-loadable/5.5.2_react@17.0.2:
     resolution:
       {
-        integrity: sha512-A3dYjdBGuy0IGT+wyLIGIKLRE+sAk1iNk0f1HjNDysO7u8lhL4N3VEm+FAubmJbAztn94F7MxBTPmnixbiyFdQ==,
+        integrity: sha1-garg24Hsr72u42UfEoBFgIaPps4=,
+        tarball: "%40docusaurus%2Freact-loadable/-/react-loadable-5.5.2.tgz",
       }
     peerDependencies:
       react: "*"
@@ -4080,7 +4080,8 @@ packages:
   /@esbuild/android-arm/0.16.17:
     resolution:
       {
-        integrity: sha512-N9x1CMXVhtWEAMS7pNNONyA14f71VPQN9Cnavj1XQh6T7bskqiLLrSca4O0Vr8Wdcga943eThxnVp3JLnBMYtw==,
+        integrity: sha1-AltiRtP2i3u6qXBpFE+1+3Dy//I=,
+        tarball: "%40esbuild%2Fandroid-arm/-/android-arm-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [arm]
@@ -4091,7 +4092,8 @@ packages:
   /@esbuild/android-arm64/0.16.17:
     resolution:
       {
-        integrity: sha512-MIGl6p5sc3RDTLLkYL1MyL8BMRN4tLMRCn+yRJJmEDvYZ2M7tmAf80hx1kbNEUX2KJ50RRtxZ4JHLvCfuB6kBg==,
+        integrity: sha1-z5HobfEnqj0UF0Ttr8ugq9xXfSM=,
+        tarball: "%40esbuild%2Fandroid-arm64/-/android-arm64-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [arm64]
@@ -4102,7 +4104,8 @@ packages:
   /@esbuild/android-x64/0.16.17:
     resolution:
       {
-        integrity: sha512-a3kTv3m0Ghh4z1DaFEuEDfz3OLONKuFvI4Xqczqx4BqLyuFaFkuaG4j2MtA6fuWEFeC5x9IvqnX7drmRq/fyAQ==,
+        integrity: sha1-yCDg/vmC+ZqFxLi/3VgoNfBM2W4=,
+        tarball: "%40esbuild%2Fandroid-x64/-/android-x64-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [x64]
@@ -4113,7 +4116,8 @@ packages:
   /@esbuild/darwin-arm64/0.16.17:
     resolution:
       {
-        integrity: sha512-/2agbUEfmxWHi9ARTX6OQ/KgXnOWfsNlTeLcoV7HSuSTv63E4DqtAc+2XqGw1KHxKMHGZgbVCZge7HXWX9Vn+w==,
+        integrity: sha1-7e9Eh69rIa+runvlEywm0iN5siA=,
+        tarball: "%40esbuild%2Fdarwin-arm64/-/darwin-arm64-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [arm64]
@@ -4124,7 +4128,8 @@ packages:
   /@esbuild/darwin-x64/0.16.17:
     resolution:
       {
-        integrity: sha512-2By45OBHulkd9Svy5IOCZt376Aa2oOkiE9QWUK9fe6Tb+WDr8hXL3dpqi+DeLiMed8tVXspzsTAvd0jUl96wmg==,
+        integrity: sha1-QoKRaHMAccQe8NAo2DGe6g4pBLQ=,
+        tarball: "%40esbuild%2Fdarwin-x64/-/darwin-x64-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [x64]
@@ -4135,7 +4140,8 @@ packages:
   /@esbuild/freebsd-arm64/0.16.17:
     resolution:
       {
-        integrity: sha512-mt+cxZe1tVx489VTb4mBAOo2aKSnJ33L9fr25JXpqQqzbUIw/yzIzi+NHwAXK2qYV1lEFp4OoVeThGjUbmWmdw==,
+        integrity: sha1-H0r0iL/H6c7QQgcDTTmOeTtXCic=,
+        tarball: "%40esbuild%2Ffreebsd-arm64/-/freebsd-arm64-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [arm64]
@@ -4146,7 +4152,8 @@ packages:
   /@esbuild/freebsd-x64/0.16.17:
     resolution:
       {
-        integrity: sha512-8ScTdNJl5idAKjH8zGAsN7RuWcyHG3BAvMNpKOBaqqR7EbUhhVHOqXRdL7oZvz8WNHL2pr5+eIT5c65kA6NHug==,
+        integrity: sha1-Y2MG8Z6byYHgaqHXdzAtrY/dr3I=,
+        tarball: "%40esbuild%2Ffreebsd-x64/-/freebsd-x64-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [x64]
@@ -4157,7 +4164,8 @@ packages:
   /@esbuild/linux-arm/0.16.17:
     resolution:
       {
-        integrity: sha512-iihzrWbD4gIT7j3caMzKb/RsFFHCwqqbrbH9SqUSRrdXkXaygSZCZg1FybsZz57Ju7N/SHEgPyaR0LZ8Zbe9gQ==,
+        integrity: sha1-tZHmpZ2cT+DurdSHSxV6t4z18ZY=,
+        tarball: "%40esbuild%2Flinux-arm/-/linux-arm-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [arm]
@@ -4168,7 +4176,8 @@ packages:
   /@esbuild/linux-arm64/0.16.17:
     resolution:
       {
-        integrity: sha512-7S8gJnSlqKGVJunnMCrXHU9Q8Q/tQIxk/xL8BqAP64wchPCTzuM6W3Ra8cIa1HIflAvDnNOt2jaL17vaW+1V0g==,
+        integrity: sha1-oAP3/yN8UB4JXU86CeWPx7JaSso=,
+        tarball: "%40esbuild%2Flinux-arm64/-/linux-arm64-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [arm64]
@@ -4179,7 +4188,8 @@ packages:
   /@esbuild/linux-ia32/0.16.17:
     resolution:
       {
-        integrity: sha512-kiX69+wcPAdgl3Lonh1VI7MBr16nktEvOfViszBSxygRQqSpzv7BffMKRPMFwzeJGPxcio0pdD3kYQGpqQ2SSg==,
+        integrity: sha1-JDM6EQJ+9GoY9XAZRQpRiJGOKlQ=,
+        tarball: "%40esbuild%2Flinux-ia32/-/linux-ia32-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [ia32]
@@ -4190,7 +4200,8 @@ packages:
   /@esbuild/linux-loong64/0.16.17:
     resolution:
       {
-        integrity: sha512-dTzNnQwembNDhd654cA4QhbS9uDdXC3TKqMJjgOWsC0yNCbpzfWoXdZvp0mY7HU6nzk5E0zpRGGx3qoQg8T2DQ==,
+        integrity: sha1-1a1FnUHtQrvU0AUlazGILsUiJ9g=,
+        tarball: "%40esbuild%2Flinux-loong64/-/linux-loong64-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [loong64]
@@ -4201,7 +4212,8 @@ packages:
   /@esbuild/linux-mips64el/0.16.17:
     resolution:
       {
-        integrity: sha512-ezbDkp2nDl0PfIUn0CsQ30kxfcLTlcx4Foz2kYv8qdC6ia2oX5Q3E/8m6lq84Dj/6b0FrkgD582fJMIfHhJfSw==,
+        integrity: sha1-TllnpmXDg2CwqCBVlDd9Tc+cNyY=,
+        tarball: "%40esbuild%2Flinux-mips64el/-/linux-mips64el-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [mips64el]
@@ -4212,7 +4224,8 @@ packages:
   /@esbuild/linux-ppc64/0.16.17:
     resolution:
       {
-        integrity: sha512-dzS678gYD1lJsW73zrFhDApLVdM3cUF2MvAa1D8K8KtcSKdLBPP4zZSLy6LFZ0jYqQdQ29bjAHJDgz0rVbLB3g==,
+        integrity: sha1-IGRDoC61aPn98LQ4+9R9Juc1r8g=,
+        tarball: "%40esbuild%2Flinux-ppc64/-/linux-ppc64-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [ppc64]
@@ -4223,7 +4236,8 @@ packages:
   /@esbuild/linux-riscv64/0.16.17:
     resolution:
       {
-        integrity: sha512-ylNlVsxuFjZK8DQtNUwiMskh6nT0vI7kYl/4fZgV1llP5d6+HIeL/vmmm3jpuoo8+NuXjQVZxmKuhDApK0/cKw==,
+        integrity: sha1-w1HkM9AJvyVueYrQSBUsjXbaL8k=,
+        tarball: "%40esbuild%2Flinux-riscv64/-/linux-riscv64-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [riscv64]
@@ -4234,7 +4248,8 @@ packages:
   /@esbuild/linux-s390x/0.16.17:
     resolution:
       {
-        integrity: sha512-gzy7nUTO4UA4oZ2wAMXPNBGTzZFP7mss3aKR2hH+/4UUkCOyqmjXiKpzGrY2TlEUhbbejzXVKKGazYcQTZWA/w==,
+        integrity: sha1-Zh8nHl1ZYVuEtoAdHCEjrRPZvYc=,
+        tarball: "%40esbuild%2Flinux-s390x/-/linux-s390x-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [s390x]
@@ -4245,7 +4260,8 @@ packages:
   /@esbuild/linux-x64/0.16.17:
     resolution:
       {
-        integrity: sha512-mdPjPxfnmoqhgpiEArqi4egmBAMYvaObgn4poorpUaqmvzzbvqbowRllQ+ZgzGVMGKaPkqUmPDOOFQRUFDmeUw==,
+        integrity: sha1-5LoY6LFJqJyYI1FEOjd8cjdiuF8=,
+        tarball: "%40esbuild%2Flinux-x64/-/linux-x64-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [x64]
@@ -4256,7 +4272,8 @@ packages:
   /@esbuild/netbsd-x64/0.16.17:
     resolution:
       {
-        integrity: sha512-/PzmzD/zyAeTUsduZa32bn0ORug+Jd1EGGAUJvqfeixoEISYpGnAezN6lnJoskauoai0Jrs+XSyvDhppCPoKOA==,
+        integrity: sha1-fU9AQeMMXAfdJP+ilcc/BgOOx3U=,
+        tarball: "%40esbuild%2Fnetbsd-x64/-/netbsd-x64-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [x64]
@@ -4267,7 +4284,8 @@ packages:
   /@esbuild/openbsd-x64/0.16.17:
     resolution:
       {
-        integrity: sha512-2yaWJhvxGEz2RiftSk0UObqJa/b+rIAjnODJgv2GbGGpRwAfpgzyrg1WLK8rqA24mfZa9GvpjLcBBg8JHkoodg==,
+        integrity: sha1-lw+n+EcGgfPmsdsMxCGkr4Bg7DU=,
+        tarball: "%40esbuild%2Fopenbsd-x64/-/openbsd-x64-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [x64]
@@ -4278,7 +4296,8 @@ packages:
   /@esbuild/sunos-x64/0.16.17:
     resolution:
       {
-        integrity: sha512-xtVUiev38tN0R3g8VhRfN7Zl42YCJvyBhRKw1RJjwE1d2emWTVToPLNEQj/5Qxc6lVFATDiy6LjVHYhIPrLxzw==,
+        integrity: sha1-q8YOfEq/i4n7ek/mmhSEEyI4Aiw=,
+        tarball: "%40esbuild%2Fsunos-x64/-/sunos-x64-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [x64]
@@ -4289,7 +4308,8 @@ packages:
   /@esbuild/win32-arm64/0.16.17:
     resolution:
       {
-        integrity: sha512-ga8+JqBDHY4b6fQAmOgtJJue36scANy4l/rL97W+0wYmijhxKetzZdKOJI7olaBaMhWt8Pac2McJdZLxXWUEQw==,
+        integrity: sha1-ew/56MMmVTenp7H9miTnvTn82Ho=,
+        tarball: "%40esbuild%2Fwin32-arm64/-/win32-arm64-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [arm64]
@@ -4300,7 +4320,8 @@ packages:
   /@esbuild/win32-ia32/0.16.17:
     resolution:
       {
-        integrity: sha512-WnsKaf46uSSF/sZhwnqE4L/F89AYNMiD4YtEcYekBt9Q7nj0DiId2XH2Ng2PHM54qi5oPrQ8luuzGszqi/veig==,
+        integrity: sha1-6Q/lJn1xp7dWev3EA9/RmMKS6wk=,
+        tarball: "%40esbuild%2Fwin32-ia32/-/win32-ia32-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [ia32]
@@ -4311,7 +4332,8 @@ packages:
   /@esbuild/win32-x64/0.16.17:
     resolution:
       {
-        integrity: sha512-y+EHuSchhL7FjHgvQL/0fnnFmO4T1bhvWANX6gcnqTjtnKWbTvUMCpGnv2+t+31d7RzyEAYAd4u2fnIhHL6N/Q==,
+        integrity: sha1-xaGkv+G1fww+YbKYg1JcbaPlwJE=,
+        tarball: "%40esbuild%2Fwin32-x64/-/win32-x64-0.16.17.tgz",
       }
     engines: { node: ">=12" }
     cpu: [x64]
@@ -4624,7 +4646,8 @@ packages:
   /@nicolo-ribaudo/chokidar-2/2.1.8-no-fsevents.3:
     resolution:
       {
-        integrity: sha512-s88O1aVtXftvp5bCPB7WnmXc5IwOZZ7YPuwNPt+GtOOXpPvad1LfbmjYv+qII7zP6RU2QGnqve27dnLycEnyEQ==,
+        integrity: sha1-Mj1y3SUQPQxPvc6J2t9XSnh7H5s=,
+        tarball: "%40nicolo-ribaudo%2Fchokidar-2/-/chokidar-2-2.1.8-no-fsevents.3.tgz",
       }
     requiresBuild: true
     dev: true
@@ -4944,7 +4967,8 @@ packages:
   /@swc/core-darwin-arm64/1.3.35:
     resolution:
       {
-        integrity: sha512-zQUFkHx4gZpu0uo2IspvPnKsz8bsdXd5bC33xwjtoAI1cpLerDyqo4v2zIahEp+FdKZjyVsLHtfJiQiA1Qka3A==,
+        integrity: sha1-Vf8MwGl2nOi/ZWLKDnJP6cQ964w=,
+        tarball: "%40swc%2Fcore-darwin-arm64/-/core-darwin-arm64-1.3.35.tgz",
       }
     engines: { node: ">=10" }
     cpu: [arm64]
@@ -4956,7 +4980,8 @@ packages:
   /@swc/core-darwin-x64/1.3.35:
     resolution:
       {
-        integrity: sha512-oOSkSGWtALovaw22lNevKD434OQTPf8X+dVPvPMrJXJpJ34dWDlFWpLntoc+arvKLNZ7LQmTuk8rR1hkrAY7cw==,
+        integrity: sha1-JwVDoqrW3bwtjo2aCwJbwIzvmkg=,
+        tarball: "%40swc%2Fcore-darwin-x64/-/core-darwin-x64-1.3.35.tgz",
       }
     engines: { node: ">=10" }
     cpu: [x64]
@@ -4968,7 +4993,8 @@ packages:
   /@swc/core-linux-arm-gnueabihf/1.3.35:
     resolution:
       {
-        integrity: sha512-Yie8k00O6O8BCATS/xeKStquV4OYSskUGRDXBQVDw1FrE23PHaSeHCgg4q6iNZjJzXCOJbaTCKnYoIDn9DMf7A==,
+        integrity: sha1-0sgUBiAiApYsCUUexY4376yxXDg=,
+        tarball: "%40swc%2Fcore-linux-arm-gnueabihf/-/core-linux-arm-gnueabihf-1.3.35.tgz",
       }
     engines: { node: ">=10" }
     cpu: [arm]
@@ -4980,11 +5006,13 @@ packages:
   /@swc/core-linux-arm64-gnu/1.3.35:
     resolution:
       {
-        integrity: sha512-Zlv3WHa/4x2p51HSvjUWXHfSe1Gl2prqImUZJc8NZOlj75BFzVuR0auhQ+LbwvIQ3gaA1LODX9lyS9wXL3yjxA==,
+        integrity: sha1-9GcFhPvnFSXZGfoG2zrXeM7iQuY=,
+        tarball: "%40swc%2Fcore-linux-arm64-gnu/-/core-linux-arm64-gnu-1.3.35.tgz",
       }
     engines: { node: ">=10" }
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: false
     optional: true
@@ -4992,11 +5020,13 @@ packages:
   /@swc/core-linux-arm64-musl/1.3.35:
     resolution:
       {
-        integrity: sha512-u6tCYsrSyZ8U+4jLMA/O82veBfLy2aUpn51WxQaeH7wqZGy9TGSJXoO8vWxARQ6b72vjsnKDJHP4MD8hFwcctg==,
+        integrity: sha1-/RFiVcyi2OCYY36V84rgj5WkfbY=,
+        tarball: "%40swc%2Fcore-linux-arm64-musl/-/core-linux-arm64-musl-1.3.35.tgz",
       }
     engines: { node: ">=10" }
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     dev: false
     optional: true
@@ -5004,11 +5034,13 @@ packages:
   /@swc/core-linux-x64-gnu/1.3.35:
     resolution:
       {
-        integrity: sha512-Dtxf2IbeH7XlNhP1Qt2/MvUPkpEbn7hhGfpSRs4ot8D3Vf5QEX4S/QtC1OsFWuciiYgHAT1Ybjt4xZic9DSkmA==,
+        integrity: sha1-eg+xh/HpuqONBSc6dXbE6vgKlrg=,
+        tarball: "%40swc%2Fcore-linux-x64-gnu/-/core-linux-x64-gnu-1.3.35.tgz",
       }
     engines: { node: ">=10" }
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: false
     optional: true
@@ -5016,11 +5048,13 @@ packages:
   /@swc/core-linux-x64-musl/1.3.35:
     resolution:
       {
-        integrity: sha512-4XavNJ60GprjpTiESCu5daJUnmErixPAqDitJSMu4TV32LNIE8G00S9pDLXinDTW1rgcGtQdq1NLkNRmwwovtg==,
+        integrity: sha1-rSYyua4Oor/RRh8SGzJAY8PWdV4=,
+        tarball: "%40swc%2Fcore-linux-x64-musl/-/core-linux-x64-musl-1.3.35.tgz",
       }
     engines: { node: ">=10" }
     cpu: [x64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     dev: false
     optional: true
@@ -5028,7 +5062,8 @@ packages:
   /@swc/core-win32-arm64-msvc/1.3.35:
     resolution:
       {
-        integrity: sha512-dNGfKCUSX2M4qVyaS80Lyos0FkXyHRCvrdQ2Y4Hrg3FVokiuw3yY6fLohpUfQ5ws3n2A39dh7jGDeh34+l0sGA==,
+        integrity: sha1-V2HQ9u/Zr/pVcRBPGhlRuLUw7EU=,
+        tarball: "%40swc%2Fcore-win32-arm64-msvc/-/core-win32-arm64-msvc-1.3.35.tgz",
       }
     engines: { node: ">=10" }
     cpu: [arm64]
@@ -5040,7 +5075,8 @@ packages:
   /@swc/core-win32-ia32-msvc/1.3.35:
     resolution:
       {
-        integrity: sha512-ChuPSrDR+JBf7S7dEKPicnG8A3bM0uWPsW2vG+V2wH4iNfNxKVemESHosmYVeEZXqMpomNMvLyeHep1rjRsc0Q==,
+        integrity: sha1-U+vPGmq7DlFSwX2jhx1pXf3Aczg=,
+        tarball: "%40swc%2Fcore-win32-ia32-msvc/-/core-win32-ia32-msvc-1.3.35.tgz",
       }
     engines: { node: ">=10" }
     cpu: [ia32]
@@ -5052,7 +5088,8 @@ packages:
   /@swc/core-win32-x64-msvc/1.3.35:
     resolution:
       {
-        integrity: sha512-/RvphT4WfuGfIK84Ha0dovdPrKB1bW/mc+dtdmhv2E3EGkNc5FoueNwYmXWRimxnU7X0X7IkcRhyKB4G5DeAmg==,
+        integrity: sha1-GGFwp/M9GgjOAIALryk+bRFGWak=,
+        tarball: "%40swc%2Fcore-win32-x64-msvc/-/core-win32-x64-msvc-1.3.35.tgz",
       }
     engines: { node: ">=10" }
     cpu: [x64]
@@ -6750,11 +6787,6 @@ packages:
       is-windows: 1.0.2
     dev: true
 
-  /big-integer/1.6.51:
-    resolution: { integrity: sha1-DfkqXZiAVg0/8tX9ICRciJ0TBoY= }
-    engines: { node: ">=0.6" }
-    dev: false
-
   /big.js/5.2.2:
     resolution: { integrity: sha1-ZfCvOC9Xi83HQr2cKB6cstd2gyg= }
     dev: false
@@ -6845,13 +6877,6 @@ packages:
       wrap-ansi: 8.1.0
     dev: false
 
-  /bplist-parser/0.2.0:
-    resolution: { integrity: sha1-Q6nRg+W/nVRSAM6sPnEveeu+jQ4= }
-    engines: { node: ">= 5.10.0" }
-    dependencies:
-      big-integer: 1.6.51
-    dev: false
-
   /brace-expansion/1.1.11:
     resolution: { integrity: sha1-PH/L9SnYcibz0vUrlm/1Jx60Qd0= }
     dependencies:
@@ -6888,13 +6913,6 @@ packages:
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.2.1
-    dev: false
-
-  /bundle-name/3.0.0:
-    resolution: { integrity: sha1-ulm8yax4X7Z8zb8QSiv2DAmfDho= }
-    engines: { node: ">=12" }
-    dependencies:
-      run-applescript: 5.0.0
     dev: false
 
   /bytes/3.0.0:
@@ -7579,14 +7597,6 @@ packages:
       - encoding
     dev: false
 
-  /cross-spawn-async/2.2.5:
-    resolution: { integrity: sha1-hF/wwINKPe2dFg2sptOQkGuyiMw= }
-    deprecated: cross-spawn no longer requires a build toolchain, use it instead
-    dependencies:
-      lru-cache: 4.1.5
-      which: 1.3.1
-    dev: false
-
   /cross-spawn/5.1.0:
     resolution: { integrity: sha1-6L0O/uWPz/b4+UUQoKVUu/ojVEk= }
     dependencies:
@@ -7914,24 +7924,6 @@ packages:
   /deepmerge/4.3.0:
     resolution: { integrity: sha1-ZUkYk+xHdW1EcZrlIODiYJIztZs= }
     engines: { node: ">=0.10.0" }
-    dev: false
-
-  /default-browser-id/3.0.0:
-    resolution: { integrity: sha1-vue7vvH0510x+Y9NPxVWoUzqeQw= }
-    engines: { node: ">=12" }
-    dependencies:
-      bplist-parser: 0.2.0
-      untildify: 4.0.0
-    dev: false
-
-  /default-browser/3.1.0:
-    resolution: { integrity: sha1-9VStfOReF1ryd4bGRpE+MqCutVg= }
-    engines: { node: ">=12" }
-    dependencies:
-      bundle-name: 3.0.0
-      default-browser-id: 3.0.0
-      execa: 5.1.1
-      xdg-default-browser: 2.1.0
     dev: false
 
   /default-gateway/6.0.3:
@@ -8683,17 +8675,6 @@ packages:
     engines: { node: ">=0.8.x" }
     dev: false
 
-  /execa/0.2.2:
-    resolution: { integrity: sha1-4urUcsLDGq1vc/GslW7vReEjIMs= }
-    engines: { node: ">=0.12" }
-    dependencies:
-      cross-spawn-async: 2.2.5
-      npm-run-path: 1.0.0
-      object-assign: 4.1.1
-      path-key: 1.0.0
-      strip-eof: 1.0.0
-    dev: false
-
   /execa/4.1.0:
     resolution: { integrity: sha1-TlSRrRVy8vF6d9OIxshXE1sihHo= }
     engines: { node: ">=10" }
@@ -9157,10 +9138,7 @@ packages:
     resolution: { integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8= }
 
   /fsevents/2.3.2:
-    resolution:
-      {
-        integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==,
-      }
+    resolution: { integrity: sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro= }
     engines: { node: ^8.16.0 || ^10.6.0 || >=11.0.0 }
     os: [darwin]
     requiresBuild: true
@@ -10744,6 +10722,7 @@ packages:
     dependencies:
       pseudomap: 1.0.2
       yallist: 2.1.2
+    dev: true
 
   /lru-cache/5.1.1:
     resolution: { integrity: sha1-HaJ+ZxAnGUdpXa9oSOhH8B2EuSA= }
@@ -11834,13 +11813,6 @@ packages:
     engines: { node: ">=10" }
     dev: false
 
-  /npm-run-path/1.0.0:
-    resolution: { integrity: sha1-9cMr9ZX+ga6Sfa7FLoL4sACsPI8= }
-    engines: { node: ">=0.10.0" }
-    dependencies:
-      path-key: 1.0.0
-    dev: false
-
   /npm-run-path/4.0.1:
     resolution:
       {
@@ -12181,11 +12153,6 @@ packages:
 
   /path-is-inside/1.0.2:
     resolution: { integrity: sha1-NlQX3t5EQw0cEa9hAn+s8HS9/FM= }
-    dev: false
-
-  /path-key/1.0.0:
-    resolution: { integrity: sha1-XVPVeAGWRsDWiADbThRua9wqx68= }
-    engines: { node: ">=0.10.0" }
     dev: false
 
   /path-key/3.1.1:
@@ -12921,6 +12888,7 @@ packages:
 
   /pseudomap/1.0.2:
     resolution: { integrity: sha1-8FKijacOYYkX7wqKw0wa5aaChrM= }
+    dev: true
 
   /pump/3.0.0:
     resolution: { integrity: sha1-tKIRaBW94vTh6mAjVOjHVWUQemQ= }
@@ -13662,13 +13630,6 @@ packages:
       strip-json-comments: 3.1.1
     dev: false
 
-  /run-applescript/5.0.0:
-    resolution: { integrity: sha1-4R4cky4FXVxrQNmDdOAmjZsRiZw= }
-    engines: { node: ">=12" }
-    dependencies:
-      execa: 5.1.1
-    dev: false
-
   /run-parallel/1.2.0:
     resolution: { integrity: sha1-ZtE2jae9+SHrnZW9GpIp5/IaQ+4= }
     dependencies:
@@ -14332,11 +14293,6 @@ packages:
     engines: { node: ">=4" }
     dev: true
 
-  /strip-eof/1.0.0:
-    resolution: { integrity: sha1-u0P/VZim6wXYm1n80SnJgzE2Br8= }
-    engines: { node: ">=0.10.0" }
-    dev: false
-
   /strip-final-newline/2.0.0:
     resolution:
       {
@@ -14570,11 +14526,6 @@ packages:
     engines: { node: ">=14.0.0" }
     dev: true
 
-  /titleize/1.0.1:
-    resolution: { integrity: sha1-Ibwk/Mpljq3G0708OPK9FzdptMU= }
-    engines: { node: ">=0.10.0" }
-    dev: false
-
   /tmp/0.0.33:
     resolution: { integrity: sha1-bTQzWIl2jSGyvNoKonfO07G/rfk= }
     engines: { node: ">=0.6.0" }
@@ -14730,10 +14681,7 @@ packages:
     dev: true
 
   /turbo-darwin-64/1.7.3:
-    resolution:
-      {
-        integrity: sha512-7j9+j1CVztmdevnClT3rG/GRhULf3ukwmv+l48l8uwsXNI53zLso+UYMql6RsjZDbD6sESwh0CHeKNwGmOylFA==,
-      }
+    resolution: { integrity: sha1-S8nqJr2zn6fxtKpuq9iy3hyCJNM= }
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
@@ -14741,10 +14689,7 @@ packages:
     optional: true
 
   /turbo-darwin-arm64/1.7.3:
-    resolution:
-      {
-        integrity: sha512-puS9+pqpiy4MrIvWRBTg3qfO2+JPXR7reQcXQ7qUreuyAJnSw9H9/TIHjeK6FFxUfQbmruylPtH6dNpfcML9CA==,
-      }
+    resolution: { integrity: sha1-KbvjcuK0Ro3qQMhk7Jyh6SY49TA= }
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
@@ -14752,10 +14697,7 @@ packages:
     optional: true
 
   /turbo-linux-64/1.7.3:
-    resolution:
-      {
-        integrity: sha512-BnbpgcK8Wag6fhnff7tMaecswmFHN/T56VIDnjcwcJnK9H3jdwpjwZlmcDtkoslzjPj3VuqHyqLDMvSb3ejXSg==,
-      }
+    resolution: { integrity: sha1-tK3G04RlWavxvfZ8f61/tO8Znfc= }
     cpu: [x64]
     os: [linux]
     requiresBuild: true
@@ -14763,10 +14705,7 @@ packages:
     optional: true
 
   /turbo-linux-arm64/1.7.3:
-    resolution:
-      {
-        integrity: sha512-+epY+0dfjmAJNZHfj7rID2hENRaeM3D0Ijqkhh/M53o46fQMwPNqI5ff9erh+f9r8sWuTpVnRlZeu7TE1P/Okw==,
-      }
+    resolution: { integrity: sha1-VPAA+lL9kEQLsZXjm6CUdQXfk9s= }
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
@@ -14774,10 +14713,7 @@ packages:
     optional: true
 
   /turbo-windows-64/1.7.3:
-    resolution:
-      {
-        integrity: sha512-/2Z8WB4fASlq/diO6nhmHYuDCRPm3dkdUE6yhwQarXPOm936m4zj3xGQA2eSWMpvfst4xjVxxU7P7HOIOyWChA==,
-      }
+    resolution: { integrity: sha1-oHu4EXpcs69IlXkXi83XKUiphes= }
     cpu: [x64]
     os: [win32]
     requiresBuild: true
@@ -14785,10 +14721,7 @@ packages:
     optional: true
 
   /turbo-windows-arm64/1.7.3:
-    resolution:
-      {
-        integrity: sha512-UD9Uhop42xj1l1ba5LRdwqRq1Of+RgqQuv+QMd1xOAZ2FXn/91uhkfLv+H4Pkiw7XdUohOxpj/FcOvjCiiUxGw==,
-      }
+    resolution: { integrity: sha1-c7uRL0cMkC1pvHspWoL87VYgqu8= }
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
@@ -15102,11 +15035,6 @@ packages:
         integrity: sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ==,
       }
     engines: { node: ">= 0.8" }
-    dev: false
-
-  /untildify/4.0.0:
-    resolution: { integrity: sha1-K8lHuVNlJIfkYAlJ+wkeOujNkZs= }
-    engines: { node: ">=8" }
     dev: false
 
   /update-browserslist-db/1.0.10_browserslist@4.21.5:
@@ -15837,14 +15765,6 @@ packages:
     engines: { node: ">=8" }
     dev: false
 
-  /xdg-default-browser/2.1.0:
-    resolution: { integrity: sha1-QaBXuNoRKGEOzpsywTalLkLg0VI= }
-    engines: { node: ">=4" }
-    dependencies:
-      execa: 0.2.2
-      titleize: 1.0.1
-    dev: false
-
   /xml-js/1.6.11:
     resolution: { integrity: sha1-kn0vaUf38cGaMW3Y7qNhTosY+Ok= }
     hasBin: true
@@ -15868,6 +15788,7 @@ packages:
 
   /yallist/2.1.2:
     resolution: { integrity: sha1-HBH5IY8HYImkfdUS+TxmmaaoHVI= }
+    dev: true
 
   /yallist/3.1.1:
     resolution: { integrity: sha1-27fa+b/YusmrRev2ArjLrQ1dCP0= }

@@ -113,8 +113,7 @@ const bundler = async (config, configFolder) => {
         vite.config.server.open !== "none" &&
         vite.config.server.open !== false
       ) {
-        const browser = /** @type {string} */ (vite.config.server.open);
-        await openBrowser(serverUrl, browser);
+        openBrowser(serverUrl);
       }
     };
 
