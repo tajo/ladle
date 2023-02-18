@@ -155,7 +155,7 @@ const CodeFrame = ({ globalState }: { globalState: GlobalState }) => {
   }, [locStart]);
   return (
     <>
-      <StorySourceHeader path={entry} />
+      <StorySourceHeader path={entry} locStart={locStart} locEnd={locEnd} />
       <CodeHighlight
         theme={globalState.theme}
         language="tsx"

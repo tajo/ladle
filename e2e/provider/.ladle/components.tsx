@@ -14,11 +14,12 @@ export const Provider: GlobalProvider = ({ children, storyMeta }) => (
 //@ts-ignore
 const config: string = LADLE_PROJECT_PATH;
 
-export const StorySourceHeader: SourceHeader = ({ path }) => {
+export const StorySourceHeader: SourceHeader = ({ path, locStart, locEnd }) => {
   return (
     <span id="source-header">
       {config}
       {path}
+      {locStart}-{locEnd}
     </span>
   );
 };
