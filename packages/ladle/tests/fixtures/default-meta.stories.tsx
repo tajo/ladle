@@ -1,4 +1,5 @@
 import * as React from "react";
+import type { StoryDefault, Story } from "../../lib/app/exports";
 
 export default {
   title: "Title",
@@ -7,8 +8,8 @@ export default {
       foo: "title",
     },
   },
-};
+} satisfies StoryDefault;
 
-export const Cat = () => {
+export const Cat: Story = () => {
   return <h1>Cat</h1>;
 };

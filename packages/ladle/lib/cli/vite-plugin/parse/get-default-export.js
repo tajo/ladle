@@ -12,7 +12,11 @@ const getDefaultExport = (result, astPath) => {
       objNode =
         astPath.scope.bindings[astPath.node.declaration.name].path.node.init;
     }
-    if (astPath.node.declaration.type === "TSAsExpression") {
+    if (
+      ["TSAsExpression", "TSSatisfiesExpression"].includes(
+        astPath.node.declaration.type,
+      )
+    ) {
       objNode = astPath.node.declaration.expression;
     }
     objNode &&

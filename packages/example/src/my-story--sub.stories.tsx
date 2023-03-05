@@ -1,6 +1,7 @@
+import type { Story } from "@ladle/react";
 import { useState } from "react";
 
-export const Middle = () => {
+export const Middle: Story = () => {
   const [val, setVal] = useState(true);
   return (
     <div>
@@ -12,7 +13,7 @@ export const Middle = () => {
   );
 };
 
-export const Yellow = () => {
+export const Yellow: Story = () => {
   const [val, setVal] = useState(true);
   return (
     <div>

@@ -22,21 +22,19 @@ Ladle uses [jsx-runtime](https://reactjs.org/blog/2020/09/22/introducing-the-new
 
 ## Exported Types
 
-You can export many types from `@ladle/react` to improve your development experience:
+You can import [many types](https://github.com/tajo/ladle/blob/main/packages/ladle/lib/app/exports.ts#L52-L115) from `@ladle/react` to improve your development experience:
 
-```tsx
-import type {
-  Story,
-  StoryDecorator,
-  Args,
-  ControlType,
-  ArgType,
-  ArgTypes,
-  Meta,
-} from "@ladle/react";
+```ts
+import type { StoryDefault, Story } from "@ladle/react";
 
-export const Welcome: Story<{ label: string }> = ({ label }) => <h1>Label</h1>;
-Welcome.args = {
-  label: "Hello World",
+type Props = { label: string };
+
+export default {
+  title: "New title",
+} satisfies StoryDefault<Props>;
+
+const Card: Story<Props> = ({ label }) => <p>Label: {label}</p>;
+Card.args = {
+  label: "Hello",
 };
 ```

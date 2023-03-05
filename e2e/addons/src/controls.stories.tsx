@@ -1,4 +1,4 @@
-import type { GlobalStory, Story } from "@ladle/react";
+import type { StoryDefault, Story } from "@ladle/react";
 
 type Props = {
   label: string;
@@ -19,7 +19,7 @@ export default {
       control: { type: "check" },
     },
   },
-} satisfies GlobalStory<Props>;
+} satisfies StoryDefault<Props>;
 
 export const Controls: Story<Props> = ({
   count,

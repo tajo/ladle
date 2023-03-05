@@ -1,3 +1,4 @@
+import type { StoryDefault, Story } from "@ladle/react";
 import { useState } from "react";
 
 export default {
@@ -13,9 +14,9 @@ export default {
       </div>
     ),
   ],
-};
+} satisfies StoryDefault;
 
-export const Middle = () => {
+export const Middle: Story = () => {
   const [val, setVal] = useState(true);
   return (
     <div>
@@ -28,7 +29,7 @@ export const Middle = () => {
 };
 Middle.storyName = "Middle Man";
 
-export const Opo2 = () => {
+export const Opo2: Story = () => {
   const [val, setVal] = useState(true);
   return (
     <div>
@@ -41,7 +42,7 @@ export const Opo2 = () => {
   );
 };
 
-export const Dayum = () => {
+export const Dayum: Story = () => {
   const [val, setVal] = useState(true);
   return (
     <div>

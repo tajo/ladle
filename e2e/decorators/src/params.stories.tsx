@@ -1,4 +1,4 @@
-import type { GlobalStory, Story } from "@ladle/react";
+import type { StoryDefault, Story } from "@ladle/react";
 
 export default {
   title: "Root / Examples",
@@ -6,7 +6,7 @@ export default {
     drink: "coke",
     food: "burger",
   },
-} satisfies GlobalStory;
+} satisfies StoryDefault;
 
 export const First: Story = () => {
   return <h1>first</h1>;

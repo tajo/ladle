@@ -1,6 +1,7 @@
 import { useState } from "react";
+import type { Story } from "@ladle/react";
 
-export const Big = () => {
+export const Big: Story = () => {
   const [val, setVal] = useState(true);
   return (
     <div>
@@ -12,7 +13,7 @@ export const Big = () => {
   );
 };
 
-export const Ski = () => {
+export const Ski: Story = () => {
   const [val, setVal] = useState(true);
   return (
     <div>

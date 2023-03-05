@@ -1,7 +1,8 @@
 import { useLadleContext, ActionType, ThemeState, action } from "@ladle/react";
+import type { Story } from "@ladle/react";
 
 const empty = "";
-export const Responsive = () => {
+export const Responsive: Story = () => {
   return (
     <>
       <div
@@ -38,7 +39,7 @@ Responsive.meta = {
   width: "xsmall",
 };
 
-export const Issues = () => {
+export const Issues: Story = () => {
   const { globalState, dispatch } = useLadleContext();
   return (
     <>

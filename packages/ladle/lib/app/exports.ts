@@ -63,17 +63,13 @@ export type SourceHeader = React.FC<{
   locEnd: number;
 }>;
 
-export type GlobalStory<P = {}> = {
+export type StoryDefault<P = {}> = {
   args?: Args<P>;
   argTypes?: ArgTypes<P>;
   decorators?: StoryDecorator<P>[];
   meta?: Meta;
   title?: string;
 };
-
-export type SourceHeader = React.FC<{
-  path: string;
-}>;
 
 export interface Story<P = {}> extends React.FC<P> {
   args?: Args<P>;

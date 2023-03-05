@@ -1,4 +1,6 @@
-export const WithState = () => {
+import type { Story } from "@ladle/react";
+
+export const WithState: Story = () => {
   return (
     <>
       <input id="state-input" />
