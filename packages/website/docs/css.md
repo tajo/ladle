@@ -23,8 +23,12 @@ Any CSS file ending with `.module.css` is considered a [CSS modules file](https:
 ```
 
 ```tsx
+import type { Story } from "@ladle/react";
 import classes from "./example.module.css";
-export const MyStory = () => <h1 className={classes.red}>Red Header</h1>;
+
+export const MyStory: Story = () => {
+  return <h1 className={classes.red}>Red Header</h1>;
+};
 ```
 
 ## PostCSS

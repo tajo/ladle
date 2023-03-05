@@ -57,7 +57,7 @@ export type GlobalProvider = React.FC<{
   storyMeta?: Meta;
 }>;
 
-export type GlobalStory<P = {}> = {
+export type StoryDefault<P = {}> = {
   args?: Args<P>;
   argTypes?: ArgTypes<P>;
   decorators?: StoryDecorator<P>[];

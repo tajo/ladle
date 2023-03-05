@@ -40,18 +40,20 @@ export default {
 
 You can set the global default (above) or per-story via `meta`:
 
-```js
+```ts
+import type { StoryDefault, Story } from "@ladle/react";
+
 export default {
   meta: {
     width: "xsmall", // name or number can be used
   },
-};
+} satisfies StoryDefault;
 
 // viewport width = 414px
-export const First = () => <h1>First</h1>;
+export const First: Story = () => <h1>First</h1>;
 
 // viewport width = 345px
-export const Second = () => <h1>Second</h1>;
+export const Second: Story = () => <h1>Second</h1>;
 Second.meta = { width: 345 };
 ```
 
@@ -64,7 +66,9 @@ Ladle doesn't normally use iframes around your stories but to make this addon wo
 Some story components like modals might use the entire screen and cover Ladle's navigation. If you want to restrict the story's space, you can activate the iframed version of Ladle even without specifying a viewport width:
 
 ```js
-export const Modal = () => <FullScreenModal />;
+import type { Story } from "@ladle/react";
+
+export const Modal: Story = () => <FullScreenModal />;
 Modal.meta = { iframed: true };
 ```
 

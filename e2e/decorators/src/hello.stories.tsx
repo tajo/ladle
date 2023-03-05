@@ -1,4 +1,4 @@
-import type { GlobalStory, Story } from "@ladle/react";
+import type { StoryDefault, Story } from "@ladle/react";
 
 export default {
   decorators: [
@@ -13,7 +13,7 @@ export default {
       </>
     ),
   ],
-} satisfies GlobalStory;
+} satisfies StoryDefault;
 
 export const World: Story = () => {
   return <h2>world</h2>;

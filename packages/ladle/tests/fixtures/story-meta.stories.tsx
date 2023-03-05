@@ -1,4 +1,5 @@
 import * as React from "react";
+import type { StoryDefault, Story } from "../../lib/app/exports";
 
 export default {
   title: "Title",
@@ -8,9 +9,9 @@ export default {
       browsers: ["chrome", "webkit"],
     },
   },
-};
+} satisfies StoryDefault;
 
-export const Cat = () => {
+export const Cat: Story = () => {
   return <h1>Cat</h1>;
 };
 
@@ -22,6 +23,6 @@ Cat.meta = {
   links: true,
 };
 
-export const Dog = () => {
+export const Dog: Story = () => {
   return <h1>Dog</h1>;
 };
