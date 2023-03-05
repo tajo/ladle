@@ -34,6 +34,7 @@ const bundler = async (config, configFolder) => {
     const viteConfig = await getBaseViteConfig(config, configFolder, {
       mode: config.mode || "development",
       server: {
+        host: config.host,
         port: config.port,
         hmr: {
           port: hmrPort,
@@ -53,7 +54,7 @@ const bundler = async (config, configFolder) => {
       if (
         ctx.request.method === "GET" &&
         ctx.request.url ===
-          (redirectBase ? path.join(redirectBase, "meta.json") : "/meta.json")
+        (redirectBase ? path.join(redirectBase, "meta.json") : "/meta.json")
       ) {
         const entryData = await getEntryData(
           await globby(
@@ -88,14 +89,15 @@ const bundler = async (config, configFolder) => {
       vite.config.server.https.key &&
       vite.config.server.https.cert;
     const hostname =
-      vite.config.server.host === true
-        ? "0.0.0.0"
-        : typeof vite.config.server.host === "string"
-        ? vite.config.server.host
-        : "localhost";
-    const serverUrl = `${useHttps ? "https" : "http"}://${hostname}:${port}${
-      vite.config.base || ""
-    }`;
+      config.host ?? (
+        vite.config.server.host === true
+          ? "0.0.0.0"
+          : typeof vite.config.server.host === "string"
+            ? vite.config.server.host
+            : "localhost"
+      );
+    const serverUrl = `${useHttps ? "https" : "http"}://${hostname}:${port}${vite.config.base || ""
+      }`;
 
     const listenCallback = async () => {
       console.log(

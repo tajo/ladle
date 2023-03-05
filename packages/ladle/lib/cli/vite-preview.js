@@ -20,6 +20,7 @@ const vitePreview = async (config, configFolder) => {
         emptyOutDir: true,
       },
       preview: {
+        host: config.previewHost,
         port: config.previewPort,
       },
     });

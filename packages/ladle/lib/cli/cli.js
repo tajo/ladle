@@ -16,6 +16,7 @@ program
   .command("serve")
   .alias("dev")
   .description("start developing")
+  .option("-h, --host [string]", "host to serve the application")
   .option("-p, --port [number]", "port to serve the application", strToInt)
   .option("--stories [string]", "glob to find stories")
   .option("--theme [string]", "theme light, dark or auto")
@@ -47,13 +48,14 @@ program
   .command("preview")
   .description("start a server to preview the build in outDir")
   .option("-o, --outDir <path>", "output directory")
+  .option("-h, --host [string]", "host to serve the application")
   .option("-p, --port [number]", "port to serve the application", strToInt)
   .option("--config [string]", "folder where config is located, default .ladle")
   .option("--viteConfig [string]", "file with Vite configuration")
   .option("--base [string]", "base URL path for build output")
   .option("--mode [string]", "Vite mode")
   .action(async (params) => {
-    await preview({ ...params, previewPort: params.port });
+    await preview({ ...params, previewHost: params.host, previewPort: params.port });
   });
 
 program.parse(process.argv);

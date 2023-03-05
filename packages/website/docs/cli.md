@@ -26,6 +26,7 @@ Usage: ladle serve|dev [options]
 start developing
 
 Options:
+  -h, --host [string]    host to serve the application
   -p, --port [number]    port to serve the application
   --stories [string]     glob to find stories
   --theme [string]       theme light, dark or auto
@@ -65,6 +66,7 @@ start a server to preview the build in outDir
 
 Options:
   -o, --outDir <path>    output directory
+  -h, --host [string]    host to serve the application
   -p, --port [number]    port to serve the application
   --config [string]      folder where config is located, default .ladle
   --viteConfig [string]  file with Vite configuration
