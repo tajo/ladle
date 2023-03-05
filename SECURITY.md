@@ -10,7 +10,7 @@
 ## Reporting a Vulnerability
 
 You can disclose any vulnerability directly to vojtech@miksu.cz or 
-through our [discord]([Discord](https://discord.gg/H6FSHjyW7e) to 
+through our [discord](https://discord.gg/H6FSHjyW7e) to 
 any team member.
 
 
