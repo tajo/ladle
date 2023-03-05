@@ -29,7 +29,8 @@
     "e2e/flow",
     "e2e/playwright",
     "e2e/programmatic",
-    "e2e/provider"
+    "e2e/provider",
+    "e2e/swc"
   ],
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
