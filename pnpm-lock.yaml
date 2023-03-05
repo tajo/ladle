@@ -189,6 +189,22 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       start-server-and-test: 1.15.3
 
+  e2e/swc:
+    specifiers:
+      "@ladle/react": workspace:*
+      "@playwright/test": ^1.30.0
+      "@vitejs/plugin-react-swc": ^3.1.0
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      start-server-and-test: ^1.15.3
+    dependencies:
+      "@ladle/react": link:../../packages/ladle
+      "@playwright/test": 1.30.0
+      "@vitejs/plugin-react-swc": 3.1.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      start-server-and-test: 1.15.3
+
   packages/example:
     specifiers:
       "@ladle/react": workspace:*
@@ -6038,6 +6054,17 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
+  /@vitejs/plugin-react-swc/3.1.0:
+    resolution:
+      {
+        integrity: sha512-xnDULNrkEbtTtRNnMPp+RsuIuIbk1JJV0xY7irchYyv9JJS4uvmc1EYip+qyrnkcX7TQ9c8vCS3AmkQqADI0Fw==,
+      }
+    peerDependencies:
+      vite: ^4
+    dependencies:
+      "@swc/core": 1.3.35
+    dev: false
+
   /@vitejs/plugin-react-swc/3.1.0_vite@4.1.1:
     resolution:
       {
@@ -6675,7 +6702,7 @@ packages:
         integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==,
       }
     dependencies:
-      follow-redirects: 1.15.2
+      follow-redirects: 1.15.2_debug@4.3.4
       form-data: 4.0.0
     transitivePeerDependencies:
       - debug
@@ -8990,6 +9017,21 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
+    dev: false
+
+  /follow-redirects/1.15.2_debug@4.3.4:
+    resolution:
+      {
+        integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==,
+      }
+    engines: { node: ">=4.0" }
+    peerDependencies:
+      debug: "*"
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dependencies:
+      debug: 4.3.4
     dev: false
 
   /for-each/0.3.3:

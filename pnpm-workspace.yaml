@@ -13,3 +13,4 @@ packages:
   - "e2e/playwright"
   - "e2e/programmatic"
   - "e2e/provider"
+  - "e2e/swc"
