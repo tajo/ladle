@@ -1,7 +1,6 @@
 packages:
   - "packages/example"
   - "packages/ladle"
-  - "packages/ladle-react-context"
   - "packages/website"
   - "e2e/addons"
   - "e2e/commonjs"

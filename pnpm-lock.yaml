@@ -225,7 +225,7 @@ importers:
       "@babel/template": ^7.20.7
       "@babel/traverse": ^7.20.13
       "@babel/types": ^7.20.7
-      "@ladle/react-context": workspace:^1.0.1
+      "@ladle/react-context": ^1.0.1
       "@mdx-js/mdx": ^2.2.1
       "@mdx-js/react": ^2.2.1
       "@types/babel__code-frame": ^7.0.3
@@ -279,7 +279,7 @@ importers:
       "@babel/template": 7.20.7
       "@babel/traverse": 7.20.13
       "@babel/types": 7.20.7
-      "@ladle/react-context": link:../ladle-react-context
+      "@ladle/react-context": 1.0.1_biqbaboplfbrettd7655fr4n2y
       "@mdx-js/mdx": 2.2.1
       "@mdx-js/react": 2.2.1_react@18.2.0
       "@vitejs/plugin-react": 3.1.0_vite@4.1.1
@@ -327,9 +327,6 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       vitest: 0.28.4
-
-  packages/ladle-react-context:
-    specifiers: {}
 
   packages/website:
     specifiers:
@@ -4530,6 +4527,20 @@ packages:
       "@jridgewell/resolve-uri": 3.1.0
       "@jridgewell/sourcemap-codec": 1.4.14
     dev: true
+
+  /@ladle/react-context/1.0.1_biqbaboplfbrettd7655fr4n2y:
+    resolution:
+      {
+        integrity: sha1-AH6mQeShslyvuPVnKXf90fm7b5E=,
+        tarball: "%40ladle%2Freact-context/-/react-context-1.0.1.tgz",
+      }
+    peerDependencies:
+      react: ">=16.14.0"
+      react-dom: ">=16.14.0"
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /@leichtgewicht/ip-codec/2.0.4:
     resolution:
