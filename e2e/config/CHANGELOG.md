@@ -1,5 +1,12 @@
 # test-provider
 
+## 0.3.24
+
+### Patch Changes
+
+- Updated dependencies [[`c4a7c96`](https://github.com/tajo/ladle/commit/c4a7c96713f3c32803f37d58866a8dc6b39d352d), [`cf0fc58`](https://github.com/tajo/ladle/commit/cf0fc5861fe6baffd6fe0f98d18bc0cda7098a68)]:
+  - @ladle/react@2.10.0
+
 ## 0.3.23
 
 ### Patch Changes
