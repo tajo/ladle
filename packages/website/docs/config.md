@@ -38,6 +38,26 @@ export default {
 };
 ```
 
+### host
+
+Specify the dev server host.
+
+```tsx
+export default {
+  host: "0.0.0.0",
+};
+```
+
+### previewHost
+
+Specify the preview server host.
+
+```tsx
+export default {
+  previewHost: "0.0.0.0",
+};
+```
+
 ### port
 
 Specify the dev server port.

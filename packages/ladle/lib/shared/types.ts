@@ -169,7 +169,9 @@ export type Config = {
   storyOrder: StoryOrder;
   appendToHead: string;
   viteConfig?: string;
+  host?: string;
   port: number;
+  previewHost?: string;
   previewPort: number;
   outDir: string;
   base?: string;

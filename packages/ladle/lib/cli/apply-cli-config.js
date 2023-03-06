@@ -9,6 +9,7 @@ import loadConfig from "./load-config.js";
 export default async function applyCLIConfig(params) {
   debug(`CLI theme: ${params.theme}`);
   debug(`CLI stories: ${params.stories}`);
+  debug(`CLI host: ${params.host || "undefined"}`);
   debug(`CLI port: ${params.port || "undefined"}`);
   debug(`CLI out: ${params.outDir || "undefined"}`);
   params.config = params.config || ".ladle";
