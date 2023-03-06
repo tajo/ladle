@@ -1,5 +1,15 @@
 # @ladle/react
 
+## 2.10.0
+
+### Minor Changes
+
+- [#388](https://github.com/tajo/ladle/pull/388) [`c4a7c96`](https://github.com/tajo/ladle/commit/c4a7c96713f3c32803f37d58866a8dc6b39d352d) Thanks [@tajo](https://github.com/tajo)! - Add StoryDefault type and support for satisfies. Update all the stories & docs with proper static types.
+
+### Patch Changes
+
+- [#389](https://github.com/tajo/ladle/pull/389) [`cf0fc58`](https://github.com/tajo/ladle/commit/cf0fc5861fe6baffd6fe0f98d18bc0cda7098a68) Thanks [@azuline](https://github.com/azuline)! - Add a CLI --host option for serve and preview commands that overrides vite.config.js settings.
+
 ## 2.9.0
 
 ### Minor Changes
