@@ -39,7 +39,7 @@
     "@babel/template": "^7.20.7",
     "@babel/traverse": "^7.20.13",
     "@babel/types": "^7.20.7",
-    "@ladle/react-context": "workspace:^1.0.1",
+    "@ladle/react-context": "^1.0.1",
     "@mdx-js/mdx": "^2.2.1",
     "@mdx-js/react": "^2.2.1",
     "@vitejs/plugin-react": "^3.1.0",

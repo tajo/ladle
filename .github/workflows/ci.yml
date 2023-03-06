@@ -19,16 +19,16 @@ jobs:
         os: [ubuntu-latest, windows-latest]
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 2
 
-      - uses: pnpm/action-setup@v2.2.2
+      - uses: pnpm/action-setup@v2.2.4
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: "pnpm"
 
       - name: Install dependencies

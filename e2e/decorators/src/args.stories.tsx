@@ -1,4 +1,4 @@
-import type { Story, StoryDecorator } from "@ladle/react";
+import type { StoryDefault, Story } from "@ladle/react";
 
 type Props = { label: string };
 
@@ -9,7 +9,7 @@ export default {
       return (
         <div style={{ border: "5px solid red" }}>
           <p>first {context.globalState.control.label.value}</p>
-          <Component />
+          <Component label={context.globalState.control.label.value} />
         </div>
       );
     },
@@ -18,7 +18,7 @@ export default {
       return (
         <div style={{ border: "5px solid blue" }}>
           <p>second {context.globalState.control.label.value}</p>
-          <Component />
+          <Component label={context.globalState.control.label.value} />
         </div>
       );
     },
@@ -27,12 +27,12 @@ export default {
       return (
         <div style={{ border: "5px solid green" }}>
           <p>third {context.globalState.control.label.value}</p>
-          <Component />
+          <Component label={context.globalState.control.label.value} />
         </div>
       );
     },
-  ] as StoryDecorator[],
-};
+  ],
+} satisfies StoryDefault<Props>;
 
 const Card: Story<Props> = ({ label }) => (
   <>
@@ -49,7 +49,7 @@ CardHello.decorators = [
     return (
       <div style={{ border: "5px solid pink" }}>
         <p>private {context.globalState.control.label.value}</p>
-        <Component />
+        <Component label={context.globalState.control.label.value} />
       </div>
     );
   },

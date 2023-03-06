@@ -189,6 +189,22 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       start-server-and-test: 1.15.3
 
+  e2e/swc:
+    specifiers:
+      "@ladle/react": workspace:*
+      "@playwright/test": ^1.30.0
+      "@vitejs/plugin-react-swc": ^3.1.0
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      start-server-and-test: ^1.15.3
+    dependencies:
+      "@ladle/react": link:../../packages/ladle
+      "@playwright/test": 1.30.0
+      "@vitejs/plugin-react-swc": 3.1.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      start-server-and-test: 1.15.3
+
   packages/example:
     specifiers:
       "@ladle/react": workspace:*
@@ -209,7 +225,7 @@ importers:
       "@babel/template": ^7.20.7
       "@babel/traverse": ^7.20.13
       "@babel/types": ^7.20.7
-      "@ladle/react-context": workspace:^1.0.1
+      "@ladle/react-context": ^1.0.1
       "@mdx-js/mdx": ^2.2.1
       "@mdx-js/react": ^2.2.1
       "@types/babel__code-frame": ^7.0.3
@@ -263,7 +279,7 @@ importers:
       "@babel/template": 7.20.7
       "@babel/traverse": 7.20.13
       "@babel/types": 7.20.7
-      "@ladle/react-context": link:../ladle-react-context
+      "@ladle/react-context": 1.0.1_biqbaboplfbrettd7655fr4n2y
       "@mdx-js/mdx": 2.2.1
       "@mdx-js/react": 2.2.1_react@18.2.0
       "@vitejs/plugin-react": 3.1.0_vite@4.1.1
@@ -311,9 +327,6 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       vitest: 0.28.4
-
-  packages/ladle-react-context:
-    specifiers: {}
 
   packages/website:
     specifiers:
@@ -4515,6 +4528,20 @@ packages:
       "@jridgewell/sourcemap-codec": 1.4.14
     dev: true
 
+  /@ladle/react-context/1.0.1_biqbaboplfbrettd7655fr4n2y:
+    resolution:
+      {
+        integrity: sha1-AH6mQeShslyvuPVnKXf90fm7b5E=,
+        tarball: "%40ladle%2Freact-context/-/react-context-1.0.1.tgz",
+      }
+    peerDependencies:
+      react: ">=16.14.0"
+      react-dom: ">=16.14.0"
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
   /@leichtgewicht/ip-codec/2.0.4:
     resolution:
       {
@@ -6038,6 +6065,17 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
+  /@vitejs/plugin-react-swc/3.1.0:
+    resolution:
+      {
+        integrity: sha512-xnDULNrkEbtTtRNnMPp+RsuIuIbk1JJV0xY7irchYyv9JJS4uvmc1EYip+qyrnkcX7TQ9c8vCS3AmkQqADI0Fw==,
+      }
+    peerDependencies:
+      vite: ^4
+    dependencies:
+      "@swc/core": 1.3.35
+    dev: false
+
   /@vitejs/plugin-react-swc/3.1.0_vite@4.1.1:
     resolution:
       {
@@ -6675,7 +6713,7 @@ packages:
         integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==,
       }
     dependencies:
-      follow-redirects: 1.15.2
+      follow-redirects: 1.15.2_debug@4.3.4
       form-data: 4.0.0
     transitivePeerDependencies:
       - debug
@@ -8990,6 +9028,21 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
+    dev: false
+
+  /follow-redirects/1.15.2_debug@4.3.4:
+    resolution:
+      {
+        integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==,
+      }
+    engines: { node: ">=4.0" }
+    peerDependencies:
+      debug: "*"
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dependencies:
+      debug: 4.3.4
     dev: false
 
   /for-each/0.3.3:

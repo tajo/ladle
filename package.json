@@ -6,7 +6,7 @@
   "author": "Vojtech Miksu <vojtech@miksu.cz>",
   "license": "MIT",
   "private": true,
-  "packageManager": "pnpm@7.26.3",
+  "packageManager": "pnpm@7.28.0",
   "scripts": {
     "lint": "eslint \"./packages/*/{lib,src}/**/*.{ts,tsx}\" --max-warnings=0",
     "test": "turbo run test --concurrency=1",
@@ -18,7 +18,6 @@
   "workspaces": [
     "packages/example",
     "packages/ladle",
-    "packages/ladle-react-context",
     "packages/website",
     "e2e/addons",
     "e2e/commonjs",
@@ -29,7 +28,8 @@
     "e2e/flow",
     "e2e/playwright",
     "e2e/programmatic",
-    "e2e/provider"
+    "e2e/provider",
+    "e2e/swc"
   ],
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
@@ -53,6 +53,6 @@
     "typescript": "^4.9.5"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   }
 }

@@ -1,7 +1,8 @@
 import { useState } from "react";
+import type { Story } from "@ladle/react";
 import Context from "./context";
 
-export const World = () => {
+export const World: Story = () => {
   const [val, setVal] = useState(true);
   return (
     <div>

@@ -12,14 +12,18 @@ Ladle automatically creates sidebar navigation and routes based on the filenames
 `src/my-components.stories.tsx`:
 
 ```tsx
-export const Button = () => <button>My Button</button>;
-export const HeaderOne = () => <h1>Header</h1>;
+import type { Story } from "@ladle/react";
+
+export const Button: Story = () => <button>My Button</button>;
+export const HeaderOne: Story = () => <h1>Header</h1>;
 ```
 
 `src/my-components--lists.stories.tsx`:
 
 ```tsx
-export const Simple = () => (
+import type { Story } from "@ladle/react";
+
+export const Simple: Story = () => (
   <ul>
     <li>Item 1</li>
     <li>Item 2</li>
@@ -41,7 +45,9 @@ Ladle creates three different routes and a tree navigation while following some 
 Sometimes it might be useful to ignore file/export names and set a custom name explicitly. A single story can be renamed as:
 
 ```tsx
-export const Button = () => <button>My Button</button>;
+import type { Story } from "@ladle/react";
+
+export const Button: Story = () => <button>My Button</button>;
 Button.storyName = "Renamed Button";
 ```
 
@@ -50,10 +56,12 @@ All story names and titles [need to be string literals](#limitations).
 You can also replace the filename (level name) part:
 
 ```tsx
+import type { StoryDefault, Story } from "@ladle/react";
+
 export default {
   title: "Level / Sub level",
-};
-export const Button = () => <button>My Button</button>;
+} satisfies StoryDefault;
+export const Button: Story = () => <button>My Button</button>;
 ```
 
 `/` can be used to create sublevels. This creates following navigation structure:
@@ -71,28 +79,32 @@ There are limitations in place to support features like the automatic code-split
 ### `storyName`, `title` and `meta` need to be serializable
 
 ```tsx
+import type { StoryDefault, Story } from "@ladle/react";
+
 export default {
   title: "Welcome",
   meta: {
     key: "value",
   },
-};
-export const Story = () => "Hey";
-Story.storyName = "Renamed";
+} satisfies StoryDefault;
+export const Renamed: Story = () => "Hey";
+Renamed.storyName = "Renamed";
 ```
 
 however, this does not work
 
 ```tsx
+import type { StoryDefault, Story } from "@ladle/react";
+
 export default {
   title: "Welcome" + " Everybody",
   meta: {
     key: 1 + 2,
   },
-};
-export const Story = () => "Hey";
+} satisfies StoryDefault;
+export const Renamed: Story = () => "Hey";
 const newName = "Renamed";
-Story.storyName = newName;
+Renamed.storyName = newName;
 ```
 
 ### Story names and files need to be unique

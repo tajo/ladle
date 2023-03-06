@@ -43,9 +43,10 @@ function mdxPlugin(opts) {
   /** @type any */
   let reactPluginTransform;
   let reactPluginSwcTransform;
+  const isDev = opts.mode === "development";
   const { process } = createFormatAwareProcessors({
     SourceMapGenerator,
-    development: opts.mode === "development",
+    development: isDev,
     providerImportSource: "@ladle/react",
     jsx: true,
     remarkPlugins: [remarkGfm],
@@ -88,6 +89,17 @@ function mdxPlugin(opts) {
           // AST transform from MDX compiler output into CSF
           code = await mdxToStories(String(compiled.value), filepath);
         }
+
+        // in prod mode, we don't need any JSX-dev transforms
+        // just using esbuild to compile JSX away
+        if (!isDev) {
+          return (
+            await transformWithEsbuild(code, filepath.replace(".mdx", ".jsx"), {
+              jsx: "automatic",
+            })
+          ).code;
+        }
+
         // trick esbuild and vitejs/plugin-react into compiling it as jsx
         const filename = `${filepath}${
           querystring ? "&ext=.jsx" : "?ext=.jsx"
