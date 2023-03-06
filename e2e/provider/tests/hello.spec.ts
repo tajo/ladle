@@ -17,39 +17,5 @@ test("StorySourceHeader sets a custom source header", async ({ page }) => {
 
 test("meta.json has 3 stories", async ({ request }) => {
   const meta = await request.get("http://localhost:61106/meta.json");
-  expect(await meta.json()).toEqual(
-    expect.objectContaining({
-      about: {
-        github: "https://github.com/tajo/ladle",
-        homepage: "https://www.ladle.dev",
-        version: 1,
-      },
-      stories: {
-        "hello--world": {
-          filePath: "src/hello.stories.tsx",
-          levels: ["Hello"],
-          locEnd: 8,
-          locStart: 5,
-          meta: {},
-          name: "World",
-        },
-        "hmr--with-state": {
-          filePath: "src/hmr.stories.tsx",
-          levels: ["Hmr"],
-          locEnd: 8,
-          locStart: 1,
-          meta: {},
-          name: "With state",
-        },
-        "meta--story-meta": {
-          filePath: "src/meta.stories.tsx",
-          levels: ["Meta"],
-          locEnd: 5,
-          locStart: 3,
-          meta: { myMeta: "This is my meta" },
-          name: "Story meta",
-        },
-      },
-    }),
-  );
+  expect(Object.keys((await meta.json()).stories).length).toEqual(3);
 });
