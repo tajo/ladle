@@ -8,6 +8,6 @@ test("boolean control works", async ({ page }) => {
     "src/controls.stories.tsx",
   );
   await expect(page.locator("pre")).toContainText(
-    'import type { Story } from "@ladle/react"',
+    'import type { StoryDefault, Story } from "@ladle/react";',
   );
 });
