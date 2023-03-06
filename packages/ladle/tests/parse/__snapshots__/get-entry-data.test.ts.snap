@@ -13,27 +13,28 @@ exports[`Capital letters in story names converted into delimiters 1`] = `
   "stories": [
     {
       "componentName": "capitalization$$blue$tiny$cat",
-      "locEnd": 5,
-      "locStart": 3,
+      "locEnd": 6,
+      "locStart": 4,
       "namedExport": "BlueTinyCat",
       "storyId": "capitalization--blue-tiny-cat",
     },
     {
       "componentName": "capitalization$$big$barking$dog",
-      "locEnd": 9,
-      "locStart": 7,
+      "locEnd": 10,
+      "locStart": 8,
       "namedExport": "BigBarkingDog",
       "storyId": "capitalization--big-barking-dog",
     },
   ],
   "storyParams": {},
   "storySource": "import * as React from \\"react\\";
+import type { Story } from \\"@ladle/react\\";
 
-export const BlueTinyCat = () => {
+export const BlueTinyCat: Story = () => {
   return <h1>Blue Tiny Cat</h1>;
 };
 
-export const BigBarkingDog = () => {
+export const BigBarkingDog: Story = () => {
   return <h1> Big Barking Dog</h1>;
 };
 ",
@@ -53,16 +54,17 @@ exports[`Capital letters in the filename converted into delimiters 1`] = `
   "stories": [
     {
       "componentName": "filename$capitalization$$test",
-      "locEnd": 5,
-      "locStart": 3,
+      "locEnd": 6,
+      "locStart": 4,
       "namedExport": "Test",
       "storyId": "filename-capitalization--test",
     },
   ],
   "storyParams": {},
   "storySource": "import * as React from \\"react\\";
+import type { Story } from \\"../../lib/app/exports\\";
 
-export const Test = () => {
+export const Test: Story = () => {
   return <h1>Test</h1>;
 };
 ",
@@ -82,20 +84,21 @@ exports[`Default title is used instead of the file name 1`] = `
   "stories": [
     {
       "componentName": "title$$cat",
-      "locEnd": 9,
-      "locStart": 7,
+      "locEnd": 10,
+      "locStart": 8,
       "namedExport": "Cat",
       "storyId": "title--cat",
     },
   ],
   "storyParams": {},
   "storySource": "import * as React from \\"react\\";
+import type { StoryDefault, Story } from \\"../../lib/app/exports\\";
 
 export default {
   title: \\"Title\\",
-};
+} satisfies StoryDefault;
 
-export const Cat = () => {
+export const Cat: Story = () => {
   return <h1>Cat</h1>;
 };
 ",
@@ -134,15 +137,15 @@ exports[`Extract and merge story meta 1`] = `
   "stories": [
     {
       "componentName": "title$$cat",
-      "locEnd": 15,
-      "locStart": 13,
+      "locEnd": 16,
+      "locStart": 14,
       "namedExport": "Cat",
       "storyId": "title--cat",
     },
     {
       "componentName": "title$$dog",
-      "locEnd": 27,
-      "locStart": 25,
+      "locEnd": 28,
+      "locStart": 26,
       "namedExport": "Dog",
       "storyId": "title--dog",
     },
@@ -176,6 +179,7 @@ exports[`Extract and merge story meta 1`] = `
     },
   },
   "storySource": "import * as React from \\"react\\";
+import type { StoryDefault, Story } from \\"../../lib/app/exports\\";
 
 export default {
   title: \\"Title\\",
@@ -185,9 +189,9 @@ export default {
       browsers: [\\"chrome\\", \\"webkit\\"],
     },
   },
-};
+} satisfies StoryDefault;
 
-export const Cat = () => {
+export const Cat: Story = () => {
   return <h1>Cat</h1>;
 };
 
@@ -199,7 +203,7 @@ Cat.meta = {
   links: true,
 };
 
-export const Dog = () => {
+export const Dog: Story = () => {
   return <h1>Dog</h1>;
 };
 ",
@@ -223,8 +227,8 @@ exports[`Extract default meta 1`] = `
   "stories": [
     {
       "componentName": "title$$cat",
-      "locEnd": 14,
-      "locStart": 12,
+      "locEnd": 15,
+      "locStart": 13,
       "namedExport": "Cat",
       "storyId": "title--cat",
     },
@@ -240,6 +244,7 @@ exports[`Extract default meta 1`] = `
     },
   },
   "storySource": "import * as React from \\"react\\";
+import type { StoryDefault, Story } from \\"../../lib/app/exports\\";
 
 export default {
   title: \\"Title\\",
@@ -248,9 +253,9 @@ export default {
       foo: \\"title\\",
     },
   },
-};
+} satisfies StoryDefault;
 
-export const Cat = () => {
+export const Cat: Story = () => {
   return <h1>Cat</h1>;
 };
 ",
@@ -270,27 +275,28 @@ exports[`Single file with two stories 1`] = `
   "stories": [
     {
       "componentName": "animals$$cat",
-      "locEnd": 5,
-      "locStart": 3,
+      "locEnd": 6,
+      "locStart": 4,
       "namedExport": "Cat",
       "storyId": "animals--cat",
     },
     {
       "componentName": "animals$$dog",
-      "locEnd": 9,
-      "locStart": 7,
+      "locEnd": 10,
+      "locStart": 8,
       "namedExport": "Dog",
       "storyId": "animals--dog",
     },
   ],
   "storyParams": {},
   "storySource": "import * as React from \\"react\\";
+import type { Story } from \\"@ladle/react\\";
 
-export const Cat = () => {
+export const Cat: Story = () => {
   return <h1>Cat</h1>;
 };
 
-export const Dog = () => {
+export const Dog: Story = () => {
   return <h1>Dog</h1>;
 };
 ",
@@ -313,30 +319,31 @@ exports[`Story name replaces named export as a story name 1`] = `
   "stories": [
     {
       "componentName": "storyname$$doggo",
-      "locEnd": 8,
-      "locStart": 3,
+      "locEnd": 9,
+      "locStart": 4,
       "namedExport": "Cat",
       "storyId": "storyname--doggo",
     },
     {
       "componentName": "storyname$$capital$city",
-      "locEnd": 15,
-      "locStart": 13,
+      "locEnd": 17,
+      "locStart": 15,
       "namedExport": "CapitalCity",
       "storyId": "storyname--capital-city",
     },
     {
       "componentName": "storyname$$champs$élysées",
-      "locEnd": 19,
-      "locStart": 17,
+      "locEnd": 21,
+      "locStart": 19,
       "namedExport": "CapitalReplaced",
       "storyId": "storyname--champs-élysées",
     },
   ],
   "storyParams": {},
   "storySource": "import * as React from \\"react\\";
+import type { Story } from \\"../../lib/app/exports\\";
 
-export const Cat = () => {
+export const Cat: Story = () => {
   const Stop = { storyName: \\"\\" };
   // should be ignored
   Stop.storyName = \\"What\\";
@@ -344,13 +351,14 @@ export const Cat = () => {
 };
 
 Cat.storyName = \\"Doggo\\";
+// @ts-expect-error
 Cat.foo = \\"Ha\\";
 
-export const CapitalCity = () => {
+export const CapitalCity: Story = () => {
   return <h1>DC</h1>;
 };
 
-export const CapitalReplaced = () => {
+export const CapitalReplaced: Story = () => {
   return <h1>CapitalReplaced</h1>;
 };
 CapitalReplaced.storyName = \\"Champs Élysées\\";
@@ -371,16 +379,17 @@ exports[`Turn file name delimiters into spaces and levels correctly 1`] = `
   "stories": [
     {
       "componentName": "our$animals$$mammals$$cat",
-      "locEnd": 5,
-      "locStart": 3,
+      "locEnd": 6,
+      "locStart": 4,
       "namedExport": "Cat",
       "storyId": "our-animals--mammals--cat",
     },
   ],
   "storyParams": {},
   "storySource": "import * as React from \\"react\\";
+import type { Story } from \\"../../lib/app/exports\\";
 
-export const Cat = () => {
+export const Cat: Story = () => {
   return <h1>Cat</h1>;
 };
 ",
