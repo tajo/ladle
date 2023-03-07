@@ -9,14 +9,15 @@
     "build": "ladle build",
     "lint": "echo 'no lint'",
     "test-dev": "start-server-and-test serve 61106 'npx playwright test'",
-    "test-prod": "start-server-and-test serve-prod 61106 'SKIP_HMR=true npx playwright test'",
+    "test-prod": "start-server-and-test serve-prod 61106 'cross-env SKIP_HMR=true npx playwright test'",
     "test": "npm run test-dev && npm run test-prod"
   },
   "dependencies": {
     "@ladle/react": "workspace:*",
     "@playwright/test": "^1.30.0",
+    "cross-env": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "start-server-and-test": "^1.15.3"
+    "start-server-and-test": "^2.0.0"
   }
 }
