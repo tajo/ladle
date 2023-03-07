@@ -19,6 +19,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup-pluginutils": "^2.8.2",
-    "start-server-and-test": "^1.15.3"
+    "start-server-and-test": "^2.0.0"
   }
 }
