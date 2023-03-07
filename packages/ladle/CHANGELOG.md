@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.10.1
+
+### Patch Changes
+
+- [#391](https://github.com/tajo/ladle/pull/391) [`9433781`](https://github.com/tajo/ladle/commit/94337812bfbd11d003892eeb96dee8208739f19c) Thanks [@wojtekmaj](https://github.com/wojtekmaj)! - Fixed TypeScript error when using StoryDecorator type
+
 ## 2.10.0
 
 ### Minor Changes
