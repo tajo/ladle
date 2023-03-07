@@ -131,7 +131,7 @@ export type StoryProps = {
 };
 
 export type StoryDecorator<P = {}> = (
-  Story: React.FC<P>,
+  Story: React.FC<Partial<P>>,
   context: StoryProps,
 ) => React.ReactElement;
 
