@@ -130,10 +130,8 @@ export type StoryProps = {
   config: Config;
 };
 
-/* P is unused but left there for backwards compatibility */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type StoryDecorator<P = {}> = (
-  Story: React.FC,
+  Story: React.FC<Partial<P>>,
   context: StoryProps,
 ) => React.ReactElement;
 
