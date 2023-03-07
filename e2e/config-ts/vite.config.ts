@@ -3,6 +3,7 @@ import myPlugin from "./vite-my-plugin";
 export default {
   server: {
     open: "none",
+    host: "127.0.0.1",
   },
 
   define: {

@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 import fetch from "sync-fetch";
 
 // URL where Ladle is served
-const url = "http://localhost:61110";
+const url = "http://127.0.0.1:61110";
 
 // set different viewport
 // test.use({

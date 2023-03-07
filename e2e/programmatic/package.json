@@ -18,6 +18,6 @@
     "@playwright/test": "^1.30.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "start-server-and-test": "^1.15.3"
+    "start-server-and-test": "^2.0.0"
   }
 }
