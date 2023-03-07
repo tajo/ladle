@@ -180,14 +180,20 @@ importers:
     specifiers:
       '@ladle/react': workspace:*
       '@playwright/test': ^1.30.0
+<<<<<<< HEAD
       cross-env: ^7.0.3
+=======
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
       react: ^18.2.0
       react-dom: ^18.2.0
       start-server-and-test: ^2.0.0
     dependencies:
       '@ladle/react': link:../../packages/ladle
       '@playwright/test': 1.30.0
+<<<<<<< HEAD
       cross-env: 7.0.3
+=======
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       start-server-and-test: 2.0.0
@@ -2052,7 +2058,11 @@ packages:
     dev: true
 
   /@colors/colors/1.5.0:
+<<<<<<< HEAD
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
+=======
+    resolution: {integrity: sha1-u1BFecHK6SPmV2pPXaQ9Jfl729k=, tarball: '%40colors%2Fcolors/-/colors-1.5.0.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=0.1.90'}
     requiresBuild: true
     dev: false
@@ -2902,7 +2912,11 @@ packages:
     dev: false
 
   /@docusaurus/react-loadable/5.5.2_react@17.0.2:
+<<<<<<< HEAD
     resolution: {integrity: sha512-A3dYjdBGuy0IGT+wyLIGIKLRE+sAk1iNk0f1HjNDysO7u8lhL4N3VEm+FAubmJbAztn94F7MxBTPmnixbiyFdQ==}
+=======
+    resolution: {integrity: sha1-garg24Hsr72u42UfEoBFgIaPps4=, tarball: '%40docusaurus%2Freact-loadable/-/react-loadable-5.5.2.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     peerDependencies:
       react: '*'
     dependencies:
@@ -3255,7 +3269,11 @@ packages:
     dev: false
 
   /@esbuild/android-arm/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-N9x1CMXVhtWEAMS7pNNONyA14f71VPQN9Cnavj1XQh6T7bskqiLLrSca4O0Vr8Wdcga943eThxnVp3JLnBMYtw==}
+=======
+    resolution: {integrity: sha1-AltiRtP2i3u6qXBpFE+1+3Dy//I=, tarball: '%40esbuild%2Fandroid-arm/-/android-arm-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [arm]
     os: [android]
@@ -3263,7 +3281,11 @@ packages:
     optional: true
 
   /@esbuild/android-arm64/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-MIGl6p5sc3RDTLLkYL1MyL8BMRN4tLMRCn+yRJJmEDvYZ2M7tmAf80hx1kbNEUX2KJ50RRtxZ4JHLvCfuB6kBg==}
+=======
+    resolution: {integrity: sha1-z5HobfEnqj0UF0Ttr8ugq9xXfSM=, tarball: '%40esbuild%2Fandroid-arm64/-/android-arm64-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [android]
@@ -3271,7 +3293,11 @@ packages:
     optional: true
 
   /@esbuild/android-x64/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-a3kTv3m0Ghh4z1DaFEuEDfz3OLONKuFvI4Xqczqx4BqLyuFaFkuaG4j2MtA6fuWEFeC5x9IvqnX7drmRq/fyAQ==}
+=======
+    resolution: {integrity: sha1-yCDg/vmC+ZqFxLi/3VgoNfBM2W4=, tarball: '%40esbuild%2Fandroid-x64/-/android-x64-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [x64]
     os: [android]
@@ -3279,7 +3305,11 @@ packages:
     optional: true
 
   /@esbuild/darwin-arm64/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-/2agbUEfmxWHi9ARTX6OQ/KgXnOWfsNlTeLcoV7HSuSTv63E4DqtAc+2XqGw1KHxKMHGZgbVCZge7HXWX9Vn+w==}
+=======
+    resolution: {integrity: sha1-7e9Eh69rIa+runvlEywm0iN5siA=, tarball: '%40esbuild%2Fdarwin-arm64/-/darwin-arm64-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [darwin]
@@ -3287,7 +3317,11 @@ packages:
     optional: true
 
   /@esbuild/darwin-x64/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-2By45OBHulkd9Svy5IOCZt376Aa2oOkiE9QWUK9fe6Tb+WDr8hXL3dpqi+DeLiMed8tVXspzsTAvd0jUl96wmg==}
+=======
+    resolution: {integrity: sha1-QoKRaHMAccQe8NAo2DGe6g4pBLQ=, tarball: '%40esbuild%2Fdarwin-x64/-/darwin-x64-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [x64]
     os: [darwin]
@@ -3295,7 +3329,11 @@ packages:
     optional: true
 
   /@esbuild/freebsd-arm64/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-mt+cxZe1tVx489VTb4mBAOo2aKSnJ33L9fr25JXpqQqzbUIw/yzIzi+NHwAXK2qYV1lEFp4OoVeThGjUbmWmdw==}
+=======
+    resolution: {integrity: sha1-H0r0iL/H6c7QQgcDTTmOeTtXCic=, tarball: '%40esbuild%2Ffreebsd-arm64/-/freebsd-arm64-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [freebsd]
@@ -3303,7 +3341,11 @@ packages:
     optional: true
 
   /@esbuild/freebsd-x64/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-8ScTdNJl5idAKjH8zGAsN7RuWcyHG3BAvMNpKOBaqqR7EbUhhVHOqXRdL7oZvz8WNHL2pr5+eIT5c65kA6NHug==}
+=======
+    resolution: {integrity: sha1-Y2MG8Z6byYHgaqHXdzAtrY/dr3I=, tarball: '%40esbuild%2Ffreebsd-x64/-/freebsd-x64-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [x64]
     os: [freebsd]
@@ -3311,7 +3353,11 @@ packages:
     optional: true
 
   /@esbuild/linux-arm/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-iihzrWbD4gIT7j3caMzKb/RsFFHCwqqbrbH9SqUSRrdXkXaygSZCZg1FybsZz57Ju7N/SHEgPyaR0LZ8Zbe9gQ==}
+=======
+    resolution: {integrity: sha1-tZHmpZ2cT+DurdSHSxV6t4z18ZY=, tarball: '%40esbuild%2Flinux-arm/-/linux-arm-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [arm]
     os: [linux]
@@ -3319,7 +3365,11 @@ packages:
     optional: true
 
   /@esbuild/linux-arm64/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-7S8gJnSlqKGVJunnMCrXHU9Q8Q/tQIxk/xL8BqAP64wchPCTzuM6W3Ra8cIa1HIflAvDnNOt2jaL17vaW+1V0g==}
+=======
+    resolution: {integrity: sha1-oAP3/yN8UB4JXU86CeWPx7JaSso=, tarball: '%40esbuild%2Flinux-arm64/-/linux-arm64-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [linux]
@@ -3327,7 +3377,11 @@ packages:
     optional: true
 
   /@esbuild/linux-ia32/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-kiX69+wcPAdgl3Lonh1VI7MBr16nktEvOfViszBSxygRQqSpzv7BffMKRPMFwzeJGPxcio0pdD3kYQGpqQ2SSg==}
+=======
+    resolution: {integrity: sha1-JDM6EQJ+9GoY9XAZRQpRiJGOKlQ=, tarball: '%40esbuild%2Flinux-ia32/-/linux-ia32-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [linux]
@@ -3335,7 +3389,11 @@ packages:
     optional: true
 
   /@esbuild/linux-loong64/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-dTzNnQwembNDhd654cA4QhbS9uDdXC3TKqMJjgOWsC0yNCbpzfWoXdZvp0mY7HU6nzk5E0zpRGGx3qoQg8T2DQ==}
+=======
+    resolution: {integrity: sha1-1a1FnUHtQrvU0AUlazGILsUiJ9g=, tarball: '%40esbuild%2Flinux-loong64/-/linux-loong64-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [loong64]
     os: [linux]
@@ -3343,7 +3401,11 @@ packages:
     optional: true
 
   /@esbuild/linux-mips64el/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-ezbDkp2nDl0PfIUn0CsQ30kxfcLTlcx4Foz2kYv8qdC6ia2oX5Q3E/8m6lq84Dj/6b0FrkgD582fJMIfHhJfSw==}
+=======
+    resolution: {integrity: sha1-TllnpmXDg2CwqCBVlDd9Tc+cNyY=, tarball: '%40esbuild%2Flinux-mips64el/-/linux-mips64el-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [mips64el]
     os: [linux]
@@ -3351,7 +3413,11 @@ packages:
     optional: true
 
   /@esbuild/linux-ppc64/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-dzS678gYD1lJsW73zrFhDApLVdM3cUF2MvAa1D8K8KtcSKdLBPP4zZSLy6LFZ0jYqQdQ29bjAHJDgz0rVbLB3g==}
+=======
+    resolution: {integrity: sha1-IGRDoC61aPn98LQ4+9R9Juc1r8g=, tarball: '%40esbuild%2Flinux-ppc64/-/linux-ppc64-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [ppc64]
     os: [linux]
@@ -3359,7 +3425,11 @@ packages:
     optional: true
 
   /@esbuild/linux-riscv64/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-ylNlVsxuFjZK8DQtNUwiMskh6nT0vI7kYl/4fZgV1llP5d6+HIeL/vmmm3jpuoo8+NuXjQVZxmKuhDApK0/cKw==}
+=======
+    resolution: {integrity: sha1-w1HkM9AJvyVueYrQSBUsjXbaL8k=, tarball: '%40esbuild%2Flinux-riscv64/-/linux-riscv64-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [riscv64]
     os: [linux]
@@ -3367,7 +3437,11 @@ packages:
     optional: true
 
   /@esbuild/linux-s390x/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-gzy7nUTO4UA4oZ2wAMXPNBGTzZFP7mss3aKR2hH+/4UUkCOyqmjXiKpzGrY2TlEUhbbejzXVKKGazYcQTZWA/w==}
+=======
+    resolution: {integrity: sha1-Zh8nHl1ZYVuEtoAdHCEjrRPZvYc=, tarball: '%40esbuild%2Flinux-s390x/-/linux-s390x-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [s390x]
     os: [linux]
@@ -3375,7 +3449,11 @@ packages:
     optional: true
 
   /@esbuild/linux-x64/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-mdPjPxfnmoqhgpiEArqi4egmBAMYvaObgn4poorpUaqmvzzbvqbowRllQ+ZgzGVMGKaPkqUmPDOOFQRUFDmeUw==}
+=======
+    resolution: {integrity: sha1-5LoY6LFJqJyYI1FEOjd8cjdiuF8=, tarball: '%40esbuild%2Flinux-x64/-/linux-x64-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [x64]
     os: [linux]
@@ -3383,7 +3461,11 @@ packages:
     optional: true
 
   /@esbuild/netbsd-x64/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-/PzmzD/zyAeTUsduZa32bn0ORug+Jd1EGGAUJvqfeixoEISYpGnAezN6lnJoskauoai0Jrs+XSyvDhppCPoKOA==}
+=======
+    resolution: {integrity: sha1-fU9AQeMMXAfdJP+ilcc/BgOOx3U=, tarball: '%40esbuild%2Fnetbsd-x64/-/netbsd-x64-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [x64]
     os: [netbsd]
@@ -3391,7 +3473,11 @@ packages:
     optional: true
 
   /@esbuild/openbsd-x64/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-2yaWJhvxGEz2RiftSk0UObqJa/b+rIAjnODJgv2GbGGpRwAfpgzyrg1WLK8rqA24mfZa9GvpjLcBBg8JHkoodg==}
+=======
+    resolution: {integrity: sha1-lw+n+EcGgfPmsdsMxCGkr4Bg7DU=, tarball: '%40esbuild%2Fopenbsd-x64/-/openbsd-x64-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [x64]
     os: [openbsd]
@@ -3399,7 +3485,11 @@ packages:
     optional: true
 
   /@esbuild/sunos-x64/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-xtVUiev38tN0R3g8VhRfN7Zl42YCJvyBhRKw1RJjwE1d2emWTVToPLNEQj/5Qxc6lVFATDiy6LjVHYhIPrLxzw==}
+=======
+    resolution: {integrity: sha1-q8YOfEq/i4n7ek/mmhSEEyI4Aiw=, tarball: '%40esbuild%2Fsunos-x64/-/sunos-x64-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [x64]
     os: [sunos]
@@ -3407,7 +3497,11 @@ packages:
     optional: true
 
   /@esbuild/win32-arm64/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-ga8+JqBDHY4b6fQAmOgtJJue36scANy4l/rL97W+0wYmijhxKetzZdKOJI7olaBaMhWt8Pac2McJdZLxXWUEQw==}
+=======
+    resolution: {integrity: sha1-ew/56MMmVTenp7H9miTnvTn82Ho=, tarball: '%40esbuild%2Fwin32-arm64/-/win32-arm64-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [win32]
@@ -3415,7 +3509,11 @@ packages:
     optional: true
 
   /@esbuild/win32-ia32/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-WnsKaf46uSSF/sZhwnqE4L/F89AYNMiD4YtEcYekBt9Q7nj0DiId2XH2Ng2PHM54qi5oPrQ8luuzGszqi/veig==}
+=======
+    resolution: {integrity: sha1-6Q/lJn1xp7dWev3EA9/RmMKS6wk=, tarball: '%40esbuild%2Fwin32-ia32/-/win32-ia32-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [win32]
@@ -3423,7 +3521,11 @@ packages:
     optional: true
 
   /@esbuild/win32-x64/0.16.17:
+<<<<<<< HEAD
     resolution: {integrity: sha512-y+EHuSchhL7FjHgvQL/0fnnFmO4T1bhvWANX6gcnqTjtnKWbTvUMCpGnv2+t+31d7RzyEAYAd4u2fnIhHL6N/Q==}
+=======
+    resolution: {integrity: sha1-xaGkv+G1fww+YbKYg1JcbaPlwJE=, tarball: '%40esbuild%2Fwin32-x64/-/win32-x64-0.16.17.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
@@ -3649,7 +3751,11 @@ packages:
     dev: false
 
   /@nicolo-ribaudo/chokidar-2/2.1.8-no-fsevents.3:
+<<<<<<< HEAD
     resolution: {integrity: sha512-s88O1aVtXftvp5bCPB7WnmXc5IwOZZ7YPuwNPt+GtOOXpPvad1LfbmjYv+qII7zP6RU2QGnqve27dnLycEnyEQ==}
+=======
+    resolution: {integrity: sha1-Mj1y3SUQPQxPvc6J2t9XSnh7H5s=, tarball: '%40nicolo-ribaudo%2Fchokidar-2/-/chokidar-2-2.1.8-no-fsevents.3.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     requiresBuild: true
     dev: true
     optional: true
@@ -3870,7 +3976,11 @@ packages:
     dev: false
 
   /@swc/core-darwin-arm64/1.3.35:
+<<<<<<< HEAD
     resolution: {integrity: sha512-zQUFkHx4gZpu0uo2IspvPnKsz8bsdXd5bC33xwjtoAI1cpLerDyqo4v2zIahEp+FdKZjyVsLHtfJiQiA1Qka3A==}
+=======
+    resolution: {integrity: sha1-Vf8MwGl2nOi/ZWLKDnJP6cQ964w=, tarball: '%40swc%2Fcore-darwin-arm64/-/core-darwin-arm64-1.3.35.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [darwin]
@@ -3879,7 +3989,11 @@ packages:
     optional: true
 
   /@swc/core-darwin-x64/1.3.35:
+<<<<<<< HEAD
     resolution: {integrity: sha512-oOSkSGWtALovaw22lNevKD434OQTPf8X+dVPvPMrJXJpJ34dWDlFWpLntoc+arvKLNZ7LQmTuk8rR1hkrAY7cw==}
+=======
+    resolution: {integrity: sha1-JwVDoqrW3bwtjo2aCwJbwIzvmkg=, tarball: '%40swc%2Fcore-darwin-x64/-/core-darwin-x64-1.3.35.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=10'}
     cpu: [x64]
     os: [darwin]
@@ -3888,7 +4002,11 @@ packages:
     optional: true
 
   /@swc/core-linux-arm-gnueabihf/1.3.35:
+<<<<<<< HEAD
     resolution: {integrity: sha512-Yie8k00O6O8BCATS/xeKStquV4OYSskUGRDXBQVDw1FrE23PHaSeHCgg4q6iNZjJzXCOJbaTCKnYoIDn9DMf7A==}
+=======
+    resolution: {integrity: sha1-0sgUBiAiApYsCUUexY4376yxXDg=, tarball: '%40swc%2Fcore-linux-arm-gnueabihf/-/core-linux-arm-gnueabihf-1.3.35.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=10'}
     cpu: [arm]
     os: [linux]
@@ -3897,7 +4015,11 @@ packages:
     optional: true
 
   /@swc/core-linux-arm64-gnu/1.3.35:
+<<<<<<< HEAD
     resolution: {integrity: sha512-Zlv3WHa/4x2p51HSvjUWXHfSe1Gl2prqImUZJc8NZOlj75BFzVuR0auhQ+LbwvIQ3gaA1LODX9lyS9wXL3yjxA==}
+=======
+    resolution: {integrity: sha1-9GcFhPvnFSXZGfoG2zrXeM7iQuY=, tarball: '%40swc%2Fcore-linux-arm64-gnu/-/core-linux-arm64-gnu-1.3.35.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
@@ -3907,7 +4029,11 @@ packages:
     optional: true
 
   /@swc/core-linux-arm64-musl/1.3.35:
+<<<<<<< HEAD
     resolution: {integrity: sha512-u6tCYsrSyZ8U+4jLMA/O82veBfLy2aUpn51WxQaeH7wqZGy9TGSJXoO8vWxARQ6b72vjsnKDJHP4MD8hFwcctg==}
+=======
+    resolution: {integrity: sha1-/RFiVcyi2OCYY36V84rgj5WkfbY=, tarball: '%40swc%2Fcore-linux-arm64-musl/-/core-linux-arm64-musl-1.3.35.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
@@ -3917,7 +4043,11 @@ packages:
     optional: true
 
   /@swc/core-linux-x64-gnu/1.3.35:
+<<<<<<< HEAD
     resolution: {integrity: sha512-Dtxf2IbeH7XlNhP1Qt2/MvUPkpEbn7hhGfpSRs4ot8D3Vf5QEX4S/QtC1OsFWuciiYgHAT1Ybjt4xZic9DSkmA==}
+=======
+    resolution: {integrity: sha1-eg+xh/HpuqONBSc6dXbE6vgKlrg=, tarball: '%40swc%2Fcore-linux-x64-gnu/-/core-linux-x64-gnu-1.3.35.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
@@ -3927,7 +4057,11 @@ packages:
     optional: true
 
   /@swc/core-linux-x64-musl/1.3.35:
+<<<<<<< HEAD
     resolution: {integrity: sha512-4XavNJ60GprjpTiESCu5daJUnmErixPAqDitJSMu4TV32LNIE8G00S9pDLXinDTW1rgcGtQdq1NLkNRmwwovtg==}
+=======
+    resolution: {integrity: sha1-rSYyua4Oor/RRh8SGzJAY8PWdV4=, tarball: '%40swc%2Fcore-linux-x64-musl/-/core-linux-x64-musl-1.3.35.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
@@ -3937,7 +4071,11 @@ packages:
     optional: true
 
   /@swc/core-win32-arm64-msvc/1.3.35:
+<<<<<<< HEAD
     resolution: {integrity: sha512-dNGfKCUSX2M4qVyaS80Lyos0FkXyHRCvrdQ2Y4Hrg3FVokiuw3yY6fLohpUfQ5ws3n2A39dh7jGDeh34+l0sGA==}
+=======
+    resolution: {integrity: sha1-V2HQ9u/Zr/pVcRBPGhlRuLUw7EU=, tarball: '%40swc%2Fcore-win32-arm64-msvc/-/core-win32-arm64-msvc-1.3.35.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [win32]
@@ -3946,7 +4084,11 @@ packages:
     optional: true
 
   /@swc/core-win32-ia32-msvc/1.3.35:
+<<<<<<< HEAD
     resolution: {integrity: sha512-ChuPSrDR+JBf7S7dEKPicnG8A3bM0uWPsW2vG+V2wH4iNfNxKVemESHosmYVeEZXqMpomNMvLyeHep1rjRsc0Q==}
+=======
+    resolution: {integrity: sha1-U+vPGmq7DlFSwX2jhx1pXf3Aczg=, tarball: '%40swc%2Fcore-win32-ia32-msvc/-/core-win32-ia32-msvc-1.3.35.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=10'}
     cpu: [ia32]
     os: [win32]
@@ -3955,7 +4097,11 @@ packages:
     optional: true
 
   /@swc/core-win32-x64-msvc/1.3.35:
+<<<<<<< HEAD
     resolution: {integrity: sha512-/RvphT4WfuGfIK84Ha0dovdPrKB1bW/mc+dtdmhv2E3EGkNc5FoueNwYmXWRimxnU7X0X7IkcRhyKB4G5DeAmg==}
+=======
+    resolution: {integrity: sha1-GGFwp/M9GgjOAIALryk+bRFGWak=, tarball: '%40swc%2Fcore-win32-x64-msvc/-/core-win32-x64-msvc-1.3.35.tgz'}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=10'}
     cpu: [x64]
     os: [win32]
@@ -4924,7 +5070,11 @@ packages:
       picomatch: 2.3.1
 
   /arg/4.1.3:
+<<<<<<< HEAD
     resolution: {integrity: sha512-58S9QDqG0Xx27YwPSt9fJxivjYl432YCwfDMfZ+71RAqUrZef7LrKQZ3LHLOwCS4FLNBplP533Zx895SeOCHvA==}
+=======
+    resolution: {integrity: sha1-Jp/HrVuOQstjyJbVZmAXJhwUQIk=}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     dev: true
 
   /arg/5.0.2:
@@ -5069,7 +5219,11 @@ packages:
     dev: false
 
   /axios/0.25.0:
+<<<<<<< HEAD
     resolution: {integrity: sha512-cD8FOb0tRH3uuEe6+evtAbgJtfxr7ly3fQjYcMcuPlgkwVS9xboaVIpcDV+cYQe+yGykgwZCs1pzjntcGa6l5g==}
+=======
+    resolution: {integrity: sha1-NJz7sxMxqbRFMZB5F2Co01sJPgo=}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     dependencies:
       follow-redirects: 1.15.2
     transitivePeerDependencies:
@@ -5947,7 +6101,11 @@ packages:
     dev: false
 
   /cross-spawn/5.1.0:
+<<<<<<< HEAD
     resolution: {integrity: sha512-pTgQJ5KC0d2hcY8eyL1IzlBPYjTkyH72XRZPnLyKus2mBfNjQs3klqbJU2VILqZryAZUt9JOb3h/mWMy23/f5A==}
+=======
+    resolution: {integrity: sha1-6L0O/uWPz/b4+UUQoKVUu/ojVEk=}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     dependencies:
       lru-cache: 4.1.5
       shebang-command: 1.2.0
@@ -6183,7 +6341,11 @@ packages:
     dev: true
 
   /debug/2.6.9:
+<<<<<<< HEAD
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
+=======
+    resolution: {integrity: sha1-XRKFFd8TT/Mn6QpMk/Tgd6U2NB8=}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     peerDependencies:
       supports-color: '*'
     peerDependenciesMeta:
@@ -7397,7 +7559,11 @@ packages:
     resolution: {integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=}
 
   /fsevents/2.3.2:
+<<<<<<< HEAD
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+=======
+    resolution: {integrity: sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro=}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
@@ -7450,14 +7616,22 @@ packages:
     dev: false
 
   /get-stream/4.1.0:
+<<<<<<< HEAD
     resolution: {integrity: sha512-GMat4EJ5161kIy2HevLlr4luNjBgvmj413KaQA7jt4V8B4RDsfpHk7WQ9GVqfYyyx8OS/L66Kox+rJRNklLK7w==}
+=======
+    resolution: {integrity: sha1-wbJVV189wh1Zv8ec09K0axw6VLU=}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=6'}
     dependencies:
       pump: 3.0.0
     dev: false
 
   /get-stream/5.2.0:
+<<<<<<< HEAD
     resolution: {integrity: sha512-nBF+F1rAZVCu/p7rjzgA+Yb4lfYXrpl7a6VmJrU8wF9I1CKvP/QwPNZHnOlwbTkY6dvtFIzFMSyQXbLoTQPRpA==}
+=======
+    resolution: {integrity: sha1-SWaheV7lrOZecGxLe+txJX1uItM=}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=8'}
     dependencies:
       pump: 3.0.0
@@ -8032,7 +8206,11 @@ packages:
     dev: true
 
   /human-signals/1.1.1:
+<<<<<<< HEAD
     resolution: {integrity: sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==}
+=======
+    resolution: {integrity: sha1-xbHNFPUK6uCatsWf5jujOV/k36M=}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>=8.12.0'}
     dev: true
 
@@ -9572,7 +9750,11 @@ packages:
       picomatch: 2.3.1
 
   /mime-db/1.33.0:
+<<<<<<< HEAD
     resolution: {integrity: sha512-BHJ/EKruNIqJf/QahvxwQZXKygOQ256myeN/Ew+THcAa5q+PjyTTMMeNQC4DZw5AwfvelsUrA6B67NKMqXDbzQ==}
+=======
+    resolution: {integrity: sha1-o0kgUKXLm2NFBUHjnZeI0icng9s=}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     engines: {node: '>= 0.6'}
     dev: false
 
@@ -12019,6 +12201,7 @@ packages:
   /start-server-and-test/1.15.3:
     resolution: {integrity: sha512-4GqkqghvUR9cJ8buvtgkyT0AHgVwCJ5EN8eDEhe9grTChGwWUxGm2nqfSeE9+0PZkLRdFqcwTwxVHe1y3ViutQ==}
     engines: {node: '>=6'}
+<<<<<<< HEAD
     hasBin: true
     dependencies:
       arg: 5.0.2
@@ -12036,6 +12219,8 @@ packages:
   /start-server-and-test/2.0.0:
     resolution: {integrity: sha512-UqKLw0mJbfrsG1jcRLTUlvuRi9sjNuUiDOLI42r7R5fA9dsFoywAy9DoLXNYys9B886E4RCKb+qM1Gzu96h7DQ==}
     engines: {node: '>=6'}
+=======
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     hasBin: true
     dependencies:
       arg: 5.0.2
@@ -12540,7 +12725,11 @@ packages:
     dev: true
 
   /turbo-darwin-64/1.7.3:
+<<<<<<< HEAD
     resolution: {integrity: sha512-7j9+j1CVztmdevnClT3rG/GRhULf3ukwmv+l48l8uwsXNI53zLso+UYMql6RsjZDbD6sESwh0CHeKNwGmOylFA==}
+=======
+    resolution: {integrity: sha1-S8nqJr2zn6fxtKpuq9iy3hyCJNM=}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
@@ -12548,7 +12737,11 @@ packages:
     optional: true
 
   /turbo-darwin-arm64/1.7.3:
+<<<<<<< HEAD
     resolution: {integrity: sha512-puS9+pqpiy4MrIvWRBTg3qfO2+JPXR7reQcXQ7qUreuyAJnSw9H9/TIHjeK6FFxUfQbmruylPtH6dNpfcML9CA==}
+=======
+    resolution: {integrity: sha1-KbvjcuK0Ro3qQMhk7Jyh6SY49TA=}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
@@ -12556,7 +12749,11 @@ packages:
     optional: true
 
   /turbo-linux-64/1.7.3:
+<<<<<<< HEAD
     resolution: {integrity: sha512-BnbpgcK8Wag6fhnff7tMaecswmFHN/T56VIDnjcwcJnK9H3jdwpjwZlmcDtkoslzjPj3VuqHyqLDMvSb3ejXSg==}
+=======
+    resolution: {integrity: sha1-tK3G04RlWavxvfZ8f61/tO8Znfc=}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     cpu: [x64]
     os: [linux]
     requiresBuild: true
@@ -12564,7 +12761,11 @@ packages:
     optional: true
 
   /turbo-linux-arm64/1.7.3:
+<<<<<<< HEAD
     resolution: {integrity: sha512-+epY+0dfjmAJNZHfj7rID2hENRaeM3D0Ijqkhh/M53o46fQMwPNqI5ff9erh+f9r8sWuTpVnRlZeu7TE1P/Okw==}
+=======
+    resolution: {integrity: sha1-VPAA+lL9kEQLsZXjm6CUdQXfk9s=}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
@@ -12572,7 +12773,11 @@ packages:
     optional: true
 
   /turbo-windows-64/1.7.3:
+<<<<<<< HEAD
     resolution: {integrity: sha512-/2Z8WB4fASlq/diO6nhmHYuDCRPm3dkdUE6yhwQarXPOm936m4zj3xGQA2eSWMpvfst4xjVxxU7P7HOIOyWChA==}
+=======
+    resolution: {integrity: sha1-oHu4EXpcs69IlXkXi83XKUiphes=}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     cpu: [x64]
     os: [win32]
     requiresBuild: true
@@ -12580,7 +12785,11 @@ packages:
     optional: true
 
   /turbo-windows-arm64/1.7.3:
+<<<<<<< HEAD
     resolution: {integrity: sha512-UD9Uhop42xj1l1ba5LRdwqRq1Of+RgqQuv+QMd1xOAZ2FXn/91uhkfLv+H4Pkiw7XdUohOxpj/FcOvjCiiUxGw==}
+=======
+    resolution: {integrity: sha1-c7uRL0cMkC1pvHspWoL87VYgqu8=}
+>>>>>>> 24b3b04 (Prettier ignore pnpm files (#394))
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
