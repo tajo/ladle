@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test("mdx readme is rendered", async ({ page }) => {
-  await page.goto("http://localhost:61109?story=docs--documentation");
+  await page.goto("http://127.0.0.1:61109?story=docs--documentation");
   await expect(page.locator("h1")).toHaveText("test-page");
   await expect(page.locator("img")).toHaveAttribute(
     "src",

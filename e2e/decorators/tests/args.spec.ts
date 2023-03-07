@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test("ladle context is correctly passed to decorators", async ({ page }) => {
-  await page.goto("http://localhost:61103/?story=args--card-hello");
+  await page.goto("http://127.0.0.1:61103/?story=args--card-hello");
   await expect(page.locator("main")).toHaveText(
     "third Hellosecond Hellofirst Helloprivate HelloLabel: Hello",
   );
@@ -10,7 +10,7 @@ test("ladle context is correctly passed to decorators", async ({ page }) => {
 test("ladle doesn't remount story when control (state) is changed", async ({
   page,
 }) => {
-  await page.goto("http://localhost:61103/?story=args--card-hello");
+  await page.goto("http://127.0.0.1:61103/?story=args--card-hello");
   await page.fill("#persist-input", "keep");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
