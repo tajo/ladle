@@ -32,7 +32,7 @@ test.afterEach(async () => {
 
 if (!process.env.SKIP_HMR) {
   test("hmr with fast refresh works", async ({ page }) => {
-    await page.goto("http://localhost:61106/?story=hmr--with-state");
+    await page.goto("http://127.0.0.1:61106/?story=hmr--with-state");
     await page.locator("#state-input").fill("some state");
     fs.writeFileSync("./src/hmr.stories.tsx", after);
     await page.waitForSelector("#new-button", { timeout: 5000 });

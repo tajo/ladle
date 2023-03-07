@@ -1,13 +1,13 @@
 import { test, expect } from "@playwright/test";
 
 test("default title is used when creating story ids", async ({ page }) => {
-  await page.goto("http://localhost:61103/?story=root--examples--first");
+  await page.goto("http://127.0.0.1:61103/?story=root--examples--first");
   await expect(page.locator("main")).toHaveText("first");
 });
 
 test("storyName is used when creating story ids", async ({ page }) => {
   await page.goto(
-    "http://localhost:61103/?story=root--examples--second-renamed",
+    "http://127.0.0.1:61103/?story=root--examples--second-renamed",
   );
   await expect(page.locator("main")).toHaveText("second");
 });
@@ -15,7 +15,7 @@ test("storyName is used when creating story ids", async ({ page }) => {
 test("meta.json is correctly using defaults and overrides", async ({
   request,
 }) => {
-  const meta = await request.get("http://localhost:61103/meta.json");
+  const meta = await request.get("http://127.0.0.1:61103/meta.json");
   expect(await meta.json()).toEqual(
     expect.objectContaining({
       about: {

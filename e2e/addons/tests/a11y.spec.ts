@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test.skip("a11y addon works", async ({ page }) => {
-  await page.goto("http://localhost:61100/?story=a11y--issues");
+  await page.goto("http://127.0.0.1:61100/?story=a11y--issues");
   const button = await page.locator('[data-testid="addon-a11y"]');
   await button.click();
   await expect(page.locator('[data-testid="ladle-dialog"]')).toContainText(
