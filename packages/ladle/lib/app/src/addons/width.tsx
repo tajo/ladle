@@ -46,6 +46,7 @@ export const Button = ({ globalState, dispatch }: AddonProps) => {
         title={text}
         onClick={() => setOpen(true)}
         className={open ? "width-active" : ""}
+        type="button"
       >
         <Width />
         <span className="ladle-addon-tooltip">{text}</span>

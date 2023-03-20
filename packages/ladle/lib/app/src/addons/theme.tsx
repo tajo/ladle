@@ -34,6 +34,7 @@ export const Button = ({ globalState, dispatch }: AddonProps) => {
           document.documentElement.setAttribute("data-theme", newTheme);
           dispatch({ type: ActionType.UpdateTheme, value: newTheme });
         }}
+        type="button"
       >
         <Bulb />
         <span className="ladle-addon-tooltip">

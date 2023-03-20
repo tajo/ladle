@@ -129,6 +129,7 @@ export const Button = () => {
           setTimeout(() => setShowReport(!showReport), 100);
         }}
         className={showReport ? "a11y-active" : ""}
+        type="button"
       >
         <A11y />
         <span className="ladle-addon-tooltip">{text}</span>

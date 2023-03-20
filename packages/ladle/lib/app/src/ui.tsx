@@ -19,6 +19,7 @@ export const Button = ({
       onClick={onClick}
       style={style}
       aria-label={rest["aria-label"]}
+      type="button"
     >
       {children}
     </button>

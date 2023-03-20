@@ -12,6 +12,7 @@ export const Button = () => {
         title={text}
         onClick={() => setOpen(true)}
         className={open ? "ladle-active" : ""}
+        type="button"
       >
         <Ladle />
         <span className="ladle-addon-tooltip">{text}</span>
