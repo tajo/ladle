@@ -15,6 +15,7 @@ export const Button = ({ dispatch, globalState }: AddonProps) => {
         onClick={() => setOpen(true)}
         className={open ? "ladle-active" : ""}
         data-testid="addon-action"
+        type="button"
       >
         <Action />
         <span className="ladle-addon-tooltip">{text}</span>
@@ -55,6 +56,7 @@ export const Button = ({ dispatch, globalState }: AddonProps) => {
                 value: undefined,
               });
             }}
+            type="button"
           >
             Clear actions
           </button>

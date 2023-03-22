@@ -184,6 +184,7 @@ export const Button = ({ globalState, dispatch }: AddonProps) => {
           });
         }}
         className={globalState.source ? "source-active" : ""}
+        type="button"
       >
         <Source />
         <span className="ladle-addon-tooltip">{text}</span>

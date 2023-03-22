@@ -26,6 +26,7 @@ export const Button = ({ dispatch }: AddonProps) => {
         onClick={() =>
           dispatch({ type: ActionType.UpdateMode, value: ModeState.Preview })
         }
+        type="button"
       >
         <Preview />
         <span className="ladle-addon-tooltip">{text}</span>

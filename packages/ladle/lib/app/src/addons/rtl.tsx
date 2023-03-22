@@ -22,6 +22,7 @@ export const Button = ({ dispatch, globalState }: AddonProps) => {
         onClick={() =>
           dispatch({ type: ActionType.UpdateRtl, value: !globalState.rtl })
         }
+        type="button"
       >
         <Rtl />
         <span className="ladle-addon-tooltip">

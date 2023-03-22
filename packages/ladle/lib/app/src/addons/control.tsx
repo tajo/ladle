@@ -411,6 +411,7 @@ export const Button = ({ globalState, dispatch }: AddonProps) => {
         onClick={() => setOpen(true)}
         className={open ? "ladle-active" : ""}
         data-testid="addon-control"
+        type="button"
       >
         <Controls />
         <span className="ladle-addon-tooltip">{text}</span>
@@ -453,6 +454,7 @@ export const Button = ({ globalState, dispatch }: AddonProps) => {
                 value: controls,
               });
             }}
+            type="button"
           >
             Reset to defaults
           </button>
