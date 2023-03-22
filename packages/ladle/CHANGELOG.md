@@ -1,5 +1,13 @@
 # @ladle/react
 
+## 2.10.2
+
+### Patch Changes
+
+- [#402](https://github.com/tajo/ladle/pull/402) [`4737a54`](https://github.com/tajo/ladle/commit/4737a540302b96dc37976320ee1da1bc9177dbb7) Thanks [@wojtekmaj](https://github.com/wojtekmaj)! - Add type="button" to all buttons to reduce noise in Microsoft Edge DevTools Issues panel
+
+- [#403](https://github.com/tajo/ladle/pull/403) [`c4e60d6`](https://github.com/tajo/ladle/commit/c4e60d67238b2d360b4d4d27d78c71504bef87b0) Thanks [@wojtekmaj](https://github.com/wojtekmaj)! - Rename manifest.json to manifest.webmanifest to reduce noise in Microsoft Edge DevTools Issues panel
+
 ## 2.10.1
 
 ### Patch Changes
