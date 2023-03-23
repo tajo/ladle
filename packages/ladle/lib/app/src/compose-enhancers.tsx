@@ -39,7 +39,7 @@ export default function composeEnhancers(module: any, storyName: string) {
         ) : (
           <ArgsProvider {...props} />
         ),
-      [globalState.controlInitialized],
+      [globalState.controlInitialized, globalState.theme],
     );
   };
 }
