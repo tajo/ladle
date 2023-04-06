@@ -1,5 +1,7 @@
 import path from "path";
 import react from "@vitejs/plugin-react";
+import fs from "fs";
+import { fileURLToPath } from "url";
 import tsconfigPaths from "vite-tsconfig-paths";
 import getAppRoot from "./get-app-root.js";
 import ladlePlugin from "./vite-plugin/vite-plugin.js";
@@ -81,6 +83,12 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     }
   }
 
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  const inladleMonorepo = fs.existsSync(
+    path.join(__dirname, "../../../../e2e/swc/package.json"),
+  );
+  debug("Executed from the ladle monorepo: %s", inladleMonorepo);
+
   /**
    * @type {import('vite').InlineConfig}
    */
@@ -122,8 +130,8 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         "axe-core",
         "react-frame-component",
         "@mdx-js/react",
-        "@ladle/react",
         "@ladle/react-context",
+        ...(inladleMonorepo ? [] : ["@ladle/react"]),
         ...(!!resolve.alias ? [] : ["react-dom/client"]),
       ],
       entries: [
@@ -140,7 +148,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
           root: process.cwd(),
         }),
       ladlePlugin(ladleConfig, configFolder, viteConfig.mode || ""),
-      !hasReactPlugin && !hasReactSwcPlugin && react(),
+      //!hasReactPlugin && !hasReactSwcPlugin && react(),
     ],
   };
   return mergeViteConfigs(userViteConfig, config);
