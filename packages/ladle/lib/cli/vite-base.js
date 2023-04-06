@@ -136,6 +136,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     plugins: [
       mdxPlugin({ mode: viteConfig.mode || "production" }),
       !hasTSConfigPathPlugin &&
+        !process.versions.pnp &&
         tsconfigPaths({
           root: process.cwd(),
         }),
