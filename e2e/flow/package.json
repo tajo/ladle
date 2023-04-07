@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@ladle/react": "workspace:*",
-    "@playwright/test": "^1.30.0",
-    "flow-remove-types": "^2.198.2",
+    "@playwright/test": "^1.32.2",
+    "flow-remove-types": "^2.203.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup-pluginutils": "^2.8.2",
