@@ -23,7 +23,7 @@ You can use these default viewport widths (px):
 
 An application might need to optimize for a different set of devices, so you change the defaults through the `.ladle/config.mjs` configuration:
 
-```js
+```js title=".ladle/config.mjs"
 export default {
   addons: {
     width: {
@@ -79,8 +79,7 @@ Modal.meta = { iframed: true };
 
 When you switch Ladle to the preview mode, this addon is disabled since the Ladle UI isn't available and the story takes up the full screen. For testing with Playwright, you can set the viewport width within the test:
 
-```ts
-// example.spec.ts
+```ts title="example.spec.ts"
 import { test, expect } from "@playwright/test";
 
 test.use({ viewport: { width: 600, height: 900 } });

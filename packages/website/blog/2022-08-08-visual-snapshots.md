@@ -35,14 +35,14 @@ pnpm install @playwright/test
 We also need some other dependencies:
 
 ```sh
-pnpm install start-server-and-test sync-fetch
+pnpm install sync-fetch
 ```
 
 ## Stories
 
 Let's create a story file `src/abc.stories.tsx` so we have something to test. Presumably, you already have stories with your own React components.
 
-```tsx
+```tsx title="src/abc.stories.tsx"
 export const First = () => {
   return <h1>First</h1>;
 };
@@ -59,13 +59,13 @@ Second.meta = {
 
 Now we need to tell Playwright what & how to test. We can create a single test file that dynamically creates subtests for each individual story. The following code in `tests/snapshot.spec.ts` is the secret sauce of this setup:
 
-```tsx
+```tsx title="tests/snapshot.spec.ts"
 import { test, expect } from "@playwright/test";
 // we can't create tests asynchronously, thus using the sync-fetch lib
 import fetch from "sync-fetch";
 
 // URL where Ladle is served
-const url = "http://localhost:61000";
+const url = "http://127.0.0.1:61000";
 
 // fetch Ladle's meta file
 // https://ladle.dev/docs/meta
@@ -91,19 +91,30 @@ Object.keys(stories).forEach((storyKey) => {
 
 Our setup is ready, we just need to run it. Let's add some `package.json` scripts that we can use as shortcuts:
 
-```json
+```json title="package.json"
 {
   "scripts": {
     "serve": "ladle serve",
     "build": "ladle build && ladle preview -p 61000",
-    "test:dev": "start-server-and-test serve 61000 'pnpm playwright test'",
-    "test": "start-server-and-test build 61000 'pnpm playwright test'",
-    "test:update": "start-server-and-test build 61000 'pnpm playwright test -u'"
+    "test:dev": "TYPE=dev pnpx playwright test",
+    "test": "pnpx playwright test",
+    "test:update": "pnpx playwright test -u"
   }
 }
 ```
 
-These should be self-explanatory. If you use yarn or npm you might want to use [npx](https://docs.npmjs.com/cli/v8/commands/npx) instead. We use the [`start-server-and-test`](https://github.com/bahmutov/start-server-and-test) library to make sure that the Ladle server is running before starting the tests.
+We also need to [setup playwright](https://playwright.dev/docs/test-configuration) so it starts a web server before running our snapshots:
+
+```ts title="playwright.config.ts"
+export default {
+  webServer: {
+    command: process.env.TYPE === "dev" ? "pnpm serve" : "pnpm build",
+    url: `http://127.0.0.1:61000`,
+  },
+};
+```
+
+If you use yarn or npm you might want to use [npx](https://docs.npmjs.com/cli/v8/commands/npx) instead.
 
 The first time you run the `test` script it will error out since it needs to create the baseline screenshots in `tests/snapshot.spec.ts-snapshots` folder. The second run will succeed:
 

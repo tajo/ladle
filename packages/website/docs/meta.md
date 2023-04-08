@@ -5,7 +5,7 @@ title: Meta
 
 Ladle exports `meta.json` with the list of all stories and some additional information. In the `serve` mode, it is accessible as `http://localhost:61000/meta.json` and `build` just outputs `meta.json` into the build folder. Example:
 
-```json
+```json title="meta.json"
 {
   "about": {
     "homepage": "https://www.ladle.dev",
@@ -25,9 +25,9 @@ Ladle exports `meta.json` with the list of all stories and some additional infor
 }
 ```
 
-You can also add additional annotations to each story (or stories) through the `meta` object. It needs to be statically analyzable. `control.stories.tsx`:
+You can also add additional annotations to each story (or stories) through the `meta` object. It needs to be statically analyzable.
 
-```tsx
+```tsx title="control.stories.tsx"
 export default {
   meta: {
     baseweb: "test",
@@ -41,7 +41,7 @@ First.meta = {
 };
 ```
 
-```json
+```json title="meta.json"
 {
   "stories": {
     "control--first": {
