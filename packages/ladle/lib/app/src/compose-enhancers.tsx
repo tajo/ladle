@@ -2,16 +2,19 @@
 import React from "react";
 import ArgsProvider from "./args-provider";
 import config from "./get-config";
+import { args, argTypes } from "virtual:generated-list";
 import { useLadleContext } from "./context";
 
 export default function composeEnhancers(module: any, storyName: string) {
   let decorators: Function[] = [];
   const props = {
     args: {
+      ...args,
       ...(module.default && module.default.args ? module.default.args : {}),
       ...(module[storyName].args ? module[storyName].args : {}),
     },
     argTypes: {
+      ...argTypes,
       ...(module.default && module.default.argTypes
         ? module.default.argTypes
         : {}),

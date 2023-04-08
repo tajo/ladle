@@ -34,10 +34,12 @@ export enum ControlType {
   InlineCheck = "inline-check",
   Action = "action",
   Range = "range",
+  Background = "background",
 }
 
 export type ControlState = {
   [key: string]: {
+    name?: string;
     description?: string;
     defaultValue?: any;
     max?: number;
@@ -46,6 +48,7 @@ export type ControlState = {
     options?: string[];
     value: any;
     type?: ControlType;
+    labels?: { [key: string]: string };
   };
 };
 

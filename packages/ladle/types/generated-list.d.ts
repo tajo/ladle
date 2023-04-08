@@ -1,5 +1,6 @@
 import * as React from "react";
 import { GlobalState, GlobalAction, Config } from "../lib/shared/types";
+import { Args, ArgTypes } from "../lib/app/exports";
 
 type ReactNodeWithoutObject =
   | React.ReactElement
@@ -13,6 +14,8 @@ declare module "virtual:generated-list" {
   export const list: string[];
   export const config: Config;
   export const errorMessage: string;
+  export const args: Args;
+  export const argTypes: ArgTypes;
   export const stories: {
     [key: string]: {
       entry: string;

@@ -8,6 +8,7 @@ const ALLOWED_ARGTYPES = [
   "multi-select",
   "radio",
   "inline-radio",
+  "background",
   "check",
   "inline-check",
   "range",
@@ -32,6 +33,7 @@ const ArgsProvider = ({
   };
   React.useEffect(() => {
     const controls: ControlState = {};
+    let bgControls = 0;
     args &&
       Object.keys(args).forEach((argKey) => {
         const argValue = args[argKey];
@@ -88,8 +90,19 @@ const ArgsProvider = ({
             )} argTypes are supported now. For strings, booleans and numbers use just args.`,
           );
         }
+        if (argValue.control.type === "background") {
+          bgControls++;
+          if (bgControls > 1) {
+            throw new Error(
+              "There can be only single argType with the type background since it's used to change Ladle's background color.",
+            );
+          }
+        }
+        console.log(argKey, argValue);
         controls[argKey] = {
+          name: argValue.name,
           type: argValue.control.type,
+          labels: argValue.control.labels,
           defaultValue: args[argKey] ? args[argKey] : argValue.defaultValue,
           options: argValue.options,
           value: args[argKey] ? args[argKey] : argValue.defaultValue,

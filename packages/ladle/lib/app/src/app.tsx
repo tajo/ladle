@@ -54,6 +54,20 @@ const App = () => {
   const initialGlobalState = getUrlState(location.search);
   const [globalState, dispatch] = React.useReducer(reducer, initialGlobalState);
   const prevGlobalStateRef = React.useRef<Partial<GlobalState>>({});
+  let customBackground = "";
+  if (globalState.control) {
+    Object.keys(globalState.control).forEach((key) => {
+      if (globalState.control[key].type === "background") {
+        customBackground = globalState.control[key].value || "";
+      }
+    });
+  }
+  React.useEffect(() => {
+    // @ts-ignore
+    document.getElementsByClassName("ladle-background")[0].style.background =
+      customBackground;
+  }, [customBackground]);
+
   React.useEffect(() => {
     prevGlobalStateRef.current = globalState;
   });

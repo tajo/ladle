@@ -1,14 +1,12 @@
 import { test, expect } from "@playwright/test";
 
 test("default title is used when creating story ids", async ({ page }) => {
-  await page.goto("http://127.0.0.1:61103/?story=root--examples--first");
+  await page.goto("/?story=root--examples--first");
   await expect(page.locator("main")).toHaveText("first");
 });
 
 test("storyName is used when creating story ids", async ({ page }) => {
-  await page.goto(
-    "http://127.0.0.1:61103/?story=root--examples--second-renamed",
-  );
+  await page.goto("/?story=root--examples--second-renamed");
   await expect(page.locator("main")).toHaveText("second");
 });
 

@@ -79,6 +79,7 @@ export const getQuery = (
           case ControlType.Radio:
           case ControlType.InlineRadio:
           case ControlType.Select:
+          case ControlType.Background:
             realValue = coerceString(decodeURI(argValue));
             break;
           case ControlType.InlineCheck:
@@ -109,11 +110,12 @@ const Control = ({
   dispatch: React.Dispatch<GlobalAction>;
 }) => {
   const controlState = globalState.control[controlKey];
+  const controlName = globalState.control[controlKey].name || controlKey;
 
   if (globalState.control[controlKey].type === ControlType.Action) {
     return (
       <tr>
-        <td>{controlKey}</td>
+        <td>{controlName}</td>
         <td>action</td>
       </tr>
     );
@@ -121,18 +123,20 @@ const Control = ({
   if (globalState.control[controlKey].type === ControlType.Function) {
     return (
       <tr>
-        <td>{controlKey}</td>
+        <td>{controlName}</td>
         <td>function</td>
       </tr>
     );
   }
   if (
     globalState.control[controlKey].type === ControlType.Radio ||
-    globalState.control[controlKey].type === ControlType.InlineRadio
+    globalState.control[controlKey].type === ControlType.InlineRadio ||
+    (globalState.control[controlKey].type === ControlType.Background &&
+      (globalState.control[controlKey].options as string[]).length < 5)
   ) {
     return (
       <tr>
-        <td>{controlKey}</td>
+        <td>{controlName}</td>
         <td
           style={
             globalState.control[controlKey].type === ControlType.InlineRadio
@@ -142,6 +146,8 @@ const Control = ({
         >
           {(globalState.control[controlKey].options || []).map((option) => {
             const value = globalState.control[controlKey].value;
+            const labels = globalState.control[controlKey].labels || {};
+            const label = labels[option] || option;
             const isChecked = value === option || value === String(option);
             return (
               <div
@@ -160,14 +166,14 @@ const Control = ({
                   type="radio"
                   name={controlKey}
                   value={String(option)}
-                  onChange={(e) => {
+                  onChange={() => {
                     dispatch({
                       type: ActionType.UpdateControl,
                       value: {
                         ...globalState.control,
                         [controlKey]: {
                           ...globalState.control[controlKey],
-                          value: coerceString(e.target.value),
+                          value: coerceString(String(option)),
                         },
                       },
                     });
@@ -175,7 +181,7 @@ const Control = ({
                   checked={isChecked}
                 />
                 <label htmlFor={`${controlKey}-${String(option)}`}>
-                  {String(option)}
+                  {String(label)}
                 </label>
               </div>
             );
@@ -191,7 +197,7 @@ const Control = ({
   ) {
     return (
       <tr>
-        <td>{controlKey}</td>
+        <td>{controlName}</td>
         <td
           style={
             globalState.control[controlKey].type === ControlType.InlineCheck
@@ -201,6 +207,8 @@ const Control = ({
         >
           {(globalState.control[controlKey].options || []).map((option) => {
             const value = new Set(globalState.control[controlKey].value);
+            const labels = globalState.control[controlKey].labels || {};
+            const label = labels[option] || option;
             return (
               <div
                 key={`${String(option)}-${controlKey}`}
@@ -219,8 +227,8 @@ const Control = ({
                   name={`${controlKey}-${String(option)}`}
                   value={String(option)}
                   checked={value.has(String(option))}
-                  onChange={(e) => {
-                    const newValue = e.target.value;
+                  onChange={() => {
+                    const newValue = String(option);
                     if (value.has(newValue)) {
                       value.delete(newValue);
                     } else {
@@ -242,7 +250,7 @@ const Control = ({
                   htmlFor={`${controlKey}-${String(option)}`}
                   style={{ marginLeft: "0.3em" }}
                 >
-                  {String(option)}
+                  {String(label)}
                 </label>
               </div>
             );
@@ -251,24 +259,32 @@ const Control = ({
       </tr>
     );
   }
-  if (globalState.control[controlKey].type === ControlType.Select) {
+  if (
+    globalState.control[controlKey].type === ControlType.Select ||
+    globalState.control[controlKey].type === ControlType.Background
+  ) {
     return (
       <tr>
         <td>
-          <label htmlFor={controlKey}>{controlKey}</label>
+          <label htmlFor={controlKey}>{controlName}</label>
         </td>
         <td>
           <select
             id={controlKey}
             value={String(globalState.control[controlKey].value)}
             onChange={(e) => {
+              const labels = globalState.control[controlKey].labels || {};
+              const newValue =
+                Object.keys(labels).find(
+                  (key) => labels[key] === e.target.value,
+                ) || e.target.value;
               dispatch({
                 type: ActionType.UpdateControl,
                 value: {
                   ...globalState.control,
                   [controlKey]: {
                     ...globalState.control[controlKey],
-                    value: coerceString(e.target.value),
+                    value: coerceString(newValue),
                   },
                 },
               });
@@ -277,9 +293,13 @@ const Control = ({
             <option value="undefined" disabled>
               Choose option...
             </option>
-            {(globalState.control[controlKey].options || []).map((option) => (
-              <option key={`${option}-${controlKey}`}>{String(option)}</option>
-            ))}
+            {(globalState.control[controlKey].options || []).map((option) => {
+              const labels = globalState.control[controlKey].labels || {};
+              const label = labels[option] || option;
+              return (
+                <option key={`${option}-${controlKey}`}>{String(label)}</option>
+              );
+            })}
           </select>
         </td>
       </tr>
@@ -295,7 +315,7 @@ const Control = ({
     return (
       <tr>
         <td>
-          <label htmlFor={controlKey}>{controlKey}</label>
+          <label htmlFor={controlKey}>{controlName}</label>
         </td>
         <td>
           <textarea
@@ -331,7 +351,7 @@ const Control = ({
     return (
       <tr>
         <td>
-          <label htmlFor={controlKey}>{controlKey}</label>
+          <label htmlFor={controlKey}>{controlName}</label>
         </td>
         <td>
           {displayMin}
@@ -363,7 +383,7 @@ const Control = ({
   return (
     <tr>
       <td>
-        <label htmlFor={controlKey}>{controlKey}</label>
+        <label htmlFor={controlKey}>{controlName}</label>
       </td>
       <td>
         <input

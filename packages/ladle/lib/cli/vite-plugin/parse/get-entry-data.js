@@ -20,6 +20,7 @@ export const getEntryData = async (entries) => {
    * @type {import('../../../shared/types').EntryData}
    */
   const entryData = {};
+  entries.sort();
   for (let entry of entries) {
     debug(`Parsing ${entry}`);
     entryData[entry] = await getSingleEntry(entry);
@@ -61,6 +62,12 @@ export const getSingleEntry = async (entry) => {
     ExportNamedDeclaration: getNamedExports.bind(this, result),
   });
   debug(`Parsed data for ${entry}:`);
+  // make story order deterministic
+  result.stories = result.stories.sort((a, b) => {
+    if (a.storyId < b.storyId) return -1;
+    if (a.storyId > b.storyId) return 1;
+    return 0;
+  });
   debug(result);
   return result;
 };

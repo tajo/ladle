@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Capital letters in story names converted into delimiters 1`] = `
 "{
@@ -8,16 +8,6 @@ exports[`Capital letters in story names converted into delimiters 1`] = `
     \\"version\\": 1
   },
   \\"stories\\": {
-    \\"capitalization--blue-tiny-cat\\": {
-      \\"name\\": \\"Blue tiny cat\\",
-      \\"levels\\": [
-        \\"Capitalization\\"
-      ],
-      \\"locStart\\": 4,
-      \\"locEnd\\": 6,
-      \\"filePath\\": \\"tests/fixtures/capitalization.stories.tsx\\",
-      \\"meta\\": {}
-    },
     \\"capitalization--big-barking-dog\\": {
       \\"name\\": \\"Big barking dog\\",
       \\"levels\\": [
@@ -25,6 +15,16 @@ exports[`Capital letters in story names converted into delimiters 1`] = `
       ],
       \\"locStart\\": 8,
       \\"locEnd\\": 10,
+      \\"filePath\\": \\"tests/fixtures/capitalization.stories.tsx\\",
+      \\"meta\\": {}
+    },
+    \\"capitalization--blue-tiny-cat\\": {
+      \\"name\\": \\"Blue tiny cat\\",
+      \\"levels\\": [
+        \\"Capitalization\\"
+      ],
+      \\"locStart\\": 4,
+      \\"locEnd\\": 6,
       \\"filePath\\": \\"tests/fixtures/capitalization.stories.tsx\\",
       \\"meta\\": {}
     }
@@ -192,16 +192,6 @@ exports[`Story name replaces named export as a story name 1`] = `
     \\"version\\": 1
   },
   \\"stories\\": {
-    \\"storyname--doggo\\": {
-      \\"name\\": \\"Doggo\\",
-      \\"levels\\": [
-        \\"Storyname\\"
-      ],
-      \\"locStart\\": 4,
-      \\"locEnd\\": 9,
-      \\"filePath\\": \\"tests/fixtures/storyname.stories.tsx\\",
-      \\"meta\\": {}
-    },
     \\"storyname--capital-city\\": {
       \\"name\\": \\"Capital city\\",
       \\"levels\\": [
@@ -219,6 +209,16 @@ exports[`Story name replaces named export as a story name 1`] = `
       ],
       \\"locStart\\": 19,
       \\"locEnd\\": 21,
+      \\"filePath\\": \\"tests/fixtures/storyname.stories.tsx\\",
+      \\"meta\\": {}
+    },
+    \\"storyname--doggo\\": {
+      \\"name\\": \\"Doggo\\",
+      \\"levels\\": [
+        \\"Storyname\\"
+      ],
+      \\"locStart\\": 4,
+      \\"locEnd\\": 9,
       \\"filePath\\": \\"tests/fixtures/storyname.stories.tsx\\",
       \\"meta\\": {}
     }
