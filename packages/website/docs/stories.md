@@ -3,6 +3,9 @@ id: stories
 title: Stories
 ---
 
+import Image from '@theme/IdealImage';
+import imgStoryNavigation from '../static/img/story-navigation.png';
+
 Stories are the entrypoint to your components. They are simple modules that export your components and can add additional metadata to describe and parametrize them. You can create them anywhere in your project's `src/` folder; they should be named as `*.stories.jsx` or `*.stories.tsx`. Ladle searches your project and loads all the stories into a single playground so you can develop and test them.
 
 ## Navigation and Routes
@@ -38,7 +41,7 @@ Ladle creates three different routes and a tree navigation while following some 
 - `-` turns into a space
 - `--` turns into a nested story
 
-![Story Tree Navigation](/img/story-navigation.png)
+<Image img={imgStoryNavigation} alt="Story Tree Navigation" />
 
 ## Name Customization
 

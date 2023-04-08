@@ -3,6 +3,9 @@ id: controls
 title: Controls
 ---
 
+import Image from '@theme/IdealImage';
+import imgControls from '../static/img/controls.png';
+
 Stories can be parametrized. You can define the props that your component expects and then update them through the UI without changing the code or creating multiple additional stories with the same component. The example below covers all available `args` and `argTypes` that Ladle currently supports:
 
 ```tsx
@@ -59,7 +62,7 @@ Controls.argTypes = {
 
 Ladle detects `args` / `argTypes` and provides the Control UI so you can update the component without touching the code. You can define primitive types through `args` and enums through `argTypes`:
 
-![Controls](/img/controls.png)
+<Image img={imgControls} alt="Controls" />
 
 You can also create multiple stories by assigning different default `args` / `argTypes` to the same component:
 

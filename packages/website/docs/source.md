@@ -3,9 +3,12 @@ id: source
 title: Story Source
 ---
 
+import Image from '@theme/IdealImage';
+import imgSource from '../static/img/story-source.png';
+
 You can preview the source code of the active story and its origin.
 
-![Story Source Code](/img/story-source.png)
+<Image img={imgSource} alt="Story Source Code" />
 
 ## Hyperlink
 
