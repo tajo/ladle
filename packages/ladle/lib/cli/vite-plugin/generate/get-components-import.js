@@ -34,6 +34,8 @@ const checkIfNamedExportExists = (namedExport, sourceCode, filename) => {
 const getComponents = (configFolder) => {
   let defaultProvider = `export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);\n`;
   let defaultStorySourceHeader = `export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: "2em" }}, /*#__PURE__*/createElement('code', { className: "ladle-code" }, path));\n`;
+  let defaultArgs = `export const args = {};\n`;
+  let defaultArgTypes = `export const argTypes = {};\n`;
   const componentsPaths = [
     path.join(configFolder, "components.tsx"),
     path.join(configFolder, "components.ts"),
@@ -46,7 +48,7 @@ const getComponents = (configFolder) => {
 
   if (!firstFoundComponentsPath) {
     debug(`Custom components.{tsx,ts,jsx,js} not found.`);
-    return `${defaultProvider}${defaultStorySourceHeader}`;
+    return `${defaultProvider}${defaultStorySourceHeader}${defaultArgs}${defaultArgTypes}`;
   }
 
   const sourceCode = fs.readFileSync(firstFoundComponentsPath, "utf8");
@@ -60,11 +62,13 @@ const getComponents = (configFolder) => {
     sourceCode,
     filename,
   );
+  const isArgs = checkIfNamedExportExists("args", sourceCode, filename);
+  const isArgTypes = checkIfNamedExportExists("argTypes", sourceCode, filename);
 
-  if (!isStorySourceHeader && !isProvider) {
+  if (!isStorySourceHeader && !isProvider && !isArgs && !isArgTypes) {
     return `import '${cleanupWindowsPath(
       path.join(configFolder, filename),
-    )}';\n${defaultProvider}${defaultStorySourceHeader}`;
+    )}';\n${defaultProvider}${defaultStorySourceHeader}${defaultArgs}${defaultArgTypes}`;
   }
 
   let output = "";
@@ -84,6 +88,22 @@ const getComponents = (configFolder) => {
   } else {
     debug(`Custom StorySourceHeader not found. Returning the default.`);
     output += defaultStorySourceHeader;
+  }
+
+  if (isArgs) {
+    debug(`Global args found.`);
+    output += `export { args } from '${componentsPath}';\n`;
+  } else {
+    debug(`Global args not found.`);
+    output += defaultArgs;
+  }
+
+  if (isArgTypes) {
+    debug(`Global argTypes found.`);
+    output += `export { argTypes } from '${componentsPath}';\n`;
+  } else {
+    debug(`Global argTypes not found.`);
+    output += defaultArgTypes;
   }
 
   return output;

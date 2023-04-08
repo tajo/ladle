@@ -5,7 +5,7 @@ title: Providers
 
 Your components might need some global [React Context Provider](https://reactjs.org/docs/context.html#contextprovider). This is typically used for localization, state sharing or routing. You can add a provider to individual stories through [decorators](./stories#decorators). You can also create a global provider by adding `.ladle/components.tsx` (or `.ts`, `.jsx`, or `.js`):
 
-```tsx
+```tsx title=".ladle/components.tsx"
 import type { GlobalProvider } from "@ladle/react";
 
 export const Provider: GlobalProvider = ({

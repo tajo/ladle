@@ -18,6 +18,7 @@ module.exports = {
         "addons",
         "a11y",
         "actions",
+        "background",
         "controls",
         "links",
         "source",

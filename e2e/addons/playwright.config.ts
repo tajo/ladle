@@ -1,4 +1,5 @@
-import type { PlaywrightTestConfig } from "@playwright/test";
+import getPlaywrightConfig from "@ladle/playwright-config";
 
-const config: PlaywrightTestConfig = {};
-export default config;
+export default getPlaywrightConfig({
+  port: 61100,
+});

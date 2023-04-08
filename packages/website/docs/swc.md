@@ -7,7 +7,7 @@ Ladle uses [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react) b
 
 If you want to use [SWC](https://swc.rs/) instead of Babel, you can do it by installing and adding [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) into `./vite.config.js`:
 
-```js
+```js title="vite.config.js"
 import react from "@vitejs/plugin-react-swc";
 
 export default {
@@ -18,3 +18,5 @@ export default {
 Ladle automatically disables the Babel plugin.
 
 SWC is up to 20x faster than Babel and can supercharge your development experience. The only downside is that you can't utilize a rich ecosystem of Babel plugins if your project uses a special syntax.
+
+> Warning: `@vitejs/plugin-react-swc@3.2.0` currently doesn't work with `mdx` files. Use `3.1.0` for now.

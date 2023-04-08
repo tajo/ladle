@@ -8,6 +8,15 @@ module.exports = {
   favicon: "img/favicon.svg",
   organizationName: "tajo", // Usually your GitHub org/user name.
   projectName: "ladle", // Usually your repo name.
+  plugins: [
+    [
+      "@docusaurus/plugin-ideal-image",
+      {
+        quality: 100,
+        disableInDev: false,
+      },
+    ],
+  ],
   themeConfig: {
     algolia: {
       // The application ID provided by Algolia
@@ -70,7 +79,7 @@ module.exports = {
       "@docusaurus/preset-classic",
       {
         docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
+          sidebarPath: "./sidebars.js",
           // Please change this to your repo.
           editUrl: "https://github.com/tajo/ladle/edit/main/packages/website/",
         },
@@ -80,7 +89,7 @@ module.exports = {
           editUrl: "https://github.com/tajo/ladle/edit/main/packages/website/",
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: "./src/css/custom.css",
         },
         googleAnalytics: {
           trackingID: "UA-222922341-1",

@@ -21,7 +21,7 @@ pnpm install @playwright/test
 
 We need to tell Playwright what & how to test. We can create a single test file that dynamically creates subtests for each individual story. The following code in `tests/snapshot.spec.ts` is the whole secret sauce:
 
-```tsx
+```tsx title="tests/snapshot.spec.ts"
 import { test, expect } from "@playwright/test";
 // we can't create tests asynchronously, thus using the sync-fetch lib
 import fetch from "sync-fetch";
@@ -52,7 +52,7 @@ Object.keys(stories).forEach((storyKey) => {
 ```sh
 pnpm ladle build
 pnpm ladle preview -p 61000
-pnpm playwright test
+pnpx playwright test
 ```
 
 The first time you run the `test` script it will error out since it needs to create the baseline screenshots in `tests/snapshot.spec.ts-snapshots` folder. The second run will succeed:

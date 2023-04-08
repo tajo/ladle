@@ -3,6 +3,7 @@ import { config, stories } from "virtual:generated-list";
 import defaultConfig from "../../shared/default-config";
 import type { Config } from "../../shared/types";
 import debug from "./debug";
+import { sortStories } from "./story-name";
 
 if (Object.keys(config).length === 0) {
   debug("No custom config found.");
@@ -20,9 +21,10 @@ if (config?.addons?.width?.options) {
 }
 const mergedConfig: Config = merge(defaultConfig, config);
 if (mergedConfig.defaultStory === "") {
-  mergedConfig.defaultStory = Array.isArray(mergedConfig.storyOrder)
-    ? mergedConfig.storyOrder[0]
-    : mergedConfig.storyOrder(Object.keys(stories).sort())[0];
+  mergedConfig.defaultStory = sortStories(
+    Object.keys(stories),
+    mergedConfig.storyOrder,
+  )[0];
 }
 debug("Final config", mergedConfig);
 

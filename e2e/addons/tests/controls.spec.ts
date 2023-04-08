@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import queryString from "query-string";
 
 test("default control values", async ({ page }) => {
-  await page.goto("http://127.0.0.1:61100/?story=controls--controls");
+  await page.goto("/?story=controls--controls");
   await expect(page.locator("#content")).toHaveText(
     [
       "Count: 2",
@@ -19,7 +19,7 @@ test("default control values", async ({ page }) => {
 });
 
 test("boolean control works", async ({ page }) => {
-  await page.goto("http://127.0.0.1:61100/?story=controls--controls");
+  await page.goto("/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
   const disabled = await page.locator("#disabled");
@@ -28,7 +28,7 @@ test("boolean control works", async ({ page }) => {
 });
 
 test("complex control works", async ({ page }) => {
-  await page.goto("http://127.0.0.1:61100/?story=controls--controls");
+  await page.goto("/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.fill("textarea", '["Red","Pink"]');
@@ -36,7 +36,7 @@ test("complex control works", async ({ page }) => {
 });
 
 test("number control works", async ({ page }) => {
-  await page.goto("http://127.0.0.1:61100/?story=controls--controls");
+  await page.goto("/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.fill("#count", "5");
@@ -44,7 +44,7 @@ test("number control works", async ({ page }) => {
 });
 
 test("range control works", async ({ page }) => {
-  await page.goto("http://127.0.0.1:61100/?story=controls--controls");
+  await page.goto("/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
   const rangeControl = await page.locator(
@@ -58,7 +58,7 @@ test("range control works", async ({ page }) => {
 });
 
 test("string control works", async ({ page }) => {
-  await page.goto("http://127.0.0.1:61100/?story=controls--controls");
+  await page.goto("/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.fill("#label", "Hello me");
@@ -66,7 +66,7 @@ test("string control works", async ({ page }) => {
 });
 
 test("radio control works", async ({ page }) => {
-  await page.goto("http://127.0.0.1:61100/?story=controls--controls");
+  await page.goto("/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.check("#variant-secondary");
@@ -75,7 +75,7 @@ test("radio control works", async ({ page }) => {
 });
 
 test("radio control boolean type works", async ({ page }) => {
-  await page.goto("http://127.0.0.1:61100/?story=controls--controls");
+  await page.goto("/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.check("#variant-false");
@@ -87,7 +87,7 @@ test("radio control boolean type works", async ({ page }) => {
 });
 
 test("select control works", async ({ page }) => {
-  await page.goto("http://127.0.0.1:61100/?story=controls--controls");
+  await page.goto("/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.selectOption("select#size", "big");
@@ -95,7 +95,7 @@ test("select control works", async ({ page }) => {
 });
 
 test("select control boolean type work", async ({ page }) => {
-  await page.goto("http://127.0.0.1:61100/?story=controls--controls");
+  await page.goto("/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.selectOption("select#size", "false");
@@ -107,7 +107,7 @@ test("select control boolean type work", async ({ page }) => {
 });
 
 test("check control works", async ({ page }) => {
-  await page.goto("http://127.0.0.1:61100/?story=controls--controls");
+  await page.goto("/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.check("#airports-sfo");
@@ -119,7 +119,7 @@ test("check control works", async ({ page }) => {
 });
 
 test("set defaults and args inheritence works", async ({ page }) => {
-  await page.goto("http://127.0.0.1:61100/?story=controls--initial");
+  await page.goto("/?story=controls--initial");
   await expect(page.locator("#content")).toHaveText(
     "Variant: secondaryAirport: slcCountry: Empty: City: Food:",
   );
@@ -127,7 +127,7 @@ test("set defaults and args inheritence works", async ({ page }) => {
 
 test("controls state is passed through the URL", async ({ page }) => {
   await page.goto(
-    `http://127.0.0.1:61100/?story=controls--controls&${queryString.stringify({
+    `/?story=controls--controls&${queryString.stringify({
       "arg-count": 3,
       "arg-disabled": true,
       "arg-label": "Hello earth",
@@ -154,7 +154,7 @@ test("controls state is passed through the URL", async ({ page }) => {
 
 test("reset to defaults", async ({ page }) => {
   await page.goto(
-    `http://127.0.0.1:61100/?story=controls--controls&${queryString.stringify({
+    `/?story=controls--controls&${queryString.stringify({
       "arg-count": 3,
       "arg-disabled": true,
       "arg-label": "Hello earth",
@@ -199,7 +199,7 @@ test("reset to defaults", async ({ page }) => {
 });
 
 test("test export default level argTypes", async ({ page }) => {
-  await page.goto("http://127.0.0.1:61100/?story=controls--controls");
+  await page.goto("/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.check("#cities-Prague");

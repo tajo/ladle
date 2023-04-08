@@ -3,20 +3,36 @@ id: setup
 title: Setup
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 Ladle is a single package and command that does not require any initial configuration. It is quickly deployable even into complex monorepo setups.
 
 ## Dependencies
 
+<Tabs>
+<TabItem value="pnpm" label="pnpm">
+
 ```bash
-# pnpm
 pnpm add @ladle/react
+```
 
-# npm
+</TabItem>
+<TabItem value="npm" label="npm">
+
+```bash
 npm install @ladle/react
+```
 
-# yarn
+</TabItem>
+<TabItem value="yarn" label="yarn">
+
+```bash
 yarn add @ladle/react
 ```
+
+</TabItem>
+</Tabs>
 
 It expects that `react` and `react-dom` are already installed.
 
@@ -24,9 +40,9 @@ It expects that `react` and `react-dom` are already installed.
 
 Ladle looks for all stories matching the glob `src/**/*.stories.{js,jsx,ts,tsx}`.
 
-Let's create our first story: `src/hello.stories.tsx`:
+Let's create our first story:
 
-```jsx
+```tsx title="src/hello.stories.tsx"
 export const World = () => <p>Hey!</p>;
 ```
 
@@ -38,29 +54,92 @@ import * as React from "react";
 
 ## Run and develop
 
+<Tabs>
+<TabItem value="pnpm" label="pnpm">
+
 ```bash
 pnpm ladle serve
 ```
+
+</TabItem>
+<TabItem value="npm" label="npm">
+
+```bash
+npx ladle serve
+```
+
+</TabItem>
+<TabItem value="yarn" label="yarn">
+
+```bash
+yarn ladle serve
+```
+
+</TabItem>
+</Tabs>
 
 Development mode. It will start a dev server and open your browser. This is ideal when you want to quickly develop your components.
 
 ## Build
 
+<Tabs>
+<TabItem value="pnpm" label="pnpm">
+
 ```bash
 pnpm ladle build
 ```
+
+</TabItem>
+<TabItem value="npm" label="npm">
+
+```bash
+npx ladle build
+```
+
+</TabItem>
+<TabItem value="yarn" label="yarn">
+
+```bash
+yarn ladle build
+```
+
+</TabItem>
+</Tabs>
 
 Production build. It creates a `build` folder and outputs Ladle assets into it. This is optimized and minified version that you can deploy or use for testing.
 
 You need to serve it through a http server. Ladle has the `preview` command you can use.
 
+<Tabs>
+<TabItem value="pnpm" label="pnpm">
+
 ```bash
 pnpm ladle preview
 ```
 
+</TabItem>
+<TabItem value="npm" label="npm">
+
+```bash
+npx ladle preview
+```
+
+</TabItem>
+<TabItem value="yarn" label="yarn">
+
+```bash
+yarn ladle preview
+```
+
+</TabItem>
+</Tabs>
+
 ## All-in-one
 
 This is a full set of commands you can follow to get a basic setup from scratch:
+
+<Tabs>
+<TabItem value="pnpm" label="pnpm">
 
 ```bash
 mkdir my-ladle
@@ -72,7 +151,8 @@ echo "export const World = () => <p>Hey</p>;" > src/hello.stories.tsx
 pnpm ladle serve
 ```
 
-or with yarn
+</TabItem>
+<TabItem value="yarn" label="yarn">
 
 ```bash
 mkdir my-ladle
@@ -84,7 +164,8 @@ echo "export const World = () => <p>Hey</p>;" > src/hello.stories.tsx
 yarn ladle serve
 ```
 
-or with npm
+</TabItem>
+<TabItem value="npm" label="npm">
 
 ```bash
 mkdir my-ladle
@@ -95,6 +176,9 @@ mkdir src
 echo "export const World = () => <p>Hey</p>;" > src/hello.stories.tsx
 npx ladle serve
 ```
+
+</TabItem>
+</Tabs>
 
 ## StackBlitz
 

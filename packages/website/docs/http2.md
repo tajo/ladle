@@ -25,7 +25,7 @@ mkcert localhost #creates a new certificate for localhost
 
 Expect to be prompted for your OS password. This will create two files: `localhost.pem` and `localhost-key.pem`. Now we need to pass them into the `vite.config.ts`:
 
-```ts
+```ts title="vite.config.ts"
 import { defineConfig } from "vite";
 import fs from "fs";
 

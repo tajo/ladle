@@ -3,7 +3,10 @@ id: controls
 title: Controls
 ---
 
-Stories can be parametrized. You can define the props that your component expects and then update them through the UI without changing the code or creating multiple additional stories with the same component. The example below covers all available `args` and `argTypes` that Ladle currently supports:
+import Image from "@theme/IdealImage";
+import imgControls from "../static/img/controls.png";
+
+Stories can be parametrized. You can define the props that your component expects and then update them through the UI without changing the code or creating multiple additional stories with the same component. The example below covers all basic `args` and `argTypes` that Ladle supports:
 
 ```tsx
 import type { Story } from "@ladle/react";
@@ -47,7 +50,14 @@ Controls.argTypes = {
     control: { type: "select" }, // or type: multi-select
   },
   airports: {
+    name: "International Airports", // custom label
     options: ["sfo", "slc", "prg"],
+    // custom option labels
+    labels: {
+      sfo: "San Francisco",
+      slc: "Salt Lake City",
+      prg: "Prague",
+    },
     control: { type: "check" }, // or type: inline-check
   },
   range: {
@@ -59,7 +69,7 @@ Controls.argTypes = {
 
 Ladle detects `args` / `argTypes` and provides the Control UI so you can update the component without touching the code. You can define primitive types through `args` and enums through `argTypes`:
 
-![Controls](/img/controls.png)
+<Image img={imgControls} alt="Controls" />
 
 You can also create multiple stories by assigning different default `args` / `argTypes` to the same component:
 
@@ -81,6 +91,8 @@ CardWorld.args = {
 };
 ```
 
+## File level controls
+
 Both `args` and `argTypes` can be also set for all stories in a single file:
 
 ```tsx
@@ -96,3 +108,24 @@ export default {
   },
 };
 ```
+
+Per-story `args` / `argTypes` will override the file level ones.
+
+## Global level controls
+
+You can also define global `args` and `argTypes` in `.ladle/components.tsx`. These will be applied to all stories in the project:
+
+```tsx title=".ladle/components.tsx"
+export const args = {
+  label: "Hello world",
+};
+
+export const argTypes = {
+  cities: {
+    options: ["Prague", "NYC"],
+    control: { type: "check" },
+  },
+};
+```
+
+Per-story controls > file level controls > global level controls.

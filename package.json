@@ -27,6 +27,7 @@
     "e2e/decorators",
     "e2e/flow",
     "e2e/playwright",
+    "e2e/playwright-config",
     "e2e/programmatic",
     "e2e/provider",
     "e2e/swc"

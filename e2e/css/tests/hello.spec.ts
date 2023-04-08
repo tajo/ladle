@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test("css, css modules and postcss are loaded correctly", async ({ page }) => {
-  await page.goto("http://127.0.0.1:61102");
+  await page.goto("/");
   await expect(page.locator("h1")).toHaveCSS(
     "background-color",
     "rgb(255, 255, 0)",

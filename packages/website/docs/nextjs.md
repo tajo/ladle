@@ -11,11 +11,9 @@ Next.js is a popular React framework that provides a lot of features out of the 
 
 This component relies on a build-time transformation that Next.js provides. However, Ladle has its own build process. To make `next/image` work, we need to replace it with a simple `<img />` element.
 
-### `vite.config.ts`
+You'll need to customize Vite's config. Place it in the root directory of your project.
 
-You'll probably need to create this file. Place it in the root directory of your project.
-
-```tsx
+```tsx title="vite.config.ts"
 import path from "path";
 import { defineConfig } from "vite";
 
@@ -29,18 +27,14 @@ export default defineConfig({
 });
 ```
 
-### `.ladle/UnoptimizedLink.tsx`
-
-```tsx
+```tsx title=".ladle/UnoptimizedLink.tsx"
 const UnoptimizedLink = (props: any) => {
   return <a {...props} />;
 };
 export default UnoptimizedLink;
 ```
 
-### `.ladle/UnoptimizedImage.tsx`
-
-```tsx
+```tsx title=".ladle/UnoptimizedImage.tsx"
 const UnoptimizedImage = (props: any) => {
   return <img {...props} />;
 };
