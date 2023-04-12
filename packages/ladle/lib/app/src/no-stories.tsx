@@ -15,7 +15,7 @@ const NoStories = () => (
       or CLI flag <Code>--stories=your-glob</Code>.
     </p>
     <p>
-      <Link href="https://github.com/tajo/ladle">Github</Link>
+      <Link href="https://github.com/tajo/ladle">GitHub</Link>
     </p>
     <p>
       <Link href="https://www.ladle.dev">Docs</Link>
