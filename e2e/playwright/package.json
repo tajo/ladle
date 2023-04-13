@@ -1,5 +1,5 @@
 {
-  "name": "playwright",
+  "name": "test-playwright",
   "version": "0.0.34",
   "license": "MIT",
   "private": true,
@@ -17,7 +17,7 @@
   "dependencies": {
     "@ladle/react": "workspace:*",
     "@ladle/playwright-config": "workspace:*",
-    "@playwright/test": "^1.32.2",
+    "@playwright/test": "^1.32.3",
     "@types/sync-fetch": "^0.4.0",
     "cross-env": "^7.0.3",
     "react": "^18.2.0",
