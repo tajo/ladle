@@ -1,5 +1,5 @@
 {
-  "name": "playwright",
+  "name": "test-playwright",
   "version": "0.0.34",
   "license": "MIT",
   "private": true,
