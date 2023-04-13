@@ -7,7 +7,7 @@ import { Ring } from "./icons";
 import type { GlobalState, GlobalAction } from "../../shared/types";
 import { ActionType } from "../../shared/types";
 import config from "./get-config";
-import NoStories from "./no-stories";
+import StoryNotFound from "./story-not-found";
 import { ModeState, ThemeState } from "../../shared/types";
 import { CodeHighlight } from "./addons/source";
 
@@ -181,7 +181,7 @@ const Story = ({
                 {storyData ? (
                   React.createElement(storyData.component)
                 ) : (
-                  <NoStories wrongUrl activeStory={globalState.story} />
+                  <StoryNotFound activeStory={globalState.story} />
                 )}
               </Provider>
             </MDXProvider>
