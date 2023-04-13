@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.11.1
+
+### Patch Changes
+
+- [#414](https://github.com/tajo/ladle/pull/414) [`06bf239`](https://github.com/tajo/ladle/commit/06bf239767a12488e6f50e450d0286d19e740e01) Thanks [@tajo](https://github.com/tajo)! - Recent react-frame-component version bump causes iframe content to glitch - it sometimes doesn't load. It seems they switched some waiting logic. Pinning this dependency to 5.2.4 - the latest working version for now.
+
 ## 2.11.0
 
 ### Minor Changes
