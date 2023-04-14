@@ -98,7 +98,6 @@ const ArgsProvider = ({
             );
           }
         }
-        console.log(argKey, argValue);
         controls[argKey] = {
           name: argValue.name,
           type: argValue.control.type,
