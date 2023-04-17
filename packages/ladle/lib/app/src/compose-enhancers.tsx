@@ -1,12 +1,11 @@
-// @ts-nocheck
 import React from "react";
 import ArgsProvider from "./args-provider";
-import config from "./get-config";
 import { args, argTypes } from "virtual:generated-list";
 import { useLadleContext } from "./context";
+import type { StoryDecorator } from "../../shared/types";
 
 export default function composeEnhancers(module: any, storyName: string) {
-  let decorators: Function[] = [];
+  let decorators: StoryDecorator[] = [];
   const props = {
     args: {
       ...args,
@@ -29,20 +28,26 @@ export default function composeEnhancers(module: any, storyName: string) {
     decorators = [...decorators, ...module.default.decorators];
   }
 
-  return () => {
-    const { globalState, dispatch } = useLadleContext();
-    return React.useMemo(
+  return function RenderDecoratedStory() {
+    const { globalState } = useLadleContext();
+    const WithArgs = React.useMemo(
       () =>
-        globalState.controlInitialized ? (
-          decorators.reduce(
-            (story, decorator) =>
-              decorator(() => story, { globalState, dispatch, config }),
-            <ArgsProvider {...props} />,
-          )
-        ) : (
-          <ArgsProvider {...props} />
-        ),
-      [globalState.controlInitialized],
+        function RenderWithArgs() {
+          return <ArgsProvider {...props} />;
+        },
+      [],
     );
+    if (decorators.length === 0) return <WithArgs />;
+    const getBindedDecorator = (i: number) => {
+      return React.useRef(() => {
+        const context = useLadleContext();
+        return decorators[i](
+          i === 0 ? WithArgs : getBindedDecorator(i - 1),
+          context,
+        );
+      }).current;
+    };
+    const Decorated = getBindedDecorator(decorators.length - 1);
+    return globalState.controlInitialized ? <Decorated /> : <WithArgs />;
   };
 }
