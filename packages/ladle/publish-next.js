@@ -14,9 +14,7 @@ console.log(`Publishing @ladle/react ${version}`);
 
 const pkgJson = JSON.parse(fs.readFileSync("./package.json"));
 const oldVersion = pkgJson.version;
-const oldContextVersion = pkgJson.dependencies["@ladle/react-context"];
 pkgJson.version = version;
-pkgJson.dependencies["@ladle/react-context"] = oldContextVersion.split(":")[1];
 preparePackageJsonForPublish(pkgJson);
 fs.writeFileSync("./package.json", JSON.stringify(pkgJson, null, 2));
 
@@ -28,6 +26,5 @@ try {
 }
 
 pkgJson.version = oldVersion;
-pkgJson.dependencies["@ladle/react-context"] = oldContextVersion;
 revertPackageJson(pkgJson);
 fs.writeFileSync("./package.json", JSON.stringify(pkgJson, null, 2));
