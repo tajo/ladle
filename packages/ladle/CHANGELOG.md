@@ -1,5 +1,15 @@
 # @ladle/react
 
+## 2.12.0
+
+### Minor Changes
+
+- [#413](https://github.com/tajo/ladle/pull/413) [`b75f5c4`](https://github.com/tajo/ladle/commit/b75f5c42f282a4069c9f72bb09e21c890ebe17ca) Thanks [@wojtekmaj](https://github.com/wojtekmaj)! - Improved wording on "Story not found" page, added "Back to home" link, fixed typo in GitHub name
+
+### Patch Changes
+
+- [#418](https://github.com/tajo/ladle/pull/418) [`27d90ed`](https://github.com/tajo/ladle/commit/27d90edd6f38d7cf8ebfc8a4ba3792935b019d39) Thanks [@tajo](https://github.com/tajo)! - Fix context.globalState passed into decorators (second argument) was not updated.
+
 ## 2.11.1
 
 ### Patch Changes
