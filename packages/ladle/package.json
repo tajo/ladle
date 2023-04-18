@@ -69,7 +69,7 @@
     "source-map": "^0.7.4",
     "vfile": "^5.3.7",
     "vite": "4.2.1",
-    "vite-tsconfig-paths": "^4.0.8"
+    "vite-tsconfig-paths": "3.6.0"
   },
   "peerDependencies": {
     "react": ">=16.14.0",
