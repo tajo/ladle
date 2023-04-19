@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.12.1
+
+### Patch Changes
+
+- [#420](https://github.com/tajo/ladle/pull/420) [`10456ac`](https://github.com/tajo/ladle/commit/10456ac20ffcff4bcecc7102c589d1df1c635765) Thanks [@tajo](https://github.com/tajo)! - When the width of iframed story was bigger than the main canvas, the iframe was not properly centered and parts were missing.
+
 ## 2.12.0
 
 ### Minor Changes
