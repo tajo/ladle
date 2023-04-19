@@ -33,8 +33,10 @@ const StoryFrame = ({
       initialContent={`<!DOCTYPE html><html><head><base target="_parent" /></head><body style="margin:0"><div id="root"></div></body></html>`}
       mountTarget="#root"
       style={{
+        gridColumn: 2,
         height: width ? "calc(100% - 128px)" : "100%",
         width: width || "100%",
+        minWidth: width || "100%",
         minHeight: "500px",
         marginTop: width ? "64px" : 0,
         marginBottom: width ? "64px" : 0,
