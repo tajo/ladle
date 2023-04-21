@@ -28,7 +28,7 @@
   --ladle-mode-overflow: visible;
   --ladle-mode-height: 100%;
 }
-[data-iframed=""] {
+[data-iframed] {
   --ladle-main-padding: 0;
   --ladle-main-padding-mobile: 0;
   --ladle-main-padding: 0;
@@ -40,7 +40,7 @@ body {
   margin: 0;
 }
 
-[data-iframed=""] .ladle-main {
+[data-iframed]:not([data-iframed="0"]) .ladle-main {
   display: grid;
   grid-template-columns: minmax(64px, 1fr) auto minmax(64px, 1fr);
   overflow: auto;
@@ -54,6 +54,23 @@ body {
     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
   background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+.ladle-iframe {
+  height: 100%;
+  border: 0;
+  background-color: var(--ladle-bg-color-primary);
+}
+
+[data-iframed]:not([data-iframed="0"]) .ladle-iframe {
+  grid-column: 2;
+  height: calc(100% - 128px);
+  min-height: 500px;
+  margin-top: 64px;
+  margin-bottom: 64px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .ladle-background {

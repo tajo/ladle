@@ -14,7 +14,8 @@
   },
   "packageManager": "pnpm@7.26.3",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "files": [
     "lib",

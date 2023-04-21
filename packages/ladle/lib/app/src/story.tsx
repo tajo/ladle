@@ -32,20 +32,8 @@ const StoryFrame = ({
       title={`Story ${story}`}
       initialContent={`<!DOCTYPE html><html><head><base target="_parent" /></head><body style="margin:0"><div id="root"></div></body></html>`}
       mountTarget="#root"
-      style={{
-        gridColumn: 2,
-        height: width ? "calc(100% - 128px)" : "100%",
-        width: width || "100%",
-        minWidth: width || "100%",
-        minHeight: "500px",
-        marginTop: width ? "64px" : 0,
-        marginBottom: width ? "64px" : 0,
-        backgroundColor: darkTheme ? "#141414" : "#fff",
-        border: 0,
-        boxShadow: width
-          ? "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px"
-          : "none",
-      }}
+      className="ladle-iframe"
+      style={{ width: width || "100%" }}
     >
       {children}
     </Frame>
@@ -59,10 +47,12 @@ const SynchronizeHead = ({
   active,
   children,
   rtl,
+  width,
 }: {
   active: boolean;
   children: JSX.Element;
   rtl: boolean;
+  width: number;
 }) => {
   const { window: storyWindow } = useFrame();
   const syncHead = () => {
@@ -88,7 +78,7 @@ const SynchronizeHead = ({
     if (active) {
       syncHead();
       const observer = new MutationObserver(() => syncHead());
-      document.documentElement.setAttribute("data-iframed", "");
+      document.documentElement.setAttribute("data-iframed", `${width}`);
       observer.observe(document.head, {
         subtree: true,
         characterData: true,
@@ -137,7 +127,7 @@ const Story = ({
 
   React.useEffect(() => {
     if (globalState.mode !== ModeState.Preview && (iframeActive || width)) {
-      document.documentElement.setAttribute("data-iframed", "");
+      document.documentElement.setAttribute("data-iframed", `${width}`);
     } else {
       document.documentElement.removeAttribute("data-iframed");
     }
@@ -163,6 +153,7 @@ const Story = ({
               globalState.mode !== ModeState.Preview
             }
             rtl={globalState.rtl}
+            width={width}
           >
             <MDXProvider
               components={{
