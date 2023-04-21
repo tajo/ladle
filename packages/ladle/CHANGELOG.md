@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.12.2
+
+### Patch Changes
+
+- [#424](https://github.com/tajo/ladle/pull/424) [`ebe1594`](https://github.com/tajo/ladle/commit/ebe15941c63b6548a29784230f2c2ea2c106ad09) Thanks [@tajo](https://github.com/tajo)! - Fix iframe styles
+
 ## 2.12.1
 
 ### Patch Changes
