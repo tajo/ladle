@@ -8,21 +8,19 @@ import type { GlobalState, GlobalAction } from "../../shared/types";
 import { ActionType } from "../../shared/types";
 import config from "./get-config";
 import StoryNotFound from "./story-not-found";
-import { ModeState, ThemeState } from "../../shared/types";
+import { ModeState } from "../../shared/types";
 import { CodeHighlight } from "./addons/source";
 
 const StoryFrame = ({
   children,
   active,
   width,
-  darkTheme,
   story,
   mode,
 }: {
   children: React.ReactElement;
   active: boolean;
   width: number;
-  darkTheme: boolean;
   mode: ModeState;
   story: string;
 }) => {
@@ -145,7 +143,6 @@ const Story = ({
           story={globalState.story}
           width={width}
           mode={globalState.mode}
-          darkTheme={globalState.theme === ThemeState.Dark}
         >
           <SynchronizeHead
             active={
