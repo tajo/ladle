@@ -44,8 +44,8 @@ importers:
         specifier: ^8.0.3
         version: 8.0.3
       playwright:
-        specifier: ^1.32.3
-        version: 1.32.3
+        specifier: ^1.33.0
+        version: 1.33.0
       prettier:
         specifier: ^2.8.7
         version: 2.8.7
@@ -68,11 +68,11 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.32.3
-        version: 1.32.3
+        specifier: ^1.33.0
+        version: 1.33.0
       axe-playwright:
         specifier: ^1.2.3
-        version: 1.2.3(playwright@1.32.3)
+        version: 1.2.3(playwright@1.33.0)
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -95,8 +95,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.32.3
-        version: 1.32.3
+        specifier: ^1.33.0
+        version: 1.33.0
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -116,8 +116,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.32.3
-        version: 1.32.3
+        specifier: ^1.33.0
+        version: 1.33.0
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -140,8 +140,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.32.3
-        version: 1.32.3
+        specifier: ^1.33.0
+        version: 1.33.0
       autoprefixer:
         specifier: ^10.4.14
         version: 10.4.14(postcss@8.4.21)
@@ -170,8 +170,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.32.3
-        version: 1.32.3
+        specifier: ^1.33.0
+        version: 1.33.0
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -191,8 +191,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.32.3
-        version: 1.32.3
+        specifier: ^1.33.0
+        version: 1.33.0
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -221,8 +221,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.32.3
-        version: 1.32.3
+        specifier: ^1.33.0
+        version: 1.33.0
       '@types/sync-fetch':
         specifier: ^0.4.0
         version: 0.4.0
@@ -257,8 +257,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.32.3
-        version: 1.32.3
+        specifier: ^1.33.0
+        version: 1.33.0
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -278,8 +278,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.32.3
-        version: 1.32.3
+        specifier: ^1.33.0
+        version: 1.33.0
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -299,8 +299,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.32.3
-        version: 1.32.3
+        specifier: ^1.33.0
+        version: 1.33.0
       '@vitejs/plugin-react-swc':
         specifier: 3.1.0
         version: 3.1.0(vite@4.2.1)
@@ -490,7 +490,7 @@ importers:
         version: 18.2.0(react@18.2.0)
       vitest:
         specifier: ^0.29.8
-        version: 0.29.8(playwright@1.32.3)
+        version: 0.29.8(playwright@1.33.0)
 
   packages/website:
     dependencies:
@@ -3760,6 +3760,17 @@ packages:
       fsevents: 2.3.2
     dev: false
 
+  /@playwright/test@1.33.0:
+    resolution: {integrity: sha512-YunBa2mE7Hq4CfPkGzQRK916a4tuZoVx/EpLjeWlTVOnD4S2+fdaQZE0LJkbfhN5FTSKNLdcl7MoT5XB37bTkg==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dependencies:
+      '@types/node': 18.15.11
+      playwright-core: 1.33.0
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: false
+
   /@polka/url@1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: false
@@ -5129,7 +5140,7 @@ packages:
       rimraf: 3.0.2
     dev: false
 
-  /axe-playwright@1.2.3(playwright@1.32.3):
+  /axe-playwright@1.2.3(playwright@1.33.0):
     resolution: {integrity: sha512-bTxCTNp3kx6sQRMjmuLv8pG3+v+kOCvFXATim1+XUXzW6ykulbbuJdQfgB+vQPNAF9uvYbW2qrv9pg81ZSFV/A==}
     peerDependencies:
       playwright: '>1.0.0'
@@ -5137,7 +5148,7 @@ packages:
       axe-core: 4.6.3
       axe-html-reporter: 2.2.3(axe-core@4.6.3)
       picocolors: 1.0.0
-      playwright: 1.32.3
+      playwright: 1.33.0
     dev: false
 
   /axios@0.25.0:
@@ -10483,14 +10494,20 @@ packages:
     resolution: {integrity: sha512-SB+cdrnu74ZIn5Ogh/8278ngEh9NEEV0vR4sJFmK04h2iZpybfbqBY0bX6+BLYWVdV12JLLI+JEFtSnYgR+mWg==}
     engines: {node: '>=14'}
     hasBin: true
+    dev: false
 
-  /playwright@1.32.3:
-    resolution: {integrity: sha512-h/ylpgoj6l/EjkfUDyx8cdOlfzC96itPpPe8BXacFkqpw/YsuxkpPyVbzEq4jw+bAJh5FLgh31Ljg2cR6HV3uw==}
+  /playwright-core@1.33.0:
+    resolution: {integrity: sha512-aizyPE1Cj62vAECdph1iaMILpT0WUDCq3E6rW6I+dleSbBoGbktvJtzS6VHkZ4DKNEOG9qJpiom/ZxO+S15LAw==}
+    engines: {node: '>=14'}
+    hasBin: true
+
+  /playwright@1.33.0:
+    resolution: {integrity: sha512-+zzU3V2TslRX2ETBRgQKsKytYBkJeLZ2xzUj4JohnZnxQnivoUvOvNbRBYWSYykQTO0Y4zb8NwZTYFUO+EpPBQ==}
     engines: {node: '>=14'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      playwright-core: 1.32.3
+      playwright-core: 1.33.0
 
   /postcss-calc@8.2.4(postcss@8.4.21):
     resolution: {integrity: sha512-SmWMSJmB8MRnnULldx0lQIyhSNvuDl9HfrZkaqqE/WHAhToYsAvDq+yAsA/kIyINDszOp3Rh0GFoNuH5Ypsm3Q==}
@@ -13548,7 +13565,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
 
-  /vitest@0.29.8(playwright@1.32.3):
+  /vitest@0.29.8(playwright@1.33.0):
     resolution: {integrity: sha512-JIAVi2GK5cvA6awGpH0HvH/gEG9PZ0a/WoxdiV3PmqK+3CjQMf8c+J/Vhv4mdZ2nRyXFw66sAg6qz7VNkaHfDQ==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -13594,7 +13611,7 @@ packages:
       local-pkg: 0.4.3
       pathe: 1.1.0
       picocolors: 1.0.0
-      playwright: 1.32.3
+      playwright: 1.33.0
       source-map: 0.6.1
       std-env: 3.3.2
       strip-literal: 1.0.1
