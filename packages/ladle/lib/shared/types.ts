@@ -178,6 +178,8 @@ export type Config = {
   outDir: string;
   base?: string;
   mode?: string;
+  onDevServerStart: (serverUrl: string) => void;
+  i18n: { [key: string]: string };
   addons: {
     control: {
       enabled: boolean;

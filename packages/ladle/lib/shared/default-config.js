@@ -11,6 +11,12 @@ export default {
   previewPort: 8080,
   outDir: "build",
   base: undefined,
+  onDevServerStart: () => {
+    return;
+  },
+  i18n: {
+    buildTooltip: '💡 Tip: Run "ladle preview" to check that the build works!',
+  },
   // enable/disable addons and their default state
   addons: {
     control: {

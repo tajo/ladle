@@ -54,7 +54,7 @@ const bundler = async (config, configFolder) => {
       if (
         ctx.request.method === "GET" &&
         ctx.request.url ===
-        (redirectBase ? path.join(redirectBase, "meta.json") : "/meta.json")
+          (redirectBase ? path.join(redirectBase, "meta.json") : "/meta.json")
       ) {
         const entryData = await getEntryData(
           await globby(
@@ -89,15 +89,15 @@ const bundler = async (config, configFolder) => {
       vite.config.server.https.key &&
       vite.config.server.https.cert;
     const hostname =
-      config.host ?? (
-        vite.config.server.host === true
-          ? "0.0.0.0"
-          : typeof vite.config.server.host === "string"
-            ? vite.config.server.host
-            : "localhost"
-      );
-    const serverUrl = `${useHttps ? "https" : "http"}://${hostname}:${port}${vite.config.base || ""
-      }`;
+      config.host ??
+      (vite.config.server.host === true
+        ? "0.0.0.0"
+        : typeof vite.config.server.host === "string"
+        ? vite.config.server.host
+        : "localhost");
+    const serverUrl = `${useHttps ? "https" : "http"}://${hostname}:${port}${
+      vite.config.base || ""
+    }`;
 
     const listenCallback = async () => {
       console.log(
@@ -110,6 +110,8 @@ const bundler = async (config, configFolder) => {
           textAlignment: "center",
         }),
       );
+
+      config.onDevServerStart(serverUrl);
 
       if (
         vite.config.server.open !== "none" &&

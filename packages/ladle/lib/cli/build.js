@@ -40,7 +40,7 @@ const build = async (params = {}) => {
       0,
     )}s producing ${folderSize} MiB of assets.`,
   );
-  console.log('💡 Tip: Run "ladle preview" to check that the build works!');
+  console.log(config.i18n.buildTooltip);
   return true;
 };
 
