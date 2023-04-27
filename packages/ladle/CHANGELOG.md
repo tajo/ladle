@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.12.3
+
+### Patch Changes
+
+- [#427](https://github.com/tajo/ladle/pull/427) [`180cfd5`](https://github.com/tajo/ladle/commit/180cfd50518e8c1a4b5b74b43ae65234484b8498) Thanks [@tajo](https://github.com/tajo)! - Add i18n and onDevServerStart config options (undocumented for now)
+
 ## 2.12.2
 
 ### Patch Changes

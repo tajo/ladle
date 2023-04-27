@@ -1,6 +1,6 @@
 {
   "name": "test-playwright",
-  "version": "0.0.38",
+  "version": "0.0.39",
   "license": "MIT",
   "private": true,
   "scripts": {

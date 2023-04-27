@@ -1,6 +1,6 @@
 {
   "name": "test-swc",
-  "version": "0.3.24",
+  "version": "0.3.25",
   "license": "MIT",
   "private": true,
   "scripts": {
