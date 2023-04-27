@@ -38,7 +38,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Install playwright
-        run: pnpm exec playwright install@1.33.0 --with-deps
+        run: pnpm exec playwright@1.33.0 install --with-deps
 
       - name: Eslint
         run: pnpm lint
