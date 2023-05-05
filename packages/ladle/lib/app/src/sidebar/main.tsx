@@ -1,5 +1,6 @@
 import * as React from "react";
 import TreeView from "./tree-view";
+import config from "../get-config";
 import type { UpdateStory } from "../../../shared/types";
 
 const Main = ({
@@ -41,6 +42,8 @@ const Main = ({
     story.includes(canonicalSearch),
   );
 
+  console.log("config", config);
+
   return (
     <nav role="navigation" className="ladle-aside">
       <input
@@ -62,7 +65,7 @@ const Main = ({
         stories={filteredStories}
         story={story}
         updateStory={updateStory}
-        searchActive={search !== ""}
+        allExpanded={search !== "" || config.expandStoryTree}
         setTreeRootRef={(root: HTMLUListElement | null) =>
           (treeRoot.current = root)
         }

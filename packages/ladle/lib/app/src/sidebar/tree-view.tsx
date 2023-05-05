@@ -25,7 +25,7 @@ const TreeView = ({
   stories,
   story,
   updateStory,
-  searchActive,
+  allExpanded,
   searchRef,
   setTreeRootRef,
 }: {
@@ -34,14 +34,14 @@ const TreeView = ({
   searchRef: React.Ref<HTMLLinkElement>;
   updateStory: UpdateStory;
   setTreeRootRef: (root: HTMLUListElement | null) => void;
-  searchActive?: boolean;
+  allExpanded?: boolean;
 }) => {
   const treeItemRefs: TreeItemRefs = React.useRef({});
   const [tree, setTree] = React.useState(
-    getStoryTree(stories, story, searchActive),
+    getStoryTree(stories, story, allExpanded),
   );
   React.useEffect(() => {
-    setTree(getStoryTree(stories, story, searchActive));
+    setTree(getStoryTree(stories, story, allExpanded));
   }, [stories.join(",")]);
 
   const [selectedItemId, setSelectedItemId] = React.useState<string | null>(

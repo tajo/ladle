@@ -21,6 +21,9 @@ const ladleConfigToClientConfig = (config) => {
             : config.storyOrder.toString(),
         }
       : {}),
+    ...(config.expandStoryTree
+      ? { expandStoryTree: config.expandStoryTree }
+      : {}),
   };
 };
 

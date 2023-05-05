@@ -178,6 +178,7 @@ export type Config = {
   outDir: string;
   base?: string;
   mode?: string;
+  expandStoryTree?: boolean;
   onDevServerStart: (serverUrl: string) => void;
   i18n: { [key: string]: string };
   addons: {

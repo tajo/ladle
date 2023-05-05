@@ -11,6 +11,7 @@ export default {
   previewPort: 8080,
   outDir: "build",
   base: undefined,
+  expandStoryTree: false,
   onDevServerStart: () => {
     return;
   },
