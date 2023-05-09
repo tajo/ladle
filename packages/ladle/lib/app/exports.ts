@@ -98,7 +98,6 @@ export type ControlType =
 export interface ArgType<K = any> {
   control?: {
     name?: string;
-    options?: K[];
     labels?: { [key: string]: string };
     type: ControlType;
     min?: number;
@@ -106,6 +105,7 @@ export interface ArgType<K = any> {
     step?: number;
     [key: string]: any;
   };
+  options?: K[];
   defaultValue?: K;
   description?: string;
   name?: string;
