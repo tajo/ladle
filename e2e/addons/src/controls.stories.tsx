@@ -81,8 +81,8 @@ Controls.argTypes = {
 
 export const Initial: Story<{
   variant: string;
-  airports: string[];
-  cities: string[];
+  airports: string;
+  cities: string;
   empty: string;
   countries: string;
   food: string;
@@ -114,7 +114,7 @@ Initial.argTypes = {
   airports: {
     options: ["sfo", "slc", "prg"],
     control: { type: "check" },
-    defaultValue: ["slc"],
+    defaultValue: "slc",
   },
   countries: {
     options: ["USA", "Germany"],
