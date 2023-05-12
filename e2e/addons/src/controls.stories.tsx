@@ -61,12 +61,12 @@ Controls.args = {
 };
 Controls.argTypes = {
   variant: {
-    options: ["primary", "secondary", true, false],
+    options: ["primary", "secondary"],
     control: { type: "radio" },
     defaultValue: "primary",
   },
   size: {
-    options: ["small", "medium", "big", true, false],
+    options: ["small", "medium", "big"],
     control: { type: "select" },
   },
   airports: {
