@@ -8,14 +8,14 @@ type Props = {
   variant: string;
   size: string;
   range: number;
-  airports: string;
-  cities: string;
+  airports: string[];
+  cities: string[];
 };
 
 export default {
   argTypes: {
     cities: {
-      options: ["Prague", "NYC"],
+      options: [["Prague"], ["NYC"]],
       control: { type: "check" },
     },
   },
@@ -70,7 +70,7 @@ Controls.argTypes = {
     control: { type: "select" },
   },
   airports: {
-    options: ["sfo", "slc", "prg"],
+    options: [["sfo"], ["slc"], ["prg"]],
     control: { type: "check" },
   },
   range: {
@@ -81,8 +81,8 @@ Controls.argTypes = {
 
 export const Initial: Story<{
   variant: string;
-  airports: string;
-  cities: string;
+  airports: string[];
+  cities: string[];
   empty: string;
   countries: string;
   food: string;
@@ -112,9 +112,9 @@ Initial.argTypes = {
     control: { type: "radio" },
   },
   airports: {
-    options: ["sfo", "slc", "prg"],
+    options: [["sfo"], ["slc"], ["prg"]],
     control: { type: "check" },
-    defaultValue: "slc",
+    defaultValue: ["slc"],
   },
   countries: {
     options: ["USA", "Germany"],
