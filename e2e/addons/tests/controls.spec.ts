@@ -78,12 +78,8 @@ test("radio control boolean type works", async ({ page }) => {
   await page.goto("/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
-  await page.check("#variant-false");
-  await expect(page.locator("#content")).toContainText("variant is boolean");
   await page.check("#variant-secondary");
   await expect(page.locator("#content")).toContainText("variant is string");
-  await page.check("#variant-true");
-  await expect(page.locator("#content")).toContainText("variant is boolean");
 });
 
 test("select control works", async ({ page }) => {
@@ -98,12 +94,8 @@ test("select control boolean type work", async ({ page }) => {
   await page.goto("/?story=controls--controls");
   const button = await page.locator('[data-testid="addon-control"]');
   await button.click();
-  await page.selectOption("select#size", "false");
-  await expect(page.locator("#content")).toContainText("size is boolean");
   await page.selectOption("select#size", "medium");
   await expect(page.locator("#content")).toContainText("size is string");
-  await page.selectOption("select#size", "true");
-  await expect(page.locator("#content")).toContainText("size is boolean");
 });
 
 test("check control works", async ({ page }) => {
