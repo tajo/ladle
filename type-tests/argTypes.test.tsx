@@ -15,11 +15,7 @@ ArgTypes.argTypes = {
   foo: {
     control: {
       type: "select",
-      options: [
-        "foo",
-        // @ts-expect-error - 1 is not a string
-        5,
-      ],
+      options: ["foo", 5],
     },
   },
   bar: {
