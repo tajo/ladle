@@ -202,6 +202,7 @@ export type Config = {
   };
   onDevServerStart: (serverUrl: string) => void;
   i18n: { [key: string]: string };
+  disableReactPlugin?: boolean;
   addons: {
     control: {
       enabled: boolean;
