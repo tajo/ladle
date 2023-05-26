@@ -59,6 +59,10 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
   debug("User provided @vite/plugin-react: %s", hasReactPlugin);
   debug("User provided @vite/plugin-react-swc: %s", hasReactSwcPlugin);
 
+  const hasDisabledReactPlugin = ladleConfig?.disableReactPlugin;
+
+  debug("User disabled @vite/plugin-react: %s", hasDisabledReactPlugin);
+
   // We need to fake react-dom/client import if the user still uses React v17
   // and not v18, otherwise Vite would fail the import analysis step
   const resolve = {};

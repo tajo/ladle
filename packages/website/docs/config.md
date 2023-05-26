@@ -179,6 +179,18 @@ export default {
 
 The same effect can be achieved by creating a file `.ladle/head.html`.
 
+### disableReactPlugin
+
+If you need to disable the default injection of @vitejs/plugin-react.
+
+This is particularly useful when using a different plugin which also injects fast-refresh functionality.
+
+```tsx
+export default {
+  disableReactPlugin: true,
+};
+```
+
 ### addons
 
 You can enable or disable all Ladle addons (the buttons in the left bottom corner). You can also control their default state. Must be serializable.
