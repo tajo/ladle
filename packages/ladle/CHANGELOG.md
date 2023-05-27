@@ -1,5 +1,15 @@
 # @ladle/react
 
+## 2.13.0
+
+### Minor Changes
+
+- [#437](https://github.com/tajo/ladle/pull/437) [`04a4662`](https://github.com/tajo/ladle/commit/04a4662b41b9d82b8b5d134f07f8b4c9757ef901) Thanks [@tajo](https://github.com/tajo)! - Include all stories into optimizeDeps.entries so all deps get prebundled and there are no further reloads later.
+
+### Patch Changes
+
+- [#438](https://github.com/tajo/ladle/pull/438) [`6d720ab`](https://github.com/tajo/ladle/commit/6d720ab7170f046f905d51c3b277c1bc6d53d5e3) Thanks [@tajo](https://github.com/tajo)! - Add support for args mapping
+
 ## 2.12.3
 
 ### Patch Changes
