@@ -16,6 +16,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^17.4.4
         version: 17.4.4
+      '@playwright/test':
+        specifier: ^1.34.3
+        version: 1.34.3
       '@types/react':
         specifier: ^18.0.33
         version: 18.0.33
@@ -3877,7 +3880,6 @@ packages:
       playwright-core: 1.34.3
     optionalDependencies:
       fsevents: 2.3.2
-    dev: false
 
   /@polka/url@1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
@@ -10601,7 +10603,6 @@ packages:
     resolution: {integrity: sha512-2pWd6G7OHKemc5x1r1rp8aQcpvDh7goMBZlJv6Co5vCNLVcQJdhxRL09SGaY6HcyHH9aT4tiynZabMofVasBYw==}
     engines: {node: '>=14'}
     hasBin: true
-    dev: false
 
   /playwright@1.34.3:
     resolution: {integrity: sha512-UOOVE4ZbGfGkP1KVqWTdXOmm8Pw2pBhfbmlqKMkpiRCQjL5W+J+xRQXpgutFr0iM4pWl8g0GyyASMsqjQfFohw==}
