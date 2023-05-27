@@ -16,6 +16,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^17.4.4
         version: 17.4.4
+      '@playwright/test':
+        specifier: ^1.34.3
+        version: 1.34.3
       '@types/react':
         specifier: ^18.0.33
         version: 18.0.33
@@ -43,9 +46,6 @@ importers:
       husky:
         specifier: ^8.0.3
         version: 8.0.3
-      playwright:
-        specifier: ^1.33.0
-        version: 1.33.0
       prettier:
         specifier: ^2.8.7
         version: 2.8.7
@@ -68,11 +68,11 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.33.0
-        version: 1.33.0
+        specifier: ^1.34.3
+        version: 1.34.3
       axe-playwright:
         specifier: ^1.2.3
-        version: 1.2.3(playwright@1.33.0)
+        version: 1.2.3(playwright@1.34.3)
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -95,8 +95,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.33.0
-        version: 1.33.0
+        specifier: ^1.34.3
+        version: 1.34.3
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -116,8 +116,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.33.0
-        version: 1.33.0
+        specifier: ^1.34.3
+        version: 1.34.3
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -140,8 +140,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.33.0
-        version: 1.33.0
+        specifier: ^1.34.3
+        version: 1.34.3
       autoprefixer:
         specifier: ^10.4.14
         version: 10.4.14(postcss@8.4.21)
@@ -170,8 +170,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.33.0
-        version: 1.33.0
+        specifier: ^1.34.3
+        version: 1.34.3
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -191,8 +191,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.33.0
-        version: 1.33.0
+        specifier: ^1.34.3
+        version: 1.34.3
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -221,8 +221,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.33.0
-        version: 1.33.0
+        specifier: ^1.34.3
+        version: 1.34.3
       '@types/sync-fetch':
         specifier: ^0.4.0
         version: 0.4.0
@@ -257,8 +257,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.33.0
-        version: 1.33.0
+        specifier: ^1.34.3
+        version: 1.34.3
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -278,8 +278,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.33.0
-        version: 1.33.0
+        specifier: ^1.34.3
+        version: 1.34.3
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -299,8 +299,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/ladle
       '@playwright/test':
-        specifier: ^1.33.0
-        version: 1.33.0
+        specifier: ^1.34.3
+        version: 1.34.3
       '@vitejs/plugin-react-swc':
         specifier: 3.1.0
         version: 3.1.0(vite@4.2.1)
@@ -490,7 +490,7 @@ importers:
         version: 18.2.0(react@18.2.0)
       vitest:
         specifier: ^0.29.8
-        version: 0.29.8(playwright@1.33.0)
+        version: 0.29.8
 
   packages/website:
     dependencies:
@@ -2236,7 +2236,7 @@ packages:
     dev: true
 
   /@colors/colors@1.5.0:
-    resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
+    resolution: {integrity: sha1-u1BFecHK6SPmV2pPXaQ9Jfl729k=, tarball: https://unpm.uberinternal.com/%40colors%2Fcolors/-/colors-1.5.0.tgz}
     engines: {node: '>=0.1.90'}
     requiresBuild: true
     dev: false
@@ -3037,7 +3037,7 @@ packages:
     dev: false
 
   /@docusaurus/react-loadable@5.5.2(react@17.0.2):
-    resolution: {integrity: sha512-A3dYjdBGuy0IGT+wyLIGIKLRE+sAk1iNk0f1HjNDysO7u8lhL4N3VEm+FAubmJbAztn94F7MxBTPmnixbiyFdQ==}
+    resolution: {integrity: sha1-garg24Hsr72u42UfEoBFgIaPps4=, tarball: https://unpm.uberinternal.com/%40docusaurus%2Freact-loadable/-/react-loadable-5.5.2.tgz}
     peerDependencies:
       react: '*'
     dependencies:
@@ -3320,7 +3320,7 @@ packages:
     dev: false
 
   /@esbuild/android-arm64@0.17.17:
-    resolution: {integrity: sha512-jaJ5IlmaDLFPNttv0ofcwy/cfeY4bh/n705Tgh+eLObbGtQBK3EPAu+CzL95JVE4nFAliyrnEu0d32Q5foavqg==}
+    resolution: {integrity: sha1-FksFTVhVH4hWKF84bhqPRdm6OjE=, tarball: https://unpm.uberinternal.com/%40esbuild%2Fandroid-arm64/-/android-arm64-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [android]
@@ -3328,7 +3328,7 @@ packages:
     optional: true
 
   /@esbuild/android-arm@0.17.17:
-    resolution: {integrity: sha512-E6VAZwN7diCa3labs0GYvhEPL2M94WLF8A+czO8hfjREXxba8Ng7nM5VxV+9ihNXIY1iQO1XxUU4P7hbqbICxg==}
+    resolution: {integrity: sha1-GztacCppuI3u80KnqA30yJTk8GU=, tarball: https://unpm.uberinternal.com/%40esbuild%2Fandroid-arm/-/android-arm-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [arm]
     os: [android]
@@ -3336,7 +3336,7 @@ packages:
     optional: true
 
   /@esbuild/android-x64@0.17.17:
-    resolution: {integrity: sha512-446zpfJ3nioMC7ASvJB1pszHVskkw4u/9Eu8s5yvvsSDTzYh4p4ZIRj0DznSl3FBF0Z/mZfrKXTtt0QCoFmoHA==}
+    resolution: {integrity: sha1-Z4FSfjxOpN5TKxSdGKIWfwZ4Pn8=, tarball: https://unpm.uberinternal.com/%40esbuild%2Fandroid-x64/-/android-x64-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [android]
@@ -3344,7 +3344,7 @@ packages:
     optional: true
 
   /@esbuild/darwin-arm64@0.17.17:
-    resolution: {integrity: sha512-m/gwyiBwH3jqfUabtq3GH31otL/0sE0l34XKpSIqR7NjQ/XHQ3lpmQHLHbG8AHTGCw8Ao059GvV08MS0bhFIJQ==}
+    resolution: {integrity: sha1-xZYe9NPBzIDa/pBcwUW1px0qwZY=, tarball: https://unpm.uberinternal.com/%40esbuild%2Fdarwin-arm64/-/darwin-arm64-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [darwin]
@@ -3352,7 +3352,7 @@ packages:
     optional: true
 
   /@esbuild/darwin-x64@0.17.17:
-    resolution: {integrity: sha512-4utIrsX9IykrqYaXR8ob9Ha2hAY2qLc6ohJ8c0CN1DR8yWeMrTgYFjgdeQ9LIoTOfLetXjuCu5TRPHT9yKYJVg==}
+    resolution: {integrity: sha1-uB8yWcw0lpH2euMPezM6U4mbPCA=, tarball: https://unpm.uberinternal.com/%40esbuild%2Fdarwin-x64/-/darwin-x64-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [darwin]
@@ -3360,7 +3360,7 @@ packages:
     optional: true
 
   /@esbuild/freebsd-arm64@0.17.17:
-    resolution: {integrity: sha512-4PxjQII/9ppOrpEwzQ1b0pXCsFLqy77i0GaHodrmzH9zq2/NEhHMAMJkJ635Ns4fyJPFOlHMz4AsklIyRqFZWA==}
+    resolution: {integrity: sha1-24Rq0Wz5Fv06zdp5uF6oZ8sQDoc=, tarball: https://unpm.uberinternal.com/%40esbuild%2Ffreebsd-arm64/-/freebsd-arm64-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [freebsd]
@@ -3368,7 +3368,7 @@ packages:
     optional: true
 
   /@esbuild/freebsd-x64@0.17.17:
-    resolution: {integrity: sha512-lQRS+4sW5S3P1sv0z2Ym807qMDfkmdhUYX30GRBURtLTrJOPDpoU0kI6pVz1hz3U0+YQ0tXGS9YWveQjUewAJw==}
+    resolution: {integrity: sha1-Tdmay6q6AJSdUJ58FEsbbvnhgVs=, tarball: https://unpm.uberinternal.com/%40esbuild%2Ffreebsd-x64/-/freebsd-x64-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [freebsd]
@@ -3376,7 +3376,7 @@ packages:
     optional: true
 
   /@esbuild/linux-arm64@0.17.17:
-    resolution: {integrity: sha512-2+pwLx0whKY1/Vqt8lyzStyda1v0qjJ5INWIe+d8+1onqQxHLLi3yr5bAa4gvbzhZqBztifYEu8hh1La5+7sUw==}
+    resolution: {integrity: sha1-f5J0FAsrufQjDbv99dwnYSFeMPY=, tarball: https://unpm.uberinternal.com/%40esbuild%2Flinux-arm64/-/linux-arm64-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [linux]
@@ -3384,7 +3384,7 @@ packages:
     optional: true
 
   /@esbuild/linux-arm@0.17.17:
-    resolution: {integrity: sha512-biDs7bjGdOdcmIk6xU426VgdRUpGg39Yz6sT9Xp23aq+IEHDb/u5cbmu/pAANpDB4rZpY/2USPhCA+w9t3roQg==}
+    resolution: {integrity: sha1-XI5Ewq8Fa7IUfPmtE4QCILy4lIs=, tarball: https://unpm.uberinternal.com/%40esbuild%2Flinux-arm/-/linux-arm-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [arm]
     os: [linux]
@@ -3392,7 +3392,7 @@ packages:
     optional: true
 
   /@esbuild/linux-ia32@0.17.17:
-    resolution: {integrity: sha512-IBTTv8X60dYo6P2t23sSUYym8fGfMAiuv7PzJ+0LcdAndZRzvke+wTVxJeCq4WgjppkOpndL04gMZIFvwoU34Q==}
+    resolution: {integrity: sha1-GKazeYZYvn9G6Yc/oMjUvsVMkhI=, tarball: https://unpm.uberinternal.com/%40esbuild%2Flinux-ia32/-/linux-ia32-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [linux]
@@ -3400,7 +3400,7 @@ packages:
     optional: true
 
   /@esbuild/linux-loong64@0.17.17:
-    resolution: {integrity: sha512-WVMBtcDpATjaGfWfp6u9dANIqmU9r37SY8wgAivuKmgKHE+bWSuv0qXEFt/p3qXQYxJIGXQQv6hHcm7iWhWjiw==}
+    resolution: {integrity: sha1-qNk1FKR/e0IycWyfAq62MLriTEA=, tarball: https://unpm.uberinternal.com/%40esbuild%2Flinux-loong64/-/linux-loong64-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [loong64]
     os: [linux]
@@ -3408,7 +3408,7 @@ packages:
     optional: true
 
   /@esbuild/linux-mips64el@0.17.17:
-    resolution: {integrity: sha512-2kYCGh8589ZYnY031FgMLy0kmE4VoGdvfJkxLdxP4HJvWNXpyLhjOvxVsYjYZ6awqY4bgLR9tpdYyStgZZhi2A==}
+    resolution: {integrity: sha1-R4TvscPw6sgTNpX6iSU9VYFJ7hs=, tarball: https://unpm.uberinternal.com/%40esbuild%2Flinux-mips64el/-/linux-mips64el-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [mips64el]
     os: [linux]
@@ -3416,7 +3416,7 @@ packages:
     optional: true
 
   /@esbuild/linux-ppc64@0.17.17:
-    resolution: {integrity: sha512-KIdG5jdAEeAKogfyMTcszRxy3OPbZhq0PPsW4iKKcdlbk3YE4miKznxV2YOSmiK/hfOZ+lqHri3v8eecT2ATwQ==}
+    resolution: {integrity: sha1-72VY7F5d2dwWiGND4MzbBpnXDTw=, tarball: https://unpm.uberinternal.com/%40esbuild%2Flinux-ppc64/-/linux-ppc64-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [ppc64]
     os: [linux]
@@ -3424,7 +3424,7 @@ packages:
     optional: true
 
   /@esbuild/linux-riscv64@0.17.17:
-    resolution: {integrity: sha512-Cj6uWLBR5LWhcD/2Lkfg2NrkVsNb2sFM5aVEfumKB2vYetkA/9Uyc1jVoxLZ0a38sUhFk4JOVKH0aVdPbjZQeA==}
+    resolution: {integrity: sha1-E6h/28tGLEaAnJ0WvPeYF+z5zm8=, tarball: https://unpm.uberinternal.com/%40esbuild%2Flinux-riscv64/-/linux-riscv64-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [riscv64]
     os: [linux]
@@ -3432,7 +3432,7 @@ packages:
     optional: true
 
   /@esbuild/linux-s390x@0.17.17:
-    resolution: {integrity: sha512-lK+SffWIr0XsFf7E0srBjhpkdFVJf3HEgXCwzkm69kNbRar8MhezFpkIwpk0qo2IOQL4JE4mJPJI8AbRPLbuOQ==}
+    resolution: {integrity: sha1-g8sW0dOsDcqAOz8DG6PcE/Hset4=, tarball: https://unpm.uberinternal.com/%40esbuild%2Flinux-s390x/-/linux-s390x-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [s390x]
     os: [linux]
@@ -3440,7 +3440,7 @@ packages:
     optional: true
 
   /@esbuild/linux-x64@0.17.17:
-    resolution: {integrity: sha512-XcSGTQcWFQS2jx3lZtQi7cQmDYLrpLRyz1Ns1DzZCtn898cWfm5Icx/DEWNcTU+T+tyPV89RQtDnI7qL2PObPg==}
+    resolution: {integrity: sha1-e8QAVoaQtojiCgyUsvqr3YmuGnk=, tarball: https://unpm.uberinternal.com/%40esbuild%2Flinux-x64/-/linux-x64-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [linux]
@@ -3448,7 +3448,7 @@ packages:
     optional: true
 
   /@esbuild/netbsd-x64@0.17.17:
-    resolution: {integrity: sha512-RNLCDmLP5kCWAJR+ItLM3cHxzXRTe4N00TQyQiimq+lyqVqZWGPAvcyfUBM0isE79eEZhIuGN09rAz8EL5KdLA==}
+    resolution: {integrity: sha1-G13PvEv7qA5noR6RSN6DavW1i2w=, tarball: https://unpm.uberinternal.com/%40esbuild%2Fnetbsd-x64/-/netbsd-x64-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [netbsd]
@@ -3456,7 +3456,7 @@ packages:
     optional: true
 
   /@esbuild/openbsd-x64@0.17.17:
-    resolution: {integrity: sha512-PAXswI5+cQq3Pann7FNdcpSUrhrql3wKjj3gVkmuz6OHhqqYxKvi6GgRBoaHjaG22HV/ZZEgF9TlS+9ftHVigA==}
+    resolution: {integrity: sha1-4nUJiQIpEUml3NASyeoHlta3rf8=, tarball: https://unpm.uberinternal.com/%40esbuild%2Fopenbsd-x64/-/openbsd-x64-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [openbsd]
@@ -3464,7 +3464,7 @@ packages:
     optional: true
 
   /@esbuild/sunos-x64@0.17.17:
-    resolution: {integrity: sha512-V63egsWKnx/4V0FMYkr9NXWrKTB5qFftKGKuZKFIrAkO/7EWLFnbBZNM1CvJ6Sis+XBdPws2YQSHF1Gqf1oj/Q==}
+    resolution: {integrity: sha1-EGA0dIZvZJhsA3Ci1P5aK7f+5PU=, tarball: https://unpm.uberinternal.com/%40esbuild%2Fsunos-x64/-/sunos-x64-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [sunos]
@@ -3472,7 +3472,7 @@ packages:
     optional: true
 
   /@esbuild/win32-arm64@0.17.17:
-    resolution: {integrity: sha512-YtUXLdVnd6YBSYlZODjWzH+KzbaubV0YVd6UxSfoFfa5PtNJNaW+1i+Hcmjpg2nEe0YXUCNF5bkKy1NnBv1y7Q==}
+    resolution: {integrity: sha1-Uhptl+4PlrfENZMDU8xOkwePC1Q=, tarball: https://unpm.uberinternal.com/%40esbuild%2Fwin32-arm64/-/win32-arm64-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [arm64]
     os: [win32]
@@ -3480,7 +3480,7 @@ packages:
     optional: true
 
   /@esbuild/win32-ia32@0.17.17:
-    resolution: {integrity: sha512-yczSLRbDdReCO74Yfc5tKG0izzm+lPMYyO1fFTcn0QNwnKmc3K+HdxZWLGKg4pZVte7XVgcFku7TIZNbWEJdeQ==}
+    resolution: {integrity: sha1-VviEYuvoLa2CncIwMXXA4MzY444=, tarball: https://unpm.uberinternal.com/%40esbuild%2Fwin32-ia32/-/win32-ia32-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [ia32]
     os: [win32]
@@ -3488,7 +3488,7 @@ packages:
     optional: true
 
   /@esbuild/win32-x64@0.17.17:
-    resolution: {integrity: sha512-FNZw7H3aqhF9OyRQbDDnzUApDXfC1N6fgBhkqEO2jvYCJ+DxMTfZVqg3AX0R1khg1wHTBRD5SdcibSJ+XF6bFg==}
+    resolution: {integrity: sha1-K1d7l25oRBBnFbvgzcV80VKAY/k=, tarball: https://unpm.uberinternal.com/%40esbuild%2Fwin32-x64/-/win32-x64-0.17.17.tgz}
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
@@ -3726,7 +3726,7 @@ packages:
     dev: false
 
   /@nicolo-ribaudo/chokidar-2@2.1.8-no-fsevents.3:
-    resolution: {integrity: sha512-s88O1aVtXftvp5bCPB7WnmXc5IwOZZ7YPuwNPt+GtOOXpPvad1LfbmjYv+qII7zP6RU2QGnqve27dnLycEnyEQ==}
+    resolution: {integrity: sha1-Mj1y3SUQPQxPvc6J2t9XSnh7H5s=, tarball: https://unpm.uberinternal.com/%40nicolo-ribaudo%2Fchokidar-2/-/chokidar-2-2.1.8-no-fsevents.3.tgz}
     requiresBuild: true
     dev: true
     optional: true
@@ -3760,16 +3760,15 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /@playwright/test@1.33.0:
-    resolution: {integrity: sha512-YunBa2mE7Hq4CfPkGzQRK916a4tuZoVx/EpLjeWlTVOnD4S2+fdaQZE0LJkbfhN5FTSKNLdcl7MoT5XB37bTkg==}
+  /@playwright/test@1.34.3:
+    resolution: {integrity: sha512-zPLef6w9P6T/iT6XDYG3mvGOqOyb6eHaV9XtkunYs0+OzxBtrPAAaHotc0X+PJ00WPPnLfFBTl7mf45Mn8DBmw==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
       '@types/node': 18.15.11
-      playwright-core: 1.33.0
+      playwright-core: 1.34.3
     optionalDependencies:
       fsevents: 2.3.2
-    dev: false
 
   /@polka/url@1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
@@ -3961,7 +3960,7 @@ packages:
     dev: false
 
   /@swc/core-darwin-arm64@1.3.51:
-    resolution: {integrity: sha512-DM15fJgaXQ+BOoTlMCBoRBSzkpC2V8vAXaAvh3BZ+BI6/03FUQ0j9CMIaSkss3VOv+WwqzllmcT71C/oVDQ7Tg==}
+    resolution: {integrity: sha1-+nmZN+ZOAZ86pDRu0dA51VBCz8M=, tarball: https://unpm.uberinternal.com/%40swc%2Fcore-darwin-arm64/-/core-darwin-arm64-1.3.51.tgz}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [darwin]
@@ -3970,7 +3969,7 @@ packages:
     optional: true
 
   /@swc/core-darwin-x64@1.3.51:
-    resolution: {integrity: sha512-EPAneufZfFQUkpkf2m8Ap8TajLvjWI+UmDQz54QaofLaigXgrnLoqTtnZHBfDbUTApGYz3GaqjfZ2fMLGiISLQ==}
+    resolution: {integrity: sha1-O99XCf/W7ppJv4F1URmXuUa30yc=, tarball: https://unpm.uberinternal.com/%40swc%2Fcore-darwin-x64/-/core-darwin-x64-1.3.51.tgz}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [darwin]
@@ -3979,7 +3978,7 @@ packages:
     optional: true
 
   /@swc/core-linux-arm-gnueabihf@1.3.51:
-    resolution: {integrity: sha512-sASxO3lJjlY5g8S25yCQirDOW6zqBNeDSUCBrulaVxttx0PcL64kc6qaOlM3HKlNO4W1P7RW/mGFR4bBov+yIg==}
+    resolution: {integrity: sha1-7F5Boul5SgzJFZFrwu0FsvtYffU=, tarball: https://unpm.uberinternal.com/%40swc%2Fcore-linux-arm-gnueabihf/-/core-linux-arm-gnueabihf-1.3.51.tgz}
     engines: {node: '>=10'}
     cpu: [arm]
     os: [linux]
@@ -3988,43 +3987,47 @@ packages:
     optional: true
 
   /@swc/core-linux-arm64-gnu@1.3.51:
-    resolution: {integrity: sha512-z8yHRUK+5mRxSQkw9uND8QSt8lTrW0X8blmP12Q7c7RKWOHqIaGS60a3VvLuTal7k48K4YTstSevIrGwGK88sA==}
+    resolution: {integrity: sha1-NgTD71tKTorcIMBGxuu4D2cbsbA=, tarball: https://unpm.uberinternal.com/%40swc%2Fcore-linux-arm64-gnu/-/core-linux-arm64-gnu-1.3.51.tgz}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: false
     optional: true
 
   /@swc/core-linux-arm64-musl@1.3.51:
-    resolution: {integrity: sha512-lMlp09lv6qDURvETw4AAZAjaJfvjwHjiAuB+JuZrgP3zdxB21M6cMas3EjAGXtNabpU1FJu+8Lsys6/GBBjsPQ==}
+    resolution: {integrity: sha1-au2ryCI+bxou6NIK1ll4L1lbWvg=, tarball: https://unpm.uberinternal.com/%40swc%2Fcore-linux-arm64-musl/-/core-linux-arm64-musl-1.3.51.tgz}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     dev: false
     optional: true
 
   /@swc/core-linux-x64-gnu@1.3.51:
-    resolution: {integrity: sha512-6zK4tDr6do6RFTJv38Rb8ZjBLdfSN7GeuyOJpblz1Qu62RqyY2Zf3fxuCZY9tkoEepZ0MvU0d4D7HhAUYKj20A==}
+    resolution: {integrity: sha1-eQcz44UmDHIiqTKLMFgObWIn7bo=, tarball: https://unpm.uberinternal.com/%40swc%2Fcore-linux-x64-gnu/-/core-linux-x64-gnu-1.3.51.tgz}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
     requiresBuild: true
     dev: false
     optional: true
 
   /@swc/core-linux-x64-musl@1.3.51:
-    resolution: {integrity: sha512-ZwW+X9XdEiAszX+zfaLdOVfi5rQP3vnVwuNAiuX9eq5jHdfOKfKaNtJaGTD8w8NgMavaBM5AMaCHshFVNF0vRw==}
+    resolution: {integrity: sha1-72ISnpY7kq9GDTfWUoRc+0xQOqc=, tarball: https://unpm.uberinternal.com/%40swc%2Fcore-linux-x64-musl/-/core-linux-x64-musl-1.3.51.tgz}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
     requiresBuild: true
     dev: false
     optional: true
 
   /@swc/core-win32-arm64-msvc@1.3.51:
-    resolution: {integrity: sha512-w+IX4xCIZH6RQG7RrOOrrHqIqM7JIj9BDZHM9LAYC5MIbDinwjnSUXz7bpn0L1LRusvPtmbTulLuSkmVBSSwAg==}
+    resolution: {integrity: sha1-84wHus+hrOBNQbtPMQlFgwXlWCM=, tarball: https://unpm.uberinternal.com/%40swc%2Fcore-win32-arm64-msvc/-/core-win32-arm64-msvc-1.3.51.tgz}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [win32]
@@ -4033,7 +4036,7 @@ packages:
     optional: true
 
   /@swc/core-win32-ia32-msvc@1.3.51:
-    resolution: {integrity: sha512-Bzv/h0HkoKkTWOOoHtehId/6AS5hLBbWE5czzcQc8SWs+BNNV8zjWoq1oYn7/gLLEhdKaBAxv9q7RHzOfBx28A==}
+    resolution: {integrity: sha1-Ocl7/xoknz93eG1h3rq4J0Sy3Jo=, tarball: https://unpm.uberinternal.com/%40swc%2Fcore-win32-ia32-msvc/-/core-win32-ia32-msvc-1.3.51.tgz}
     engines: {node: '>=10'}
     cpu: [ia32]
     os: [win32]
@@ -4042,7 +4045,7 @@ packages:
     optional: true
 
   /@swc/core-win32-x64-msvc@1.3.51:
-    resolution: {integrity: sha512-dTKAdSd0e2Sfz3Sl3m6RGLQbk6jdSIh8TlFomF4iiHDHq4PxLTzjaOVvKUAP5wux9DtBnAgZeSHMuQfM4aL9oA==}
+    resolution: {integrity: sha1-eGPcZF4Um5Lfhc5vqHK+5Eok9UA=, tarball: https://unpm.uberinternal.com/%40swc%2Fcore-win32-x64-msvc/-/core-win32-x64-msvc-1.3.51.tgz}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [win32]
@@ -5140,7 +5143,7 @@ packages:
       rimraf: 3.0.2
     dev: false
 
-  /axe-playwright@1.2.3(playwright@1.33.0):
+  /axe-playwright@1.2.3(playwright@1.34.3):
     resolution: {integrity: sha512-bTxCTNp3kx6sQRMjmuLv8pG3+v+kOCvFXATim1+XUXzW6ykulbbuJdQfgB+vQPNAF9uvYbW2qrv9pg81ZSFV/A==}
     peerDependencies:
       playwright: '>1.0.0'
@@ -5148,7 +5151,7 @@ packages:
       axe-core: 4.6.3
       axe-html-reporter: 2.2.3(axe-core@4.6.3)
       picocolors: 1.0.0
-      playwright: 1.33.0
+      playwright: 1.34.3
     dev: false
 
   /axios@0.25.0:
@@ -7538,7 +7541,7 @@ packages:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
 
   /fsevents@2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+    resolution: {integrity: sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro=}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
@@ -10496,18 +10499,19 @@ packages:
     hasBin: true
     dev: false
 
-  /playwright-core@1.33.0:
-    resolution: {integrity: sha512-aizyPE1Cj62vAECdph1iaMILpT0WUDCq3E6rW6I+dleSbBoGbktvJtzS6VHkZ4DKNEOG9qJpiom/ZxO+S15LAw==}
+  /playwright-core@1.34.3:
+    resolution: {integrity: sha512-2pWd6G7OHKemc5x1r1rp8aQcpvDh7goMBZlJv6Co5vCNLVcQJdhxRL09SGaY6HcyHH9aT4tiynZabMofVasBYw==}
     engines: {node: '>=14'}
     hasBin: true
 
-  /playwright@1.33.0:
-    resolution: {integrity: sha512-+zzU3V2TslRX2ETBRgQKsKytYBkJeLZ2xzUj4JohnZnxQnivoUvOvNbRBYWSYykQTO0Y4zb8NwZTYFUO+EpPBQ==}
+  /playwright@1.34.3:
+    resolution: {integrity: sha1-bcpYTlLj68M5JDXI2t9JU8eS8BY=}
     engines: {node: '>=14'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      playwright-core: 1.33.0
+      playwright-core: 1.34.3
+    dev: false
 
   /postcss-calc@8.2.4(postcss@8.4.21):
     resolution: {integrity: sha512-SmWMSJmB8MRnnULldx0lQIyhSNvuDl9HfrZkaqqE/WHAhToYsAvDq+yAsA/kIyINDszOp3Rh0GFoNuH5Ypsm3Q==}
@@ -12965,7 +12969,7 @@ packages:
     dev: false
 
   /turbo-darwin-64@1.9.1:
-    resolution: {integrity: sha512-IX/Ph4CO80lFKd9pPx3BWpN2dynt6mcUFifyuHUNVkOP1Usza/G9YuZnKQFG6wUwKJbx40morFLjk1TTeLe04w==}
+    resolution: {integrity: sha1-HwTnFq1s8HGCLwwaSZ9PzXvUD0s=}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
@@ -12973,7 +12977,7 @@ packages:
     optional: true
 
   /turbo-darwin-arm64@1.9.1:
-    resolution: {integrity: sha512-6tCbmIboy9dTbhIZ/x9KIpje73nvxbiyVnHbr9xKnsxLJavD0xqjHZzbL5U2tHp8chqmYf0E4WYOXd+XCNg+OQ==}
+    resolution: {integrity: sha1-GewWGFj7Jt+9Up4OydbJtEhOkbA=}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
@@ -12981,7 +12985,7 @@ packages:
     optional: true
 
   /turbo-linux-64@1.9.1:
-    resolution: {integrity: sha512-ti8XofnJFO1XaadL92lYJXgxb0VBl03Yu9VfhxkOTywFe7USTLBkJcdvQ4EpFk/KZwLiTdCmT2NQVxsG4AxBiQ==}
+    resolution: {integrity: sha1-W0fg8JEvcJqaLjJf6qfiYKp2z0k=}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
@@ -12989,7 +12993,7 @@ packages:
     optional: true
 
   /turbo-linux-arm64@1.9.1:
-    resolution: {integrity: sha512-XYvIbeiCCCr+ENujd2Jtck/lJPTKWb8T2MSL/AEBx21Zy3Sa7HgrQX6LX0a0pNHjaleHz00XXt1D0W5hLeP+tA==}
+    resolution: {integrity: sha1-2wNQYXYOhRKkCKZMwtfVaPUQKrc=}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
@@ -12997,7 +13001,7 @@ packages:
     optional: true
 
   /turbo-windows-64@1.9.1:
-    resolution: {integrity: sha512-x7lWAspe4/v3XQ0gaFRWDX/X9uyWdhwFBPEfb8BA0YKtnsrPOHkV0mRHCRrXzvzjA7pcDCl2agGzb7o863O+Jg==}
+    resolution: {integrity: sha1-Vq2Y5HAbRSPxGDl9mNZOvvXauI8=}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
@@ -13005,7 +13009,7 @@ packages:
     optional: true
 
   /turbo-windows-arm64@1.9.1:
-    resolution: {integrity: sha512-QSLNz8dRBLDqXOUv/KnoesBomSbIz2Huef/a3l2+Pat5wkQVgMfzFxDOnkK5VWujPYXz+/prYz+/7cdaC78/kw==}
+    resolution: {integrity: sha1-8MeAzJBt7f+F7vIPBj9ZqbKoZfw=}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
@@ -13565,7 +13569,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
 
-  /vitest@0.29.8(playwright@1.33.0):
+  /vitest@0.29.8:
     resolution: {integrity: sha512-JIAVi2GK5cvA6awGpH0HvH/gEG9PZ0a/WoxdiV3PmqK+3CjQMf8c+J/Vhv4mdZ2nRyXFw66sAg6qz7VNkaHfDQ==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -13611,7 +13615,6 @@ packages:
       local-pkg: 0.4.3
       pathe: 1.1.0
       picocolors: 1.0.0
-      playwright: 1.33.0
       source-map: 0.6.1
       std-env: 3.3.2
       strip-literal: 1.0.1

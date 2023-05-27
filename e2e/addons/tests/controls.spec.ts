@@ -113,7 +113,7 @@ test("check control works", async ({ page }) => {
   await page.check("#airports-sfo");
   await expect(page.locator("#content")).toContainText("Airport: sfo");
   await page.check("#airports-slc");
-  await expect(page.locator("#content")).toContainText("Airport: sfoslc");
+  await expect(page.locator("#content")).toContainText("Airport: sfosxc");
   await page.check("#airports-slc");
   await expect(page.locator("#content")).toContainText("Airport: sfo");
 });
@@ -121,7 +121,7 @@ test("check control works", async ({ page }) => {
 test("set defaults and args inheritence works", async ({ page }) => {
   await page.goto("/?story=controls--initial");
   await expect(page.locator("#content")).toHaveText(
-    "Variant: secondaryAirport: slcCountry: Empty: City: Food:",
+    "Variant: secondaryAirport: sxcCountry: Empty: City: Food:",
   );
 });
 
