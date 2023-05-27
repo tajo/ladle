@@ -1,6 +1,7 @@
 import path from "path";
 import react from "@vitejs/plugin-react";
 import fs from "fs";
+import { globby } from "globby";
 import { fileURLToPath } from "url";
 import tsconfigPaths from "vite-tsconfig-paths";
 import getAppRoot from "./get-app-root.js";
@@ -93,6 +94,14 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
   );
   debug("Executed from the ladle monorepo: %s", inladleMonorepo);
 
+  const storyEntries = (
+    await globby(
+      Array.isArray(ladleConfig.stories)
+        ? ladleConfig.stories
+        : [ladleConfig.stories],
+    )
+  ).map((story) => path.join(process.cwd(), story));
+
   /**
    * @type {import('vite').InlineConfig}
    */
@@ -143,6 +152,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         path.join(process.cwd(), ".ladle/components.jsx"),
         path.join(process.cwd(), ".ladle/components.tsx"),
         path.join(process.cwd(), ".ladle/components.ts"),
+        ...storyEntries,
       ],
     },
     plugins: [

@@ -133,9 +133,27 @@ const ArgsProvider = ({
     }
   }, []);
 
+  const mappingValue = (key: string, value: any) => {
+    if (
+      argTypes &&
+      argTypes[key] &&
+      argTypes[key].mapping &&
+      argTypes[key].mapping.hasOwnProperty(value)
+    ) {
+      return argTypes[key].mapping[value];
+    }
+    return value;
+  };
+
   const props: any = {};
   Object.keys(globalState.control).forEach((key) => {
-    props[key] = globalState.control[key].value;
+    if (Array.isArray(globalState.control[key].value)) {
+      props[key] = globalState.control[key].value.map((value: any) =>
+        mappingValue(key, value),
+      );
+    } else {
+      props[key] = mappingValue(key, globalState.control[key].value);
+    }
   });
 
   if (!globalState.controlInitialized) {
