@@ -52,7 +52,7 @@ Object.keys(stories).forEach((storyKey) => {
 ```sh
 pnpm ladle build
 pnpm ladle preview -p 61000
-pnpx playwright test
+pnpm exec playwright test
 ```
 
 The first time you run the `test` script it will error out since it needs to create the baseline screenshots in `tests/snapshot.spec.ts-snapshots` folder. The second run will succeed:

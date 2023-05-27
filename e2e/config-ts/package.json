@@ -8,14 +8,14 @@
     "serve-prod": "ladle preview -p 61108",
     "build": "ladle build",
     "lint": "echo 'no lint'",
-    "test-dev": "cross-env TYPE=dev pnpx playwright test",
-    "test-prod": "cross-env TYPE=prod pnpx playwright test",
+    "test-dev": "cross-env TYPE=dev pnpm exec playwright test",
+    "test-prod": "cross-env TYPE=prod pnpm exec playwright test",
     "test": "pnpm test-dev && pnpm test-prod"
   },
   "dependencies": {
     "@ladle/react": "workspace:*",
     "@ladle/playwright-config": "workspace:*",
-    "@playwright/test": "^1.33.0",
+    "@playwright/test": "^1.34.3",
     "cross-env": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
