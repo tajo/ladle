@@ -121,7 +121,7 @@ test("check control works", async ({ page }) => {
 test("set defaults and args inheritence works", async ({ page }) => {
   await page.goto("/?story=controls--initial");
   await expect(page.locator("#content")).toHaveText(
-    "Variant: secondaryAirport: sxcCountry: Empty: City: Food:",
+    "Variant: secondaryAirport: slcCountry: Empty: City: Food:",
   );
 });
 

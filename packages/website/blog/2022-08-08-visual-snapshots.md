@@ -96,9 +96,9 @@ Our setup is ready, we just need to run it. Let's add some `package.json` script
   "scripts": {
     "serve": "ladle serve",
     "build": "ladle build && ladle preview -p 61000",
-    "test:dev": "TYPE=dev pnpx playwright test",
-    "test": "pnpx playwright test",
-    "test:update": "pnpx playwright test -u"
+    "test:dev": "TYPE=dev pnpm exec playwright test",
+    "test": "pnpm exec playwright test",
+    "test:update": "pnpm exec playwright test -u"
   }
 }
 ```

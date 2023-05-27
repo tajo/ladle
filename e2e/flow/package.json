@@ -8,8 +8,8 @@
     "serve-prod": "ladle preview -p 61104",
     "build": "ladle build",
     "lint": "echo 'no lint'",
-    "test-dev": "cross-env TYPE=dev pnpx playwright test",
-    "test-prod": "cross-env TYPE=prod pnpx playwright test",
+    "test-dev": "cross-env TYPE=dev pnpm exec playwright test",
+    "test-prod": "cross-env TYPE=prod pnpm exec playwright test",
     "test": "pnpm test-dev && pnpm test-prod"
   },
   "dependencies": {

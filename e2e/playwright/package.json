@@ -9,10 +9,10 @@
     "build-preview": "ladle build && ladle preview -p 61110",
     "build": "ladle build",
     "lint": "echo 'no lint'",
-    "test-dev": "cross-env TYPE=dev pnpx playwright test",
-    "test-prod": "cross-env TYPE=prod pnpx playwright test",
+    "test-dev": "cross-env TYPE=dev pnpm exec playwright test",
+    "test-prod": "cross-env TYPE=prod pnpm exec playwright test",
     "test": "pnpm test-dev && pnpm test-prod",
-    "test:update": "cross-env TYPE=update pnpx playwright test -u"
+    "test:update": "cross-env TYPE=update pnpm exec playwright test -u"
   },
   "dependencies": {
     "@ladle/react": "workspace:*",
