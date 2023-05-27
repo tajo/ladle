@@ -106,6 +106,7 @@ export interface ArgType<K = any> {
     step?: number;
     [key: string]: any;
   };
+  mapping?: { [key: string | number]: any };
   defaultValue?: K;
   description?: string;
   name?: string;
