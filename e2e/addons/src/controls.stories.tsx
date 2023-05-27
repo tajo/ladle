@@ -72,6 +72,9 @@ Controls.argTypes = {
   airports: {
     options: ["sfo", "slc", "prg"],
     control: { type: "check" },
+    mapping: {
+      slc: "sxc",
+    },
   },
   range: {
     control: { type: "range", min: 1, max: 10, step: 0.5 },
