@@ -17,7 +17,7 @@ ArgTypes.argTypes = {
       type: "select",
       options: [
         "foo",
-        // @ts-expect-error - 1 is not a string
+        // // @ts-expect-error - 1 is not a string
         5,
       ],
     },
