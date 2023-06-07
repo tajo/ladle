@@ -434,7 +434,7 @@ importers:
         specifier: ^5.3.7
         version: 5.3.7
       vite:
-        specifier: 4.3.9
+        specifier: ^4.3.9
         version: 4.3.9(@types/node@18.15.11)
       vite-tsconfig-paths:
         specifier: 3.6.0
