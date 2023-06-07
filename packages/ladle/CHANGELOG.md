@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.14.0
+
+### Minor Changes
+
+- [#444](https://github.com/tajo/ladle/pull/444) [`1272570`](https://github.com/tajo/ladle/commit/1272570f8eeb5758175b7abdf501ea538853170d) Thanks [@dtgreene](https://github.com/dtgreene)! - Use Vite v4.3.9
+
 ## 2.13.0
 
 ### Minor Changes
