@@ -6,7 +6,7 @@
   "author": "Vojtech Miksu <vojtech@miksu.cz>",
   "license": "MIT",
   "private": true,
-  "packageManager": "pnpm@8.1.1",
+  "packageManager": "pnpm@8.6.1",
   "scripts": {
     "lint": "eslint \"./packages/*/{lib,src}/**/*.{ts,tsx}\" --max-warnings=0",
     "test": "turbo run test --concurrency=1",
