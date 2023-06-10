@@ -69,6 +69,7 @@ export type StoryDefault<P = {}> = {
   decorators?: StoryDecorator<P>[];
   meta?: Meta;
   title?: string;
+  parameters?: { [key: string]: any };
 };
 
 export interface Story<P = {}> extends React.FC<P> {
@@ -77,6 +78,7 @@ export interface Story<P = {}> extends React.FC<P> {
   decorators?: StoryDecorator<P>[];
   meta?: Meta;
   storyName?: string;
+  parameters?: { [key: string]: any };
 }
 
 export type Args<
