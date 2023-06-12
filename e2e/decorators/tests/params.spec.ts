@@ -41,8 +41,8 @@ test("meta.json is correctly using defaults and overrides", async ({
         "legacy-params--world": {
           filePath: "src/legacy-params.stories.tsx",
           levels: ["Legacy params"],
-          locEnd: 26,
-          locStart: 24,
+          locEnd: 39,
+          locStart: 37,
           meta: {},
           name: "World",
         },

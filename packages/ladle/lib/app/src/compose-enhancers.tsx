@@ -48,9 +48,15 @@ export default function composeEnhancers(module: any, storyName: string) {
     const getBindedDecorator = (i: number) => {
       return React.useRef(() => {
         const context = useLadleContext();
+        const args: { [key: string]: any } = {};
+        Object.keys(context.globalState.control).forEach(
+          (key) => (args[key] = context.globalState.control[key].value),
+        );
         return decorators[i](i === 0 ? WithArgs : getBindedDecorator(i - 1), {
           ...context,
           parameters,
+          argTypes: props.argTypes,
+          args,
         });
       }).current;
     };

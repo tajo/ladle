@@ -8,7 +8,7 @@
   "private": true,
   "packageManager": "pnpm@8.6.1",
   "scripts": {
-    "lint": "eslint \"./packages/*/{lib,src}/**/*.{ts,tsx}\" --max-warnings=0",
+    "lint": "eslint \"./{packages,e2e}/*/{lib,src,tests}/**/*.{ts,tsx}\" --max-warnings=0",
     "test": "turbo run test --concurrency=1",
     "build": "turbo run build",
     "typecheck": "tsc",
