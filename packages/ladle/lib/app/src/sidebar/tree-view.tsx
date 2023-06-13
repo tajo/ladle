@@ -6,6 +6,8 @@ import { getStoryTree } from "../story-name";
 import {
   getEndId,
   getFirstChildId,
+  getFirstLink,
+  getSubtree,
   getNextId,
   getParentId,
   getPrevId,
@@ -122,9 +124,18 @@ const TreeView = ({
         fullTree={tree}
         story={story}
         updateStory={updateStory}
-        onItemClick={(item: StoryTreeItem) =>
-          setTree(toggleIsExpanded(tree, item))
-        }
+        onItemClick={(item: StoryTreeItem) => {
+          const newTree = toggleIsExpanded(tree, item);
+          const firstChildLink = getFirstLink(
+            getSubtree(newTree, item.id),
+            item.id,
+          );
+          firstChildLink &&
+            story !== firstChildLink.id &&
+            firstChildLink.isExpanded &&
+            updateStory(firstChildLink.id);
+          setTree(newTree);
+        }}
         selectedItemId={selectedItemId}
         onKeyDownFn={onKeyDownFn}
         treeItemRefs={treeItemRefs}

@@ -5,7 +5,7 @@ export const Lol: Story = () => {
   const [val, setVal] = useState(true);
   return (
     <div>
-      <h1>Middle fam</h1>
+      <h1>LOL fam</h1>
       <button onClick={() => setVal(false)}>
         button {val ? "true" : "false"}
       </button>
