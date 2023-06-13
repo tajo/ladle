@@ -1,5 +1,15 @@
 # @ladle/react
 
+## 2.15.0
+
+### Minor Changes
+
+- [#449](https://github.com/tajo/ladle/pull/449) [`d3e0200`](https://github.com/tajo/ladle/commit/d3e0200a10af2b9d5ad44b2962fdc3efbe0afe6c) Thanks [@tajo](https://github.com/tajo)! - Add args and argTypes to context for Storybook compat
+
+- [#447](https://github.com/tajo/ladle/pull/447) [`802b351`](https://github.com/tajo/ladle/commit/802b3518e5e5536ad8d426a9aed228185f055b6e) Thanks [@tajo](https://github.com/tajo)! - Pass legacy parameters through context into decorators (Storybook compat)
+
+- [#450](https://github.com/tajo/ladle/pull/450) [`7ce734a`](https://github.com/tajo/ladle/commit/7ce734a5392d994748a0e552c7ea1b292b29d8e2) Thanks [@tajo](https://github.com/tajo)! - Quicker side-navigation for deeply nested stories. The sub-tree is automatically expanded and the first story/link activated.
+
 ## 2.14.0
 
 ### Minor Changes
