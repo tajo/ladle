@@ -1,5 +1,12 @@
 # playwright
 
+## 0.0.42
+
+### Patch Changes
+
+- Updated dependencies [[`d3e0200`](https://github.com/tajo/ladle/commit/d3e0200a10af2b9d5ad44b2962fdc3efbe0afe6c), [`802b351`](https://github.com/tajo/ladle/commit/802b3518e5e5536ad8d426a9aed228185f055b6e), [`7ce734a`](https://github.com/tajo/ladle/commit/7ce734a5392d994748a0e552c7ea1b292b29d8e2)]:
+  - @ladle/react@2.15.0
+
 ## 0.0.41
 
 ### Patch Changes
