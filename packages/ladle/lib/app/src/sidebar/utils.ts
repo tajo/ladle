@@ -67,6 +67,29 @@ export const getPrevId = (
   return null;
 };
 
+export const getSubtree = (nodes: StoryTree, nodeId: string): StoryTree => {
+  for (let i = 0; i < nodes.length; i++) {
+    if (nodes[i].id === nodeId) {
+      return nodes[i].children;
+    }
+    const res = getSubtree(nodes[i].children, nodeId);
+    if (res.length) {
+      return res;
+    }
+  }
+  return [];
+};
+
+export const getFirstLink = (
+  nodes: StoryTree,
+  nodeId: string,
+): StoryTreeItem => {
+  if (nodes[0].isLinkable) {
+    return nodes[0];
+  }
+  return getFirstLink(nodes[0].children, nodeId);
+};
+
 export const getFirstChildId = (
   nodes: StoryTree,
   nodeId: string,
@@ -136,13 +159,24 @@ export const toggleIsExpanded = (
   arr: StoryTree,
   toggledNode: StoryTreeItem,
 ): StoryTree => {
-  return arr.map((node) => {
+  return arr.map((node, order) => {
     const newNode = { ...node };
     if (newNode.id === toggledNode.id) {
       newNode.isExpanded = !newNode.isExpanded;
     }
+    if (toggledNode.id === "+" && order === 0) {
+      newNode.isExpanded = true;
+    }
+    if (toggledNode.id === "-") {
+      newNode.isExpanded = false;
+    }
     if (newNode.children && newNode.children.length) {
-      newNode.children = toggleIsExpanded(newNode.children, toggledNode);
+      newNode.children = toggleIsExpanded(
+        newNode.children,
+        newNode.id === toggledNode.id
+          ? ({ id: newNode.isExpanded ? "+" : "-" } as StoryTreeItem)
+          : toggledNode,
+      );
     }
     return newNode;
   });
