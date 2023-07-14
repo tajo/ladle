@@ -95,6 +95,11 @@ export type ControlType =
   | "check"
   | "inline-check"
   | "background"
+  | "color"
+  | "date"
+  | "number"
+  | "text"
+  | "boolean"
   | "range";
 
 export interface ArgType<K = any> {

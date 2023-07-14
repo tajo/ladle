@@ -10,6 +10,11 @@ type Props = {
   range: number;
   airports: string;
   cities: string;
+  mountain: string;
+  snowing: boolean;
+  inches: number;
+  color: string;
+  date: string;
 };
 
 export default {
@@ -31,6 +36,11 @@ export const Controls: Story<Props> = ({
   range,
   airports,
   cities,
+  mountain,
+  snowing,
+  inches,
+  color,
+  date,
 }) => (
   <div id="content">
     <p>Count: {count}</p>
@@ -40,6 +50,11 @@ export const Controls: Story<Props> = ({
     <p>Variant: {variant}</p>
     <p>Size: {size}</p>
     <p>Range: {range}</p>
+    <p>Mountain: {mountain}</p>
+    <p>Snowing: {snowing ? "yes" : "no"}</p>
+    <p>Inches: {inches}</p>
+    <p>Color: {color}</p>
+    <p>Date: {date}</p>
     {airports && airports.length ? <p>Airport: {airports}</p> : ""}
     {cities && cities.length ? <p>Cities: {cities}</p> : ""}
     {typeof count !== "number" && <p>count is not number</p>}
@@ -60,6 +75,26 @@ Controls.args = {
   colors: ["Red", "Blue"],
 };
 Controls.argTypes = {
+  mountain: {
+    control: { type: "text" },
+    defaultValue: "snowbird",
+  },
+  snowing: {
+    control: { type: "boolean" },
+    defaultValue: true,
+  },
+  inches: {
+    control: { type: "number" },
+    defaultValue: 12,
+  },
+  color: {
+    control: { type: "color" },
+    defaultValue: "pink",
+  },
+  date: {
+    control: { type: "date" },
+    defaultValue: "today",
+  },
   variant: {
     options: ["primary", "secondary", true, false],
     control: { type: "radio" },
