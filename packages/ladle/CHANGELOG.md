@@ -1,5 +1,15 @@
 # @ladle/react
 
+## 2.16.0
+
+### Minor Changes
+
+- [#460](https://github.com/tajo/ladle/pull/460) [`29c4e6c`](https://github.com/tajo/ladle/commit/29c4e6cf09671a93b9f013854e887760cde316df) Thanks [@tajo](https://github.com/tajo)! - Support argTypes boolean, text, number, color and date.
+
+### Patch Changes
+
+- [#458](https://github.com/tajo/ladle/pull/458) [`8ee198f`](https://github.com/tajo/ladle/commit/8ee198f1e7610b86f88b7fda93e2d026caf56e88) Thanks [@tajo](https://github.com/tajo)! - Bump all dependencies
+
 ## 2.15.0
 
 ### Minor Changes
