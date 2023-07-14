@@ -12,6 +12,11 @@ const ALLOWED_ARGTYPES = [
   "check",
   "inline-check",
   "range",
+  "color",
+  "date",
+  "number",
+  "text",
+  "boolean",
 ];
 
 const ArgsProvider = ({
