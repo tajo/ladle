@@ -5,7 +5,7 @@
 import t from "@babel/types";
 
 /**
- * @param {object | null | undefined} node
+ * @param {t.Node | null | undefined} node
  * @returns {boolean}
  */
 const isValidJsonValue = (node) => {
@@ -64,7 +64,7 @@ const createSafeStringForJsonParse = (value) => {
 };
 
 /**
- * @param {object | null | undefined} node
+ * @param {t.Node | null | undefined} node
  * @returns {unknown}
  */
 export function converter(node) {
