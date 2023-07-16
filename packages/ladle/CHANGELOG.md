@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.16.1
+
+### Patch Changes
+
+- [#462](https://github.com/tajo/ladle/pull/462) [`3739ddb`](https://github.com/tajo/ladle/commit/3739ddb7596ba377ec1684917d4cc3525bea733b) Thanks [@tajo](https://github.com/tajo)! - Pin react-frame-component to 5.2.4 (again)
+
 ## 2.16.0
 
 ### Minor Changes
