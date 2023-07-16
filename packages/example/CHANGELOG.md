@@ -1,5 +1,12 @@
 # example
 
+## 0.3.58
+
+### Patch Changes
+
+- Updated dependencies [[`3739ddb`](https://github.com/tajo/ladle/commit/3739ddb7596ba377ec1684917d4cc3525bea733b)]:
+  - @ladle/react@2.16.1
+
 ## 0.3.57
 
 ### Patch Changes
