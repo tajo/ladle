@@ -63,7 +63,7 @@
     "prism-react-renderer": "^2.0.6",
     "prop-types": "^15.8.1",
     "query-string": "^8.1.0",
-    "react-frame-component": "5.2.6",
+    "react-frame-component": "5.2.4",
     "react-inspector": "^6.0.2",
     "rehype-raw": "^6.1.1",
     "remark-gfm": "^3.0.1",
