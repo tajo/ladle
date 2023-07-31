@@ -1,5 +1,47 @@
 # @ladle/react
 
+## 2.16.1
+
+### Patch Changes
+
+- [#462](https://github.com/tajo/ladle/pull/462) [`3739ddb`](https://github.com/tajo/ladle/commit/3739ddb7596ba377ec1684917d4cc3525bea733b) Thanks [@tajo](https://github.com/tajo)! - Pin react-frame-component to 5.2.4 (again)
+
+## 2.16.0
+
+### Minor Changes
+
+- [#460](https://github.com/tajo/ladle/pull/460) [`29c4e6c`](https://github.com/tajo/ladle/commit/29c4e6cf09671a93b9f013854e887760cde316df) Thanks [@tajo](https://github.com/tajo)! - Support argTypes boolean, text, number, color and date.
+
+### Patch Changes
+
+- [#458](https://github.com/tajo/ladle/pull/458) [`8ee198f`](https://github.com/tajo/ladle/commit/8ee198f1e7610b86f88b7fda93e2d026caf56e88) Thanks [@tajo](https://github.com/tajo)! - Bump all dependencies
+
+## 2.15.0
+
+### Minor Changes
+
+- [#449](https://github.com/tajo/ladle/pull/449) [`d3e0200`](https://github.com/tajo/ladle/commit/d3e0200a10af2b9d5ad44b2962fdc3efbe0afe6c) Thanks [@tajo](https://github.com/tajo)! - Add args and argTypes to context for Storybook compat
+
+- [#447](https://github.com/tajo/ladle/pull/447) [`802b351`](https://github.com/tajo/ladle/commit/802b3518e5e5536ad8d426a9aed228185f055b6e) Thanks [@tajo](https://github.com/tajo)! - Pass legacy parameters through context into decorators (Storybook compat)
+
+- [#450](https://github.com/tajo/ladle/pull/450) [`7ce734a`](https://github.com/tajo/ladle/commit/7ce734a5392d994748a0e552c7ea1b292b29d8e2) Thanks [@tajo](https://github.com/tajo)! - Quicker side-navigation for deeply nested stories. The sub-tree is automatically expanded and the first story/link activated.
+
+## 2.14.0
+
+### Minor Changes
+
+- [#444](https://github.com/tajo/ladle/pull/444) [`1272570`](https://github.com/tajo/ladle/commit/1272570f8eeb5758175b7abdf501ea538853170d) Thanks [@dtgreene](https://github.com/dtgreene)! - Use Vite v4.3.9
+
+## 2.13.0
+
+### Minor Changes
+
+- [#437](https://github.com/tajo/ladle/pull/437) [`04a4662`](https://github.com/tajo/ladle/commit/04a4662b41b9d82b8b5d134f07f8b4c9757ef901) Thanks [@tajo](https://github.com/tajo)! - Include all stories into optimizeDeps.entries so all deps get prebundled and there are no further reloads later.
+
+### Patch Changes
+
+- [#438](https://github.com/tajo/ladle/pull/438) [`6d720ab`](https://github.com/tajo/ladle/commit/6d720ab7170f046f905d51c3b277c1bc6d53d5e3) Thanks [@tajo](https://github.com/tajo)! - Add support for args mapping
+
 ## 2.12.3
 
 ### Patch Changes

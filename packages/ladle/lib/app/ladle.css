@@ -461,6 +461,7 @@ div[data-reach-dialog-overlay] {
   bottom: 0;
   left: 0;
   overflow: auto;
+  z-index: 2147483647;
 }
 
 .ladle-button {

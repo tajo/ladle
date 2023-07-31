@@ -12,6 +12,11 @@ const ALLOWED_ARGTYPES = [
   "check",
   "inline-check",
   "range",
+  "color",
+  "date",
+  "number",
+  "text",
+  "boolean",
 ];
 
 const ArgsProvider = ({
@@ -119,10 +124,18 @@ const ArgsProvider = ({
       Object.keys(urlValues).forEach((key) => {
         controls[key].value = urlValues[key].value;
       });
-      dispatch({
-        type: ActionType.UpdateControl,
-        value: controls,
-      });
+      if (
+        Object.keys(controls).some(
+          (key) =>
+            !globalState.control[key] ||
+            controls[key].value !== globalState.control[key].value,
+        )
+      ) {
+        dispatch({
+          type: ActionType.UpdateControl,
+          value: controls,
+        });
+      }
     } else {
       if (!globalState.controlInitialized) {
         dispatch({

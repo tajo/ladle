@@ -130,6 +130,9 @@ export type AddonProps = {
 export type StoryProps = {
   dispatch: React.Dispatch<GlobalAction>;
   globalState: GlobalState;
+  parameters: { [key: string]: any };
+  args: { [key: string]: any };
+  argTypes: { [key: string]: any };
 };
 
 export type StoryDecorator<P = {}> = (

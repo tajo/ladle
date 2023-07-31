@@ -43,7 +43,7 @@ module.exports = {
         {
           type: "link",
           label: "Contributing",
-          href: "https://github.com/tajo/ladle/blob/master/CONTRIBUTING.md",
+          href: "https://github.com/tajo/ladle/blob/main/CONTRIBUTING.md",
         },
       ],
     },

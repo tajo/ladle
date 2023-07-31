@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.6
+
+### Patch Changes
+
+- [#457](https://github.com/tajo/ladle/pull/457) [`a53b222`](https://github.com/tajo/ladle/commit/a53b222c6c582c78802829dba7f4026b46b99503) Thanks [@matthewwolfe](https://github.com/matthewwolfe)! - fixed link to contributing guide and updated guide to reflect correct node and pnpm versions
+
 ## 0.3.5
 
 ### Patch Changes
