@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.17.1
+
+### Patch Changes
+
+- [#470](https://github.com/tajo/ladle/pull/470) [`9eb9731`](https://github.com/tajo/ladle/commit/9eb97313d859d8d93c6780f1fa43efdfdcbf34f7) Thanks [@tajo](https://github.com/tajo)! - Increase chunk size warning
+
 ## 2.17.0
 
 ### Minor Changes
