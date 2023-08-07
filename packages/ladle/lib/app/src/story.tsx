@@ -101,6 +101,7 @@ const Story = ({
   const storyData = stories[globalState.story];
   const width = globalState.width;
   const storyDataMeta = storyData?.meta?.meta;
+  const hotkeys = storyDataMeta ? storyDataMeta.hotkeys : true;
 
   const iframeActive: boolean =
     storyData && storyDataMeta ? storyDataMeta.iframed : false;
@@ -110,6 +111,11 @@ const Story = ({
       metaWidth = config.addons.width.options[key];
     }
   });
+  React.useEffect(() => {
+    if (typeof hotkeys !== "undefined" && hotkeys !== globalState.hotkeys) {
+      dispatch({ type: ActionType.UpdateHotkeys, value: hotkeys });
+    }
+  }, [hotkeys]);
   React.useEffect(() => {
     if (metaWidth && metaWidth !== 0) {
       dispatch({ type: ActionType.UpdateWidth, value: metaWidth });

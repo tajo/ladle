@@ -179,6 +179,29 @@ export default {
 
 The same effect can be achieved by creating a file `.ladle/head.html`.
 
+### hotkeys
+
+You can customize the default set of hotkeys. You can assign multiple hotkeys for the same action. An emtpy array disables the hotkey. Use `meta` for `cmd` on macOS and `win` on Windows. `alt` is option on macOS.
+
+```tsx
+export default {
+  hotkeys: {
+    search: ["/", "meta+p"],
+    nextStory: ["alt+arrowright"],
+    previousStory: ["alt+arrowleft"],
+    nextComponent: ["alt+arrowdown"],
+    previousComponent: ["alt+arrowup"],
+    control: ["c"],
+    darkMode: ["d"],
+    fullscreen: ["f"],
+    width: ["w"],
+    rtl: ["r"],
+    source: ["s"],
+    a11y: ["a"],
+  },
+};
+```
+
 ### addons
 
 You can enable or disable all Ladle addons (the buttons in the left bottom corner). You can also control their default state. Must be serializable.

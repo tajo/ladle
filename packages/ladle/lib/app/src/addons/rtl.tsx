@@ -1,4 +1,5 @@
 import queryString from "query-string";
+import { useHotkeys } from "react-hotkeys-hook";
 import { Rtl } from "../icons";
 import { AddonProps, ActionType } from "../../../shared/types";
 import config from "../get-config";
@@ -13,6 +14,13 @@ export const getQuery = (locationSearch: string) => {
 export const Button = ({ dispatch, globalState }: AddonProps) => {
   const rtlText = "Switch text direction to right to left.";
   const ltrText = "Switch text direction to left to right.";
+  useHotkeys(
+    config.hotkeys.rtl,
+    () => dispatch({ type: ActionType.UpdateRtl, value: !globalState.rtl }),
+    {
+      enabled: globalState.hotkeys && config.addons.rtl.enabled,
+    },
+  );
   return (
     <li>
       <button

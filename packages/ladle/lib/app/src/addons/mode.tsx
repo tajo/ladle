@@ -16,8 +16,9 @@ export const getQuery = (locationSearch: string) => {
 };
 
 export const Button = ({ dispatch }: AddonProps) => {
-  const text =
-    "Open fullscreen mode. It removes all other styles and wrappers.";
+  const text = `Open fullscreen mode. Can be toggled by pressing ${config.hotkeys.fullscreen.join(
+    " or ",
+  )}.`;
   return (
     <li>
       <button

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useHotkeys } from "react-hotkeys-hook";
 import {
   stories as unsortedStories,
   errorMessage,
@@ -48,6 +49,7 @@ const getUrlState = (
   control: getQueryControl(search, globalState ? globalState.control : {}),
   action: [],
   controlInitialized: false,
+  hotkeys: true,
 });
 
 const App = () => {
@@ -62,6 +64,22 @@ const App = () => {
       }
     });
   }
+  useHotkeys(
+    config.hotkeys.fullscreen,
+    () => {
+      dispatch({
+        type: ActionType.UpdateMode,
+        value:
+          globalState.mode === ModeState.Full
+            ? ModeState.Preview
+            : ModeState.Full,
+      });
+    },
+    {
+      preventDefault: true,
+      enabled: globalState.hotkeys && config.addons.mode.enabled,
+    },
+  );
   React.useEffect(() => {
     // @ts-ignore
     document.getElementsByClassName("ladle-background")[0].style.background =
@@ -169,6 +187,7 @@ const App = () => {
       </main>
       <Navigation
         stories={stories}
+        hotkeys={globalState.hotkeys}
         story={globalState.story}
         updateStory={(story) => {
           // we need to strip the control state from the URL first
