@@ -26,6 +26,13 @@ if (mergedConfig.defaultStory === "") {
     mergedConfig.storyOrder,
   )[0];
 }
+
+// don't merge hotkeys
+mergedConfig.hotkeys = {
+  ...mergedConfig.hotkeys,
+  ...config.hotkeys,
+};
+
 debug("Final config", mergedConfig);
 
 export default mergedConfig;

@@ -9,7 +9,14 @@ module.exports = {
     {
       type: "category",
       label: "Features",
-      items: ["css", "providers", "meta", "typescript", "visual-snapshots"],
+      items: [
+        "css",
+        "hotkeys",
+        "meta",
+        "providers",
+        "typescript",
+        "visual-snapshots",
+      ],
     },
     {
       type: "category",

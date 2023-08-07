@@ -1,5 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
+import { useHotkeys } from "react-hotkeys-hook";
+import config from "../get-config";
 import { getHref } from "../history";
 import { Page, Down } from "../icons";
 import { getStoryTree } from "../story-name";
@@ -30,6 +32,7 @@ const TreeView = ({
   searchActive,
   searchRef,
   setTreeRootRef,
+  hotkeys,
 }: {
   stories: string[];
   story: string;
@@ -37,6 +40,7 @@ const TreeView = ({
   updateStory: UpdateStory;
   setTreeRootRef: (root: HTMLUListElement | null) => void;
   searchActive?: boolean;
+  hotkeys: boolean;
 }) => {
   const treeItemRefs: TreeItemRefs = React.useRef({});
   const [tree, setTree] = React.useState(
@@ -57,10 +61,77 @@ const TreeView = ({
     setSelectedItemId(id ? id : tree[0].id);
     !id && (searchRef as any).current.focus();
   };
+  const hotkeyStoryTransition = (story?: string) => {
+    if (story) {
+      updateStory(story);
+      setTree(getStoryTree(stories, story, searchActive));
+      setTimeout(() => focusSelectedItem(story), 1);
+    }
+  };
+  useHotkeys(
+    config.hotkeys.nextStory,
+    () => {
+      const currentIndex = stories.findIndex((s) => s === story);
+      hotkeyStoryTransition(stories[currentIndex + 1]);
+    },
+    { preventDefault: true, enableOnFormTags: true, enabled: hotkeys },
+  );
+  useHotkeys(
+    config.hotkeys.previousStory,
+    () => {
+      const currentIndex = stories.findIndex((s) => s === story);
+      hotkeyStoryTransition(stories[currentIndex - 1]);
+    },
+    { preventDefault: true, enableOnFormTags: true, enabled: hotkeys },
+  );
+  useHotkeys(
+    config.hotkeys.nextComponent,
+    () => {
+      console.log("nextComponent");
+      const currentIndex = stories.findIndex((s) => s === story);
+      const storyParts = stories[currentIndex].split("--");
+      const componentPart = storyParts[storyParts.length - 2];
+      for (let i = currentIndex + 1; i < stories.length; i++) {
+        const parts = stories[i].split("--");
+        if (parts[parts.length - 2] !== componentPart) {
+          hotkeyStoryTransition(stories[i]);
+          return;
+        }
+      }
+    },
+    { preventDefault: true, enableOnFormTags: true, enabled: hotkeys },
+  );
+  useHotkeys(
+    config.hotkeys.previousComponent,
+    () => {
+      console.log("previousComponent");
+      const currentIndex = stories.findIndex((s) => s === story);
+      const storyParts = stories[currentIndex].split("--");
+      const componentPart = storyParts[storyParts.length - 2];
+      for (let i = currentIndex - 1; i >= 0; i--) {
+        const parts = stories[i].split("--");
+        const prevParts = i > 0 ? stories[i - 1].split("--") : ["", ""];
+        console.log(
+          `parts: ${parts}, prevParts: ${prevParts}, componentPart: ${componentPart}`,
+        );
+        if (
+          parts[parts.length - 2] !== componentPart &&
+          prevParts[prevParts.length - 2] !== parts[parts.length - 2]
+        ) {
+          hotkeyStoryTransition(stories[i]);
+          return;
+        }
+      }
+    },
+    { preventDefault: true, enableOnFormTags: true, enabled: hotkeys },
+  );
   const onKeyDownFn = (
     e: React.KeyboardEvent<HTMLElement>,
     item: StoryTreeItem,
   ) => {
+    if (e.metaKey || e.ctrlKey || e.altKey) {
+      return;
+    }
     switch (e.key) {
       case "ArrowRight":
         e.preventDefault();
@@ -171,6 +242,7 @@ const NavigationSection = ({
       {tree.map((treeProps) => {
         return (
           <li
+            onDragStart={(e) => e.preventDefault()}
             onKeyDown={(e) => onKeyDownFn(e, treeProps)}
             aria-expanded={treeProps.isExpanded}
             title={treeProps.name}

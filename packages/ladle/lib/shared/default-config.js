@@ -11,6 +11,20 @@ export default {
   previewPort: 8080,
   outDir: "build",
   base: undefined,
+  hotkeys: {
+    search: ["/", "meta+p"],
+    nextStory: ["alt+arrowright"],
+    previousStory: ["alt+arrowleft"],
+    nextComponent: ["alt+arrowdown"],
+    previousComponent: ["alt+arrowup"],
+    control: ["c"],
+    darkMode: ["d"],
+    fullscreen: ["f"],
+    width: ["w"],
+    rtl: ["r"],
+    source: ["s"],
+    a11y: ["a"],
+  },
   onDevServerStart: () => {
     return;
   },

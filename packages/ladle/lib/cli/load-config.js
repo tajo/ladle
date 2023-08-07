@@ -24,9 +24,16 @@ const loadConfig = async (configFolder) => {
     if (config?.addons?.width?.options) {
       defaultConfig.addons.width.options = {};
     }
-    return /** @type {import("../shared/types").Config} */ (
-      merge(defaultConfig, config)
-    );
+    const mergedConfig = merge(defaultConfig, config);
+
+    // don't merge hotkeys
+    // @ts-ignore
+    mergedConfig.hotkeys = {
+      ...mergedConfig.hotkeys,
+      ...config.hotkeys,
+    };
+
+    return /** @type {import("../shared/types").Config} */ (mergedConfig);
   } catch (e) {
     debug(`No custom config found.`);
     return /** @type {import("../shared/types").Config} */ (defaultConfig);

@@ -52,8 +52,16 @@ body {
     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
     linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+  background-size:
+    100px 100px,
+    100px 100px,
+    20px 20px,
+    20px 20px;
+  background-position:
+    -2px -2px,
+    -2px -2px,
+    -1px -1px,
+    -1px -1px;
 }
 
 .ladle-iframe {
@@ -68,9 +76,12 @@ body {
   min-height: 500px;
   margin-top: 64px;
   margin-bottom: 64px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .ladle-background {
@@ -507,7 +518,12 @@ div[data-reach-dialog-overlay] {
   border: 1px solid var(--ladle-color-hover);
   color: var(--ladle-color-primary);
   border-radius: 6px;
-  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  font-family:
+    SFMono-Regular,
+    Consolas,
+    Liberation Mono,
+    Menlo,
+    monospace;
 }
 
 .ladle-addon-modal-body {
@@ -578,6 +594,7 @@ div[data-reach-dialog-overlay] {
 
   .ladle-aside ul {
     margin: 0;
+    user-select: none;
     margin-inline-start: 0.75em;
   }
 
