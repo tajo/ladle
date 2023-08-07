@@ -125,6 +125,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
       include: [
         "react",
         "react-dom",
+        "react-hotkeys-hook",
         "react/jsx-runtime",
         "react/jsx-dev-runtime",
         "react-inspector",

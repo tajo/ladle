@@ -16,6 +16,7 @@ const viteProd = async (config, configFolder) => {
       build: {
         outDir: path.join(process.cwd(), config.outDir),
         emptyOutDir: true,
+        chunkSizeWarningLimit: 2000,
       },
     });
     await build(viteConfig);
