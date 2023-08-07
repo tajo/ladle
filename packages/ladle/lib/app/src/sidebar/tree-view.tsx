@@ -87,7 +87,6 @@ const TreeView = ({
   useHotkeys(
     config.hotkeys.nextComponent,
     () => {
-      console.log("nextComponent");
       const currentIndex = stories.findIndex((s) => s === story);
       const storyParts = stories[currentIndex].split("--");
       const componentPart = storyParts[storyParts.length - 2];
@@ -104,16 +103,12 @@ const TreeView = ({
   useHotkeys(
     config.hotkeys.previousComponent,
     () => {
-      console.log("previousComponent");
       const currentIndex = stories.findIndex((s) => s === story);
       const storyParts = stories[currentIndex].split("--");
       const componentPart = storyParts[storyParts.length - 2];
       for (let i = currentIndex - 1; i >= 0; i--) {
         const parts = stories[i].split("--");
         const prevParts = i > 0 ? stories[i - 1].split("--") : ["", ""];
-        console.log(
-          `parts: ${parts}, prevParts: ${prevParts}, componentPart: ${componentPart}`,
-        );
         if (
           parts[parts.length - 2] !== componentPart &&
           prevParts[prevParts.length - 2] !== parts[parts.length - 2]
