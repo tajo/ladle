@@ -1,5 +1,12 @@
 # test-decorators
 
+## 0.2.85
+
+### Patch Changes
+
+- Updated dependencies [[`d51e5f4`](https://github.com/tajo/ladle/commit/d51e5f48697786a73376744da8a0a63c56f36f1f)]:
+  - @ladle/react@2.17.2
+
 ## 0.2.84
 
 ### Patch Changes
