@@ -29,7 +29,7 @@ export const Button = ({ globalState, dispatch }: AddonProps) => {
     document.documentElement.setAttribute("data-theme", newTheme);
     dispatch({ type: ActionType.UpdateTheme, value: newTheme });
   };
-  useHotkeys(config.hotkeys.darkMode, () => changeTheme(), {
+  useHotkeys(config.hotkeys.darkMode, changeTheme, {
     enabled: globalState.hotkeys && config.addons.mode.enabled,
   });
   return (
