@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 2.17.2
+
+### Patch Changes
+
+- [#472](https://github.com/tajo/ladle/pull/472) [`d51e5f4`](https://github.com/tajo/ladle/commit/d51e5f48697786a73376744da8a0a63c56f36f1f) Thanks [@tajo](https://github.com/tajo)! - Global hotkeys should work from inside of the iframe as well.
+
 ## 2.17.1
 
 ### Patch Changes
