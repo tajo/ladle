@@ -161,7 +161,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
           root: process.cwd(),
         }),
       ladlePlugin(ladleConfig, configFolder, viteConfig.mode || ""),
-      !hasReactPlugin && !hasReactSwcPlugin && react(),
+      !hasReactPlugin && !hasReactSwcPlugin && !hasDisabledReactPlugin && react(),
     ],
   };
   return mergeViteConfigs(userViteConfig, config);
