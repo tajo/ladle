@@ -35,7 +35,7 @@ module.exports = {
     {
       type: "category",
       label: "Recipes",
-      items: ["nextjs"],
+      items: ["nextjs", "preact"],
     },
     {
       type: "category",
