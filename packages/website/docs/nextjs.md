@@ -42,3 +42,20 @@ export default UnoptimizedImage;
 ```
 
 This solution is inspired by [blog post](https://sdorra.dev/posts/2023-01-18-ladle-next-image#nextimage).
+
+## Using environment variables
+
+To make use of your current `.env` files, you simply need to let Vite know and ensure they are passed to the browser. As Next.js requires you to add `NEXT_PUBLIC_` as a prefix to your frontend environment variables, we also need to inform Vite about this.
+
+To achieve this, you will need to customize Vite's configuration further.
+
+```ts title="vite.config.ts"
+import { defineConfig, loadEnv } from "vite";
+
+export default defineConfig(({ mode }) => ({
+  // resolve: {...},
+  define: {
+    "process.env": loadEnv(mode, process.cwd(), "NEXT_PUBLIC_"),
+  },
+}));
+```
