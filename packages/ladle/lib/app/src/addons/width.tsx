@@ -1,10 +1,11 @@
 import * as React from "react";
 import queryString from "query-string";
+import { useHotkeys } from "react-hotkeys-hook";
+import config from "../get-config";
 import { AddonProps, ActionType } from "../../../shared/types";
 import { stories } from "virtual:generated-list";
 import { Modal } from "../ui";
 import { Width } from "../icons";
-import config from "../get-config";
 
 export const getQuery = (locationSearch: string) => {
   const urlVal = queryString.parse(locationSearch).width;
@@ -23,6 +24,9 @@ export const getQuery = (locationSearch: string) => {
 export const Button = ({ globalState, dispatch }: AddonProps) => {
   const text = "Change the story viewport.";
   const [open, setOpen] = React.useState(false);
+  useHotkeys(config.hotkeys.width, () => setOpen((prev) => !prev), {
+    enabled: globalState.hotkeys && config.addons.width.enabled,
+  });
   const storyData = stories[globalState.story];
   let metaWidth = storyData && storyData.meta ? storyData.meta.meta.width : 0;
   let options = config.addons.width.options;

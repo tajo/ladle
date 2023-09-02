@@ -6,6 +6,7 @@ import type { StoryDecorator } from "../../shared/types";
 
 export default function composeEnhancers(module: any, storyName: string) {
   let decorators: StoryDecorator[] = [];
+  let parameters: { [key: string]: any } = {};
   const props = {
     args: {
       ...args,
@@ -27,6 +28,12 @@ export default function composeEnhancers(module: any, storyName: string) {
   if (module.default && Array.isArray(module.default.decorators)) {
     decorators = [...decorators, ...module.default.decorators];
   }
+  parameters = {
+    ...(module.default && module.default.parameters
+      ? module.default.parameters
+      : {}),
+    ...(module[storyName].parameters ? module[storyName].parameters : {}),
+  };
 
   return function RenderDecoratedStory() {
     const { globalState } = useLadleContext();
@@ -41,10 +48,16 @@ export default function composeEnhancers(module: any, storyName: string) {
     const getBindedDecorator = (i: number) => {
       return React.useRef(() => {
         const context = useLadleContext();
-        return decorators[i](
-          i === 0 ? WithArgs : getBindedDecorator(i - 1),
-          context,
+        const args: { [key: string]: any } = {};
+        Object.keys(context.globalState.control).forEach(
+          (key) => (args[key] = context.globalState.control[key].value),
         );
+        return decorators[i](i === 0 ? WithArgs : getBindedDecorator(i - 1), {
+          ...context,
+          parameters,
+          argTypes: props.argTypes,
+          args,
+        });
       }).current;
     };
     const Decorated = getBindedDecorator(decorators.length - 1);

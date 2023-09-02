@@ -1,6 +1,8 @@
 import * as React from "react";
+import { useHotkeys } from "react-hotkeys-hook";
 import { Controls } from "../icons";
 import { Modal } from "../ui";
+import config from "../get-config";
 import queryString from "query-string";
 import type { AddonProps } from "../../../shared/types";
 import {
@@ -417,6 +419,9 @@ const Control = ({
 
 export const Button = ({ globalState, dispatch }: AddonProps) => {
   const [open, setOpen] = React.useState(false);
+  useHotkeys(config.hotkeys.control, () => setOpen((prev) => !prev), {
+    enabled: globalState.hotkeys && config.addons.control.enabled,
+  });
   const text = "Explore different versions of this story through controls.";
   const activeControls = Object.keys(globalState.control).filter(
     (key) =>

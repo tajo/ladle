@@ -1,5 +1,54 @@
 # test-provider
 
+## 0.3.40
+
+### Patch Changes
+
+- Updated dependencies [[`d51e5f4`](https://github.com/tajo/ladle/commit/d51e5f48697786a73376744da8a0a63c56f36f1f)]:
+  - @ladle/react@2.17.2
+
+## 0.3.39
+
+### Patch Changes
+
+- Updated dependencies [[`9eb9731`](https://github.com/tajo/ladle/commit/9eb97313d859d8d93c6780f1fa43efdfdcbf34f7)]:
+  - @ladle/react@2.17.1
+
+## 0.3.38
+
+### Patch Changes
+
+- Updated dependencies [[`92ea9b1`](https://github.com/tajo/ladle/commit/92ea9b12306d7042fed663c9d8856989ecce0eda)]:
+  - @ladle/react@2.17.0
+
+## 0.3.37
+
+### Patch Changes
+
+- Updated dependencies [[`3739ddb`](https://github.com/tajo/ladle/commit/3739ddb7596ba377ec1684917d4cc3525bea733b)]:
+  - @ladle/react@2.16.1
+
+## 0.3.36
+
+### Patch Changes
+
+- Updated dependencies [[`8ee198f`](https://github.com/tajo/ladle/commit/8ee198f1e7610b86f88b7fda93e2d026caf56e88), [`29c4e6c`](https://github.com/tajo/ladle/commit/29c4e6cf09671a93b9f013854e887760cde316df)]:
+  - @ladle/react@2.16.0
+
+## 0.3.35
+
+### Patch Changes
+
+- Updated dependencies [[`d3e0200`](https://github.com/tajo/ladle/commit/d3e0200a10af2b9d5ad44b2962fdc3efbe0afe6c), [`802b351`](https://github.com/tajo/ladle/commit/802b3518e5e5536ad8d426a9aed228185f055b6e), [`7ce734a`](https://github.com/tajo/ladle/commit/7ce734a5392d994748a0e552c7ea1b292b29d8e2)]:
+  - @ladle/react@2.15.0
+
+## 0.3.34
+
+### Patch Changes
+
+- Updated dependencies [[`1272570`](https://github.com/tajo/ladle/commit/1272570f8eeb5758175b7abdf501ea538853170d)]:
+  - @ladle/react@2.14.0
+
 ## 0.3.33
 
 ### Patch Changes

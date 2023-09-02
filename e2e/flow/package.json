@@ -1,6 +1,6 @@
 {
   "name": "test-flow",
-  "version": "0.2.77",
+  "version": "0.2.84",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -13,11 +13,11 @@
     "test": "pnpm test-dev && pnpm test-prod"
   },
   "dependencies": {
-    "@ladle/react": "workspace:*",
     "@ladle/playwright-config": "workspace:*",
-    "@playwright/test": "^1.34.3",
+    "@ladle/react": "workspace:*",
+    "@playwright/test": "^1.36.0",
     "cross-env": "^7.0.3",
-    "flow-remove-types": "^2.203.1",
+    "flow-remove-types": "^2.212.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup-pluginutils": "^2.8.2",

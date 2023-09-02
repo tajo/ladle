@@ -9,7 +9,14 @@ module.exports = {
     {
       type: "category",
       label: "Features",
-      items: ["css", "providers", "meta", "typescript", "visual-snapshots"],
+      items: [
+        "css",
+        "hotkeys",
+        "meta",
+        "providers",
+        "typescript",
+        "visual-snapshots",
+      ],
     },
     {
       type: "category",
@@ -43,7 +50,7 @@ module.exports = {
         {
           type: "link",
           label: "Contributing",
-          href: "https://github.com/tajo/ladle/blob/master/CONTRIBUTING.md",
+          href: "https://github.com/tajo/ladle/blob/main/CONTRIBUTING.md",
         },
       ],
     },

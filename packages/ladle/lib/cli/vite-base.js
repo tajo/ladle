@@ -125,6 +125,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
       include: [
         "react",
         "react-dom",
+        "react-hotkeys-hook",
         "react/jsx-runtime",
         "react/jsx-dev-runtime",
         "react-inspector",
@@ -134,8 +135,6 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         "lodash.merge",
         "query-string",
         "prism-react-renderer",
-        "prism-react-renderer/themes/github",
-        "prism-react-renderer/themes/nightOwl",
         "axe-core",
         "react-frame-component",
         "@mdx-js/react",

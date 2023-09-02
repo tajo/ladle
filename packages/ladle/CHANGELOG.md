@@ -1,5 +1,81 @@
 # @ladle/react
 
+## 2.17.2
+
+### Patch Changes
+
+- [#472](https://github.com/tajo/ladle/pull/472) [`d51e5f4`](https://github.com/tajo/ladle/commit/d51e5f48697786a73376744da8a0a63c56f36f1f) Thanks [@tajo](https://github.com/tajo)! - Global hotkeys should work from inside of the iframe as well.
+
+## 2.17.1
+
+### Patch Changes
+
+- [#470](https://github.com/tajo/ladle/pull/470) [`9eb9731`](https://github.com/tajo/ladle/commit/9eb97313d859d8d93c6780f1fa43efdfdcbf34f7) Thanks [@tajo](https://github.com/tajo)! - Increase chunk size warning
+
+## 2.17.0
+
+### Minor Changes
+
+- [#468](https://github.com/tajo/ladle/pull/468) [`92ea9b1`](https://github.com/tajo/ladle/commit/92ea9b12306d7042fed663c9d8856989ecce0eda) Thanks [@tajo](https://github.com/tajo)! - Ladle is adding a few hotkeys to make your life easier:
+
+  - `/` or `⌘ cmd ＋ p` - Focus search input in the sidebar
+  - `⌥ opt ＋ →` - Go to the next story
+  - `⌥ opt ＋ ←` - Go to the previous story
+  - `⌥ opt ＋ ↓` - Go to the next component
+  - `⌥ opt ＋ ↑` - Go to the previous component
+  - `c` - Toggle controls addon
+  - `d` - Toggle dark mode
+  - `f` - Toggle fullscreen mode
+  - `w` - Toggle width addon
+  - `r` - Toggle right-to-left mode
+  - `s` - Toggle story source addon
+  - `a` - Toggle accessibility addon
+
+  These defaults can be customized through the configuration. Some stories might have utilize their own set of hotkeys. If you want to prevent conflicts with Ladle, you can disable all Ladle shortcuts for a specific story by using the `meta` parameter:
+
+  ```tsx
+  export default {
+    meta: {
+      hotkeys: false,
+    },
+  };
+  Story.meta = {
+    hotkeys: false,
+  };
+  ```
+
+## 2.16.1
+
+### Patch Changes
+
+- [#462](https://github.com/tajo/ladle/pull/462) [`3739ddb`](https://github.com/tajo/ladle/commit/3739ddb7596ba377ec1684917d4cc3525bea733b) Thanks [@tajo](https://github.com/tajo)! - Pin react-frame-component to 5.2.4 (again)
+
+## 2.16.0
+
+### Minor Changes
+
+- [#460](https://github.com/tajo/ladle/pull/460) [`29c4e6c`](https://github.com/tajo/ladle/commit/29c4e6cf09671a93b9f013854e887760cde316df) Thanks [@tajo](https://github.com/tajo)! - Support argTypes boolean, text, number, color and date.
+
+### Patch Changes
+
+- [#458](https://github.com/tajo/ladle/pull/458) [`8ee198f`](https://github.com/tajo/ladle/commit/8ee198f1e7610b86f88b7fda93e2d026caf56e88) Thanks [@tajo](https://github.com/tajo)! - Bump all dependencies
+
+## 2.15.0
+
+### Minor Changes
+
+- [#449](https://github.com/tajo/ladle/pull/449) [`d3e0200`](https://github.com/tajo/ladle/commit/d3e0200a10af2b9d5ad44b2962fdc3efbe0afe6c) Thanks [@tajo](https://github.com/tajo)! - Add args and argTypes to context for Storybook compat
+
+- [#447](https://github.com/tajo/ladle/pull/447) [`802b351`](https://github.com/tajo/ladle/commit/802b3518e5e5536ad8d426a9aed228185f055b6e) Thanks [@tajo](https://github.com/tajo)! - Pass legacy parameters through context into decorators (Storybook compat)
+
+- [#450](https://github.com/tajo/ladle/pull/450) [`7ce734a`](https://github.com/tajo/ladle/commit/7ce734a5392d994748a0e552c7ea1b292b29d8e2) Thanks [@tajo](https://github.com/tajo)! - Quicker side-navigation for deeply nested stories. The sub-tree is automatically expanded and the first story/link activated.
+
+## 2.14.0
+
+### Minor Changes
+
+- [#444](https://github.com/tajo/ladle/pull/444) [`1272570`](https://github.com/tajo/ladle/commit/1272570f8eeb5758175b7abdf501ea538853170d) Thanks [@dtgreene](https://github.com/dtgreene)! - Use Vite v4.3.9
+
 ## 2.13.0
 
 ### Minor Changes

@@ -11,7 +11,6 @@ export type StoryOrder = string[] | ((stories: string[]) => string[]);
 export enum ModeState {
   Full = "full",
   Preview = "preview",
-  SingleScroll = "single-scroll",
 }
 
 export enum ThemeState {
@@ -63,6 +62,7 @@ export enum ActionType {
   UpdateWidth = "update-width",
   UpdateControl = "update-control",
   UpdateControlIntialized = "update-control-initialized",
+  UpdateHotkeys = "update-hotkeys",
 }
 
 export type GlobalAction =
@@ -100,6 +100,10 @@ export type GlobalAction =
       value: ThemeState;
     }
   | {
+      type: ActionType.UpdateHotkeys;
+      value: boolean;
+    }
+  | {
       type: ActionType.UpdateControlIntialized;
       value: boolean;
     }
@@ -118,6 +122,7 @@ export type GlobalState = {
   control: ControlState;
   controlInitialized: boolean;
   width: number;
+  hotkeys: boolean;
 };
 
 export type UpdateStory = (story: string) => void;
@@ -130,6 +135,9 @@ export type AddonProps = {
 export type StoryProps = {
   dispatch: React.Dispatch<GlobalAction>;
   globalState: GlobalState;
+  parameters: { [key: string]: any };
+  args: { [key: string]: any };
+  argTypes: { [key: string]: any };
 };
 
 export type StoryDecorator<P = {}> = (
@@ -178,6 +186,20 @@ export type Config = {
   outDir: string;
   base?: string;
   mode?: string;
+  hotkeys: {
+    fullscreen: string[];
+    search: string[];
+    nextStory: string[];
+    previousStory: string[];
+    nextComponent: string[];
+    previousComponent: string[];
+    control: string[];
+    width: string[];
+    rtl: string[];
+    a11y: string[];
+    source: string[];
+    darkMode: string[];
+  };
   onDevServerStart: (serverUrl: string) => void;
   i18n: { [key: string]: string };
   addons: {

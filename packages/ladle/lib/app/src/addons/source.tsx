@@ -1,9 +1,8 @@
 import * as React from "react";
 import queryString from "query-string";
-import Highlight, { defaultProps } from "prism-react-renderer";
+import { Highlight, themes } from "prism-react-renderer";
 import type { Language } from "prism-react-renderer";
-import themeLight from "prism-react-renderer/themes/github";
-import themeDark from "prism-react-renderer/themes/nightOwl";
+import { useHotkeys } from "react-hotkeys-hook";
 import {
   storySource,
   stories,
@@ -44,13 +43,12 @@ export const CodeHighlight = ({
     language = match[1] as Language;
     return (
       <Highlight
-        {...defaultProps}
         code={children.trim()}
         language={language}
         theme={{
-          ...(theme === "dark" ? themeDark : themeLight),
+          ...(theme === "dark" ? themes.nightOwl : themes.github),
           plain: {
-            ...(theme === "dark" ? themeDark : themeLight).plain,
+            ...(theme === "dark" ? themes.nightOwl : themes.github).plain,
             backgroundColor: "var(--ladle-bg-color-secondary)",
           },
         }}
@@ -81,13 +79,12 @@ export const CodeHighlight = ({
   if (withLoc) {
     return (
       <Highlight
-        {...defaultProps}
         code={children.trim()}
         language={language}
         theme={{
-          ...(theme === "dark" ? themeDark : themeLight),
+          ...(theme === "dark" ? themes.nightOwl : themes.github),
           plain: {
-            ...(theme === "dark" ? themeDark : themeLight).plain,
+            ...(theme === "dark" ? themes.nightOwl : themes.github).plain,
             backgroundColor: "var(--ladle-bg-color-secondary)",
           },
         }}
@@ -170,6 +167,18 @@ const CodeFrame = ({ globalState }: { globalState: GlobalState }) => {
 
 export const Button = ({ globalState, dispatch }: AddonProps) => {
   const text = "Show the story source code.";
+  useHotkeys(
+    config.hotkeys.source,
+    () => {
+      dispatch({
+        type: ActionType.UpdateSource,
+        value: !globalState.source,
+      });
+    },
+    {
+      enabled: globalState.hotkeys && config.addons.source.enabled,
+    },
+  );
 
   return (
     <li>

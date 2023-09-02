@@ -49,8 +49,12 @@ const AddonPanel = ({
         {config.addons.source.enabled && (
           <SourceButton globalState={globalState} dispatch={dispatch} />
         )}
-        {config.addons.a11y.enabled && <A11yButton />}
-        {config.addons.ladle.enabled && <LadleButton />}
+        {config.addons.a11y.enabled && (
+          <A11yButton globalState={globalState} dispatch={dispatch} />
+        )}
+        {config.addons.ladle.enabled && (
+          <LadleButton globalState={globalState} dispatch={dispatch} />
+        )}
         {config.addons.control.enabled && globalState.action.length > 0 && (
           <ActionButton globalState={globalState} dispatch={dispatch} />
         )}

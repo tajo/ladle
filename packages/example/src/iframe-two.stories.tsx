@@ -6,10 +6,7 @@ export default {
   },
 };
 
-export const Page = () => <div>Page</div>;
-export const PageB = () => <div>Page B</div>;
-export const PageC = () => <div>Page C</div>;
-export const AutoFocusInput = () => {
+export const AutoFocusInputAgain = () => {
   const inputRef = useRef(null);
 
   useEffect(() => {

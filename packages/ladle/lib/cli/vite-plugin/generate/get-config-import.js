@@ -10,6 +10,7 @@ const ladleConfigToClientConfig = (config) => {
   return {
     ...(config.stories ? { stories: config.stories } : {}),
     ...(config.addons ? { addons: config.addons } : {}),
+    ...(config.hotkeys ? { hotkeys: config.hotkeys } : {}),
     ...(config.defaultStory ? { defaultStory: config.defaultStory } : {}),
     ...(config.base ? { base: config.base } : {}),
     ...(config.mode ? { mode: config.mode } : {}),
@@ -36,9 +37,16 @@ const getConfigImport = async (configFolder, config) => {
   let clientConfig = {};
   if (fs.existsSync(configPath)) {
     const fileConfig = (await import(pathToFileURL(configPath).href)).default;
+    // @ts-ignore
     clientConfig = ladleConfigToClientConfig(fileConfig);
   }
   merge(clientConfig, ladleConfigToClientConfig(config));
+  // don't merge hotkeys
+  // @ts-ignore
+  clientConfig.hotkeys = {
+    ...clientConfig.hotkeys,
+    ...config.hotkeys,
+  };
   try {
     configCode = `export let config = ${JSON.stringify(clientConfig)};\n`;
   } catch (e) {

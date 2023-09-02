@@ -10,6 +10,7 @@ import config from "./get-config";
 import StoryNotFound from "./story-not-found";
 import { ModeState } from "../../shared/types";
 import { CodeHighlight } from "./addons/source";
+import { redirectKeyup, redirectKeydown } from "./redirect-events";
 
 const StoryFrame = ({
   children,
@@ -52,7 +53,7 @@ const SynchronizeHead = ({
   rtl: boolean;
   width: number;
 }) => {
-  const { window: storyWindow } = useFrame();
+  const { window: storyWindow, document: iframeDocument } = useFrame();
   const syncHead = () => {
     if (!storyWindow) return;
     storyWindow.document.documentElement.setAttribute(
@@ -75,6 +76,8 @@ const SynchronizeHead = ({
   React.useEffect(() => {
     if (active) {
       syncHead();
+      iframeDocument?.addEventListener("keydown", redirectKeydown);
+      iframeDocument?.addEventListener("keyup", redirectKeyup);
       const observer = new MutationObserver(() => syncHead());
       document.documentElement.setAttribute("data-iframed", `${width}`);
       observer.observe(document.head, {
@@ -84,10 +87,12 @@ const SynchronizeHead = ({
       });
       return () => {
         observer && observer.disconnect();
+        iframeDocument?.removeEventListener("keydown", redirectKeydown);
+        iframeDocument?.removeEventListener("keyup", redirectKeyup);
       };
     }
     return;
-  }, [active, rtl]);
+  }, [active, rtl, iframeDocument]);
   return children;
 };
 
@@ -101,6 +106,7 @@ const Story = ({
   const storyData = stories[globalState.story];
   const width = globalState.width;
   const storyDataMeta = storyData?.meta?.meta;
+  const hotkeys = storyDataMeta ? storyDataMeta.hotkeys : true;
 
   const iframeActive: boolean =
     storyData && storyDataMeta ? storyDataMeta.iframed : false;
@@ -110,6 +116,11 @@ const Story = ({
       metaWidth = config.addons.width.options[key];
     }
   });
+  React.useEffect(() => {
+    if (typeof hotkeys !== "undefined" && hotkeys !== globalState.hotkeys) {
+      dispatch({ type: ActionType.UpdateHotkeys, value: hotkeys });
+    }
+  }, [hotkeys]);
   React.useEffect(() => {
     if (metaWidth && metaWidth !== 0) {
       dispatch({ type: ActionType.UpdateWidth, value: metaWidth });

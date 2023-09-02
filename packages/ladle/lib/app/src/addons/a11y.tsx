@@ -1,7 +1,10 @@
 import * as React from "react";
+import { useHotkeys } from "react-hotkeys-hook";
+import config from "../get-config";
 import { watchers } from "../story-hmr";
 import { A11y } from "../icons";
 import { Modal, Code } from "../ui";
+import type { AddonProps } from "../../../shared/types";
 
 type ViolationT = {
   id: string;
@@ -99,7 +102,7 @@ const AxeReport = ({
   );
 };
 
-export const Button = () => {
+export const Button = ({ globalState }: AddonProps) => {
   const [showReport, setShowReport] = React.useState(false);
   const [reportFinished, setReportFinished] = React.useState(false);
   const [violations, setViolations] = React.useState<ViolationsT>([]);
@@ -116,18 +119,26 @@ export const Button = () => {
     });
   }, []);
   const text = "Show accessibility report.";
+  const openReport = () => {
+    runAxe(setViolations, setReportFinished, null).catch(console.error);
+    // We give 100ms for axe to finish before displaying "Loading..."
+    // inside of the dialog. Makes the UI transition to less jarring.
+    setTimeout(() => setShowReport(!showReport), 100);
+  };
+  useHotkeys(
+    config.hotkeys.a11y,
+    () => (showReport ? setShowReport(false) : openReport()),
+    {
+      enabled: globalState.hotkeys && config.addons.a11y.enabled,
+    },
+  );
   return (
     <li>
       <button
         aria-label={text}
         data-testid="addon-a11y"
         title={text}
-        onClick={() => {
-          runAxe(setViolations, setReportFinished, null).catch(console.error);
-          // We give 100ms for axe to finish before displaying "Loading..."
-          // inside of the dialog. Makes the UI transition to less jarring.
-          setTimeout(() => setShowReport(!showReport), 100);
-        }}
+        onClick={openReport}
         className={showReport ? "a11y-active" : ""}
         type="button"
       >
