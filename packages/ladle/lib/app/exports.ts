@@ -63,14 +63,14 @@ export type SourceHeader = React.FC<{
   locEnd: number;
 }>;
 
-export type StoryDefault<P = {}> = {
+export interface StoryDefault<P = {}> {
   args?: Args<P>;
   argTypes?: ArgTypes<P>;
   decorators?: StoryDecorator<P>[];
   meta?: Meta;
   title?: string;
   parameters?: { [key: string]: any };
-};
+}
 
 export interface Story<P = {}> extends React.FC<P> {
   args?: Args<P>;
@@ -131,6 +131,6 @@ export type ArgTypes<
 
 export interface Meta {
   iframed?: boolean;
-  width?: number | "xsmall" | "small" | "medium" | "large";
+  width?: string | number | "xsmall" | "small" | "medium" | "large";
   [key: string]: any;
 }
