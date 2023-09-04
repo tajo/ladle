@@ -38,7 +38,10 @@ const getInputValue = (target: HTMLInputElement, type?: ControlType) => {
   }
 };
 
-const coerceString = (value: string) => {
+const coerceString = (value: string, options?: any[]) => {
+  if (options && options.some((option) => option === Number(value))) {
+    return Number(value);
+  }
   const isBoolean = value === "true" || value === "false";
   return isBoolean ? (value === "false" ? false : true) : value;
 };
@@ -82,12 +85,18 @@ export const getQuery = (
           case ControlType.InlineRadio:
           case ControlType.Select:
           case ControlType.Background:
-            realValue = coerceString(decodeURI(argValue));
+            realValue = coerceString(
+              decodeURI(argValue),
+              controlState[argKey].options,
+            );
             break;
           case ControlType.InlineCheck:
           case ControlType.MultiSelect:
           case ControlType.Check:
-            realValue = coerceString(JSON.parse(decodeURI(argValue)));
+            realValue = coerceString(
+              JSON.parse(decodeURI(argValue)),
+              controlState[argKey].options,
+            );
             break;
         }
         controls[argKey] = {
@@ -175,7 +184,10 @@ const Control = ({
                         ...globalState.control,
                         [controlKey]: {
                           ...globalState.control[controlKey],
-                          value: coerceString(String(option)),
+                          value: coerceString(
+                            String(option),
+                            globalState.control[controlKey].options,
+                          ),
                         },
                       },
                     });
@@ -286,7 +298,10 @@ const Control = ({
                   ...globalState.control,
                   [controlKey]: {
                     ...globalState.control[controlKey],
-                    value: coerceString(newValue),
+                    value: coerceString(
+                      newValue,
+                      globalState.control[controlKey].options,
+                    ),
                   },
                 },
               });

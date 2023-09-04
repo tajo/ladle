@@ -162,3 +162,18 @@ Initial.argTypes = {
     control: { type: "check" },
   },
 };
+
+export const KeepNumbers: Story<{ size: number }> = ({ size }) => {
+  return (
+    <h1>
+      {size} - {typeof size}
+    </h1>
+  );
+};
+KeepNumbers.argTypes = {
+  size: {
+    options: [14, 16, 22, 30],
+    defaultValue: 30,
+    control: { type: "select" },
+  },
+};

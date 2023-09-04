@@ -225,3 +225,10 @@ test("test export default level argTypes", async ({ page }) => {
   await page.check("#cities-Prague");
   await expect(page.locator("#content")).toContainText("Cities: Prague");
 });
+
+test("do not turn select options number values to strings", async ({
+  page,
+}) => {
+  await page.goto("/?arg-size=22&story=controls--keep-numbers");
+  await expect(page.locator("h1")).toHaveText("22 - number");
+});

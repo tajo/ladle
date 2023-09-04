@@ -37,6 +37,8 @@ const bundler = async (config, configFolder) => {
         host: config.host,
         port: config.port,
         hmr: {
+          // needed for hmr to work over network aka WSL2
+          host: "localhost",
           port: hmrPort,
         },
         middlewareMode: true,
