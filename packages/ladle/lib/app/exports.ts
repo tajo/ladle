@@ -129,8 +129,8 @@ export type ArgTypes<
   [key in keyof P]?: ArgType<P[key]>;
 };
 
-export type Meta = {
+export interface Meta {
   iframed?: boolean;
   width?: number | "xsmall" | "small" | "medium" | "large";
   [key: string]: any;
-};
+}
