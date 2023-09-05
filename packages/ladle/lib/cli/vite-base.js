@@ -1,5 +1,5 @@
 import path from "path";
-import react from "@vitejs/plugin-react";
+import react from "@vitejs/plugin-react-swc";
 import fs from "fs";
 import { globby } from "globby";
 import { fileURLToPath } from "url";

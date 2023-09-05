@@ -1,11 +1,11 @@
 {
-  "name": "test-flow",
-  "version": "0.2.84",
+  "name": "test-babel",
+  "version": "0.3.33",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "serve": "ladle serve -p 61104",
-    "serve-prod": "ladle preview -p 61104",
+    "serve": "ladle serve -p 61109",
+    "serve-prod": "ladle preview -p 61109",
     "build": "ladle build",
     "lint": "echo 'no lint'",
     "test-dev": "cross-env TYPE=dev pnpm exec playwright test",
@@ -16,11 +16,9 @@
     "@ladle/playwright-config": "workspace:*",
     "@ladle/react": "workspace:*",
     "@playwright/test": "^1.36.0",
+    "@vitejs/plugin-react": "^4.0.4",
     "cross-env": "^7.0.3",
-    "flow-remove-types": "^2.212.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "rollup-pluginutils": "^2.8.2",
-    "start-server-and-test": "^2.0.0"
+    "react-dom": "^18.2.0"
   }
 }

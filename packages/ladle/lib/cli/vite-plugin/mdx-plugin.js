@@ -42,7 +42,7 @@ const unknownBackticks = (code) => {
 function mdxPlugin(opts) {
   /** @type any */
   let reactPluginTransform;
-  let reactPluginSwcTransform;
+  let usesReactPluginSwc;
   const isDev = opts.mode === "development";
   const { process } = createFormatAwareProcessors({
     SourceMapGenerator,
@@ -67,9 +67,7 @@ function mdxPlugin(opts) {
         (p) =>
           p.name === "vite:react-babel" && typeof p.transform === "function",
       )?.transform;
-      reactPluginSwcTransform = plugins.find(
-        (p) => p.name === "vite:react-swc" && typeof p.transform === "function",
-      )?.transform;
+      usesReactPluginSwc = plugins.some((p) => p.name === "vite:react-swc");
     },
     async transform(value, path) {
       const [filepath, querystring = ""] = path.split("?");
@@ -104,22 +102,18 @@ function mdxPlugin(opts) {
         const filename = `${filepath}${
           querystring ? "&ext=.jsx" : "?ext=.jsx"
         }`;
-        if (!reactPluginSwcTransform && !reactPluginTransform) {
+        if (!usesReactPluginSwc && !reactPluginTransform) {
           throw new Error(
-            `You need to install @vitejs/plugin-react or @vitejs/plugin-react-swc so ${filename} can be compiled.`,
+            `You need to install and use @vitejs/plugin-react-swc or @vitejs/plugin-react so ${filename} can be compiled.`,
           );
         }
-        if (reactPluginSwcTransform) {
-          // swc plugin can compile JSX, no need for esbuild
-          return await reactPluginSwcTransform(
-            code,
+        if (reactPluginTransform) {
+          return await reactPluginTransform(
+            (await transformWithEsbuild(code, filename)).code,
             filepath.replace(".mdx", ".jsx"),
           );
         }
-        return await reactPluginTransform(
-          (await transformWithEsbuild(code, filename)).code,
-          filepath.replace(".mdx", ".jsx"),
-        );
+        return { code, map: compiled.map };
       }
     },
   };
