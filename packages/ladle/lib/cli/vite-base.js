@@ -86,7 +86,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
 
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
   const inladleMonorepo = fs.existsSync(
-    path.join(__dirname, "../../../../e2e/swc/package.json"),
+    path.join(__dirname, "../../../../e2e/addons/package.json"),
   );
   debug("Executed from the ladle monorepo: %s", inladleMonorepo);
 
@@ -136,7 +136,6 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         "query-string",
         "prism-react-renderer",
         "axe-core",
-        "react-frame-component",
         "@mdx-js/react",
         "@ladle/react-context",
         ...(inladleMonorepo ? [] : ["@ladle/react"]),

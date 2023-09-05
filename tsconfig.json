@@ -22,7 +22,7 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "paths": {
@@ -39,10 +39,5 @@
     "e2e/*/tests/*",
     "type-tests/*"
   ],
-  "exclude": [
-    "packages/website/**",
-    "packages/example/src/button.stories.js",
-    "packages/example/src/flow-types.js",
-    "e2e/flow"
-  ]
+  "exclude": ["packages/website/**", "packages/example/src/button.stories.js"]
 }
