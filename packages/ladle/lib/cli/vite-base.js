@@ -136,7 +136,6 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         "query-string",
         "prism-react-renderer",
         "axe-core",
-        "react-frame-component",
         "@mdx-js/react",
         "@ladle/react-context",
         ...(inladleMonorepo ? [] : ["@ladle/react"]),

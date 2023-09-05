@@ -1,5 +1,4 @@
 import * as React from "react";
-import Frame, { useFrame } from "react-frame-component";
 import { MDXProvider } from "@mdx-js/react";
 import ErrorBoundary from "./error-boundary";
 import { stories, Provider } from "virtual:generated-list";
@@ -11,6 +10,7 @@ import StoryNotFound from "./story-not-found";
 import { ModeState } from "../../shared/types";
 import { CodeHighlight } from "./addons/source";
 import { redirectKeyup, redirectKeydown } from "./redirect-events";
+import { Frame, useFrame } from "./iframe";
 
 const StoryFrame = ({
   children,
