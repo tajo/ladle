@@ -90,6 +90,30 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
 
+  e2e/babel:
+    dependencies:
+      '@ladle/playwright-config':
+        specifier: workspace:*
+        version: link:../playwright-config
+      '@ladle/react':
+        specifier: workspace:*
+        version: link:../../packages/ladle
+      '@playwright/test':
+        specifier: ^1.36.0
+        version: 1.36.0
+      '@vitejs/plugin-react':
+        specifier: ^4.0.4
+        version: 4.0.4(vite@4.4.3)
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+
   e2e/config:
     dependencies:
       '@ladle/playwright-config':
@@ -294,30 +318,6 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
 
-  e2e/swc:
-    dependencies:
-      '@ladle/playwright-config':
-        specifier: workspace:*
-        version: link:../playwright-config
-      '@ladle/react':
-        specifier: workspace:*
-        version: link:../../packages/ladle
-      '@playwright/test':
-        specifier: ^1.36.0
-        version: 1.36.0
-      '@vitejs/plugin-react-swc':
-        specifier: 3.1.0
-        version: 3.1.0(vite@4.4.3)
-      cross-env:
-        specifier: ^7.0.3
-        version: 7.0.3
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
-
   packages/example:
     dependencies:
       '@ladle/react':
@@ -366,8 +366,8 @@ importers:
         specifier: ^4.0.4
         version: 4.0.4(vite@4.4.3)
       '@vitejs/plugin-react-swc':
-        specifier: 3.1.0
-        version: 3.1.0(vite@4.4.3)
+        specifier: ^3.3.2
+        version: 3.3.2(vite@4.4.3)
       axe-core:
         specifier: ^4.7.2
         version: 4.7.2
@@ -4499,7 +4499,7 @@ packages:
   /@types/sax@1.2.4:
     resolution: {integrity: sha512-pSAff4IAxJjfAXUG6tFkO7dsSbTmf8CtUpfhhZ5VhkRpC4628tJhh3+V6H1E+/Gs9piSzYKT5yzHO5M4GG9jkw==}
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 20.4.2
     dev: false
 
   /@types/scheduler@0.16.3:
@@ -4697,8 +4697,8 @@ packages:
       eslint-visitor-keys: 3.4.1
     dev: true
 
-  /@vitejs/plugin-react-swc@3.1.0(vite@4.4.3):
-    resolution: {integrity: sha512-xnDULNrkEbtTtRNnMPp+RsuIuIbk1JJV0xY7irchYyv9JJS4uvmc1EYip+qyrnkcX7TQ9c8vCS3AmkQqADI0Fw==}
+  /@vitejs/plugin-react-swc@3.3.2(vite@4.4.3):
+    resolution: {integrity: sha512-VJFWY5sfoZerQRvJrh518h3AcQt6f/yTuWn4/TRB+dqmYU0NX1qz7qM5Wfd+gOQqUzQW4gxKqKN3KpE/P3+zrA==}
     peerDependencies:
       vite: ^4
     dependencies:

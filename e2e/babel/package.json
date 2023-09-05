@@ -1,5 +1,5 @@
 {
-  "name": "test-swc",
+  "name": "test-babel",
   "version": "0.3.33",
   "license": "MIT",
   "private": true,
@@ -16,7 +16,7 @@
     "@ladle/playwright-config": "workspace:*",
     "@ladle/react": "workspace:*",
     "@playwright/test": "^1.36.0",
-    "@vitejs/plugin-react-swc": "3.1.0",
+    "@vitejs/plugin-react": "^4.0.4",
     "cross-env": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
