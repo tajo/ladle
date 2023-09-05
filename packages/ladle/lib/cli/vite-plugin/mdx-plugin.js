@@ -4,6 +4,7 @@ import { transformWithEsbuild } from "vite";
 import { VFile } from "vfile";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
+import rehypeAddClasses from "rehype-class-names";
 import { createFormatAwareProcessors } from "@mdx-js/mdx/lib/util/create-format-aware-processors.js";
 import mdxToStories from "./mdx-to-stories.js";
 
@@ -50,13 +51,14 @@ function mdxPlugin(opts) {
     providerImportSource: "@ladle/react",
     jsx: true,
     remarkPlugins: [remarkGfm],
+    rehypePlugins: [[rehypeAddClasses, { "*": "ladle-markdown" }]],
   });
 
   const markdownProcessor = createFormatAwareProcessors({
     format: "md",
     providerImportSource: "@ladle/react",
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypeRaw],
+    rehypePlugins: [rehypeRaw, [rehypeAddClasses, { "*": "ladle-markdown" }]],
   });
 
   return {

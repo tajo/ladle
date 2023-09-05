@@ -115,15 +115,6 @@ const App = () => {
         document.documentElement.removeAttribute("dir");
       }
     }
-    if (
-      globalState.story &&
-      unsortedStories[globalState.story] &&
-      unsortedStories[globalState.story].entry.endsWith(".mdx")
-    ) {
-      document.documentElement.setAttribute("data-mdx", "true");
-    } else {
-      document.documentElement.removeAttribute("data-mdx");
-    }
     if (globalState.mode !== prevGlobalState.mode) {
       document.documentElement.setAttribute("data-mode", globalState.mode);
       if (globalState.mode === ModeState.Preview) {
