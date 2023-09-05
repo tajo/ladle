@@ -508,8 +508,8 @@ div[data-reach-dialog-overlay] {
   margin: 0px 7px;
 }
 
-.ladle-code,
-[data-mdx="true"] .ladle-main code {
+q.ladle-code,
+code.ladle-markdown {
   padding: 0.2em 0.4em;
   margin: 0;
   line-height: 2;
@@ -524,6 +524,36 @@ div[data-reach-dialog-overlay] {
     Liberation Mono,
     Menlo,
     monospace;
+}
+
+h1.ladle-markdown,
+h2.ladle-markdown,
+h3.ladle-markdown,
+h4.ladle-markdown,
+h5.ladle-markdown,
+h6.ladle-markdown {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ladle-color-primary);
+}
+
+p.ladle-markdown,
+ul.ladle-markdown,
+ol.ladle-markdown {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: var(--ladle-color-primary);
+}
+
+a.ladle-markdown {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: var(--ladle-color-accent);
+}
+
+blockquote.ladle-markdown {
+  border-left: 6px solid var(--ladle-color-secondary);
+  padding-left: 24px;
+  margin-left: 0;
 }
 
 .ladle-addon-modal-body {
@@ -575,16 +605,6 @@ div[data-reach-dialog-overlay] {
     background-color: var(--ladle-bg-color-secondary);
     min-height: max-content;
     align-self: stretch;
-  }
-
-  [data-mdx="true"] .ladle-main {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    color: var(--ladle-color-primary);
-  }
-
-  [data-mdx="true"] .ladle-main a {
-    color: var(--ladle-color-accent);
   }
 
   [data-mode="full"] .ladle-main,
