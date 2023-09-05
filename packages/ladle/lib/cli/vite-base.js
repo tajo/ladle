@@ -86,7 +86,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
 
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
   const inladleMonorepo = fs.existsSync(
-    path.join(__dirname, "../../../../e2e/swc/package.json"),
+    path.join(__dirname, "../../../../e2e/addons/package.json"),
   );
   debug("Executed from the ladle monorepo: %s", inladleMonorepo);
 
