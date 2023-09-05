@@ -210,36 +210,6 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
 
-  e2e/flow:
-    dependencies:
-      '@ladle/playwright-config':
-        specifier: workspace:*
-        version: link:../playwright-config
-      '@ladle/react':
-        specifier: workspace:*
-        version: link:../../packages/ladle
-      '@playwright/test':
-        specifier: ^1.36.0
-        version: 1.36.0
-      cross-env:
-        specifier: ^7.0.3
-        version: 7.0.3
-      flow-remove-types:
-        specifier: ^2.212.0
-        version: 2.212.0
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
-      rollup-pluginutils:
-        specifier: ^2.8.2
-        version: 2.8.2
-      start-server-and-test:
-        specifier: ^2.0.0
-        version: 2.0.0
-
   e2e/playwright:
     dependencies:
       '@ladle/playwright-config':
@@ -7121,10 +7091,6 @@ packages:
       '@types/unist': 2.0.7
     dev: false
 
-  /estree-walker@0.6.1:
-    resolution: {integrity: sha512-SqmZANLWS0mnatqbSfRP5g8OXZC12Fgg1IwNtLsyHDzJizORW4khDfjPqJZsemPWBB2uqykUah5YpQ6epsqC/w==}
-    dev: false
-
   /estree-walker@3.0.3:
     resolution: {integrity: sha512-7RUKfXgSMMkzt6ZuXmqapOurLGPPfgj6l9uRZ7lRGolvk0y2yocc35LdcxKC5PQZdn2DMqioAQ2NoWcrTKmm6g==}
     dependencies:
@@ -7438,21 +7404,6 @@ packages:
 
   /flatted@3.2.7:
     resolution: {integrity: sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==}
-
-  /flow-parser@0.212.0:
-    resolution: {integrity: sha512-45eNySEs7n692jLN+eHQ6zvC9e1cqu9Dq1PpDHTcWRri2HFEs8is8Anmp1RcIhYxA5TZYD6RuESG2jdj6nkDJQ==}
-    engines: {node: '>=0.4.0'}
-    dev: false
-
-  /flow-remove-types@2.212.0:
-    resolution: {integrity: sha512-NDe8clr5WdsAWdZabjBqy8SK4xi2rktULT2V498OJONKfdoqiNJlBIxw8UXByn8vL5lRkx7GkIYpQvUW/U7LyQ==}
-    engines: {node: '>=4'}
-    hasBin: true
-    dependencies:
-      flow-parser: 0.212.0
-      pirates: 3.0.2
-      vlq: 0.2.3
-    dev: false
 
   /flux@4.0.4(react@18.2.0):
     resolution: {integrity: sha512-NCj3XlayA2UsapRpM7va6wU1+9rE5FIL7qoMcmxWHRzbp0yujihMBm9BBHZ1MDIk5h5o2Bl6eGiCe8rYELAmYw==}
@@ -10092,11 +10043,6 @@ packages:
     engines: {node: '>= 6.13.0'}
     dev: false
 
-  /node-modules-regexp@1.0.0:
-    resolution: {integrity: sha512-JMaRS9L4wSRIR+6PTVEikTrq/lMGEZR43a48ETeilY0Q0iMwVnccMFrUM1k+tNzmYuIU0Vh710bCUqHX+/+ctQ==}
-    engines: {node: '>=0.10.0'}
-    dev: false
-
   /node-releases@2.0.13:
     resolution: {integrity: sha512-uYr7J37ae/ORWdZeQ1xxMJe3NtdmqMC/JZK+geofDrkLUApKRHPd18/TxtBOJ4A0/+uUIliorNrfYV6s1b02eQ==}
 
@@ -10551,13 +10497,6 @@ packages:
     resolution: {integrity: sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==}
     engines: {node: '>=6'}
     dev: true
-
-  /pirates@3.0.2:
-    resolution: {integrity: sha512-c5CgUJq6H2k6MJz72Ak1F5sN9n9wlSlJyEnwvpm9/y3WB4E3pHBDT2c6PEiS1vyJvq2bUxUAIu0EGf8Cx4Ic7Q==}
-    engines: {node: '>= 4'}
-    dependencies:
-      node-modules-regexp: 1.0.0
-    dev: false
 
   /pirates@4.0.6:
     resolution: {integrity: sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==}
@@ -11911,12 +11850,6 @@ packages:
     hasBin: true
     dependencies:
       glob: 7.2.3
-
-  /rollup-pluginutils@2.8.2:
-    resolution: {integrity: sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==}
-    dependencies:
-      estree-walker: 0.6.1
-    dev: false
 
   /rollup@3.26.2:
     resolution: {integrity: sha512-6umBIGVz93er97pMgQO08LuH3m6PUb3jlDUUGFsNJB6VgTCUaDFpupf5JfU30529m/UKOgmiX+uY6Sx8cOYpLA==}
@@ -13752,10 +13685,6 @@ packages:
       - supports-color
       - terser
     dev: true
-
-  /vlq@0.2.3:
-    resolution: {integrity: sha512-DRibZL6DsNhIgYQ+wNdWDL2SL3bKPlVrRiBqV5yuMm++op8W4kGFtaQfCs4KEJn0wBZcHVHJ3eoywX8983k1ow==}
-    dev: false
 
   /wait-on@6.0.1:
     resolution: {integrity: sha512-zht+KASY3usTY5u2LgaNqn/Cd8MukxLGjdcZxT2ns5QzDmTFc4XoWBgC+C/na+sMRZTuVygQoMYwdcVjHnYIVw==}

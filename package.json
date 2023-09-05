@@ -26,7 +26,6 @@
     "e2e/config-ts",
     "e2e/css",
     "e2e/decorators",
-    "e2e/flow",
     "e2e/playwright",
     "e2e/playwright-config",
     "e2e/programmatic",
