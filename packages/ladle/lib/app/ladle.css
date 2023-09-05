@@ -510,6 +510,7 @@ div[data-reach-dialog-overlay] {
 
 q.ladle-code,
 code.ladle-markdown {
+  tab-size: 2;
   padding: 0.2em 0.4em;
   margin: 0;
   line-height: 2;
@@ -559,6 +560,7 @@ blockquote.ladle-markdown {
 .ladle-addon-modal-body {
   max-height: 80vh;
   overflow: auto;
+  tab-size: 2;
 }
 
 .ladle-addon-modal-body ul {
