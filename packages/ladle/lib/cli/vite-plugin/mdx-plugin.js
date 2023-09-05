@@ -117,10 +117,8 @@ function mdxPlugin(opts) {
           );
         }
         return await reactPluginTransform(
-          (
-            await transformWithEsbuild(code, filename)
-          ).code,
-          filename,
+          (await transformWithEsbuild(code, filename)).code,
+          filepath.replace(".mdx", ".jsx"),
         );
       }
     },
