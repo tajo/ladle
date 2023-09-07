@@ -11,6 +11,7 @@ import { ModeState } from "../../shared/types";
 import { CodeHighlight } from "./addons/source";
 import { redirectKeyup, redirectKeydown } from "./redirect-events";
 import { Frame, useFrame } from "./iframe";
+import { set, reset } from "./mock-date";
 
 const StoryFrame = ({
   children,
@@ -107,6 +108,7 @@ const Story = ({
   const width = globalState.width;
   const storyDataMeta = storyData?.meta?.meta;
   const hotkeys = storyDataMeta ? storyDataMeta.hotkeys : true;
+  const mockDate = storyDataMeta ? storyDataMeta.mockDate : undefined;
 
   const iframeActive: boolean =
     storyData && storyDataMeta ? storyDataMeta.iframed : false;
@@ -116,6 +118,9 @@ const Story = ({
       metaWidth = config.addons.width.options[key];
     }
   });
+  React.useEffect(() => {
+    mockDate ? set(mockDate) : reset();
+  }, [mockDate]);
   React.useEffect(() => {
     if (typeof hotkeys !== "undefined" && hotkeys !== globalState.hotkeys) {
       dispatch({ type: ActionType.UpdateHotkeys, value: hotkeys });
