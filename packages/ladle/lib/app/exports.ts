@@ -132,5 +132,6 @@ export type ArgTypes<
 export interface Meta {
   iframed?: boolean;
   width?: string | number | "xsmall" | "small" | "medium" | "large";
+  mockDate?: string;
   [key: string]: any;
 }
