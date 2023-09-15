@@ -12,7 +12,9 @@ module.exports = {
       items: [
         "css",
         "hotkeys",
+        "mdx",
         "meta",
+        "mock-date",
         "providers",
         "typescript",
         "visual-snapshots",
