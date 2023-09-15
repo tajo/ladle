@@ -43,6 +43,61 @@ export default UnoptimizedImage;
 
 This solution is inspired by [blog post](https://sdorra.dev/posts/2023-01-18-ladle-next-image#nextimage).
 
+## `next/navigation`
+
+In the Stories file, using `useRouter()` of `next/navigation` may cause the following error. `Uncaught Error: invariant expected app router to be mounted.`
+
+You could solve it by [Decorators](https://ladle.dev/docs/decorators).
+
+```tsx title="./Hello.stories.tsx"
+import type { StoryDefault, Story } from "@ladle/react";
+import { AppRouterContext } from "next/dist/shared/lib/app-router-context";
+import { useRouter } from "next/navigation";
+
+export default {
+  decorators: [
+    (Component) => {
+      return (
+        <AppRouterContext.Provider
+          value={{
+            back: () => {
+              // Do nothing
+            },
+            forward: () => {
+              // Do nothing
+            },
+            prefetch: () => {
+              // Do nothing
+            },
+            push: () => {
+              // Do nothing
+            },
+            refresh: () => {
+              // Do nothing
+            },
+            replace: () => {
+              // Do nothing
+            },
+          }}
+        >
+          <Component />
+        </AppRouterContext.Provider>
+      );
+    },
+  ],
+} satisfies StoryDefault;
+
+export const Hello: Story = () => {
+  const router = useRouter();
+  return (
+    <>
+      <h1>Hello Next.js App Router</h1>
+      <button onClick={() => router.push("/example")}>Route</button>
+    </>
+  );
+};
+```
+
 ## Using environment variables
 
 To make use of your current `.env` files, you simply need to let Vite know and ensure they are passed to the browser. As Next.js requires you to add `NEXT_PUBLIC_` as a prefix to your frontend environment variables, we also need to inform Vite about this.
