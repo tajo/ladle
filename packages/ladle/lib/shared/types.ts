@@ -174,7 +174,7 @@ export type PluginOptions = {
 };
 
 export type Config = {
-  stories: string;
+  stories: string | string[];
   defaultStory: string;
   storyOrder: StoryOrder;
   appendToHead: string;
