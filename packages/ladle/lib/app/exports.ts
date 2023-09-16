@@ -7,11 +7,11 @@ import {
   ThemeState,
   ModeState,
   GlobalAction,
-  Config as CompleteConfig,
+  Config,
 } from "../shared/types";
 
+export type { UserConfig } from "../shared/types";
 export { useMDXComponents } from "@mdx-js/react";
-export type Config = Partial<CompleteConfig>;
 export const Story = (props: any) => props.children;
 export const Meta = (props: any) => props.children;
 export const Description = (props: any) => props.children;
@@ -53,7 +53,7 @@ export const action = (name: string) => {
 export type GlobalProvider = React.FC<{
   globalState: GlobalState;
   dispatch: React.Dispatch<GlobalAction>;
-  config: CompleteConfig;
+  config: Config;
   children: ReactNodeWithoutObject;
   storyMeta?: Meta;
 }>;
