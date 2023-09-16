@@ -29,7 +29,7 @@ The entry of stories supports string or array of strings
 String:
 
 ```js
-/** @type {import('@ladle/react').Config} */
+/** @type {import('@ladle/react').UserConfig} */
 export default {
   stories: "src/**/control.stories.{js,jsx,ts,tsx}",
 };
@@ -38,7 +38,7 @@ export default {
 Array of strings:
 
 ```js
-/** @type {import('@ladle/react').Config} */
+/** @type {import('@ladle/react').UserConfig} */
 export default {
   stories: ["src/**/control.stories.{js,jsx,ts,tsx}", "src/stories.custom.tsx"],
 };
@@ -49,7 +49,7 @@ export default {
 Specify the dev server host.
 
 ```js
-/** @type {import('@ladle/react').Config} */
+/** @type {import('@ladle/react').UserConfig} */
 export default {
   host: "0.0.0.0",
 };
@@ -60,7 +60,7 @@ export default {
 Specify the preview server host.
 
 ```js
-/** @type {import('@ladle/react').Config} */
+/** @type {import('@ladle/react').UserConfig} */
 export default {
   previewHost: "0.0.0.0",
 };
@@ -71,7 +71,7 @@ export default {
 Specify the dev server port.
 
 ```js
-/** @type {import('@ladle/react').Config} */
+/** @type {import('@ladle/react').UserConfig} */
 export default {
   port: 61000,
 };
@@ -82,7 +82,7 @@ export default {
 Specify the preview server port.
 
 ```js
-/** @type {import('@ladle/react').Config} */
+/** @type {import('@ladle/react').UserConfig} */
 export default {
   previewPort: 8080,
 };
@@ -93,7 +93,7 @@ export default {
 Specify the output directory (relative to the project root).
 
 ```js
-/** @type {import('@ladle/react').Config} */
+/** @type {import('@ladle/react').UserConfig} */
 export default {
   outDir: "build",
 };
@@ -104,7 +104,7 @@ export default {
 Change which story is loaded when Ladle starts. It's the `?story=` portion of URL. The default value is `""` - open the first story in alphabetical order. Must be serializable.
 
 ```js
-/** @type {import('@ladle/react').Config} */
+/** @type {import('@ladle/react').UserConfig} */
 export default {
   defaultStory: "a11y--welcome",
 };
@@ -117,7 +117,7 @@ Change the order of stories in the navigation . By default, stories are sorted a
 #### Default setting
 
 ```js
-/** @type {import('@ladle/react').Config} */
+/** @type {import('@ladle/react').UserConfig} */
 export default {
   // note that alphabetically sorted stories are provided
   storyOrder: (stories) => stories,
@@ -127,7 +127,7 @@ export default {
 #### Using an array
 
 ```js
-/** @type {import('@ladle/react').Config} */
+/** @type {import('@ladle/react').UserConfig} */
 export default {
   storyOrder: ["folder--story1", "folder--story2"],
 };
@@ -136,7 +136,7 @@ export default {
 #### Using an function
 
 ```js
-/** @type {import('@ladle/react').Config} */
+/** @type {import('@ladle/react').UserConfig} */
 export default {
   storyOrder: () => ["folder--story1", "folder--story2"],
 };
@@ -155,7 +155,7 @@ A wildcard can be used in both cases to match and sort multiple stories at once.
 Override the path for the [Vite config](https://vitejs.dev/config). By default, `vite.config.{js|mjs|ts}` and `vite.config.ts` in the project root are being checked.
 
 ```js
-/** @type {import('@ladle/react').Config} */
+/** @type {import('@ladle/react').UserConfig} */
 export default {
   viteConfig: process.cwd() + "/ladle-vite.config.ts",
 };
@@ -166,7 +166,7 @@ export default {
 Base path for building the output; useful for e.g. hosting your project's storybook on GitHub Pages. Must be serializable.
 
 ```js
-/** @type {import('@ladle/react').Config} */
+/** @type {import('@ladle/react').UserConfig} */
 export default {
   base: "/my-project/",
 };
@@ -179,7 +179,7 @@ Vite [mode](https://vitejs.dev/guide/env-and-mode.html#modes). If not set, defau
 This also affects [Vite's .env file loading](https://vitejs.dev/guide/env-and-mode.html#env-files), as well as anything else setting `mode` affects. Must be serializable.
 
 ```js
-/** @type {import('@ladle/react').Config} */
+/** @type {import('@ladle/react').UserConfig} */
 export default {
   mode: "my-custom-mode",
 };
@@ -190,7 +190,7 @@ export default {
 You can inject additional HTML into the `<head>` of Ladle:
 
 ```js
-/** @type {import('@ladle/react').Config} */
+/** @type {import('@ladle/react').UserConfig} */
 export default {
   appendToHead: "<style>h1 {color:pink}</style>",
 };
@@ -203,7 +203,7 @@ The same effect can be achieved by creating a file `.ladle/head.html`.
 You can customize the default set of hotkeys. You can assign multiple hotkeys for the same action. An emtpy array disables the hotkey. Use `meta` for `cmd` on macOS and `win` on Windows. `alt` is option on macOS.
 
 ```js
-/** @type {import('@ladle/react').Config} */
+/** @type {import('@ladle/react').UserConfig} */
 export default {
   hotkeys: {
     search: ["/", "meta+p"],
@@ -227,7 +227,7 @@ export default {
 You can enable or disable all Ladle addons (the buttons in the left bottom corner). You can also control their default state. Must be serializable.
 
 ```js
-/** @type {import('@ladle/react').Config} */
+/** @type {import('@ladle/react').UserConfig} */
 export default {
   addons: {
     a11y: {
