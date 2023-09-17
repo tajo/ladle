@@ -1,5 +1,6 @@
 import * as React from "react";
 import { MDXProvider } from "@mdx-js/react";
+import SynchronizeHead from "./synchronize-head";
 import ErrorBoundary from "./error-boundary";
 import { stories, Provider } from "virtual:generated-list";
 import { Ring } from "./icons";
@@ -9,8 +10,7 @@ import config from "./get-config";
 import StoryNotFound from "./story-not-found";
 import { ModeState } from "../../shared/types";
 import { CodeHighlight } from "./addons/source";
-import { redirectKeyup, redirectKeydown } from "./redirect-events";
-import { Frame, useFrame } from "./iframe";
+import { Frame } from "./iframe";
 import { set, reset } from "./mock-date";
 
 const StoryFrame = ({
@@ -38,63 +38,6 @@ const StoryFrame = ({
       {children}
     </Frame>
   );
-};
-
-// detecting parent's document.head changes, so we can apply the same CSS for
-// the iframe, for CSS in JS we could target correct document directly but
-// import './foo.css' always ends up in the parent only
-const SynchronizeHead = ({
-  active,
-  children,
-  rtl,
-  width,
-}: {
-  active: boolean;
-  children: JSX.Element;
-  rtl: boolean;
-  width: number;
-}) => {
-  const { window: storyWindow, document: iframeDocument } = useFrame();
-  const syncHead = () => {
-    if (!storyWindow) return;
-    storyWindow.document.documentElement.setAttribute(
-      "dir",
-      rtl ? "rtl" : "ltr",
-    );
-    [...(document.head.children as any)].forEach((child) => {
-      if (
-        child.tagName === "STYLE" ||
-        (child.tagName === "LINK" &&
-          (child.getAttribute("type") === "text/css" ||
-            child.getAttribute("rel") === "stylesheet"))
-      ) {
-        storyWindow.document.head.appendChild(
-          child.cloneNode(true),
-        ) as HTMLStyleElement;
-      }
-    });
-  };
-  React.useEffect(() => {
-    if (active) {
-      syncHead();
-      iframeDocument?.addEventListener("keydown", redirectKeydown);
-      iframeDocument?.addEventListener("keyup", redirectKeyup);
-      const observer = new MutationObserver(() => syncHead());
-      document.documentElement.setAttribute("data-iframed", `${width}`);
-      observer.observe(document.head, {
-        subtree: true,
-        characterData: true,
-        childList: true,
-      });
-      return () => {
-        observer && observer.disconnect();
-        iframeDocument?.removeEventListener("keydown", redirectKeydown);
-        iframeDocument?.removeEventListener("keyup", redirectKeyup);
-      };
-    }
-    return;
-  }, [active, rtl, iframeDocument]);
-  return children;
 };
 
 const Story = ({
