@@ -133,15 +133,22 @@ export const Down = ({ rotate }: { rotate?: boolean }) => {
     <div
       aria-hidden
       style={{
-        width: "10px",
-        marginInlineEnd: "0.4em",
-        marginTop: "-0.1em",
-        transform: rotate ? "rotate(-90deg)" : undefined,
+        width: "16px",
+        marginInlineEnd: "0.1em",
+        marginBottom: "-0.1em",
       }}
     >
-      <svg fill="currentColor" viewBox="0 0 1024 574">
-        <path d="M1015 10q-10-10-23-10t-23 10L512 492 55 10Q45 0 32 0T9 10Q0 20 0 34t9 24l480 506q10 10 23 10t23-10l480-506q9-10 9-24t-9-24z" />
-      </svg>
+      {rotate ? (
+        <svg viewBox="0 0 24 24" stroke="currentColor" fill="none">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M6 9l6 6l6 -6"></path>
+        </svg>
+      ) : (
+        <svg viewBox="0 0 24 24" stroke="currentColor" fill="none">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M9 6l6 6l-6 6"></path>
+        </svg>
+      )}
     </div>
   );
 };
