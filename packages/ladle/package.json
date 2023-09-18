@@ -67,7 +67,7 @@
     "react-inspector": "^6.0.2",
     "rehype-class-names": "^1.0.14",
     "rehype-raw": "^7.0.0",
-    "remark-gfm": "^4.0.0",
+    "remark-gfm": "^3.0.1",
     "source-map": "^0.7.4",
     "vfile": "^6.0.1",
     "vite": "^4.4.9",
@@ -98,13 +98,5 @@
   },
   "engines": {
     "node": ">=18.0.0"
-  },
-  "pnpm": {
-    "peerDependencyRules": {
-      "allowedVersions": {
-        "react": "18",
-        "react-dom": "18"
-      }
-    }
   }
 }
