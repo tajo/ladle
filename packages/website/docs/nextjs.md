@@ -47,7 +47,43 @@ This solution is inspired by [blog post](https://sdorra.dev/posts/2023-01-18-lad
 
 In the Stories file, using `useRouter()` of `next/navigation` may cause the following error. `Uncaught Error: invariant expected app router to be mounted.`
 
-You could solve it by adding [Decorators](/docs/decorators).
+You could solve it by setting [Providers](/docs/providers).
+
+```tsx title=".ladle/components.tsx"
+import { GlobalProvider } from "@ladle/react";
+import { AppRouterContext } from "next/dist/shared/lib/app-router-context";
+
+export const Provider: GlobalProvider = ({ children }) => {
+  return (
+    <AppRouterContext.Provider
+      value={{
+        back: () => {
+          // Do nothing
+        },
+        forward: () => {
+          // Do nothing
+        },
+        prefetch: () => {
+          // Do nothing
+        },
+        push: () => {
+          // Do nothing
+        },
+        refresh: () => {
+          // Do nothing
+        },
+        replace: () => {
+          // Do nothing
+        },
+      }}
+    >
+      {children}
+    </AppRouterContext.Provider>
+  );
+};
+```
+
+Or if you want to set it in each file, you could use [Decorators](/docs/decorators).
 
 ```tsx title="./Hello.stories.tsx"
 import type { StoryDefault, Story } from "@ladle/react";
