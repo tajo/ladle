@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.7
+
+### Patch Changes
+
+- [#492](https://github.com/tajo/ladle/pull/492) [`ba388db`](https://github.com/tajo/ladle/commit/ba388db19f2e07000b6fae95c6949a5750ee0b7d) Thanks [@tajo](https://github.com/tajo)! - Document MDX and mock date.
+
 ## 0.3.6
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "test-addons",
-  "version": "0.2.61",
+  "version": "0.2.62",
   "license": "MIT",
   "private": true,
   "type": "module",
