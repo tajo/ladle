@@ -148,6 +148,10 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         path.join(process.cwd(), ".ladle/components.ts"),
         ...storyEntries,
       ],
+      exclude: [
+        ...(ladleConfig.addons.a11y.enabled ? [] : ["axe-core"]),
+        //...(ladleConfig.addons.msw.enabled ? [] : ["msw"]),
+      ],
     },
     plugins: [
       mdxPlugin({ mode: viteConfig.mode || "production" }),

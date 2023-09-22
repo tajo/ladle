@@ -14,4 +14,9 @@
 export default {
   stories: "src/**/*.stories.{js,jsx,ts,tsx,mdx}",
   appendToHead: `<style>.append {}</style>`,
+  addons: {
+    a11y: {
+      enabled: false,
+    },
+  },
 };
