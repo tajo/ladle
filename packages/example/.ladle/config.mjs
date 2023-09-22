@@ -16,7 +16,7 @@ export default {
   appendToHead: `<style>.append {}</style>`,
   addons: {
     a11y: {
-      enabled: false,
+      enabled: true,
     },
   },
 };

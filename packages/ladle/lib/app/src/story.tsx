@@ -2,7 +2,6 @@ import * as React from "react";
 import { MDXProvider } from "@mdx-js/react";
 import SynchronizeHead from "./synchronize-head";
 import ErrorBoundary from "./error-boundary";
-import Msw from "./msw";
 import { stories, Provider } from "virtual:generated-list";
 import { Ring } from "./icons";
 import type { GlobalState, GlobalAction } from "../../shared/types";
@@ -112,31 +111,29 @@ const Story = ({
             rtl={globalState.rtl}
             width={width}
           >
-            <Msw msw={storyDataMeta && storyDataMeta.msw}>
-              <MDXProvider
-                components={{
-                  code: (props) => (
-                    <CodeHighlight
-                      {...(props as any)}
-                      theme={globalState.theme}
-                    />
-                  ),
-                }}
+            <MDXProvider
+              components={{
+                code: (props) => (
+                  <CodeHighlight
+                    {...(props as any)}
+                    theme={globalState.theme}
+                  />
+                ),
+              }}
+            >
+              <Provider
+                config={config}
+                globalState={globalState}
+                dispatch={dispatch}
+                storyMeta={storyDataMeta}
               >
-                <Provider
-                  config={config}
-                  globalState={globalState}
-                  dispatch={dispatch}
-                  storyMeta={storyDataMeta}
-                >
-                  {storyData ? (
-                    React.createElement(storyData.component)
-                  ) : (
-                    <StoryNotFound activeStory={globalState.story} />
-                  )}
-                </Provider>
-              </MDXProvider>
-            </Msw>
+                {storyData ? (
+                  React.createElement(storyData.component)
+                ) : (
+                  <StoryNotFound activeStory={globalState.story} />
+                )}
+              </Provider>
+            </MDXProvider>
           </SynchronizeHead>
         </StoryFrame>
       </React.Suspense>

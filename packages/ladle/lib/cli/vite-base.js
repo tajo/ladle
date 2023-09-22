@@ -10,6 +10,7 @@ import debug from "./debug.js";
 import mergeViteConfigs from "./merge-vite-configs.js";
 import getUserViteConfig from "./get-user-vite-config.js";
 import mdxPlugin from "./vite-plugin/mdx-plugin.js";
+import copyMswWorker from "./copy-msw-worker.js";
 
 /**
  * @param ladleConfig {import("../shared/types").Config}
@@ -135,9 +136,10 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         "lodash.merge",
         "query-string",
         "prism-react-renderer",
-        "axe-core",
         "@mdx-js/react",
         "@ladle/react-context",
+        ...(ladleConfig.addons.a11y.enabled ? ["axe-core"] : []),
+        ...(ladleConfig.addons.msw.enabled ? ["msw"] : []),
         ...(inladleMonorepo ? [] : ["@ladle/react"]),
         ...(!!resolve.alias ? [] : ["react-dom/client"]),
       ],
@@ -147,10 +149,6 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         path.join(process.cwd(), ".ladle/components.tsx"),
         path.join(process.cwd(), ".ladle/components.ts"),
         ...storyEntries,
-      ],
-      exclude: [
-        ...(ladleConfig.addons.a11y.enabled ? [] : ["axe-core"]),
-        //...(ladleConfig.addons.msw.enabled ? [] : ["msw"]),
       ],
     },
     plugins: [
@@ -164,6 +162,10 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
       !hasReactPlugin && !hasReactSwcPlugin && react(),
     ],
   };
+  // initialize msw worker
+  if (ladleConfig.addons.msw.enabled) {
+    copyMswWorker(config.publicDir || "");
+  }
   return mergeViteConfigs(userViteConfig, config);
 };
 
