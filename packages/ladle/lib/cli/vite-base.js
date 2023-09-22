@@ -86,7 +86,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
   } else {
     resolve.alias = {
       msw: ladleConfig.addons.msw.enabled
-        ? msw
+        ? "msw"
         : path.join(__dirname, "./empty-module.js"),
       ["axe-core"]: ladleConfig.addons.a11y.enabled
         ? "axe-core"
