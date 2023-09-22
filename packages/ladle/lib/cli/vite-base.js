@@ -10,6 +10,7 @@ import debug from "./debug.js";
 import mergeViteConfigs from "./merge-vite-configs.js";
 import getUserViteConfig from "./get-user-vite-config.js";
 import mdxPlugin from "./vite-plugin/mdx-plugin.js";
+import copyMswWorker from "./copy-msw-worker.js";
 
 /**
  * @param ladleConfig {import("../shared/types").Config}
@@ -60,35 +61,38 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
   debug("User provided @vite/plugin-react: %s", hasReactPlugin);
   debug("User provided @vite/plugin-react-swc: %s", hasReactSwcPlugin);
 
-  // We need to fake react-dom/client import if the user still uses React v17
-  // and not v18, otherwise Vite would fail the import analysis step
-  const resolve = {};
-  try {
-    await import("react-dom/client");
-  } catch (e) {
-    // If the user already has custom `resolve.alias` configured, we must match
-    // the same format. This logic is heavily inspired from:
-    // https://github.com/rollup/plugins/blob/985cf4c422896ac2b21279f0f99db9d281ef73c2/packages/alias/src/index.ts#L19-L34
-
-    if (Array.isArray(userViteConfig.resolve?.alias)) {
-      resolve.alias = [
-        {
-          find: "react-dom/client",
-          replacement: "react-dom",
-        },
-      ];
-    } else {
-      resolve.alias = {
-        "react-dom/client": "react-dom",
-      };
-    }
-  }
-
   const __dirname = path.dirname(fileURLToPath(import.meta.url));
   const inladleMonorepo = fs.existsSync(
     path.join(__dirname, "../../../../e2e/addons/package.json"),
   );
   debug("Executed from the ladle monorepo: %s", inladleMonorepo);
+
+  const resolve = {};
+  if (Array.isArray(userViteConfig.resolve?.alias)) {
+    resolve.alias = [
+      {
+        find: "msw",
+        replacement: ladleConfig.addons.msw.enabled
+          ? "msw"
+          : path.join(__dirname, "./empty-module.js"),
+      },
+      {
+        find: "axe-core",
+        replacement: ladleConfig.addons.a11y.enabled
+          ? "axe-core"
+          : path.join(__dirname, "./empty-module.js"),
+      },
+    ];
+  } else {
+    resolve.alias = {
+      msw: ladleConfig.addons.msw.enabled
+        ? "msw"
+        : path.join(__dirname, "./empty-module.js"),
+      ["axe-core"]: ladleConfig.addons.a11y.enabled
+        ? "axe-core"
+        : path.join(__dirname, "./empty-module.js"),
+    };
+  }
 
   const storyEntries = (
     await globby(
@@ -135,9 +139,10 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         "lodash.merge",
         "query-string",
         "prism-react-renderer",
-        "axe-core",
         "@mdx-js/react",
         "@ladle/react-context",
+        ...(ladleConfig.addons.a11y.enabled ? ["axe-core"] : []),
+        ...(ladleConfig.addons.msw.enabled ? ["msw"] : []),
         ...(inladleMonorepo ? [] : ["@ladle/react"]),
         ...(!!resolve.alias ? [] : ["react-dom/client"]),
       ],
@@ -160,6 +165,10 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
       !hasReactPlugin && !hasReactSwcPlugin && react(),
     ],
   };
+  // initialize msw worker
+  if (ladleConfig.addons.msw.enabled) {
+    copyMswWorker(config.publicDir || "");
+  }
   return mergeViteConfigs(userViteConfig, config);
 };
 

@@ -230,6 +230,9 @@ export type Config = {
     a11y: {
       enabled: boolean;
     };
+    msw: {
+      enabled: boolean;
+    };
     ladle: {
       enabled: boolean;
     };

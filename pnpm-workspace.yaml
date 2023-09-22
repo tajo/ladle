@@ -14,3 +14,4 @@ packages:
   - 'e2e/programmatic'
   - 'e2e/provider'
   - 'e2e/baseweb'
+  - 'e2e/msw'

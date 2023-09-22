@@ -10,6 +10,9 @@ import {
   Config,
 } from "../shared/types";
 
+import * as msw from "msw";
+export { msw };
+
 export type { UserConfig } from "../shared/types";
 export { useMDXComponents } from "@mdx-js/react";
 export const Story = (props: any) => props.children;
@@ -70,6 +73,7 @@ export interface StoryDefault<P = {}> {
   decorators?: StoryDecorator<P>[];
   meta?: Meta;
   title?: string;
+  msw?: msw.RequestHandler[];
   parameters?: { [key: string]: any };
 }
 
@@ -79,6 +83,7 @@ export interface Story<P = {}> extends React.FC<P> {
   decorators?: StoryDecorator<P>[];
   meta?: Meta;
   storyName?: string;
+  msw?: msw.RequestHandler[];
   parameters?: { [key: string]: any };
 }
 
