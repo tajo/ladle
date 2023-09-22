@@ -17,12 +17,6 @@ const viteProd = async (config, configFolder) => {
         outDir: path.join(process.cwd(), config.outDir),
         emptyOutDir: true,
         chunkSizeWarningLimit: 2000,
-        rollupOptions: {
-          external: [
-            ...(config.addons.a11y.enabled ? [] : ["axe-core"]),
-            ...(config.addons.msw.enabled ? [] : ["msw"]),
-          ],
-        },
       },
     });
     await build(viteConfig);
