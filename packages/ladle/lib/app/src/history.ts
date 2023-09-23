@@ -25,6 +25,7 @@ const removeDefaultValues = (params: Partial<GlobalState>) => {
 export const modifyParams = (globalState: GlobalState) => {
   if (!globalState.controlInitialized) return;
   const params = {
+    ...queryString.parse(location.search),
     mode: globalState.mode,
     rtl: globalState.rtl,
     source: globalState.source,
