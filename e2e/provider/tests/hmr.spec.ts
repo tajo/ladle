@@ -33,7 +33,7 @@ test.afterEach(async () => {
 if (process.env.TYPE === "dev") {
   test("hmr with fast refresh works", async ({ page }) => {
     await page.goto("/?story=hmr--with-state");
-    await page.locator("#state-input").fill("some state");
+    page.locator("#state-input").fill("some state");
     fs.writeFileSync("./src/hmr.stories.tsx", after);
     await page.waitForSelector("#new-button", { timeout: 5000 });
     await expect(page.locator("#state-input")).toHaveValue("some state");

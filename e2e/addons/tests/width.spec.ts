@@ -19,15 +19,15 @@ test("no iframe story can set with through the addon", async ({ page }) => {
   await page.goto("/?story=width--no-iframe");
   await page.waitForSelector("[data-storyloaded]");
   await expect(page.locator("h1")).toContainText("No Iframe");
-  const button = await page.locator('[data-testid="addon-width"]');
+  const button = page.locator('[data-testid="addon-width"]');
   await button.click();
-  const medium = await page.locator("#width-medium");
+  const medium = page.locator("#width-medium");
   await medium.click();
   await page.waitForSelector("[data-iframed]");
   const iframe = await page.frameLocator("iframe");
   const h1 = await iframe.locator("h1");
   expect(await h1.innerText()).toBe("No Iframe");
-  const iframeEl = await page.locator("iframe");
+  const iframeEl = page.locator("iframe");
   expect(await iframeEl.getAttribute("style")).toContain("width: 768px");
 });
 
@@ -36,7 +36,7 @@ test("custom width is used and added to the addon popup, apply stylesheet", asyn
 }) => {
   await page.goto("/?story=width--set-custom");
   await page.waitForSelector("[data-storyloaded]");
-  const button = await page.locator('[data-testid="addon-width"]');
+  const button = page.locator('[data-testid="addon-width"]');
   await button.click();
   await page.waitForSelector("#width-custom");
   const iframe = await page.frameLocator("iframe");
@@ -50,7 +50,7 @@ test("custom width is used and added to the addon popup, apply stylesheet", asyn
 test("allow key as a value for width", async ({ page }) => {
   await page.goto("/?story=width--set-small");
   await page.waitForSelector("[data-storyloaded]");
-  const iframeEl = await page.locator("iframe");
+  const iframeEl = page.locator("iframe");
   expect(await iframeEl.getAttribute("style")).toContain("width: 640px");
 });
 
@@ -64,9 +64,9 @@ test("unset works", async ({ page }) => {
   await page.goto("/?story=width--set-small");
   await page.waitForSelector("[data-storyloaded]");
   await page.waitForSelector("[data-iframed]");
-  const button = await page.locator('[data-testid="addon-width"]');
+  const button = page.locator('[data-testid="addon-width"]');
   await button.click();
-  const unset = await page.locator("#width-unset");
+  const unset = page.locator("#width-unset");
   await unset.click();
   await expect(page.locator("h1")).toContainText("Width set");
 });
