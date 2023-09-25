@@ -1,12 +1,21 @@
 import React from "react";
 import ArgsProvider from "./args-provider";
+import Msw from "./msw";
 import { args, argTypes } from "virtual:generated-list";
 import { useLadleContext } from "./context";
 import type { StoryDecorator } from "../../shared/types";
+import type { RequestHandler } from "msw";
 
 export default function composeEnhancers(module: any, storyName: string) {
   let decorators: StoryDecorator[] = [];
   let parameters: { [key: string]: any } = {};
+  let mswHandlers: RequestHandler[] = [];
+  if (module.default && module.default.msw) {
+    mswHandlers = module.default.msw;
+  }
+  if (module[storyName] && module[storyName].msw) {
+    mswHandlers = module[storyName].msw;
+  }
   const props = {
     args: {
       ...args,
@@ -40,7 +49,11 @@ export default function composeEnhancers(module: any, storyName: string) {
     const WithArgs = React.useMemo(
       () =>
         function RenderWithArgs() {
-          return <ArgsProvider {...props} />;
+          return (
+            <Msw msw={mswHandlers}>
+              <ArgsProvider {...props} />
+            </Msw>
+          );
         },
       [],
     );

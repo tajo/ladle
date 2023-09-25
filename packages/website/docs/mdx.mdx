@@ -1,0 +1,94 @@
+---
+id: mdx
+title: MDX
+---
+
+Ladle supports MDX and markdown by default. You can use MDX to write your stories. This might be useful for documentation.
+
+## Basic MDX Story
+
+```md title="basic.stories.mdx"
+# Header
+
+> Some quote: Suspendisse at tempor velit. **Fusce** a fermentum arcu,
+> vitae semper mi. Nunc placerat, mauris ac volutpat tempus, arcu eros
+> accumsan nisi, in congue risus turpis in ligula.
+
+Some [example](https://example.com) link.
+
+1. One
+2. Two
+3. Three
+```
+
+This story will be displayed in the side nagivation as `Basic` > `Readme`.
+
+## Custom Title
+
+The title in side navigation can be customized:
+
+```md title="basic.stories.mdx"
+import { Meta } from "@ladle/react";
+
+<Meta title="Documentation/Welcome" />
+
+# Customized
+
+This is a paragraph.
+```
+
+This story is displayed as `Documentation` > `Welcome`. If you set the `title` to `Welcome`, the story would be displayed as `Basic` > `Welcome`. You can use arbitrary number of levels.
+
+## Multiple Stories
+
+You can also create multiple stories within one `*.stories.mdx` file:
+
+```md title="multiple.stories.mdx"
+import { Story } from "@ladle/react";
+
+This part will be rendered as a separate `Readme` story.
+
+<Story name="First">
+  <input />
+  <button>simple</button>
+</Story>
+
+<Story name="Second">
+  <input />
+  <button>second</button>
+</Story>
+```
+
+## Meta Parameters
+
+You can also set `meta` parameters:
+
+```md title="args.stories.mdx"
+import { Story, Meta } from "@ladle/react";
+
+<Meta meta={{ iframed: true }} />
+
+This part will be rendered as a separate `Readme` story.
+
+<Story name="First">
+  <input />
+  <button>simple</button>
+</Story>
+
+<Story name="Second" meta={{ width: 400 }}>
+<input />
+<button>second</button>
+</Story>
+```
+
+## Importing Markdown
+
+You can import markdown into your stories:
+
+```md title="markdown.stories.mdx"
+import Readme from "./README.md";
+
+# Header
+
+<Readme />
+```
