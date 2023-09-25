@@ -1,7 +1,7 @@
 import type { Story } from "@ladle/react";
 import { useEffect, useState } from "react";
 
-export const QueryParams: Story = () => {
+export const QueryParameters: Story = () => {
   const [queryParams, setQueryParams] = useState<string>("");
 
   useEffect(() => {
@@ -11,7 +11,7 @@ export const QueryParams: Story = () => {
   return <p>Params: {queryParams}</p>;
 };
 
-QueryParams.decorators = [
+QueryParameters.decorators = [
   (Component) => {
     useEffect(() => {
       const url = new URL(window.location.href);
