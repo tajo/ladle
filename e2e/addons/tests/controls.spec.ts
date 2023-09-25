@@ -25,16 +25,16 @@ test("default control values", async ({ page }) => {
 
 test("boolean control works", async ({ page }) => {
   await page.goto("/?story=controls--controls");
-  const button = await page.locator('[data-testid="addon-control"]');
+  const button = page.locator('[data-testid="addon-control"]');
   await button.click();
-  const disabled = await page.locator("#disabled");
+  const disabled = page.locator("#disabled");
   await disabled.click();
   await expect(page.locator("#content")).toContainText("Disabled: yes");
 });
 
 test("complex control works", async ({ page }) => {
   await page.goto("/?story=controls--controls");
-  const button = await page.locator('[data-testid="addon-control"]');
+  const button = page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.fill("textarea", '["Red","Pink"]');
   await expect(page.locator("#content")).toContainText("Colors: Red,Pink");
@@ -42,7 +42,7 @@ test("complex control works", async ({ page }) => {
 
 test("number control works", async ({ page }) => {
   await page.goto("/?story=controls--controls");
-  const button = await page.locator('[data-testid="addon-control"]');
+  const button = page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.fill("#count", "5");
   await expect(page.locator("#content")).toContainText("Count: 5");
@@ -50,9 +50,9 @@ test("number control works", async ({ page }) => {
 
 test("range control works", async ({ page }) => {
   await page.goto("/?story=controls--controls");
-  const button = await page.locator('[data-testid="addon-control"]');
+  const button = page.locator('[data-testid="addon-control"]');
   await button.click();
-  const rangeControl = await page.locator(
+  const rangeControl = page.locator(
     '[data-testid="ladle-dialog"] >> tr:has(:text("range"))',
   );
   await expect(rangeControl).toContainText("1");
@@ -64,7 +64,7 @@ test("range control works", async ({ page }) => {
 
 test("string control works", async ({ page }) => {
   await page.goto("/?story=controls--controls");
-  const button = await page.locator('[data-testid="addon-control"]');
+  const button = page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.fill("#label", "Hello me");
   await expect(page.locator("#content")).toContainText("Label: Hello me");
@@ -72,7 +72,7 @@ test("string control works", async ({ page }) => {
 
 test("radio control works", async ({ page }) => {
   await page.goto("/?story=controls--controls");
-  const button = await page.locator('[data-testid="addon-control"]');
+  const button = page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.check("#variant-secondary");
   await expect(page.locator("#content")).toContainText("Variant: secondary");
@@ -81,7 +81,7 @@ test("radio control works", async ({ page }) => {
 
 test("radio control boolean type works", async ({ page }) => {
   await page.goto("/?story=controls--controls");
-  const button = await page.locator('[data-testid="addon-control"]');
+  const button = page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.check("#variant-false");
   await expect(page.locator("#content")).toContainText("variant is boolean");
@@ -93,7 +93,7 @@ test("radio control boolean type works", async ({ page }) => {
 
 test("select control works", async ({ page }) => {
   await page.goto("/?story=controls--controls");
-  const button = await page.locator('[data-testid="addon-control"]');
+  const button = page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.selectOption("select#size", "big");
   await expect(page.locator("#content")).toContainText("Size: big");
@@ -101,7 +101,7 @@ test("select control works", async ({ page }) => {
 
 test("select control boolean type work", async ({ page }) => {
   await page.goto("/?story=controls--controls");
-  const button = await page.locator('[data-testid="addon-control"]');
+  const button = page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.selectOption("select#size", "false");
   await expect(page.locator("#content")).toContainText("size is boolean");
@@ -113,7 +113,7 @@ test("select control boolean type work", async ({ page }) => {
 
 test("check control works", async ({ page }) => {
   await page.goto("/?story=controls--controls");
-  const button = await page.locator('[data-testid="addon-control"]');
+  const button = page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.check("#airports-sfo");
   await expect(page.locator("#content")).toContainText("Airport: sfo");
@@ -192,11 +192,9 @@ test("reset to defaults", async ({ page }) => {
       "size is string",
     ].join(""),
   );
-  const button = await page.locator('[data-testid="addon-control"]');
+  const button = page.locator('[data-testid="addon-control"]');
   await button.click();
-  const resetButton = await page.locator(
-    'button:has-text("Reset to defaults")',
-  );
+  const resetButton = page.locator('button:has-text("Reset to defaults")');
   await resetButton.click();
   await expect(page.locator("#content")).toHaveText(
     [
@@ -220,7 +218,7 @@ test("reset to defaults", async ({ page }) => {
 
 test("test export default level argTypes", async ({ page }) => {
   await page.goto("/?story=controls--controls");
-  const button = await page.locator('[data-testid="addon-control"]');
+  const button = page.locator('[data-testid="addon-control"]');
   await button.click();
   await page.check("#cities-Prague");
   await expect(page.locator("#content")).toContainText("Cities: Prague");

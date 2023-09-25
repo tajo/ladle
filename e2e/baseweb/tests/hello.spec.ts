@@ -12,13 +12,13 @@ test("Base Web and CSSStyleSheet works correctly without iframe", async ({
     "background-color",
     "rgba(0, 0, 0, 0)",
   );
-  const button = await page.locator('[data-testid="add"]');
+  const button = page.locator('[data-testid="add"]');
   await button.click();
   await expect(page.locator("h1")).toHaveCSS(
     "background-color",
     "rgb(255, 192, 203)",
   );
-  const buttonRemove = await page.locator('[data-testid="remove"]');
+  const buttonRemove = page.locator('[data-testid="remove"]');
   await buttonRemove.click();
   await expect(page.locator("h1")).toHaveCSS(
     "background-color",
