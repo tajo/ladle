@@ -30,7 +30,8 @@
     "e2e/playwright-config",
     "e2e/programmatic",
     "e2e/provider",
-    "e2e/baseweb"
+    "e2e/baseweb",
+    "e2e/msw"
   ],
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",

@@ -141,12 +141,12 @@ export const Down = ({ rotate }: { rotate?: boolean }) => {
       {rotate ? (
         <svg viewBox="0 0 24 24" stroke="currentColor" fill="none">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M6 9l6 6l6 -6"></path>
+          <path d="M9 6l6 6l-6 6"></path>
         </svg>
       ) : (
         <svg viewBox="0 0 24 24" stroke="currentColor" fill="none">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M9 6l6 6l-6 6"></path>
+          <path d="M6 9l6 6l6 -6"></path>
         </svg>
       )}
     </div>

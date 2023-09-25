@@ -32,6 +32,7 @@
   },
   "include": [
     "packages/*/.ladle/*",
+    "packages/ladle/lib/app/window.d.ts",
     "packages/*/lib/**/*",
     "packages/*/src/**/*",
     "e2e/*/.ladle/*",

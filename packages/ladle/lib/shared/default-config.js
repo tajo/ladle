@@ -56,7 +56,10 @@ export default {
       defaultState: false,
     },
     a11y: {
-      enabled: true,
+      enabled: false,
+    },
+    msw: {
+      enabled: false,
     },
     action: {
       enabled: true,
