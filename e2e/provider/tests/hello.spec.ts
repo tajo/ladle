@@ -8,7 +8,7 @@ test("Provider passes context and renders wrapper", async ({ page }) => {
 
 test("StorySourceHeader sets a custom source header", async ({ page }) => {
   await page.goto("/?story=hello--world");
-  const button = await page.locator('[data-testid="addon-source"]');
+  const button = page.locator('[data-testid="addon-source"]');
   await button.click();
   await expect(page.locator("#source-header")).toContainText(
     "project/aaa/src/hello.stories.tsx5-8",
