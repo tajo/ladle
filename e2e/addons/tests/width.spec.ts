@@ -4,8 +4,8 @@ test("iframed story has iframe", async ({ page }) => {
   await page.goto("/?story=width--iframed");
   await page.waitForSelector("[data-storyloaded]");
   await page.waitForSelector("[data-iframed]");
-  const iframe = await page.frameLocator("iframe");
-  const h1 = await iframe.locator("h1");
+  const iframe = page.frameLocator("iframe");
+  const h1 = iframe.locator("h1");
   expect(await h1.innerText()).toBe("Iframed");
 });
 
@@ -24,8 +24,8 @@ test("no iframe story can set with through the addon", async ({ page }) => {
   const medium = page.locator("#width-medium");
   await medium.click();
   await page.waitForSelector("[data-iframed]");
-  const iframe = await page.frameLocator("iframe");
-  const h1 = await iframe.locator("h1");
+  const iframe = page.frameLocator("iframe");
+  const h1 = iframe.locator("h1");
   expect(await h1.innerText()).toBe("No Iframe");
   const iframeEl = page.locator("iframe");
   expect(await iframeEl.getAttribute("style")).toContain("width: 768px");
@@ -39,8 +39,8 @@ test("custom width is used and added to the addon popup, apply stylesheet", asyn
   const button = page.locator('[data-testid="addon-width"]');
   await button.click();
   await page.waitForSelector("#width-custom");
-  const iframe = await page.frameLocator("iframe");
-  const h1 = await iframe.locator("h1");
+  const iframe = page.frameLocator("iframe");
+  const h1 = iframe.locator("h1");
   const color = await h1.evaluate((element) =>
     window.getComputedStyle(element).getPropertyValue("color"),
   );
