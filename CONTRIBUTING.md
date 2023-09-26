@@ -50,6 +50,14 @@ pnpm test
 
 There are unit tests and end-to-end tests powered by Playwright in `e2e/` folder. If you are adding a new feature, you will be almost always asked to add a new e2e test. You can add it to one of the existing suites / test applications or create new one.
 
+> **NOTE:** When you want to debug by launching a browser in E2E testing, you can move to the `e2e/{ANY_FOLDER}` and use `pnpm run test-dev --headed`.
+> You can also run a specific test only by using `test.only`.
+>
+> ```diff
+> -test("a11y addon works", async ({ page }) => {
+> +test.only("a11y addon works", async ({ page }) => {
+> ```
+
 ## Documentation
 
 If applicable, your changes should be also documented on [ladle.dev](https://ladle.dev/). The doc site can be started as:
