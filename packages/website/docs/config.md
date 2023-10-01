@@ -231,7 +231,7 @@ You can enable or disable all Ladle addons (the buttons in the left bottom corne
 export default {
   addons: {
     a11y: {
-      enabled: true,
+      enabled: false,
     },
     action: {
       enabled: false,
@@ -247,6 +247,9 @@ export default {
     mode: {
       enabled: true,
       defaultState: "full",
+    },
+    msw: {
+      enabled: false,
     },
     rtl: {
       enabled: true,

@@ -30,6 +30,7 @@ module.exports = {
         "background",
         "controls",
         "links",
+        "msw",
         "source",
         "width",
       ],

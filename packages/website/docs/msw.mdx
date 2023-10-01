@@ -1,0 +1,68 @@
+---
+id: msw
+title: MSW
+---
+
+Ladle has a build-in support for [MSW](https://mswjs.io/). It allows API mocking by intercepting requests on the network level.
+
+You just have to enable it in your `.ladle/config.mjs`:
+
+```js
+/** @type {import('@ladle/react').UserConfig} */
+export default {
+  addons: {
+    msw: {
+      enabled: true,
+    },
+  },
+};
+```
+
+Ladle automatically sets up the MSW service worker for you - copying it over into the public folder. Ladle also re-exports MSW library so you don't have to install it yourself.
+
+## Usage
+
+```tsx
+import type { Story } from "@ladle/react";
+import { msw } from "@ladle/react";
+import { useEffect, useState } from "react";
+
+const FETCH_URL = "/api-url.json";
+
+// Set default handlers for all stories
+export default {
+  msw: [
+    msw.rest.get(FETCH_URL, (_, res, ctx) => {
+      return res(ctx.json([{ id: 1, title: "msw post default" }]));
+    }),
+  ],
+};
+
+export const Mocked: Story = () => {
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    try {
+      const data = await fetch(FETCH_URL);
+      const json = await data.json();
+      setPosts(json);
+    } catch (e) {
+      console.error(e);
+    }
+  }, []);
+  return (
+    <>
+      <h1>Posts</h1>
+      <ul>
+        {posts.map((post: { id: number; title: string }) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
+    </>
+  );
+};
+
+// handlers for this story only
+// Mocked.msw = [];
+```
+
+You can also use MSW to mock GraphQL requests. Check their [documentation](https://mswjs.io/docs/).

@@ -10,4 +10,17 @@ Ladle is accessible. If you want to build accessible component, the wrapping env
 
 Ladle also includes an a11y testing through [axe-core](https://github.com/dequelabs/axe-core), so you can fix any a11y violations in your components.
 
+You have to enable it in your `.ladle/config.mjs`:
+
+```js
+/** @type {import('@ladle/react').UserConfig} */
+export default {
+  addons: {
+    a11y: {
+      enabled: true,
+    },
+  },
+};
+```
+
 <Image img={imgA11y} alt="A11y addon" />
