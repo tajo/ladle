@@ -9,6 +9,10 @@ import debug from "./debug";
 export const history = createBrowserHistory();
 export { Action } from "history";
 
+export const resetParams = () => {
+  history.push(getHref({}));
+};
+
 const removeDefaultValues = (params: Partial<GlobalState>) => {
   Object.keys(params).forEach((key) => {
     const val = params[key as keyof GlobalState];

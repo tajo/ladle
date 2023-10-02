@@ -9,7 +9,7 @@ import NoStories from "./no-stories";
 import NoStoriesError from "./no-stories-error";
 import Navigation from "./sidebar/main";
 import AddonPanel from "./addon-panel";
-import { modifyParams, history, Action } from "./history";
+import { modifyParams, history, Action, resetParams } from "./history";
 import reducer from "./reducer";
 import {
   ModeState,
@@ -181,6 +181,7 @@ const App = () => {
         hotkeys={globalState.hotkeys}
         story={globalState.story}
         updateStory={(story) => {
+          resetParams();
           // we need to strip the control state from the URL first
           // so it doesn't leak into other stories with the same named controls
           modifyParams({
