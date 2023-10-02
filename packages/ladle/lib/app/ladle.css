@@ -570,6 +570,10 @@ blockquote.ladle-markdown {
   padding-left: 40px;
 }
 
+.ladle-resize-handle {
+  display: none;
+}
+
 @media (min-width: 768px) {
   html,
   body {
@@ -590,6 +594,31 @@ blockquote.ladle-markdown {
     overflow: hidden;
   }
 
+  .ladle-resize-handle {
+    transition: box-shadow 0.15s ease-in;
+    display: block;
+    width: 16px;
+    height: 100%;
+    cursor: col-resize;
+    background-color: var(--ladle-bg-color-secondary);
+  }
+
+  .ladle-resize-handle:hover {
+    box-shadow: inset 3px 0 0 0 var(--ladle-color-accent);
+  }
+
+  [data-reversed] .ladle-resize-handle:hover {
+    box-shadow: inset -3px 0 0 0 var(--ladle-color-accent);
+  }
+
+  .ladle-resize-active {
+    box-shadow: inset 3px 0 0 0 var(--ladle-color-accent);
+  }
+
+  [data-reversed] .ladle-resize-active {
+    box-shadow: inset -3px 0 0 0 var(--ladle-color-accent);
+  }
+
   .ladle-aside {
     box-sizing: content-box;
   }
@@ -603,10 +632,16 @@ blockquote.ladle-markdown {
     font-size: 16px;
     flex: 0 0 12em;
     padding: 3em 2.5em;
+    padding-left: calc(2.5em - 16px);
     min-width: 15em;
     background-color: var(--ladle-bg-color-secondary);
     min-height: max-content;
     align-self: stretch;
+  }
+
+  [data-reversed] .ladle-aside {
+    padding-left: 2.5em;
+    padding-right: calc(2.5em - 16px);
   }
 
   [data-mode="full"] .ladle-main,
@@ -628,6 +663,10 @@ blockquote.ladle-markdown {
   .ladle-aside input {
     line-height: 1;
     background-color: var(--ladle-bg-color-secondary);
+  }
+
+  .ladle-aside input::placeholder {
+    user-select: none;
   }
 
   .ladle-addons {
