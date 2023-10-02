@@ -2,7 +2,7 @@
  * @type {import('../shared/types').Config}
  */
 export default {
-  stories: "src/**/*.stories.{js,jsx,ts,tsx}",
+  stories: "src/**/*.stories.{js,jsx,ts,tsx,mdx}",
   defaultStory: "", // default story id to load, alphabetical by default
   storyOrder: (stories) => stories, // default is alphabetical
   viteConfig: undefined,

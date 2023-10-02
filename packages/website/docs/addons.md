@@ -10,6 +10,7 @@ Ladle currently does not support third-party addons, but it might in the future.
 - [Controls](./controls) (only if `args` or `argTypes` are defined)
 - Dark theme
 - [Links](./links)
+- [MSW](./msw) (API mocking)
 - Preview mode
 - Right-to-left
 - [Story source code](./source)
