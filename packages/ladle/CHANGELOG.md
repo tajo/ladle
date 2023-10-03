@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 3.2.1
+
+### Patch Changes
+
+- [`4676d63`](https://github.com/tajo/ladle/commit/4676d63e699eb5280f19c1ee067a5ff29032c89e) Thanks [@tajo](https://github.com/tajo)! - Remove console.log
+
 ## 3.2.0
 
 ### Minor Changes
