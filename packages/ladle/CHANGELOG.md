@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 3.2.0
+
+### Minor Changes
+
+- [#517](https://github.com/tajo/ladle/pull/517) [`9727dc8`](https://github.com/tajo/ladle/commit/9727dc88c11c7b3f05129e665a5e9d9bc286c525) Thanks [@tajo](https://github.com/tajo)! - Make the side navigation resizeable and remember it
+
 ## 3.1.0
 
 ### Minor Changes
