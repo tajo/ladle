@@ -3,12 +3,15 @@ import { useHotkeys } from "react-hotkeys-hook";
 import cx from "classnames";
 import config from "../get-config";
 import TreeView from "./tree-view";
+import { debounce } from "./utils";
 import { getSettings, updateSettings } from "../local-storage";
 import type { UpdateStory } from "../../../shared/types";
 
 const DEFAULT_WIDTH = 240;
 const MIN_WIDTH = 192;
-const MAX_WIDTH = 720;
+const MAX_WIDTH = 920;
+
+const debouncedUpdateSettings = debounce(updateSettings, 250);
 
 const Main = ({
   stories,
@@ -51,14 +54,14 @@ const Main = ({
           ? previousWidth + e.movementX
           : previousWidth - e.movementX;
         if (newWidth < MIN_WIDTH) {
-          updateSettings({ sidebarWidth: MIN_WIDTH });
+          debouncedUpdateSettings({ sidebarWidth: MIN_WIDTH });
           return MIN_WIDTH;
         }
         if (newWidth > MAX_WIDTH) {
-          updateSettings({ sidebarWidth: MAX_WIDTH });
+          debouncedUpdateSettings({ sidebarWidth: MAX_WIDTH });
           return MAX_WIDTH;
         }
-        updateSettings({ sidebarWidth: newWidth });
+        debouncedUpdateSettings({ sidebarWidth: newWidth });
         return newWidth;
       });
     };
@@ -92,6 +95,8 @@ const Main = ({
   return (
     <>
       <div
+        role="separator"
+        aria-orientation="vertical"
         ref={handleRef}
         className={cx("ladle-resize-handle", {
           "ladle-resize-active": resizeActive,

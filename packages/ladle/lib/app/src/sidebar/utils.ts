@@ -181,3 +181,22 @@ export const toggleIsExpanded = (
     return newNode;
   });
 };
+
+export function debounce<T extends (...args: any[]) => any>(
+  fn: T,
+  delay: number,
+): (...funcArgs: Parameters<T>) => void {
+  let timerId: number | undefined;
+
+  return function (...args: Parameters<T>) {
+    if (timerId !== undefined) {
+      clearTimeout(timerId);
+    }
+
+    timerId = window.setTimeout(() => {
+      // @ts-ignore
+      fn.apply(this, args);
+      timerId = undefined;
+    }, delay);
+  };
+}
