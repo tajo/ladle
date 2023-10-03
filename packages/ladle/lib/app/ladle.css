@@ -640,8 +640,8 @@ blockquote.ladle-markdown {
   }
 
   [data-reversed] .ladle-aside {
-    padding-left: 2.5em;
-    padding-right: calc(2.5em - 16px);
+    padding-left: 2em;
+    padding-right: calc(2em - 16px);
   }
 
   [data-mode="full"] .ladle-main,
