@@ -10,6 +10,7 @@ import { getMetaJsonString } from "./vite-plugin/generate/get-meta-json.js";
 import { getEntryData } from "./vite-plugin/parse/get-entry-data.js";
 import getFolderSize from "./get-folder-size.js";
 import applyCLIConfig from "./apply-cli-config.js";
+import getAppId from "./get-app-id.js";
 
 /**
  * @param params {import("../shared/types").CLIParams}
@@ -17,6 +18,7 @@ import applyCLIConfig from "./apply-cli-config.js";
 const build = async (params = {}) => {
   const startTime = performance.now();
   debug("Starting build command");
+  process.env["VITE_LADLE_APP_ID"] = getAppId();
   const { configFolder, config } = await applyCLIConfig(params);
   await viteProd(config, configFolder);
   const entryData = await getEntryData(

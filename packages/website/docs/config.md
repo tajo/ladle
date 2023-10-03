@@ -198,6 +198,28 @@ export default {
 
 The same effect can be achieved by creating a file `.ladle/head.html`.
 
+You can use this to modify the [Ladle's UI](https://github.com/tajo/ladle/blob/main/packages/ladle/lib/app/ladle.css), for example to remove margins around the stories:
+
+```js
+/** @type {import('@ladle/react').UserConfig} */
+export default {
+  appendToHead: `<style>
+    :root {--ladle-main-padding: 0; --ladle-main-padding-mobile: 0;}
+  </style>`,
+};
+```
+
+Or to move the side navigation to the left:
+
+```js
+/** @type {import('@ladle/react').UserConfig} */
+export default {
+  appendToHead: `<style>
+    .ladle-wrapper { flex-direction: row-reverse; }
+  </style>`,
+};
+```
+
 ### hotkeys
 
 You can customize the default set of hotkeys. You can assign multiple hotkeys for the same action. An emtpy array disables the hotkey. Use `meta` for `cmd` on macOS and `win` on Windows. `alt` is option on macOS.

@@ -21,3 +21,23 @@ test("when click the menu and open the story, remain non-ladle query parameters"
   expect(url).toContain("story=query-parameters--query-parameters");
   expect(url).toContain("foo=bar");
 });
+
+test("preserve user query params after ladle query param update", async ({
+  page,
+}) => {
+  await page.goto("/?story=query-parameters--query-parameters");
+  await page.waitForSelector("[data-storyloaded]");
+  const button = page.locator('[data-testid="addon-width"]');
+  await button.click();
+  const medium = page.locator("#width-medium");
+  await medium.click();
+  const url = page.url();
+  expect(url).toContain("story=query-parameters--query-parameters");
+  expect(url).toContain("foo=bar");
+  expect(url).toContain("width=768");
+  const unset = page.locator("#width-unset");
+  await unset.click();
+  const newUrl = page.url();
+  expect(newUrl).toContain("foo=bar");
+  expect(newUrl).not.toContain("width=768");
+});

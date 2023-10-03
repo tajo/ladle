@@ -28,8 +28,15 @@ const removeDefaultValues = (params: Partial<GlobalState>) => {
 
 export const modifyParams = (globalState: GlobalState) => {
   if (!globalState.controlInitialized) return;
+  const queryParams = queryString.parse(location.search);
+  const userQueryParams: { [key: string]: string } = {};
+  Object.keys(queryParams).forEach((key) => {
+    if (!key.startsWith("arg-")) {
+      userQueryParams[key] = queryParams[key] as string;
+    }
+  });
   const params = {
-    ...queryString.parse(location.search),
+    ...userQueryParams,
     mode: globalState.mode,
     rtl: globalState.rtl,
     source: globalState.source,
