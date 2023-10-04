@@ -129,22 +129,40 @@ export const Page = () => {
 };
 
 export const Down = ({ rotate }: { rotate?: boolean }) => {
+  const width = "16px";
+  const height = "16px";
   return (
     <div
       aria-hidden
       style={{
-        width: "16px",
+        width,
+        height,
         marginInlineEnd: "0.1em",
-        marginBottom: "-0.1em",
       }}
     >
       {rotate ? (
-        <svg viewBox="0 0 24 24" stroke="currentColor" fill="none">
+        <svg
+          style={{
+            width,
+            height,
+          }}
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          fill="none"
+        >
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
           <path d="M9 6l6 6l-6 6"></path>
         </svg>
       ) : (
-        <svg viewBox="0 0 24 24" stroke="currentColor" fill="none">
+        <svg
+          style={{
+            width,
+            height,
+          }}
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          fill="none"
+        >
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
           <path d="M6 9l6 6l6 -6"></path>
         </svg>

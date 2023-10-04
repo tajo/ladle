@@ -32,7 +32,6 @@ const copyMswWorker = async (publicDir) => {
     "index.js",
     "mockServiceWorker.js",
   );
-  console.log(mswWorkerPathOrigin);
   await copyFile(mswWorkerPathOrigin, mswWorkerPath);
 };
 

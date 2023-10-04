@@ -39,3 +39,23 @@ test("when move a story from the query parameters story, remove non-ladle query 
   expect(url).toContain("story=a11y--issues");
   expect(url).not.toContain("foo=bar"); // The non-ladle query parameter is removed
 });
+
+test("preserve user query params after ladle query param update", async ({
+  page,
+}) => {
+  await page.goto("/?story=query-parameters--query-parameters");
+  await page.waitForSelector("[data-storyloaded]");
+  const button = page.locator('[data-testid="addon-width"]');
+  await button.click();
+  const medium = page.locator("#width-medium");
+  await medium.click();
+  const url = page.url();
+  expect(url).toContain("story=query-parameters--query-parameters");
+  expect(url).toContain("foo=bar");
+  expect(url).toContain("width=768");
+  const unset = page.locator("#width-unset");
+  await unset.click();
+  const newUrl = page.url();
+  expect(newUrl).toContain("foo=bar");
+  expect(newUrl).not.toContain("width=768");
+});
