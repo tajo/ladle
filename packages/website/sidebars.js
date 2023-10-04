@@ -33,6 +33,7 @@ module.exports = {
         "msw",
         "source",
         "width",
+        "query-parameters",
       ],
     },
     {
