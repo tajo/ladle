@@ -24,6 +24,7 @@ program
   .option("--viteConfig [string]", "file with Vite configuration")
   .option("--base [string]", "base URL path for build output")
   .option("--mode [string]", "Vite mode")
+  .option("--noWatch", "Disable file system watching")
   .action(serve);
 
 program
@@ -55,7 +56,11 @@ program
   .option("--base [string]", "base URL path for build output")
   .option("--mode [string]", "Vite mode")
   .action(async (params) => {
-    await preview({ ...params, previewHost: params.host, previewPort: params.port });
+    await preview({
+      ...params,
+      previewHost: params.host,
+      previewPort: params.port,
+    });
   });
 
 program.parse(process.argv);

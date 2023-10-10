@@ -45,6 +45,12 @@ const bundler = async (config, configFolder) => {
         fs: {
           allow: [searchForWorkspaceRoot(process.cwd())],
         },
+        // TODO: pass null instead once this diff is included in release
+        // https://github.com/vitejs/vite/pull/14208
+        // watch: config.noWatch ? null : undefined,
+        watch: {
+          ignored: config.noWatch ? "**" : undefined,
+        },
       },
     });
     const vite = await createServer(viteConfig);
@@ -149,50 +155,52 @@ const bundler = async (config, configFolder) => {
       http.createServer(app.callback()).listen(port, hostname, listenCallback);
     }
 
-    // trigger full reload when new stories are added or removed
-    const watcher = chokidar.watch(config.stories, {
-      persistent: true,
-      ignoreInitial: true,
-    });
-    let checkSum = "";
-    const getChecksum = async () => {
-      try {
-        const entryData = await getEntryData(
-          await globby(
-            Array.isArray(config.stories) ? config.stories : [config.stories],
-          ),
-        );
-        const jsonContent = getMetaJsonObject(entryData);
-        // loc changes should not grant a full reload
-        Object.keys(jsonContent.stories).forEach((storyId) => {
-          jsonContent.stories[storyId].locStart = 0;
-          jsonContent.stories[storyId].locEnd = 0;
-        });
-        return JSON.stringify(jsonContent);
-      } catch (e) {
-        return checkSum;
-      }
-    };
-    checkSum = await getChecksum();
-    const invalidate = async () => {
-      const newChecksum = await getChecksum();
-      if (checkSum === newChecksum) return;
-      checkSum = newChecksum;
-      const module = moduleGraph.getModuleById("\0virtual:generated-list");
-      if (module) {
-        moduleGraph.invalidateModule(module);
-        if (ws) {
-          ws.send({
-            type: "full-reload",
-            path: "*",
+    if (config.noWatch === false) {
+      // trigger full reload when new stories are added or removed
+      const watcher = chokidar.watch(config.stories, {
+        persistent: true,
+        ignoreInitial: true,
+      });
+      let checkSum = "";
+      const getChecksum = async () => {
+        try {
+          const entryData = await getEntryData(
+            await globby(
+              Array.isArray(config.stories) ? config.stories : [config.stories],
+            ),
+          );
+          const jsonContent = getMetaJsonObject(entryData);
+          // loc changes should not grant a full reload
+          Object.keys(jsonContent.stories).forEach((storyId) => {
+            jsonContent.stories[storyId].locStart = 0;
+            jsonContent.stories[storyId].locEnd = 0;
           });
+          return JSON.stringify(jsonContent);
+        } catch (e) {
+          return checkSum;
         }
-      }
-    };
-    watcher
-      .on("add", invalidate)
-      .on("change", invalidate)
-      .on("unlink", invalidate);
+      };
+      checkSum = await getChecksum();
+      const invalidate = async () => {
+        const newChecksum = await getChecksum();
+        if (checkSum === newChecksum) return;
+        checkSum = newChecksum;
+        const module = moduleGraph.getModuleById("\0virtual:generated-list");
+        if (module) {
+          moduleGraph.invalidateModule(module);
+          if (ws) {
+            ws.send({
+              type: "full-reload",
+              path: "*",
+            });
+          }
+        }
+      };
+      watcher
+        .on("add", invalidate)
+        .on("change", invalidate)
+        .on("unlink", invalidate);
+    }
   } catch (e) {
     console.log(e);
   }
