@@ -7,6 +7,7 @@ export default {
   storyOrder: (stories) => stories, // default is alphabetical
   viteConfig: undefined,
   appendToHead: "",
+  noWatch: false,
   port: 61000,
   previewPort: 8080,
   outDir: "build",

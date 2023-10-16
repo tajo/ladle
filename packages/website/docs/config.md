@@ -298,3 +298,14 @@ export default {
   },
 };
 ```
+
+### noWatch
+
+Disable the file system watcher when running the `serve` cli command.
+
+```js
+/** @type {import('@ladle/react').UserConfig} */
+export default {
+  noWatch: true,
+};
+```

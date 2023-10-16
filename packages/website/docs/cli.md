@@ -34,6 +34,7 @@ Options:
   --viteConfig [string]  file with Vite configuration
   --base [string]        base URL path for build output
   --mode [string]        Vite mode
+  --noWatch [string]     disable file system watcher
   -h, --help             display help for command
 
 ```
