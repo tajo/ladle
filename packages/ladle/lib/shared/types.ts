@@ -186,6 +186,7 @@ export type Config = {
   outDir: string;
   base?: string;
   mode?: string;
+  noWatch: boolean;
   hotkeys: {
     fullscreen: string[];
     search: string[];
