@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 3.2.2
+
+### Patch Changes
+
+- [#523](https://github.com/tajo/ladle/pull/523) [`6138c7f`](https://github.com/tajo/ladle/commit/6138c7fb9bdaae8a924879f21d76cf3ee9ad8f01) Thanks [@chasestarr](https://github.com/chasestarr)! - Add --noWatch option to serve command
+
 ## 3.2.1
 
 ### Patch Changes
