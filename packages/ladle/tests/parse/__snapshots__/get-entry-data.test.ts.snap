@@ -10,6 +10,10 @@ exports[`Capital letters in story names converted into delimiters 1`] = `
   "fileId": "capitalization",
   "namedExportToMeta": {},
   "namedExportToStoryName": {},
+  "namedExports": [
+    "BlueTinyCat",
+    "BigBarkingDog",
+  ],
   "stories": [
     {
       "componentName": "capitalization$$big$barking$dog",
@@ -51,6 +55,9 @@ exports[`Capital letters in the filename converted into delimiters 1`] = `
   "fileId": "filenameCapitalization",
   "namedExportToMeta": {},
   "namedExportToStoryName": {},
+  "namedExports": [
+    "Test",
+  ],
   "stories": [
     {
       "componentName": "filename$capitalization$$test",
@@ -81,6 +88,9 @@ exports[`Default title is used instead of the file name 1`] = `
   "fileId": "default-title",
   "namedExportToMeta": {},
   "namedExportToStoryName": {},
+  "namedExports": [
+    "Cat",
+  ],
   "stories": [
     {
       "componentName": "title$$cat",
@@ -134,6 +144,10 @@ exports[`Extract and merge story meta 1`] = `
     },
   },
   "namedExportToStoryName": {},
+  "namedExports": [
+    "Cat",
+    "Dog",
+  ],
   "stories": [
     {
       "componentName": "title$$cat",
@@ -224,6 +238,9 @@ exports[`Extract default meta 1`] = `
   "fileId": "default-meta",
   "namedExportToMeta": {},
   "namedExportToStoryName": {},
+  "namedExports": [
+    "Cat",
+  ],
   "stories": [
     {
       "componentName": "title$$cat",
@@ -272,6 +289,10 @@ exports[`Single file with two stories 1`] = `
   "fileId": "animals",
   "namedExportToMeta": {},
   "namedExportToStoryName": {},
+  "namedExports": [
+    "Cat",
+    "Dog",
+  ],
   "stories": [
     {
       "componentName": "animals$$cat",
@@ -316,6 +337,11 @@ exports[`Story name replaces named export as a story name 1`] = `
     "CapitalReplaced": "Champs Élysées",
     "Cat": "Doggo",
   },
+  "namedExports": [
+    "Cat",
+    "CapitalCity",
+    "CapitalReplaced",
+  ],
   "stories": [
     {
       "componentName": "storyname$$capital$city",
@@ -376,6 +402,9 @@ exports[`Turn file name delimiters into spaces and levels correctly 1`] = `
   "fileId": "our-animals--mammals",
   "namedExportToMeta": {},
   "namedExportToStoryName": {},
+  "namedExports": [
+    "Cat",
+  ],
   "stories": [
     {
       "componentName": "our$animals$$mammals$$cat",
