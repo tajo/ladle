@@ -3,18 +3,24 @@ import { storyIdToMeta } from "../naming-utils.js";
 /**
  * @param entryData {import('../../../shared/types').EntryData}
  */
-const getMetaJson = (entryData) => {
+export const getMetaJson = (entryData) => {
   /** @type {string[]} */
   let storyIds = [];
   /** @type {{[key: string]: any}} */
   let storyParams = {};
   /** @type {{[key: string]: any}} */
   let storyMeta = {};
+  /** @type {{[key: string]: any}} */
+  let namedExports = {};
 
   Object.keys(entryData).forEach((entry) => {
     entryData[entry].stories.forEach(({ storyId, locStart, locEnd }) => {
       storyMeta[storyId] = { locStart, locEnd, filePath: entry };
       storyIds.push(storyId);
+      namedExports = {
+        ...namedExports,
+        [storyId]: entryData[entry].namedExports,
+      };
     });
     storyParams = { ...storyParams, ...entryData[entry].storyParams };
   });
@@ -32,6 +38,9 @@ const getMetaJson = (entryData) => {
       ...storyIdToMeta(storyId),
       ...storyMeta[storyId],
       meta: storyParams[storyId] ? storyParams[storyId].meta : {},
+      namedExports: namedExports[storyId]
+        ? namedExports[storyId].namedExports
+        : {},
     };
   });
   return result;
