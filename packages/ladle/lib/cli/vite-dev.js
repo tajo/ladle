@@ -26,6 +26,11 @@ const bundler = async (config, configFolder) => {
   const hmrPort = await getPort({
     port: [24678, 24679, 24680, 24681, 24682, 24683, 24684, 24685],
   });
+  const hmr = {
+    // needed for hmr to work over network aka WSL2
+    host: "localhost",
+    port: hmrPort,
+  };
   debug(`Port set to: ${port}`);
   try {
     /**
@@ -36,11 +41,7 @@ const bundler = async (config, configFolder) => {
       server: {
         host: config.host,
         port: config.port,
-        hmr: {
-          // needed for hmr to work over network aka WSL2
-          host: "localhost",
-          port: hmrPort,
-        },
+        hmr: config.noWatch ? false : hmr,
         middlewareMode: true,
         fs: {
           allow: [searchForWorkspaceRoot(process.cwd())],
