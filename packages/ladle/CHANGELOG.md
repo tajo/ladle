@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 3.3.0
+
+### Minor Changes
+
+- [#529](https://github.com/tajo/ladle/pull/529) [`3ce9390`](https://github.com/tajo/ladle/commit/3ce939026542a0690c3c827ae2fafec105e70eb0) Thanks [@chasestarr](https://github.com/chasestarr)! - disable hmr when --noWatch flag is passed to serve command
+
 ## 3.2.2
 
 ### Patch Changes
