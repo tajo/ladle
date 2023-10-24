@@ -11,6 +11,7 @@ import {
 } from "../shared/types";
 
 import * as msw from "msw";
+export { msw };
 import {
   getMetaJsonString,
   getMetaJson,
