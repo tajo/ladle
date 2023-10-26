@@ -22,6 +22,7 @@ test("meta.json has a single story ok", async ({ request }) => {
           locEnd: 5,
           filePath: "src/hello.stories.tsx",
           meta: {},
+          namedExport: "World",
         },
         "hello--ayo": {
           filePath: "src/hello.stories.tsx",
@@ -30,6 +31,7 @@ test("meta.json has a single story ok", async ({ request }) => {
           locStart: 7,
           meta: {},
           name: "Ayo",
+          namedExport: "Ayo",
         },
       },
     }),
