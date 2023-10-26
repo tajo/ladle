@@ -10,18 +10,14 @@ export const getMetaJson = (entryData) => {
   let storyParams = {};
   /** @type {{[key: string]: any}} */
   let storyMeta = {};
-  /** @type {{[key: string]: any}} */
-  let namedExports = {};
 
   Object.keys(entryData).forEach((entry) => {
-    entryData[entry].stories.forEach(({ storyId, locStart, locEnd }) => {
-      storyMeta[storyId] = { locStart, locEnd, filePath: entry };
-      storyIds.push(storyId);
-      namedExports = {
-        ...namedExports,
-        [storyId]: entryData[entry].namedExports,
-      };
-    });
+    entryData[entry].stories.forEach(
+      ({ storyId, locStart, locEnd, namedExport }) => {
+        storyMeta[storyId] = { locStart, locEnd, filePath: entry, namedExport };
+        storyIds.push(storyId);
+      },
+    );
     storyParams = { ...storyParams, ...entryData[entry].storyParams };
   });
   const result = {
@@ -38,9 +34,6 @@ export const getMetaJson = (entryData) => {
       ...storyIdToMeta(storyId),
       ...storyMeta[storyId],
       meta: storyParams[storyId] ? storyParams[storyId].meta : {},
-      namedExports: namedExports[storyId]
-        ? namedExports[storyId].namedExports
-        : {},
     };
   });
   return result;

@@ -28,31 +28,6 @@ export const getEntryData = async (entries) => {
   return entryData;
 };
 
-export const getNamedExportVariables = (
-  /** @type {string[] | undefined} */ lines,
-) => {
-  /**
-   * @type {string[]}
-   */
-  let namedExports = [];
-  lines?.forEach((line) => {
-    let namedExport = "";
-    // https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export
-    if (line?.startsWith("export", 0) && !line?.includes("default")) {
-      // third substring will be variable name
-      namedExport = line?.split(" ")[2];
-      // only contain alphanumeric characters and _
-      // ex. export function test() {}
-      namedExport = namedExport.replace(/\W/g, "");
-      // check if empty value
-      if (namedExport) {
-        namedExports.push(namedExport);
-      }
-    }
-  });
-  return namedExports;
-};
-
 /**
  * @param {string} entry
  */
@@ -63,8 +38,6 @@ export const getSingleEntry = async (entry) => {
   const code = entry.endsWith(".mdx")
     ? await mdxToStories(fileCode, entry, true)
     : fileCode;
-  var lines = code?.split("\n").filter(Boolean);
-  const namedExports = getNamedExportVariables(lines);
   /** @type {import('../../../shared/types').ParsedStoriesResult} */
   const result = {
     entry,
@@ -76,7 +49,6 @@ export const getSingleEntry = async (entry) => {
     //@ts-ignore
     storySource: code.replace(/\r/g, ""),
     fileId: getFileId(entry),
-    namedExports: namedExports,
   };
   //@ts-ignore
   const ast = getAst(code, entry);

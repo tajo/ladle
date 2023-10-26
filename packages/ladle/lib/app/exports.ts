@@ -12,10 +12,8 @@ import {
 
 import * as msw from "msw";
 export { msw };
-import {
-  getMetaJsonString,
-  getMetaJson,
-} from "../cli/vite-plugin/generate/get-meta-json";
+import { getMetaJson } from "../cli/vite-plugin/generate/get-meta-json";
+import { getEntryData } from "../cli/vite-plugin/parse/get-entry-data";
 
 export type { UserConfig } from "../shared/types";
 export { useMDXComponents } from "@mdx-js/react";
@@ -36,7 +34,7 @@ export {
   ActionType,
   ThemeState,
   ModeState,
-  getMetaJsonString,
+  getEntryData,
   getMetaJson,
 };
 export type { StoryDecorator };

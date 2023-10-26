@@ -252,7 +252,6 @@ export type StoryEntry = {
   namedExport: string;
   locStart: number;
   locEnd: number;
-  namedExports?: string[];
 };
 export type ParsedStoriesResult = {
   entry: string;
@@ -266,7 +265,6 @@ export type ParsedStoriesResult = {
   storyParams: { [key: string]: { title?: string; meta: any } };
   fileId: string;
   storySource: string;
-  namedExports?: string[];
 };
 
 export type GetUserViteConfig = {
