@@ -7,6 +7,7 @@
   "scripts": {
     "serve": "node serve.js",
     "serve-prod": "node preview.js",
+    "meta": "node get-meta.js",
     "build": "node build.js",
     "lint": "echo 'no lint'",
     "test-dev": "cross-env TYPE=dev pnpm exec playwright test",
