@@ -1,5 +1,14 @@
 # test-programmatic
 
+## 0.2.92
+
+### Patch Changes
+
+- [#528](https://github.com/tajo/ladle/pull/528) [`c9be1d7`](https://github.com/tajo/ladle/commit/c9be1d79c7ccc5324014b9c39bf3c98325e3f9e0) Thanks [@LeelandClenista](https://github.com/LeelandClenista)! - Export programmatic meta API
+
+- Updated dependencies [[`c9be1d7`](https://github.com/tajo/ladle/commit/c9be1d79c7ccc5324014b9c39bf3c98325e3f9e0)]:
+  - @ladle/react@3.3.1
+
 ## 0.2.91
 
 ### Patch Changes

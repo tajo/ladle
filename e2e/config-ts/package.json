@@ -1,6 +1,6 @@
 {
   "name": "test-config-ts",
-  "version": "1.0.60",
+  "version": "1.0.61",
   "license": "MIT",
   "private": true,
   "scripts": {

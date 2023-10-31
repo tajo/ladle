@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 3.3.1
+
+### Patch Changes
+
+- [#528](https://github.com/tajo/ladle/pull/528) [`c9be1d7`](https://github.com/tajo/ladle/commit/c9be1d79c7ccc5324014b9c39bf3c98325e3f9e0) Thanks [@LeelandClenista](https://github.com/LeelandClenista)! - Export programmatic meta API
+
 ## 3.3.0
 
 ### Minor Changes
