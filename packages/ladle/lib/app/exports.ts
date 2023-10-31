@@ -12,7 +12,6 @@ import {
 
 import * as msw from "msw";
 export { msw };
-import { getMetaJson } from "../cli/vite-plugin/generate/get-meta-json";
 
 export type { UserConfig } from "../shared/types";
 export { useMDXComponents } from "@mdx-js/react";
@@ -28,7 +27,7 @@ type ReactNodeWithoutObject =
   | null
   | undefined;
 
-export { useLadleContext, ActionType, ThemeState, ModeState, getMetaJson };
+export { useLadleContext, ActionType, ThemeState, ModeState };
 export type { StoryDecorator };
 
 // deprecated, linkTo is just easier to use
