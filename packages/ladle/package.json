@@ -10,7 +10,8 @@
     ".": "./lib/app/exports.ts",
     "./serve": "./api/serve.js",
     "./preview": "./api/preview.js",
-    "./build": "./api/build.js"
+    "./build": "./api/build.js",
+    "./meta": "./api/meta.js"
   },
   "packageManager": "pnpm@8.7.1",
   "publishConfig": {

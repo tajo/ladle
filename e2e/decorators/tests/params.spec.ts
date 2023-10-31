@@ -29,6 +29,7 @@ test("meta.json is correctly using defaults and overrides", async ({
           locStart: 44,
           meta: {},
           name: "Card hello",
+          namedExport: "CardHello",
         },
         "hello--world": {
           filePath: "src/hello.stories.tsx",
@@ -37,6 +38,7 @@ test("meta.json is correctly using defaults and overrides", async ({
           locStart: 18,
           meta: {},
           name: "World",
+          namedExport: "World",
         },
         "legacy-params--world": {
           filePath: "src/legacy-params.stories.tsx",
@@ -45,6 +47,7 @@ test("meta.json is correctly using defaults and overrides", async ({
           locStart: 37,
           meta: {},
           name: "World",
+          namedExport: "World",
         },
         "mock-date--active": {
           filePath: "src/mock-date.stories.tsx",
@@ -55,6 +58,7 @@ test("meta.json is correctly using defaults and overrides", async ({
             mockDate: "1995-12-17T03:24:00",
           },
           name: "Active",
+          namedExport: "Active",
         },
         "mock-date--inactive": {
           filePath: "src/mock-date.stories.tsx",
@@ -63,6 +67,7 @@ test("meta.json is correctly using defaults and overrides", async ({
           locStart: 21,
           meta: {},
           name: "Inactive",
+          namedExport: "Inactive",
         },
         "root--examples--first": {
           filePath: "src/params.stories.tsx",
@@ -71,6 +76,7 @@ test("meta.json is correctly using defaults and overrides", async ({
           locStart: 11,
           meta: { drink: "coke", food: "burger" },
           name: "First",
+          namedExport: "First",
         },
         "root--examples--second-renamed": {
           filePath: "src/params.stories.tsx",
@@ -79,6 +85,7 @@ test("meta.json is correctly using defaults and overrides", async ({
           locStart: 15,
           meta: { drink: "water", food: "burger" },
           name: "Second renamed",
+          namedExport: "Second",
         },
       },
     }),

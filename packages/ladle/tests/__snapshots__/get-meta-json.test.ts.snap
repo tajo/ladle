@@ -16,6 +16,7 @@ exports[`Capital letters in story names converted into delimiters 1`] = `
       \\"locStart\\": 8,
       \\"locEnd\\": 10,
       \\"filePath\\": \\"tests/fixtures/capitalization.stories.tsx\\",
+      \\"namedExport\\": \\"BigBarkingDog\\",
       \\"meta\\": {}
     },
     \\"capitalization--blue-tiny-cat\\": {
@@ -26,6 +27,7 @@ exports[`Capital letters in story names converted into delimiters 1`] = `
       \\"locStart\\": 4,
       \\"locEnd\\": 6,
       \\"filePath\\": \\"tests/fixtures/capitalization.stories.tsx\\",
+      \\"namedExport\\": \\"BlueTinyCat\\",
       \\"meta\\": {}
     }
   }
@@ -48,6 +50,7 @@ exports[`Capital letters in the filename converted into delimiters 1`] = `
       \\"locStart\\": 4,
       \\"locEnd\\": 6,
       \\"filePath\\": \\"tests/fixtures/filenameCapitalization.stories.tsx\\",
+      \\"namedExport\\": \\"Test\\",
       \\"meta\\": {}
     }
   }
@@ -70,6 +73,7 @@ exports[`Default title is used instead of the file name 1`] = `
       \\"locStart\\": 8,
       \\"locEnd\\": 10,
       \\"filePath\\": \\"tests/fixtures/default-title.stories.tsx\\",
+      \\"namedExport\\": \\"Cat\\",
       \\"meta\\": {}
     }
   }
@@ -92,6 +96,7 @@ exports[`Extract and merge story meta 1`] = `
       \\"locStart\\": 14,
       \\"locEnd\\": 16,
       \\"filePath\\": \\"tests/fixtures/story-meta.stories.tsx\\",
+      \\"namedExport\\": \\"Cat\\",
       \\"meta\\": {
         \\"baseweb\\": {
           \\"theme\\": \\"dark\\",
@@ -112,6 +117,7 @@ exports[`Extract and merge story meta 1`] = `
       \\"locStart\\": 26,
       \\"locEnd\\": 28,
       \\"filePath\\": \\"tests/fixtures/story-meta.stories.tsx\\",
+      \\"namedExport\\": \\"Dog\\",
       \\"meta\\": {
         \\"baseweb\\": {
           \\"theme\\": \\"dark\\",
@@ -142,6 +148,7 @@ exports[`Extract default meta 1`] = `
       \\"locStart\\": 13,
       \\"locEnd\\": 15,
       \\"filePath\\": \\"tests/fixtures/default-meta.stories.tsx\\",
+      \\"namedExport\\": \\"Cat\\",
       \\"meta\\": {
         \\"baseweb\\": {
           \\"foo\\": \\"title\\"
@@ -168,6 +175,7 @@ exports[`Single file with two stories 1`] = `
       \\"locStart\\": 4,
       \\"locEnd\\": 6,
       \\"filePath\\": \\"tests/fixtures/animals.stories.tsx\\",
+      \\"namedExport\\": \\"Cat\\",
       \\"meta\\": {}
     },
     \\"animals--dog\\": {
@@ -178,6 +186,7 @@ exports[`Single file with two stories 1`] = `
       \\"locStart\\": 8,
       \\"locEnd\\": 10,
       \\"filePath\\": \\"tests/fixtures/animals.stories.tsx\\",
+      \\"namedExport\\": \\"Dog\\",
       \\"meta\\": {}
     }
   }
@@ -200,6 +209,7 @@ exports[`Story name replaces named export as a story name 1`] = `
       \\"locStart\\": 15,
       \\"locEnd\\": 17,
       \\"filePath\\": \\"tests/fixtures/storyname.stories.tsx\\",
+      \\"namedExport\\": \\"CapitalCity\\",
       \\"meta\\": {}
     },
     \\"storyname--champs-élysées\\": {
@@ -210,6 +220,7 @@ exports[`Story name replaces named export as a story name 1`] = `
       \\"locStart\\": 19,
       \\"locEnd\\": 21,
       \\"filePath\\": \\"tests/fixtures/storyname.stories.tsx\\",
+      \\"namedExport\\": \\"CapitalReplaced\\",
       \\"meta\\": {}
     },
     \\"storyname--doggo\\": {
@@ -220,10 +231,96 @@ exports[`Story name replaces named export as a story name 1`] = `
       \\"locStart\\": 4,
       \\"locEnd\\": 9,
       \\"filePath\\": \\"tests/fixtures/storyname.stories.tsx\\",
+      \\"namedExport\\": \\"Cat\\",
       \\"meta\\": {}
     }
   }
 }"
+`;
+
+exports[`Test multiple stories 1`] = `
+{
+  "about": {
+    "github": "https://github.com/tajo/ladle",
+    "homepage": "https://www.ladle.dev",
+    "version": 1,
+  },
+  "stories": {
+    "storyname--capital-city": {
+      "filePath": "tests/fixtures/storyname.stories.tsx",
+      "levels": [
+        "Storyname",
+      ],
+      "locEnd": 17,
+      "locStart": 15,
+      "meta": {},
+      "name": "Capital city",
+      "namedExport": "CapitalCity",
+    },
+    "storyname--champs-élysées": {
+      "filePath": "tests/fixtures/storyname.stories.tsx",
+      "levels": [
+        "Storyname",
+      ],
+      "locEnd": 21,
+      "locStart": 19,
+      "meta": {},
+      "name": "Champs élysées",
+      "namedExport": "CapitalReplaced",
+    },
+    "storyname--doggo": {
+      "filePath": "tests/fixtures/storyname.stories.tsx",
+      "levels": [
+        "Storyname",
+      ],
+      "locEnd": 9,
+      "locStart": 4,
+      "meta": {},
+      "name": "Doggo",
+      "namedExport": "Cat",
+    },
+    "title--cat": {
+      "filePath": "tests/fixtures/story-meta.stories.tsx",
+      "levels": [
+        "Title",
+      ],
+      "locEnd": 16,
+      "locStart": 14,
+      "meta": {
+        "baseweb": {
+          "browsers": [
+            "chrome",
+            "firefox",
+          ],
+          "theme": "dark",
+          "width": "500px",
+        },
+        "links": true,
+      },
+      "name": "Cat",
+      "namedExport": "Cat",
+    },
+    "title--dog": {
+      "filePath": "tests/fixtures/story-meta.stories.tsx",
+      "levels": [
+        "Title",
+      ],
+      "locEnd": 28,
+      "locStart": 26,
+      "meta": {
+        "baseweb": {
+          "browsers": [
+            "chrome",
+            "webkit",
+          ],
+          "theme": "dark",
+        },
+      },
+      "name": "Dog",
+      "namedExport": "Dog",
+    },
+  },
+}
 `;
 
 exports[`Turn file name delimiters into spaces and levels correctly 1`] = `
@@ -243,6 +340,7 @@ exports[`Turn file name delimiters into spaces and levels correctly 1`] = `
       \\"locStart\\": 4,
       \\"locEnd\\": 6,
       \\"filePath\\": \\"tests/fixtures/our-animals--mammals.stories.tsx\\",
+      \\"namedExport\\": \\"Cat\\",
       \\"meta\\": {}
     }
   }
