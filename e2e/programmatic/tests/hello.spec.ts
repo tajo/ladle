@@ -8,7 +8,7 @@ test("provider passes context and renders wrapper", async ({ page }) => {
   await expect(page.locator("h1")).toHaveText("Hello World");
 });
 
-test("test getMeta", async () => {
+test("getMeta export returns JS object identical to `meta.json` ", async () => {
   const meta = await getMeta();
   expect(await meta).toEqual(
     expect.objectContaining({
