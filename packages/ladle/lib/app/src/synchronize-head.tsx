@@ -24,7 +24,6 @@ function addStyleElement(rule: string, doc: Document, index?: number): number {
 
 function deleteStyleElement(doc: Document, index?: number) {
   const existingTags = doc.head.querySelectorAll(`style[${CSS_ATTR}]`);
-  console.log(existingTags);
   if (index != undefined && existingTags[index]) {
     existingTags[index].remove();
   }
