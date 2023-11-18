@@ -170,9 +170,10 @@ const prepare = async (code, filename, transformMdx = false) => {
   const output = await transformFromAstAsync(ast, inputCode, {
     plugins: [transformPlugin],
   });
-  let result = output?.code
-    ?.replace("export default MDXContent;", "")
-    .replace("function MDXContent(", "export function MDXContent(");
+  let result = output?.code?.replace(
+    "export default function MDXContent(",
+    "export function MDXContent(",
+  );
 
   if (!result.includes("MDXContent.storyName")) {
     result = `${result}\nMDXContent.storyName = 'Readme';`;

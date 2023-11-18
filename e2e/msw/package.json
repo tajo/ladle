@@ -15,15 +15,15 @@
   "dependencies": {
     "@ladle/playwright-config": "workspace:*",
     "@ladle/react": "workspace:*",
-    "@playwright/test": "^1.38.0",
-    "autoprefixer": "^10.4.15",
+    "@playwright/test": "^1.40.0",
+    "autoprefixer": "^10.4.16",
     "baseui": "^13.0.0",
     "cross-env": "^7.0.3",
-    "postcss": "^8.4.29",
+    "postcss": "^8.4.31",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styletron-engine-monolithic": "^1.0.0",
-    "styletron-react": "^6.1.0",
-    "tailwindcss": "^3.3.3"
+    "styletron-react": "^6.1.1",
+    "tailwindcss": "^3.3.5"
   }
 }

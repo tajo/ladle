@@ -17,12 +17,12 @@
   "dependencies": {
     "@ladle/playwright-config": "workspace:*",
     "@ladle/react": "workspace:*",
-    "@playwright/test": "^1.38.0",
-    "@types/sync-fetch": "^0.4.0",
+    "@playwright/test": "^1.40.0",
+    "@types/sync-fetch": "^0.4.3",
     "cross-env": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "start-server-and-test": "^2.0.0",
+    "start-server-and-test": "^2.0.3",
     "sync-fetch": "^0.5.2"
   }
 }

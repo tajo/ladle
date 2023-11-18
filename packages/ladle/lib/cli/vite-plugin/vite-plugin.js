@@ -45,23 +45,21 @@ function ladlePlugin(config, configFolder, mode) {
       }
       return null;
     },
-    transformIndexHtml: {
-      /**
-       * @param {string} html
-       * @param {any} ctx
-       */
-      transform(html, ctx) {
-        if (ctx.path === "/index.html") {
-          if (fs.existsSync(headHtmlPath)) {
-            const headHtml = fs.readFileSync(headHtmlPath, "utf8");
-            html = html.replace("</head>", `${headHtml}</head>`);
-          }
-          if (config.appendToHead !== "") {
-            html = html.replace("</head>", `${config.appendToHead}</head>`);
-          }
+    /**
+     * @param {string} html
+     * @param {any} ctx
+     */
+    transformIndexHtml(html, ctx) {
+      if (ctx.path === "/index.html") {
+        if (fs.existsSync(headHtmlPath)) {
+          const headHtml = fs.readFileSync(headHtmlPath, "utf8");
+          html = html.replace("</head>", `${headHtml}</head>`);
         }
-        return html;
-      },
+        if (config.appendToHead !== "") {
+          html = html.replace("</head>", `${config.appendToHead}</head>`);
+        }
+      }
+      return html;
     },
     /**
      * @param {string} code
