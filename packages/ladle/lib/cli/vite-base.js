@@ -71,6 +71,12 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
   if (Array.isArray(userViteConfig.resolve?.alias)) {
     resolve.alias = [
       {
+        find: "msw/browser",
+        replacement: ladleConfig.addons.msw.enabled
+          ? "msw/browser"
+          : path.join(__dirname, "./empty-module.js"),
+      },
+      {
         find: "msw",
         replacement: ladleConfig.addons.msw.enabled
           ? "msw"
@@ -85,6 +91,9 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     ];
   } else {
     resolve.alias = {
+      ["msw/browser"]: ladleConfig.addons.msw.enabled
+        ? "msw/browser"
+        : path.join(__dirname, "./empty-module.js"),
       msw: ladleConfig.addons.msw.enabled
         ? "msw"
         : path.join(__dirname, "./empty-module.js"),
