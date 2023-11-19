@@ -10,7 +10,7 @@ Ladle does not require any configuration and some features can be controlled thr
 - `.ladle/head.html`, injects additional HTML into the `<head>` of Ladle. Can be handy to load additional fonts or stylesheets. Alternative to the [appendToHead](#appendtohead) parameter.
 - [`vite.config.{js|mjs|ts}`](https://vitejs.dev/config/#config-file-resolving), used only by Vite (CLI node environment) to change any parameters of the compilation (things like aliasing, dependency pre-bundling, babel plugins...) and some aspects of the dev server (open browser on start...). You should get familiar with Vite docs!
 
-## vite.config.{js|mjs|ts}
+## vite.config.js
 
 - **[Documentation](https://vitejs.dev/config).**
 - The parameter `root` is replaced so Ladle can function properly.

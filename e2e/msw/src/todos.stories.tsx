@@ -40,7 +40,12 @@ export const Live: Story = () => {
 };
 
 Mocked.msw = [
-  msw.rest.get(FETCH_URL, (_, res, ctx) => {
-    return res(ctx.json([{ id: 1, title: "msw todo" }]));
+  msw.http.get(FETCH_URL, () => {
+    return new Response(JSON.stringify([{ id: 1, title: "msw todo" }]), {
+      headers: {
+        "Content-Type": "application/json",
+        "x-msw-bypass": "true",
+      },
+    });
   }),
 ];

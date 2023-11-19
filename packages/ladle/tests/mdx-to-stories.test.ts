@@ -1,6 +1,6 @@
 import { test, expect } from "vitest";
 import { VFile } from "vfile";
-import { createFormatAwareProcessors } from "@mdx-js/mdx/lib/util/create-format-aware-processors.js";
+import { createFormatAwareProcessors } from "@mdx-js/mdx/internal-create-format-aware-processors";
 import mdxToStories from "../lib/cli/vite-plugin/mdx-to-stories.js";
 import fs from "fs/promises";
 

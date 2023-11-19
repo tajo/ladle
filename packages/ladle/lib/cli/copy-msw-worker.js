@@ -28,11 +28,7 @@ const copyMswWorker = async (publicDir) => {
   await ensureDirectoryExists(publicDir);
   const mswWorkerPath = join(publicDir, "mockServiceWorker.js");
   const mswPath = require.resolve("msw");
-  const mswWorkerPathOrigin = mswPath.replace(
-    "index.js",
-    "mockServiceWorker.js",
-  );
-  await copyFile(mswWorkerPathOrigin, mswWorkerPath);
+  await copyFile(join(mswPath, "../../mockServiceWorker.js"), mswWorkerPath);
 };
 
 export default copyMswWorker;

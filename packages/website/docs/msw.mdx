@@ -3,7 +3,7 @@ id: msw
 title: MSW
 ---
 
-Ladle has a build-in support for [MSW](https://mswjs.io/). It allows API mocking by intercepting requests on the network level.
+Ladle has a build-in support for [MSW v2](https://mswjs.io/). It allows API mocking by intercepting requests on the network level.
 
 You just have to enable it in your `.ladle/config.mjs`:
 
@@ -32,8 +32,8 @@ const FETCH_URL = "/api-url.json";
 // Set default handlers for all stories
 export default {
   msw: [
-    msw.rest.get(FETCH_URL, (_, res, ctx) => {
-      return res(ctx.json([{ id: 1, title: "msw post default" }]));
+    msw.http.get(FETCH_URL, () => {
+      return msw.HttpReponse.json([{ id: 1, title: "msw post default" }]);
     }),
   ],
 };
