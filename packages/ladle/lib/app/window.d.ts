@@ -1,4 +1,4 @@
-import type { SetupWorker } from "msw";
+import type { SetupWorker } from "msw/browser";
 
 declare global {
   interface Window {

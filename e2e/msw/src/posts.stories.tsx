@@ -59,16 +59,16 @@ export const Live: Story = () => {
 // Set default handlers for all stories
 export default {
   msw: [
-    msw.rest.get(FETCH_URL, (_, res, ctx) => {
-      return res(ctx.json([{ id: 1, title: "msw post default" }]));
+    msw.http.get(FETCH_URL, () => {
+      return msw.HttpResponse.json([{ id: 1, title: "msw post default" }]);
     }),
   ],
 };
 
 // Replace handlers
 Replaced.msw = [
-  msw.rest.get(FETCH_URL, (_, res, ctx) => {
-    return res(ctx.json([{ id: 1, title: "msw post replaced" }]));
+  msw.http.get(FETCH_URL, () => {
+    return msw.HttpResponse.json([{ id: 1, title: "msw post replaced" }]);
   }),
 ];
 
