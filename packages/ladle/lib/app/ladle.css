@@ -446,7 +446,7 @@ body {
   }
 }
 
-div[data-reach-dialog-content] {
+div[data-reach-dialog-content][data-testid="ladle-dialog"] {
   box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.16);
   outline: none;
   font-family: Arial, Helvetica, sans-serif;
@@ -461,11 +461,11 @@ div[data-reach-dialog-content] {
   overflow: none;
 }
 
-div[data-reach-dialog-content] a {
+div[data-reach-dialog-content][data-testid="ladle-dialog"] a {
   color: var(--ladle-color-accent);
 }
 
-div[data-reach-dialog-overlay] {
+div[data-reach-dialog-overlay][data-testid="ladle-dialog-overlay"] {
   position: fixed;
   top: 0;
   right: 0;
@@ -690,7 +690,7 @@ blockquote.ladle-markdown {
     display: none;
   }
 
-  div[data-reach-dialog-content] {
+  div[data-reach-dialog-content][data-testid="ladle-dialog"] {
     position: fixed;
     bottom: 49px;
     inset-inline-start: 21px;
