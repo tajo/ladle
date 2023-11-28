@@ -1,5 +1,5 @@
 import type * as React from "react";
-import { Dialog } from "./dialog";
+import { DialogOverlay, DialogContent } from "./dialog";
 import { Close } from "./icons";
 
 export const Button = ({
@@ -61,34 +61,39 @@ export const Modal = ({
 }) => {
   return (
     //@ts-ignore
-    <Dialog
+    <DialogOverlay
       isOpen={isOpen}
       onDismiss={() => close()}
-      aria-label={label || "Modal"}
-      data-testid="ladle-dialog"
-      style={{ maxWidth }}
+      data-testid="ladle-dialog-overlay"
     >
-      <div
-        style={{
-          position: "absolute",
-          insetInlineEnd: "-6px",
-          top: "0px",
-        }}
+      {/* @ts-ignore */}
+      <DialogContent
+        aria-label={label || "Modal"}
+        data-testid="ladle-dialog"
+        style={{ maxWidth }}
       >
-        <Button
-          onClick={() => close()}
-          aria-label="Close modal"
+        <div
           style={{
-            height: "36px",
-            width: "36px",
-            borderColor: "transparent",
-            boxShadow: "none",
+            position: "absolute",
+            insetInlineEnd: "-6px",
+            top: "0px",
           }}
         >
-          <Close />
-        </Button>
-      </div>
-      <div className="ladle-addon-modal-body">{children}</div>
-    </Dialog>
+          <Button
+            onClick={() => close()}
+            aria-label="Close modal"
+            style={{
+              height: "36px",
+              width: "36px",
+              borderColor: "transparent",
+              boxShadow: "none",
+            }}
+          >
+            <Close />
+          </Button>
+        </div>
+        <div className="ladle-addon-modal-body">{children}</div>
+      </DialogContent>
+    </DialogOverlay>
   );
 };
