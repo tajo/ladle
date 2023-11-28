@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 4.0.1
+
+### Patch Changes
+
+- [#537](https://github.com/tajo/ladle/pull/537) [`213cbc8`](https://github.com/tajo/ladle/commit/213cbc8d24547850ce543d2a7b7962e841bcccda) Thanks [@nulladdict](https://github.com/nulladdict)! - Scope @reach/dialog styles in ladle.css to prevent leaking on user stories
+
 ## 4.0.0
 
 ### Major Changes
