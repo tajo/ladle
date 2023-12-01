@@ -3,7 +3,8 @@ import type { Story } from "@ladle/react";
 import { msw } from "@ladle/react";
 import { fetchData } from "./utils";
 
-const FETCH_URL = "/todos.json";
+// @ts-ignore
+const FETCH_URL = `${import.meta.env.BASE_URL}todos.json`;
 
 export const Mocked: Story = () => {
   const [todos, setTodos] = useState([]);
