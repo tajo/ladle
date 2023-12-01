@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 4.0.2
+
+### Patch Changes
+
+- [#539](https://github.com/tajo/ladle/pull/539) [`2212d01`](https://github.com/tajo/ladle/commit/2212d017bde2b816b82a9aa4d2d8d5f10a5b5a36) Thanks [@tajo](https://github.com/tajo)! - Fix mockServiceWorker base url, reexport browser/node APIs
+
 ## 4.0.1
 
 ### Patch Changes
