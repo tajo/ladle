@@ -66,3 +66,18 @@ export const Mocked: Story = () => {
 ```
 
 You can also use MSW to mock GraphQL requests. Check their [documentation](https://mswjs.io/docs/).
+
+## Import msw/node
+
+When you need to setup node environment for MSW, you would use:
+
+```js
+import { setupServer } from 'msw/node'
+```
+
+You can use the Ladle's version of MSW by using this import instead:
+
+```js
+import { setupServer } from "@ladle/react/msw-node";
+```
+

@@ -16,9 +16,15 @@ const Msw = ({
         if (!window.__ladle_msw) {
           window.__ladle_msw = setupWorker();
           window.__ladle_msw.use(...msw);
-          window.__ladle_msw.start().then(() => {
-            setReady(true);
-          });
+          window.__ladle_msw
+            .start({
+              serviceWorker: {
+                url: `${(import.meta as any).env.BASE_URL}mockServiceWorker.js`,
+              },
+            })
+            .then(() => {
+              setReady(true);
+            });
         } else {
           window.__ladle_msw.use(...msw);
           setReady(true);
