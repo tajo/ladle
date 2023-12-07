@@ -33,7 +33,7 @@ const FETCH_URL = "/api-url.json";
 export default {
   msw: [
     msw.http.get(FETCH_URL, () => {
-      return msw.HttpReponse.json([{ id: 1, title: "msw post default" }]);
+      return msw.HttpResponse.json([{ id: 1, title: "msw post default" }]);
     }),
   ],
 };
