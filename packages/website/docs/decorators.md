@@ -39,7 +39,7 @@ MyStory.decorators = [
 
 ## Context Parameter
 
-You can also access Ladle's context through the second parameter. This way your decorators can control every aspect of Ladle including the state of controls and other addons:
+You can also access Ladle's context through the second parameter. This way, your decorators can control every aspect of Ladle, including the state of controls and other addons:
 
 ```tsx
 import type { StoryDefault, Story } from "@ladle/react";
