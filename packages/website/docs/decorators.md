@@ -3,7 +3,7 @@ id: decorators
 title: Decorators
 ---
 
-Ladle supports story decorators, so you can wrap all stories in a file with additional React component(s). This is useful if your stories/components rely on [React Context](https://reactjs.org/docs/context.html) and libraries like `react-router`, `redux` or [next](https://ladle.dev/docs/nextjs/). In the example bellow , we are adding an extra `margin: 3em` to each story:
+Ladle supports story decorators, so you can wrap all stories in a file with additional React component(s). This is useful if your stories/components rely on [React Context](https://reactjs.org/docs/context.html) and libraries like `react-router`, `redux` or [next](https://ladle.dev/docs/nextjs/). In the example below, we are adding an extra `margin: 3em` to each story:
 
 ```tsx
 import type { StoryDefault } from "@ladle/react";
@@ -39,7 +39,7 @@ MyStory.decorators = [
 
 ## Context Parameter
 
-You can also access Ladle's context through the second parameter. This way your decorators can control every aspect of Ladle including the state of controls and other addons:
+You can also access Ladle's context through the second parameter. This way, your decorators can control every aspect of Ladle, including the state of controls and other addons:
 
 ```tsx
 import type { StoryDefault, Story } from "@ladle/react";
