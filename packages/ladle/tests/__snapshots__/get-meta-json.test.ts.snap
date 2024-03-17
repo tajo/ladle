@@ -2,33 +2,33 @@
 
 exports[`Capital letters in story names converted into delimiters 1`] = `
 "{
-  \\"about\\": {
-    \\"homepage\\": \\"https://www.ladle.dev\\",
-    \\"github\\": \\"https://github.com/tajo/ladle\\",
-    \\"version\\": 1
+  "about": {
+    "homepage": "https://www.ladle.dev",
+    "github": "https://github.com/tajo/ladle",
+    "version": 1
   },
-  \\"stories\\": {
-    \\"capitalization--big-barking-dog\\": {
-      \\"name\\": \\"Big barking dog\\",
-      \\"levels\\": [
-        \\"Capitalization\\"
+  "stories": {
+    "capitalization--big-barking-dog": {
+      "name": "Big barking dog",
+      "levels": [
+        "Capitalization"
       ],
-      \\"locStart\\": 8,
-      \\"locEnd\\": 10,
-      \\"filePath\\": \\"tests/fixtures/capitalization.stories.tsx\\",
-      \\"namedExport\\": \\"BigBarkingDog\\",
-      \\"meta\\": {}
+      "locStart": 8,
+      "locEnd": 10,
+      "filePath": "tests/fixtures/capitalization.stories.tsx",
+      "namedExport": "BigBarkingDog",
+      "meta": {}
     },
-    \\"capitalization--blue-tiny-cat\\": {
-      \\"name\\": \\"Blue tiny cat\\",
-      \\"levels\\": [
-        \\"Capitalization\\"
+    "capitalization--blue-tiny-cat": {
+      "name": "Blue tiny cat",
+      "levels": [
+        "Capitalization"
       ],
-      \\"locStart\\": 4,
-      \\"locEnd\\": 6,
-      \\"filePath\\": \\"tests/fixtures/capitalization.stories.tsx\\",
-      \\"namedExport\\": \\"BlueTinyCat\\",
-      \\"meta\\": {}
+      "locStart": 4,
+      "locEnd": 6,
+      "filePath": "tests/fixtures/capitalization.stories.tsx",
+      "namedExport": "BlueTinyCat",
+      "meta": {}
     }
   }
 }"
@@ -36,22 +36,22 @@ exports[`Capital letters in story names converted into delimiters 1`] = `
 
 exports[`Capital letters in the filename converted into delimiters 1`] = `
 "{
-  \\"about\\": {
-    \\"homepage\\": \\"https://www.ladle.dev\\",
-    \\"github\\": \\"https://github.com/tajo/ladle\\",
-    \\"version\\": 1
+  "about": {
+    "homepage": "https://www.ladle.dev",
+    "github": "https://github.com/tajo/ladle",
+    "version": 1
   },
-  \\"stories\\": {
-    \\"filename-capitalization--test\\": {
-      \\"name\\": \\"Test\\",
-      \\"levels\\": [
-        \\"Filename capitalization\\"
+  "stories": {
+    "filename-capitalization--test": {
+      "name": "Test",
+      "levels": [
+        "Filename capitalization"
       ],
-      \\"locStart\\": 4,
-      \\"locEnd\\": 6,
-      \\"filePath\\": \\"tests/fixtures/filenameCapitalization.stories.tsx\\",
-      \\"namedExport\\": \\"Test\\",
-      \\"meta\\": {}
+      "locStart": 4,
+      "locEnd": 6,
+      "filePath": "tests/fixtures/filenameCapitalization.stories.tsx",
+      "namedExport": "Test",
+      "meta": {}
     }
   }
 }"
@@ -59,22 +59,22 @@ exports[`Capital letters in the filename converted into delimiters 1`] = `
 
 exports[`Default title is used instead of the file name 1`] = `
 "{
-  \\"about\\": {
-    \\"homepage\\": \\"https://www.ladle.dev\\",
-    \\"github\\": \\"https://github.com/tajo/ladle\\",
-    \\"version\\": 1
+  "about": {
+    "homepage": "https://www.ladle.dev",
+    "github": "https://github.com/tajo/ladle",
+    "version": 1
   },
-  \\"stories\\": {
-    \\"title--cat\\": {
-      \\"name\\": \\"Cat\\",
-      \\"levels\\": [
-        \\"Title\\"
+  "stories": {
+    "title--cat": {
+      "name": "Cat",
+      "levels": [
+        "Title"
       ],
-      \\"locStart\\": 8,
-      \\"locEnd\\": 10,
-      \\"filePath\\": \\"tests/fixtures/default-title.stories.tsx\\",
-      \\"namedExport\\": \\"Cat\\",
-      \\"meta\\": {}
+      "locStart": 8,
+      "locEnd": 10,
+      "filePath": "tests/fixtures/default-title.stories.tsx",
+      "namedExport": "Cat",
+      "meta": {}
     }
   }
 }"
@@ -82,48 +82,48 @@ exports[`Default title is used instead of the file name 1`] = `
 
 exports[`Extract and merge story meta 1`] = `
 "{
-  \\"about\\": {
-    \\"homepage\\": \\"https://www.ladle.dev\\",
-    \\"github\\": \\"https://github.com/tajo/ladle\\",
-    \\"version\\": 1
+  "about": {
+    "homepage": "https://www.ladle.dev",
+    "github": "https://github.com/tajo/ladle",
+    "version": 1
   },
-  \\"stories\\": {
-    \\"title--cat\\": {
-      \\"name\\": \\"Cat\\",
-      \\"levels\\": [
-        \\"Title\\"
+  "stories": {
+    "title--cat": {
+      "name": "Cat",
+      "levels": [
+        "Title"
       ],
-      \\"locStart\\": 14,
-      \\"locEnd\\": 16,
-      \\"filePath\\": \\"tests/fixtures/story-meta.stories.tsx\\",
-      \\"namedExport\\": \\"Cat\\",
-      \\"meta\\": {
-        \\"baseweb\\": {
-          \\"theme\\": \\"dark\\",
-          \\"browsers\\": [
-            \\"chrome\\",
-            \\"firefox\\"
+      "locStart": 14,
+      "locEnd": 16,
+      "filePath": "tests/fixtures/story-meta.stories.tsx",
+      "namedExport": "Cat",
+      "meta": {
+        "baseweb": {
+          "theme": "dark",
+          "browsers": [
+            "chrome",
+            "firefox"
           ],
-          \\"width\\": \\"500px\\"
+          "width": "500px"
         },
-        \\"links\\": true
+        "links": true
       }
     },
-    \\"title--dog\\": {
-      \\"name\\": \\"Dog\\",
-      \\"levels\\": [
-        \\"Title\\"
+    "title--dog": {
+      "name": "Dog",
+      "levels": [
+        "Title"
       ],
-      \\"locStart\\": 26,
-      \\"locEnd\\": 28,
-      \\"filePath\\": \\"tests/fixtures/story-meta.stories.tsx\\",
-      \\"namedExport\\": \\"Dog\\",
-      \\"meta\\": {
-        \\"baseweb\\": {
-          \\"theme\\": \\"dark\\",
-          \\"browsers\\": [
-            \\"chrome\\",
-            \\"webkit\\"
+      "locStart": 26,
+      "locEnd": 28,
+      "filePath": "tests/fixtures/story-meta.stories.tsx",
+      "namedExport": "Dog",
+      "meta": {
+        "baseweb": {
+          "theme": "dark",
+          "browsers": [
+            "chrome",
+            "webkit"
           ]
         }
       }
@@ -134,24 +134,24 @@ exports[`Extract and merge story meta 1`] = `
 
 exports[`Extract default meta 1`] = `
 "{
-  \\"about\\": {
-    \\"homepage\\": \\"https://www.ladle.dev\\",
-    \\"github\\": \\"https://github.com/tajo/ladle\\",
-    \\"version\\": 1
+  "about": {
+    "homepage": "https://www.ladle.dev",
+    "github": "https://github.com/tajo/ladle",
+    "version": 1
   },
-  \\"stories\\": {
-    \\"title--cat\\": {
-      \\"name\\": \\"Cat\\",
-      \\"levels\\": [
-        \\"Title\\"
+  "stories": {
+    "title--cat": {
+      "name": "Cat",
+      "levels": [
+        "Title"
       ],
-      \\"locStart\\": 13,
-      \\"locEnd\\": 15,
-      \\"filePath\\": \\"tests/fixtures/default-meta.stories.tsx\\",
-      \\"namedExport\\": \\"Cat\\",
-      \\"meta\\": {
-        \\"baseweb\\": {
-          \\"foo\\": \\"title\\"
+      "locStart": 13,
+      "locEnd": 15,
+      "filePath": "tests/fixtures/default-meta.stories.tsx",
+      "namedExport": "Cat",
+      "meta": {
+        "baseweb": {
+          "foo": "title"
         }
       }
     }
@@ -161,33 +161,33 @@ exports[`Extract default meta 1`] = `
 
 exports[`Single file with two stories 1`] = `
 "{
-  \\"about\\": {
-    \\"homepage\\": \\"https://www.ladle.dev\\",
-    \\"github\\": \\"https://github.com/tajo/ladle\\",
-    \\"version\\": 1
+  "about": {
+    "homepage": "https://www.ladle.dev",
+    "github": "https://github.com/tajo/ladle",
+    "version": 1
   },
-  \\"stories\\": {
-    \\"animals--cat\\": {
-      \\"name\\": \\"Cat\\",
-      \\"levels\\": [
-        \\"Animals\\"
+  "stories": {
+    "animals--cat": {
+      "name": "Cat",
+      "levels": [
+        "Animals"
       ],
-      \\"locStart\\": 4,
-      \\"locEnd\\": 6,
-      \\"filePath\\": \\"tests/fixtures/animals.stories.tsx\\",
-      \\"namedExport\\": \\"Cat\\",
-      \\"meta\\": {}
+      "locStart": 4,
+      "locEnd": 6,
+      "filePath": "tests/fixtures/animals.stories.tsx",
+      "namedExport": "Cat",
+      "meta": {}
     },
-    \\"animals--dog\\": {
-      \\"name\\": \\"Dog\\",
-      \\"levels\\": [
-        \\"Animals\\"
+    "animals--dog": {
+      "name": "Dog",
+      "levels": [
+        "Animals"
       ],
-      \\"locStart\\": 8,
-      \\"locEnd\\": 10,
-      \\"filePath\\": \\"tests/fixtures/animals.stories.tsx\\",
-      \\"namedExport\\": \\"Dog\\",
-      \\"meta\\": {}
+      "locStart": 8,
+      "locEnd": 10,
+      "filePath": "tests/fixtures/animals.stories.tsx",
+      "namedExport": "Dog",
+      "meta": {}
     }
   }
 }"
@@ -195,44 +195,44 @@ exports[`Single file with two stories 1`] = `
 
 exports[`Story name replaces named export as a story name 1`] = `
 "{
-  \\"about\\": {
-    \\"homepage\\": \\"https://www.ladle.dev\\",
-    \\"github\\": \\"https://github.com/tajo/ladle\\",
-    \\"version\\": 1
+  "about": {
+    "homepage": "https://www.ladle.dev",
+    "github": "https://github.com/tajo/ladle",
+    "version": 1
   },
-  \\"stories\\": {
-    \\"storyname--capital-city\\": {
-      \\"name\\": \\"Capital city\\",
-      \\"levels\\": [
-        \\"Storyname\\"
+  "stories": {
+    "storyname--capital-city": {
+      "name": "Capital city",
+      "levels": [
+        "Storyname"
       ],
-      \\"locStart\\": 15,
-      \\"locEnd\\": 17,
-      \\"filePath\\": \\"tests/fixtures/storyname.stories.tsx\\",
-      \\"namedExport\\": \\"CapitalCity\\",
-      \\"meta\\": {}
+      "locStart": 15,
+      "locEnd": 17,
+      "filePath": "tests/fixtures/storyname.stories.tsx",
+      "namedExport": "CapitalCity",
+      "meta": {}
     },
-    \\"storyname--champs-élysées\\": {
-      \\"name\\": \\"Champs élysées\\",
-      \\"levels\\": [
-        \\"Storyname\\"
+    "storyname--champs-élysées": {
+      "name": "Champs élysées",
+      "levels": [
+        "Storyname"
       ],
-      \\"locStart\\": 19,
-      \\"locEnd\\": 21,
-      \\"filePath\\": \\"tests/fixtures/storyname.stories.tsx\\",
-      \\"namedExport\\": \\"CapitalReplaced\\",
-      \\"meta\\": {}
+      "locStart": 19,
+      "locEnd": 21,
+      "filePath": "tests/fixtures/storyname.stories.tsx",
+      "namedExport": "CapitalReplaced",
+      "meta": {}
     },
-    \\"storyname--doggo\\": {
-      \\"name\\": \\"Doggo\\",
-      \\"levels\\": [
-        \\"Storyname\\"
+    "storyname--doggo": {
+      "name": "Doggo",
+      "levels": [
+        "Storyname"
       ],
-      \\"locStart\\": 4,
-      \\"locEnd\\": 9,
-      \\"filePath\\": \\"tests/fixtures/storyname.stories.tsx\\",
-      \\"namedExport\\": \\"Cat\\",
-      \\"meta\\": {}
+      "locStart": 4,
+      "locEnd": 9,
+      "filePath": "tests/fixtures/storyname.stories.tsx",
+      "namedExport": "Cat",
+      "meta": {}
     }
   }
 }"
@@ -325,23 +325,23 @@ exports[`Test multiple stories 1`] = `
 
 exports[`Turn file name delimiters into spaces and levels correctly 1`] = `
 "{
-  \\"about\\": {
-    \\"homepage\\": \\"https://www.ladle.dev\\",
-    \\"github\\": \\"https://github.com/tajo/ladle\\",
-    \\"version\\": 1
+  "about": {
+    "homepage": "https://www.ladle.dev",
+    "github": "https://github.com/tajo/ladle",
+    "version": 1
   },
-  \\"stories\\": {
-    \\"our-animals--mammals--cat\\": {
-      \\"name\\": \\"Cat\\",
-      \\"levels\\": [
-        \\"Our animals\\",
-        \\"Mammals\\"
+  "stories": {
+    "our-animals--mammals--cat": {
+      "name": "Cat",
+      "levels": [
+        "Our animals",
+        "Mammals"
       ],
-      \\"locStart\\": 4,
-      \\"locEnd\\": 6,
-      \\"filePath\\": \\"tests/fixtures/our-animals--mammals.stories.tsx\\",
-      \\"namedExport\\": \\"Cat\\",
-      \\"meta\\": {}
+      "locStart": 4,
+      "locEnd": 6,
+      "filePath": "tests/fixtures/our-animals--mammals.stories.tsx",
+      "namedExport": "Cat",
+      "meta": {}
     }
   }
 }"

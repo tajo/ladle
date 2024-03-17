@@ -1,15 +1,16 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`<Meta /> component works 1`] = `
-"/*@jsxRuntime automatic @jsxImportSource react*/
-import { Meta } from \\"@ladle/react\\";
-import Readme from \\"./README.md\\";
+"/*@jsxRuntime automatic*/
+/*@jsxImportSource react*/
+import { Meta } from "@ladle/react";
+import Readme from "./README.md";
 function _createMdxContent(props) {
   const _components = {
-    h1: \\"h1\\",
+    h1: "h1",
     ...props.components
   };
-  return <><Meta title=\\"Documentation\\" />{\\"\\\\n\\"}<_components.h1>{\\"Some Description\\"}</_components.h1></>;
+  return <><Meta title="Documentation" />{"\\n"}<_components.h1>{"Some Description"}</_components.h1></>;
 }
 export function MDXContent(props = {}) {
   const {
@@ -17,22 +18,23 @@ export function MDXContent(props = {}) {
   } = props.components || {};
   return MDXLayout ? <MDXLayout {...props}><_createMdxContent {...props} /></MDXLayout> : _createMdxContent(props);
 }
-MDXContent.storyName = \\"Documentation\\";"
+MDXContent.storyName = "Documentation";"
 `;
 
 exports[`<Story /> component works 1`] = `
-"/*@jsxRuntime automatic @jsxImportSource react*/
-import { Story } from \\"@ladle/react\\";
+"/*@jsxRuntime automatic*/
+/*@jsxImportSource react*/
+import { Story } from "@ladle/react";
 function _createMdxContent(props) {
   const _components = {
-    code: \\"code\\",
-    h1: \\"h1\\",
-    p: \\"p\\",
+    code: "code",
+    h1: "h1",
+    p: "p",
     ...props.components
   };
-  return <><_components.h1>{\\"MDX Button\\"}</_components.h1>{\\"\\\\n\\"}<_components.p>{\\"With \\"}<_components.code>{\\"MDX\\"}</_components.code>{\\", you can define button.\\"}</_components.p>{\\"\\\\n\\"}<Story name=\\"First\\"><input /><button>{\\"simple\\"}</button></Story>{\\"\\\\n\\"}<Story name=\\"Second\\" args={{
+  return <><_components.h1>{"MDX Button"}</_components.h1>{"\\n"}<_components.p>{"With "}<_components.code>{"MDX"}</_components.code>{", you can define button."}</_components.p>{"\\n"}<Story name="First"><input /><button>{"simple"}</button></Story>{"\\n"}<Story name="Second" args={{
       disabled: true
-    }}><input /><button>{\\"second\\"}</button></Story></>;
+    }}><input /><button>{"second"}</button></Story></>;
 }
 export function MDXContent(props = {}) {
   const {
@@ -40,10 +42,10 @@ export function MDXContent(props = {}) {
   } = props.components || {};
   return MDXLayout ? <MDXLayout {...props}><_createMdxContent {...props} /></MDXLayout> : _createMdxContent(props);
 }
-export const LadleStory0 = () => <><input /><button>{\\"simple\\"}</button></>;
-LadleStory0.storyName = \\"First\\";
-export const LadleStory2 = () => <><input /><button>{\\"second\\"}</button></>;
-LadleStory2.storyName = \\"Second\\";
+export const LadleStory0 = () => <><input /><button>{"simple"}</button></>;
+LadleStory0.storyName = "First";
+export const LadleStory2 = () => <><input /><button>{"second"}</button></>;
+LadleStory2.storyName = "Second";
 LadleStory2.args = {
   disabled: true
 };
