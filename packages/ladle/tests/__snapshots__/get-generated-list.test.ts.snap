@@ -2,46 +2,46 @@
 
 exports[`Capital letters in story names converted into delimiters 1`] = `
 "
-import { lazy, createElement, Fragment } from \\"react\\";
-import composeEnhancers from \\"/src/compose-enhancers\\";
+import { lazy, createElement, Fragment } from "react";
+import composeEnhancers from "/src/compose-enhancers";
 
-const capitalization$$big$barking$dog = lazy(() => import(\\"tests/fixtures/capitalization.stories.tsx\\").then(module => {
+const capitalization$$big$barking$dog = lazy(() => import("tests/fixtures/capitalization.stories.tsx").then(module => {
   return {
-    default: composeEnhancers(module, \\"BigBarkingDog\\")
+    default: composeEnhancers(module, "BigBarkingDog")
   };
 }));
-const capitalization$$blue$tiny$cat = lazy(() => import(\\"tests/fixtures/capitalization.stories.tsx\\").then(module => {
+const capitalization$$blue$tiny$cat = lazy(() => import("tests/fixtures/capitalization.stories.tsx").then(module => {
   return {
-    default: composeEnhancers(module, \\"BlueTinyCat\\")
+    default: composeEnhancers(module, "BlueTinyCat")
   };
 }));
 export let stories = {
-  \\"capitalization--big-barking-dog\\": {
+  "capitalization--big-barking-dog": {
     component: capitalization$$big$barking$dog,
     locStart: 8,
     locEnd: 10,
-    entry: \\"tests/fixtures/capitalization.stories.tsx\\"
+    entry: "tests/fixtures/capitalization.stories.tsx"
   },
-  \\"capitalization--blue-tiny-cat\\": {
+  "capitalization--blue-tiny-cat": {
     component: capitalization$$blue$tiny$cat,
     locStart: 4,
     locEnd: 6,
-    entry: \\"tests/fixtures/capitalization.stories.tsx\\"
+    entry: "tests/fixtures/capitalization.stories.tsx"
   }
 };
-export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx,mdx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":false},\\"msw\\":{\\"enabled\\":false},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"hotkeys\\":{\\"search\\":[\\"/\\",\\"meta+p\\"],\\"nextStory\\":[\\"alt+arrowright\\"],\\"previousStory\\":[\\"alt+arrowleft\\"],\\"nextComponent\\":[\\"alt+arrowdown\\"],\\"previousComponent\\":[\\"alt+arrowup\\"],\\"control\\":[\\"c\\"],\\"darkMode\\":[\\"d\\"],\\"fullscreen\\":[\\"f\\"],\\"width\\":[\\"w\\"],\\"rtl\\":[\\"r\\"],\\"source\\":[\\"s\\"],\\"a11y\\":[\\"a\\"]},\\"i18n\\":{\\"buildTooltip\\":\\"💡 Tip: Run \\\\\\"ladle preview\\\\\\" to check that the build works!\\"},\\"storyOrder\\":\\"(stories) => stories\\"};
+export let config = {"stories":"src/**/*.stories.{js,jsx,ts,tsx,mdx}","addons":{"control":{"enabled":true,"defaultState":{}},"theme":{"enabled":true,"defaultState":"light"},"mode":{"enabled":true,"defaultState":"full"},"rtl":{"enabled":true,"defaultState":false},"source":{"enabled":true,"defaultState":false},"a11y":{"enabled":false},"msw":{"enabled":false},"action":{"enabled":true,"defaultState":[]},"ladle":{"enabled":true},"width":{"enabled":true,"options":{"xsmall":414,"small":640,"medium":768,"large":1024},"defaultState":0}},"hotkeys":{"search":["/","meta+p"],"nextStory":["alt+arrowright"],"previousStory":["alt+arrowleft"],"nextComponent":["alt+arrowdown"],"previousComponent":["alt+arrowup"],"control":["c"],"darkMode":["d"],"fullscreen":["f"],"width":["w"],"rtl":["r"],"source":["s"],"a11y":["a"]},"i18n":{"buildTooltip":"💡 Tip: Run \\"ladle preview\\" to check that the build works!"},"storyOrder":"(stories) => stories"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
-export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: \\"2em\\" }}, /*#__PURE__*/createElement('code', { className: \\"ladle-code\\" }, path));
+export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: "2em" }}, /*#__PURE__*/createElement('code', { className: "ladle-code" }, path));
 export const args = {};
 export const argTypes = {};
 
 let fileSourceCodes = {
-  \\"3fd16523\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0Aimport%20type%20%7B%20Story%20%7D%20from%20%22%40ladle%2Freact%22%3B%0A%0Aexport%20const%20BlueTinyCat%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3EBlue%20Tiny%20Cat%3C%2Fh1%3E%3B%0A%7D%3B%0A%0Aexport%20const%20BigBarkingDog%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3E%20Big%20Barking%20Dog%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
+  "3fd16523": \`import%20*%20as%20React%20from%20%22react%22%3B%0Aimport%20type%20%7B%20Story%20%7D%20from%20%22%40ladle%2Freact%22%3B%0A%0Aexport%20const%20BlueTinyCat%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3EBlue%20Tiny%20Cat%3C%2Fh1%3E%3B%0A%7D%3B%0A%0Aexport%20const%20BigBarkingDog%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3E%20Big%20Barking%20Dog%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
 };
 export let storySource = {
-  \\"capitalization--big-barking-dog\\": fileSourceCodes[\\"3fd16523\\"],
-  \\"capitalization--blue-tiny-cat\\": fileSourceCodes[\\"3fd16523\\"]
+  "capitalization--big-barking-dog": fileSourceCodes["3fd16523"],
+  "capitalization--blue-tiny-cat": fileSourceCodes["3fd16523"]
 };
 
 export const errorMessage = '';
@@ -51,34 +51,34 @@ export const errorMessage = '';
 
 exports[`Capital letters in the filename converted into delimiters 1`] = `
 "
-import { lazy, createElement, Fragment } from \\"react\\";
-import composeEnhancers from \\"/src/compose-enhancers\\";
+import { lazy, createElement, Fragment } from "react";
+import composeEnhancers from "/src/compose-enhancers";
 
-const filename$capitalization$$test = lazy(() => import(\\"tests/fixtures/filenameCapitalization.stories.tsx\\").then(module => {
+const filename$capitalization$$test = lazy(() => import("tests/fixtures/filenameCapitalization.stories.tsx").then(module => {
   return {
-    default: composeEnhancers(module, \\"Test\\")
+    default: composeEnhancers(module, "Test")
   };
 }));
 export let stories = {
-  \\"filename-capitalization--test\\": {
+  "filename-capitalization--test": {
     component: filename$capitalization$$test,
     locStart: 4,
     locEnd: 6,
-    entry: \\"tests/fixtures/filenameCapitalization.stories.tsx\\"
+    entry: "tests/fixtures/filenameCapitalization.stories.tsx"
   }
 };
-export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx,mdx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":false},\\"msw\\":{\\"enabled\\":false},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"hotkeys\\":{\\"search\\":[\\"/\\",\\"meta+p\\"],\\"nextStory\\":[\\"alt+arrowright\\"],\\"previousStory\\":[\\"alt+arrowleft\\"],\\"nextComponent\\":[\\"alt+arrowdown\\"],\\"previousComponent\\":[\\"alt+arrowup\\"],\\"control\\":[\\"c\\"],\\"darkMode\\":[\\"d\\"],\\"fullscreen\\":[\\"f\\"],\\"width\\":[\\"w\\"],\\"rtl\\":[\\"r\\"],\\"source\\":[\\"s\\"],\\"a11y\\":[\\"a\\"]},\\"i18n\\":{\\"buildTooltip\\":\\"💡 Tip: Run \\\\\\"ladle preview\\\\\\" to check that the build works!\\"},\\"storyOrder\\":\\"(stories) => stories\\"};
+export let config = {"stories":"src/**/*.stories.{js,jsx,ts,tsx,mdx}","addons":{"control":{"enabled":true,"defaultState":{}},"theme":{"enabled":true,"defaultState":"light"},"mode":{"enabled":true,"defaultState":"full"},"rtl":{"enabled":true,"defaultState":false},"source":{"enabled":true,"defaultState":false},"a11y":{"enabled":false},"msw":{"enabled":false},"action":{"enabled":true,"defaultState":[]},"ladle":{"enabled":true},"width":{"enabled":true,"options":{"xsmall":414,"small":640,"medium":768,"large":1024},"defaultState":0}},"hotkeys":{"search":["/","meta+p"],"nextStory":["alt+arrowright"],"previousStory":["alt+arrowleft"],"nextComponent":["alt+arrowdown"],"previousComponent":["alt+arrowup"],"control":["c"],"darkMode":["d"],"fullscreen":["f"],"width":["w"],"rtl":["r"],"source":["s"],"a11y":["a"]},"i18n":{"buildTooltip":"💡 Tip: Run \\"ladle preview\\" to check that the build works!"},"storyOrder":"(stories) => stories"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
-export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: \\"2em\\" }}, /*#__PURE__*/createElement('code', { className: \\"ladle-code\\" }, path));
+export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: "2em" }}, /*#__PURE__*/createElement('code', { className: "ladle-code" }, path));
 export const args = {};
 export const argTypes = {};
 
 let fileSourceCodes = {
-  \\"15995fa5\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0Aimport%20type%20%7B%20Story%20%7D%20from%20%22..%2F..%2Flib%2Fapp%2Fexports%22%3B%0A%0Aexport%20const%20Test%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ETest%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
+  "15995fa5": \`import%20*%20as%20React%20from%20%22react%22%3B%0Aimport%20type%20%7B%20Story%20%7D%20from%20%22..%2F..%2Flib%2Fapp%2Fexports%22%3B%0A%0Aexport%20const%20Test%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ETest%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
 };
 export let storySource = {
-  \\"filename-capitalization--test\\": fileSourceCodes[\\"15995fa5\\"]
+  "filename-capitalization--test": fileSourceCodes["15995fa5"]
 };
 
 export const errorMessage = '';
@@ -88,34 +88,34 @@ export const errorMessage = '';
 
 exports[`Default title is used instead of the file name 1`] = `
 "
-import { lazy, createElement, Fragment } from \\"react\\";
-import composeEnhancers from \\"/src/compose-enhancers\\";
+import { lazy, createElement, Fragment } from "react";
+import composeEnhancers from "/src/compose-enhancers";
 
-const title$$cat = lazy(() => import(\\"tests/fixtures/default-title.stories.tsx\\").then(module => {
+const title$$cat = lazy(() => import("tests/fixtures/default-title.stories.tsx").then(module => {
   return {
-    default: composeEnhancers(module, \\"Cat\\")
+    default: composeEnhancers(module, "Cat")
   };
 }));
 export let stories = {
-  \\"title--cat\\": {
+  "title--cat": {
     component: title$$cat,
     locStart: 8,
     locEnd: 10,
-    entry: \\"tests/fixtures/default-title.stories.tsx\\"
+    entry: "tests/fixtures/default-title.stories.tsx"
   }
 };
-export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx,mdx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":false},\\"msw\\":{\\"enabled\\":false},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"hotkeys\\":{\\"search\\":[\\"/\\",\\"meta+p\\"],\\"nextStory\\":[\\"alt+arrowright\\"],\\"previousStory\\":[\\"alt+arrowleft\\"],\\"nextComponent\\":[\\"alt+arrowdown\\"],\\"previousComponent\\":[\\"alt+arrowup\\"],\\"control\\":[\\"c\\"],\\"darkMode\\":[\\"d\\"],\\"fullscreen\\":[\\"f\\"],\\"width\\":[\\"w\\"],\\"rtl\\":[\\"r\\"],\\"source\\":[\\"s\\"],\\"a11y\\":[\\"a\\"]},\\"i18n\\":{\\"buildTooltip\\":\\"💡 Tip: Run \\\\\\"ladle preview\\\\\\" to check that the build works!\\"},\\"storyOrder\\":\\"(stories) => stories\\"};
+export let config = {"stories":"src/**/*.stories.{js,jsx,ts,tsx,mdx}","addons":{"control":{"enabled":true,"defaultState":{}},"theme":{"enabled":true,"defaultState":"light"},"mode":{"enabled":true,"defaultState":"full"},"rtl":{"enabled":true,"defaultState":false},"source":{"enabled":true,"defaultState":false},"a11y":{"enabled":false},"msw":{"enabled":false},"action":{"enabled":true,"defaultState":[]},"ladle":{"enabled":true},"width":{"enabled":true,"options":{"xsmall":414,"small":640,"medium":768,"large":1024},"defaultState":0}},"hotkeys":{"search":["/","meta+p"],"nextStory":["alt+arrowright"],"previousStory":["alt+arrowleft"],"nextComponent":["alt+arrowdown"],"previousComponent":["alt+arrowup"],"control":["c"],"darkMode":["d"],"fullscreen":["f"],"width":["w"],"rtl":["r"],"source":["s"],"a11y":["a"]},"i18n":{"buildTooltip":"💡 Tip: Run \\"ladle preview\\" to check that the build works!"},"storyOrder":"(stories) => stories"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
-export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: \\"2em\\" }}, /*#__PURE__*/createElement('code', { className: \\"ladle-code\\" }, path));
+export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: "2em" }}, /*#__PURE__*/createElement('code', { className: "ladle-code" }, path));
 export const args = {};
 export const argTypes = {};
 
 let fileSourceCodes = {
-  \\"9c3461a5\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0Aimport%20type%20%7B%20StoryDefault%2C%20Story%20%7D%20from%20%22..%2F..%2Flib%2Fapp%2Fexports%22%3B%0A%0Aexport%20default%20%7B%0A%20%20title%3A%20%22Title%22%2C%0A%7D%20satisfies%20StoryDefault%3B%0A%0Aexport%20const%20Cat%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
+  "9c3461a5": \`import%20*%20as%20React%20from%20%22react%22%3B%0Aimport%20type%20%7B%20StoryDefault%2C%20Story%20%7D%20from%20%22..%2F..%2Flib%2Fapp%2Fexports%22%3B%0A%0Aexport%20default%20%7B%0A%20%20title%3A%20%22Title%22%2C%0A%7D%20satisfies%20StoryDefault%3B%0A%0Aexport%20const%20Cat%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
 };
 export let storySource = {
-  \\"title--cat\\": fileSourceCodes[\\"9c3461a5\\"]
+  "title--cat": fileSourceCodes["9c3461a5"]
 };
 
 export const errorMessage = '';
@@ -125,66 +125,66 @@ export const errorMessage = '';
 
 exports[`Extract and merge story meta 1`] = `
 "
-import { lazy, createElement, Fragment } from \\"react\\";
-import composeEnhancers from \\"/src/compose-enhancers\\";
+import { lazy, createElement, Fragment } from "react";
+import composeEnhancers from "/src/compose-enhancers";
 
-const title$$cat = lazy(() => import(\\"tests/fixtures/story-meta.stories.tsx\\").then(module => {
+const title$$cat = lazy(() => import("tests/fixtures/story-meta.stories.tsx").then(module => {
   return {
-    default: composeEnhancers(module, \\"Cat\\")
+    default: composeEnhancers(module, "Cat")
   };
 }));
-const title$$dog = lazy(() => import(\\"tests/fixtures/story-meta.stories.tsx\\").then(module => {
+const title$$dog = lazy(() => import("tests/fixtures/story-meta.stories.tsx").then(module => {
   return {
-    default: composeEnhancers(module, \\"Dog\\")
+    default: composeEnhancers(module, "Dog")
   };
 }));
 export let stories = {
-  \\"title--cat\\": {
+  "title--cat": {
     component: title$$cat,
     locStart: 14,
     locEnd: 16,
-    entry: \\"tests/fixtures/story-meta.stories.tsx\\",
+    entry: "tests/fixtures/story-meta.stories.tsx",
     meta: {
-      \\"title\\": \\"Title\\",
-      \\"meta\\": {
-        \\"baseweb\\": {
-          \\"theme\\": \\"dark\\",
-          \\"browsers\\": [\\"chrome\\", \\"firefox\\"],
-          \\"width\\": \\"500px\\"
+      "title": "Title",
+      "meta": {
+        "baseweb": {
+          "theme": "dark",
+          "browsers": ["chrome", "firefox"],
+          "width": "500px"
         },
-        \\"links\\": true
+        "links": true
       }
     }
   },
-  \\"title--dog\\": {
+  "title--dog": {
     component: title$$dog,
     locStart: 26,
     locEnd: 28,
-    entry: \\"tests/fixtures/story-meta.stories.tsx\\",
+    entry: "tests/fixtures/story-meta.stories.tsx",
     meta: {
-      \\"title\\": \\"Title\\",
-      \\"meta\\": {
-        \\"baseweb\\": {
-          \\"theme\\": \\"dark\\",
-          \\"browsers\\": [\\"chrome\\", \\"webkit\\"]
+      "title": "Title",
+      "meta": {
+        "baseweb": {
+          "theme": "dark",
+          "browsers": ["chrome", "webkit"]
         }
       }
     }
   }
 };
-export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx,mdx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":false},\\"msw\\":{\\"enabled\\":false},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"hotkeys\\":{\\"search\\":[\\"/\\",\\"meta+p\\"],\\"nextStory\\":[\\"alt+arrowright\\"],\\"previousStory\\":[\\"alt+arrowleft\\"],\\"nextComponent\\":[\\"alt+arrowdown\\"],\\"previousComponent\\":[\\"alt+arrowup\\"],\\"control\\":[\\"c\\"],\\"darkMode\\":[\\"d\\"],\\"fullscreen\\":[\\"f\\"],\\"width\\":[\\"w\\"],\\"rtl\\":[\\"r\\"],\\"source\\":[\\"s\\"],\\"a11y\\":[\\"a\\"]},\\"i18n\\":{\\"buildTooltip\\":\\"💡 Tip: Run \\\\\\"ladle preview\\\\\\" to check that the build works!\\"},\\"storyOrder\\":\\"(stories) => stories\\"};
+export let config = {"stories":"src/**/*.stories.{js,jsx,ts,tsx,mdx}","addons":{"control":{"enabled":true,"defaultState":{}},"theme":{"enabled":true,"defaultState":"light"},"mode":{"enabled":true,"defaultState":"full"},"rtl":{"enabled":true,"defaultState":false},"source":{"enabled":true,"defaultState":false},"a11y":{"enabled":false},"msw":{"enabled":false},"action":{"enabled":true,"defaultState":[]},"ladle":{"enabled":true},"width":{"enabled":true,"options":{"xsmall":414,"small":640,"medium":768,"large":1024},"defaultState":0}},"hotkeys":{"search":["/","meta+p"],"nextStory":["alt+arrowright"],"previousStory":["alt+arrowleft"],"nextComponent":["alt+arrowdown"],"previousComponent":["alt+arrowup"],"control":["c"],"darkMode":["d"],"fullscreen":["f"],"width":["w"],"rtl":["r"],"source":["s"],"a11y":["a"]},"i18n":{"buildTooltip":"💡 Tip: Run \\"ladle preview\\" to check that the build works!"},"storyOrder":"(stories) => stories"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
-export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: \\"2em\\" }}, /*#__PURE__*/createElement('code', { className: \\"ladle-code\\" }, path));
+export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: "2em" }}, /*#__PURE__*/createElement('code', { className: "ladle-code" }, path));
 export const args = {};
 export const argTypes = {};
 
 let fileSourceCodes = {
-  \\"6f78bc91\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0Aimport%20type%20%7B%20StoryDefault%2C%20Story%20%7D%20from%20%22..%2F..%2Flib%2Fapp%2Fexports%22%3B%0A%0Aexport%20default%20%7B%0A%20%20title%3A%20%22Title%22%2C%0A%20%20meta%3A%20%7B%0A%20%20%20%20baseweb%3A%20%7B%0A%20%20%20%20%20%20theme%3A%20%22dark%22%2C%0A%20%20%20%20%20%20browsers%3A%20%5B%22chrome%22%2C%20%22webkit%22%5D%2C%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D%20satisfies%20StoryDefault%3B%0A%0Aexport%20const%20Cat%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A%0ACat.meta%20%3D%20%7B%0A%20%20baseweb%3A%20%7B%0A%20%20%20%20browsers%3A%20%5B%22chrome%22%2C%20%22firefox%22%5D%2C%0A%20%20%20%20width%3A%20%22500px%22%2C%0A%20%20%7D%2C%0A%20%20links%3A%20true%2C%0A%7D%3B%0A%0Aexport%20const%20Dog%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3EDog%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
+  "6f78bc91": \`import%20*%20as%20React%20from%20%22react%22%3B%0Aimport%20type%20%7B%20StoryDefault%2C%20Story%20%7D%20from%20%22..%2F..%2Flib%2Fapp%2Fexports%22%3B%0A%0Aexport%20default%20%7B%0A%20%20title%3A%20%22Title%22%2C%0A%20%20meta%3A%20%7B%0A%20%20%20%20baseweb%3A%20%7B%0A%20%20%20%20%20%20theme%3A%20%22dark%22%2C%0A%20%20%20%20%20%20browsers%3A%20%5B%22chrome%22%2C%20%22webkit%22%5D%2C%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D%20satisfies%20StoryDefault%3B%0A%0Aexport%20const%20Cat%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A%0ACat.meta%20%3D%20%7B%0A%20%20baseweb%3A%20%7B%0A%20%20%20%20browsers%3A%20%5B%22chrome%22%2C%20%22firefox%22%5D%2C%0A%20%20%20%20width%3A%20%22500px%22%2C%0A%20%20%7D%2C%0A%20%20links%3A%20true%2C%0A%7D%3B%0A%0Aexport%20const%20Dog%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3EDog%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
 };
 export let storySource = {
-  \\"title--cat\\": fileSourceCodes[\\"6f78bc91\\"],
-  \\"title--dog\\": fileSourceCodes[\\"6f78bc91\\"]
+  "title--cat": fileSourceCodes["6f78bc91"],
+  "title--dog": fileSourceCodes["6f78bc91"]
 };
 
 export const errorMessage = '';
@@ -194,42 +194,42 @@ export const errorMessage = '';
 
 exports[`Extract default meta 1`] = `
 "
-import { lazy, createElement, Fragment } from \\"react\\";
-import composeEnhancers from \\"/src/compose-enhancers\\";
+import { lazy, createElement, Fragment } from "react";
+import composeEnhancers from "/src/compose-enhancers";
 
-const title$$cat = lazy(() => import(\\"tests/fixtures/default-meta.stories.tsx\\").then(module => {
+const title$$cat = lazy(() => import("tests/fixtures/default-meta.stories.tsx").then(module => {
   return {
-    default: composeEnhancers(module, \\"Cat\\")
+    default: composeEnhancers(module, "Cat")
   };
 }));
 export let stories = {
-  \\"title--cat\\": {
+  "title--cat": {
     component: title$$cat,
     locStart: 13,
     locEnd: 15,
-    entry: \\"tests/fixtures/default-meta.stories.tsx\\",
+    entry: "tests/fixtures/default-meta.stories.tsx",
     meta: {
-      \\"title\\": \\"Title\\",
-      \\"meta\\": {
-        \\"baseweb\\": {
-          \\"foo\\": \\"title\\"
+      "title": "Title",
+      "meta": {
+        "baseweb": {
+          "foo": "title"
         }
       }
     }
   }
 };
-export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx,mdx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":false},\\"msw\\":{\\"enabled\\":false},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"hotkeys\\":{\\"search\\":[\\"/\\",\\"meta+p\\"],\\"nextStory\\":[\\"alt+arrowright\\"],\\"previousStory\\":[\\"alt+arrowleft\\"],\\"nextComponent\\":[\\"alt+arrowdown\\"],\\"previousComponent\\":[\\"alt+arrowup\\"],\\"control\\":[\\"c\\"],\\"darkMode\\":[\\"d\\"],\\"fullscreen\\":[\\"f\\"],\\"width\\":[\\"w\\"],\\"rtl\\":[\\"r\\"],\\"source\\":[\\"s\\"],\\"a11y\\":[\\"a\\"]},\\"i18n\\":{\\"buildTooltip\\":\\"💡 Tip: Run \\\\\\"ladle preview\\\\\\" to check that the build works!\\"},\\"storyOrder\\":\\"(stories) => stories\\"};
+export let config = {"stories":"src/**/*.stories.{js,jsx,ts,tsx,mdx}","addons":{"control":{"enabled":true,"defaultState":{}},"theme":{"enabled":true,"defaultState":"light"},"mode":{"enabled":true,"defaultState":"full"},"rtl":{"enabled":true,"defaultState":false},"source":{"enabled":true,"defaultState":false},"a11y":{"enabled":false},"msw":{"enabled":false},"action":{"enabled":true,"defaultState":[]},"ladle":{"enabled":true},"width":{"enabled":true,"options":{"xsmall":414,"small":640,"medium":768,"large":1024},"defaultState":0}},"hotkeys":{"search":["/","meta+p"],"nextStory":["alt+arrowright"],"previousStory":["alt+arrowleft"],"nextComponent":["alt+arrowdown"],"previousComponent":["alt+arrowup"],"control":["c"],"darkMode":["d"],"fullscreen":["f"],"width":["w"],"rtl":["r"],"source":["s"],"a11y":["a"]},"i18n":{"buildTooltip":"💡 Tip: Run \\"ladle preview\\" to check that the build works!"},"storyOrder":"(stories) => stories"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
-export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: \\"2em\\" }}, /*#__PURE__*/createElement('code', { className: \\"ladle-code\\" }, path));
+export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: "2em" }}, /*#__PURE__*/createElement('code', { className: "ladle-code" }, path));
 export const args = {};
 export const argTypes = {};
 
 let fileSourceCodes = {
-  \\"782945f7\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0Aimport%20type%20%7B%20StoryDefault%2C%20Story%20%7D%20from%20%22..%2F..%2Flib%2Fapp%2Fexports%22%3B%0A%0Aexport%20default%20%7B%0A%20%20title%3A%20%22Title%22%2C%0A%20%20meta%3A%20%7B%0A%20%20%20%20baseweb%3A%20%7B%0A%20%20%20%20%20%20foo%3A%20%22title%22%2C%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D%20satisfies%20StoryDefault%3B%0A%0Aexport%20const%20Cat%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
+  "782945f7": \`import%20*%20as%20React%20from%20%22react%22%3B%0Aimport%20type%20%7B%20StoryDefault%2C%20Story%20%7D%20from%20%22..%2F..%2Flib%2Fapp%2Fexports%22%3B%0A%0Aexport%20default%20%7B%0A%20%20title%3A%20%22Title%22%2C%0A%20%20meta%3A%20%7B%0A%20%20%20%20baseweb%3A%20%7B%0A%20%20%20%20%20%20foo%3A%20%22title%22%2C%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D%20satisfies%20StoryDefault%3B%0A%0Aexport%20const%20Cat%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
 };
 export let storySource = {
-  \\"title--cat\\": fileSourceCodes[\\"782945f7\\"]
+  "title--cat": fileSourceCodes["782945f7"]
 };
 
 export const errorMessage = '';
@@ -239,46 +239,46 @@ export const errorMessage = '';
 
 exports[`Single file with two stories 1`] = `
 "
-import { lazy, createElement, Fragment } from \\"react\\";
-import composeEnhancers from \\"/src/compose-enhancers\\";
+import { lazy, createElement, Fragment } from "react";
+import composeEnhancers from "/src/compose-enhancers";
 
-const animals$$cat = lazy(() => import(\\"tests/fixtures/animals.stories.tsx\\").then(module => {
+const animals$$cat = lazy(() => import("tests/fixtures/animals.stories.tsx").then(module => {
   return {
-    default: composeEnhancers(module, \\"Cat\\")
+    default: composeEnhancers(module, "Cat")
   };
 }));
-const animals$$dog = lazy(() => import(\\"tests/fixtures/animals.stories.tsx\\").then(module => {
+const animals$$dog = lazy(() => import("tests/fixtures/animals.stories.tsx").then(module => {
   return {
-    default: composeEnhancers(module, \\"Dog\\")
+    default: composeEnhancers(module, "Dog")
   };
 }));
 export let stories = {
-  \\"animals--cat\\": {
+  "animals--cat": {
     component: animals$$cat,
     locStart: 4,
     locEnd: 6,
-    entry: \\"tests/fixtures/animals.stories.tsx\\"
+    entry: "tests/fixtures/animals.stories.tsx"
   },
-  \\"animals--dog\\": {
+  "animals--dog": {
     component: animals$$dog,
     locStart: 8,
     locEnd: 10,
-    entry: \\"tests/fixtures/animals.stories.tsx\\"
+    entry: "tests/fixtures/animals.stories.tsx"
   }
 };
-export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx,mdx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":false},\\"msw\\":{\\"enabled\\":false},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"hotkeys\\":{\\"search\\":[\\"/\\",\\"meta+p\\"],\\"nextStory\\":[\\"alt+arrowright\\"],\\"previousStory\\":[\\"alt+arrowleft\\"],\\"nextComponent\\":[\\"alt+arrowdown\\"],\\"previousComponent\\":[\\"alt+arrowup\\"],\\"control\\":[\\"c\\"],\\"darkMode\\":[\\"d\\"],\\"fullscreen\\":[\\"f\\"],\\"width\\":[\\"w\\"],\\"rtl\\":[\\"r\\"],\\"source\\":[\\"s\\"],\\"a11y\\":[\\"a\\"]},\\"i18n\\":{\\"buildTooltip\\":\\"💡 Tip: Run \\\\\\"ladle preview\\\\\\" to check that the build works!\\"},\\"storyOrder\\":\\"(stories) => stories\\"};
+export let config = {"stories":"src/**/*.stories.{js,jsx,ts,tsx,mdx}","addons":{"control":{"enabled":true,"defaultState":{}},"theme":{"enabled":true,"defaultState":"light"},"mode":{"enabled":true,"defaultState":"full"},"rtl":{"enabled":true,"defaultState":false},"source":{"enabled":true,"defaultState":false},"a11y":{"enabled":false},"msw":{"enabled":false},"action":{"enabled":true,"defaultState":[]},"ladle":{"enabled":true},"width":{"enabled":true,"options":{"xsmall":414,"small":640,"medium":768,"large":1024},"defaultState":0}},"hotkeys":{"search":["/","meta+p"],"nextStory":["alt+arrowright"],"previousStory":["alt+arrowleft"],"nextComponent":["alt+arrowdown"],"previousComponent":["alt+arrowup"],"control":["c"],"darkMode":["d"],"fullscreen":["f"],"width":["w"],"rtl":["r"],"source":["s"],"a11y":["a"]},"i18n":{"buildTooltip":"💡 Tip: Run \\"ladle preview\\" to check that the build works!"},"storyOrder":"(stories) => stories"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
-export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: \\"2em\\" }}, /*#__PURE__*/createElement('code', { className: \\"ladle-code\\" }, path));
+export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: "2em" }}, /*#__PURE__*/createElement('code', { className: "ladle-code" }, path));
 export const args = {};
 export const argTypes = {};
 
 let fileSourceCodes = {
-  \\"3a078f0b\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0Aimport%20type%20%7B%20Story%20%7D%20from%20%22%40ladle%2Freact%22%3B%0A%0Aexport%20const%20Cat%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A%0Aexport%20const%20Dog%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3EDog%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
+  "3a078f0b": \`import%20*%20as%20React%20from%20%22react%22%3B%0Aimport%20type%20%7B%20Story%20%7D%20from%20%22%40ladle%2Freact%22%3B%0A%0Aexport%20const%20Cat%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A%0Aexport%20const%20Dog%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3EDog%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
 };
 export let storySource = {
-  \\"animals--cat\\": fileSourceCodes[\\"3a078f0b\\"],
-  \\"animals--dog\\": fileSourceCodes[\\"3a078f0b\\"]
+  "animals--cat": fileSourceCodes["3a078f0b"],
+  "animals--dog": fileSourceCodes["3a078f0b"]
 };
 
 export const errorMessage = '';
@@ -288,58 +288,58 @@ export const errorMessage = '';
 
 exports[`Story name replaces named export as a story name 1`] = `
 "
-import { lazy, createElement, Fragment } from \\"react\\";
-import composeEnhancers from \\"/src/compose-enhancers\\";
+import { lazy, createElement, Fragment } from "react";
+import composeEnhancers from "/src/compose-enhancers";
 
-const storyname$$capital$city = lazy(() => import(\\"tests/fixtures/storyname.stories.tsx\\").then(module => {
+const storyname$$capital$city = lazy(() => import("tests/fixtures/storyname.stories.tsx").then(module => {
   return {
-    default: composeEnhancers(module, \\"CapitalCity\\")
+    default: composeEnhancers(module, "CapitalCity")
   };
 }));
-const storyname$$champs$élysées = lazy(() => import(\\"tests/fixtures/storyname.stories.tsx\\").then(module => {
+const storyname$$champs$élysées = lazy(() => import("tests/fixtures/storyname.stories.tsx").then(module => {
   return {
-    default: composeEnhancers(module, \\"CapitalReplaced\\")
+    default: composeEnhancers(module, "CapitalReplaced")
   };
 }));
-const storyname$$doggo = lazy(() => import(\\"tests/fixtures/storyname.stories.tsx\\").then(module => {
+const storyname$$doggo = lazy(() => import("tests/fixtures/storyname.stories.tsx").then(module => {
   return {
-    default: composeEnhancers(module, \\"Cat\\")
+    default: composeEnhancers(module, "Cat")
   };
 }));
 export let stories = {
-  \\"storyname--capital-city\\": {
+  "storyname--capital-city": {
     component: storyname$$capital$city,
     locStart: 15,
     locEnd: 17,
-    entry: \\"tests/fixtures/storyname.stories.tsx\\"
+    entry: "tests/fixtures/storyname.stories.tsx"
   },
-  \\"storyname--champs-\\\\xE9lys\\\\xE9es\\": {
+  "storyname--champs-\\xE9lys\\xE9es": {
     component: storyname$$champs$élysées,
     locStart: 19,
     locEnd: 21,
-    entry: \\"tests/fixtures/storyname.stories.tsx\\"
+    entry: "tests/fixtures/storyname.stories.tsx"
   },
-  \\"storyname--doggo\\": {
+  "storyname--doggo": {
     component: storyname$$doggo,
     locStart: 4,
     locEnd: 9,
-    entry: \\"tests/fixtures/storyname.stories.tsx\\"
+    entry: "tests/fixtures/storyname.stories.tsx"
   }
 };
-export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx,mdx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":false},\\"msw\\":{\\"enabled\\":false},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"hotkeys\\":{\\"search\\":[\\"/\\",\\"meta+p\\"],\\"nextStory\\":[\\"alt+arrowright\\"],\\"previousStory\\":[\\"alt+arrowleft\\"],\\"nextComponent\\":[\\"alt+arrowdown\\"],\\"previousComponent\\":[\\"alt+arrowup\\"],\\"control\\":[\\"c\\"],\\"darkMode\\":[\\"d\\"],\\"fullscreen\\":[\\"f\\"],\\"width\\":[\\"w\\"],\\"rtl\\":[\\"r\\"],\\"source\\":[\\"s\\"],\\"a11y\\":[\\"a\\"]},\\"i18n\\":{\\"buildTooltip\\":\\"💡 Tip: Run \\\\\\"ladle preview\\\\\\" to check that the build works!\\"},\\"storyOrder\\":\\"(stories) => stories\\"};
+export let config = {"stories":"src/**/*.stories.{js,jsx,ts,tsx,mdx}","addons":{"control":{"enabled":true,"defaultState":{}},"theme":{"enabled":true,"defaultState":"light"},"mode":{"enabled":true,"defaultState":"full"},"rtl":{"enabled":true,"defaultState":false},"source":{"enabled":true,"defaultState":false},"a11y":{"enabled":false},"msw":{"enabled":false},"action":{"enabled":true,"defaultState":[]},"ladle":{"enabled":true},"width":{"enabled":true,"options":{"xsmall":414,"small":640,"medium":768,"large":1024},"defaultState":0}},"hotkeys":{"search":["/","meta+p"],"nextStory":["alt+arrowright"],"previousStory":["alt+arrowleft"],"nextComponent":["alt+arrowdown"],"previousComponent":["alt+arrowup"],"control":["c"],"darkMode":["d"],"fullscreen":["f"],"width":["w"],"rtl":["r"],"source":["s"],"a11y":["a"]},"i18n":{"buildTooltip":"💡 Tip: Run \\"ladle preview\\" to check that the build works!"},"storyOrder":"(stories) => stories"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
-export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: \\"2em\\" }}, /*#__PURE__*/createElement('code', { className: \\"ladle-code\\" }, path));
+export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: "2em" }}, /*#__PURE__*/createElement('code', { className: "ladle-code" }, path));
 export const args = {};
 export const argTypes = {};
 
 let fileSourceCodes = {
-  \\"405a428d\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0Aimport%20type%20%7B%20Story%20%7D%20from%20%22..%2F..%2Flib%2Fapp%2Fexports%22%3B%0A%0Aexport%20const%20Cat%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20const%20Stop%20%3D%20%7B%20storyName%3A%20%22%22%20%7D%3B%0A%20%20%2F%2F%20should%20be%20ignored%0A%20%20Stop.storyName%20%3D%20%22What%22%3B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A%0ACat.storyName%20%3D%20%22Doggo%22%3B%0A%2F%2F%20%40ts-expect-error%0ACat.foo%20%3D%20%22Ha%22%3B%0A%0Aexport%20const%20CapitalCity%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3EDC%3C%2Fh1%3E%3B%0A%7D%3B%0A%0Aexport%20const%20CapitalReplaced%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECapitalReplaced%3C%2Fh1%3E%3B%0A%7D%3B%0ACapitalReplaced.storyName%20%3D%20%22Champs%20%C3%89lys%C3%A9es%22%3B%0A\`
+  "405a428d": \`import%20*%20as%20React%20from%20%22react%22%3B%0Aimport%20type%20%7B%20Story%20%7D%20from%20%22..%2F..%2Flib%2Fapp%2Fexports%22%3B%0A%0Aexport%20const%20Cat%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20const%20Stop%20%3D%20%7B%20storyName%3A%20%22%22%20%7D%3B%0A%20%20%2F%2F%20should%20be%20ignored%0A%20%20Stop.storyName%20%3D%20%22What%22%3B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A%0ACat.storyName%20%3D%20%22Doggo%22%3B%0A%2F%2F%20%40ts-expect-error%0ACat.foo%20%3D%20%22Ha%22%3B%0A%0Aexport%20const%20CapitalCity%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3EDC%3C%2Fh1%3E%3B%0A%7D%3B%0A%0Aexport%20const%20CapitalReplaced%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECapitalReplaced%3C%2Fh1%3E%3B%0A%7D%3B%0ACapitalReplaced.storyName%20%3D%20%22Champs%20%C3%89lys%C3%A9es%22%3B%0A\`
 };
 export let storySource = {
-  \\"storyname--capital-city\\": fileSourceCodes[\\"405a428d\\"],
-  \\"storyname--champs-\\\\xE9lys\\\\xE9es\\": fileSourceCodes[\\"405a428d\\"],
-  \\"storyname--doggo\\": fileSourceCodes[\\"405a428d\\"]
+  "storyname--capital-city": fileSourceCodes["405a428d"],
+  "storyname--champs-\\xE9lys\\xE9es": fileSourceCodes["405a428d"],
+  "storyname--doggo": fileSourceCodes["405a428d"]
 };
 
 export const errorMessage = '';
@@ -349,34 +349,34 @@ export const errorMessage = '';
 
 exports[`Turn file name delimiters into spaces and levels correctly 1`] = `
 "
-import { lazy, createElement, Fragment } from \\"react\\";
-import composeEnhancers from \\"/src/compose-enhancers\\";
+import { lazy, createElement, Fragment } from "react";
+import composeEnhancers from "/src/compose-enhancers";
 
-const our$animals$$mammals$$cat = lazy(() => import(\\"tests/fixtures/our-animals--mammals.stories.tsx\\").then(module => {
+const our$animals$$mammals$$cat = lazy(() => import("tests/fixtures/our-animals--mammals.stories.tsx").then(module => {
   return {
-    default: composeEnhancers(module, \\"Cat\\")
+    default: composeEnhancers(module, "Cat")
   };
 }));
 export let stories = {
-  \\"our-animals--mammals--cat\\": {
+  "our-animals--mammals--cat": {
     component: our$animals$$mammals$$cat,
     locStart: 4,
     locEnd: 6,
-    entry: \\"tests/fixtures/our-animals--mammals.stories.tsx\\"
+    entry: "tests/fixtures/our-animals--mammals.stories.tsx"
   }
 };
-export let config = {\\"stories\\":\\"src/**/*.stories.{js,jsx,ts,tsx,mdx}\\",\\"addons\\":{\\"control\\":{\\"enabled\\":true,\\"defaultState\\":{}},\\"theme\\":{\\"enabled\\":true,\\"defaultState\\":\\"light\\"},\\"mode\\":{\\"enabled\\":true,\\"defaultState\\":\\"full\\"},\\"rtl\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"source\\":{\\"enabled\\":true,\\"defaultState\\":false},\\"a11y\\":{\\"enabled\\":false},\\"msw\\":{\\"enabled\\":false},\\"action\\":{\\"enabled\\":true,\\"defaultState\\":[]},\\"ladle\\":{\\"enabled\\":true},\\"width\\":{\\"enabled\\":true,\\"options\\":{\\"xsmall\\":414,\\"small\\":640,\\"medium\\":768,\\"large\\":1024},\\"defaultState\\":0}},\\"hotkeys\\":{\\"search\\":[\\"/\\",\\"meta+p\\"],\\"nextStory\\":[\\"alt+arrowright\\"],\\"previousStory\\":[\\"alt+arrowleft\\"],\\"nextComponent\\":[\\"alt+arrowdown\\"],\\"previousComponent\\":[\\"alt+arrowup\\"],\\"control\\":[\\"c\\"],\\"darkMode\\":[\\"d\\"],\\"fullscreen\\":[\\"f\\"],\\"width\\":[\\"w\\"],\\"rtl\\":[\\"r\\"],\\"source\\":[\\"s\\"],\\"a11y\\":[\\"a\\"]},\\"i18n\\":{\\"buildTooltip\\":\\"💡 Tip: Run \\\\\\"ladle preview\\\\\\" to check that the build works!\\"},\\"storyOrder\\":\\"(stories) => stories\\"};
+export let config = {"stories":"src/**/*.stories.{js,jsx,ts,tsx,mdx}","addons":{"control":{"enabled":true,"defaultState":{}},"theme":{"enabled":true,"defaultState":"light"},"mode":{"enabled":true,"defaultState":"full"},"rtl":{"enabled":true,"defaultState":false},"source":{"enabled":true,"defaultState":false},"a11y":{"enabled":false},"msw":{"enabled":false},"action":{"enabled":true,"defaultState":[]},"ladle":{"enabled":true},"width":{"enabled":true,"options":{"xsmall":414,"small":640,"medium":768,"large":1024},"defaultState":0}},"hotkeys":{"search":["/","meta+p"],"nextStory":["alt+arrowright"],"previousStory":["alt+arrowleft"],"nextComponent":["alt+arrowdown"],"previousComponent":["alt+arrowup"],"control":["c"],"darkMode":["d"],"fullscreen":["f"],"width":["w"],"rtl":["r"],"source":["s"],"a11y":["a"]},"i18n":{"buildTooltip":"💡 Tip: Run \\"ladle preview\\" to check that the build works!"},"storyOrder":"(stories) => stories"};
 
 export const Provider = ({children}) => /*#__PURE__*/createElement(Fragment, null, children);
-export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: \\"2em\\" }}, /*#__PURE__*/createElement('code', { className: \\"ladle-code\\" }, path));
+export const StorySourceHeader = ({ path }) => /*#__PURE__*/createElement('div', { style: { paddingTop: "2em" }}, /*#__PURE__*/createElement('code', { className: "ladle-code" }, path));
 export const args = {};
 export const argTypes = {};
 
 let fileSourceCodes = {
-  \\"2c557f42\\": \`import%20*%20as%20React%20from%20%22react%22%3B%0Aimport%20type%20%7B%20Story%20%7D%20from%20%22..%2F..%2Flib%2Fapp%2Fexports%22%3B%0A%0Aexport%20const%20Cat%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
+  "2c557f42": \`import%20*%20as%20React%20from%20%22react%22%3B%0Aimport%20type%20%7B%20Story%20%7D%20from%20%22..%2F..%2Flib%2Fapp%2Fexports%22%3B%0A%0Aexport%20const%20Cat%3A%20Story%20%3D%20()%20%3D%3E%20%7B%0A%20%20return%20%3Ch1%3ECat%3C%2Fh1%3E%3B%0A%7D%3B%0A\`
 };
 export let storySource = {
-  \\"our-animals--mammals--cat\\": fileSourceCodes[\\"2c557f42\\"]
+  "our-animals--mammals--cat": fileSourceCodes["2c557f42"]
 };
 
 export const errorMessage = '';

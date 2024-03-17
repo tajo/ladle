@@ -27,8 +27,8 @@ exports[`Capital letters in story names converted into delimiters 1`] = `
     },
   ],
   "storyParams": {},
-  "storySource": "import * as React from \\"react\\";
-import type { Story } from \\"@ladle/react\\";
+  "storySource": "import * as React from "react";
+import type { Story } from "@ladle/react";
 
 export const BlueTinyCat: Story = () => {
   return <h1>Blue Tiny Cat</h1>;
@@ -61,8 +61,8 @@ exports[`Capital letters in the filename converted into delimiters 1`] = `
     },
   ],
   "storyParams": {},
-  "storySource": "import * as React from \\"react\\";
-import type { Story } from \\"../../lib/app/exports\\";
+  "storySource": "import * as React from "react";
+import type { Story } from "../../lib/app/exports";
 
 export const Test: Story = () => {
   return <h1>Test</h1>;
@@ -91,11 +91,11 @@ exports[`Default title is used instead of the file name 1`] = `
     },
   ],
   "storyParams": {},
-  "storySource": "import * as React from \\"react\\";
-import type { StoryDefault, Story } from \\"../../lib/app/exports\\";
+  "storySource": "import * as React from "react";
+import type { StoryDefault, Story } from "../../lib/app/exports";
 
 export default {
-  title: \\"Title\\",
+  title: "Title",
 } satisfies StoryDefault;
 
 export const Cat: Story = () => {
@@ -178,15 +178,15 @@ exports[`Extract and merge story meta 1`] = `
       "title": "Title",
     },
   },
-  "storySource": "import * as React from \\"react\\";
-import type { StoryDefault, Story } from \\"../../lib/app/exports\\";
+  "storySource": "import * as React from "react";
+import type { StoryDefault, Story } from "../../lib/app/exports";
 
 export default {
-  title: \\"Title\\",
+  title: "Title",
   meta: {
     baseweb: {
-      theme: \\"dark\\",
-      browsers: [\\"chrome\\", \\"webkit\\"],
+      theme: "dark",
+      browsers: ["chrome", "webkit"],
     },
   },
 } satisfies StoryDefault;
@@ -197,8 +197,8 @@ export const Cat: Story = () => {
 
 Cat.meta = {
   baseweb: {
-    browsers: [\\"chrome\\", \\"firefox\\"],
-    width: \\"500px\\",
+    browsers: ["chrome", "firefox"],
+    width: "500px",
   },
   links: true,
 };
@@ -243,14 +243,14 @@ exports[`Extract default meta 1`] = `
       "title": "Title",
     },
   },
-  "storySource": "import * as React from \\"react\\";
-import type { StoryDefault, Story } from \\"../../lib/app/exports\\";
+  "storySource": "import * as React from "react";
+import type { StoryDefault, Story } from "../../lib/app/exports";
 
 export default {
-  title: \\"Title\\",
+  title: "Title",
   meta: {
     baseweb: {
-      foo: \\"title\\",
+      foo: "title",
     },
   },
 } satisfies StoryDefault;
@@ -289,8 +289,8 @@ exports[`Single file with two stories 1`] = `
     },
   ],
   "storyParams": {},
-  "storySource": "import * as React from \\"react\\";
-import type { Story } from \\"@ladle/react\\";
+  "storySource": "import * as React from "react";
+import type { Story } from "@ladle/react";
 
 export const Cat: Story = () => {
   return <h1>Cat</h1>;
@@ -340,19 +340,19 @@ exports[`Story name replaces named export as a story name 1`] = `
     },
   ],
   "storyParams": {},
-  "storySource": "import * as React from \\"react\\";
-import type { Story } from \\"../../lib/app/exports\\";
+  "storySource": "import * as React from "react";
+import type { Story } from "../../lib/app/exports";
 
 export const Cat: Story = () => {
-  const Stop = { storyName: \\"\\" };
+  const Stop = { storyName: "" };
   // should be ignored
-  Stop.storyName = \\"What\\";
+  Stop.storyName = "What";
   return <h1>Cat</h1>;
 };
 
-Cat.storyName = \\"Doggo\\";
+Cat.storyName = "Doggo";
 // @ts-expect-error
-Cat.foo = \\"Ha\\";
+Cat.foo = "Ha";
 
 export const CapitalCity: Story = () => {
   return <h1>DC</h1>;
@@ -361,7 +361,7 @@ export const CapitalCity: Story = () => {
 export const CapitalReplaced: Story = () => {
   return <h1>CapitalReplaced</h1>;
 };
-CapitalReplaced.storyName = \\"Champs Élysées\\";
+CapitalReplaced.storyName = "Champs Élysées";
 ",
 }
 `;
@@ -386,8 +386,8 @@ exports[`Turn file name delimiters into spaces and levels correctly 1`] = `
     },
   ],
   "storyParams": {},
-  "storySource": "import * as React from \\"react\\";
-import type { Story } from \\"../../lib/app/exports\\";
+  "storySource": "import * as React from "react";
+import type { Story } from "../../lib/app/exports";
 
 export const Cat: Story = () => {
   return <h1>Cat</h1>;
