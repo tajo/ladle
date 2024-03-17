@@ -1,5 +1,12 @@
 # test-baseweb
 
+## 0.0.87
+
+### Patch Changes
+
+- Updated dependencies [[`faf818d`](https://github.com/tajo/ladle/commit/faf818d29397f85d4c1610eee501fca3462f1cbd)]:
+  - @ladle/react@4.0.3
+
 ## 0.0.86
 
 ### Patch Changes

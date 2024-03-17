@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 4.0.3
+
+### Patch Changes
+
+- [#551](https://github.com/tajo/ladle/pull/551) [`faf818d`](https://github.com/tajo/ladle/commit/faf818d29397f85d4c1610eee501fca3462f1cbd) Thanks [@tajo](https://github.com/tajo)! - Update all dependencies
+
 ## 4.0.2
 
 ### Patch Changes
