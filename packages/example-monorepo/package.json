@@ -1,0 +1,17 @@
+{
+  "name": "example",
+  "version": "0.3.72",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "serve": "ladle serve",
+    "build": "ladle build",
+    "lint": "echo 'no lint'",
+    "test": "echo 'no test'"
+  },
+  "dependencies": {
+    "@ladle/react": "workspace:*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
