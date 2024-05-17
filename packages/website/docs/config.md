@@ -88,6 +88,28 @@ export default {
 };
 ```
 
+### hmrHost
+
+Specify the host for HMR.
+
+```js
+/** @type {import('@ladle/react').UserConfig} */
+export default {
+  hmrHost: 0.0.0.0,
+};
+```
+
+### hmrPort
+
+Specify the port for HMR.
+
+```js
+/** @type {import('@ladle/react').UserConfig} */
+export default {
+  hmrPort: 24678,
+};
+```
+
 ### outDir
 
 Specify the output directory (relative to the project root).
