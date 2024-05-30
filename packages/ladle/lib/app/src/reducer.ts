@@ -8,13 +8,14 @@ const reducer = (state: GlobalState, action: GlobalAction): GlobalState => {
       return { ...state, ...action.value };
     case ActionType.UpdateMode:
       return { ...state, mode: action.value };
-    case ActionType.UpdateAction:
+    case ActionType.UpdateAction: {
       const result = { ...state };
       if (action.clear) {
         result.action = [];
       }
       if (!action.value) return result;
       return { ...state, action: [...result.action, action.value] };
+    }
     case ActionType.UpdateRtl:
       return { ...state, rtl: action.value };
     case ActionType.UpdateSource:

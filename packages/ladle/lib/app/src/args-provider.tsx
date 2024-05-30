@@ -151,7 +151,7 @@ const ArgsProvider = ({
       argTypes &&
       argTypes[key] &&
       argTypes[key].mapping &&
-      argTypes[key].mapping.hasOwnProperty(value)
+      Object.prototype.hasOwnProperty.call(argTypes[key].mapping, value)
     ) {
       return argTypes[key].mapping[value];
     }

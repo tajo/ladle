@@ -151,12 +151,13 @@ const TreeView = ({
         e.stopPropagation();
         focusSelectedItem(getPrevId(tree, item.id, null));
         break;
-      case "ArrowDown":
+      case "ArrowDown": {
         e.preventDefault();
         e.stopPropagation();
         const nextId = getNextId(tree, item.id, null);
         nextId && focusSelectedItem(nextId);
         break;
+      }
       case " ":
       case "Enter":
         if (!(e.target as any).href) {
