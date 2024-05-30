@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-
 import * as React from "react";
 
 export default class ErrorBoundary extends React.Component<
