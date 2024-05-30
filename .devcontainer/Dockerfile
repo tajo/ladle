@@ -60,4 +60,4 @@ USER pwuser
 ENV PATH=/home/pwuser/.npm-globals/bin:${PATH}
 
 # Install project package managers
-RUN npm install --location=global npm@8 pnpm@8
+RUN npm install --location=global npm@8 pnpm@9
