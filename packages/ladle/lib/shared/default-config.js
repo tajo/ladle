@@ -11,6 +11,8 @@ export default {
   noWatch: false,
   port: 61000,
   previewPort: 8080,
+  hmrHost: undefined,
+  hmrPort: undefined,
   outDir: "build",
   base: undefined,
   hotkeys: {

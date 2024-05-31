@@ -184,6 +184,8 @@ export type Config = {
   port: number;
   previewHost?: string;
   previewPort: number;
+  hmrHost?: string;
+  hmrPort?: number;
   outDir: string;
   base?: string;
   mode?: string;

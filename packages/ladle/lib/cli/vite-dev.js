@@ -29,8 +29,8 @@ const bundler = async (config, configFolder) => {
   });
   const hmr = {
     // needed for hmr to work over network aka WSL2
-    host: "localhost",
-    port: hmrPort,
+    host: config.hmrHost ?? "localhost",
+    port: config.hmrPort ?? hmrPort,
   };
   debug(`Port set to: ${port}`);
   try {
