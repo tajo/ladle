@@ -283,3 +283,37 @@ test("Function Named Export", async () => {
     }),
   );
 });
+
+test("Export Block", async () => {
+  expect(
+    parseWithFn(
+      `var myStory = () => "Text";
+export { 
+  myStory, 
+  myStory as renamed 
+};`,
+      {},
+      getNamedExports,
+      "ExportNamedDeclaration",
+    ),
+  ).toEqual(
+    getOutput({
+      stories: [
+        {
+          componentName: "file$$my$story",
+          namedExport: "myStory",
+          storyId: "file--my-story",
+          locEnd: 3,
+          locStart: 3,
+        },
+        {
+          componentName: "file$$renamed",
+          namedExport: "renamed",
+          storyId: "file--renamed",
+          locEnd: 4,
+          locStart: 4,
+        },
+      ],
+    }),
+  );
+});
