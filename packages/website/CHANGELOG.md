@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.4.0
+
+### Minor Changes
+
+- [#558](https://github.com/tajo/ladle/pull/558) [`55de74a`](https://github.com/tajo/ladle/commit/55de74a1c2dcedd7f50b088954afe0b83c69a4d6) Thanks [@park-g](https://github.com/park-g)! - Add option to set HMR host and port via the ladle config and update the docs with these options.
+
 ## 0.3.7
 
 ### Patch Changes
