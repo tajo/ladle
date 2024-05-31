@@ -1,5 +1,17 @@
 # @ladle/react
 
+## 4.1.0
+
+### Minor Changes
+
+- [#562](https://github.com/tajo/ladle/pull/562) [`8165a95`](https://github.com/tajo/ladle/commit/8165a95bb21ddbbed0ee2849c2f69d7e02b3b522) Thanks [@tajo](https://github.com/tajo)! - Add option to disable http2 when using https. We observed that some bigger Ladle instances throw ERR_HTTP2_PROTOCOL_ERROR errors after upgrading from Node18 to Node20. This setting can be used as a workaround.
+
+- [#558](https://github.com/tajo/ladle/pull/558) [`55de74a`](https://github.com/tajo/ladle/commit/55de74a1c2dcedd7f50b088954afe0b83c69a4d6) Thanks [@park-g](https://github.com/park-g)! - Add option to set HMR host and port via the ladle config and update the docs with these options.
+
+### Patch Changes
+
+- [#556](https://github.com/tajo/ladle/pull/556) [`755fd68`](https://github.com/tajo/ladle/commit/755fd68e603a7896b663a64e9bef003cbebab5a8) Thanks [@i-am-the-slime](https://github.com/i-am-the-slime)! - Allow export of stories in export blocks
+
 ## 4.0.3
 
 ### Patch Changes
