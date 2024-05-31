@@ -7,9 +7,12 @@ export default {
   storyOrder: (stories) => stories, // default is alphabetical
   viteConfig: undefined,
   appendToHead: "",
+  disableHttp2: false,
   noWatch: false,
   port: 61000,
   previewPort: 8080,
+  hmrHost: undefined,
+  hmrPort: undefined,
   outDir: "build",
   base: undefined,
   hotkeys: {

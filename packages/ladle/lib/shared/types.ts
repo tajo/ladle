@@ -178,11 +178,14 @@ export type Config = {
   defaultStory: string;
   storyOrder: StoryOrder;
   appendToHead: string;
+  disableHttp2: boolean;
   viteConfig?: string;
   host?: string;
   port: number;
   previewHost?: string;
   previewPort: number;
+  hmrHost?: string;
+  hmrPort?: number;
   outDir: string;
   base?: string;
   mode?: string;

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { createBrowserHistory } from "history";
 import queryString from "query-string";
 import type { GlobalState } from "../../shared/types";
