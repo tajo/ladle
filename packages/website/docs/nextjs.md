@@ -51,7 +51,7 @@ You could solve it by setting [Providers](/docs/providers).
 
 ```tsx title=".ladle/components.tsx"
 import { GlobalProvider } from "@ladle/react";
-import { AppRouterContext } from "next/dist/shared/lib/app-router-context";
+import { AppRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 export const Provider: GlobalProvider = ({ children }) => {
   return (
@@ -87,7 +87,7 @@ Or if you want to set it in each file, you could use [Decorators](/docs/decorato
 
 ```tsx title="./Hello.stories.tsx"
 import type { StoryDefault, Story } from "@ladle/react";
-import { AppRouterContext } from "next/dist/shared/lib/app-router-context";
+import { AppRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useRouter } from "next/navigation";
 
 export default {
