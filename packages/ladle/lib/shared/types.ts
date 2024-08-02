@@ -280,3 +280,20 @@ export type GetUserViteConfig = {
 export type EntryData = {
   [key: string]: ParsedStoriesResult;
 };
+
+export type MetaJson = {
+  about: {
+    homepage: string;
+    github: string;
+    version: number;
+  };
+  stories: { [key: string]: MetaJsonStory };
+};
+
+export type MetaJsonStory = {
+  name: string;
+  levels: string[];
+  meta: any;
+  locStart: number;
+  locEnd: number;
+};
