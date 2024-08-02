@@ -281,19 +281,19 @@ export type EntryData = {
   [key: string]: ParsedStoriesResult;
 };
 
-export type MetaJson = {
+export type MetaJson<M = any> = {
   about: {
     homepage: string;
     github: string;
     version: number;
   };
-  stories: { [key: string]: MetaJsonStory };
+  stories: { [key: string]: MetaJsonStory<M> };
 };
 
-export type MetaJsonStory = {
+export type MetaJsonStory<M = any> = {
   name: string;
   levels: string[];
-  meta: any;
+  meta: M;
   locStart: number;
   locEnd: number;
 };
