@@ -132,7 +132,9 @@ const bundler = async (config, configFolder) => {
     };
 
     if (useHttps) {
-      if (config.disableHttp2) {
+      const usesProxy = Boolean(vite.config.server.proxy);
+
+      if (config.disableHttp2 || usesProxy) {
         https
           .createServer({ ...vite.config.server.https }, app.callback())
           .listen(port, hostname, listenCallback);
