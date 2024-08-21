@@ -1,5 +1,13 @@
 # @ladle/react
 
+## 4.1.1
+
+### Patch Changes
+
+- [#568](https://github.com/tajo/ladle/pull/568) [`b6d0f10`](https://github.com/tajo/ladle/commit/b6d0f10ab2678b2fdc1d3d46346f0700613c0e61) Thanks [@hiddenist](https://github.com/hiddenist)! - Exports meta.json types from library
+
+- [#571](https://github.com/tajo/ladle/pull/571) [`c98d1af`](https://github.com/tajo/ladle/commit/c98d1afbe0f881d4e7db2e4d076522fe9cf5ed1b) Thanks [@wojtekmaj](https://github.com/wojtekmaj)! - Automatically disable http2 when Vite proxy is used
+
 ## 4.1.0
 
 ### Minor Changes
