@@ -1,6 +1,6 @@
 {
   "name": "test-provider",
-  "version": "0.2.98",
+  "version": "0.2.99",
   "license": "MIT",
   "private": true,
   "scripts": {

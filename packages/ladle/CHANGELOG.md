@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 4.1.2
+
+### Patch Changes
+
+- [#576](https://github.com/tajo/ladle/pull/576) [`5af1fea`](https://github.com/tajo/ladle/commit/5af1fea5ac61adaf2a60eced125be6e47fac492b) Thanks [@tajo](https://github.com/tajo)! - Fix non-scrollable side nav in latest Chrome
+
 ## 4.1.1
 
 ### Patch Changes
