@@ -36,7 +36,7 @@ const TreeView = ({
 }: {
   stories: string[];
   story: string;
-  searchRef: React.Ref<HTMLLinkElement>;
+  searchRef: React.Ref<HTMLInputElement>;
   updateStory: UpdateStory;
   setTreeRootRef: (root: HTMLUListElement | null) => void;
   searchActive?: boolean;

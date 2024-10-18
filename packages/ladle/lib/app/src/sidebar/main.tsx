@@ -18,19 +18,22 @@ const Main = ({
   story,
   updateStory,
   hotkeys,
+  search,
+  setSearch,
 }: {
   stories: string[];
   story: string;
   updateStory: UpdateStory;
   hotkeys: boolean;
+  search: string;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
 }) => {
-  const [search, setSearch] = React.useState("");
   const [width, setWidth] = React.useState(
     getSettings().sidebarWidth || DEFAULT_WIDTH,
   );
   const [resizeActive, setResizeActive] = React.useState(false);
   const handleRef = React.useRef<HTMLDivElement>(null);
-  const searchEl = React.useRef(null);
+  const searchEl = React.useRef<HTMLInputElement>(null);
   const treeRoot = React.useRef<HTMLUListElement | null>(null);
 
   React.useEffect(() => {
@@ -79,11 +82,10 @@ const Main = ({
     };
   }, [resizeActive, setResizeActive, setWidth, handleRef.current]);
 
-  useHotkeys(
-    config.hotkeys.search,
-    () => (searchEl.current as any as HTMLInputElement).focus(),
-    { preventDefault: true, enabled: hotkeys },
-  );
+  useHotkeys(config.hotkeys.search, () => searchEl.current?.focus(), {
+    preventDefault: true,
+    enabled: hotkeys,
+  });
   const canonicalSearch = search
     .toLocaleLowerCase()
     .replace(new RegExp("\\s+", "g"), "-");
@@ -91,6 +93,14 @@ const Main = ({
   const filteredStories = stories.filter((story) =>
     story.includes(canonicalSearch),
   );
+
+  const onKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
+    if (e.key === "ArrowDown" && treeRoot.current?.firstChild) {
+      const firstLiElement = treeRoot.current.firstChild as HTMLLIElement;
+
+      firstLiElement.focus();
+    }
+  };
 
   return (
     <>
@@ -125,11 +135,7 @@ const Main = ({
           aria-label="Search stories"
           value={search}
           ref={searchEl}
-          onKeyDown={(e) => {
-            if (e.key === "ArrowDown") {
-              (treeRoot as any).current.firstChild.focus();
-            }
-          }}
+          onKeyDown={onKeyDown}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setSearch(e.target.value)
           }
