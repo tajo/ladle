@@ -17,6 +17,7 @@ import * as msw from "msw";
 export { msw };
 
 export type { UserConfig } from "../shared/types";
+export * as ui from "./src/ui";
 export { useMDXComponents } from "@mdx-js/react";
 export const Story = (props: any) => props.children;
 export const Meta = (props: any) => props.children;
@@ -55,6 +56,8 @@ export const action = (name: string) => {
       clear: false,
     });
 };
+
+export type { GlobalAction, GlobalState };
 
 export type GlobalProvider = React.FC<{
   globalState: GlobalState;
