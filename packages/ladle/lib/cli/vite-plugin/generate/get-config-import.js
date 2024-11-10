@@ -22,6 +22,9 @@ const ladleConfigToClientConfig = (config) => {
             : config.storyOrder.toString(),
         }
       : {}),
+    ...(config.expandStoryTree
+      ? { expandStoryTree: config.expandStoryTree }
+      : {}),
   };
 };
 
@@ -37,12 +40,11 @@ const getConfigImport = async (configFolder, config) => {
   let clientConfig = {};
   if (fs.existsSync(configPath)) {
     const fileConfig = (await import(pathToFileURL(configPath).href)).default;
-    // @ts-ignore
+    // @ts-expect-error: exclude hotkeys
     clientConfig = ladleConfigToClientConfig(fileConfig);
   }
   merge(clientConfig, ladleConfigToClientConfig(config));
-  // don't merge hotkeys
-  // @ts-ignore
+  // @ts-expect-error: don't merge hotkeys
   clientConfig.hotkeys = {
     ...clientConfig.hotkeys,
     ...config.hotkeys,

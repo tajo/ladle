@@ -189,6 +189,7 @@ export type Config = {
   outDir: string;
   base?: string;
   mode?: string;
+  expandStoryTree?: boolean;
   noWatch: boolean;
   hotkeys: {
     fullscreen: string[];

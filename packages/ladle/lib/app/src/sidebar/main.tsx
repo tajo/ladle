@@ -140,7 +140,7 @@ const Main = ({
           story={story}
           hotkeys={hotkeys}
           updateStory={updateStory}
-          searchActive={search !== ""}
+          allExpanded={search !== "" || config.expandStoryTree}
           setTreeRootRef={(root: HTMLUListElement | null) =>
             (treeRoot.current = root)
           }

@@ -331,3 +331,14 @@ export default {
   noWatch: true,
 };
 ```
+
+### expandStoryTree
+
+You can expand the story tree by default.
+
+```js
+/** @type {import('@ladle/react').UserConfig} */
+export default {
+  expandStoryTree: true,
+};
+```
