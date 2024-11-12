@@ -9,5 +9,7 @@ test("navigation respects storyOrder from the .ladle/config.mjs", async ({
   page,
 }) => {
   await page.goto("/");
-  await expect(page.locator("nav")).toHaveText("Specific fileCustomHello");
+  await expect(page.locator("nav")).toHaveText(
+    "Specific fileCustomHelloStylesWorld",
+  );
 });

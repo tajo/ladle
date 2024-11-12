@@ -29,7 +29,7 @@ const TreeView = ({
   stories,
   story,
   updateStory,
-  searchActive,
+  allExpanded,
   searchRef,
   setTreeRootRef,
   hotkeys,
@@ -39,15 +39,15 @@ const TreeView = ({
   searchRef: React.Ref<HTMLInputElement>;
   updateStory: UpdateStory;
   setTreeRootRef: (root: HTMLUListElement | null) => void;
-  searchActive?: boolean;
+  allExpanded?: boolean;
   hotkeys: boolean;
 }) => {
   const treeItemRefs: TreeItemRefs = React.useRef({});
   const [tree, setTree] = React.useState(
-    getStoryTree(stories, story, searchActive),
+    getStoryTree(stories, story, allExpanded),
   );
   React.useEffect(() => {
-    setTree(getStoryTree(stories, story, searchActive));
+    setTree(getStoryTree(stories, story, allExpanded));
   }, [stories.join(",")]);
 
   const [selectedItemId, setSelectedItemId] = React.useState<string | null>(
@@ -64,7 +64,7 @@ const TreeView = ({
   const hotkeyStoryTransition = (story?: string) => {
     if (story) {
       updateStory(story);
-      setTree(getStoryTree(stories, story, searchActive));
+      setTree(getStoryTree(stories, story, allExpanded));
       setTimeout(() => focusSelectedItem(story), 1);
     }
   };
