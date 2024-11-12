@@ -56,6 +56,8 @@ const App = () => {
   const initialGlobalState = getUrlState(location.search);
   const [globalState, dispatch] = React.useReducer(reducer, initialGlobalState);
   const prevGlobalStateRef = React.useRef<Partial<GlobalState>>({});
+  const [search, setSearch] = React.useState("");
+
   let customBackground = "";
   if (globalState.control) {
     Object.keys(globalState.control).forEach((key) => {
@@ -177,6 +179,8 @@ const App = () => {
         )}
       </main>
       <Navigation
+        search={search}
+        setSearch={setSearch}
         stories={stories}
         hotkeys={globalState.hotkeys}
         story={globalState.story}
