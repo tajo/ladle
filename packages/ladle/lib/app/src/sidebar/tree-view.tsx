@@ -1,25 +1,25 @@
-import * as React from "react";
 import cx from "classnames";
+import * as React from "react";
 import { useHotkeys } from "react-hotkeys-hook";
-import config from "../get-config";
-import { getHref } from "../history";
-import { Page, Down } from "../icons";
-import { getStoryTree } from "../story-name";
-import {
-  getEndId,
-  getFirstChildId,
-  getFirstLink,
-  getSubtree,
-  getNextId,
-  getParentId,
-  getPrevId,
-  toggleIsExpanded,
-} from "./utils";
 import type {
   StoryTree,
   StoryTreeItem,
   UpdateStory,
 } from "../../../shared/types";
+import config from "../get-config";
+import { getHref } from "../history";
+import { Down, Page } from "../icons";
+import { getStoryTree } from "../story-name";
+import {
+  getEndId,
+  getFirstChildId,
+  getFirstLink,
+  getNextId,
+  getParentId,
+  getPrevId,
+  getSubtree,
+  toggleIsExpanded,
+} from "./utils";
 
 type TreeItemRefs = {
   current: { [key: string]: HTMLElement | null };
@@ -183,7 +183,7 @@ const TreeView = ({
   return (
     <ul
       role="tree"
-      style={{ marginInlineStart: "-6px" }}
+      style={{ marginInlineStart: "-6px", height: "90vh", overflow: "auto" }}
       ref={(el) => setTreeRootRef(el)}
     >
       <NavigationSection
