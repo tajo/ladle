@@ -16,11 +16,11 @@
   "dependencies": {
     "@ladle/playwright-config": "workspace:*",
     "@ladle/react": "workspace:*",
-    "@playwright/test": "^1.44.1",
-    "axe-playwright": "^2.0.1",
+    "@playwright/test": "^1.49.1",
+    "axe-playwright": "^2.0.3",
     "cross-env": "^7.0.3",
-    "query-string": "^9.0.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "query-string": "^9.1.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   }
 }

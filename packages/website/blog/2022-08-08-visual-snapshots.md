@@ -1,16 +1,15 @@
 ---
 slug: visual-snapshots
 title: Visual Snapshots
-author: Vojtech Miksu
-author_title: Developer Platform, Uber
-author_url: https://twitter.com/vmiksu
-author_image_url: https://miksu.cz/images/profile.jpg
+authors: vojtech
 tags: [ladle, playwright, react, testing, visual, snapshots, screenshots]
 ---
 
 If you use stories to develop your React components, you might be also interested in some sort of test automation. Ladle and Playwright makes it easy to take screenshots of your stories and compare them against the previous version before you changed your code. We call this visual snapshot testing. Let's take a look at how you can automate it with Ladle. This solution is quick, free and self-hosted.
 
 It might surprise you how easy it is - less than 10 lines of code! Ladle exports a static [meta.json](/docs/meta) file that lists all your stories and their parameters. We can use this file to generate our tests. _Note: Terms snapshots and screenshots are used interchangeably._
+
+<!-- truncate -->
 
 You can jump into the [working example](https://github.com/tajo/ladle/tree/main/e2e/playwright) right away. Or you can follow the steps below.
 

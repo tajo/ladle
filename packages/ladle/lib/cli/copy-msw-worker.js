@@ -1,5 +1,6 @@
 import { copyFile, access, mkdir } from "fs/promises";
 import { join } from "path";
+// @ts-ignore
 import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
