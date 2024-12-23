@@ -248,7 +248,8 @@ const NavigationSection = ({
             ref={
               treeProps.isLinkable
                 ? undefined
-                : (element) => (treeItemRefs.current[treeProps.id] = element)
+                : (((element: any) =>
+                    (treeItemRefs.current[treeProps.id] = element)) as any)
             }
             role="treeitem"
             key={treeProps.id}
@@ -264,7 +265,7 @@ const NavigationSection = ({
                 <a
                   tabIndex={treeProps.id === selectedItemId ? 0 : -1}
                   ref={(element) =>
-                    (treeItemRefs.current[treeProps.id] = element)
+                    (treeItemRefs.current[treeProps.id] = element) as any
                   }
                   href={getHref({ story: treeProps.id })}
                   onKeyDown={(e) =>
