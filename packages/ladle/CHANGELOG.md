@@ -1,5 +1,21 @@
 # @ladle/react
 
+## 5.0.0
+
+### Major Changes
+
+- [#591](https://github.com/tajo/ladle/pull/591) [`7930e38`](https://github.com/tajo/ladle/commit/7930e38647dc9ef40dd92ff578815f77acb50ef6) Thanks [@tajo](https://github.com/tajo)! - Major dependency updates - Vite v6, React v19, Node v22. It shouldn't impact most of Ladle users unless relying on unusal vite (outdated) settings and APIs.
+
+- [#581](https://github.com/tajo/ladle/pull/581) [`a4859ce`](https://github.com/tajo/ladle/commit/a4859cea3cb49dd93d32736fed5c556bcdf53418) Thanks [@Oskii2311](https://github.com/Oskii2311)! - Toggling full-page preview preserves the search query.
+
+### Minor Changes
+
+- [#587](https://github.com/tajo/ladle/pull/587) [`1178c37`](https://github.com/tajo/ladle/commit/1178c37bfeb5aba0a3249811151f463beacdecef) Thanks [@Wesleyzxc](https://github.com/Wesleyzxc)! - add expandStoryTree config option
+
+### Patch Changes
+
+- [#582](https://github.com/tajo/ladle/pull/582) [`eaac9e9`](https://github.com/tajo/ladle/commit/eaac9e9a1e2c33b19bae02b58ee01657198d513b) Thanks [@iambriansreed](https://github.com/iambriansreed)! - Adds App UI and Icons, and types to exports.
+
 ## 4.1.2
 
 ### Patch Changes
