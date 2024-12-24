@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.0
+
+### Minor Changes
+
+- [#587](https://github.com/tajo/ladle/pull/587) [`1178c37`](https://github.com/tajo/ladle/commit/1178c37bfeb5aba0a3249811151f463beacdecef) Thanks [@Wesleyzxc](https://github.com/Wesleyzxc)! - add expandStoryTree config option
+
 ## 0.4.0
 
 ### Minor Changes
