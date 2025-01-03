@@ -23,6 +23,8 @@ const getNamedExports = (
   },
   astPath,
 ) => {
+  if (!astPath?.node?.declaration && !astPath?.node?.specifiers) return;
+
   /**
    * @param {any} namedExportDeclaration
    * @param {string} namedExport
@@ -79,7 +81,10 @@ const getNamedExports = (
     if (namedExportDeclaration.type === "ClassDeclaration") {
       namedExport = namedExportDeclaration.id.name;
     } else if (namedExportDeclaration.type === "VariableDeclaration") {
-      namedExport = namedExportDeclaration.declarations[0].id.name;
+      // Skip TITLE constant export
+      const declaration = namedExportDeclaration.declarations[0];
+      if (declaration.id.name === "TITLE") return;
+      namedExport = declaration.id.name;
     } else if (namedExportDeclaration.type === "FunctionDeclaration") {
       namedExport = namedExportDeclaration.id.name;
     } else {
@@ -94,6 +99,8 @@ const getNamedExports = (
     astPath.node?.specifiers.forEach(
       /** type * @param {any} specifier */
       (specifier) => {
+        // Skip TITLE export
+        if (specifier.exported.name === "TITLE") return;
         const namedExport = specifier.exported.name;
         const story = namedExportToStory(specifier, namedExport);
         stories.push(story);

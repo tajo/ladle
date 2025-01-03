@@ -54,3 +54,10 @@ test("Extract and merge story meta", async () => {
   );
   expect(entryData).toMatchSnapshot();
 });
+
+test("TITLE constant is used when no default title exists", async () => {
+  const entryData = await getSingleEntry(
+    "tests/fixtures/title-constant.stories.tsx",
+  );
+  expect(entryData.exportDefaultProps.title).toBe("Constant Title");
+});
