@@ -1,5 +1,12 @@
 # test-provider
 
+## 0.3.49
+
+### Patch Changes
+
+- Updated dependencies [[`cdb6117`](https://github.com/tajo/ladle/commit/cdb6117c8060fd2b6b4b07f4f61c844f88447fda)]:
+  - @ladle/react@5.0.1
+
 ## 0.3.48
 
 ### Patch Changes

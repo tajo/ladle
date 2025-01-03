@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 5.0.1
+
+### Patch Changes
+
+- [#594](https://github.com/tajo/ladle/pull/594) [`cdb6117`](https://github.com/tajo/ladle/commit/cdb6117c8060fd2b6b4b07f4f61c844f88447fda) Thanks [@tajo](https://github.com/tajo)! - Fix some React imports
+
 ## 5.0.0
 
 ### Major Changes
