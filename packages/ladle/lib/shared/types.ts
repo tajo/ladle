@@ -175,6 +175,7 @@ export type PluginOptions = {
 
 export type Config = {
   stories: string;
+  packages?: string | string[];
   defaultStory: string;
   storyOrder: StoryOrder;
   appendToHead: string;
@@ -256,6 +257,7 @@ export type StoryEntry = {
 export type ParsedStoriesResult = {
   entry: string;
   stories: StoryEntry[];
+  packageStories?: Record<string, StoryEntry[]>;
   exportDefaultProps: {
     title?: string;
     meta: any;

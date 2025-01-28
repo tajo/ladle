@@ -40,6 +40,7 @@ const getConfigImport = async (configFolder, config) => {
     // @ts-ignore
     clientConfig = ladleConfigToClientConfig(fileConfig);
   }
+  console.log("LOG:", { clientConfig });
   merge(clientConfig, ladleConfigToClientConfig(config));
   // don't merge hotkeys
   // @ts-ignore

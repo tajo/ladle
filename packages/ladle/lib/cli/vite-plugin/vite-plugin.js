@@ -1,4 +1,5 @@
 import { globby } from "globby";
+import groupBy from "../deps/lodash.groupby.js";
 import path from "path";
 import fs from "fs";
 import debugFactory from "debug";
@@ -111,6 +112,28 @@ function ladlePlugin(config, configFolder, mode) {
               Array.isArray(config.stories) ? config.stories : [config.stories],
             ),
           );
+
+          if (config.packages) {
+            const globs = await globby(
+              Array.isArray(config.packages)
+                ? config.packages
+                : [config.packages],
+            );
+
+            console.log("load::globs", globs);
+            // @ts-ignore
+            const packageGroups = groupBy(globs, (path) => path.split("/")[0]);
+            console.log("load::packageGroups", packageGroups);
+
+            /*
+            const packageEntryData = await getEntryData(globs);
+            console.log(
+              "load::packageEntryData",
+              Object.keys(packageEntryData),
+            );
+            */
+          }
+
           detectDuplicateStoryNames(entryData);
           return await getGeneratedList(entryData, configFolder, config);
         } catch (/** @type {any} */ e) {
