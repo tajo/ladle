@@ -1,10 +1,7 @@
 ---
 slug: introducing-ladle
 title: Introducing Ladle
-author: Vojtech Miksu
-author_title: Developer Platform, Uber
-author_url: https://twitter.com/vmiksu
-author_image_url: https://miksu.cz/images/profile.jpg
+authors: vojtech
 tags: [ladle, storybook, react, testing, components]
 ---
 
@@ -15,6 +12,8 @@ Ladle is a tool for developing and testing your React components in an environme
 ## Storybook ❤️
 
 At Uber, we are big fans of Storybook. We have over 100 instances of Storybook in our web monorepo. Our teams use it to develop, showcase, document and test React components. We have developed a CI based system that automatically deploys each Storybook with every change and runs automated visual snapshot tests. This happens a thousand times each day. It's a critical tool for our web workflows. The performance is extremely important.
+
+<!-- truncate -->
 
 Unfortunately, there are some areas where Storybook is not doing as good as we would like to:
 

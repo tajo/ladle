@@ -4,10 +4,10 @@ Thanks for your interest to contribute to Ladle. Please take a moment and read t
 
 ## Repository
 
-Ladle is a monorepo using pnpm workspaces. The package manager used to install and link dependencies must be [pnpm v8](https://pnpm.io/). It can be installed as:
+Ladle is a monorepo using pnpm workspaces. The package manager used to install and link dependencies must be [pnpm v9](https://pnpm.io/). It can be installed as:
 
 ```sh
-npm install -g pnpm@8
+npm install -g pnpm@9
 ```
 
 Install the dependencies after forking and cloning the repository

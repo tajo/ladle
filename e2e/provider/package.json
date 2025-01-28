@@ -1,6 +1,6 @@
 {
   "name": "test-provider",
-  "version": "0.2.96",
+  "version": "0.2.101",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -15,9 +15,9 @@
   "dependencies": {
     "@ladle/playwright-config": "workspace:*",
     "@ladle/react": "workspace:*",
-    "@playwright/test": "^1.42.1",
+    "@playwright/test": "^1.49.1",
     "cross-env": "^7.0.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   }
 }

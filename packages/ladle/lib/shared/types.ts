@@ -179,14 +179,18 @@ export type Config = {
   defaultStory: string;
   storyOrder: StoryOrder;
   appendToHead: string;
+  disableHttp2: boolean;
   viteConfig?: string;
   host?: string;
   port: number;
   previewHost?: string;
   previewPort: number;
+  hmrHost?: string;
+  hmrPort?: number;
   outDir: string;
   base?: string;
   mode?: string;
+  expandStoryTree?: boolean;
   noWatch: boolean;
   hotkeys: {
     fullscreen: string[];
@@ -279,3 +283,26 @@ export type GetUserViteConfig = {
 export type EntryData = {
   [key: string]: ParsedStoriesResult;
 };
+
+export type MetaJson<M extends KnownMeta = KnownMeta> = {
+  about: {
+    homepage: string;
+    github: string;
+    version: number;
+  };
+  stories: { [key: string]: MetaJsonStory<M> };
+};
+
+export type MetaJsonStory<M extends KnownMeta = KnownMeta> = {
+  name: string;
+  levels: string[];
+  meta: M;
+  locStart: number;
+  locEnd: number;
+};
+
+export interface KnownMeta {
+  iframed?: boolean;
+  width?: string | number | "xsmall" | "small" | "medium" | "large";
+  mockDate?: string;
+}

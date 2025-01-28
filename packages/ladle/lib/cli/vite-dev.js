@@ -2,6 +2,7 @@ import { createServer, searchForWorkspaceRoot } from "vite";
 import koa from "koa";
 import http from "http";
 import http2 from "http2";
+import https from "https";
 import c2k from "koa-connect";
 import path from "path";
 import getPort from "get-port";
@@ -28,8 +29,8 @@ const bundler = async (config, configFolder) => {
   });
   const hmr = {
     // needed for hmr to work over network aka WSL2
-    host: "localhost",
-    port: hmrPort,
+    host: config.hmrHost ?? "localhost",
+    port: config.hmrPort ?? hmrPort,
   };
   debug(`Port set to: ${port}`);
   try {
@@ -102,8 +103,8 @@ const bundler = async (config, configFolder) => {
       (vite.config.server.host === true
         ? "0.0.0.0"
         : typeof vite.config.server.host === "string"
-        ? vite.config.server.host
-        : "localhost");
+          ? vite.config.server.host
+          : "localhost");
     const serverUrl = `${useHttps ? "https" : "http"}://${hostname}:${port}${
       vite.config.base || ""
     }`;
@@ -131,27 +132,35 @@ const bundler = async (config, configFolder) => {
     };
 
     if (useHttps) {
-      http2
-        .createSecureServer(
-          {
-            // Support HMR WS connection
-            allowHTTP1: true,
-            maxSessionMemory: 100,
-            settings: {
-              // Note: Chromium-based browser will initially allow 100 concurrent streams to be open
-              // over a single HTTP/2 connection, unless HTTP/2 server advertises a different value,
-              // in which case it will be capped at maximum of 256 concurrent streams. Hence pushing
-              // to the limit while in development, in an attempt to maximize the dev performance by
-              // minimizing the chances of the module requests queuing/stalling on the client-side.
-              // @see https://source.chromium.org/chromium/chromium/src/+/4c44ff10bcbdb2d113dcc43c72f3f47a84a8dd45:net/spdy/spdy_session.cc;l=477-479
-              maxConcurrentStreams: 256,
+      const usesProxy = Boolean(vite.config.server.proxy);
+
+      if (config.disableHttp2 || usesProxy) {
+        https
+          .createServer({ ...vite.config.server.https }, app.callback())
+          .listen(port, hostname, listenCallback);
+      } else {
+        http2
+          .createSecureServer(
+            {
+              // Support HMR WS connection
+              allowHTTP1: true,
+              maxSessionMemory: 100,
+              settings: {
+                // Note: Chromium-based browser will initially allow 100 concurrent streams to be open
+                // over a single HTTP/2 connection, unless HTTP/2 server advertises a different value,
+                // in which case it will be capped at maximum of 256 concurrent streams. Hence pushing
+                // to the limit while in development, in an attempt to maximize the dev performance by
+                // minimizing the chances of the module requests queuing/stalling on the client-side.
+                // @see https://source.chromium.org/chromium/chromium/src/+/4c44ff10bcbdb2d113dcc43c72f3f47a84a8dd45:net/spdy/spdy_session.cc;l=477-479
+                maxConcurrentStreams: 256,
+              },
+              // @ts-ignore
+              ...vite.config.server.https,
             },
-            // @ts-ignore
-            ...vite.config.server.https,
-          },
-          app.callback(),
-        )
-        .listen(port, hostname, listenCallback);
+            app.callback(),
+          )
+          .listen(port, hostname, listenCallback);
+      }
     } else {
       http.createServer(app.callback()).listen(port, hostname, listenCallback);
     }
@@ -198,6 +207,7 @@ const bundler = async (config, configFolder) => {
         }
       };
       watcher
+        // @ts-ignore
         .on("add", invalidate)
         .on("change", invalidate)
         .on("unlink", invalidate);

@@ -1,5 +1,53 @@
 # @ladle/react
 
+## 5.0.1
+
+### Patch Changes
+
+- [#594](https://github.com/tajo/ladle/pull/594) [`cdb6117`](https://github.com/tajo/ladle/commit/cdb6117c8060fd2b6b4b07f4f61c844f88447fda) Thanks [@tajo](https://github.com/tajo)! - Fix some React imports
+
+## 5.0.0
+
+### Major Changes
+
+- [#591](https://github.com/tajo/ladle/pull/591) [`7930e38`](https://github.com/tajo/ladle/commit/7930e38647dc9ef40dd92ff578815f77acb50ef6) Thanks [@tajo](https://github.com/tajo)! - Major dependency updates - Vite v6, React v19, Node v22. It shouldn't impact most of Ladle users unless relying on unusal vite (outdated) settings and APIs.
+
+- [#581](https://github.com/tajo/ladle/pull/581) [`a4859ce`](https://github.com/tajo/ladle/commit/a4859cea3cb49dd93d32736fed5c556bcdf53418) Thanks [@Oskii2311](https://github.com/Oskii2311)! - Toggling full-page preview preserves the search query.
+
+### Minor Changes
+
+- [#587](https://github.com/tajo/ladle/pull/587) [`1178c37`](https://github.com/tajo/ladle/commit/1178c37bfeb5aba0a3249811151f463beacdecef) Thanks [@Wesleyzxc](https://github.com/Wesleyzxc)! - add expandStoryTree config option
+
+### Patch Changes
+
+- [#582](https://github.com/tajo/ladle/pull/582) [`eaac9e9`](https://github.com/tajo/ladle/commit/eaac9e9a1e2c33b19bae02b58ee01657198d513b) Thanks [@iambriansreed](https://github.com/iambriansreed)! - Adds App UI and Icons, and types to exports.
+
+## 4.1.2
+
+### Patch Changes
+
+- [#576](https://github.com/tajo/ladle/pull/576) [`5af1fea`](https://github.com/tajo/ladle/commit/5af1fea5ac61adaf2a60eced125be6e47fac492b) Thanks [@tajo](https://github.com/tajo)! - Fix non-scrollable side nav in latest Chrome
+
+## 4.1.1
+
+### Patch Changes
+
+- [#568](https://github.com/tajo/ladle/pull/568) [`b6d0f10`](https://github.com/tajo/ladle/commit/b6d0f10ab2678b2fdc1d3d46346f0700613c0e61) Thanks [@hiddenist](https://github.com/hiddenist)! - Exports meta.json types from library
+
+- [#571](https://github.com/tajo/ladle/pull/571) [`c98d1af`](https://github.com/tajo/ladle/commit/c98d1afbe0f881d4e7db2e4d076522fe9cf5ed1b) Thanks [@wojtekmaj](https://github.com/wojtekmaj)! - Automatically disable http2 when Vite proxy is used
+
+## 4.1.0
+
+### Minor Changes
+
+- [#562](https://github.com/tajo/ladle/pull/562) [`8165a95`](https://github.com/tajo/ladle/commit/8165a95bb21ddbbed0ee2849c2f69d7e02b3b522) Thanks [@tajo](https://github.com/tajo)! - Add option to disable http2 when using https. We observed that some bigger Ladle instances throw ERR_HTTP2_PROTOCOL_ERROR errors after upgrading from Node18 to Node20. This setting can be used as a workaround.
+
+- [#558](https://github.com/tajo/ladle/pull/558) [`55de74a`](https://github.com/tajo/ladle/commit/55de74a1c2dcedd7f50b088954afe0b83c69a4d6) Thanks [@park-g](https://github.com/park-g)! - Add option to set HMR host and port via the ladle config and update the docs with these options.
+
+### Patch Changes
+
+- [#556](https://github.com/tajo/ladle/pull/556) [`755fd68`](https://github.com/tajo/ladle/commit/755fd68e603a7896b663a64e9bef003cbebab5a8) Thanks [@i-am-the-slime](https://github.com/i-am-the-slime)! - Allow export of stories in export blocks
+
 ## 4.0.3
 
 ### Patch Changes

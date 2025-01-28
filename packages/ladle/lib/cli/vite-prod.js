@@ -17,6 +17,16 @@ const viteProd = async (config, configFolder) => {
         outDir: path.join(process.cwd(), config.outDir),
         emptyOutDir: true,
         chunkSizeWarningLimit: 2000,
+        rollupOptions: {
+          onwarn: (warn, defaultHandler) => {
+            if (
+              warn.message.includes("empty-module.js is dynamically imported")
+            ) {
+              return;
+            }
+            defaultHandler(warn);
+          },
+        },
       },
     });
     await build(viteConfig);

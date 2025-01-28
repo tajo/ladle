@@ -35,9 +35,29 @@ export default UnoptimizedLink;
 ```
 
 ```tsx title=".ladle/UnoptimizedImage.tsx"
-const UnoptimizedImage = (props: any) => {
-  return <img {...props} />;
+import React from 'react';
+
+interface UnoptimizedImageProps
+  extends React.ImgHTMLAttributes<HTMLImageElement> {
+  fill?: boolean;
+}
+
+const UnoptimizedImage: React.FC<UnoptimizedImageProps> = ({
+  fill,
+  ...props
+}) => {
+  const style: React.CSSProperties = fill
+    ? {
+        position: 'absolute',
+        inset: '0',
+        width: '100%',
+        height: '100%',
+      }
+    : {};
+
+  return <img {...props} style={style} />;
 };
+
 export default UnoptimizedImage;
 ```
 
@@ -51,7 +71,7 @@ You could solve it by setting [Providers](/docs/providers).
 
 ```tsx title=".ladle/components.tsx"
 import { GlobalProvider } from "@ladle/react";
-import { AppRouterContext } from "next/dist/shared/lib/app-router-context";
+import { AppRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 export const Provider: GlobalProvider = ({ children }) => {
   return (
@@ -87,7 +107,7 @@ Or if you want to set it in each file, you could use [Decorators](/docs/decorato
 
 ```tsx title="./Hello.stories.tsx"
 import type { StoryDefault, Story } from "@ladle/react";
-import { AppRouterContext } from "next/dist/shared/lib/app-router-context";
+import { AppRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useRouter } from "next/navigation";
 
 export default {

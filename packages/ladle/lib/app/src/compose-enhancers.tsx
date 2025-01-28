@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import ArgsProvider from "./args-provider";
 import Msw from "./msw";
 import { args, argTypes } from "virtual:generated-list";

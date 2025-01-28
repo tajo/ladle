@@ -3,4 +3,5 @@ export default {
   viteConfig: "ladle-vite.config.js",
   appendToHead: `<style>.append {color: green}</style>`,
   storyOrder: () => ["specific*", "Hello*"],
+  expandStoryTree: true,
 };

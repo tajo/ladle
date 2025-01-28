@@ -1,5 +1,40 @@
 # test-decorators
 
+## 0.2.101
+
+### Patch Changes
+
+- Updated dependencies [[`cdb6117`](https://github.com/tajo/ladle/commit/cdb6117c8060fd2b6b4b07f4f61c844f88447fda)]:
+  - @ladle/react@5.0.1
+
+## 0.2.100
+
+### Patch Changes
+
+- Updated dependencies [[`7930e38`](https://github.com/tajo/ladle/commit/7930e38647dc9ef40dd92ff578815f77acb50ef6), [`1178c37`](https://github.com/tajo/ladle/commit/1178c37bfeb5aba0a3249811151f463beacdecef), [`eaac9e9`](https://github.com/tajo/ladle/commit/eaac9e9a1e2c33b19bae02b58ee01657198d513b), [`a4859ce`](https://github.com/tajo/ladle/commit/a4859cea3cb49dd93d32736fed5c556bcdf53418)]:
+  - @ladle/react@5.0.0
+
+## 0.2.99
+
+### Patch Changes
+
+- Updated dependencies [[`5af1fea`](https://github.com/tajo/ladle/commit/5af1fea5ac61adaf2a60eced125be6e47fac492b)]:
+  - @ladle/react@4.1.2
+
+## 0.2.98
+
+### Patch Changes
+
+- Updated dependencies [[`b6d0f10`](https://github.com/tajo/ladle/commit/b6d0f10ab2678b2fdc1d3d46346f0700613c0e61), [`c98d1af`](https://github.com/tajo/ladle/commit/c98d1afbe0f881d4e7db2e4d076522fe9cf5ed1b)]:
+  - @ladle/react@4.1.1
+
+## 0.2.97
+
+### Patch Changes
+
+- Updated dependencies [[`8165a95`](https://github.com/tajo/ladle/commit/8165a95bb21ddbbed0ee2849c2f69d7e02b3b522), [`755fd68`](https://github.com/tajo/ladle/commit/755fd68e603a7896b663a64e9bef003cbebab5a8), [`55de74a`](https://github.com/tajo/ladle/commit/55de74a1c2dcedd7f50b088954afe0b83c69a4d6)]:
+  - @ladle/react@4.1.0
+
 ## 0.2.96
 
 ### Patch Changes

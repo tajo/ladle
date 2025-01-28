@@ -18,4 +18,5 @@ export default {
       enabled: true,
     },
   },
+  expandStoryTree: true,
 };

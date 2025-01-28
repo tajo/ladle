@@ -8,12 +8,18 @@ import {
   ModeState,
   GlobalAction,
   Config,
+  KnownMeta,
+  MetaJson as BaseMetaJson,
+  MetaJsonStory as BaseMetaJsonStory,
 } from "../shared/types";
 
 import * as msw from "msw";
 export { msw };
 
 export type { UserConfig } from "../shared/types";
+export * as ui from "./src/ui";
+export * as dialog from "./src/dialog";
+export * as icons from "./src/icons";
 export { useMDXComponents } from "@mdx-js/react";
 export const Story = (props: any) => props.children;
 export const Meta = (props: any) => props.children;
@@ -52,6 +58,8 @@ export const action = (name: string) => {
       clear: false,
     });
 };
+
+export type { GlobalAction, GlobalState };
 
 export type GlobalProvider = React.FC<{
   globalState: GlobalState;
@@ -135,9 +143,9 @@ export type ArgTypes<
   [key in keyof P]?: ArgType<P[key]>;
 };
 
-export interface Meta {
-  iframed?: boolean;
-  width?: string | number | "xsmall" | "small" | "medium" | "large";
-  mockDate?: string;
+export interface Meta extends KnownMeta {
   [key: string]: any;
 }
+
+export type MetaJson = BaseMetaJson<Meta>;
+export type MetaJsonStory = BaseMetaJsonStory<Meta>;

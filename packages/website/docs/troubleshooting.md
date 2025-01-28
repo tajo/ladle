@@ -26,4 +26,4 @@ Join our [community](https://discord.gg/H6FSHjyW7e).
 
 ## ES Modules
 
-Ladle embraces ES Modules and is implemented as an ES module. That requires `Node 18+` and environment that fully supports ESM.
+Ladle embraces ES Modules and is implemented as an ES module. That requires `Node 20+` and environment that fully supports ESM.

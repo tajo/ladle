@@ -35,7 +35,7 @@ export class Frame extends Component<FrameProps, FrameState> {
   };
 
   private _isMounted: boolean = false;
-  private nodeRef: RefObject<HTMLIFrameElement> = React.createRef();
+  private nodeRef: RefObject<HTMLIFrameElement | null> = React.createRef();
 
   constructor(props: FrameProps) {
     super(props);

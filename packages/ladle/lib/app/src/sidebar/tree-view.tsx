@@ -29,25 +29,25 @@ const TreeView = ({
   stories,
   story,
   updateStory,
-  searchActive,
+  allExpanded,
   searchRef,
   setTreeRootRef,
   hotkeys,
 }: {
   stories: string[];
   story: string;
-  searchRef: React.Ref<HTMLLinkElement>;
+  searchRef: React.Ref<HTMLInputElement>;
   updateStory: UpdateStory;
   setTreeRootRef: (root: HTMLUListElement | null) => void;
-  searchActive?: boolean;
+  allExpanded?: boolean;
   hotkeys: boolean;
 }) => {
   const treeItemRefs: TreeItemRefs = React.useRef({});
   const [tree, setTree] = React.useState(
-    getStoryTree(stories, story, searchActive),
+    getStoryTree(stories, story, allExpanded),
   );
   React.useEffect(() => {
-    setTree(getStoryTree(stories, story, searchActive));
+    setTree(getStoryTree(stories, story, allExpanded));
   }, [stories.join(",")]);
 
   const [selectedItemId, setSelectedItemId] = React.useState<string | null>(
@@ -64,7 +64,7 @@ const TreeView = ({
   const hotkeyStoryTransition = (story?: string) => {
     if (story) {
       updateStory(story);
-      setTree(getStoryTree(stories, story, searchActive));
+      setTree(getStoryTree(stories, story, allExpanded));
       setTimeout(() => focusSelectedItem(story), 1);
     }
   };
@@ -151,12 +151,13 @@ const TreeView = ({
         e.stopPropagation();
         focusSelectedItem(getPrevId(tree, item.id, null));
         break;
-      case "ArrowDown":
+      case "ArrowDown": {
         e.preventDefault();
         e.stopPropagation();
         const nextId = getNextId(tree, item.id, null);
         nextId && focusSelectedItem(nextId);
         break;
+      }
       case " ":
       case "Enter":
         if (!(e.target as any).href) {
@@ -247,7 +248,8 @@ const NavigationSection = ({
             ref={
               treeProps.isLinkable
                 ? undefined
-                : (element) => (treeItemRefs.current[treeProps.id] = element)
+                : (((element: any) =>
+                    (treeItemRefs.current[treeProps.id] = element)) as any)
             }
             role="treeitem"
             key={treeProps.id}
@@ -263,7 +265,7 @@ const NavigationSection = ({
                 <a
                   tabIndex={treeProps.id === selectedItemId ? 0 : -1}
                   ref={(element) =>
-                    (treeItemRefs.current[treeProps.id] = element)
+                    (treeItemRefs.current[treeProps.id] = element) as any
                   }
                   href={getHref({ story: treeProps.id })}
                   onKeyDown={(e) =>

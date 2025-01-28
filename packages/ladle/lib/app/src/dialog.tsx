@@ -312,8 +312,6 @@ const objectAssign = function (target, source) {
   return to;
 };
 
-/* eslint-disable no-restricted-globals, eqeqeq  */
-
 /**
  * React currently throws a warning when using useLayoutEffect on the server.
  * To get around it, we can conditionally useEffect on the server (no-op) and
@@ -1088,7 +1086,7 @@ const factoryWithTypeCheckers = function (isValidElement, throwOnDirectAccess) {
    * inlined Object.is polyfill to avoid requiring consumers ship their own
    * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
    */
-  /*eslint-disable no-self-compare*/
+
   function is(x, y) {
     // SameValue algorithm
     if (x === y) {
@@ -2057,188 +2055,188 @@ const mediumSidecar = createSidecarMedium({
 });
 
 const emptyArray = [];
-const FocusLock = /*#__PURE__*/ react.forwardRef(function FocusLockUI(
-  props,
-  parentRef,
-) {
-  let _extends2;
+const FocusLock = /*#__PURE__*/ react.forwardRef(
+  function FocusLockUI(props, parentRef) {
+    let _extends2;
 
-  const _React$useState = react.useState(),
-    realObserved = _React$useState[0],
-    setObserved = _React$useState[1];
+    const _React$useState = react.useState(),
+      realObserved = _React$useState[0],
+      setObserved = _React$useState[1];
 
-  const observed = react.useRef();
-  const isActive = react.useRef(false);
-  const originalFocusedElement = react.useRef(null);
-  const children = props.children,
-    disabled = props.disabled,
-    noFocusGuards = props.noFocusGuards,
-    persistentFocus = props.persistentFocus,
-    crossFrame = props.crossFrame,
-    autoFocus = props.autoFocus,
-    allowTextSelection = props.allowTextSelection,
-    group = props.group,
-    className = props.className,
-    whiteList = props.whiteList,
-    _props$shards = props.shards,
-    shards = _props$shards === void 0 ? emptyArray : _props$shards,
-    _props$as = props.as,
-    Container = _props$as === void 0 ? "div" : _props$as,
-    _props$lockProps = props.lockProps,
-    containerProps = _props$lockProps === void 0 ? {} : _props$lockProps,
-    SideCar = props.sideCar,
-    shouldReturnFocus = props.returnFocus,
-    onActivationCallback = props.onActivation,
-    onDeactivationCallback = props.onDeactivation;
+    const observed = react.useRef();
+    const isActive = react.useRef(false);
+    const originalFocusedElement = react.useRef(null);
+    const children = props.children,
+      disabled = props.disabled,
+      noFocusGuards = props.noFocusGuards,
+      persistentFocus = props.persistentFocus,
+      crossFrame = props.crossFrame,
+      autoFocus = props.autoFocus,
+      allowTextSelection = props.allowTextSelection,
+      group = props.group,
+      className = props.className,
+      whiteList = props.whiteList,
+      _props$shards = props.shards,
+      shards = _props$shards === void 0 ? emptyArray : _props$shards,
+      _props$as = props.as,
+      Container = _props$as === void 0 ? "div" : _props$as,
+      _props$lockProps = props.lockProps,
+      containerProps = _props$lockProps === void 0 ? {} : _props$lockProps,
+      SideCar = props.sideCar,
+      shouldReturnFocus = props.returnFocus,
+      onActivationCallback = props.onActivation,
+      onDeactivationCallback = props.onDeactivation;
 
-  const _React$useState2 = react.useState({}),
-    id = _React$useState2[0]; // SIDE EFFECT CALLBACKS
+    const _React$useState2 = react.useState({}),
+      id = _React$useState2[0]; // SIDE EFFECT CALLBACKS
 
-  const onActivation = react.useCallback(
-    function () {
-      originalFocusedElement.current =
-        originalFocusedElement.current || (document && document.activeElement);
+    const onActivation = react.useCallback(
+      function () {
+        originalFocusedElement.current =
+          originalFocusedElement.current ||
+          (document && document.activeElement);
 
-      if (observed.current && onActivationCallback) {
-        onActivationCallback(observed.current);
-      }
-
-      isActive.current = true;
-    },
-    [onActivationCallback],
-  );
-  const onDeactivation = react.useCallback(
-    function () {
-      isActive.current = false;
-
-      if (onDeactivationCallback) {
-        onDeactivationCallback(observed.current);
-      }
-    },
-    [onDeactivationCallback],
-  );
-  const returnFocus = react.useCallback(
-    function (allowDefer) {
-      const current = originalFocusedElement.current;
-
-      if (Boolean(shouldReturnFocus) && current && current.focus) {
-        const focusOptions =
-          typeof shouldReturnFocus === "object" ? shouldReturnFocus : undefined;
-        originalFocusedElement.current = null;
-
-        if (allowDefer) {
-          // React might return focus after update
-          // it's safer to defer the action
-          Promise.resolve().then(function () {
-            return current.focus(focusOptions);
-          });
-        } else {
-          current.focus(focusOptions);
+        if (observed.current && onActivationCallback) {
+          onActivationCallback(observed.current);
         }
-      }
-    },
-    [shouldReturnFocus],
-  ); // MEDIUM CALLBACKS
 
-  const onFocus = react.useCallback(function (event) {
-    if (isActive.current) {
-      mediumFocus.useMedium(event);
-    }
-  }, []);
-  const onBlur = mediumBlur.useMedium; // REF PROPAGATION
-  // not using real refs due to race conditions
+        isActive.current = true;
+      },
+      [onActivationCallback],
+    );
+    const onDeactivation = react.useCallback(
+      function () {
+        isActive.current = false;
 
-  const setObserveNode = react.useCallback(function (newObserved) {
-    if (observed.current !== newObserved) {
-      observed.current = newObserved;
-      setObserved(newObserved);
-    }
-  }, []);
+        if (onDeactivationCallback) {
+          onDeactivationCallback(observed.current);
+        }
+      },
+      [onDeactivationCallback],
+    );
+    const returnFocus = react.useCallback(
+      function (allowDefer) {
+        const current = originalFocusedElement.current;
 
-  {
-    if (typeof allowTextSelection !== "undefined") {
-      // eslint-disable-next-line no-console
-      console.warn(
-        "React-Focus-Lock: allowTextSelection is deprecated and enabled by default",
-      );
-    }
+        if (Boolean(shouldReturnFocus) && current && current.focus) {
+          const focusOptions =
+            typeof shouldReturnFocus === "object"
+              ? shouldReturnFocus
+              : undefined;
+          originalFocusedElement.current = null;
 
-    react.useEffect(function () {
-      if (!observed.current) {
-        // eslint-disable-next-line no-console
-        console.error("FocusLock: could not obtain ref to internal node");
+          if (allowDefer) {
+            // React might return focus after update
+            // it's safer to defer the action
+            Promise.resolve().then(function () {
+              return current.focus(focusOptions);
+            });
+          } else {
+            current.focus(focusOptions);
+          }
+        }
+      },
+      [shouldReturnFocus],
+    ); // MEDIUM CALLBACKS
+
+    const onFocus = react.useCallback(function (event) {
+      if (isActive.current) {
+        mediumFocus.useMedium(event);
       }
     }, []);
-  }
+    const onBlur = mediumBlur.useMedium; // REF PROPAGATION
+    // not using real refs due to race conditions
 
-  const lockProps = _extends$1(
-    ((_extends2 = {}),
-    (_extends2[FOCUS_DISABLED] = disabled && "disabled"),
-    (_extends2[FOCUS_GROUP] = group),
-    _extends2),
-    containerProps,
-  );
+    const setObserveNode = react.useCallback(function (newObserved) {
+      if (observed.current !== newObserved) {
+        observed.current = newObserved;
+        setObserved(newObserved);
+      }
+    }, []);
 
-  const hasLeadingGuards = noFocusGuards !== true;
-  const hasTailingGuards = hasLeadingGuards && noFocusGuards !== "tail";
-  const mergedRef = useMergeRefs([parentRef, setObserveNode]);
-  return /*#__PURE__*/ react.createElement(
-    react.Fragment,
-    null,
-    hasLeadingGuards && [
-      /*#__PURE__*/ react.createElement("div", {
-        key: "guard-first",
-        "data-focus-guard": true,
-        tabIndex: disabled ? -1 : 0,
-        style: hiddenGuard,
-      }),
-      /*#__PURE__*/
-      // nearest focus guard
-      react.createElement("div", {
-        key: "guard-nearest",
-        "data-focus-guard": true,
-        tabIndex: disabled ? -1 : 1,
-        style: hiddenGuard,
-      }), // first tabbed element guard
-    ],
-    !disabled &&
-      /*#__PURE__*/ react.createElement(SideCar, {
-        id: id,
-        sideCar: mediumSidecar,
-        observed: realObserved,
-        disabled: disabled,
-        persistentFocus: persistentFocus,
-        crossFrame: crossFrame,
-        autoFocus: autoFocus,
-        whiteList: whiteList,
-        shards: shards,
-        onActivation: onActivation,
-        onDeactivation: onDeactivation,
-        returnFocus: returnFocus,
-      }),
-    /*#__PURE__*/ react.createElement(
-      Container,
-      _extends$1(
-        {
-          ref: mergedRef,
-        },
-        lockProps,
-        {
-          className: className,
-          onBlur: onBlur,
-          onFocus: onFocus,
-        },
+    {
+      if (typeof allowTextSelection !== "undefined") {
+        console.warn(
+          "React-Focus-Lock: allowTextSelection is deprecated and enabled by default",
+        );
+      }
+
+      react.useEffect(function () {
+        if (!observed.current) {
+          console.error("FocusLock: could not obtain ref to internal node");
+        }
+      }, []);
+    }
+
+    const lockProps = _extends$1(
+      ((_extends2 = {}),
+      (_extends2[FOCUS_DISABLED] = disabled && "disabled"),
+      (_extends2[FOCUS_GROUP] = group),
+      _extends2),
+      containerProps,
+    );
+
+    const hasLeadingGuards = noFocusGuards !== true;
+    const hasTailingGuards = hasLeadingGuards && noFocusGuards !== "tail";
+    const mergedRef = useMergeRefs([parentRef, setObserveNode]);
+    return /*#__PURE__*/ react.createElement(
+      react.Fragment,
+      null,
+      hasLeadingGuards && [
+        /*#__PURE__*/ react.createElement("div", {
+          key: "guard-first",
+          "data-focus-guard": true,
+          tabIndex: disabled ? -1 : 0,
+          style: hiddenGuard,
+        }),
+        /*#__PURE__*/
+        // nearest focus guard
+        react.createElement("div", {
+          key: "guard-nearest",
+          "data-focus-guard": true,
+          tabIndex: disabled ? -1 : 1,
+          style: hiddenGuard,
+        }), // first tabbed element guard
+      ],
+      !disabled &&
+        /*#__PURE__*/ react.createElement(SideCar, {
+          id: id,
+          sideCar: mediumSidecar,
+          observed: realObserved,
+          disabled: disabled,
+          persistentFocus: persistentFocus,
+          crossFrame: crossFrame,
+          autoFocus: autoFocus,
+          whiteList: whiteList,
+          shards: shards,
+          onActivation: onActivation,
+          onDeactivation: onDeactivation,
+          returnFocus: returnFocus,
+        }),
+      /*#__PURE__*/ react.createElement(
+        Container,
+        _extends$1(
+          {
+            ref: mergedRef,
+          },
+          lockProps,
+          {
+            className: className,
+            onBlur: onBlur,
+            onFocus: onFocus,
+          },
+        ),
+        children,
       ),
-      children,
-    ),
-    hasTailingGuards &&
-      /*#__PURE__*/ react.createElement("div", {
-        "data-focus-guard": true,
-        tabIndex: disabled ? -1 : 0,
-        style: hiddenGuard,
-      }),
-  );
-});
+      hasTailingGuards &&
+        /*#__PURE__*/ react.createElement("div", {
+          "data-focus-guard": true,
+          tabIndex: disabled ? -1 : 0,
+          style: hiddenGuard,
+        }),
+    );
+  },
+);
 FocusLock.propTypes = {
   children: propTypes$1.node,
   disabled: propTypes$1.bool,
@@ -2697,11 +2695,11 @@ const focusInside = function (topNode) {
 const focusIsHidden = function () {
   return (
     document &&
-    toArray(document.querySelectorAll("[" + FOCUS_ALLOW + "]")).some(function (
-      node,
-    ) {
-      return node.contains(document.activeElement);
-    })
+    toArray(document.querySelectorAll("[" + FOCUS_ALLOW + "]")).some(
+      function (node) {
+        return node.contains(document.activeElement);
+      },
+    )
   );
 };
 
@@ -3814,14 +3812,13 @@ function RemoveScrollSideCar(props) {
     const event = { name: name, delta: delta, target: target, should: should };
     shouldPreventQueue.current.push(event);
     setTimeout(function () {
-      shouldPreventQueue.current = shouldPreventQueue.current.filter(function (
-        e,
-      ) {
-        return e !== event;
-      });
+      shouldPreventQueue.current = shouldPreventQueue.current.filter(
+        function (e) {
+          return e !== event;
+        },
+      );
     }, 1);
-  },
-  []);
+  }, []);
   const scrollTouchStart = react.useCallback(function (event) {
     touchStartRef.current = getTouchXY(event);
     activeAxis.current = undefined;
@@ -3940,54 +3937,53 @@ const overlayPropTypes = {
  * @see Docs https://reach.tech/dialog#dialogoverlay
  */
 
-const DialogOverlay = /*#__PURE__*/ forwardRefWithAs(function DialogOverlay(
-  _ref,
-  forwardedRef,
-) {
-  const _ref$as = _ref.as,
-    Comp = _ref$as === void 0 ? "div" : _ref$as,
-    _ref$isOpen = _ref.isOpen,
-    isOpen = _ref$isOpen === void 0 ? true : _ref$isOpen,
-    props = _objectWithoutPropertiesLoose(_ref, ["as", "isOpen"]);
+const DialogOverlay = /*#__PURE__*/ forwardRefWithAs(
+  function DialogOverlay(_ref, forwardedRef) {
+    const _ref$as = _ref.as,
+      Comp = _ref$as === void 0 ? "div" : _ref$as,
+      _ref$isOpen = _ref.isOpen,
+      isOpen = _ref$isOpen === void 0 ? true : _ref$isOpen,
+      props = _objectWithoutPropertiesLoose(_ref, ["as", "isOpen"]);
 
-  useCheckStyles("dialog"); // We want to ignore the immediate focus of a tooltip so it doesn't pop
-  // up again when the menu closes, only pops up when focus returns again
-  // to the tooltip (like native OS tooltips).
+    useCheckStyles("dialog"); // We want to ignore the immediate focus of a tooltip so it doesn't pop
+    // up again when the menu closes, only pops up when focus returns again
+    // to the tooltip (like native OS tooltips).
 
-  react.useEffect(
-    function () {
-      if (isOpen) {
-        // @ts-ignore
-        window.__REACH_DISABLE_TOOLTIPS = true;
-      } else {
-        window.requestAnimationFrame(function () {
-          // Wait a frame so that this doesn't fire before tooltip does
+    react.useEffect(
+      function () {
+        if (isOpen) {
           // @ts-ignore
-          window.__REACH_DISABLE_TOOLTIPS = false;
-        });
-      }
-    },
-    [isOpen],
-  );
-  return isOpen
-    ? /*#__PURE__*/ react.createElement(
-        Portal,
-        {
-          "data-reach-dialog-wrapper": "",
-        },
-        /*#__PURE__*/ react.createElement(
-          DialogInner,
-          _extends(
-            {
-              ref: forwardedRef,
-              as: Comp,
-            },
-            props,
+          window.__REACH_DISABLE_TOOLTIPS = true;
+        } else {
+          window.requestAnimationFrame(function () {
+            // Wait a frame so that this doesn't fire before tooltip does
+            // @ts-ignore
+            window.__REACH_DISABLE_TOOLTIPS = false;
+          });
+        }
+      },
+      [isOpen],
+    );
+    return isOpen
+      ? /*#__PURE__*/ react.createElement(
+          Portal,
+          {
+            "data-reach-dialog-wrapper": "",
+          },
+          /*#__PURE__*/ react.createElement(
+            DialogInner,
+            _extends(
+              {
+                ref: forwardedRef,
+                as: Comp,
+              },
+              props,
+            ),
           ),
-        ),
-      )
-    : null;
-});
+        )
+      : null;
+  },
+);
 
 {
   DialogOverlay.displayName = "DialogOverlay";
@@ -4001,109 +3997,108 @@ const DialogOverlay = /*#__PURE__*/ forwardRefWithAs(function DialogOverlay(
 /**
  * DialogInner
  */
-var DialogInner = /*#__PURE__*/ forwardRefWithAs(function DialogInner(
-  _ref2,
-  forwardedRef,
-) {
-  const allowPinchZoom = _ref2.allowPinchZoom,
-    _ref2$as = _ref2.as,
-    Comp = _ref2$as === void 0 ? "div" : _ref2$as,
-    _ref2$dangerouslyBypa = _ref2.dangerouslyBypassFocusLock,
-    dangerouslyBypassFocusLock =
-      _ref2$dangerouslyBypa === void 0 ? false : _ref2$dangerouslyBypa,
-    _ref2$dangerouslyBypa2 = _ref2.dangerouslyBypassScrollLock,
-    dangerouslyBypassScrollLock =
-      _ref2$dangerouslyBypa2 === void 0 ? false : _ref2$dangerouslyBypa2,
-    initialFocusRef = _ref2.initialFocusRef,
-    onClick = _ref2.onClick,
-    _ref2$onDismiss = _ref2.onDismiss,
-    onDismiss = _ref2$onDismiss === void 0 ? noop : _ref2$onDismiss,
-    onKeyDown = _ref2.onKeyDown,
-    onMouseDown = _ref2.onMouseDown,
-    _ref2$unstable_lockFo = _ref2.unstable_lockFocusAcrossFrames,
-    unstable_lockFocusAcrossFrames =
-      _ref2$unstable_lockFo === void 0 ? true : _ref2$unstable_lockFo,
-    props = _objectWithoutPropertiesLoose(_ref2, [
-      "allowPinchZoom",
-      "as",
-      "dangerouslyBypassFocusLock",
-      "dangerouslyBypassScrollLock",
-      "initialFocusRef",
-      "onClick",
-      "onDismiss",
-      "onKeyDown",
-      "onMouseDown",
-      "unstable_lockFocusAcrossFrames",
-    ]);
+var DialogInner = /*#__PURE__*/ forwardRefWithAs(
+  function DialogInner(_ref2, forwardedRef) {
+    const allowPinchZoom = _ref2.allowPinchZoom,
+      _ref2$as = _ref2.as,
+      Comp = _ref2$as === void 0 ? "div" : _ref2$as,
+      _ref2$dangerouslyBypa = _ref2.dangerouslyBypassFocusLock,
+      dangerouslyBypassFocusLock =
+        _ref2$dangerouslyBypa === void 0 ? false : _ref2$dangerouslyBypa,
+      _ref2$dangerouslyBypa2 = _ref2.dangerouslyBypassScrollLock,
+      dangerouslyBypassScrollLock =
+        _ref2$dangerouslyBypa2 === void 0 ? false : _ref2$dangerouslyBypa2,
+      initialFocusRef = _ref2.initialFocusRef,
+      onClick = _ref2.onClick,
+      _ref2$onDismiss = _ref2.onDismiss,
+      onDismiss = _ref2$onDismiss === void 0 ? noop : _ref2$onDismiss,
+      onKeyDown = _ref2.onKeyDown,
+      onMouseDown = _ref2.onMouseDown,
+      _ref2$unstable_lockFo = _ref2.unstable_lockFocusAcrossFrames,
+      unstable_lockFocusAcrossFrames =
+        _ref2$unstable_lockFo === void 0 ? true : _ref2$unstable_lockFo,
+      props = _objectWithoutPropertiesLoose(_ref2, [
+        "allowPinchZoom",
+        "as",
+        "dangerouslyBypassFocusLock",
+        "dangerouslyBypassScrollLock",
+        "initialFocusRef",
+        "onClick",
+        "onDismiss",
+        "onKeyDown",
+        "onMouseDown",
+        "unstable_lockFocusAcrossFrames",
+      ]);
 
-  const mouseDownTarget = react.useRef(null);
-  const overlayNode = react.useRef(null);
-  const ref = useForkedRef(overlayNode, forwardedRef);
-  const activateFocusLock = react.useCallback(
-    function () {
-      if (initialFocusRef && initialFocusRef.current) {
-        initialFocusRef.current.focus();
+    const mouseDownTarget = react.useRef(null);
+    const overlayNode = react.useRef(null);
+    const ref = useForkedRef(overlayNode, forwardedRef);
+    const activateFocusLock = react.useCallback(
+      function () {
+        if (initialFocusRef && initialFocusRef.current) {
+          initialFocusRef.current.focus();
+        }
+      },
+      [initialFocusRef],
+    );
+
+    function handleClick(event) {
+      if (mouseDownTarget.current === event.target) {
+        event.stopPropagation();
+        onDismiss(event);
       }
-    },
-    [initialFocusRef],
-  );
-
-  function handleClick(event) {
-    if (mouseDownTarget.current === event.target) {
-      event.stopPropagation();
-      onDismiss(event);
     }
-  }
 
-  function handleKeyDown(event) {
-    if (event.key === "Escape") {
-      event.stopPropagation();
-      onDismiss(event);
+    function handleKeyDown(event) {
+      if (event.key === "Escape") {
+        event.stopPropagation();
+        onDismiss(event);
+      }
     }
-  }
 
-  function handleMouseDown(event) {
-    mouseDownTarget.current = event.target;
-  }
+    function handleMouseDown(event) {
+      mouseDownTarget.current = event.target;
+    }
 
-  react.useEffect(function () {
-    return overlayNode.current
-      ? createAriaHider(overlayNode.current)
-      : void null;
-  }, []);
-  return /*#__PURE__*/ react.createElement(
-    FocusLockCombination,
-    {
-      autoFocus: true,
-      returnFocus: true,
-      onActivation: activateFocusLock,
-      disabled: dangerouslyBypassFocusLock,
-      crossFrame: unstable_lockFocusAcrossFrames,
-    },
-    /*#__PURE__*/ react.createElement(
-      ReactRemoveScroll,
+    react.useEffect(function () {
+      return overlayNode.current
+        ? createAriaHider(overlayNode.current)
+        : void null;
+    }, []);
+    return /*#__PURE__*/ react.createElement(
+      FocusLockCombination,
       {
-        allowPinchZoom: allowPinchZoom,
-        enabled: !dangerouslyBypassScrollLock,
+        autoFocus: true,
+        returnFocus: true,
+        onActivation: activateFocusLock,
+        disabled: dangerouslyBypassFocusLock,
+        crossFrame: unstable_lockFocusAcrossFrames,
       },
       /*#__PURE__*/ react.createElement(
-        Comp,
-        _extends({}, props, {
-          ref: ref,
-          "data-reach-dialog-overlay": "",
-          /*
-           * We can ignore the `no-static-element-interactions` warning here
-           * because our overlay is only designed to capture any outside
-           * clicks, not to serve as a clickable element itself.
-           */
-          onClick: wrapEvent(onClick, handleClick),
-          onKeyDown: wrapEvent(onKeyDown, handleKeyDown),
-          onMouseDown: wrapEvent(onMouseDown, handleMouseDown),
-        }),
+        ReactRemoveScroll,
+        {
+          allowPinchZoom: allowPinchZoom,
+          enabled: !dangerouslyBypassScrollLock,
+        },
+        /*#__PURE__*/ react.createElement(
+          Comp,
+          _extends({}, props, {
+            ref: ref,
+            "data-reach-dialog-overlay": "",
+            /*
+             * We can ignore the `no-static-element-interactions` warning here
+             * because our overlay is only designed to capture any outside
+             * clicks, not to serve as a clickable element itself.
+             */
+            onClick: wrapEvent(onClick, handleClick),
+            onKeyDown: wrapEvent(onKeyDown, handleKeyDown),
+            onMouseDown: wrapEvent(onMouseDown, handleMouseDown),
+          }),
+        ),
       ),
-    ),
-  );
-});
+    );
+  },
+);
 
 {
   DialogOverlay.displayName = "DialogOverlay";
@@ -4126,39 +4121,38 @@ var DialogInner = /*#__PURE__*/ forwardRefWithAs(function DialogInner(
  * @see Docs https://reach.tech/dialog#dialogcontent
  */
 
-const DialogContent = /*#__PURE__*/ forwardRefWithAs(function DialogContent(
-  _ref3,
-  forwardedRef,
-) {
-  const _ref3$as = _ref3.as,
-    Comp = _ref3$as === void 0 ? "div" : _ref3$as,
-    onClick = _ref3.onClick;
-  _ref3.onKeyDown;
-  const props = _objectWithoutPropertiesLoose(_ref3, [
-    "as",
-    "onClick",
-    "onKeyDown",
-  ]);
+const DialogContent = /*#__PURE__*/ forwardRefWithAs(
+  function DialogContent(_ref3, forwardedRef) {
+    const _ref3$as = _ref3.as,
+      Comp = _ref3$as === void 0 ? "div" : _ref3$as,
+      onClick = _ref3.onClick;
+    _ref3.onKeyDown;
+    const props = _objectWithoutPropertiesLoose(_ref3, [
+      "as",
+      "onClick",
+      "onKeyDown",
+    ]);
 
-  return /*#__PURE__*/ react.createElement(
-    Comp,
-    _extends(
-      {
-        "aria-modal": "true",
-        role: "dialog",
-        tabIndex: -1,
-      },
-      props,
-      {
-        ref: forwardedRef,
-        "data-reach-dialog-content": "",
-        onClick: wrapEvent(onClick, function (event) {
-          event.stopPropagation();
-        }),
-      },
-    ),
-  );
-});
+    return /*#__PURE__*/ react.createElement(
+      Comp,
+      _extends(
+        {
+          "aria-modal": "true",
+          role: "dialog",
+          tabIndex: -1,
+        },
+        props,
+        {
+          ref: forwardedRef,
+          "data-reach-dialog-content": "",
+          onClick: wrapEvent(onClick, function (event) {
+            event.stopPropagation();
+          }),
+        },
+      ),
+    );
+  },
+);
 /**
  * @see Docs https://reach.tech/dialog#dialogcontent-props
  */
@@ -4181,43 +4175,42 @@ const DialogContent = /*#__PURE__*/ forwardRefWithAs(function DialogContent(
  */
 
 /** @type {any} */
-const Dialog = /*#__PURE__*/ forwardRefWithAs(function Dialog(
-  _ref4,
-  forwardedRef,
-) {
-  const _ref4$allowPinchZoom = _ref4.allowPinchZoom,
-    allowPinchZoom =
-      _ref4$allowPinchZoom === void 0 ? false : _ref4$allowPinchZoom,
-    initialFocusRef = _ref4.initialFocusRef,
-    isOpen = _ref4.isOpen,
-    _ref4$onDismiss = _ref4.onDismiss,
-    onDismiss = _ref4$onDismiss === void 0 ? noop : _ref4$onDismiss,
-    props = _objectWithoutPropertiesLoose(_ref4, [
-      "allowPinchZoom",
-      "initialFocusRef",
-      "isOpen",
-      "onDismiss",
-    ]);
+const Dialog = /*#__PURE__*/ forwardRefWithAs(
+  function Dialog(_ref4, forwardedRef) {
+    const _ref4$allowPinchZoom = _ref4.allowPinchZoom,
+      allowPinchZoom =
+        _ref4$allowPinchZoom === void 0 ? false : _ref4$allowPinchZoom,
+      initialFocusRef = _ref4.initialFocusRef,
+      isOpen = _ref4.isOpen,
+      _ref4$onDismiss = _ref4.onDismiss,
+      onDismiss = _ref4$onDismiss === void 0 ? noop : _ref4$onDismiss,
+      props = _objectWithoutPropertiesLoose(_ref4, [
+        "allowPinchZoom",
+        "initialFocusRef",
+        "isOpen",
+        "onDismiss",
+      ]);
 
-  return /*#__PURE__*/ react.createElement(
-    DialogOverlay,
-    {
-      allowPinchZoom: allowPinchZoom,
-      initialFocusRef: initialFocusRef,
-      isOpen: isOpen,
-      onDismiss: onDismiss,
-    },
-    /*#__PURE__*/ react.createElement(
-      DialogContent,
-      _extends(
-        {
-          ref: forwardedRef,
-        },
-        props,
+    return /*#__PURE__*/ react.createElement(
+      DialogOverlay,
+      {
+        allowPinchZoom: allowPinchZoom,
+        initialFocusRef: initialFocusRef,
+        isOpen: isOpen,
+        onDismiss: onDismiss,
+      },
+      /*#__PURE__*/ react.createElement(
+        DialogContent,
+        _extends(
+          {
+            ref: forwardedRef,
+          },
+          props,
+        ),
       ),
-    ),
-  );
-});
+    );
+  },
+);
 /**
  * @see Docs https://reach.tech/dialog#dialog-props
  */
@@ -4256,8 +4249,8 @@ function createAriaHider(dialogNode) {
         (_dialogNode$parentNod = dialogNode.parentNode) == null
           ? void 0
           : (_dialogNode$parentNod2 = _dialogNode$parentNod.parentNode) == null
-          ? void 0
-          : _dialogNode$parentNod2.parentNode;
+            ? void 0
+            : _dialogNode$parentNod2.parentNode;
 
       if (node === portalNode) {
         return;

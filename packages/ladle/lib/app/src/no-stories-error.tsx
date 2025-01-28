@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import { Link } from "./ui";
 
 const NoStoriesError = ({ error }: { error: string }) => {
