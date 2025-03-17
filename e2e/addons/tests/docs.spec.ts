@@ -14,3 +14,14 @@ test("mdx readme is rendered", async ({ page }) => {
     i++;
   }
 });
+
+test("mdx story rendering does not throw errors in console", async ({
+  page,
+}) => {
+  page.on("console", (msg) => {
+    expect(msg.type()).not.toBe("error");
+  });
+
+  await page.goto("/?story=docs--documentation");
+  await expect(page.locator("h1")).toHaveText("test-page");
+});
