@@ -66,7 +66,7 @@ export const CodeHighlight = ({
             {tokens.map((line, i) => (
               <div key={i}>
                 {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token, key })} />
+                  <span key={key} {...getTokenProps({ token })} />
                 ))}
               </div>
             ))}
