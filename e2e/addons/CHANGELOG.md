@@ -1,5 +1,14 @@
 # test-addons
 
+## 0.2.78
+
+### Patch Changes
+
+- [#609](https://github.com/tajo/ladle/pull/609) [`189cd5a`](https://github.com/tajo/ladle/commit/189cd5a21f13856a25e01010f0ee3f4a0a1a1a29) Thanks [@tiplutom](https://github.com/tiplutom)! - Fix mdx code blocks throwing errors in dev console
+
+- Updated dependencies [[`189cd5a`](https://github.com/tajo/ladle/commit/189cd5a21f13856a25e01010f0ee3f4a0a1a1a29), [`ce4d509`](https://github.com/tajo/ladle/commit/ce4d5093694239860f3e3df5b4b67f69580e5cb9)]:
+  - @ladle/react@5.0.2
+
 ## 0.2.77
 
 ### Patch Changes

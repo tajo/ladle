@@ -1,5 +1,12 @@
 # test-programmatic
 
+## 0.2.102
+
+### Patch Changes
+
+- Updated dependencies [[`189cd5a`](https://github.com/tajo/ladle/commit/189cd5a21f13856a25e01010f0ee3f4a0a1a1a29), [`ce4d509`](https://github.com/tajo/ladle/commit/ce4d5093694239860f3e3df5b4b67f69580e5cb9)]:
+  - @ladle/react@5.0.2
+
 ## 0.2.101
 
 ### Patch Changes

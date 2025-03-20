@@ -1,5 +1,14 @@
 # @ladle/react
 
+## 5.0.2
+
+### Patch Changes
+
+- [#609](https://github.com/tajo/ladle/pull/609) [`189cd5a`](https://github.com/tajo/ladle/commit/189cd5a21f13856a25e01010f0ee3f4a0a1a1a29) Thanks [@tiplutom](https://github.com/tiplutom)! - Fix mdx code blocks throwing errors in dev console
+
+- [#600](https://github.com/tajo/ladle/pull/600) [`ce4d509`](https://github.com/tajo/ladle/commit/ce4d5093694239860f3e3df5b4b67f69580e5cb9) Thanks [@brunojppb](https://github.com/brunojppb)! - Update Koa to fix Vulnerability [CVE-2025-25200](https://nvd.nist.gov/vuln/detail/CVE-2025-25200)
+  Update [actions/upload-artifact](https://github.com/actions/upload-artifact) from v3 to v4
+
 ## 5.0.1
 
 ### Patch Changes
