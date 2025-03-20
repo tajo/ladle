@@ -60,3 +60,11 @@ mkdir src
 echo "export const World = () => <p>Hey</p>;" > src/hello.stories.tsx
 npx ladle serve
 ```
+
+For powershell, replace in the above listings echo with the following
+
+```powershell
+@"
+export const World = () => <p>Hey</p>;
+"@ | out-file -encoding ASCII src/hello.stories.tsx
+```
