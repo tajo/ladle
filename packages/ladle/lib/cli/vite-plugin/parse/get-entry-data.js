@@ -7,6 +7,7 @@ import getAst from "../get-ast.js";
 import getDefaultExport from "./get-default-export.js";
 import getStorynameAndMeta from "./get-storyname-and-meta.js";
 import getNamedExports from "./get-named-exports.js";
+import getTitleExport from "./get-title-export.js";
 import { IMPORT_ROOT } from "../utils.js";
 import mdxToStories from "../mdx-to-stories.js";
 
@@ -53,10 +54,15 @@ export const getSingleEntry = async (entry) => {
   //@ts-ignore
   const ast = getAst(code, entry);
   traverse(ast, {
-    Program: getStorynameAndMeta.bind(this, result),
-  });
-  traverse(ast, {
     ExportDefaultDeclaration: getDefaultExport.bind(this, result),
+  });
+  if (!result.exportDefaultProps.title) {
+    traverse(ast, {
+      ExportNamedDeclaration: getTitleExport.bind(this, result),
+    });
+  }
+  traverse(ast, {
+    Program: getStorynameAndMeta.bind(this, result),
   });
   traverse(ast, {
     ExportNamedDeclaration: getNamedExports.bind(this, result),
