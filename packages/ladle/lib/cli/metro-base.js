@@ -50,6 +50,7 @@ export async function getBaseMetroConfig(port, ladleConfig) {
        * @param {string} platform
        */
       resolveRequest(context, moduleName, platform) {
+        const newCtx = { ...context, preferNativePlatform: false };
         // Redirecting '/ladle.bundle' requests to the actual entry file.
         //
         // We have a pseudo bundle name called `ladle.bundle`.
@@ -96,7 +97,7 @@ export async function getBaseMetroConfig(port, ladleConfig) {
         }
 
         // Fall back to standard resolution for other modules
-        return context.resolveRequest(context, moduleName, platform);
+        return newCtx.resolveRequest(newCtx, moduleName, platform);
       },
     },
     transformer: {

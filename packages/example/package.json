@@ -7,24 +7,25 @@
     "serve": "ladle serve",
     "build": "ladle build",
     "lint": "echo 'no lint'",
-    "test": "echo 'no test'"
+    "test": "echo 'no test'",
+    "start": "expo start"
   },
   "dependencies": {
-    "@expo/metro-runtime": "^3.2.1",
+    "@expo/metro-runtime": "^4.0.1",
     "@ladle/react": "workspace:*",
-    "@react-native/assets-registry": "^0.75.2",
-    "expo": "^51.0.26",
-    "metro-runtime": "^0.80.10",
+    "@react-native/assets-registry": "0.77.1",
+    "expo": "^52.0.37",
+    "metro-runtime": "^0.81.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-native": "^0.74.5",
+    "react-native": "^0.77.2",
     "react-native-svg": "^15.5.0",
     "react-native-svg-transformer": "^1.5.0",
-    "react-native-web": "^0.19.12"
+    "react-native-web": "^0.19.13"
   },
   "devDependencies": {
     "@babel/core": "7.24.0",
     "@babel/runtime": "7.24.0",
-    "@react-native/metro-config": "^0.74.87"
+    "@react-native/metro-config": "^0.77.2"
   }
 }

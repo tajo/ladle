@@ -111,7 +111,10 @@ const metroProd = async (ladleConfig, configFolder) => {
    */
   const { code: bundle } = await metroServer.build({
     ...Server.DEFAULT_BUNDLE_OPTIONS,
-    entryFile: path.relative(projectRoot, entryFilePath),
+    entryFile: path.relative(
+      metroConfig?.server?.unstable_serverRoot || metroConfig.projectRoot,
+      entryFilePath,
+    ),
     dev: false,
     minify: false,
     platform: "web",
