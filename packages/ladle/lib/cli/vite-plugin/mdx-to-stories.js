@@ -168,6 +168,8 @@ const prepare = async (code, filename, transformMdx = false) => {
     : code;
   const ast = getAst(inputCode, filename);
   const output = await transformFromAstAsync(ast, inputCode, {
+    caller: { name: "metro", bundler: "metro", platform: "web" },
+    filename,
     plugins: [transformPlugin],
   });
   let result = output?.code?.replace(
