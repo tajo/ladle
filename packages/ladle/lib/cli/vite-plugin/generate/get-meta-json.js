@@ -2,6 +2,7 @@ import { storyIdToMeta } from "../naming-utils.js";
 
 /**
  * @param entryData {import('../../../shared/types').EntryData}
+ * @returns {import('../../../shared/types').MetaJson}
  */
 export const getMetaJson = (entryData) => {
   /** @type {string[]} */
@@ -20,14 +21,15 @@ export const getMetaJson = (entryData) => {
     );
     storyParams = { ...storyParams, ...entryData[entry].storyParams };
   });
+
+  /** @type {import('../../../shared/types').MetaJson} */
   const result = {
     about: {
       homepage: "https://www.ladle.dev",
       github: "https://github.com/tajo/ladle",
       version: 1,
     },
-    stories:
-      /** @type {{[key: string]: {name: string; levels: string[]; meta: any, locStart: number; locEnd: number;}}} */ ({}),
+    stories: {},
   };
   storyIds.forEach((storyId) => {
     result.stories[storyId] = {

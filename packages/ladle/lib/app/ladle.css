@@ -635,7 +635,6 @@ blockquote.ladle-markdown {
     padding-left: calc(2em - 16px);
     min-width: 15em;
     background-color: var(--ladle-bg-color-secondary);
-    min-height: max-content;
     align-self: stretch;
   }
 

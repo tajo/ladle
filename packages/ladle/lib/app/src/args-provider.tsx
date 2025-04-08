@@ -29,7 +29,7 @@ const ArgsProvider = ({
   argTypes: any;
 }) => {
   const { globalState, dispatch } = useLadleContext();
-  const actionLogger = (name: String) => (event: Event) => {
+  const actionLogger = (name: string) => (event: Event) => {
     dispatch({
       type: ActionType.UpdateAction,
       value: { name, event },

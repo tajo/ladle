@@ -1,6 +1,6 @@
 {
   "name": "example",
-  "version": "0.3.74",
+  "version": "0.3.78",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -15,8 +15,8 @@
     "@react-native/assets-registry": "^0.75.2",
     "expo": "^51.0.26",
     "metro-runtime": "^0.80.10",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-native": "^0.74.5",
     "react-native-svg": "^15.5.0",
     "react-native-svg-transformer": "^1.5.0",
