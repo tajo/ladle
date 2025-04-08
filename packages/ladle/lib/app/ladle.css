@@ -45,10 +45,8 @@ body {
   grid-template-columns: minmax(64px, 1fr) auto minmax(64px, 1fr);
   overflow: auto;
   background-color: var(--ladle-blueprint);
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.1) 2px,
-      transparent 2px
-    ),
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.1) 2px, transparent 2px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
     linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
@@ -635,7 +633,6 @@ blockquote.ladle-markdown {
     padding-left: calc(2em - 16px);
     min-width: 15em;
     background-color: var(--ladle-bg-color-secondary);
-    min-height: max-content;
     align-self: stretch;
   }
 

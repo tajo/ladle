@@ -207,6 +207,7 @@ const bundler = async (config, configFolder) => {
         }
       };
       watcher
+        // @ts-ignore
         .on("add", invalidate)
         .on("change", invalidate)
         .on("unlink", invalidate);

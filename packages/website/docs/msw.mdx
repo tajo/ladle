@@ -41,13 +41,16 @@ export default {
 export const Mocked: Story = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    try {
-      const data = await fetch(FETCH_URL);
-      const json = await data.json();
-      setPosts(json);
-    } catch (e) {
-      console.error(e);
-    }
+    fetchData();
+    async function fetchData() {
+      try {
+        const data = await fetch(FETCH_URL);
+        const json = await data.json();
+        setPosts(json);
+      } catch (e) {
+        console.error(e);
+      }
+    };
   }, []);
   return (
     <>

@@ -15,6 +15,7 @@ export default {
   hmrPort: undefined,
   outDir: "build",
   base: undefined,
+  expandStoryTree: false,
   hotkeys: {
     search: ["/", "meta+p"],
     nextStory: ["alt+arrowright"],

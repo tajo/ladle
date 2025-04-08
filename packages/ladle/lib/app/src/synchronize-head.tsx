@@ -36,7 +36,7 @@ const SynchronizeHead = ({
   width,
 }: {
   active: boolean;
-  children: JSX.Element;
+  children: React.ReactNode;
   rtl: boolean;
   width: number;
 }) => {
