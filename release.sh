@@ -4,8 +4,8 @@ set -eo pipefail
 
 echo "Running release"
 
-echo "Build @ladle/react"
-turbo run build --filter=@ladle/react
+echo "Build ladle-react-native"
+turbo run build --filter=ladle-react-native
 
 echo "Update package.json"
 node ./packages/ladle/scripts/update-package-types.js
