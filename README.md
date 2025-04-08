@@ -20,7 +20,7 @@
 Ladle is an environment to develop, test, and share your React components faster.
 
 - [Documentation](https://www.ladle.dev)
-- [Demo](https://baseweb.design/ladle)
+- [Demo](https://react-movable.pages.dev)
 - [Twitter](https://twitter.com/ladlejs)
 - [StackBlitz](https://ladle.dev/new)
 - [Discord](https://discord.gg/H6FSHjyW7e)
@@ -59,4 +59,12 @@ npm install @ladle/react react react-dom
 mkdir src
 echo "export const World = () => <p>Hey</p>;" > src/hello.stories.tsx
 npx ladle serve
+```
+
+For powershell, replace in the above listings echo with the following
+
+```powershell
+@"
+export const World = () => <p>Hey</p>;
+"@ | out-file -encoding ASCII src/hello.stories.tsx
 ```

@@ -132,7 +132,7 @@ function startBrowserProcess(browser, url, args) {
   // (It will always open new tab)
   try {
     const options = { app: browser, wait: false, url: true };
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
+
     open(url, options).catch(() => {}); // Prevent `unhandledRejection` error.
     return true;
   } catch (err) {
