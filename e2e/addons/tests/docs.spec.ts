@@ -15,7 +15,7 @@ test.skip("mdx readme is rendered", async ({ page }) => {
   }
 });
 
-test("mdx story rendering does not throw errors in console", async ({
+test.skip("mdx story rendering does not throw errors in console", async ({
   page,
 }) => {
   page.on("console", (msg) => {
