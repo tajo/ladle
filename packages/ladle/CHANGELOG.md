@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 5.0.3
+
+### Patch Changes
+
+- [#613](https://github.com/tajo/ladle/pull/613) [`4983e14`](https://github.com/tajo/ladle/commit/4983e14867132bc9a04e6e8ddb4f5ec5af61c717) Thanks [@ddubrava](https://github.com/ddubrava)! - Use defaultValue only if value is undefined
+
 ## 5.0.2
 
 ### Patch Changes
