@@ -107,9 +107,11 @@ const ArgsProvider = ({
           name: argValue.name,
           type: argValue.control.type,
           labels: argValue.control.labels,
-          defaultValue: args[argKey] ? args[argKey] : argValue.defaultValue,
+          defaultValue:
+            args[argKey] === undefined ? argValue.defaultValue : args[argKey],
           options: argValue.options,
-          value: args[argKey] ? args[argKey] : argValue.defaultValue,
+          value:
+            args[argKey] === undefined ? argValue.defaultValue : args[argKey],
           description: argValue.description || argKey,
           min: argValue.control.min,
           max: argValue.control.max,

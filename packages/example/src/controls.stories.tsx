@@ -37,6 +37,10 @@ Controls.args = {
   colors: ["Red", "Blue"],
 };
 Controls.argTypes = {
+  disabled: {
+    control: { type: "boolean" },
+    defaultValue: true,
+  },
   variant: {
     options: ["primary", "secondary"],
     control: { type: "radio" },
