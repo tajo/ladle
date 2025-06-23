@@ -36,6 +36,11 @@ module.exports = {
       // Optional: path for search page that enabled by default (`false` to disable it)
       searchPagePath: "search",
     },
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
     image: "img/ladle-baseweb.png",
     navbar: {
       title: "Ladle",
