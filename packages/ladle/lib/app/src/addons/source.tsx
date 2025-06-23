@@ -1,17 +1,17 @@
-import * as React from "react";
-import queryString from "query-string";
-import { Highlight, themes } from "prism-react-renderer";
 import type { Language } from "prism-react-renderer";
+import { Highlight } from "prism-react-renderer";
+import queryString from "query-string";
+import * as React from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 import {
-  storySource,
   stories,
+  storySource,
   StorySourceHeader,
 } from "virtual:generated-list";
-import { AddonProps, GlobalState, ActionType } from "../../../shared/types";
+import { ActionType, AddonProps, GlobalState } from "../../../shared/types";
+import config from "../get-config";
 import { Source } from "../icons";
 import { Modal } from "../ui";
-import config from "../get-config";
 
 export const getQuery = (locationSearch: string) => {
   const urlVal = queryString.parse(locationSearch).source;
@@ -41,17 +41,16 @@ export const CodeHighlight = ({
 
   if (match) {
     language = match[1] as Language;
+
     return (
       <Highlight
         code={children.trim()}
         language={language}
-        theme={{
-          ...(theme === "dark" ? themes.nightOwl : themes.github),
-          plain: {
-            ...(theme === "dark" ? themes.nightOwl : themes.github).plain,
-            backgroundColor: "var(--ladle-bg-color-secondary)",
-          },
-        }}
+        theme={
+          theme === "dark"
+            ? config.addons.source.themeDark
+            : config.addons.source.themeLight
+        }
       >
         {({ className, style, tokens, getTokenProps }) => (
           <div
@@ -81,13 +80,11 @@ export const CodeHighlight = ({
       <Highlight
         code={children.trim()}
         language={language}
-        theme={{
-          ...(theme === "dark" ? themes.nightOwl : themes.github),
-          plain: {
-            ...(theme === "dark" ? themes.nightOwl : themes.github).plain,
-            backgroundColor: "var(--ladle-bg-color-secondary)",
-          },
-        }}
+        theme={
+          theme === "dark"
+            ? config.addons.source.themeDark
+            : config.addons.source.themeLight
+        }
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre

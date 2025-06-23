@@ -1,3 +1,5 @@
+import { themes } from "prism-react-renderer";
+
 /**
  * @type {import('../shared/types').Config}
  */
@@ -59,6 +61,20 @@ export default {
     source: {
       enabled: true,
       defaultState: false,
+      themeDark: {
+        ...themes.nightOwl,
+        plain: {
+          ...themes.nightOwl.plain,
+          backgroundColor: "var(--ladle-bg-color-secondary)",
+        },
+      },
+      themeLight: {
+        ...themes.github,
+        plain: {
+          ...themes.github.plain,
+          backgroundColor: "var(--ladle-bg-color-secondary)",
+        },
+      },
     },
     a11y: {
       enabled: false,
