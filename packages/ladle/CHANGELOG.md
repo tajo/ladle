@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 5.1.0
+
+### Minor Changes
+
+- [#619](https://github.com/tajo/ladle/pull/619) [`f073eba`](https://github.com/tajo/ladle/commit/f073ebaa338a185dc1a400812f74ee8502695201) Thanks [@Matthematic](https://github.com/Matthematic)! - Added support for custom prism themes in the source addon
+
 ## 5.0.3
 
 ### Patch Changes
