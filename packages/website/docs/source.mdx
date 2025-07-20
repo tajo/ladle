@@ -26,3 +26,30 @@ export const StorySourceHeader: SourceHeader = ({ path }) => {
 ```
 
 This might be useful if you want provide a hyperlink.
+
+## Source Theme
+
+You can customize the theme of the source code highlight through `.ladle/config.mjs`:
+
+```js title=".ladle/config.mjs"
+import { themes } from "prism-react-renderer";
+
+const customDarkTheme = {
+  plain: {
+    color: "salmon",
+    backgroundColor: "#1E1E1E",
+  },
+};
+
+/** @type {import('@ladle/react').UserConfig} */
+export default {
+  addons: {
+    source: {
+      themeLight: themes.github,
+      themeDark: customDarkTheme,
+    },
+  },
+};
+```
+
+Each theme object must be a [PrismTheme](https://github.com/FormidableLabs/prism-react-renderer?#theming) type.

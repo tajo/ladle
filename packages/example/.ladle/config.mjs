@@ -11,11 +11,29 @@
  *
  *  */
 
+const customLightTheme = {
+  plain: {
+    color: "black",
+    backgroundColor: "hsl(180deg 75.96% 77.9%)",
+  },
+};
+
+const customDarkTheme = {
+  plain: {
+    color: "salmon",
+    backgroundColor: "#1E1E1E",
+  },
+};
+/** @type {import('@ladle/react').UserConfig} */
 export default {
   appendToHead: `<style>.append {}</style>`,
   addons: {
     a11y: {
       enabled: true,
+    },
+    source: {
+      themeLight: customLightTheme,
+      themeDark: customDarkTheme,
     },
   },
   expandStoryTree: true,

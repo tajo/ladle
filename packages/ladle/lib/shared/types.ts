@@ -1,3 +1,4 @@
+import { PrismTheme } from "prism-react-renderer";
 import type { UserConfig as ViteUserConfig } from "vite";
 
 type RecursivePartial<T> = {
@@ -231,6 +232,8 @@ export type Config = {
     source: {
       enabled: boolean;
       defaultState: boolean;
+      themeLight: PrismTheme;
+      themeDark: PrismTheme;
     };
     a11y: {
       enabled: boolean;
