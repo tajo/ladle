@@ -69,6 +69,17 @@ test("meta.json is correctly using defaults and overrides", async ({
           name: "Inactive",
           namedExport: "Inactive",
         },
+        "mock-date--instanceof": {
+          filePath: "src/mock-date.stories.tsx",
+          levels: ["Mock date"],
+          locEnd: 47,
+          locStart: 35,
+          meta: {
+            mockDate: "1995-12-17T03:24:00",
+          },
+          name: "Instanceof",
+          namedExport: "Instanceof",
+        },
         "root--examples--first": {
           filePath: "src/params.stories.tsx",
           levels: ["Root", "Examples"],

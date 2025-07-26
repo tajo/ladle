@@ -31,3 +31,21 @@ export const Inactive: Story = () => {
     </h1>
   );
 };
+
+export const Instanceof: Story = () => {
+  const mockDate = new Date();
+  const realDate = new Date(1234);
+
+  return (
+    <dl>
+      <dt>mockDate instanceof Date:</dt>
+      <dd data-testid="mockDate">{mockDate instanceof Date ? "yes" : "no"}</dd>
+      <dt>realDate instanceof Date:</dt>
+      <dd data-testid="realDate">{realDate instanceof Date ? "yes" : "no"}</dd>
+    </dl>
+  );
+};
+
+Instanceof.meta = {
+  mockDate: "1995-12-17T03:24:00",
+};

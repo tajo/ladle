@@ -25,3 +25,10 @@ test("the date is current", async ({ page }) => {
     }),
   );
 });
+
+test("MockDate works with instanceof", async ({ page }) => {
+  await page.goto("/?story=mock-date--instanceof");
+
+  await expect(page.locator('[data-testid="mockDate"]')).toHaveText("yes");
+  await expect(page.locator('[data-testid="realDate"]')).toHaveText("yes");
+});
