@@ -1,5 +1,15 @@
 # @ladle/react
 
+## 5.1.0
+
+### Minor Changes
+
+- [#619](https://github.com/tajo/ladle/pull/619) [`f073eba`](https://github.com/tajo/ladle/commit/f073ebaa338a185dc1a400812f74ee8502695201) Thanks [@Matthematic](https://github.com/Matthematic)! - Added support for custom prism themes in the source addon
+
+### Patch Changes
+
+- [#616](https://github.com/tajo/ladle/pull/616) [`33586a0`](https://github.com/tajo/ladle/commit/33586a010bea1b1e318049ab049e7d2f19d06b83) Thanks [@runjak](https://github.com/runjak)! - Fix instanceof implementation for mocked Dates
+
 ## 5.0.3
 
 ### Patch Changes
