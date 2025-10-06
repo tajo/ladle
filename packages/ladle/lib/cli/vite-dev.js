@@ -3,7 +3,6 @@ import koa from "koa";
 import http from "http";
 import http2 from "http2";
 import https from "https";
-import c2k from "koa-connect";
 import path from "path";
 import getPort from "get-port";
 import { globby } from "globby";
@@ -14,6 +13,7 @@ import debug from "./debug.js";
 import getBaseViteConfig from "./vite-base.js";
 import { getMetaJsonObject } from "./vite-plugin/generate/get-meta-json.js";
 import { getEntryData } from "./vite-plugin/parse/get-entry-data.js";
+import { connectToKoa } from "./vite-plugin/connect-to-koa.js";
 
 /**
  * @param config {import("../shared/types").Config}
@@ -91,7 +91,7 @@ const bundler = async (config, configFolder) => {
       }
       await next();
     });
-    app.use(c2k(vite.middlewares));
+    app.use(connectToKoa(vite.middlewares));
 
     // activate https if key and cert are provided
     const useHttps =

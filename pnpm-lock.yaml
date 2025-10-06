@@ -449,9 +449,6 @@ importers:
       koa:
         specifier: ^2.15.4
         version: 2.15.4
-      koa-connect:
-        specifier: ^2.1.0
-        version: 2.1.0
       lodash.merge:
         specifier: ^4.6.2
         version: 4.6.2
@@ -5643,9 +5640,6 @@ packages:
 
   koa-compose@4.1.0:
     resolution: {integrity: sha512-8ODW8TrDuMYvXRwra/Kh7/rJo9BtOfPc6qO8eAfC80CnCvSjSl0bkRM24X6/XBBEyj0v1nRUQ1LyOy3dbqOWXw==}
-
-  koa-connect@2.1.0:
-    resolution: {integrity: sha512-O9pcFafHk0oQsBevlbTBlB9co+2RUQJ4zCzu3qJPmGlGoeEZkne+7gWDkecqDPSbCtED6LmhlQladxs6NjOnMQ==}
 
   koa-convert@2.0.0:
     resolution: {integrity: sha512-asOvN6bFlSnxewce2e/DK3p4tltyfC4VM7ZwuTuepI7dEQVcvpyFuBcEARu1+Hxg8DIwytce2n7jrZtRlPrARA==}
@@ -15134,8 +15128,6 @@ snapshots:
   kleur@3.0.3: {}
 
   koa-compose@4.1.0: {}
-
-  koa-connect@2.1.0: {}
 
   koa-convert@2.0.0:
     dependencies:
