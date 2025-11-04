@@ -1,5 +1,11 @@
 # @ladle/react
 
+## 5.1.1
+
+### Patch Changes
+
+- [#622](https://github.com/tajo/ladle/pull/622) [`f9ad46e`](https://github.com/tajo/ladle/commit/f9ad46eafe5c7b3476aa5d9d870f957073ab6c4d) Thanks [@o-alexandrov](https://github.com/o-alexandrov)! - refactor: replace koa-connect with custom middleware adapter
+
 ## 5.1.0
 
 ### Minor Changes
