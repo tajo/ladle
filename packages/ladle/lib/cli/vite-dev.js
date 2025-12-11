@@ -7,13 +7,13 @@ import path from "path";
 import getPort from "get-port";
 import { globby } from "globby";
 import boxen from "boxen";
-import chokidar from "chokidar";
 import openBrowser from "./open-browser.js";
 import debug from "./debug.js";
 import getBaseViteConfig from "./vite-base.js";
 import { getMetaJsonObject } from "./vite-plugin/generate/get-meta-json.js";
 import { getEntryData } from "./vite-plugin/parse/get-entry-data.js";
 import { connectToKoa } from "./vite-plugin/connect-to-koa.js";
+import { createStoryWatcher } from "./story-watcher.js";
 
 /**
  * @param config {import("../shared/types").Config}
@@ -167,10 +167,7 @@ const bundler = async (config, configFolder) => {
 
     if (config.noWatch === false) {
       // trigger full reload when new stories are added or removed
-      const watcher = chokidar.watch(config.stories, {
-        persistent: true,
-        ignoreInitial: true,
-      });
+      const watcher = createStoryWatcher(config.stories);
       let checkSum = "";
       const getChecksum = async () => {
         try {
