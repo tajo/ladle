@@ -8,6 +8,9 @@ import {
   createStoryWatcher,
 } from "../lib/cli/story-watcher.js";
 
+// Normalise path separators for cross-platform comparison
+const normalisePath = (p: string) => p.replace(/\\/g, "/");
+
 // ============================================
 // Unit tests for getGlobBasePath
 // ============================================
@@ -108,7 +111,7 @@ afterEach(async () => {
 
 test("createStoryWatcher detects new story file", async () => {
   const watcher = createStoryWatcher(
-    path.join(tempDir, "stories/**/*.stories.tsx"),
+    normalisePath(path.join(tempDir, "stories/**/*.stories.tsx")),
   );
   const addedFiles: string[] = [];
 
@@ -129,12 +132,12 @@ test("createStoryWatcher detects new story file", async () => {
   await watcher.close();
 
   expect(addedFiles.length).toBe(1);
-  expect(addedFiles[0]).toBe(storyPath);
+  expect(normalisePath(addedFiles[0])).toBe(normalisePath(storyPath));
 });
 
 test("createStoryWatcher ignores non-story files", async () => {
   const watcher = createStoryWatcher(
-    path.join(tempDir, "stories/**/*.stories.tsx"),
+    normalisePath(path.join(tempDir, "stories/**/*.stories.tsx")),
   );
   const addedFiles: string[] = [];
 
@@ -163,7 +166,7 @@ test("createStoryWatcher detects story file deletion", async () => {
   await fs.writeFile(storyPath, 'export const Button = () => "Hello";');
 
   const watcher = createStoryWatcher(
-    path.join(tempDir, "stories/**/*.stories.tsx"),
+    normalisePath(path.join(tempDir, "stories/**/*.stories.tsx")),
   );
   const deletedFiles: string[] = [];
 
@@ -183,7 +186,7 @@ test("createStoryWatcher detects story file deletion", async () => {
   await watcher.close();
 
   expect(deletedFiles.length).toBe(1);
-  expect(deletedFiles[0]).toBe(storyPath);
+  expect(normalisePath(deletedFiles[0])).toBe(normalisePath(storyPath));
 });
 
 test("createStoryWatcher detects story file changes", async () => {
@@ -192,7 +195,7 @@ test("createStoryWatcher detects story file changes", async () => {
   await fs.writeFile(storyPath, 'export const Button = () => "Hello";');
 
   const watcher = createStoryWatcher(
-    path.join(tempDir, "stories/**/*.stories.tsx"),
+    normalisePath(path.join(tempDir, "stories/**/*.stories.tsx")),
   );
   const changedFiles: string[] = [];
 
@@ -212,7 +215,7 @@ test("createStoryWatcher detects story file changes", async () => {
   await watcher.close();
 
   expect(changedFiles.length).toBe(1);
-  expect(changedFiles[0]).toBe(storyPath);
+  expect(normalisePath(changedFiles[0])).toBe(normalisePath(storyPath));
 });
 
 test("createStoryWatcher handles multiple patterns (array)", async () => {
@@ -220,8 +223,8 @@ test("createStoryWatcher handles multiple patterns (array)", async () => {
   await fs.mkdir(path.join(tempDir, "components"), { recursive: true });
 
   const watcher = createStoryWatcher([
-    path.join(tempDir, "stories/**/*.stories.tsx"),
-    path.join(tempDir, "components/**/*.stories.tsx"),
+    normalisePath(path.join(tempDir, "stories/**/*.stories.tsx")),
+    normalisePath(path.join(tempDir, "components/**/*.stories.tsx")),
   ]);
   const addedFiles: string[] = [];
 
@@ -244,8 +247,8 @@ test("createStoryWatcher handles multiple patterns (array)", async () => {
   await watcher.close();
 
   expect(addedFiles.length).toBe(2);
-  expect(addedFiles).toContain(storyPath1);
-  expect(addedFiles).toContain(storyPath2);
+  expect(addedFiles.map(normalisePath)).toContain(normalisePath(storyPath1));
+  expect(addedFiles.map(normalisePath)).toContain(normalisePath(storyPath2));
 });
 
 test("createStoryWatcher detects stories in nested directories", async () => {
@@ -255,7 +258,7 @@ test("createStoryWatcher detects stories in nested directories", async () => {
   });
 
   const watcher = createStoryWatcher(
-    path.join(tempDir, "stories/**/*.stories.tsx"),
+    normalisePath(path.join(tempDir, "stories/**/*.stories.tsx")),
   );
   const addedFiles: string[] = [];
 
@@ -282,11 +285,13 @@ test("createStoryWatcher detects stories in nested directories", async () => {
   await watcher.close();
 
   expect(addedFiles.length).toBe(1);
-  expect(addedFiles[0]).toBe(storyPath);
+  expect(normalisePath(addedFiles[0])).toBe(normalisePath(storyPath));
 });
 
 test("createStoryWatcher matches all story file extensions", async () => {
-  const watcher = createStoryWatcher(path.join(tempDir, "stories/**/*"));
+  const watcher = createStoryWatcher(
+    normalisePath(path.join(tempDir, "stories/**/*")),
+  );
   const addedFiles: string[] = [];
 
   watcher.on("add", (filePath) => {

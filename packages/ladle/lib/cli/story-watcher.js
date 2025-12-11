@@ -7,7 +7,9 @@ import chokidar from "chokidar";
  * @returns {string}
  */
 export const getGlobBasePath = (pattern) => {
-  const parts = pattern.split("/");
+  // Normalise path separators to forward slashes for cross-platform compatibility
+  const normalised = pattern.replace(/\\/g, "/");
+  const parts = normalised.split("/");
   const baseParts = [];
   for (const part of parts) {
     if (part.includes("*") || part.includes("{") || part.includes("[")) break;
