@@ -2,92 +2,10 @@ import { test, expect, beforeEach, afterEach } from "vitest";
 import fs from "fs/promises";
 import path from "path";
 import os from "os";
-import {
-  getGlobBasePath,
-  STORY_FILE_REGEX,
-  createStoryWatcher,
-} from "../lib/cli/story-watcher.js";
+import { createStoryWatcher } from "../lib/cli/story-watcher.js";
 
 // Normalise path separators for cross-platform comparison
 const normalisePath = (p: string) => p.replace(/\\/g, "/");
-
-// ============================================
-// Unit tests for getGlobBasePath
-// ============================================
-
-test("getGlobBasePath extracts base path from simple glob", () => {
-  expect(getGlobBasePath("src/**/*.stories.tsx")).toBe("src");
-});
-
-test("getGlobBasePath extracts nested base path", () => {
-  expect(getGlobBasePath("src/components/**/*.stories.tsx")).toBe(
-    "src/components",
-  );
-});
-
-test("getGlobBasePath returns current dir for patterns starting with glob", () => {
-  expect(getGlobBasePath("**/*.stories.tsx")).toBe(".");
-});
-
-test("getGlobBasePath handles brace expansion patterns", () => {
-  expect(getGlobBasePath("src/{components,pages}/**/*.stories.tsx")).toBe(
-    "src",
-  );
-});
-
-test("getGlobBasePath handles bracket character classes", () => {
-  expect(getGlobBasePath("src/[a-z]/**/*.stories.tsx")).toBe("src");
-});
-
-test("getGlobBasePath returns full path when no glob characters", () => {
-  expect(getGlobBasePath("src/components/Button.stories.tsx")).toBe(
-    "src/components/Button.stories.tsx",
-  );
-});
-
-test("getGlobBasePath handles single directory pattern", () => {
-  expect(getGlobBasePath("stories/*.stories.tsx")).toBe("stories");
-});
-
-// ============================================
-// Unit tests for STORY_FILE_REGEX
-// ============================================
-
-test("STORY_FILE_REGEX matches .stories.tsx files", () => {
-  expect(STORY_FILE_REGEX.test("Button.stories.tsx")).toBe(true);
-});
-
-test("STORY_FILE_REGEX matches .stories.ts files", () => {
-  expect(STORY_FILE_REGEX.test("Button.stories.ts")).toBe(true);
-});
-
-test("STORY_FILE_REGEX matches .stories.jsx files", () => {
-  expect(STORY_FILE_REGEX.test("Button.stories.jsx")).toBe(true);
-});
-
-test("STORY_FILE_REGEX matches .stories.js files", () => {
-  expect(STORY_FILE_REGEX.test("Button.stories.js")).toBe(true);
-});
-
-test("STORY_FILE_REGEX matches .stories.mdx files", () => {
-  expect(STORY_FILE_REGEX.test("Button.stories.mdx")).toBe(true);
-});
-
-test("STORY_FILE_REGEX does not match regular tsx files", () => {
-  expect(STORY_FILE_REGEX.test("Button.tsx")).toBe(false);
-});
-
-test("STORY_FILE_REGEX does not match test files", () => {
-  expect(STORY_FILE_REGEX.test("Button.test.tsx")).toBe(false);
-});
-
-test("STORY_FILE_REGEX does not match files with stories in name but wrong extension", () => {
-  expect(STORY_FILE_REGEX.test("Button.stories.css")).toBe(false);
-});
-
-test("STORY_FILE_REGEX matches files with full path", () => {
-  expect(STORY_FILE_REGEX.test("src/components/Button.stories.tsx")).toBe(true);
-});
 
 // ============================================
 // Integration tests for createStoryWatcher
@@ -289,8 +207,11 @@ test("createStoryWatcher detects stories in nested directories", async () => {
 });
 
 test("createStoryWatcher matches all story file extensions", async () => {
+  // Use a proper story glob pattern (like the default config)
   const watcher = createStoryWatcher(
-    normalisePath(path.join(tempDir, "stories/**/*")),
+    normalisePath(
+      path.join(tempDir, "stories/**/*.stories.{js,jsx,ts,tsx,mdx}"),
+    ),
   );
   const addedFiles: string[] = [];
 
