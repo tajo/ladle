@@ -1,6 +1,27 @@
 import * as React from "react";
-import { DialogOverlay, DialogContent } from "./dialog";
+import {
+  DialogOverlay as RawDialogOverlay,
+  DialogContent as RawDialogContent,
+} from "./dialog";
 import { Close } from "./icons";
+
+// Type definitions for the dialog components from the bundled @reach/dialog
+interface DialogOverlayProps {
+  isOpen?: boolean;
+  onDismiss?: () => void;
+  children?: React.ReactNode;
+  "data-testid"?: string;
+}
+
+interface DialogContentProps {
+  "aria-label"?: string;
+  "data-testid"?: string;
+  style?: React.CSSProperties;
+  children?: React.ReactNode;
+}
+
+const DialogOverlay = RawDialogOverlay as React.FC<DialogOverlayProps>;
+const DialogContent = RawDialogContent as React.FC<DialogContentProps>;
 
 export const Button = ({
   children,
@@ -60,13 +81,11 @@ export const Modal = ({
   maxWidth?: string;
 }) => {
   return (
-    //@ts-ignore
     <DialogOverlay
       isOpen={isOpen}
       onDismiss={() => close()}
       data-testid="ladle-dialog-overlay"
     >
-      {/* @ts-ignore */}
       <DialogContent
         aria-label={label || "Modal"}
         data-testid="ladle-dialog"
