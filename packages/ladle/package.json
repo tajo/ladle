@@ -66,7 +66,7 @@
     "prop-types": "^15.8.1",
     "query-string": "^9.1.1",
     "react-hotkeys-hook": "^4.6.1",
-    "react-inspector": "^6.0.2",
+    "react-inspector": "^9.0.0",
     "rehype-class-names": "^2.0.0",
     "rehype-raw": "^7.0.0",
     "remark-gfm": "^4.0.0",
