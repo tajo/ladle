@@ -100,8 +100,8 @@
     "@types/node": "^22.10.2",
     "@types/ws": "^8.5.13",
     "cross-env": "^7.0.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "vitest": "^2.1.8"
   },
   "engines": {

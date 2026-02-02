@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 import path from "path";
 import fs from "fs/promises";
@@ -32,7 +31,8 @@ async function writeFile(to, data) {
 }
 
 // const Metro = importFrom(projectRoot, "metro");
-const Server = importFrom(projectRoot, "metro/src/Server");
+const ServerModule = importFrom(projectRoot, "metro/private/Server");
+const Server = ServerModule.default || ServerModule;
 
 // Helper function to prepare the out dir
 async function prepareOutDir() {

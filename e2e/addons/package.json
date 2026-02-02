@@ -19,8 +19,8 @@
     "@playwright/test": "^1.49.1",
     "axe-playwright": "^2.0.3",
     "cross-env": "^7.0.3",
-    "expo": "^52.0.37",
-    "metro-runtime": "^0.80.10",
+    "expo": "~55.0.0-preview.7",
+    "metro-runtime": "^0.83.0",
     "query-string": "^9.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

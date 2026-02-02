@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-require-imports */
 // @ts-nocheck
 /**
  * @param {string} url
@@ -46,15 +46,18 @@ export function fetchThenEvalAsync(url) {
 }
 
 /**
- * @param {string} bundlePath
+ * Given a path, create the dev server bundle URL.
+ * @param {string} bundlePath like `/foobar`
+ * @returns a full URL for Metro 0.83+ HMR compatibility
  */
 export function buildUrlForBundle(bundlePath) {
-  if (bundlePath.match(/^https?:\/\//)) {
+  if (/^https?:\/\//.test(bundlePath)) {
     return bundlePath;
   }
-  // NOTE(EvanBacon): This must come from the window origin (at least in dev mode).
-  // Otherwise Metro will crash from attempting to load a bundle that doesn't exist.
-  return "/" + bundlePath.replace(/^\/+/, "");
+  const { url: baseURL } = require("./getDevServer").default();
+  return baseURL
+    ? new URL(bundlePath, baseURL).toString()
+    : `//${bundlePath.replace(/^\/+/, "")}`;
 }
 
 /**
@@ -67,7 +70,6 @@ export async function loadBundleAsync(bundlePath) {
     return fetchThenEvalAsync(requestUrl);
   } else {
     return fetchThenEvalAsync(requestUrl).then(() => {
-      // console.log("UPDATE HMR");
       const HMRClient = require("./HMRClient").default;
       HMRClient.registerBundle(requestUrl);
     });

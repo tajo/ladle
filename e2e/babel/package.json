@@ -18,8 +18,8 @@
     "@playwright/test": "^1.49.1",
     "@vitejs/plugin-react": "^4.3.4",
     "cross-env": "^7.0.3",
-    "expo": "^52.0.37",
-    "metro-runtime": "^0.80.10",
+    "expo": "~55.0.0-preview.7",
+    "metro-runtime": "^0.83.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

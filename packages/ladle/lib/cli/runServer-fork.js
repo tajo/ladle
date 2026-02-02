@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 import http from "http";
 import https from "https";
@@ -8,11 +7,12 @@ import importFrom from "import-from";
 
 const appRoot = process.cwd();
 const Metro = importFrom(appRoot, "metro");
-const MetroHmrServer = importFrom(appRoot, "metro/src/HmrServer");
-const createWebsocketServer = importFrom(
-  appRoot,
-  "metro/src/lib/createWebsocketServer",
-);
+const MetroHmrServer =
+  importFrom(appRoot, "metro/private/HmrServer").default ||
+  importFrom(appRoot, "metro/private/HmrServer");
+const createWebsocketServer =
+  importFrom(appRoot, "metro/private/lib/createWebsocketServer").default ||
+  importFrom(appRoot, "metro/private/lib/createWebsocketServer");
 const connect = importFrom(process.cwd(), "connect");
 
 // Fork of Metro's runServer function. Exports hmrServer and metroServer alongside the httpServer;

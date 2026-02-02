@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 // Learn more https://docs.expo.io/guides/customizing-metro
 const { mergeConfig } = require("@react-native/metro-config");
 
@@ -13,7 +14,6 @@ const defaultConfig = getDefaultConfig(__dirname);
 const config = {
   watchFolders: [workspaceRoot],
   resolver: {
-    unstable_enableSymlinks: true,
     nodeModulesPaths: [
       path.resolve(projectRoot, "node_modules"),
       path.resolve(workspaceRoot, "node_modules"),
