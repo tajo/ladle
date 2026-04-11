@@ -95,7 +95,7 @@ Specify the host for HMR.
 ```js
 /** @type {import('@ladle/react').UserConfig} */
 export default {
-  hmrHost: 0.0.0.0,
+  hmrHost: "0.0.0.0",
 };
 ```
 
