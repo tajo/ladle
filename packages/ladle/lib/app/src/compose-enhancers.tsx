@@ -16,20 +16,44 @@ export default function composeEnhancers(module: any, storyName: string) {
   if (module[storyName] && module[storyName].msw) {
     mswHandlers = module[storyName].msw;
   }
+  // CSF v3 support: the named export may be a plain object
+  // ({ args?, render?, … }) rather than a React.FC. ArgsProvider does
+  // React.createElement(component, props), which throws on an object.
+  // Resolve to a real component before passing it down.
+  const storyExport = module[storyName];
+  let resolvedComponent: any;
+  if (typeof storyExport === "function") {
+    // CSF v2 — the named export IS the component.
+    resolvedComponent = storyExport;
+  } else if (storyExport && typeof storyExport === "object") {
+    if (typeof storyExport.render === "function") {
+      const renderFn = storyExport.render;
+      resolvedComponent = (renderProps: any) => renderFn(renderProps);
+    } else if (module.default && module.default.component) {
+      // Args-only / empty / decorators-only — render meta.component with args.
+      resolvedComponent = module.default.component;
+    } else {
+      // Defensive fallback.
+      resolvedComponent = (renderProps: any) =>
+        renderProps && renderProps.children ? renderProps.children : null;
+    }
+  } else {
+    resolvedComponent = storyExport;
+  }
   const props = {
     args: {
       ...args,
       ...(module.default && module.default.args ? module.default.args : {}),
-      ...(module[storyName].args ? module[storyName].args : {}),
+      ...(storyExport && storyExport.args ? storyExport.args : {}),
     },
     argTypes: {
       ...argTypes,
       ...(module.default && module.default.argTypes
         ? module.default.argTypes
         : {}),
-      ...(module[storyName].argTypes ? module[storyName].argTypes : {}),
+      ...(storyExport && storyExport.argTypes ? storyExport.argTypes : {}),
     },
-    component: module[storyName],
+    component: resolvedComponent,
   };
   if (module[storyName] && Array.isArray(module[storyName].decorators)) {
     decorators = [...decorators, ...module[storyName].decorators];
