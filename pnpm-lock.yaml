@@ -198,6 +198,27 @@ importers:
         specifier: ^19.0.0
         version: 19.0.0(react@19.0.0)
 
+  e2e/csf3:
+    dependencies:
+      '@ladle/playwright-config':
+        specifier: workspace:*
+        version: link:../playwright-config
+      '@ladle/react':
+        specifier: workspace:*
+        version: link:../../packages/ladle
+      '@playwright/test':
+        specifier: ^1.49.1
+        version: 1.49.1
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
+      react:
+        specifier: ^19.0.0
+        version: 19.0.0
+      react-dom:
+        specifier: ^19.0.0
+        version: 19.0.0(react@19.0.0)
+
   e2e/css:
     dependencies:
       '@ladle/playwright-config':
