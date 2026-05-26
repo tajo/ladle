@@ -40,6 +40,14 @@ const StoryFrame = ({
   );
 };
 
+const StoryLoaded = ({ story }: { story: string }) => {
+  React.useEffect(() => {
+    document.documentElement.setAttribute("data-storyloaded", "");
+    return () => document.documentElement.removeAttribute("data-storyloaded");
+  }, [story]);
+  return null;
+};
+
 const Story = ({
   globalState,
   dispatch,
@@ -97,45 +105,48 @@ const Story = ({
   return (
     <ErrorBoundary>
       <React.Suspense fallback={<Ring />}>
-        <StoryFrame
-          active={iframeActive}
-          story={globalState.story}
-          width={width}
-          mode={globalState.mode}
-        >
-          <SynchronizeHead
-            active={
-              (iframeActive || width > 0) &&
-              globalState.mode !== ModeState.Preview
-            }
-            rtl={globalState.rtl}
+        <>
+          <StoryFrame
+            active={iframeActive}
+            story={globalState.story}
             width={width}
+            mode={globalState.mode}
           >
-            <MDXProvider
-              components={{
-                code: (props) => (
-                  <CodeHighlight
-                    {...(props as any)}
-                    theme={globalState.theme}
-                  />
-                ),
-              }}
+            <SynchronizeHead
+              active={
+                (iframeActive || width > 0) &&
+                globalState.mode !== ModeState.Preview
+              }
+              rtl={globalState.rtl}
+              width={width}
             >
-              <Provider
-                config={config}
-                globalState={globalState}
-                dispatch={dispatch}
-                storyMeta={storyDataMeta}
+              <MDXProvider
+                components={{
+                  code: (props) => (
+                    <CodeHighlight
+                      {...(props as any)}
+                      theme={globalState.theme}
+                    />
+                  ),
+                }}
               >
-                {storyData ? (
-                  React.createElement(storyData.component)
-                ) : (
-                  <StoryNotFound activeStory={globalState.story} />
-                )}
-              </Provider>
-            </MDXProvider>
-          </SynchronizeHead>
-        </StoryFrame>
+                <Provider
+                  config={config}
+                  globalState={globalState}
+                  dispatch={dispatch}
+                  storyMeta={storyDataMeta}
+                >
+                  {storyData ? (
+                    React.createElement(storyData.component)
+                  ) : (
+                    <StoryNotFound activeStory={globalState.story} />
+                  )}
+                </Provider>
+              </MDXProvider>
+            </SynchronizeHead>
+          </StoryFrame>
+          <StoryLoaded story={globalState.story} />
+        </>
       </React.Suspense>
     </ErrorBoundary>
   );

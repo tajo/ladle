@@ -43,6 +43,7 @@ const unknownBackticks = (code) => {
 function mdxPlugin(opts) {
   /** @type any */
   let reactPluginTransform;
+  let usesReactPluginBabel;
   let usesReactPluginSwc;
   const isDev = opts.mode === "development";
   const { process } = createFormatAwareProcessors({
@@ -65,10 +66,14 @@ function mdxPlugin(opts) {
     name: "ladle:stories-mdx",
     enforce: "pre",
     configResolved: ({ plugins }) => {
-      reactPluginTransform = plugins.find(
-        (p) =>
-          p.name === "vite:react-babel" && typeof p.transform === "function",
-      )?.transform;
+      const reactPluginBabel = plugins.find(
+        (p) => p.name === "vite:react-babel",
+      );
+      reactPluginTransform =
+        typeof reactPluginBabel?.transform === "function"
+          ? reactPluginBabel.transform
+          : undefined;
+      usesReactPluginBabel = Boolean(reactPluginBabel);
       usesReactPluginSwc = plugins.some((p) => p.name === "vite:react-swc");
     },
     async transform(value, path) {
@@ -104,16 +109,20 @@ function mdxPlugin(opts) {
         const filename = `${filepath}${
           querystring ? "&ext=.jsx" : "?ext=.jsx"
         }`;
-        if (!usesReactPluginSwc && !reactPluginTransform) {
+        if (!usesReactPluginSwc && !usesReactPluginBabel) {
           throw new Error(
             `You need to install and use @vitejs/plugin-react-swc or @vitejs/plugin-react so ${filename} can be compiled.`,
           );
         }
+        const transformed = await transformWithEsbuild(code, filename);
         if (reactPluginTransform) {
           return await reactPluginTransform(
-            (await transformWithEsbuild(code, filename)).code,
+            transformed.code,
             filepath.replace(".mdx", ".jsx"),
           );
+        }
+        if (usesReactPluginBabel) {
+          return transformed.code;
         }
         return { code, map: compiled.map };
       }
