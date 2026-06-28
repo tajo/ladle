@@ -72,8 +72,7 @@
     "remark-gfm": "^4.0.0",
     "source-map": "^0.7.4",
     "vfile": "^6.0.3",
-    "vite": "^8.0.14",
-    "vite-tsconfig-paths": "^5.1.4"
+    "vite": "^8.0.14"
   },
   "peerDependencies": {
     "react": ">=18.0.0",

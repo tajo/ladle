@@ -3,7 +3,6 @@ import react from "@vitejs/plugin-react-swc";
 import fs from "fs";
 import { globby } from "globby";
 import { fileURLToPath } from "url";
-import tsconfigPaths from "vite-tsconfig-paths";
 import getAppRoot from "./get-app-root.js";
 import ladlePlugin from "./vite-plugin/vite-plugin.js";
 import debug from "./debug.js";
@@ -103,6 +102,13 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     };
   }
 
+  // Vite 8 resolves tsconfig `paths` natively, so we no longer need the
+  // vite-tsconfig-paths plugin. Skip it under Yarn PnP (unsupported) or when
+  // the user already provides their own tsconfig paths plugin.
+  if (!hasTSConfigPathPlugin && !process.versions.pnp) {
+    resolve.tsconfigPaths = true;
+  }
+
   const storyEntries = (
     await globby(
       Array.isArray(ladleConfig.stories)
@@ -155,7 +161,7 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
         ...(ladleConfig.addons.msw.enabled ? ["msw"] : []),
         ...(ladleConfig.addons.msw.enabled ? ["msw/browser"] : []),
         ...(inladleMonorepo ? [] : ["@ladle/react"]),
-        ...(!!resolve.alias ? [] : ["react-dom/client"]),
+        ...(resolve.alias ? [] : ["react-dom/client"]),
       ],
       entries: [
         path.join(process.cwd(), ".ladle/components.js"),
@@ -167,11 +173,6 @@ const getBaseViteConfig = async (ladleConfig, configFolder, viteConfig) => {
     },
     plugins: [
       mdxPlugin({ mode: viteConfig.mode || "production" }),
-      !hasTSConfigPathPlugin &&
-        !process.versions.pnp &&
-        tsconfigPaths({
-          root: process.cwd(),
-        }),
       ladlePlugin(ladleConfig, configFolder, viteConfig.mode || ""),
       !hasReactPlugin && !hasReactSwcPlugin && react(),
     ],
