@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { SourceMapGenerator } from "source-map";
-import { transformWithEsbuild } from "vite";
+import { transformWithOxc } from "vite";
 import { VFile } from "vfile";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -99,8 +99,8 @@ function mdxPlugin(opts) {
         // just using esbuild to compile JSX away
         if (!isDev) {
           return (
-            await transformWithEsbuild(code, filepath.replace(".mdx", ".jsx"), {
-              jsx: "automatic",
+            await transformWithOxc(code, filepath.replace(".mdx", ".jsx"), {
+              jsx: { runtime: "automatic" },
             })
           ).code;
         }
@@ -114,7 +114,11 @@ function mdxPlugin(opts) {
             `You need to install and use @vitejs/plugin-react-swc or @vitejs/plugin-react so ${filename} can be compiled.`,
           );
         }
-        const transformed = await transformWithEsbuild(code, filename);
+        // Match the previous esbuild default (classic runtime) so the output
+        // stays identical for the @vitejs/plugin-react (babel) pipeline.
+        const transformed = await transformWithOxc(code, filename, {
+          jsx: { runtime: "classic" },
+        });
         if (reactPluginTransform) {
           return await reactPluginTransform(
             transformed.code,
