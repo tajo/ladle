@@ -23,13 +23,11 @@ jobs:
           fetch-depth: 0
 
       - uses: pnpm/action-setup@v4
-        with:
-          version: 9.15.1
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
-          node-version: 22.11
+          node-version: 24.x
           cache: "pnpm"
 
       - name: Install dependencies

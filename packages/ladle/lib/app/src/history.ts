@@ -63,14 +63,11 @@ export const getHref = (params: Partial<GlobalState>) => {
           // a special case, actions are handled by the addon-action
           return;
         }
-        let value = arg.value;
-        let isValueDefault = false;
-
-        value = encodeURI(
+        const value = encodeURI(
           typeof arg.value === "string" ? arg.value : JSON.stringify(arg.value),
         );
         try {
-          isValueDefault =
+          const isValueDefault =
             JSON.stringify(arg.value) === JSON.stringify(arg.defaultValue);
           if (
             !isValueDefault &&

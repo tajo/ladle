@@ -2,7 +2,7 @@
 // nd-02110114/babel-plugin-object-to-json-parse
 // https://github.com/nd-02110114/babel-plugin-object-to-json-parse/blob/master/src/utils.ts
 
-import t from "@babel/types";
+import * as t from "@babel/types";
 
 /**
  * @param {t.Node | null | undefined} node

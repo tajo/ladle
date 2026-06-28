@@ -313,7 +313,7 @@ export let stories = {
     locEnd: 17,
     entry: "tests/fixtures/storyname.stories.tsx"
   },
-  "storyname--champs-\\xE9lys\\xE9es": {
+  "storyname--champs-élysées": {
     component: storyname$$champs$élysées,
     locStart: 19,
     locEnd: 21,
@@ -338,7 +338,7 @@ let fileSourceCodes = {
 };
 export let storySource = {
   "storyname--capital-city": fileSourceCodes["405a428d"],
-  "storyname--champs-\\xE9lys\\xE9es": fileSourceCodes["405a428d"],
+  "storyname--champs-élysées": fileSourceCodes["405a428d"],
   "storyname--doggo": fileSourceCodes["405a428d"]
 };
 

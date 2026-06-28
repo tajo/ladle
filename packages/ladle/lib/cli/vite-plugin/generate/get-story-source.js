@@ -1,5 +1,5 @@
 import { createHash } from "crypto";
-import t from "@babel/types";
+import * as t from "@babel/types";
 import { generate } from "../babel.js";
 
 /**
@@ -61,7 +61,14 @@ const getStorySource = (entryData, enabled) => {
             Object.keys(storySource).map((storyId) =>
               t.objectProperty(
                 t.stringLiteral(storyId),
-                t.identifier(`fileSourceCodes["${storySource[storyId]}"]`),
+                // `fileSourceCodes["<hash>"]` as a computed member expression.
+                // Babel 8 strictly validates identifier names, so this can no
+                // longer be smuggled through t.identifier().
+                t.memberExpression(
+                  t.identifier("fileSourceCodes"),
+                  t.stringLiteral(storySource[storyId]),
+                  true,
+                ),
               ),
             ),
           ),

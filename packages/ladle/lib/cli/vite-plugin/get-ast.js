@@ -6,32 +6,19 @@ import { codeFrameColumns } from "@babel/code-frame";
  */
 const plugins = [
   "jsx",
-  "asyncGenerators",
-  "classProperties",
-  "classPrivateProperties",
-  "classPrivateMethods",
-  [
-    "decorators",
-    {
-      decoratorsBeforeExport: true,
-    },
-  ],
+  // Babel 8 enables the formerly-experimental ECMAScript proposals by default
+  // (class fields/private methods, optional chaining, nullish coalescing,
+  // logical assignment, numeric separators, object rest/spread, dynamic
+  // import, top-level await, etc.), so they no longer need to be listed as
+  // parser plugins.
+  "decorators",
   "doExpressions",
-  "dynamicImport",
   "exportDefaultFrom",
-  "exportNamespaceFrom",
   "functionBind",
   "functionSent",
   "importMeta",
-  "logicalAssignment",
-  "nullishCoalescingOperator",
-  "numericSeparator",
-  "objectRestSpread",
-  "optionalCatchBinding",
-  "optionalChaining",
   "partialApplication",
   "throwExpressions",
-  "topLevelAwait",
 ];
 
 /**
