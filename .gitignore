@@ -10,4 +10,5 @@ cjs
 .pnpm-store
 packages/ladle/typings-for-build
 e2e/*/test-results
+.claude/worktrees
 
