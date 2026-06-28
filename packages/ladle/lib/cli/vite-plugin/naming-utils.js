@@ -55,7 +55,9 @@ export const titleToFileId = (title) =>
  */
 export const getFileId = (filename) => {
   const pathParts = filename.split("/");
-  return pathParts[pathParts.length - 1].split(".")[0];
+  const nameParts = pathParts[pathParts.length - 1].split(".");
+  nameParts.pop();
+  return nameParts.join(".");
 };
 
 /**
