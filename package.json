@@ -55,7 +55,7 @@
     "typescript-eslint": "^8.18.1"
   },
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=22.12.0"
   },
   "pnpm": {
     "peerDependencyRules": {

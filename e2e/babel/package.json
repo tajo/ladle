@@ -16,7 +16,7 @@
     "@ladle/playwright-config": "workspace:*",
     "@ladle/react": "workspace:*",
     "@playwright/test": "^1.49.1",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react": "^6.0.2",
     "cross-env": "^7.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
