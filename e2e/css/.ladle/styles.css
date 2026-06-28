@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@source "../src/**/*.{ts,tsx}";
 
 h1 {
   background: yellow;

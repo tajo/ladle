@@ -1,4 +1,4 @@
-import t from "@babel/types";
+import * as t from "@babel/types";
 import path from "path";
 import { template, generate } from "../babel.js";
 import { IMPORT_ROOT } from "../utils.js";

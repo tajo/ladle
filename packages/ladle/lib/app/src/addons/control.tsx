@@ -323,7 +323,7 @@ const Control = ({
     );
   }
   if (globalState.control[controlKey].type === ControlType.Complex) {
-    let stringValue = "";
+    let stringValue: string;
     try {
       stringValue = JSON.stringify(globalState.control[controlKey].value);
     } catch (e) {

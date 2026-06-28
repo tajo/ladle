@@ -4,8 +4,12 @@ module.exports = {
   url: "https://www.ladle.dev",
   baseUrl: "/",
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.svg",
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
+  },
   organizationName: "tajo", // Usually your GitHub org/user name.
   projectName: "ladle", // Usually your repo name.
   plugins: [
@@ -37,7 +41,7 @@ module.exports = {
       searchPagePath: "search",
     },
     colorMode: {
-      defaultMode: 'light',
+      defaultMode: "light",
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },

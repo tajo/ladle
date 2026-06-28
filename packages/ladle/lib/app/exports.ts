@@ -26,12 +26,7 @@ export const Meta = (props: any) => props.children;
 export const Description = (props: any) => props.children;
 
 type ReactNodeWithoutObject =
-  | React.ReactElement
-  | string
-  | number
-  | boolean
-  | null
-  | undefined;
+  React.ReactElement | string | number | boolean | null | undefined;
 
 export { useLadleContext, ActionType, ThemeState, ModeState };
 export type { StoryDecorator };

@@ -33,7 +33,10 @@ export default tseslint.config(
     },
     settings: {
       react: {
-        version: "detect",
+        // Pinned instead of "detect": eslint-plugin-react 7.37.5's version
+        // auto-detection still calls the `context.getFilename()` API that
+        // ESLint 10 removed, which crashes the lint run.
+        version: "19.0",
       },
     },
   },

@@ -11,6 +11,6 @@
     "test": "echo 'no test'"
   },
   "dependencies": {
-    "@playwright/test": "^1.49.1"
+    "@playwright/test": "^1.61.1"
   }
 }

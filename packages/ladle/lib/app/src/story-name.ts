@@ -99,12 +99,9 @@ const storySort = (a: string, b: string) => {
 
 export const sortStories = (stories: string[], storyOrder: StoryOrder) => {
   const initialSort = stories.sort(storySort);
-  let configSort = [...initialSort];
-  if (Array.isArray(storyOrder)) {
-    configSort = storyOrder;
-  } else {
-    configSort = storyOrder(initialSort);
-  }
+  const configSort = Array.isArray(storyOrder)
+    ? storyOrder
+    : storyOrder(initialSort);
   const finalSort = new Set<string>();
   configSort.forEach((storyOrig) => {
     const story = storyOrig.toLowerCase();

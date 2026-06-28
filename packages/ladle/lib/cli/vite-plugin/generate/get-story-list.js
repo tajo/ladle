@@ -1,4 +1,4 @@
-import t from "@babel/types";
+import * as t from "@babel/types";
 import { template, generate } from "../babel.js";
 import { storyDelimiter, storyEncodeDelimiter } from "../naming-utils.js";
 
