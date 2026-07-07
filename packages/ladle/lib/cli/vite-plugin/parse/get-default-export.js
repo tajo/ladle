@@ -19,6 +19,19 @@ const getDefaultExport = (result, astPath) => {
     ) {
       objNode = astPath.node.declaration.expression;
     }
+    // Unwrap TSSatisfiesExpression / TSAsExpression that appears as the *init*
+    // of a named identifier default-export, e.g.
+    //   const meta = { ... } satisfies Meta<typeof X>;
+    //   export default meta;
+    // The named-identifier branch above resolves `objNode` to the init
+    // expression, but does not strip the `satisfies` wrapper.
+    if (
+      objNode &&
+      (objNode.type === "TSAsExpression" ||
+        objNode.type === "TSSatisfiesExpression")
+    ) {
+      objNode = objNode.expression;
+    }
     objNode &&
       objNode.properties.forEach((/** @type {any} */ prop) => {
         if (prop.type === "ObjectProperty" && prop.key.name === "title") {

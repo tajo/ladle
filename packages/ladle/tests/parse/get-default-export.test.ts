@@ -80,3 +80,43 @@ test("Throw an error if default export is not serializable", async () => {
     `Can't parse the default title and meta of file.js. Meta must be serializable and title a string literal.`,
   );
 });
+
+test("Get default export through named identifier with `satisfies`", async () => {
+  // CSF v3 / Storybook style:
+  //   const meta = { ... } satisfies Meta<typeof X>;
+  //   export default meta;
+  // Without the unwrap, `objNode` lands on the TSSatisfiesExpression
+  // (whose `.properties` is undefined), so title and meta silently never
+  // reach the result.
+  expect(
+    parseWithFn(
+      `const meta = { title: 'Title', meta: { some: 'foo' } } satisfies SomeType;
+       export default meta;`,
+      {},
+      getDefaultExport,
+      "ExportDefaultDeclaration",
+      "foo.stories.tsx",
+    ),
+  ).toEqual(
+    getOutput({
+      exportDefaultProps: { title: "Title", meta: { some: "foo" } },
+    }),
+  );
+});
+
+test("Get default export through named identifier with `as`", async () => {
+  expect(
+    parseWithFn(
+      `const meta = { title: 'Title', meta: { flag: true } } as SomeType;
+       export default meta;`,
+      {},
+      getDefaultExport,
+      "ExportDefaultDeclaration",
+      "foo.stories.tsx",
+    ),
+  ).toEqual(
+    getOutput({
+      exportDefaultProps: { title: "Title", meta: { flag: true } },
+    }),
+  );
+});
