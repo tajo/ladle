@@ -7,6 +7,7 @@ packages:
   - 'e2e/commonjs'
   - 'e2e/config'
   - 'e2e/config-ts'
+  - 'e2e/csf3'
   - 'e2e/css'
   - 'e2e/decorators'
   - 'e2e/playwright'

@@ -1,0 +1,23 @@
+{
+  "name": "test-csf3",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "serve": "ladle serve -p 61113",
+    "serve-prod": "ladle preview -p 61113",
+    "build": "ladle build",
+    "lint": "echo 'no lint'",
+    "test-dev": "cross-env TYPE=dev pnpm exec playwright test",
+    "test-prod": "cross-env TYPE=prod pnpm exec playwright test",
+    "test": "pnpm test-dev && pnpm test-prod"
+  },
+  "dependencies": {
+    "@ladle/playwright-config": "workspace:*",
+    "@ladle/react": "workspace:*",
+    "@playwright/test": "^1.49.1",
+    "cross-env": "^7.0.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
