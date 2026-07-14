@@ -69,5 +69,8 @@ export const getSingleEntry = async (entry) => {
     return 0;
   });
   debug(result);
+  if (result.stories.length === 0) {
+    console.warn(`Warning: Found no exported stories at ${entry}`);
+  }
   return result;
 };
