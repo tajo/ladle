@@ -1,4 +1,4 @@
-import { test, expect } from "vitest";
+import { test, expect, vi } from "vitest";
 import { getSingleEntry } from "../../lib/cli/vite-plugin/parse/get-entry-data.js";
 
 test("Single file with two stories", async () => {
@@ -53,4 +53,13 @@ test("Extract and merge story meta", async () => {
     "tests/fixtures/story-meta.stories.tsx",
   );
   expect(entryData).toMatchSnapshot();
+});
+
+test("Warns when a stories file has no exported stories", async () => {
+  const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+  await getSingleEntry("tests/fixtures/no-export.stories.tsx");
+  expect(warn).toHaveBeenCalledWith(
+    expect.stringContaining("Warning: Found no exported stories"),
+  );
+  warn.mockRestore();
 });
