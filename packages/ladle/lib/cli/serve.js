@@ -11,8 +11,9 @@ import getAppId from "./get-app-id.js";
 const serve = async (params = {}) => {
   debug("Starting serve command");
   process.env["VITE_LADLE_APP_ID"] = getAppId();
-  const { configFolder, config } = await applyCLIConfig(params);
-  await viteDev(config, configFolder);
+  const { open = true, ...configParams } = params;
+  const { configFolder, config } = await applyCLIConfig(configParams);
+  await viteDev(config, configFolder, open);
 };
 
 export default serve;

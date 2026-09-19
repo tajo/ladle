@@ -167,6 +167,7 @@ export type GeneratedStories = {
 export type CLIParams = Partial<Config> & {
   theme?: ThemeState;
   config?: string;
+  open?: boolean;
 };
 
 export type PluginOptions = {

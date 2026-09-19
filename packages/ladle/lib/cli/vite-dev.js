@@ -18,8 +18,9 @@ import { connectToKoa } from "./vite-plugin/connect-to-koa.js";
 /**
  * @param config {import("../shared/types").Config}
  * @param configFolder {string}
+ * @param open {boolean}
  */
-const bundler = async (config, configFolder) => {
+const bundler = async (config, configFolder, open = true) => {
   const app = new koa();
   const port = await getPort({
     port: [config.port, 61001, 62002, 62003, 62004, 62005],
@@ -123,10 +124,12 @@ const bundler = async (config, configFolder) => {
 
       config.onDevServerStart(serverUrl);
 
-      if (
+      const shouldOpenBrowser =
+        open &&
         vite.config.server.open !== "none" &&
-        vite.config.server.open !== false
-      ) {
+        vite.config.server.open !== false;
+      debug(`Open browser: ${shouldOpenBrowser}`);
+      if (shouldOpenBrowser) {
         openBrowser(serverUrl);
       }
     };

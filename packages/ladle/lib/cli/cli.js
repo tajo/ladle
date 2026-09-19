@@ -25,6 +25,7 @@ program
   .option("--base [string]", "base URL path for build output")
   .option("--mode [string]", "Vite mode")
   .option("--noWatch", "Disable file system watching")
+  .option("--no-open", "disable opening the browser")
   .action(serve);
 
 program

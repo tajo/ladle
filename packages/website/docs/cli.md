@@ -35,9 +35,18 @@ Options:
   --base [string]        base URL path for build output
   --mode [string]        Vite mode
   --noWatch [string]     disable file system watcher
+  --no-open              disable opening the browser
   -h, --help             display help for command
 
 ```
+
+Use `--no-open` to start the development server without opening a browser, even when [`server.open`](https://vite.dev/config/server-options.html#server-open) is enabled in the Vite config:
+
+```bash
+pnpm ladle serve --no-open
+```
+
+Without this option, Ladle continues to follow `server.open`. You can also set `BROWSER=none` to disable browser opening through the environment instead of the CLI.
 
 ## Build command
 
